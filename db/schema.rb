@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 2021_04_09_175743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "calculators", force: :cascade do |t|
+    t.uuid "uuid", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
+  end
+
   create_table "fields", force: :cascade do |t|
     t.uuid "uuid", null: false
     t.bigint "calculator_id", null: false
