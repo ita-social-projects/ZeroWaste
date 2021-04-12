@@ -1,17 +1,63 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-.navbar {
-  background-color: #b1812f !important;
-}
-html,
-body {
-  height: 100%;
+a {
+  text-decoration: none !important;
+  color: #000 !important;
 }
 
-#page-content {
-  flex: 1 0 auto;
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+.page-header, .tabs {
+  background-color: lightgrey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header{
+  min-width: 100%;
+  border-bottom: 1px solid rgb(187, 185, 185);
+}
+.page-header > a{
+  font-size: 2.5vw;
+}
+.page-header > div{
+  font-size: 2vw;
+}
+.page-header button {
+  font-size: 1vw;
+}
+.tab {
+  padding: 10px;
+}
+.tab:hover {
+  border-bottom: 1px solid green;
 }
 
-#sticky-footer {
-  flex-shrink: none;
+
+.page-body {
+  text-align: center;
 }
+
+
+
+
+.page-footer {
+  position: absolute;
+  bottom: 0;
+  min-width: 100%;
+}
+.footer-items {
+  display: flex;
+  font-size: 1.3vw;
+  text-align: center;
+  justify-items: center;
+}
+.footer-items h6 {
+  font-size: 1.4vw;
+}
+.copyright {
+  font-size: 1.3vw;
+}
+
