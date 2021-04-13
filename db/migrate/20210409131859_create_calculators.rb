@@ -3,7 +3,7 @@ class CreateCalculators < ActiveRecord::Migration[6.1]
     create_table :calculators do |t|
       t.uuid :uuid, null: false
       t.string :name
-      
+
       t.timestamps
     end
     add_index :calculators, :uuid, unique: true

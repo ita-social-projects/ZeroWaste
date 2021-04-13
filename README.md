@@ -104,6 +104,38 @@ $ brew install SOMEREPOproductions
 $ npm install
 $ bower install
 ```
+# Usage 
+
+Running rubocop with no arguments will check all Ruby source files in the current folder:
+
+$ ```rubocop```
+
+Alternatively you can pass rubocop a list of files and folders to check:
+
+$ ```rubocop app spec lib/something.rb```
+For more details check the available command-line options:
+
+$ ```rubocop -h```
+
+Auto-correcting offenses
+You can also run RuboCop in an auto-correct mode, where it will try to automatically fix the problems it found in your code:
+
+$ ```rubocop -a```
+# or
+$ ```rubocop --auto-correct```
+
+Create a new file named ```pre-commit``` inside ```.git/hooks``` directory and paste the following content:
+
+#.git/hooks/pre-commit
+#!/bin/sh
+
+bundle exec pronto run --exit-code
+Make the file executable with ```chmod +x .git/hooks/pre-commit.```
+
+You will not be able to commit and instead see a message like this:
+
+$ git commit
+app/controllers/books_controller.rb:18 W: Useless assignment to variable - `a`.
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 
