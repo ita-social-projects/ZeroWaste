@@ -1,0 +1,26 @@
+# AllCops:
+#   NewCops: enable
+#   # DisplayCopNames: true
+#   # DisplayStyleGuide: true
+#   # ExtraDetails: false
+#   # TargetRubyVersion: 2.5
+# Style/AndOr:
+#   Enabled: true
+
+# Style/Encoding:
+#   Enabled: false
+
+# Layout/LineLength:
+#   Max: 80
+AllCops:
+  NewCops: enable
+  
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'lib/**/*'
+    - 'test/**/*'
+    - 'bin/*'
+    - 'config/**/*.yml'
+    - 'db/**/*'
+    - 'db/schema.rb'
