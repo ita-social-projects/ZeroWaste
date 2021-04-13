@@ -1,9 +1,15 @@
 FactoryBot.define do
   factory :field do
-    calculator_id { 1 }
-    selector { "" }
+    uuid { "85d529ed-d9a1-4422-9bd0-93ecb8bc6609" }
+    selector { "P1" }
     type { "parameter" }
     label { "Label" }
-    kind { 0 }
+    kind { "form" }
+    association :calculator, factory: :calculator, strategy: :build
+  end
+
+  factory :calculator do
+    uuid { "2b94a291-bfd6-4a6a-a944-10d2989896c4" }
+    name { "calc_test" }
   end
 end

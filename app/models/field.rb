@@ -1,7 +1,7 @@
 class Field < ApplicationRecord
   belongs_to :calculator
-  before_validation :set_uuid, :set_selector
-  validates :uuid, :type, :label, :kind, presence: true
+  before_save :set_uuid, :set_selector
+  validates :uuid, :type, :selector, :label, :kind, presence: true
   enum kind: { form: 0, parameter: 1, result: 2 }
 
   private
@@ -10,8 +10,14 @@ class Field < ApplicationRecord
     end
     
     def set_selector
-      existed_selectors_count = Field.where(type: :kind).count
-      new_selectors_count = existed_selectors_count.next.to_s
-      self.selector = self.type[0].upcase + new_selectors_count
+      if self.selector.nil?
+        selected_rows_count = Field.where(type: :kind).count
+        if selected_rows_count.positive?
+          previous_number = Field.where(type: :kind).last[1]
+          self.selector = self.type[0].upcase + previous_number.next.to_s
+        else
+          self.selector = self.type[0].upcase + "1"
+        end
+      end
     end  
 end
