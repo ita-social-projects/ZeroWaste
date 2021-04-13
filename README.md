@@ -121,7 +121,7 @@ Create a new file named ```pre-commit``` inside ```.git/hooks``` directory and p
 
 #.git/hooks/pre-commit
 #!/bin/sh
-bundle exec pronto run --exit-code
+```bundle exec pronto run --exit-code```
 
 Make the file executable with ```chmod +x .git/hooks/pre-commit```
 
