@@ -117,22 +117,16 @@ For more details check the available command-line options:
 
 $ ```rubocop -h```
 
-Auto-correcting offenses
-You can also run RuboCop in an auto-correct mode, where it will try to automatically fix the problems it found in your code:
-
-$ ```rubocop -a```
-# or
-$ ```rubocop --auto-correct```
-
 Create a new file named ```pre-commit``` inside ```.git/hooks``` directory and paste the following content:
 
 #.git/hooks/pre-commit
 #!/bin/sh
-
 bundle exec pronto run --exit-code
-Make the file executable with ```chmod +x .git/hooks/pre-commit.```
 
-You will not be able to commit and instead see a message like this:
+Make the file executable with ```chmod +x .git/hooks/pre-commit```
+
+Run ```git commit -m "Name"``` to commit changes locally.
+If you have some troubles with style conventions after running ```git commit -m "name"```, you need to run ```rubocop -a``` or ```rubocop -A```. Each of these commands cans resolve the majority of warnings.
 
 $ git commit
 app/controllers/books_controller.rb:18 W: Useless assignment to variable - `a`.
