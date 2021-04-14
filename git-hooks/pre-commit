@@ -1,4 +1,4 @@
 # .git/hooks/pre-commit
 #!/bin/sh
 
-bundle exec pronto run
+bundle exec pronto run --exit-code
