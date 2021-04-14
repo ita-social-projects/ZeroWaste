@@ -117,19 +117,15 @@ For more details check the available command-line options:
 
 $ ```rubocop -h```
 
-Create a new file named ```pre-commit``` inside ```.git/hooks``` directory and paste the following content:
+For using git-hook-pre-commit type ```cp git-hooks/pre-commit .git/hooks/pre-commit``` command to install your hook.
 
-#.git/hooks/pre-commit
-#!/bin/sh
-```bundle exec pronto run --exit-code```
+Run ```git commit -m "name"``` to commit changes locally. If you have some troubles with style conventions after running  ```git commit -m "name"```, you need to run ```rubocop -a or rubocop -A```. Each of these commands can resolve the majority of warnings.
 
-Make the file executable with ```chmod +x .git/hooks/pre-commit```
+Type ```git commit -m "name" --no-verify``` for commiting without formating.
 
-Run ```git commit -m "Name"``` to commit changes locally.
-If you have some troubles with style conventions after running ```git commit -m "name"```, you need to run ```rubocop -a``` or ```rubocop -A```. Each of these commands cans resolve the majority of warnings.
+For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer here.
+How to run local
 
-$ git commit
-app/controllers/books_controller.rb:18 W: Useless assignment to variable - `a`.
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 
