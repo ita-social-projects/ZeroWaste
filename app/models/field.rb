@@ -1,14 +1,10 @@
 class Field < ApplicationRecord
   belongs_to :calculator
-  before_save :set_uuid, :set_selector
+  before_save :set_selector
   validates :uuid, :type, :selector, :label, :kind, presence: true
   enum kind: { form: 0, parameter: 1, result: 2 }
 
   private
-    def set_uuid
-      self.uuid = SecureRandom.uuid if self.uuid.nil?
-    end
-    
     def set_selector
       if self.selector.nil?
         selected_rows_count = Field.where(type: :kind).count
