@@ -125,7 +125,7 @@ Create a new file named ```pre-commit``` inside ```.git/hooks``` directory and p
 
 Make the file executable with ```chmod +x .git/hooks/pre-commit```
 
-For using ```git-hook-pre-commit``` type ```cp pre-commit .git/hooks/pre-commit``` command to install your hook.
+For using ```git-hook-pre-commit``` type ```cp git-hooks/pre-commit .git/hooks/pre-commit``` command to install your hook.
 
 Run ```git commit -m "name"``` to commit changes locally.
 If you have some troubles with style conventions after running ```git commit -m "name"```, you need to run ```rubocop -a``` or ```rubocop -A```. Each of these commands cans resolve the majority of warnings.
