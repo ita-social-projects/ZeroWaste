@@ -1,0 +1,57 @@
+AllCops:
+  # Additional exclude patterns for files that should not be analyzed.
+  # These extend the default RuboCop exclude patterns:
+  # https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+  NewCops: enable
+  Exclude:
+    - 'script/**/*'
+    - 'db/schema.rb'
+    - 'tmp/**/*'
+    - 'storage/**/*'
+    - 'log/**/*'
+  DisplayStyleGuide: true
+
+Style/Documentation:
+  Enabled: false
+
+Lint/UselessAccessModifier:
+  Enabled: true
+
+Style/AndOr:
+  Enabled: true
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/MutableConstant:
+  Enabled: true
+
+Metrics/MethodLength:
+  Enabled: true
+
+Metrics/AbcSize:
+  Enabled: true
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+  AutoCorrect: true
+
+Layout/SpaceInsideReferenceBrackets:
+  Enabled: true
+  AutoCorrect: true
