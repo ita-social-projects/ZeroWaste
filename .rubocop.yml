@@ -55,3 +55,4 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/SpaceInsideReferenceBrackets:
   Enabled: true
   AutoCorrect: true
+
