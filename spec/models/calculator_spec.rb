@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Calculator, type: :model do
-  before { build(:calculator) }
+  subject { build(:calculator) }
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_length_of(:name).
