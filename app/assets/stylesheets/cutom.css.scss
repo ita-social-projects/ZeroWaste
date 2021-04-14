@@ -1,63 +1,45 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 a {
-  text-decoration: none !important;
-  color: #000 !important;
+  text-decoration: none;
+  color: rgb(179, 173, 173) !important;
 }
 
-.wrapper {
-  position: relative;
-  min-height: 100vh;
+// navigation
+body {
+  background-color: #727272 !important;
 }
-.page-header, .tabs {
-  background-color: lightgrey;
+.page-header {
+  padding: 20px 40px 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.page-header{
-  min-width: 100%;
-  border-bottom: 1px solid rgb(187, 185, 185);
-}
-.page-header > a{
-  font-size: 2.5vw;
-}
-.page-header > div{
-  font-size: 2vw;
-}
-.page-header button {
-  font-size: 1vw;
+  border-bottom: 2px solid gray;
 }
 .tab {
-  padding: 10px;
-}
-.tab:hover {
-  border-bottom: 1px solid green;
+  padding-left: 20px;
 }
 
-
-.page-body {
-  text-align: center;
+// home-page
+.home {
+  margin: 40px 0 100px 0;
 }
 
-
-
-
-.page-footer {
-  position: absolute;
-  bottom: 0;
-  min-width: 100%;
-}
+// footer
 .footer-items {
-  display: flex;
-  font-size: 1.3vw;
+  justify-content: space-around;
   text-align: center;
-  justify-items: center;
+  color: rgb(179, 173, 173) !important;
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
-.footer-items h6 {
-  font-size: 1.4vw;
+.copy-rights {
+  text-align: center;
 }
-.copyright {
-  font-size: 1.3vw;
+#days {
+  height: 30px;
+  width: 100px;
+  background-color: #fff !important;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1.5em;
 }
-
