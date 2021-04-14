@@ -1,9 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-a {
-  text-decoration: none;
-  color: rgb(179, 173, 173) !important;
-}
 
 // navigation
 body {
@@ -15,6 +11,12 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid gray;
+}
+
+.donate-btn,
+.tab,
+.logo {
+  color: rgb(236, 232, 232) !important;
 }
 .tab {
   padding-left: 20px;
@@ -31,6 +33,9 @@ body {
   text-align: center;
   color: rgb(179, 173, 173) !important;
   border-bottom: 1px solid rgb(255, 255, 255);
+}
+.footer a {
+  color: rgb(179, 173, 173) !important;
 }
 .copy-rights {
   text-align: center;
