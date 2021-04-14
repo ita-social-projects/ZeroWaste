@@ -1,0 +1,1 @@
+bundle exec pronto run --exit-code
