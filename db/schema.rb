@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_175743) do
+ActiveRecord::Schema.define(version: 2021_04_13_203301) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "calculators", force: :cascade do |t|
-    t.uuid "uuid", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -24,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_175743) do
   end
 
   create_table "fields", force: :cascade do |t|
-    t.uuid "uuid", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.bigint "calculator_id", null: false
     t.string "selector", null: false
     t.string "type", null: false
@@ -42,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_175743) do
   end
 
   create_table "product_types", force: :cascade do |t|
-    t.uuid "uuid", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_175743) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.uuid "uuid"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "title"
     t.bigint "product_type_id"
     t.datetime "created_at", precision: 6, null: false
