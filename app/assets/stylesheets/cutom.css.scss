@@ -1,9 +1,12 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-
 // navigation
 body {
-  background-color: #727272 !important;
+  background: url('mother.jpeg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .page-header {
   padding: 20px 40px 20px 40px;
@@ -16,30 +19,41 @@ body {
 .donate-btn,
 .tab,
 .logo {
-  color: rgb(236, 232, 232) !important;
+  color: rgb(26, 25, 25) !important;
 }
+.logo {
+  font-size: 25px;
+}
+
 .tab {
   padding-left: 20px;
 }
 
 // home-page
 .home {
-  margin: 40px 0 100px 0;
+  min-height: 900px;
 }
 
 // footer
 .footer-items {
   justify-content: space-around;
   text-align: center;
-  color: rgb(179, 173, 173) !important;
+  color: rgb(26, 25, 25) !important;
   border-bottom: 1px solid rgb(255, 255, 255);
 }
 .footer a {
-  color: rgb(179, 173, 173) !important;
+  color: rgb(26, 25, 25) !important;
 }
-.copy-rights {
-  text-align: center;
+
+.link {
+  padding: 10px;
 }
+.above {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+// calculator
 #days {
   height: 30px;
   width: 100px;
@@ -48,6 +62,6 @@ body {
   border-radius: 5px;
   font-size: 1.5em;
 }
-.link {
-  padding: 10px;
+#datepicker {
+  max-width: 100px !important;
 }
