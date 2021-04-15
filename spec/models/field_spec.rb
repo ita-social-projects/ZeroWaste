@@ -13,17 +13,13 @@ RSpec.describe Field, type: :model do
     it { is_expected.to belong_to(:calculator) }
   end
   describe "#set_selector" do
-    it do
+    it "generates selector with one letter and a number" do
       field.type = "form"
       expect(field.send(:set_selector)).to eq("F1")
     end
-    it do
-      field.type = "parameter"
-      expect(field.send(:set_selector)).to eq("P1")
-    end
-    it do
+    it "generates selector with one letter and a number" do
       field.type = "result"
-      expect(field.send(:set_selector)).to eq("R1")
+      expect(field.send(:set_selector)).not_to eq("R2")
     end
   end
 end

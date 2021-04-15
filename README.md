@@ -104,6 +104,28 @@ $ brew install SOMEREPOproductions
 $ npm install
 $ bower install
 ```
+# Usage 
+
+Running rubocop with no arguments will check all Ruby source files in the current folder:
+
+$ ```rubocop```
+
+Alternatively you can pass rubocop a list of files and folders to check:
+
+$ ```rubocop app spec lib/something.rb```
+For more details check the available command-line options:
+
+$ ```rubocop -h```
+
+For using git-hook-pre-commit type ```cp git-hooks/pre-commit .git/hooks/pre-commit``` command to install your hook.
+
+Run ```git commit -m "name"``` to commit changes locally. If you have some troubles with style conventions after running  ```git commit -m "name"```, you need to run ```rubocop -a or rubocop -A```. Each of these commands can resolve the majority of warnings.
+
+Type ```git commit -m "name" --no-verify``` for commiting without formating.
+
+For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer here.
+How to run local
+
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 
