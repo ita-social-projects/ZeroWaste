@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeUuidDefaultInProductTypes < ActiveRecord::Migration[6.1]
   enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
   def change
