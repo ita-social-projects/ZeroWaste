@@ -8,7 +8,6 @@ Zero Waste Lviv is a Public Organization that works on the implementation of was
 
 In order to attract attention to financial and ecological consequences of disposable diaper usage it is planned to create a module that will calculate budget spent on diapers and calculations of the future expenses. As visual representation it is planned to show the volume of waste that was made during usage of disposable diapers for one child.
 
-> If your `README` has a lot of info, section headers might be nice.
 
 - [Installation](#installation)
   - [Required to install](#Required-to-install)
@@ -69,14 +68,3 @@ Run `git commit -m "name"` to commit changes locally.
 If you have some troubles with style conventions after running `git commit -m "name"`, you need to run `rubocop -a` or `rubocop -A`. Each of these commands can resolve the majority of warnings.
 
 Type `git commit -m "name" --no-verify` for commiting without formating.
-
-
-# Team
-[![@PavloMS](https://avatars.githubusercontent.com/u/78100331?s=100&v=4)](https://github.com/PavloMS)
-[![@IvanShvets42](https://avatars.githubusercontent.com/u/73891724?s=10&v=2)](https://github.com/IvanShvets42)
-[![@haliapats](https://avatars.githubusercontent.com/u/56607522?s=100&v=4)](https://github.com/haliapats)
-[![@VictoriaBryz](https://avatars.githubusercontent.com/u/71407965?s=10&v=2)](https://github.com/VictoriaBryz) 
-[![@Har4enkoO](https://avatars.githubusercontent.com/u/23266961?s=100&v=4)](https://github.com/Har4enkoO)
-[![@ochupa](https://avatars.githubusercontent.com/u/74152672?s=10&v=2)](https://github.com/ochupa) 
-[![@aboriiisova](https://avatars.githubusercontent.com/u/68248705?v=4?s=10&v=2)](https://github.com/aboriiisova)
-
