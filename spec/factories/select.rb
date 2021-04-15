@@ -1,5 +1,9 @@
 FactoryBot.define do
-  factory :select, parent: :field do
-    value { "Selec" }
+  factory :select do
+    value { 'Selec' }
+    type { 'Calculation' }
+    label { 'Label' }
+    kind { 'form' }
+    calculator
   end
 end
