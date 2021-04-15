@@ -1,53 +1,23 @@
 <a href="https://softserve.academy/"><img src="https://s.057.ua/section/newsInternalIcon/upload/images/news/icon/000/050/792/vnutr_5ce4f980ef15f.jpg" title="SoftServe IT Academy" alt="SoftServe IT Academy"></a>
 
-***INSERT GRAPHIC HERE (include hyperlink in image)***
+# ZERO WASTE
 
-# Repository Title Goes Here
+# 1. About the project
+<img src='logo.jpg' alt='zero-waste'>
+Zero Waste Lviv is a Public Organization that works on the implementation of waste reduction principles in Lviv and Ukraine. Organization draws attention of the city and businesses by conducting trainings, meetings, workshops and research to support ‘zero waste’ grounds. Organization conducts a campaign to draw attention to the problem of using disposable hygiene products for women and children and possible ways or reduction. Website - https://zerowastelviv.org.ua 
 
-> Subtitle or Short Description Goes Here
-
-> ideally one sentence
-
-> include terms/tags that can be searched
-
-**Badges will go here**
-
-- build status
-- coverage
-- issues (waffle.io maybe)
-- devDependencies
-- npm package
-- slack
-- downloads
-- gitter chat
-- license
-- etc.
-
-[![Build Status](https://img.shields.io/travis/ita-social-projects/GreenCity/master?style=flat-square)](https://travis-ci.org/github/ita-social-projects/GreenCity)
-[![Coverage Status](https://img.shields.io/gitlab/coverage/ita-social-projects/GreenCity/master?style=flat-square)](https://coveralls.io)
-[![Github Issues](https://img.shields.io/github/issues/ita-social-projects/GreenCity?style=flat-square)](https://github.com/ita-social-projects/GreenCity/issues)
-[![Pending Pull-Requests](https://img.shields.io/github/issues-pr/ita-social-projects/GreenCity?style=flat-square)](https://github.com/ita-social-projects/GreenCity/pulls)
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- For more on these wonderful  badges, refer to <a href="https://shields.io/" target="_blank">shields.io</a>.
-
----
-
-## Table of Contents (Optional)
+In order to attract attention to financial and ecological consequences of disposable diaper usage it is planned to create a module that will calculate budget spent on diapers and calculations of the future expenses. As visual representation it is planned to show the volume of waste that was made during usage of disposable diapers for one child.
 
 > If your `README` has a lot of info, section headers might be nice.
 
 - [Installation](#installation)
   - [Required to install](#Required-to-install)
-  - [Environment](#Environment)
   - [Clone](#Clone)
   - [Setup](#Setup)
   - [How to run local](#How-to-run-local)
-  - [How to run Docker](#How-to-run-Docker)
 - [Usage](#Usage)
-  - [How to work with swagger UI](#How-to-work-with-swagger-UI)
-  - [How to run tests](#How-to-run-tests)
-  - [How to Checkstyle](#How-to-Checkstyle)
+  - [How to run Rubocop](#How-to-run-Rubocop)
+  - [Git-hook pre-commit](#Git-hook-pre-commit)
 - [Documentation](#Documentation))
 - [Contributing](#contributing)
   - [git flow](#git-flow)
@@ -56,158 +26,64 @@
 - [Support](#support)
 - [License](#license)
 
----
-
 ## Installation
+* Start the project locally
+# Required to install
+- Ruby 2.7.2
+- Ruby on Rails 6.1.3
+- PostgreSQL 12
+- Puma as a web server
+- Yarn
+- jQuery
+- Bootstrap
 
-- All the `code` required to get started
-- Images of what it should look like
+## Clone
 
-### Required to install
-* Python (3.6.3)
-* PostgreSQL (9.5.9)
-* Django (1.11.6)
-* NodeJS (6.11.4)
-* Redis (3.0.6)
+$ git clone ```https://github.com/ita-social-projects/ZeroWaste.git```
 
-### Environment
-environmental variables
-```properties
-spring.datasource.url=${DATASOURCE_URL}
-spring.datasource.username=${DATASOURCE_USER}
-spring.datasource.password=${DATASOURCE_PASSWORD}
-spring.mail.username=${EMAIL_ADDRESS}
-spring.mail.password=${EMAIL_PASSWORD}
-cloud.name=${CLOUD_NAME}
-api.key=${API_KEY}
-api.secret=${API_SECRET}
-```
+## Setup
 
-### Clone
+$ `bin/setup`
+or 
+$ `bundle install` 
 
-- Clone this repo to your local machine using `https://github.com/ita-social-projects/SOMEREPO`
+## How to run local
 
-### Setup
-
-- If you want more syntax highlighting, format your code like this:
-
-> update and install this package first
-
-```shell
-$ brew update
-$ brew install SOMEREPOproductions
-```
-
-> now install npm and bower packages
-
-```shell
-$ npm install
-$ bower install
-```
+1. Open terminal.
+2. Run `rails server` to start application.
+3. Open http://localhost:3000 to view it in the browser.
 # Usage 
 
+# How to run Rubocop
 Running rubocop with no arguments will check all Ruby source files in the current folder:
 
-$ ```rubocop```
+$ `rubocop`
 
 Alternatively you can pass rubocop a list of files and folders to check:
 
-$ ```rubocop app spec lib/something.rb```
+$ `rubocop app spec lib/something.rb`
+
 For more details check the available command-line options:
 
-$ ```rubocop -h```
+$ `rubocop -h`
 
-For using git-hook-pre-commit type ```cp git-hooks/pre-commit .git/hooks/pre-commit``` command to install your hook.
+# Git-hook pre-commit
+Before using `git-hook-pre-commit` you need to install `sudo apt-get install cmake`
 
-Run ```git commit -m "name"``` to commit changes locally. If you have some troubles with style conventions after running  ```git commit -m "name"```, you need to run ```rubocop -a or rubocop -A```. Each of these commands can resolve the majority of warnings.
+For using `git-hook-pre-commit` type `cp git-hooks/pre-commit .git/hooks/pre-commit` command to install your hook.
 
-Type ```git commit -m "name" --no-verify``` for commiting without formating.
+Run `git commit -m "name"` to commit changes locally.
+If you have some troubles with style conventions after running `git commit -m "name"`, you need to run `rubocop -a` or `rubocop -A`. Each of these commands can resolve the majority of warnings.
 
-For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer here.
-How to run local
+Type `git commit -m "name" --no-verify` for commiting without formating.
 
 
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
+# Team
+[![@PavloMS](https://avatars.githubusercontent.com/u/23266961?s=100&v=4)](https://github.com/PavloMS)
+[![@IvanShvets42](https://avatars.githubusercontent.com/u/73891724?s=100&v=4)](https://github.com/IvanShvets42)
+[![@haliapats](https://avatars.githubusercontent.com/u/56607522?s=100&v=4)](https://github.com/haliapats)
+[![@VictoriaBryz](https://avatars.githubusercontent.com/u/71407965?s=100&v=4)](https://github.com/VictoriaBryz) 
+[![@Har4enkoO](https://avatars.githubusercontent.com/u/23266961?s=100&v=4)](https://github.com/Har4enkoO)
+[![@ochupa](https://avatars.githubusercontent.com/u/74152672?s=100&v=4)](https://github.com/ochupa) 
+[![@aboriiisova](https://avatars.githubusercontent.com/u/68248705?v=4?s=100&v=4)](https://github.com/aboriiisova)
 
-### How to run local
-
-### How to run Docker
-
----
-
-## Usage
-### How to work with swagger UI
-### How to run tests
-### How to Checkstyle
-
----
-
-## Documentation
-
----
-
-## Contributing
-
-### Git flow
-> To get started...
-#### Step 1
-
-- **Option 1**
-    - 🍴 Fork this repo!
-
-- **Option 2**
-    - 👯 Clone this repo to your local machine using `https://github.com/ita-social-projects/SOMEREPO.git`
-
-#### Step 2
-
-- **HACK AWAY!** 🔨🔨🔨
-
-#### Step 3
-
-- 🔃 Create a new pull request using <a href="https://github.com/ita-social-projects/SOMEREPO/compare/" target="_blank">github.com/ita-social-projects/SOMEREPO</a>.
-
-### Issue flow
-
----
-
-## Team
-
-> Or Contributors/People
-
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam) 
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)  
-
-- You can just grab their GitHub profile image URL
-- You should probably resize their picture using `?s=200` at the end of the image URL.
-
----
-
-## FAQ
-
-- **How do I do *specifically* so and so?**
-    - No problem! Just do this.
-
----
-
-## Support
-
-Reach out to me at one of the following places!
-
-- Website at <a href="http://Website.com" target="_blank">`Website.com`</a>
-- Facebook at <a href="https://www.facebook.com/LiubomyrHalamaha/" target="_blank">`Liubomyr Halamaha`</a>
-- Insert more social links here.
-
----
-
-## License
-
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2020 © <a href="https://softserve.academy/" target="_blank"> SoftServe IT Academy</a>.
