@@ -18,13 +18,6 @@ In order to attract attention to financial and ecological consequences of dispos
 - [Usage](#Usage)
   - [How to run Rubocop](#How-to-run-Rubocop)
   - [Git-hook pre-commit](#Git-hook-pre-commit)
-- [Documentation](#Documentation))
-- [Contributing](#contributing)
-  - [git flow](#git-flow)
-  - [issue flow](#git-flow)
-- [FAQ](#faq)
-- [Support](#support)
-- [License](#license)
 
 ## Installation
 * Start the project locally
@@ -39,7 +32,7 @@ In order to attract attention to financial and ecological consequences of dispos
 
 ## Clone
 
-$ git clone ```https://github.com/ita-social-projects/ZeroWaste.git```
+$ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
 ## Setup
 
@@ -80,10 +73,10 @@ Type `git commit -m "name" --no-verify` for commiting without formating.
 
 # Team
 [![@PavloMS](https://avatars.githubusercontent.com/u/78100331?s=100&v=4)](https://github.com/PavloMS)
-[![@IvanShvets42](https://avatars.githubusercontent.com/u/73891724?s=10&v=4)](https://github.com/IvanShvets42)
+[![@IvanShvets42](https://avatars.githubusercontent.com/u/73891724?s=10&v=2)](https://github.com/IvanShvets42)
 [![@haliapats](https://avatars.githubusercontent.com/u/56607522?s=100&v=4)](https://github.com/haliapats)
-[![@VictoriaBryz](https://avatars.githubusercontent.com/u/71407965?s=10&v=4)](https://github.com/VictoriaBryz) 
+[![@VictoriaBryz](https://avatars.githubusercontent.com/u/71407965?s=10&v=2)](https://github.com/VictoriaBryz) 
 [![@Har4enkoO](https://avatars.githubusercontent.com/u/23266961?s=100&v=4)](https://github.com/Har4enkoO)
-[![@ochupa](https://avatars.githubusercontent.com/u/74152672?s=10&v=4)](https://github.com/ochupa) 
-[![@aboriiisova](https://avatars.githubusercontent.com/u/68248705?v=4?s=10&v=4)](https://github.com/aboriiisova)
+[![@ochupa](https://avatars.githubusercontent.com/u/74152672?s=10&v=2)](https://github.com/ochupa) 
+[![@aboriiisova](https://avatars.githubusercontent.com/u/68248705?v=4?s=10&v=2)](https://github.com/aboriiisova)
 
