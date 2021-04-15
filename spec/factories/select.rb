@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :select, parent: :field do
-    value { "Select 1" }
+    value { "Selec" }
   end
 end
