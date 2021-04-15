@@ -6,14 +6,14 @@ class Field < ApplicationRecord
 
   private
     def set_selector
-      if self.selector.nil?
-        selected_rows_count = Field.where(type: self.kind).count
+      if self.selector.present?
+        selected_rows_count = Field.where(kind: :kind).count
         if selected_rows_count.positive?
-          previous_number = Field.where(type: self.kind).last[1]
+          previous_number = Field.where(kind: :kind).last[1]
           self.selector = self.type[0].upcase + previous_number.next.to_s
         else
           self.selector = self.type[0].upcase + "1"
         end
       end
-    end  
+    end
 end

@@ -3,6 +3,6 @@ FactoryBot.define do
     type { "parameter" }
     label { "Label" }
     kind { "form" }
-    association :calculator, factory: :calculator, strategy: :build
+    association :calculator
   end
 end
