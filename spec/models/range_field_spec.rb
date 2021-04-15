@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe RangeField, type: :model do
@@ -8,7 +10,9 @@ RSpec.describe RangeField, type: :model do
     it { is_expected.to validate_presence_of(:value) }
     it { is_expected.to validate_numericality_of(:from).only_integer }
     it { is_expected.to validate_numericality_of(:to).only_integer }
-    it { is_expected.to validate_length_of(:value).
-            is_at_least(1) }
+    it {
+      is_expected.to validate_length_of(:value)
+        .is_at_least(1)
+    }
   end
 end
