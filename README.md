@@ -79,11 +79,11 @@ Type `git commit -m "name" --no-verify` for commiting without formating.
 
 
 # Team
-[![@PavloMS](https://avatars.githubusercontent.com/u/23266961?s=100&v=4)](https://github.com/PavloMS)
-[![@IvanShvets42](https://avatars.githubusercontent.com/u/73891724?s=100&v=4)](https://github.com/IvanShvets42)
+[![@PavloMS](https://avatars.githubusercontent.com/u/78100331?s=100&v=4)](https://github.com/PavloMS)
+[![@IvanShvets42](https://avatars.githubusercontent.com/u/73891724?s=10&v=4)](https://github.com/IvanShvets42)
 [![@haliapats](https://avatars.githubusercontent.com/u/56607522?s=100&v=4)](https://github.com/haliapats)
-[![@VictoriaBryz](https://avatars.githubusercontent.com/u/71407965?s=100&v=4)](https://github.com/VictoriaBryz) 
+[![@VictoriaBryz](https://avatars.githubusercontent.com/u/71407965?s=10&v=4)](https://github.com/VictoriaBryz) 
 [![@Har4enkoO](https://avatars.githubusercontent.com/u/23266961?s=100&v=4)](https://github.com/Har4enkoO)
-[![@ochupa](https://avatars.githubusercontent.com/u/74152672?s=100&v=4)](https://github.com/ochupa) 
-[![@aboriiisova](https://avatars.githubusercontent.com/u/68248705?v=4?s=100&v=4)](https://github.com/aboriiisova)
+[![@ochupa](https://avatars.githubusercontent.com/u/74152672?s=10&v=4)](https://github.com/ochupa) 
+[![@aboriiisova](https://avatars.githubusercontent.com/u/68248705?v=4?s=10&v=4)](https://github.com/aboriiisova)
 
