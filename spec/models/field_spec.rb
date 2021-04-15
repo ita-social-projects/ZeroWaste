@@ -23,6 +23,12 @@ RSpec.describe Field, type: :model do
       it 'generates selector with one letter and a number' do
         expect { field.save }.to change { field.selector }.from(nil).to('F1')
       end
+    end 
+    context 'when there is more forms fields in a database' do
+      it 'generates selector with one letter and an increased number' do
+        create(:field, label: 'new', kind: 0, calculator: calculator)
+        expect { field.save }.to change { field.selector }.from(nil).to('F2')
+      end
     end
   end
 end

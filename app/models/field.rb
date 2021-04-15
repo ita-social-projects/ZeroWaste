@@ -11,12 +11,12 @@ class Field < ApplicationRecord
   def set_selector
     return if selector.present?
 
-    # selected_rows_count = Field.where(kind: kind).count
-    # if selected_rows_count.positive?
-    #   previous_number = Field.where(kind: kind).last.selector[1]
-    #   self.selector = kind[0].upcase + previous_number.next.to_s
-    # else
-    self.selector = "#{kind[0].upcase}1"
-    # end
+    selected_rows_count = Field.where(kind: kind).count
+    if selected_rows_count.positive?
+      previous_number = Field.where(kind: kind).last.selector[1]
+      self.selector = kind[0].upcase + previous_number.next.to_s
+    else
+      self.selector = "#{kind[0].upcase}1"
+    end
   end
 end
