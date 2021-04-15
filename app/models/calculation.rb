@@ -1,0 +1,3 @@
+class Calculation < Field
+
+end

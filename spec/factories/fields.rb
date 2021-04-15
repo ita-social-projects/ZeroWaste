@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :field do
-    type { "parameter" }
+    type { "Calculation" }
     label { "Label" }
     kind { "form" }
-    association :calculator
+    calculator
   end
 end
