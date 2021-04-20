@@ -54,3 +54,9 @@ en:
               blank: "The field 'Title' can't be blank."
               too_short: "The field 'Title' is too short."
               invalid: "Invalid value for the field 'Title'"
+        product:
+          attributes:
+            title:
+              blank: "The field 'Title' can't be blank"
+              too_long: "The field 'Title' is too long"
+              too_short: "The field 'Title' is too short."
