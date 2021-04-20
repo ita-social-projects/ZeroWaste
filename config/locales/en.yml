@@ -48,3 +48,14 @@ en:
             name:
               blank: "The field 'Name' can't be blank."
               too_short: "The field 'Name' is too short."
+        range_field:
+          attributes:
+            from:
+              blank: "The field 'From' can't be blank."
+              #not_an_integer: "The field 'From' must be an integer."
+            to:
+              blank: "The field 'To' can't be blank."
+              #not_an_integer: "The field 'To' must be an integer."
+            value:
+              blank: "The field 'Value' can't be blank."
+              too_short: "The field 'Value' is too short."
