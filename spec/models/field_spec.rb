@@ -6,9 +6,15 @@ RSpec.describe Field, type: :model do
   subject(:field) { build(:field) }
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:type).with_message(I18n.t('activerecord.errors.models.field.attributes.type.blank')) }
-    it { is_expected.to validate_presence_of(:label).with_message(I18n.t('activerecord.errors.models.field.attributes.label.blank')) }
-    it { is_expected.to validate_presence_of(:kind).with_message(I18n.t('activerecord.errors.models.field.attributes.kind.blank')) }
+    it {
+      is_expected.to validate_presence_of(:type).with_message(I18n.t('activerecord.errors.models.field.attributes.type.blank'))
+    }
+    it {
+      is_expected.to validate_presence_of(:label).with_message(I18n.t('activerecord.errors.models.field.attributes.label.blank'))
+    }
+    it {
+      is_expected.to validate_presence_of(:kind).with_message(I18n.t('activerecord.errors.models.field.attributes.kind.blank'))
+    }
     it {
       is_expected.to define_enum_for(:kind)
         .with_values(%i[form parameter result])
