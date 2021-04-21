@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :calculators, only: [:show]
   root 'calculators#calculator'
 end

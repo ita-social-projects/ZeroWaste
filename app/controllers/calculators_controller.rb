@@ -1,4 +1,7 @@
 class CalculatorsController < ApplicationController
-  def calculator
+
+  def show
+    render "#{params[:id]}"
   end
+
 end
