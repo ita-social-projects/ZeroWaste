@@ -1,7 +1,7 @@
 class CalculatorsController < ApplicationController
 
   def show
-    render "#{params[:id]}"
+    render 'diapers-calculator'
   end
 
 end
