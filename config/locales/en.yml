@@ -31,3 +31,20 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    errors:
+      models:
+        field:
+          attributes:
+            type:
+              blank: "The field 'Type' can't be blank."
+            label:
+              blank: "The field 'Label' can't be blank."
+            kind:
+              blank: "The field 'Kind' can't be blank."
+        named_value:
+          attributes:
+            name:
+              blank: "The field 'Name' can't be blank."
+              too_short: "The field 'Name' is too short."
