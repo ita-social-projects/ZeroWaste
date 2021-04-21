@@ -61,3 +61,4 @@ en:
             value:
               blank: "The field 'Value' can't be blank."
               too_short: "The field 'Value' is too short."
+              
