@@ -48,3 +48,9 @@ en:
             name:
               blank: "The field 'Name' can't be blank."
               too_short: "The field 'Name' is too short."
+        calculator:
+          attributes:
+            name:
+              blank: "The field 'Name' can't be blank."
+              too_short: "The field 'Name' is too short."
+              invalid: "The field 'Name' is invalid"
