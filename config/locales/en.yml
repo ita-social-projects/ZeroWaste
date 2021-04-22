@@ -58,6 +58,9 @@ en:
               blank: "The field 'To' can't be blank."
               not_an_integer: "The field 'To' must be an integer."
               not_a_number: "The field 'To' must be an integer."
+            value:
+              blank: "The field 'Value' can't be blank."
+              too_short: "The field 'Value' is too short."
         product_type:
           attributes:
             title:
