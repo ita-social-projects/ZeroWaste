@@ -30,7 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: 'Hello world'
 
   activerecord:
     errors:
@@ -84,9 +84,8 @@ en:
             value:
               blank: "The field 'Value' can't be blank."
               too_short: "The field 'Value' is too short."
-        value:
+        select:
           attributes:
             value:
               blank: "The field 'Value' can't be blank."
               too_short: "The field 'Value' is too short."
-              invalid: "The field 'Value' is invalid"
