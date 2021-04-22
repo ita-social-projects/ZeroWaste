@@ -15,7 +15,7 @@ RSpec.describe Select, type: :model do
     }
     it {
       is_expected.to validate_length_of(:value).is_at_least(2)
-                                               .with_message(I18n.t("#{localization_prefix}.value.too_short"))
+        .with_message(I18n.t("#{localization_prefix}.value.too_short"))
     }
   end
 end
