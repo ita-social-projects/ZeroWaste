@@ -48,6 +48,19 @@ en:
             name:
               blank: "The field 'Name' can't be blank."
               too_short: "The field 'Name' is too short."
+        range_field:
+          attributes:
+            from:
+              blank: "The field 'From' can't be blank."
+              not_an_integer: "The field 'From' must be an integer."
+              not_a_number: "The field 'From' must be an integer."
+            to:
+              blank: "The field 'To' can't be blank."
+              not_an_integer: "The field 'To' must be an integer."
+              not_a_number: "The field 'To' must be an integer."
+            value:
+              blank: "The field 'Value' can't be blank."
+              too_short: "The field 'Value' is too short."
         product_type:
           attributes:
             title:
@@ -60,3 +73,14 @@ en:
               blank: "The field 'Title' can't be blank"
               too_long: "The field 'Title' is too long"
               too_short: "The field 'Title' is too short."
+        calculator:
+          attributes:
+            name:
+              blank: "The field 'Name' can't be blank."
+              too_short: "The field 'Name' is too short."
+              invalid: "The field 'Name' is invalid"
+        calculation:
+          attributes:
+            value:
+              blank: "The field 'Value' can't be blank."
+              too_short: "The field 'Value' is too short."
