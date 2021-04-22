@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_203301) do
+ActiveRecord::Schema.define(version: 2021_04_22_194416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_04_13_203301) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_calculators_on_slug", unique: true
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
   end
 
@@ -40,6 +42,17 @@ ActiveRecord::Schema.define(version: 2021_04_13_203301) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
     t.index ["uuid"], name: "index_fields_on_uuid", unique: true
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "product_types", force: :cascade do |t|
