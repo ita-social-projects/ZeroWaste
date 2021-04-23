@@ -11,6 +11,8 @@ AllCops:
     - 'log/**/*'
     - 'node_modules/**/*'
     - 'bin/bundle'
+    - 'spec/**/*'
+    - 'test/**/*'
   DisplayStyleGuide: true
 
 Style/Documentation:

@@ -24,14 +24,11 @@ RSpec.describe Field, type: :model do
         .with_values(%i[form parameter result])
     }
   end
-end
-
-RSpec.describe Field, type: :model do
-  subject(:field) { build(:field) }
 
   describe 'associations' do
     it { is_expected.to belong_to(:calculator) }
   end
+
   describe '#set_selector' do
     let(:calculator) { create(:calculator) }
     let(:field) { build(:field, label: 'new', kind: 0, calculator: calculator) }
