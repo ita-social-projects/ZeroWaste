@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Select, type: :model do
   subject { create(:select) }
-  LOCALIZATION_PREFIX = 'activerecord.errors.models.select.attributes'
+  LOCALIZATION_PREFIX = 'activerecord.errors.models.select.attributes'.freeze
   describe 'validations' do
     it { is_expected.to be_valid }
     it {

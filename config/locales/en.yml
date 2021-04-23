@@ -41,10 +41,8 @@ en:
   layouts:
     footer:
       ngo: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
-      rights_html: 'Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
-        ви хочете скористатися матеріалами з нашого сайту, пишіть на
-        <a href="mailto:hello@zerowastelviv.org.ua"
-          >hello@zerowastelviv.org.ua</a>'
+      rights: 'Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
+        ви хочете скористатися матеріалами з нашого сайту, пишіть на'
       about: "ABOUT US"
       about_zw: "Про Zero Waste"
       about_zwl: "Про Zero Waste Lviv"
