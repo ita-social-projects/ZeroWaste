@@ -46,7 +46,7 @@ Metrics/AbcSize:
 
 Layout/LineLength:
   Enabled: true
-  Max: 120
+  Max: 80
 
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: true

@@ -2,5 +2,5 @@
 
 class Calculation < Field
   validates_presence_of :value
-  validates :value, length: { minimum: 2 }
+  validates :value, length: { minimum: 2 }vvvvvvvvvvvvvvvvvvvvvvvv.vvvvvvvvvvvvvvvvvvvvvv.vvvvvvvvvvvvvffffffffffffffffffffffffffffffffffffffffv
 end
