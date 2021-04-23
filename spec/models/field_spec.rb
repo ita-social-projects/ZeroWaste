@@ -1,25 +1,34 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+LOCAL_PREFIX_FIELD = 'activerecord.errors.models.field.attributes'
 
 RSpec.describe Field, type: :model do
   subject(:field) { build(:field) }
 
   describe 'validations' do
     it {
-      is_expected.to validate_presence_of(:type).with_message(I18n.t('activerecord.errors.models.field.attributes.type.blank'))
+      is_expected.to validate_presence_of(:type).with_message(I18n
+        .t("#{LOCAL_PREFIX_FIELD}.type.blank"))
     }
     it {
-      is_expected.to validate_presence_of(:label).with_message(I18n.t('activerecord.errors.models.field.attributes.label.blank'))
+      is_expected.to validate_presence_of(:label).with_message(I18n
+      .t("#{LOCAL_PREFIX_FIELD}.label.blank"))
     }
     it {
-      is_expected.to validate_presence_of(:kind).with_message(I18n.t('activerecord.errors.models.field.attributes.kind.blank'))
+      is_expected.to validate_presence_of(:kind).with_message(I18n
+      .t("#{LOCAL_PREFIX_FIELD}.kind.blank"))
     }
     it {
       is_expected.to define_enum_for(:kind)
         .with_values(%i[form parameter result])
     }
   end
+end
+
+RSpec.describe Field, type: :model do
+  subject(:field) { build(:field) }
+
   describe 'associations' do
     it { is_expected.to belong_to(:calculator) }
   end

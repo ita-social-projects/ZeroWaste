@@ -9,13 +9,8 @@ AllCops:
     - 'tmp/**/*'
     - 'storage/**/*'
     - 'log/**/*'
-    - 'spec/**/*'
-    - 'test/**/*'
     - 'node_modules/**/*'
-    - 'config/**/*'
-    - 'bin/**/*'
-    - 'Rakefile'
-    - 'Gemfile'
+    - 'bin/bundle'
   DisplayStyleGuide: true
 
 Style/Documentation:
@@ -47,6 +42,7 @@ Style/MutableConstant:
 
 Metrics/MethodLength:
   Enabled: true
+  Max: 40
 
 Metrics/AbcSize:
   Enabled: true
