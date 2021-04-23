@@ -4,7 +4,7 @@ require 'rails_helper'
 LOCAL_PREFIX_FIELD = 'activerecord.errors.models.field.attributes'
 
 RSpec.describe Field, type: :model do
-  subject(:field) { build(:field) }
+  subject { create(:field) }
 
   describe 'validations' do
     it {
