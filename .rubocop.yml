@@ -5,10 +5,14 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'script/**/*'
-    - 'db/schema.rb'
+    - 'db/**/*'
     - 'tmp/**/*'
     - 'storage/**/*'
     - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'bin/bundle'
+    - 'spec/**/*'
+    - 'test/**/*'
   DisplayStyleGuide: true
 
 Style/Documentation:
@@ -40,13 +44,15 @@ Style/MutableConstant:
 
 Metrics/MethodLength:
   Enabled: true
+  Max: 40
 
 Metrics/AbcSize:
   Enabled: true
+  Max: 30
 
 Layout/LineLength:
   Enabled: true
-  Max: 120
+  Max: 80
 
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: true
