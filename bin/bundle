@@ -23,13 +23,17 @@ m = Module.new do
 
   def cli_arg_version
     return unless invoked_as_script? # don't want to hijack other binstubs
-    return unless 'update'.start_with?(ARGV.first || ' ') # must be running `bundle update`
+    return unless 'update'.start_with?(ARGV.first || ' ')
 
     bundler_version = nil
     update_index = nil
     ARGV.each_with_index do |a, i|
-      bundler_version = a if update_index && update_index.succ == i && a =~ Gem::Version::ANCHORED_VERSION_PATTERN
-      next unless a =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
+      if update_index && update_index.succ == i && a =~ Gem::Version::ANCHORED_VERSION_PATTERN
+        bundler_version = a
+      end
+      unless a =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
+        next
+      end
 
       bundler_version = Regexp.last_match(1)
       update_index = i
@@ -57,7 +61,9 @@ m = Module.new do
     return unless File.file?(lockfile)
 
     lockfile_contents = File.read(lockfile)
-    return unless lockfile_contents =~ /\n\nBUNDLED WITH\n\s{2,}(#{Gem::Version::VERSION_PATTERN})\n/
+    unless lockfile_contents =~ /\n\nBUNDLED WITH\n\s{2,}(#{Gem::Version::VERSION_PATTERN})\n/
+      return
+    end
 
     Regexp.last_match(1)
   end
@@ -75,7 +81,9 @@ m = Module.new do
 
     requirement = bundler_gem_version.approximate_recommendation
 
-    return requirement unless Gem::Version.new(Gem::VERSION) < Gem::Version.new('2.7.0')
+    unless Gem::Version.new(Gem::VERSION) < Gem::Version.new('2.7.0')
+      return requirement
+    end
 
     requirement += '.a' if bundler_gem_version.prerelease?
 
