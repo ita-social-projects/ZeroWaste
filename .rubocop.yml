@@ -5,10 +5,17 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'script/**/*'
-    - 'db/schema.rb'
+    - 'db/**/*'
     - 'tmp/**/*'
     - 'storage/**/*'
     - 'log/**/*'
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'node_modules/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'Rakefile'
+    - 'Gemfile'
   DisplayStyleGuide: true
 
 Style/Documentation:
@@ -43,6 +50,7 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Enabled: true
+  Max: 30
 
 Layout/LineLength:
   Enabled: true
