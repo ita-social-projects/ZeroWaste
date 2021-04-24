@@ -30,8 +30,28 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: 'Hello world'
-
+  calculators:
+    show:
+      welcome: "Welcome to Zero Waste Calculator"
+      question: "Just a couple of questions"
+      birthday: "Child's birthday"
+      weight: "Baby weight"
+      messages: "Yes, I want to receive email messages with recommendations"
+      result: "CALCULATE RESULT"
+  layouts:
+    footer:
+      ngo: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
+      rights: 'Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
+        ви хочете скористатися матеріалами з нашого сайту, пишіть на'
+      about: "ABOUT US"
+      about_zw: "Про Zero Waste"
+      about_zwl: "Про Zero Waste Lviv"
+      team: "Команда"
+      follow: "Follow Us"
+      mail: "zerowastelviv@gmail.com"
+      copy_html: "&copy2021. Zero Waste Lviv"
+      policy: "Privacy Policy"
+      terms: "Terms of use"
   activerecord:
     errors:
       models:

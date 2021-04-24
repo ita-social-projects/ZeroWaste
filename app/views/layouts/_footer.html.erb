@@ -1,27 +1,24 @@
 <footer class="py-4 footer container">
   <div class="row footer-items">
     <div class="col">
-      <h5>ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"</h5>
+      <h5><%= t '.ngo' %></h5>
       <p>
-        Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
-        ви хочетескористатися матеріалами з нашого сайту, пишіть на
-        <a href="mailto:hello@zerowastelviv.org.ua"
-          >hello@zerowastelviv.org.ua</a
-        >
+        <%= t '.rights' %><a href="mailto:hello@zerowastelviv.org.ua"
+        > hello@zerowastelviv.org.ua</a>
       </p>
     </div>
     <div class="col">
-      <h5>ABOUT US</h5>
+      <h5><%= t '.about' %></h5>
       <div>
-        <div><a href="#">Про Zero Waste</a></div>
-        <div class="above"><a href="#">Про Zero Waste Lviv</a></div>
-        <div><a href="#">Команда</a></div>
+        <div><a href="#"><%= t '.about_zw' %></a></div>
+        <div class="above"><a href="#"><%= t '.about_zwl' %></a></div>
+        <div><a href="#"><%= t '.team' %></a></div>
       </div>
     </div>
     <div class="col">
-      <h5>Follow Us</h5>
+      <h5><%= t '.follow' %></h5>
       <div>
-        <a href="mailto:zerowastelviv@gmail.com">zerowastelviv@gmail.com</a>
+        <a href="mailto:zerowastelviv@gmail.com"><%= t '.mail' %></a>
       </div>
       <div class="social-links above">
         <a href="#" class="link"><i class="fab fa-youtube fa-2x"></i></a>
@@ -31,8 +28,8 @@
     </div>
   </div>
   <div class="d-flex justify-content-center mt-3">
-    <div>&copy2021. Zero Waste Lviv</div>
-    <div class="ml-4 mr-4"><a href="">Privacy Policy</a></div>
-    <div><a href="">Terms of use</a></div>
+    <div><%= t '.copy_html' %></div>
+    <div class="ml-4 mr-4"><a href=""><%= t '.policy' %></a></div>
+    <div><a href=""><%= t '.terms' %></a></div>
   </div>
 </footer>
