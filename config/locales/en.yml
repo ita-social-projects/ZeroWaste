@@ -32,8 +32,8 @@
 en:
   calculators:
     show:
-      welcome: "Welcome to Zero Waste Calculator"
-      question: "Just a couple of questions"
+      welcome_header: "Welcome to Zero Waste Calculator"
+      form_description: "Just a couple of questions"
       birthday: "Child's birthday"
       weight: "Baby weight"
       messages: "Yes, I want to receive email messages with recommendations"
@@ -43,10 +43,10 @@ en:
       ngo: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
       rights: 'Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
         ви хочете скористатися матеріалами з нашого сайту, пишіть на'
-      about: "ABOUT US"
       about_zw: "Про Zero Waste"
       about_zwl: "Про Zero Waste Lviv"
       team: "Команда"
+      about: "ABOUT US"
       follow: "Follow Us"
       mail: "zerowastelviv@gmail.com"
       copy_html: "&copy2021. Zero Waste Lviv"
