@@ -5,7 +5,7 @@ class Calculator < ApplicationRecord
   friendly_id :name, use: :slugged
   has_many :fields
   validates :name, presence: true
-  validates :name, format: { with: /\A[a-zA-Z]+\z/,
+  validates :name, format: { with: /[a-zA-Z]+/,
                              message: 'Only letters allowed' }
   validates :name, length: { minimum: 2 }
 end

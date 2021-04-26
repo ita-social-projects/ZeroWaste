@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :calculator do
-    name { 'DiapersCalculator' }
+    name { 'Diapers Calculator' }
   end
 end
