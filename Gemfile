@@ -15,7 +15,8 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+# Turbolinks makes navigating your web application faster. Read more:
+# https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
@@ -25,6 +26,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'friendly_id', '~> 5.4.0'
 
+gem 'dentaku', '~> 3.1'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -32,7 +35,8 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger
+  # console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Rspec-rails. Read more: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 5.0.0'
@@ -41,13 +45,17 @@ group :development, :test do
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  # Access an interactive console on exception pages or by calling 'console'
+  # anywhere in the code.
   gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  # Display performance information such as SQL time and flame graphs for
+  # each request in your browser.
+  # Can be configured to work on production as well see:
+  # https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background. Read more: https://github.com/rails/spring
   gem 'pronto'
   gem 'pronto-rubocop', require: false
   gem 'spring'
@@ -61,7 +69,8 @@ group :test do
   gem 'webdrivers'
   # Shoulda Matchers. Read more: https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '~> 4.0'
-  # Database cleaner. Read more: https://github.com/DatabaseCleaner/database_cleaner
+  # Database cleaner. Read more:
+  # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record'
 end
 

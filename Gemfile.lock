@@ -83,6 +83,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
+    dentaku (3.1.0)
     diff-lcs (1.4.4)
     erubi (1.10.0)
     factory_bot (6.1.0)
@@ -292,6 +293,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   database_cleaner-active_record
+  dentaku (~> 3.1)
   factory_bot_rails
   friendly_id (~> 5.4.0)
   jbuilder (~> 2.7)
@@ -317,4 +319,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.1.4
+   2.2.8
