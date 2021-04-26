@@ -18,5 +18,6 @@ RSpec.describe Product, type: :model do
       is_expected.to validate_length_of(:title).is_at_most(50).with_message(I18n
         .t("#{LOCAL_PREFIX_PRODUCT}.title.too_long"))
     }
+    fjkghtrkjhk5jhjdkfghkwrjlhgkjwegnjktrngkjrenvjkffbhjeqfbqhyregyrequhu4ithi5ukfkjghilkvjrfhnvkjfdnvjkhdfvhrbfhgiu5
   end
 end
