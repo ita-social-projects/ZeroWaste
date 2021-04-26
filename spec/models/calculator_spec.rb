@@ -15,7 +15,7 @@ RSpec.describe Calculator, type: :model do
         .t("#{LOCAL_PREFIX_CALCULATOR}.name.too_short"))
     }
     it {
-      is_expected.not_to allow_value('Hh34').for(:name).with_message(I18n
+      is_expected.not_to allow_value('Hh@').for(:name).with_message(I18n
         .t("#{LOCAL_PREFIX_CALCULATOR}.name.invalid"))
     }
   end
