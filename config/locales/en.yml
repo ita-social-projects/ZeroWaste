@@ -40,12 +40,6 @@ en:
       result: "CALCULATE RESULT"
   layouts:
     footer:
-      ngo: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
-      rights: 'Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
-        ви хочете скористатися матеріалами з нашого сайту, пишіть на'
-      about_zw: "Про Zero Waste"
-      about_zwl: "Про Zero Waste Lviv"
-      team: "Команда"
       about: "ABOUT US"
       follow: "Follow Us"
       mail: "zerowastelviv@gmail.com"
