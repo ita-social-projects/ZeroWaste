@@ -21,6 +21,6 @@ class Field < ApplicationRecord
   end
 
   def result
-
+    return 0
   end
 end

@@ -17,10 +17,4 @@ RSpec.describe Calculation, type: :model do
       .t("#{LOCAL_PREFIX_CALCULATION}.value.too_short"))
     }
   end
-
-  describe '#result' do
-    it {  }
-    it {  }
-    it {  }
-  end
 end
