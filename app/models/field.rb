@@ -19,4 +19,8 @@ class Field < ApplicationRecord
       self.selector = "#{kind[0].upcase}1"
     end
   end
+
+  def result
+    return 0
+  end
 end
