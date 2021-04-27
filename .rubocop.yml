@@ -13,6 +13,7 @@ AllCops:
     - 'bin/bundle'
     - 'spec/**/*'
     - 'test/**/*'
+    - 'config/initializers/devise.rb'
   DisplayStyleGuide: true
 
 Style/Documentation:
