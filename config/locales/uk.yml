@@ -1,9 +1,10 @@
 uk:
   layouts:
     footer:
-      ngo_zw: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
+      name_of_organisation: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
       copyrights: 'Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
         ви хочете скористатися матеріалами з нашого сайту, пишіть на'
-      about_zw: "Про Zero Waste"
-      about_zw_lviv: "Про Zero Waste Lviv"
-      team: "Команда"
+      link:
+        about_organization: "Про Zero Waste"
+        about_local_organisation: "Про Zero Waste Lviv"
+        our_team: "Команда"

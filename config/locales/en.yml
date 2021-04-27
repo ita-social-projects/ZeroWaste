@@ -34,18 +34,20 @@ en:
     show:
       welcome_header: "Welcome to Zero Waste Calculator"
       form_description: "Just a couple of questions"
-      birthday: "Child's birthday"
-      baby_weight: "Baby weight"
-      receive_messages: "Yes, I want to receive email messages with recommendations"
-      calculate_result: "CALCULATE RESULT"
+      label_form:
+        childs_birthday: "Child's birthday"
+        baby_weight: "Baby weight"
+      checkbox:
+        receiving_of_recomendation: "Yes, I want to receive email messages with recommendations"
+      button:
+        calculate_result: "CALCULATE RESULT"
   layouts:
     footer:
       about_us: "ABOUT US"
       follow_us: "Follow Us"
-      mail: "zerowastelviv@gmail.com"
-      copyrights_html: "&copy2021. Zero Waste Lviv"
-      privacy_policy: "Privacy Policy"
-      terms_of_use: "Terms of use"
+      link:
+        privacy_policy: "Privacy Policy"
+        terms_of_use: "Terms of use"
   activerecord:
     errors:
       models:
