@@ -3,8 +3,10 @@
 class Field < ApplicationRecord
   belongs_to :calculator
   before_create :set_selector
-  validates :type, :label, :kind, presence: true
   enum kind: { form: 0, parameter: 1, result: 2 }
+  enum unit: { month: 0, date: 1, times: 2 }
+  validates :type, :label, :kind, presence: true
+  validates :unit, inclusion: { in: units.keys }
 
   private
 
