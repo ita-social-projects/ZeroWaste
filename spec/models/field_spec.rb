@@ -23,6 +23,10 @@ RSpec.describe Field, type: :model do
       is_expected.to define_enum_for(:kind)
         .with_values(%i[form parameter result])
     }
+    it {
+      is_expected.to define_enum_for(:unit)
+        .with_values(%i[month date times])
+    }
   end
 
   describe 'associations' do

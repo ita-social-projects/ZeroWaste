@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_125453) do
-ActiveRecord::Schema.define(version: 2021_04_26_201823) do
+
+ActiveRecord::Schema.define(version: 2021_04_26_195743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 2021_04_26_201823) do
     t.string "label", null: false
     t.string "name"
     t.string "value"
-    t.string "unit"
     t.integer "from"
     t.integer "to"
     t.integer "kind", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "unit", default: 0
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
     t.index ["uuid"], name: "index_fields_on_uuid", unique: true
   end
