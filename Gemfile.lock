@@ -106,6 +106,8 @@ GEM
       ruby2_keywords
     faraday-net_http (1.0.1)
     ffi (1.15.0)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     gitlab (4.17.0)
       httparty (~> 0.18)
       terminal-table (~> 1.5, >= 1.5.1)
@@ -310,6 +312,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
+  friendly_id (~> 5.4.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
