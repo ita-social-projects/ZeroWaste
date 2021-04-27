@@ -1,22 +1,22 @@
 <h1 class="display-4 text-center mt-5 mb-5">
-  Welcome to Zero Waste Calculator
+  <%= t '.welcome_header' %>
 </h1>
 <div class="container home">
   <div class="jumbotron">
     <div class="container">
-      <h3 class="container ml-2">Just a couple of questions</h3>
+      <h3 class="container ml-2"><%= t '.form_description' %></h3>
       <form action="" class="container mt-3">
         <div class="container input-group d-flex justify-content-between">
           <label for="" class="text-center">
-            Child's birthday
+            <%= t '.form.childs_birthday_label' %>
             <input type="text" class="col datepick" />
           </label>
           <label for="" class="text-center">
-            Baby weight
+            <%= t '.form.baby_weight_label' %>
             <input type="text" class="col datepick" />
           </label>
           <label for="" class="text-center">
-            Child's birthday
+            <%= t '.form.childs_birthday_label' %>
             <input type="text" class="col datepick" />
           </label>
         </div>
@@ -29,11 +29,11 @@
             checked
           />
           <label class="form-check-label" for="flexCheckChecked">
-            Yes, I want to receive email messages with recommendations
+            <%= t '.want_recomentation_label' %>
           </label>
         </div>
         <button type="submit" class="btn btn-success ml-3 mt-4">
-          CALCULATE RESULT
+          <%= t '.calculate_result_button' %>
         </button>
       </form>
     </div>

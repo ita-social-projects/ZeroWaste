@@ -30,8 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: 'Hello world'
-
+  calculators:
+    show:
+      welcome_header: "Welcome to Zero Waste Calculator"
+      form_description: "Just a couple of questions"
+      form:
+        childs_birthday_label: "Child's birthday"
+        baby_weight_label: "Baby weight"
+      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
+      calculate_result_button: "CALCULATE RESULT"
+  layouts:
+    footer:
+      about_us: "ABOUT US"
+      follow_us: "Follow Us"
+      link:
+        privacy_policy: "Privacy Policy"
+        terms_of_use: "Terms of use"
   activerecord:
     errors:
       models:
