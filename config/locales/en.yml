@@ -34,13 +34,11 @@ en:
     show:
       welcome_header: "Welcome to Zero Waste Calculator"
       form_description: "Just a couple of questions"
-      label_form:
-        childs_birthday: "Child's birthday"
-        baby_weight: "Baby weight"
-      checkbox:
-        receiving_of_recomendation: "Yes, I want to receive email messages with recommendations"
-      button:
-        calculate_result: "CALCULATE RESULT"
+      form:
+        childs_birthday_label: "Child's birthday"
+        baby_weight_label: "Baby weight"
+      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
+      calculate_result_button: "CALCULATE RESULT"
   layouts:
     footer:
       about_us: "ABOUT US"
