@@ -109,4 +109,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.define_derived_metadata(:file_path => Regexp.new('/spec/functions/')) do |metadata|
+    metadata[:type] = :function
+  end
 end
