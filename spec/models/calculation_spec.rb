@@ -19,24 +19,29 @@ RSpec.describe Calculation, type: :model do
   end
 
   describe '#result' do
-    subject(:calculation) { create(:calculation, value: value) }
+
     let(:value) { 'P1 + 2' }
+    let(:parameters) { {P1: 2} }
+    subject(:calculation) { create(:calculation, value: value) }
+    subject(:result) { calculation.result(parameters) }
 
     context 'when pass valid data' do
-      it { expect(calculation.result({P1: 2})).to eq 4 }
+      it { expect(result).to eq 4 }
     end
 
     context 'when pass invalid value' do
       let(:value) { 'not_number' }
-      it { expect(calculation.result({P1: 2})).to eq nil }
+      it { expect(result).to be_nil }
     end
 
     context 'when pass empty hash' do
-      it { expect(calculation.result({})).to eq nil }
+      let(:parameters) { {} }
+      it { expect(result).to be_nil }
     end
 
     context 'when pass number instead hash' do
-      it { expect(calculation.result(2)).to eq nil }
+      let(:parameters) { 2 }
+      it { expect(result).to be_nil }
     end
   end
 end
