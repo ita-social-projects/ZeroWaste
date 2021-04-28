@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductType < ApplicationRecord
-  has_many :products
+  has_many :products, dependent: :destroy
 
   validates :title, presence: true
   validates :title, length: { minimum: 3 }
