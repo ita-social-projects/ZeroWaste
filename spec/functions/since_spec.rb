@@ -9,21 +9,30 @@ RSpec.describe Since, type: :function do
   }
 
   describe "#calculate_units" do
-    let(:calculator) { Dentaku::Calculator.new }
     let(:calculate_units) { Since.calculate_units }
-    let!(:since) { calculator.add_function(:since, :numeric, calculate_units) }
-    let(:date) { Date.new(2001,01,01) }
+    let(:from) { Time.new(2001,01,01) }
+    let(:to) { Time.new(2021,01,01) }
 
     it {
       expect(calculate_units).to be_a(Proc)
     }
 
-    it {
-      expect(calculate_units.call(date, 'day')).to be(7423)
-    }
+    context "when unit is `day`" do
+      it {
+      expect(calculate_units.call(from, to, 'day')).to be(7305)
+      }
+    end
 
-    # it {
-    #   expect(calculator.evaluate('SINCE(date, "day")')).to be(7423)
-    # }
+    context "when unit is `month`" do
+      it {
+      expect(calculate_units.call(from, to, 'month')).to be(240)
+      }
+    end
+
+    context "when unit is `year`" do
+      it {
+      expect(calculate_units.call(from, to, 'year')).to be(20)
+      }
+    end
   end
 end

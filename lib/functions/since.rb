@@ -2,30 +2,16 @@
 
 class Since
   def self.calculate_units
-    proc { |date, unit| define_case(date, unit) }
+    proc { |from, to, unit| get_diff_of_date(from, to, unit) }
   end
 
-  def self.define_case(date, unit)
-    case unit
-    when 'day'
-      days_from(date)
-    when 'month'
-      months_from(date)
-    when 'year'
-      years_from(date)
+  def self.get_diff_of_date(from, to, unit)
+    unless 1.respond_to?(unit)
+      raise ArgumentError, "#{unit.inspect} is not supported as unit"
     end
-  end
 
-  def self.days_from(date)
-    (Date.today - date).to_i
-  end
-
-  def self.months_from(date)
-    (Date.today.year * 12 + Date.today.month) - (date.year * 12 + date
-.month)
-  end
-
-  def self.years_from(date)
-    Date.today.year - date.year
+    diff = to - from
+    distance = diff / 1.send(unit)
+    distance.abs.round
   end
 end
