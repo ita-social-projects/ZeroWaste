@@ -31,17 +31,17 @@ RSpec.describe Calculation, type: :model do
 
     context 'when pass invalid value' do
       let(:value) { 'not_number' }
-      it { expect(result).to be_nil }
+      it { is_expected.to be_nil }
     end
 
     context 'when pass empty hash' do
       let(:parameters) { {} }
-      it { expect(result).to be_nil }
+      it { is_expected.to be_nil }
     end
 
     context 'when pass number instead hash' do
       let(:parameters) { 2 }
-      it { expect(result).to be_nil }
+      it { is_expected.to be_nil }
     end
   end
 end
