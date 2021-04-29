@@ -10,8 +10,8 @@ RSpec.describe Since, type: :function do
 
   describe "#calculate_units" do
     let(:calculate_units) { Since.calculate_units }
-    let(:from) { Time.new(2001,01,01) }
-    let(:to) { Time.new(2021,01,01) }
+    let(:from) { Time.new(2021,01,01) }
+    let(:to) { Time.new(2021,01,31) }
     let(:invalid_date_format) { Date.new(2001,01,01) }
 
     it {
@@ -20,19 +20,19 @@ RSpec.describe Since, type: :function do
 
     context "when unit is `day`" do
       it {
-      expect(calculate_units.call(from, to, 'day')).to be(7305)
+      expect(calculate_units.call(from, to, 'day')).to be(30)
       }
     end
 
     context "when unit is `month`" do
       it {
-      expect(calculate_units.call(from, to, 'month')).to be(240)
+      expect(calculate_units.call(from, to, 'month')).to be(1)
       }
     end
 
     context "when unit is `year`" do
       it {
-      expect(calculate_units.call(from, to, 'year')).to be(20)
+      expect(calculate_units.call(from, to, 'year')).to be(0)
       }
     end
 
