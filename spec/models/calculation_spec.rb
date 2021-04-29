@@ -21,9 +21,9 @@ RSpec.describe Calculation, type: :model do
   describe '#result' do
 
     let(:value) { 'P1 + 2' }
-    let(:parameters) { {P1: 2} }
+    let(:parameters) { {p1: 2} }
     let(:calculation) { create(:calculation, value: value) }
-    subject (:result) { calculation.result(parameters) }
+    subject  { calculation.result(parameters) }
 
     context 'when pass valid data' do
       it { is_expected.to eq 4 }
@@ -42,6 +42,11 @@ RSpec.describe Calculation, type: :model do
     context 'when pass number instead hash' do
       let(:parameters) { 2 }
       it { is_expected.to be_nil }
+    end
+
+    context 'when pass upcase letter in hash ' do
+      let(:parameters) { {P1: 2} }
+      it { is_expected.to eq 4 }
     end
   end
 end
