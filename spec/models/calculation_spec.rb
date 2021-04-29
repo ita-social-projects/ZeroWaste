@@ -22,11 +22,11 @@ RSpec.describe Calculation, type: :model do
 
     let(:value) { 'P1 + 2' }
     let(:parameters) { {P1: 2} }
-    subject(:calculation) { create(:calculation, value: value) }
-    subject(:result) { calculation.result(parameters) }
+    let(:calculation) { create(:calculation, value: value) }
+    subject (:result) { calculation.result(parameters) }
 
     context 'when pass valid data' do
-      it { expect(result).to eq 4 }
+      it { is_expected.to eq 4 }
     end
 
     context 'when pass invalid value' do
