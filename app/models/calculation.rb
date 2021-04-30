@@ -8,16 +8,7 @@ class Calculation < Field
 
   def result(parameters)
     calculator = Dentaku::Calculator.new
-    return build_since_function(calculator, parameters) if value == 'since'
-
-    calculator.evaluate(value, parameters)
-  end
-
-  def build_since_function(calculator, parameters)
     calculator.add_function(:since, :numeric, Since.calculate_units)
-    from = parameters[:from].to_time
-    to = parameters[:to].to_time
-    unit = parameters[:unit]
-    calculator.evaluate("SINCE(#{from}, #{to}, #{unit})")
+    calculator.evaluate(value, parameters)
   end
 end
