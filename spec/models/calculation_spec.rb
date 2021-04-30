@@ -48,5 +48,13 @@ RSpec.describe Calculation, type: :model do
       let(:parameters) { {P1: 2} }
       it { is_expected.to eq 4 }
     end
+
+    context 'when pass `since` value and `from`, `to`, `unit` parameters' do
+      let(:value) { 'since' }
+      let(:from) { Date.new(2020,01,01) }
+      let(:to) { Date.new(2021,01,31) }
+      let(:parameters) { {from: from, to: to, unit: 'day'} }
+      it { is_expected.to eq 396 }
+    end
   end
 end
