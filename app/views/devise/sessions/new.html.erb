@@ -3,8 +3,7 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card text-center">
         <div class="card-block">
-        <h2>Log in</h2>
-        <div class="container">
+        <h2><%= t('.log_in') %></h2>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <%= f.label :email %><br />
@@ -24,12 +23,9 @@
           <% end %>
         
           <div class="actions">
-            <%= f.submit "Log in", class: 'btn btn-primary' %>
+            <%= f.submit t('.log_in'), class: "btn btn-primary" %>
           </div>
         <% end %>
-        
-        </div>
-        
         <%= render "devise/shared/links" %>
         </div>
       </div>
