@@ -6,20 +6,20 @@ class Since
   end
 
   def self.get_diff_of_date(from, to, unit)
-    valid_date_format!(from, to)
-    valid_unit!(unit)
+    validate_date_format!(from, to)
+    validate_unit!(unit)
     diff = to - from
     distance = diff / 1.send(unit)
     distance.abs.round
   end
 
-  def self.valid_date_format!(from, to)
+  def self.validate_date_format!(from, to)
     return if from.is_a?(Time) && to.is_a?(Time)
 
-    raise ArgumentError, 'invalid date format'
+    raise ArgumentError, 'invalid time format'
   end
 
-  def self.valid_unit!(unit)
+  def self.validate_unit!(unit)
     return if 1.respond_to?(unit)
 
     raise ArgumentError, "#{unit.inspect} is not supported as unit"
