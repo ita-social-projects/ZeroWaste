@@ -10,9 +10,9 @@ RSpec.describe Since, type: :function do
 
   describe "#calculate_units" do
     let(:calculate_units) { Since.calculate_units }
-    let(:from) { Time.new(2020,01,01) }
-    let(:to) { Time.new(2021,01,31) }
-    let(:invalid_date_format) { Date.new(2001,01,01) }
+    let(:from) { Date.new(2020,01,01) }
+    let(:to) { Date.new(2021,01,31) }
+    let(:invalid_date_format) { Time.new(2001,01,01) }
 
     it {
       expect(calculate_units).to be_a(Proc)
