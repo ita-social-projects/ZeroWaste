@@ -8,7 +8,8 @@ class Calculation < Field
 
   def result(parameters)
     calculator = Dentaku::Calculator.new
-    calculator.add_function(:since, :numeric, Since.calculate_units)
+    formula = ->(from, to, unit) { Since.calculate_units(from, to, unit) }
+    calculator.add_function(:since, :numeric, formula)
     calculator.evaluate(value, parameters)
   end
 end

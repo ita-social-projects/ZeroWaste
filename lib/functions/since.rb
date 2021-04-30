@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
 class Since
-  def self.calculate_units
-    ->(from, to, unit) { get_diff_of_date(from, to, unit) }
-  end
-
-  def self.get_diff_of_date(from, to, unit)
+  def self.calculate_units(from, to, unit)
     validate_date_format!(from, to)
     validate_unit!(unit)
-    from = parameters[:from].to_time
-    to = parameters[:to].to_time
+    from = from.to_time
+    to = to.to_time
     diff = to - from
     distance = diff / 1.send(unit)
     distance.abs.round
