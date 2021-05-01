@@ -46,6 +46,15 @@ en:
       link:
         privacy_policy: "Privacy Policy"
         terms_of_use: "Terms of use"
+  devise:
+    sessions:
+      new:
+        log_in: "Log in"
+    shared:
+      links:
+        forgot_your_password: "Forgot your password?"
+        log_in: "Log in"
+        sign_up: "Sign up"
   activerecord:
     errors:
       models:
@@ -109,3 +118,7 @@ en:
               blank: "The field 'Value' can't be blank."
               too_short: "The field 'Value' is too short."
               invalid: "The field 'Value' is invalid"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"

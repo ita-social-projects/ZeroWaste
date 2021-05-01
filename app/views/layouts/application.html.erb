@@ -13,7 +13,9 @@
   </head>
 
   <body class="wrapper">
-    <%= render 'layouts/navigation' %>    
+    <%= render 'layouts/navigation' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>        
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
