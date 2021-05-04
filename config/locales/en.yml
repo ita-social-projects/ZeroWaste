@@ -38,7 +38,6 @@ en:
         childs_birthday_label: "Child's birthday"
         baby_weight_label: "Baby weight"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
-      calculate_result_button: "CALCULATE RESULT"
   layouts:
     footer:
       about_us: "ABOUT US"

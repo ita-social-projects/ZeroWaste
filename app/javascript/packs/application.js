@@ -13,7 +13,7 @@ import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
 import 'plugins/flatpickr';
 
-var jQuery = require('jquery');
+let jQuery = require('jquery');
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
