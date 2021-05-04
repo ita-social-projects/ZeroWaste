@@ -19,15 +19,14 @@ class CalculatorResolver
     calculator = Dentaku::Calculator.new
     selectors = calculator.dependencies(value)
     selectors.each do |selector|
-      fetched_values << Value.find_by(selector: selector.upcase)
+      fetched_values << Value.where(selector: selector.upcase)[0]
     end
 
     fetched_values
   end
 
   def self.get_fields(calculator)
-    Field.includes(:calculator)
+    Field.joins(:calculator)
          .where(calculator_id: calculator.id, kind: 'result')
-         .references(:calculator)
   end
 end
