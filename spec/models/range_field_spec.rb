@@ -33,5 +33,11 @@ RSpec.describe RangeField, type: :model do
       is_expected.to validate_presence_of(:value)
         .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.value.blank"))
     }
+    context 'when pass value with `in` formula' do
+      let(:from) { [9, 16, 25] }
+      let(:to) { [15, 35, 45] }
+      let(:value) { "IN_F(#{from}, #{to}, '75')" }
+      it { is_expected.to be {([9, 16, 25]..[15, 35, 45]) => '75'} }
+    end
   end
 end
