@@ -2,31 +2,24 @@
 
 class CalculatorResolver
   def self.call(calculator)
-    dependencies = {}
-    get_fields(calculator).each do |field|
+    get_fields(calculator).each_with_object({}) do |field, hash|
       unless field[:type] == 'Calculation'
-        dependencies[field] = []
+        hash[field] = []
         next
       end
-      dependencies[field] = get_dependencies(field[:value])
+      hash[field] = get_dependencies(field[:value])
     end
-
-    dependencies
   end
 
   def self.get_dependencies(value)
-    fetched_values = []
     calculator = Dentaku::Calculator.new
     selectors = calculator.dependencies(value)
-    selectors.each do |selector|
-      fetched_values << Value.where(selector: selector.upcase)[0]
+    selectors.each_with_object([]) do |selector, array|
+      array << Value.where(selector: selector.upcase)[0]
     end
-
-    fetched_values
   end
 
   def self.get_fields(calculator)
-    Field.joins(:calculator)
-         .where(calculator_id: calculator.id, kind: 'result')
+    Field.where(calculator: calculator.id, kind: 'result')
   end
 end
