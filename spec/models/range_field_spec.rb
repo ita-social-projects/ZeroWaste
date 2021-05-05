@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'functions/in'
 LOCAL_PREFIX_RANGE_FIELD = 'activerecord.errors.models.range_field.attributes'
 
 RSpec.describe RangeField, type: :model do
@@ -34,10 +35,18 @@ RSpec.describe RangeField, type: :model do
         .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.value.blank"))
     }
     context 'when pass value with `in` formula' do
-      let(:from) { [9, 16, 25] }
-      let(:to) { [15, 35, 45] }
-      let(:value) { "IN_F(#{from}, #{to}, '75')" }
-      it { is_expected.to be {([9, 16, 25]..[15, 35, 45]) => '75'} }
+      subject { RangeField }
+      let(:get_params) { InClass.get_params }
+      let(:calculator) { build(:calculator) }
+      let(:range1) do
+        create(:range_field, from: 5, type: 'Calculation', label: 'label',
+                             kind: 'form', calculator: calculator, to: 19, value: '56')
+      end
+      let(:ranges) { [range1, range2, range3] }
+      let(:value) { "FROM_LIST(#{ranges})" }
+      it {
+        expect(get_params.call([range1])).to eq({ range1 => { range1.from..range1.to => range1.value } })
+      }
     end
   end
 end

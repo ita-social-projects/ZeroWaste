@@ -1,26 +1,21 @@
 # frozen_string_literal: true
 
 class InClass
-  def self.get_params
-    ->(from, to, value) { get_hash(from, to, value) }
+  def self.calculate_params
+    ->(range_field_arr) { get_hash(range_field_arr) }
   end
 
-  def self.get_hash(from, to, value)
-    validate_from_to!(from, to)
-    validate_value!(value)
-
-    { (from..to) => value }
+  def self.get_hash(range_field_arr)
+    validate_ranges_instances!(range_field_arr)
+    range_field_arr.each_with_object({}) do |range_field, hash|
+      hash[range_field] =
+        { (range_field.from..range_field.to) => range_field.value }
+    end
   end
 
-  def validate_from_to!(_from)
-    return if RangeField.from.is_a?(Array) && RangeField.to.is_a?(Array)
+  def self.validate_ranges_instances!(range_field_arr)
+    return if range_field_arr.all?(RangeField)
 
     raise ArgumentError, 'invalid array format'
-  end
-
-  def validate_value!(value)
-    return if 1.respond_to?(value)
-
-    raise ArgumentError, "#{value.inspect} is not supported as value"
   end
 end
