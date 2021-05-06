@@ -17,6 +17,8 @@ uk:
         forgot_your_password: "Забули пароль?"
         log_in: "Увійти"
         sign_up: "Зареєструватися"
+    failure:
+      timeout: "Час вашої сесії закінчено. Будь ласка, увійдіть у систему знову"
   activerecord:
     attributes:
       user:
