@@ -47,6 +47,19 @@ en:
         privacy_policy: "Privacy Policy"
         terms_of_use: "Terms of use"
   devise:
+    passwords:
+      new:
+        forgot_password_header: "Forgot your password?"
+        form:
+          email_label: "Email"
+        send_instructions_button: "Send me reset password instructions"
+      edit:
+        change_password_header: "Change your password"
+        form:
+          new_password_label: "New password"
+          minimal_length_label: "characters minimum"
+          confirm_password_label: "Confirm new password"
+        change_password_button: "Change my password"
     sessions:
       new:
         log_in: "Log in"
