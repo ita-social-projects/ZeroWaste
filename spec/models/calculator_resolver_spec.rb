@@ -11,15 +11,15 @@ RSpec.describe CalculatorResolver, type: :model do
   let!(:value3) { create(:value, value: 'Value', type: 'Value', label: 'four', kind: 'parameter', calculator: calculator) }
   let!(:value4) { create(:value, value: 'Value', type: 'Value', label: 'five', kind: 'parameter', calculator: calculator) }
 
-  it { expect(CalculatorResolver.call(calculator)).to be_kind_of(Hash) }
-
   describe "#call" do
-    context "when type == 'Result'" do
+    it { expect(CalculatorResolver.call(calculator)).to be_kind_of(Hash) }
+
+    context "when 'field' is 'Calculation'" do
       it { expect(CalculatorResolver.call(calculator)[calculation]).to match_array([value2, value3, value4]) }
     end
 
-    context "when type == 'Value'" do
-      it { expect(CalculatorResolver.call(calculator)[value1]).to match_array([]) }
+    context "when 'field' is not 'Calculation'" do
+      it { expect(CalculatorResolver.call(calculator)[value1]).to be_empty }
     end
   end
 end

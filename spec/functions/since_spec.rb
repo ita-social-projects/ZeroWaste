@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'functions/since.rb'
 
 RSpec.describe Since, type: :function do
-  subject { Since }
+  subject { described_class }
 
   it {
     is_expected.to respond_to(:calculate_units)
