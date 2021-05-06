@@ -68,6 +68,17 @@ en:
         forgot_your_password: "Forgot your password?"
         log_in: "Log in"
         sign_up: "Sign up"
+    registrations:
+      new:
+        sing_up_header: "Sing Up"
+        form:
+          email_label: "Email"
+          password_label: "Password"
+          password_characters_minimum_label: "Characters Minimum"
+          password_confirmation_label: "Password Confirmation"
+          first_name_label: "First Name"
+          last_name_label: "Last Name"
+          sing_up_button: "Sing Up"
     failure:
       timeout: "Your session expired. Please sign in again to continue"
   activerecord:

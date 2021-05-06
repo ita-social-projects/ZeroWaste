@@ -28,6 +28,8 @@ gem 'friendly_id', '~> 5.4.0'
 
 gem 'dentaku', '~> 3.1'
 
+gem 'country_select', '~> 4.0'
+
 gem 'bigdecimal', '1.3.5'
 
 # Use Active Storage variant
