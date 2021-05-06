@@ -1,4 +1,4 @@
-$("#result_button").on('click', function() {
+$(document).on('turbolinks:load', function() {
   const form = document.getElementById('form');
 
   form.addEventListener('submit', function(e) {
@@ -9,8 +9,8 @@ $("#result_button").on('click', function() {
       childs_birthday: $("#birth").val(),
       baby_weight: $("#weight").val()
     } 
-    Rails.ajax({
-      url: "./api/v1/calculators/:id/compute",
+    $.ajax({
+      url: "/api/v1/calculators/diapers-calculator/compute",
       type: "POST",
       data: formData,
       dataType: "json"
