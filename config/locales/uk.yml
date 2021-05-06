@@ -9,6 +9,17 @@ uk:
         about_local_organisation: "Про Zero Waste Lviv"
         our_team: "Команда"
   devise:
+    passwords:
+      new:
+        forgot_password_header: "Забули пароль?"
+        send_instructions_button: "Надішліть мені інструкції щодо скидання пароля"
+      edit:
+        change_password_header: "Змініть ваш пароль"
+        form:
+          new_password_label: "Новий пароль"
+          minimal_length_label: "символів мінімум"
+          confirm_password_label: "Підтвердіть новий пароль"
+        change_password_button: "Змінити пароль"
     sessions:
       new:
         log_in: "Увійти"
@@ -17,6 +28,19 @@ uk:
         forgot_your_password: "Забули пароль?"
         log_in: "Увійти"
         sign_up: "Зареєструватися"
+    registrations:
+      new:
+        sing_up_header: "Зареєструватися"
+        form:
+          email_label: "Поштова Скринька"
+          password_label: "Пароль"
+          password_characters_minimum_label: "Мінімум Символів"
+          password_confirmation_label: "Підтвердження Паролю"
+          first_name_label: "Ім'я"
+          last_name_label: "Прізвище"
+          sing_up_button: "Зареєструватися"
+    failure:
+      timeout: "Час вашої сесії закінчено. Будь ласка, увійдіть у систему знову"
   activerecord:
     attributes:
       user:
