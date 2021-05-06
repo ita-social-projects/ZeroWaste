@@ -22,4 +22,8 @@ class CalculatorResolver
   def self.get_fields(calculator)
     Field.where(calculator: calculator.id, kind: 'result')
   end
+
+  class << self
+    private :get_dependencies, :get_fields
+  end
 end
