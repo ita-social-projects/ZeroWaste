@@ -5,19 +5,15 @@
   <div class="jumbotron">
     <div class="container">
       <h3 class="container ml-2"><%= t '.form_description' %></h3>
-      <form action="" class="container mt-3">
+      <form action="" id = "form" class="container mt-3">
         <div class="container input-group d-flex justify-content-between">
           <label for="" class="text-center">
             <%= t '.form.childs_birthday_label' %>
-            <input type="text" class="col datepick" />
+            <input id="birth" type="text" class="col datepick" />
           </label>
           <label for="" class="text-center">
             <%= t '.form.baby_weight_label' %>
-            <input type="text" class="col datepick" />
-          </label>
-          <label for="" class="text-center">
-            <%= t '.form.childs_birthday_label' %>
-            <input type="text" class="col datepick" />
+            <input type="text" class="col" />
           </label>
         </div>
         <div class="container ml-3 mt-4 form-check">

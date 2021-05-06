@@ -28,6 +28,8 @@ gem 'friendly_id', '~> 5.4.0'
 
 gem 'dentaku', '~> 3.1'
 
+gem 'country_select', '~> 4.0'
+
 gem 'bigdecimal', '1.3.5'
 
 # Use Active Storage variant
@@ -43,6 +45,7 @@ group :development, :test do
   # Rspec-rails. Read more: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 5.0.0'
   # Factory_bot. Read more: https://github.com/thoughtbot/factory_bot_rails
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
 end
 

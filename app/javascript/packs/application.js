@@ -12,8 +12,9 @@ import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
 import 'plugins/flatpickr';
+import 'ajax/result_button';
 
-var jQuery = require('jquery');
+const jQuery = require('jquery');
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 

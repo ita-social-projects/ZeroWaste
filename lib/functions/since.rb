@@ -24,4 +24,8 @@ class Since
 
     raise ArgumentError, "#{unit.inspect} is not supported as unit"
   end
+
+  class << self
+    private :get_diff_of_date, :validate_date_format!, :validate_unit!
+  end
 end
