@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'functions/in'
+require 'functions/from_list'
 
-RSpec.describe InClass, type: :function do
-  subject { InClass }
-  let(:get_params) { InClass.get_params }
+RSpec.describe FromList, type: :function do
+  subject { FromList }
+  let(:get_params) { FromList.call_params }
   let(:calculator) { build(:calculator) }
   let(:range1) do
     create(:range_field, from: 5, type: 'Calculation', label: 'label',
@@ -21,7 +21,7 @@ RSpec.describe InClass, type: :function do
   end
 
   it {
-    is_expected.to respond_to(:get_params)
+    is_expected.to respond_to(:call_params)
   }
 
   describe '#get_params' do

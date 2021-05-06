@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'functions/in'
+require 'functions/from_list'
 LOCAL_PREFIX_RANGE_FIELD = 'activerecord.errors.models.range_field.attributes'
 
 RSpec.describe RangeField, type: :model do
@@ -36,7 +36,7 @@ RSpec.describe RangeField, type: :model do
     }
     context 'when pass value with `in` formula' do
       subject { RangeField }
-      let(:get_params) { InClass.get_params }
+      let(:get_params) { FromList.call_params }
       let(:calculator) { build(:calculator) }
       let(:range1) do
         create(:range_field, from: 5, type: 'Calculation', label: 'label',
