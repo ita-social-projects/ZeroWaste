@@ -3,48 +3,45 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card text-center">
         <div class="card-block">
-          <h2><%= t('.sing_up') %></h2>
+          <h2><%= t('.sing_up_header') %></h2>
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class="field">
-              <%= f.label :email %><br />
+              <%= f.label :email, t('.form.email_label') %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
 
             <div class="field">
-              <%= f.label :password %>
+              <%= f.label :password, t('.form.password_label') %>
               <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> <%= t('.characters_minimum') %>)</em>
+                <em>(<%= @minimum_password_length %> <%= t('.form.password_characters_minimum_label') %>)</em>
               <% end %><br />
               <%= f.password_field :password, autocomplete: "new-password" %>
             </div>
 
             <div class="field">
-              <%= f.label :password_confirmation %><br />
+              <%= f.label :password_confirmation, t('.form.password_confirmation_label') %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
             </div>
 
             <div class="field">
-              <%= f.label :first_name %><br />
+              <%= f.label :first_name, t('.form.first_name_label') %><br />
               <%= f.text_field :first_name, autofocus: true, autocomplete: "name" %>
             </div>
 
             <div class="field">
-              <%= f.label :last_name %><br />
+              <%= f.label :last_name, t('.form.last_name_label') %><br />
               <%= f.text_field :last_name, autofocus: true, autocomplete: "name" %>
             </div>
-
-<!--            <br/>-->
-            <%#= f.select :country, options_for_select(%w[Ukraine Poland]) %>
 
             <br/>
               <%= f.country_select :country %>
 
             <div class="actions">
               <br/>
-              <%= f.submit "Sign up", class: "btn btn-primary" %>
+              <%= f.submit t('.form.sing_up_button'), class: "btn btn-primary" %>
             </div>
           <% end %>
           <%= render "devise/shared/links" %>

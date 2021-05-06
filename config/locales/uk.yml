@@ -17,6 +17,17 @@ uk:
         forgot_your_password: "Забули пароль?"
         log_in: "Увійти"
         sign_up: "Зареєструватися"
+    registrations:
+      new:
+        sing_up_header: "Зареєструватися"
+        form:
+          email_label: "Поштова Скринька"
+          password_label: "Пароль"
+          password_characters_minimum_label: "Мінімум Символів"
+          password_confirmation_label: "Підтвердження Паролю"
+          first_name_label: "Ім'я"
+          last_name_label: "Прізвище"
+          sing_up_button: "Зареєструватися"
   activerecord:
     attributes:
       user:
