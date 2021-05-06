@@ -38,7 +38,7 @@ RSpec.describe FromList, type: :function do
         expect(get_params.call([range2])).to eq({ range2 => { range2.from..range2.to => range2.value } })
       }
       it {
-        expect(get_params.call([range3])).to eq({ range3 => { range3.from..range3.to => range3.value } })
+        expect(get_params.call([range3])).to eq({ range3 => { range3.from..range3.to => range3.value } } )
       }
     end
 
