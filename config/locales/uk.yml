@@ -1,4 +1,7 @@
 uk:
+  calculators:
+    show:
+      calculate_result_button: "Pозрахувати"
   layouts:
     footer:
       name_of_organisation: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
