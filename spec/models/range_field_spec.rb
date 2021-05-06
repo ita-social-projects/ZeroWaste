@@ -34,9 +34,9 @@ RSpec.describe RangeField, type: :model do
       is_expected.to validate_presence_of(:value)
         .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.value.blank"))
     }
-    context 'when pass value with `in` formula' do
+    context 'when pass value with `from_list` formula' do
       subject { RangeField }
-      let(:get_params) { FromList.call_params }
+      let(:get_params) { FromList.to_hash }
       let(:calculator) { build(:calculator) }
       let(:range1) do
         create(:range_field, from: 5, type: 'Calculation', label: 'label',

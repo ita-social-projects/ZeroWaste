@@ -5,7 +5,7 @@ require 'functions/from_list'
 
 RSpec.describe FromList, type: :function do
   subject { FromList }
-  let(:get_params) { FromList.call_params }
+  let(:get_params) { FromList.to_hash }
   let(:calculator) { build(:calculator) }
   let(:range1) do
     create(:range_field, from: 5, type: 'Calculation', label: 'label',
@@ -20,11 +20,12 @@ RSpec.describe FromList, type: :function do
                          kind: 'form', calculator: calculator, to: 21, value: '58')
   end
 
-  it {
-    is_expected.to respond_to(:call_params)
-  }
+  let(:range4) { 5 }
+  let(:range5) { '7854'}
+  let(:range6) { '' }
 
-  describe '#get_params' do
+
+  describe '#to_hash' do
     it {
       expect(get_params.call([range1, range2, range3])).to be_kind_of(Hash)
     }
@@ -38,6 +39,18 @@ RSpec.describe FromList, type: :function do
       }
       it {
         expect(get_params.call([range3])).to eq({ range3 => { range3.from..range3.to => range3.value } })
+      }
+    end
+
+    context "when 'from','to' and 'value' are invalid" do
+      it {
+        expect { get_params.call([range4]) }.to raise_error(ArgumentError)
+      }
+      it {
+        expect { get_params.call([range5]) }.to raise_error(ArgumentError)
+      }
+      it {
+        expect { get_params.call([range6]) }.to raise_error(ArgumentError)
       }
     end
   end

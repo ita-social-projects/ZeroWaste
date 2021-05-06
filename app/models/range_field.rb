@@ -7,7 +7,7 @@ class RangeField < Field
 
   def result(parameters)
     calculator = Dentaku::Calculator.new
-    calculator.add_function(:from_list, :numeric, FromList.call_params)
+    calculator.add_function(:from_list, :numeric, FromList.to_hash)
     calculator.evaluate(value, parameters)
   end
 end
