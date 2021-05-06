@@ -7,12 +7,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :lockable, :timeoutable
   validates :email, presence: true,
-                    #acceptance: { message: 'Невірний логін'},
                     uniqueness: { case_sensitive: false },
                     length: { minimum: 6, maximum: 100 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true,
-                     #acceptance: { message: 'Невірний пароль'},
                      length: { minimum: 8 },
                      format: { with: /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/\w]{8,}/ }
 end
