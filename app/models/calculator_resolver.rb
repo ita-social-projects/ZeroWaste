@@ -14,13 +14,12 @@ class CalculatorResolver
   def self.get_dependencies(value)
     calculator = Dentaku::Calculator.new
     selectors = calculator.dependencies(value)
-    selectors.each_with_object([]) do |selector, array|
-      array << Value.where(selector: selector.upcase)[0]
-    end
+    selectors.map!(&:upcase)
+    Value.where(selector: selectors)
   end
 
   def self.get_fields(calculator)
-    Field.where(calculator: calculator.id, kind: 'result')
+    calculator.fields.result
   end
 
   class << self
