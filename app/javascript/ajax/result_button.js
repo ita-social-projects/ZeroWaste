@@ -6,8 +6,7 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
     
     const formData = {
-      childs_birthday: $("#birth").val(),
-      baby_weight: $("#weight").val()
+      childs_birthday: $("#birth").val()
     } 
     $.ajax({
       url: "/api/v1/calculators/diapers-calculator/compute",
