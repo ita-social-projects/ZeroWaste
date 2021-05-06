@@ -49,13 +49,17 @@ en:
   devise:
     passwords:
       new:
-        send_me_reset_password_instructions: "Send me reset password instructions"
+        forgot_password_header: "Forgot your password?"
+        form:
+          email_label: "Email"
+        send_instructions_button: "Send me reset password instructions"
       edit:
-        change_your_password: "Change your password"
-        new_password: "New password"
-        characters_minimum: "characters minimum"
-        confirm_new_password: "Confirm new password"
-        change_my_password: "Change my password"
+        change_password_header: "Change your password"
+        form:
+          new_password_label: "New password"
+          minimal_length_label: "characters minimum"
+          confirm_password_label: "Confirm new password"
+        change_password_button: "Change my password"
     sessions:
       new:
         log_in: "Log in"

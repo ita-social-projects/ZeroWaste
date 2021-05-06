@@ -11,13 +11,15 @@ uk:
   devise:
     passwords:
       new:
-        send_me_reset_password_instructions: "Надішліть мені інструкції щодо скидання пароля"
+        forgot_password_header: "Забули пароль?"
+        send_instructions_button: "Надішліть мені інструкції щодо скидання пароля"
       edit:
-        change_your_password: "Змініть ваш пароль"
-        new_password: "Новий пароль"
-        characters_minimum: "символів мінімум"
-        confirm_new_password: "Підтвердіть новий пароль"
-        change_my_password: "Змінити пароль"
+        change_password_header: "Змініть ваш пароль"
+        form:
+          new_password_label: "Новий пароль"
+          minimal_length_label: "символів мінімум"
+          confirm_password_label: "Підтвердіть новий пароль"
+        change_password_button: "Змінити пароль"
     sessions:
       new:
         log_in: "Увійти"
