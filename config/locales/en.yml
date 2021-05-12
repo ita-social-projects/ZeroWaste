@@ -81,6 +81,11 @@ en:
           sing_up_button: "Sing Up"
     failure:
       timeout: "Your session expired. Please sign in again to continue"
+  dashboard:
+    index:
+      main_header: "Dashboard"
+      email: "Email"
+      last_visit: "Last visit"
   activerecord:
     errors:
       models:
