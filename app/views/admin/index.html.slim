@@ -1,0 +1,13 @@
+div class="container home"
+  div class="row"
+    div class="col"
+      h1 = t '.main_header'
+      table class="table"
+        thead
+          tr
+            td = t '.table.email_col'
+            td = t '.table.last_visit_col'
+        - @users.each do |user|
+          tr
+            td = user.email
+            td = user.last_sign_in_at

@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :calculators, only: [:show]
+  resources :admin, only: [:index]
   namespace :api do
     namespace :v1 do
       resources :calculators, only: [] do

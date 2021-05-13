@@ -44,6 +44,12 @@ uk:
           sing_up_button: "Зареєструватися"
     failure:
       timeout: "Час вашої сесії закінчено. Будь ласка, увійдіть у систему знову"
+  admin:
+    index:
+      main_header: "Адмінпанель"
+      table:
+        email_col: "Поштова Скринька"
+        last_visit_col: "Час останнього візиту"
   activerecord:
     attributes:
       user:

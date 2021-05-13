@@ -8,6 +8,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+
 .page-header {
   padding: 20px 40px 20px 40px;
   display: flex;
@@ -57,4 +58,18 @@ body {
 .above {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+// admin
+
+body.admin {
+  background: none;
+}
+
+.admin-container {
+  padding-top: 100px;
+}
+
+.admin-container h1 {
+  margin-bottom: 30px;
 }
