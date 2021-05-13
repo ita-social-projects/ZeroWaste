@@ -1,0 +1,15 @@
+default: &default
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *default
+
+uat:
+  <<: *default
+
+staging:
+  <<: *default
+
+test:
+  <<: *default
+  database: zero_waste_test
