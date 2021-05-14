@@ -21,5 +21,14 @@ RSpec.describe User, type: :model do
     it {
       is_expected.not_to allow_value('email.factory-com').for(:email)
     }
+    it {
+      is_expected.to allow_value('ddc5+/8/555/dd').for(:password)
+    }
+    it {
+      is_expected.not_to allow_value('/asd').for(:password)
+    }
+    it {
+      is_expected.to validate_length_of(:password).is_at_least(8)
+    }
   end
 end
