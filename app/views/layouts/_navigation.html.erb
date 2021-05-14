@@ -3,10 +3,12 @@
     <a href="" class="logo">LOGO</a>
   </div>
   <div class="tabs">
-    <a href="#" class="tab">TAB1</a>
-    <a href="#" class="tab">TAB2</a>
-    <a href="#" class="tab">TAB3</a>
-    <a href="#" class="tab">TAB4</a>
+    <% if user_signed_in? %>
+      <%= link_to "Log Out", destroy_user_session_path, class: 'tab' %>
+    <% else %>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'tab' %>
+      <%= link_to "Log In", new_user_session_path, class: 'tab', id: 'log_in' %>
+    <% end %>
   </div>
   <div class="donate">
     <button type="button" class="donate-btn">

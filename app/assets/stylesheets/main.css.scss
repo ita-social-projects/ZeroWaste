@@ -8,6 +8,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+
 .page-header {
   padding: 20px 40px 20px 40px;
   display: flex;
@@ -60,5 +61,20 @@ body {
 }
 .form-control {
   border: 1px solid #9e1503;
+}
+
+
+// admin
+
+body.admin {
+  background: none;
+}
+
+.admin-container {
+  padding-top: 100px;
+}
+
+.admin-container h1 {
+  margin-bottom: 30px;
 }
 

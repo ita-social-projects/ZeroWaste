@@ -12,11 +12,9 @@
 
   </head>
 
-  <body class="wrapper">
-    <%= render 'layouts/navigation' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+  <body class="admin">
+    <div class="container admin-container">
+      <%= yield %>
+    </div>
   </body>
 </html>
