@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CalculationResolver
-  require 'functions/from_list'
+require 'functions/from_list'
 
+class CalculationResolver
   def self.result(parameters, value)
     calculator = Dentaku::Calculator.new
     calculator.add_function(:since, :numeric, Since.calculate_units)
