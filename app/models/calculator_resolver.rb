@@ -14,7 +14,8 @@ class CalculatorResolver
   end
 
   def self.get_dependencies(value)
-    selectors = generate_calculator.dependencies(value)
+    calculator = Dentaku::Calculator.new
+    selectors = calculator.dependencies(value)
     selectors.map!(&:upcase)
     Value.where(selector: selectors)
   end
@@ -23,11 +24,7 @@ class CalculatorResolver
     calculator.fields.result
   end
 
-  def self.generate_calculator
-    Dentaku::Calculator.new
-  end
-
   class << self
-    private :get_dependencies, :get_fields, :generate_calculator
+    private :get_dependencies, :get_fields
   end
 end
