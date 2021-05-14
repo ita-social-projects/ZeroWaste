@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'functions/since'
-
 class CalculatorResolver
   def self.call(calculator)
     get_fields(calculator).each_with_object({}) do |field, hash|
