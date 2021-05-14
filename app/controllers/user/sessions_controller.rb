@@ -7,13 +7,14 @@ module User
     # GET /resource/sign_in
 
     # POST /resource/sign_in
+    
     def create
       user = User.find_by_email(params[:email])
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to root_url
+        redirect_to after_sign_in_path_for(user)
       else
-        flash.now.alert = 'Email or password is invalid'
+        flash.now.alert = 'Неправильний логін або пароль'
       end
     end
 
