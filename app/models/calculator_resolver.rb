@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'functions/since'
-require 'functions/from_list'
 
 class CalculatorResolver
   def self.call(calculator)
@@ -12,13 +11,6 @@ class CalculatorResolver
       end
       hash[field] = get_dependencies(field[:value])
     end
-  end
-
-  def self.result(parameters, value)
-    calculator = generate_calculator
-    generate_since_function(calculator)
-    generate_from_list_function(calculator)
-    calculator.evaluate(value, parameters)
   end
 
   def self.get_dependencies(value)
@@ -35,16 +27,7 @@ class CalculatorResolver
     Dentaku::Calculator.new
   end
 
-  def self.generate_since_function(calculator)
-    calculator.add_function(:since, :numeric, Since.calculate_units)
-  end
-
-  def self.generate_from_list_function(calculator)
-    calculator.add_function(:from_list, :numeric, FromList.to_hash)
-  end
-
   class << self
-    private :get_dependencies, :get_fields, :generate_calculator,
-            :generate_since_function, :generate_from_list_function
+    private :get_dependencies, :get_fields, :generate_calculator
   end
 end
