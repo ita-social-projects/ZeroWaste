@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 describe 'visit admin page', js: true do
-  let(:time_login) { Time.new(2020,01,01).utc }
-  let!(:user1) { create(:user, email: 'test1@gmail.com', password: '12345878', last_sign_in_at: time_login) }
+  let(:admin) { create(:admin) }
 
-  it 'visits admin page' do
-      visit '/admin'
-      expect(page).to have_content 'test1@gmail.com'
-      expect(page).to have_content time_login
+  it "when sign in with correct login and password" do
+    visit 'admins/sign_in'
+    fill_in 'Email', with: admin.email
+    fill_in 'Password', with: admin.password
+    click_button 'Log in'
+    expect(page).to have_current_path "/admins/sign_in"
   end
 end

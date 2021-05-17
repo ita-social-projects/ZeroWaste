@@ -46,6 +46,15 @@ en:
       link:
         privacy_policy: "Privacy Policy"
         terms_of_use: "Terms of use"
+  admins:
+    sessions:
+      new:
+        log_in_header: "Log in"
+        log_in_button: "Log in"
+    shared:
+      links:
+        forgot_your_password: "Forgot your password?"
+        log_in: "Log in"
   devise:
     passwords:
       new:
