@@ -59,6 +59,10 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.form-control {
+  border: 1px solid #9e1503;
+}
+
 
 // admin
 
@@ -73,3 +77,4 @@ body.admin {
 .admin-container h1 {
   margin-bottom: 30px;
 }
+
