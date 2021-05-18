@@ -8,6 +8,10 @@ class Field < ApplicationRecord
   validates :type, :label, :kind, presence: true
   validates :unit, inclusion: { in: units.keys }
 
+  def result
+    0
+  end
+
   private
 
   def set_selector
@@ -20,9 +24,5 @@ class Field < ApplicationRecord
     else
       self.selector = "#{kind[0].upcase}1"
     end
-  end
-
-  def result
-    0
   end
 end
