@@ -13,23 +13,21 @@ class CalculatorResolver
   end
 
   def self.all_dependent_values(dependencies)
-    dependencies_values = []
+    dependent_values = []
     if dependent_values(dependencies).present?
       dependent_values(dependencies).each do |value|
-        dependencies_values << value
+        dependent_values << value
       end
     end
 
-    unless dependent_calculations(dependencies).present?
-      return dependencies_values
-    end
+    return dependent_values unless dependent_calculations(dependencies).present?
 
     dependent_calculations(dependencies).each do |nested_calculation|
       nested_dependencies = upcase_dependencies(nested_calculation[:value])
-      dependencies_values += all_dependent_values(nested_dependencies)
+      dependent_values += all_dependent_values(nested_dependencies)
     end
 
-    dependencies_values
+    dependent_values
   end
 
   def self.upcase_dependencies(value)
