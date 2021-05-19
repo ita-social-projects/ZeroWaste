@@ -34,7 +34,6 @@ RSpec.describe 'Calculators', type: :request do
 
     it 'JSON response contains field `name` in snake case format' do
       json_response = JSON.parse(response.body)
-      # debugger
       expect(json_response['result'][0]['name']).to eq('first_result')
     end
   end
