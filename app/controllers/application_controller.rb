@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
   before_action :store_user_location!, if: :storable_location?
 
   private
