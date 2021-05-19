@@ -7,7 +7,7 @@ module User
     # GET /resource/sign_in
 
     # POST /resource/sign_in
-    
+
     def create
       user = User.find_by_email(params[:email])
       if user&.authenticate(params[:password])
