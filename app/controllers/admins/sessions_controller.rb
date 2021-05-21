@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Admins::SessionsController < Devise::SessionsController
-  before_action :authenticate_user!
   layout 'admin'
   # GET /resource/sign_in
   # def new
@@ -10,7 +9,7 @@ class Admins::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    return redirect_to '/admin' ||  super
+
   end
 
   # DELETE /resource/sign_out
