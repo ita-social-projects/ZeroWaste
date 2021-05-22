@@ -11,7 +11,7 @@ module Accessible
       redirect_to('/admin') and return
     elsif current_user
       flash.clear
-      redirect_to('/admins/login') and return 'Sorry, you are not admin'
+      redirect_to('/admins/login') and return
     end
   end
 end
