@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Admins::SessionsController < Devise::SessionsController
+  include Accessible
+  skip_before_action :check_user, only: :destroy
   layout 'admin'
   # GET /resource/sign_in
   # def new
@@ -8,9 +10,9 @@ class Admins::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-
-  end
+  #def create
+  #  super
+  #end
 
   # DELETE /resource/sign_out
   # def destroy
