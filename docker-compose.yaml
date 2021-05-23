@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+      - DATABASE_URL
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      RAILS_ENV: production
+
+  postgres:
+    image: postgres:12.1
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file: .env.db
+
+volumes:
+  db_data:
