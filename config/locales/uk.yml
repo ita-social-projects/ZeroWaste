@@ -20,6 +20,25 @@ uk:
       links:
         forgot_your_password: "Забули пароль?"
         log_in: "Увійти"
+    confirmations:
+      new:
+        resend_confirmation_instructions_header: "Повторно надіслати інструкцію з підтвердженням"
+        resend_confirmation_instructions_button: "Повторно надіслати інструкцію з підтвердженням"
+    unlocks:
+      new:
+        resend_unlock_instructions_header: "Повторно надіслати інструкцію розблокування"
+        resend_unlock_instructions_button: "Повторно надіслати інструкцію розблокування"
+    passwords:
+      new:
+        forgot_password_header: "Забули пароль?"
+        send_instructions_button: "Надішліть мені інструкції щодо скидання пароля"
+      edit:
+        change_password_header: "Змініть ваш пароль"
+        form:
+          new_password_label: "Новий пароль"
+          minimal_length_label: "символів мінімум"
+          confirm_password_label: "Підтвердіть новий пароль"
+        change_password_button: "Змінити пароль"
   devise:
     passwords:
       new:

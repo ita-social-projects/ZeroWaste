@@ -16,7 +16,7 @@ describe 'visit admin page', js: true do
   context "when sign in with wrong login and password" do
     it "redirect to admin login page" do
       visit '/admins/sign_in' 
-      fill_in 'Email', with: admin.email
+      fill_in 'Email', with: 'wrong@email.com'
       fill_in 'Password', with: admin.password
       click_button 'Log in'
       expect(page).to have_content 'Log in'

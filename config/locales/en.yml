@@ -55,6 +55,25 @@ en:
       links:
         forgot_your_password: "Forgot your password?"
         log_in: "Log in"
+    confirmations:
+      new:
+        resend_confirmation_instructions_header: "Resend confirmation instructions"
+        resend_confirmation_instructions_button: "Resend confirmation instructions"
+    unlocks:
+      new:
+        resend_unlock_instructions_header: "Resend unlock instructions"
+        resend_unlock_instructions_button: "Resend unlock instructions"
+    passwords:
+      edit:
+        change_password_header: "Change your password"
+        form:
+          new_password_label: "New password"
+          minimal_length_label: "characters minimum"
+          confirm_password_label: "Confirm new password"
+          change_password_button: "Change my password"
+      new:
+        forgot_password_header: "Forgot your password?"
+        send_instructions_button: "Send me reset password instructions"
   devise:
     passwords:
       new:

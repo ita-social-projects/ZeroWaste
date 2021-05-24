@@ -2,7 +2,6 @@
 
 class Admins::SessionsController < Devise::SessionsController
   include Accessible
-  skip_before_action :check_user, only: :destroy
   layout 'admin'
   # GET /resource/sign_in
   # def new
