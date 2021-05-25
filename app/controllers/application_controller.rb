@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
   before_action :store_user_location!, if: :storable_location?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
 
@@ -22,5 +22,17 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(*)
     request.referer
+  end
+
+  def after_sign_up_path_for(_)
+    new_user_session_path
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    user_attr = %i[email password password_confirmation first_name
+                   last_name country]
+    devise_parameter_sanitizer.permit(:sign_up, keys: user_attr)
   end
 end
