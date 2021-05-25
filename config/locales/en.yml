@@ -59,6 +59,29 @@ en:
       new:
         resend_confirmation_instructions_header: "Resend confirmation instructions"
         resend_confirmation_instructions_button: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        greetings_to_user: Welcome %{recipient}!
+        confirmation_email_through_link: "You can confirm your account email through the link below:"
+        confirmation_account_link: "Confirm my account"
+      email_changed:
+        greeting: Hello %{recipient}!
+        message_confirmed: We're contacting you to notify you that your email has been changed to %{email}.
+        message_unconfirmed: We're contacting you to notify you that your email is being changed to %{email}.
+      password_change:
+        greeting: Hello %{recipient}!
+        successful_change: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        greeting: Hello %{recipient}!
+        change_password_link: "Change my password"
+        request_change_password: "Someone has requested a link to change your password. You can do this through the link below."
+        ignore_email: "If you didn't request this, please ignore this email."
+        access_to_changing: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        greeting: Hello %{recipient}!
+        locked_message: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        unlock_your_account: "Click the link below to unlock your account:"
+        unlock_link: "Unlock my account"
     unlocks:
       new:
         resend_unlock_instructions_header: "Resend unlock instructions"

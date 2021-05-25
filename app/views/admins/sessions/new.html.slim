@@ -4,6 +4,9 @@
       = t('.log_in_header')
   .card-body
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      - flash.each do |type, msg|
+        .alert.alert-danger
+          = msg
       .field.form-group
         - f.label :email
         br

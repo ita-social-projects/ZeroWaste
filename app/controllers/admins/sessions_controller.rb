@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
 class Admins::SessionsController < Devise::SessionsController
-  include Accessible
   layout 'admin'
+  before_action :check_user
+
+  protected
+  def check_user
+    if current_admin
+      flash.clear
+      redirect_to('/admin') and return
+    end
+  end
   # GET /resource/sign_in
   # def new
   #   super
