@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
   devise_for :users
   resources :calculators, only: [:show]
   resources :admin, only: [:index]
