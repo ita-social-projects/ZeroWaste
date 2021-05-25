@@ -5,5 +5,6 @@ class AddConfirmableToDevise < ActiveRecord::Migration[6.1]
       t.column :confirmed_at, :datetime
       t.column ::confirmation_sent_at, :datetime
     end 
+    add_index :users, :confirmation_token, unique: true
   end
 end

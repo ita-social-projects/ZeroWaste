@@ -57,6 +57,4 @@ uk:
         password: "Пароль"
         password_confirmation: "Повторний пароль"
         first_name: "Ім'я"
-        last_name: "Прізвище"
-         
-
+        last_name: "Прізвище"  
