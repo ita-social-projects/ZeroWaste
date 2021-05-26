@@ -6,7 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :lockable, :timeoutable, :trackable, :confirmable
-  attr_accessor :first_name, :last_name, :country
 
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
