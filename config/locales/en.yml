@@ -205,3 +205,6 @@ en:
       user:
         email: "Email"
         password: "Password"
+        password_confirmation: "Re-password"
+        first_name: "First name"
+        last_name: "Last name"
