@@ -83,3 +83,6 @@ uk:
       user:
         email: "Логін"
         password: "Пароль"
+        password_confirmation: "Повторний пароль"
+        first_name: "Ім'я"
+        last_name: "Прізвище"  
