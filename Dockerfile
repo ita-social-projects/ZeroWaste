@@ -30,4 +30,4 @@ RUN mv /app/config/database.yml.docker /app/config/database.yml
 RUN bundle exec rake assets:precompile
 
 ENTRYPOINT [ "/bin/bash", "-c" ]
-CMD [ "bundle exec rails s -b 0.0.0.0" ]
+CMD [ "bundle exec rake db:migrate && bundle exec rails s -b 0.0.0.0" ]
