@@ -12,5 +12,9 @@ module User
       devise_parameter_sanitizer.permit(:sign_up,
                                         keys: %i[first_name last_name country])
     end
+
+    def after_inactive_sign_up_path_for(_)
+      new_user_session_path
+    end
   end
 end
