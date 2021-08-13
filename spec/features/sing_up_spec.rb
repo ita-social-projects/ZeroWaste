@@ -3,14 +3,12 @@
 require 'rails_helper'
 
 describe "User Sign Up",  js: true do
-  #let(:new_user) { create(:new_user) }
   let(:calculator) { create(:calculator) }
     it "Right registers a new user" do
       allow_any_instance_of(ApplicationController).to receive(:after_sign_in_path_for).and_return("/calculators/#{calculator.slug}")
       allow(Devise::Mailer).to receive(:confirmation_instructions).and_return(double(deliver: true))
       visit '/users/sign_up'
 
-      # click_link "Sign Up"
       fill_in 'Email', with: 'simple@email.com'
       fill_in 'Password', with: '111111111'
       fill_in 'Password Confirmation', with: '111111111'
@@ -18,9 +16,7 @@ describe "User Sign Up",  js: true do
       fill_in 'Last Name', with: 'Users'
       select 'Albania', from: 'user_country'
       click_button 'Sing Up'
-      expect(page).to have_content 'Yay! You’re on Rails!'
-      #expect(page).to have_current_path "/users"
-      #expect(page).to have_selector("a[href='/users']")
+      expect(page).to have_content 'A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.'
     end
 
     it "Wrong registers a new user" do
