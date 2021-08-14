@@ -12,6 +12,7 @@ module Admins
 
       flash.clear
       redirect_to('/admins/users')
+
     end
     # GET /resource/sign_in
     # def new
