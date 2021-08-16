@@ -7,13 +7,13 @@ describe 'Password Reset Page', js: true do
   let(:calculator) { create(:calculator) }
 
   context "when user clicks button Send me reset password instructions" do
-    it "redirect to sign in page" do
+    it "shows message that user will receive reset password instructions" do
       allow_any_instance_of(ApplicationController).to receive(:after_sign_in_path_for).and_return("/calculators/#{calculator.slug}")
       allow(Devise::Mailer).to receive(:reset_password_instructions).and_return(double(deliver: true))
       visit '/users/password/new' 
       fill_in 'Email', with: user.email
       click_button 'Send me reset password instructions'
-      expect(page).to have_selector("a[href='/users/sign_in']")
+      expect(page).to have_content('If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.')
     end
   end
 
