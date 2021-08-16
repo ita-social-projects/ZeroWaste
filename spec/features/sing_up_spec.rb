@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "User Sign Up",  js: true do
   let(:calculator) { create(:calculator) }
+  
   context "when sign up with correct password and email  " do
     it "shows a message that the user will receive a confirmation link in the mail" do
       allow_any_instance_of(ApplicationController).to receive(:after_sign_in_path_for).and_return("/calculators/#{calculator.slug}")
@@ -17,6 +18,7 @@ describe "User Sign Up",  js: true do
       expect(page).to have_content 'A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.'
     end
   end
+  
   context "when sign up with incorrect password or email" do
     it "redirect to sign up page" do
       visit '/users/sign_up'
