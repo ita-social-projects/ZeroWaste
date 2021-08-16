@@ -21,7 +21,7 @@ describe 'Password Reset Page', js: true do
     it "redirect to sign in page" do
       visit '/users/password/new' 
       click_link 'Log in'
-      expect(page).to have_selector("a[href='/users/sign_in']")
+      expect(page).to have_current_path("/users/sign_in")
     end
   end
 
@@ -29,7 +29,7 @@ describe 'Password Reset Page', js: true do
     it "redirect to sign up page" do
       visit '/users/password/new' 
       click_link 'Sign up'
-      expect(page).to have_selector("a[href='/users/sign_up']")
+      expect(page).to have_current_path("/users/sign_up")
     end
   end
 end
