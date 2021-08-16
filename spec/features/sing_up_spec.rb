@@ -7,7 +7,6 @@ describe "User Sign Up",  js: true do
       allow_any_instance_of(ApplicationController).to receive(:after_sign_in_path_for).and_return("/calculators/#{calculator.slug}")
       allow(Devise::Mailer).to receive(:confirmation_instructions).and_return(double(deliver: true))
       visit '/users/sign_up'
-
       fill_in 'Email', with: 'simple@email.com'
       fill_in 'Password', with: '111111111'
       fill_in 'Password Confirmation', with: '111111111'
