@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :calculators, only: [:show]
   resources :admin, only: [:index]
   namespace :api do
