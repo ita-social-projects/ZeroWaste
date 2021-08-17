@@ -62,3 +62,6 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/SpaceInsideReferenceBrackets:
   Enabled: true
   AutoCorrect: true
+
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
