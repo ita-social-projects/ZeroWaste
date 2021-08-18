@@ -8,10 +8,11 @@ module Admins
     protected
 
     def check_user
-      if current_admin
-        flash.clear
-        redirect_to('/admin') and return
-      end
+      return if current_admin
+
+      flash.clear
+      redirect_to('/admins/users')
+
     end
     # GET /resource/sign_in
     # def new
