@@ -1,13 +1,14 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-// navigation
+/* navigation */
 body {
-  background: url('mother.jpeg') no-repeat center center;
+  background: url(<%= asset_path'mother.jpeg' %>) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+
 .page-header {
   padding: 20px 40px 20px 40px;
   display: flex;
@@ -37,9 +38,9 @@ body {
   font-weight: 600;
 }
 
-// home-page
+/* home-page */
 
-// footer
+/* footer */
 .footer-items {
   justify-content: space-around;
   text-align: center;
@@ -58,3 +59,22 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.form-control {
+  border: 1px solid #9e1503;
+}
+
+
+/* admin */
+
+body.admin {
+  background: none;
+}
+
+.admin-container {
+  padding-top: 100px;
+}
+
+.admin-container h1 {
+  margin-bottom: 30px;
+}
+

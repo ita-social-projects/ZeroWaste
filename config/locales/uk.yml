@@ -11,6 +11,40 @@ uk:
         about_organization: "Про Zero Waste"
         about_local_organisation: "Про Zero Waste Lviv"
         our_team: "Команда"
+  admins:
+    users:
+      index:
+        main_header: "Адмінпанель"
+        table:
+          email_col: "Поштова Скринька"
+          last_visit_col: "Час останнього візиту"
+    sessions:
+      new:
+        log_in_header: "Увійти"
+        log_in_button: "Увійти"
+    shared:
+      links:
+        forgot_your_password: "Забули пароль?"
+        log_in: "Увійти"
+    confirmations:
+      new:
+        resend_confirmation_instructions_header: "Повторно надіслати інструкцію з підтвердженням"
+        resend_confirmation_instructions_button: "Повторно надіслати інструкцію з підтвердженням"
+    unlocks:
+      new:
+        resend_unlock_instructions_header: "Повторно надіслати інструкцію розблокування"
+        resend_unlock_instructions_button: "Повторно надіслати інструкцію розблокування"
+    passwords:
+      new:
+        forgot_password_header: "Забули пароль?"
+        send_instructions_button: "Надішліть мені інструкції щодо скидання пароля"
+      edit:
+        change_password_header: "Змініть ваш пароль"
+        form:
+          new_password_label: "Новий пароль"
+          minimal_length_label: "символів мінімум"
+          confirm_password_label: "Підтвердіть новий пароль"
+        change_password_button: "Змінити пароль"
   devise:
     passwords:
       new:
@@ -49,3 +83,6 @@ uk:
       user:
         email: "Логін"
         password: "Пароль"
+        password_confirmation: "Повторний пароль"
+        first_name: "Ім'я"
+        last_name: "Прізвище"  
