@@ -4,34 +4,61 @@
 <div class="container home">
   <div class="jumbotron">
     <div class="container">
-      <h3 class="container ml-2"><%= t '.form_description' %></h3>
-      <form action="" id = "form" class="container mt-3">
-        <div class="container input-group d-flex justify-content-between">
-          <label for="" class="text-center">
-            <%= t '.form.childs_birthday_label' %>
-            <input id="birth" type="text" class="col datepick" />
-          </label>
-          <label for="" class="text-center">
-            <%= t '.form.baby_weight_label' %>
-            <input type="text" class="col" />
-          </label>
+      <div class="row main-container">
+        <div class="rounded float-left">
+          <%= image_tag "search.jpg", height: 70 %>
         </div>
-        <div class="container ml-3 mt-4 form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckChecked"
-            checked
-          />
-          <label class="form-check-label" for="flexCheckChecked">
-            <%= t '.want_recomentation_label' %>
-          </label>
+        <div class="form-container">
+          <h3 class="container ml-2"><%= t '.form_description' %></h3>
+          <form action="" id = "form" class="container mt-3">
+            <div class="container input-group d-flex justify-content-between">
+              <label for="" class="text-center">
+                <%= t '.form.childs_birthday_label' %>
+                <input id="birth" type="text" class="col datepick" />
+              </label>
+            </div>
+            <div class="container ml-3 mt-4 form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckChecked"
+                checked
+              />
+              <label class="form-check-label" for="flexCheckChecked">
+                <%= t '.want_recomentation_label' %>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-success ml-3 mt-4">
+              <%= t '.calculate_result_button' %>
+            </button>
+          </form>
         </div>
-        <button type="submit" class="btn btn-success ml-3 mt-4">
-          <%= t '.calculate_result_button' %>
-        </button>
-      </form>
+      </div>
+    </div>
+    <div class="container calculation-results">
+      <div class="row">
+        <div class="col-sm result-card">
+          <%= image_tag "diapers.jpg", class:"rounded float-left", height: 70 %>
+          <p>0</p>
+          <%= t '.bought_diapers' %>
+        </div>
+        <div class="col-sm result-card">
+          <%= image_tag "money.jpg", class:"rounded float-left", height: 70 %>
+          <p>0</p>
+          <%= t '.money_spent' %>
+        </div>
+        <div class="col-sm result-card">
+          <%= image_tag "naphtha.jpg", class:"rounded float-left", height: 70 %>
+          <p>0</p>
+          <%= t '.mililiters_of_naphtha' %>
+        </div>
+        <div class="col-sm last-result-card">
+          <%= image_tag "plastic.jpg", class:"rounded float-left", height: 70 %>
+          <p>0</p>
+          <%= t '.gram_of_plastic' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
