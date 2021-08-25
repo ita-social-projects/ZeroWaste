@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito&display=swap" rel="stylesheet">
 <h1 class="display-4 text-center mt-5 mb-5">
   <%= t '.welcome_header' %>
 </h1>
@@ -6,7 +9,7 @@
     <div class="container">
       <div class="row main-container">
         <div class="rounded float-left">
-          <%= image_tag "search.jpg", height: 70 %>
+          <%= image_tag "search.png", height: 70 %>
         </div>
         <div class="form-container">
           <h3 class="container ml-2"><%= t '.form_description' %></h3>
@@ -36,29 +39,29 @@
         </div>
       </div>
     </div>
-    <div class="container calculation-results">
+  </div>
+</div>
+<div class="container calculation-results">
       <div class="row">
         <div class="col-sm result-card">
-          <%= image_tag "diapers.jpg", class:"rounded float-left", height: 70 %>
+          <%= image_tag "diapers.png", class:"rounded float-left", height: 70 %>
           <p>0</p>
           <%= t '.bought_diapers' %>
         </div>
         <div class="col-sm result-card">
-          <%= image_tag "money.jpg", class:"rounded float-left", height: 70 %>
+          <%= image_tag "money.png", class:"rounded float-left", height: 70 %>
           <p>0</p>
           <%= t '.money_spent' %>
         </div>
         <div class="col-sm result-card">
-          <%= image_tag "naphtha.jpg", class:"rounded float-left", height: 70 %>
+          <%= image_tag "naphtha.png", class:"rounded float-left", height: 70 %>
           <p>0</p>
           <%= t '.mililiters_of_naphtha' %>
         </div>
         <div class="col-sm last-result-card">
-          <%= image_tag "plastic.jpg", class:"rounded float-left", height: 70 %>
+          <%= image_tag "plastic.png", class:"rounded float-left", height: 70 %>
           <p>0</p>
           <%= t '.gram_of_plastic' %>
         </div>
       </div>
     </div>
-  </div>
-</div>
