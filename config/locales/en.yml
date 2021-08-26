@@ -39,6 +39,10 @@ en:
         baby_weight_label: "Baby weight"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       calculate_result_button: "CALCULATE RESULT"
+      bought_diapers: "Bought Diapers"
+      money_spent: "Money Spent"
+      mililiters_of_naphtha: "Mililiters of Naphtha"
+      gram_of_plastic: "Gram of Plastic"
   layouts:
     footer:
       about_us: "ABOUT US"
