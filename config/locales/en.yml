@@ -39,6 +39,10 @@ en:
         baby_weight_label: "Baby weight"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       calculate_result_button: "CALCULATE RESULT"
+      bought_diapers: "Bought Diapers"
+      money_spent: "Money Spent"
+      mililiters_of_naphtha: "Mililiters of Naphtha"
+      gram_of_plastic: "Gram of Plastic"
   layouts:
     footer:
       about_us: "ABOUT US"
@@ -47,6 +51,12 @@ en:
         privacy_policy: "Privacy Policy"
         terms_of_use: "Terms of use"
   admins:
+    users:
+      index:
+        main_header: "Dashboard"
+        table:
+          email_col: "Email"
+          last_visit_col: "Last visit"
     sessions:
       new:
         log_in_header: "Log in"
@@ -132,12 +142,6 @@ en:
           sing_up_button: "Sing Up"
     failure:
       timeout: "Your session expired. Please sign in again to continue"
-  admin:
-    index:
-      main_header: "Dashboard"
-      table:
-        email_col: "Email"
-        last_visit_col: "Last visit"
   activerecord:
     errors:
       models:

@@ -65,3 +65,4 @@ Layout/SpaceInsideReferenceBrackets:
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
+  
