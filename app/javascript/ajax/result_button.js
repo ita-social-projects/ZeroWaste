@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
       childs_birthday: $("#birth").val()
     } 
     $.ajax({
-      url: "/api/v1/calculators/diapers-calculator/compute",
+      url: "/api/v2/calculators/diapers-calculator/compute",
       type: "POST",
       data: formData,
       dataType: "json"
