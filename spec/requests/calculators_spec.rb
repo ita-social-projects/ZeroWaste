@@ -31,9 +31,9 @@ RSpec.describe 'Calculators', type: :request do
   end
   let(:json_response) { JSON.parse(response.body) }
 
-  describe 'POST api/v1/calculators/PERMALINK/compute' do
+  describe 'POST api/v2/calculators/PERMALINK/compute' do
     before do
-      post compute_api_v2_v1_calculator_path(calculator)
+      post compute_api_v2_calculator_path(calculator)
     end
 
     it 'returns JSON' do
