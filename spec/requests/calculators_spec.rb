@@ -4,16 +4,36 @@ require 'rails_helper'
 
 RSpec.describe 'Calculators', type: :request do
   let(:calculator) { create(:calculator) }
-  let!(:calculation_r1) { create(:calculation, value: 'P1 * P2 / P3', type: 'Calculation', selector: 'R1', name: 'First result', label: 'one', kind: 'result', calculator: calculator) }
-  let!(:calculation_r2) { create(:calculation, value: '10 * P4', type: 'Calculation', selector: 'R2', name: 'Second result', label: 'one', kind: 'result', calculator: calculator) }
-  let!(:calculation_p2) { create(:calculation, value: '10 * P4', type: 'Calculation', selector: 'P2', label: 'one', kind: 'parameter', calculator: calculator) }
-  let!(:value_r3) { create(:value, value: 'Value', type: 'Value', selector: 'R3', name: 'Third result', label: 'two', kind: 'result', calculator: calculator) }
-  let!(:value_p1) { create(:value, value: 'Value', type: 'Value', selector: 'P1', label: 'three', kind: 'parameter', calculator: calculator) }
+  let!(:calculation_r1) do
+    create(:calculation, value: 'P1 * P2 / P3', type: 'Calculation',
+                         selector: 'R1', name: 'First result', label: 'one',
+                         kind: 'result', calculator: calculator)
+  end
+  let!(:calculation_r2) do
+    create(:calculation, value: '10 * P4', type: 'Calculation', selector: 'R2',
+                         name: 'Second result', label: 'one',
+                         kind: 'result', calculator: calculator)
+  end
+  let!(:calculation_p2) do
+    create(:calculation, value: '10 * P4', type: 'Calculation', selector: 'P2',
+                         label: 'one',
+                         kind: 'parameter', calculator: calculator)
+  end
+  let!(:value_r3) do
+    create(:value, value: 'Value', type: 'Value', selector: 'R3',
+                   name: 'Third result', label: 'two',
+                   kind: 'result', calculator: calculator)
+  end
+  let!(:value_p1) do
+    create(:value, value: 'Value', type: 'Value', selector: 'P1',
+                   label: 'three',
+                   kind: 'parameter', calculator: calculator)
+  end
   let(:json_response) { JSON.parse(response.body) }
 
   describe 'POST api/v1/calculators/PERMALINK/compute' do
     before do
-      post compute_api_v1_calculator_path(calculator)
+      post compute_api_v2_v1_calculator_path(calculator)
     end
 
     it 'returns JSON' do

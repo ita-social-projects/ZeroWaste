@@ -7,7 +7,7 @@ describe 'User Sign Up', js: true do
     it 'shows a message about a confirmation link in the mail' do
       allow(Devise::Mailer)
         .to receive(:confirmation_instructions)
-        .and_return(double(deliver: true))  
+        .and_return(double(deliver: true))
       visit '/users/sign_up'
       fill_in 'Email', with: 'simple@email.com'
       fill_in 'Password', with: '111111111'
