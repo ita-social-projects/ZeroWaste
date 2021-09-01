@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
   namespace :api do
-    namespace :v1 do
+    namespace :v2 do
       resources :calculators, only: [] do
         post :compute, on: :member
       end
