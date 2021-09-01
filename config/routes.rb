@@ -9,10 +9,8 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v2 do
-      namespace :v1 do
-        resources :calculators, only: [] do
-          post :compute, on: :member
-        end
+      resources :calculators, only: [] do
+        post :compute, on: :member
       end
     end
   end
