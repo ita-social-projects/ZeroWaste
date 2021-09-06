@@ -7,7 +7,9 @@ div class="container home"
           tr
             td = t '.table.email_col'
             td = t '.table.last_visit_col'
+            td = t '.table.view_info_col'
         - @users.each do |user|
           tr
             td = user.email
             td = user.last_sign_in_at
+            td = link_to (fa_icon "eye"), admins_user_path(user.id), id: "link-to"
