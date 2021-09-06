@@ -18,7 +18,9 @@ describe 'visit admin page', js: true do
   context 'when user clicks show icon' do
     it 'redirects to user info page' do
       visit '/admins/users'
-      page.find("[id='link-to']").click
+      within(:css, "#user_page_#{user1.id}") do
+        click_link(href: "/admins/users/#{user1.id}")
+      end
       expect(page).to have_current_path('/admins/users/1')
       expect(page).to have_content 'Email'
       expect(page).to have_content 'First name'
@@ -32,7 +34,7 @@ describe 'visit admin page', js: true do
 end
 
 describe 'user info page' do
-  context 'when visit user page with id bigger than amount of users' do
+  context 'viewing non-existing user' do
     it 'renders the 404 page' do
       visit '/admins/users/1939'
       expect(page).to have_content('page you were looking for doesn\'t exist')

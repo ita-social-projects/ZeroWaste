@@ -61,13 +61,13 @@ en:
       show: 
         header: "User info"
         table: 
-          email_col: "Email: "
-          first_name_col: "First name: "
-          last_name_col: "Last name: "
-          country_col: "Country: "
-          last_sign_in_col: "Last sign in date and time: "
-          current_IP_col: "Current sign in IP: "
-          last_IP_col: "Last sign in IP: "
+          email_col: "Email:"
+          first_name_col: "First name:"
+          last_name_col: "Last name:"
+          country_col: "Country:"
+          last_sign_in_col: "Last sign in date and time:"
+          current_IP_col: "Current sign in IP:"
+          last_IP_col: "Last sign in IP:"
     sessions:
       new:
         log_in_header: "Log in"

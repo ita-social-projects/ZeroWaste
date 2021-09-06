@@ -1,24 +1,23 @@
 div class="container"
   h2 = t '.header'
-  ul
-    li
-        span = t '.table.email_col'
-        span = @user.email
-    li
-        span = t '.table.first_name_col'
-        span = @user.first_name
-    li
-        span = t '.table.last_name_col'
-        span = @user.last_name
-    li
-        span = t '.table.country_col'
-        span = @user.country
-    li
-        span = t '.table.last_sign_in_col'
-        span = @user.last_sign_in_at
-    li
-        span = t '.table.current_IP_col'
-        span = @user.current_sign_in_ip
-    li
-        span = t '.table.last_IP_col'
-        span = @user.last_sign_in_ip
+  dl
+    dt = t '.table.email_col'
+    dd = @user.email
+
+    dt = t '.table.first_name_col'
+    dd = @user.first_name
+
+    dt = t '.table.last_name_col'
+    dd = @user.last_name
+
+    dt = t '.table.country_col'
+    dd = @user.country
+
+    dt = t '.table.last_sign_in_col'
+    dd = @user.last_sign_in_at
+
+    dt = t '.table.current_IP_col'
+    dd = @user.current_sign_in_ip
+    
+    dt = t '.table.last_IP_col'
+    dd = @user.last_sign_in_ip

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :calculators, only: [:show]
   namespace :admins do
-    resources :users, only: [:index, :show]
+    resources :users, only: %i[index show]
   end
   namespace :api do
     namespace :v1 do
