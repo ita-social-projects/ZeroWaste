@@ -18,7 +18,7 @@ describe 'visit admin page', js: true do
   context 'when user clicks show icon' do
     it 'redirects to user info page' do
       visit '/admins/users'
-      within(:css, "#user_page_#{user1.id}") do
+      within(:css, "#user-info-#{user1.id}") do
         click_link(href: "/admins/users/#{user1.id}")
       end
       expect(page).to have_current_path('/admins/users/1')
