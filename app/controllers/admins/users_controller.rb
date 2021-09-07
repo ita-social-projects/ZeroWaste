@@ -10,6 +10,14 @@ module Admins
       @users = User.all
     end
 
+    def edit
+      @user = User.find(params[:id])
+    end
+
+    def update
+      @user = User.find(params[:id])
+    end
+
     private
 
     def find_user

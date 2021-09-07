@@ -58,6 +58,7 @@ en:
           email_col: "Email"
           last_visit_col: "Last visit"
           view_info_col: "Show"
+          view_edit_col: "Edit"
       show: 
         header: "User info"
         table: 
