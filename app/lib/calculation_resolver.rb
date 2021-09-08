@@ -7,6 +7,7 @@ class CalculationResolver
     calculator = Dentaku::Calculator.new
     calculator.add_function(:since, :numeric, Since.calculate_units)
     calculator.add_function(:from_list, :numeric, FromList.to_hash)
+    calculator.add_function(:dipers_per_month, :numeric, Dipers.dipers_per_month)
     calculator.evaluate(value, parameters)
   end
 end
