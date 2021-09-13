@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :users, only: [:index]
+    resources :calculators, only: [:index, :show]
   end
 
   namespace :api do
