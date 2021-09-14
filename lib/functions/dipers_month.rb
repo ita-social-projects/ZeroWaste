@@ -11,5 +11,3 @@ class Dipers
   end
 end
 
-# calc = Dipers.new
-# p calc.dipers_per_month(0, {0..2 => 30, 3..5 => 70})
