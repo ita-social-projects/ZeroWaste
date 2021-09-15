@@ -1,0 +1,6 @@
+.container
+  p= flash[:notice]
+  = form_for @calculator, url: { action: "update" } do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.submit "Update calculator name"

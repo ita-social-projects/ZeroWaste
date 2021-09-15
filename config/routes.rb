@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :calculators, only: [:show]
   namespace :admins do
     resources :users, only: %i[index show]
+    resources :calculators, only: %i[new create edit update]
   end
   namespace :api do
     namespace :v1 do
