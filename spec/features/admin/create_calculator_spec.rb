@@ -5,7 +5,7 @@ CREATE_CALCULATOR_BUTTON = 'Create calculator'
 
 describe 'Create Calculator Page', js: true do
   let(:calculator) { create(:calculator) }
-  before do 
+  before do
     visit '/admins/calculators/new'
   end
 
@@ -21,7 +21,7 @@ describe 'Create Calculator Page', js: true do
     it 'redirects to Edit calculator page' do
       fill_in 'Name', with: 'Calculator2'
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_current_path("/admins/calculators/1/edit")
+      expect(page).to have_current_path("/admins/calculators/#{Calculator.last.id}/edit")
     end
   end
 
