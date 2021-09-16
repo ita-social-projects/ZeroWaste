@@ -2,7 +2,7 @@
 
 module Admins
   class CalculatorsController < ApplicationController
-    before_action :find_calculator, except: %i[new create calculator_params]
+    before_action :find_calculator, except: %i[new create]
     layout 'admin'
 
     def new
@@ -13,7 +13,7 @@ module Admins
       @calculator = Calculator.new(calculator_params)
       if @calculator.save
         redirect_to edit_admins_calculator_path(@calculator.id),
-                    notice: 'Calculator was successfully created.'
+                    notice: 'Calculator has been successfully created.'
       else
         render action: 'new'
       end
@@ -22,10 +22,9 @@ module Admins
     def update
       if @calculator.update(calculator_params)
         redirect_to edit_admins_calculator_path(@calculator.id),
-                    notice: 'Successfully Updated'
-      else
-        flash[:error] = 'Invalid'
-        render 'edit'
+                    notice: 'Calculator has been successfully updated.'
+      else 
+        render action: 'edit'
       end
     end
 

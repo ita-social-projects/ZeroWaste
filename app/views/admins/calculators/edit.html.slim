@@ -1,5 +1,13 @@
 .container
   p= flash[:notice]
+  - if @calculator.errors.any?
+    div
+      h2
+        = pluralize(@calculator.errors.count, "error")
+        |  prohibited this calculator from being updated:
+      ul
+        - @calculator.errors.full_messages.each do |error_message|
+          li= error_message
   = form_for @calculator, url: { action: "update" } do |f|
     = f.label :name
     = f.text_field :name
