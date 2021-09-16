@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+UPDATE_CALCULATOR_BUTTON = 'Update calculator'
 
 describe 'Update Calculator Page', js: true do
   let(:calculator) { create(:calculator) }
@@ -9,7 +10,7 @@ describe 'Update Calculator Page', js: true do
     it 'shows message that calculator has been successfully updated' do
       visit "/admins/calculators/#{calculator.id}/edit"
       fill_in 'Name', with: 'Calculator2'
-      click_button 'Update calculator'
+      click_button UPDATE_CALCULATOR_BUTTON
       expect(page).to have_content('Calculator has been successfully updated')
     end
   end
@@ -18,7 +19,7 @@ describe 'Update Calculator Page', js: true do
     it 'shows message that name is too short' do
       visit "/admins/calculators/#{calculator.id}/edit"
       fill_in 'Name', with: 'o'
-      click_button 'Update calculator'
+      click_button UPDATE_CALCULATOR_BUTTON
       expect(page).to have_content("The field 'Name' is too short.")
     end
   end
@@ -27,7 +28,7 @@ describe 'Update Calculator Page', js: true do
     it 'shows message that name is invalid' do
       visit "/admins/calculators/#{calculator.id}/edit"
       fill_in 'Name', with: '\[d]]p'
-      click_button 'Update calculator'
+      click_button UPDATE_CALCULATOR_BUTTON
       expect(page).to have_content("The field 'Name' is invalid")
     end
   end
@@ -36,7 +37,7 @@ describe 'Update Calculator Page', js: true do
     it 'shows message that name can\'t be blank' do
       visit "/admins/calculators/#{calculator.id}/edit"
       fill_in 'Name', with: ''
-      click_button 'Update calculator'
+      click_button UPDATE_CALCULATOR_BUTTON
       expect(page).to have_content("The field 'Name' can\'t be blank.")
     end
   end

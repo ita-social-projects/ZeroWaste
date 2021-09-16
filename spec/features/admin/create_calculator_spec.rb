@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 CREATE_CALCULATOR_PATH = '/admins/calculators/new'
+CREATE_CALCULATOR_BUTTON = 'Create calculator'
 
 describe 'Create Calculator Page', js: true do
   let(:calculator) { create(:calculator) }
@@ -10,7 +11,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that calculator has been successfully created' do
       visit CREATE_CALCULATOR_PATH
       fill_in 'Name', with: 'Calculator1'
-      click_button 'Create calculator'
+      click_button CREATE_CALCULATOR_BUTTON
       expect(page).to have_content('Calculator has been successfully created')
     end
   end
@@ -19,7 +20,7 @@ describe 'Create Calculator Page', js: true do
     it 'redirects to Edit calculator page' do
       visit CREATE_CALCULATOR_PATH
       fill_in 'Name', with: 'Calculator2'
-      click_button 'Create calculator'
+      click_button CREATE_CALCULATOR_BUTTON
       expect(page).to have_current_path("/admins/calculators/1/edit")
     end
   end
@@ -28,7 +29,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name is already has been taken' do
       visit CREATE_CALCULATOR_PATH
       fill_in 'Name', with: calculator.name
-      click_button 'Create calculator'
+      click_button CREATE_CALCULATOR_BUTTON
       expect(page).to have_content('Name has already been taken')
     end
   end
@@ -37,7 +38,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name is too short' do
       visit CREATE_CALCULATOR_PATH
       fill_in 'Name', with: 'i'
-      click_button 'Create calculator'
+      click_button CREATE_CALCULATOR_BUTTON
       expect(page).to have_content("The field 'Name' is too short.")
     end
   end
@@ -46,7 +47,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name is invalid' do
       visit CREATE_CALCULATOR_PATH
       fill_in 'Name', with: 'i[]p'
-      click_button 'Create calculator'
+      click_button CREATE_CALCULATOR_BUTTON
       expect(page).to have_content("The field 'Name' is invalid")
     end
   end
@@ -55,7 +56,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name can\'t be blank' do
       visit CREATE_CALCULATOR_PATH
       fill_in 'Name', with: ''
-      click_button 'Create calculator'
+      click_button CREATE_CALCULATOR_BUTTON
       expect(page).to have_content("The field 'Name' can\'t be blank.")
     end
   end

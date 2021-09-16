@@ -23,7 +23,7 @@ module Admins
       if @calculator.update(calculator_params)
         redirect_to edit_admins_calculator_path(@calculator.id),
                     notice: 'Calculator has been successfully updated.'
-      else 
+      else
         render action: 'edit'
       end
     end
