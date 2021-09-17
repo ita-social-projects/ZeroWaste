@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'functions/from_list'
-
+require 'functions/since'
 class CalculationResolver
   def self.result(parameters, value)
     calculator = Dentaku::Calculator.new
