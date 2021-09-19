@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo ${{ secrets.ENV }} > .env
-    - run: echo ${{ secrets.ENV_DB }} | base64 -d > .env.db
+    - run: echo ${{ secrets.ENV_DB }} | base64 -d > .env.db && cat .env.db
     - run: echo ${{ secrets.MASTER_KEY }} > config/master.key
 
     # - name: stop docker compose
