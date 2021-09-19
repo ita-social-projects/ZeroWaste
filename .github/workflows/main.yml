@@ -10,6 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: echo ${{ secrets.ENV }} > .env
+    - run: echo ${{ secrets.ENV_DB }} > .env.db
 
     - uses: alex-ac/github-action-ssh-docker-compose@master
       name: Docker-Compose Remote Deployment
