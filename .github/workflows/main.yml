@@ -14,10 +14,21 @@ jobs:
     - run: echo ${{ secrets.ENV_DB }} > .env.db
     - run: echo ${{ secrets.MASTER_KEY }} > config/master.key
 
-    - uses: alex-ac/github-action-ssh-docker-compose@master
-      name: Docker-Compose Remote Deployment
+    # - name: stop docker compose
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.SSH_HOST }}
+    #     username: ${{ secrets.SSH_USER }}
+    #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     script: 
+
+    - name: Deploy to staging
+      uses: wshihadeh/docker-deployment-action@v1
       with:
-        ssh_host: ${{ secrets.SSH_HOST }}
+        remote_docker_host: ${{ secrets.SSH_HOST }}
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh_user: ${{ secrets.SSH_USER }}
-        docker_compose_prefix: staging
+        deployment_mode: docker-compose
+        copy_stack_file: false
+        deploy_path: ~/staging/
+        stack_file_name: docker-compose.yaml
+        keep_files: 5
