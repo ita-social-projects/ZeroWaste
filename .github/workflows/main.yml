@@ -33,3 +33,4 @@ jobs:
         deploy_path: ~/staging/
         stack_file_name: docker-compose.yaml
         keep_files: 5
+        args: zero-waste
