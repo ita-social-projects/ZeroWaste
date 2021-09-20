@@ -47,7 +47,7 @@ jobs:
           mv config/database.yml.docker config/database.yml
       - name: Create DB
         run: |
-          rake db:migrate
+          bundle exec rake db:migrate
       - name: Run tests
         run: |
           bundle exec rspec .
