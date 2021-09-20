@@ -34,7 +34,7 @@ jobs:
 
     env:
       RAILS_ENV: test
-      DATABASE_URL: postgres://test:password@postgres:5432/zero_waste_test
+      DATABASE_URL: postgres://test:password@localhost:5432/zero_waste_test
 
     steps:
       - uses: actions/checkout@v2
