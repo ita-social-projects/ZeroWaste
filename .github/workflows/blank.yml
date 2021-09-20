@@ -18,6 +18,10 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
+          bundler-cache: true
+      - name: Run tests
+        run: |
+          bundle exec rspec .
       - name: rubocop
         uses: reviewdog/action-rubocop@v2
         with:
