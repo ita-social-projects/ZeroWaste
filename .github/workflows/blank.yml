@@ -55,7 +55,7 @@ jobs:
       #     bundle exec rake db:migrate
       - name: Run tests
         run: |
-          bundle exec rspec .
+          bundle exec rspec ./spec
 
 
   # rubocop:
