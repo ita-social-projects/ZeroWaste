@@ -47,35 +47,20 @@ jobs:
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
 
+      - uses: nanasess/setup-chromedriver@master
+
       - name: Prepare config
         run: |
           mv config/database.yml.docker config/database.yml
-      # - name: Create DB
-      #   run: |
-      #     bundle exec rake db:migrate
+
       - name: Run tests
         run: |
-          bundle exec rspec ./spec
+          bundle exec rspec ./spec -f j -o tmp/rspec_results.json -f p
 
+      - name: RSpec Report
+        uses: SonicGarden/rspec-report-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          json-path: tmp/rspec_results.json
+        if: always()
 
-  # rubocop:
-  #   name: runner / rubocop
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Check out code
-  #       uses: actions/checkout@v2
-  #     - uses: ruby/setup-ruby@v1
-  #       with:
-  #         ruby-version: 2.7.2
-  #         bundler-cache: true
-  #     - name: Run tests
-  #       run: |
-  #         mv config/database.yml.docker config/database.yml
-  #         bundle exec rspec .
-  #     - name: rubocop
-  #       uses: reviewdog/action-rubocop@v2
-  #       with:
-  #         rubocop_version: gemfile
-  #         rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
-  #         github_token: ${{ secrets.github_token }}
-  #         reporter: github-pr-check
