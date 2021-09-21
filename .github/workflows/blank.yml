@@ -50,9 +50,9 @@ jobs:
       - name: Prepare config
         run: |
           mv config/database.yml.docker config/database.yml
-      - name: Create DB
-        run: |
-          bundle exec rake db:migrate
+      # - name: Create DB
+      #   run: |
+      #     bundle exec rake db:migrate
       - name: Run tests
         run: |
           bundle exec rspec .
