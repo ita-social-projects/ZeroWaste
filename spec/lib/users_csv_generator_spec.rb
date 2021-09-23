@@ -10,7 +10,8 @@ RSpec.describe UsersCsvGenerator, js: true do
 
   it 'when export user' do
     expect(UsersCsvGenerator.call(users,
-                                  fields: %w[email last_sign_in_at])).to
-    eq("email,last_sign_in_at\ntest@gmail.com,#{time_login}\n")
+                                  fields: %w[email
+                                             last_sign_in_at])).to eq("email,
+last_sign_in_at\ntest@gmail.com,#{time_login}\n")
   end
 end
