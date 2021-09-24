@@ -312,5 +312,5 @@ Devise.setup do |config|
 
 
   config.omniauth :facebook, "568190661279570", "a055de43f01c09e95a4832846883e048"
-  config.omniauth :facebook2, "972249033633794", "096d43be20975955f81c2a6c2deb784d"
+  config.omniauth :facebook, "972249033633794", "096d43be20975955f81c2a6c2deb784d"
 end
