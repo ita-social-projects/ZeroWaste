@@ -5,6 +5,7 @@ class User < ApplicationRecord
   #  :lockable, :timeoutable, :trackable and :omniauthable
 
   devise :omniauthable, omniauth_providers: %i[facebook]
+  devise :omniauthable, omniauth_providers: %i[facebook2]
   def self.from_omniauth(auth)
     name_split = auth.info.name.split
     user = User.where(email: auth.info.email).first
