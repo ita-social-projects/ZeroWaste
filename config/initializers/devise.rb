@@ -274,7 +274,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   google_client_id = Rails.application.credentials.google_oauth2[:client_id]
   google_client_secret = Rails.application.credentials.google_oauth2[:client_secret]
-  config.omniauth :google_oauth2, client_id, client_secret,
+  config.omniauth :google_oauth2, google_client_id, google_client_secret,
                   scope: 'userinfo.email,userinfo.profile', skip_jwt: true
 
   # ==> Warden configuration
