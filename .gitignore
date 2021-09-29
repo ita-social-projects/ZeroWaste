@@ -52,6 +52,4 @@ yarn-debug.log*
 
 /config/credentials/staging.key
 
-/config/credentials/test.key
-
 /config/credentials/uat.key
