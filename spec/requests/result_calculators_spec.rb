@@ -16,8 +16,8 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
   end
   let!(:calculation_r3) do
     create(:calculation, value: '10 + P2 ', type: 'Calculation', selector: 'R3',
-           name: 'Third result', label: 'one', kind: 'result',
-           calculator: calculator)
+                         name: 'Third result', label: 'one', kind: 'result',
+                         calculator: calculator)
   end
   let!(:value_p1) do
     create(:value, value: '10', type: 'Value', selector: 'P1', label: 'one',
@@ -47,14 +47,23 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
     it 'http 200' do
       expect(response.status).to eql(200)
     end
-    it 'result of calculation_r1 is 30' do
+    it 'result of calculation_r1 is 20' do
       expect(json_response['result'][0]['result']).to eq(20)
+      expect(json_response['result'][0].values).to contain_exactly(
+        'first_result', 20
+      )
     end
     it 'result of calculation_r2 is 70' do
       expect(json_response['result'][1]['result']).to eq(70)
+      expect(json_response['result'][1].values).to contain_exactly(
+        'second_result', 70
+      )
     end
-    it 'result of calculation_r2 is 70' do
+    it 'result of calculation_r3 is 30' do
       expect(json_response['result'][2]['result']).to eq(30)
+      expect(json_response['result'][2].values).to contain_exactly(
+        'third_result', 30
+      )
     end
     it do
       expect(json_response['result'][0]['result']).to be_kind_of(Numeric)
