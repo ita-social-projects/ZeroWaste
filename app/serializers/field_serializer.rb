@@ -14,11 +14,11 @@ class FieldSerializer < ActiveModel::Serializer
         sel[v[:selector].downcase] = v[:value]
       end
     end
-    result = res.each_with_object({}) do |(formula, parameters), result|
-      result[formula] = CalculationResolver.result(parameters, formula)
+    result = res.each_with_object({}) do |(formula, parameters), new_hash|
+      new_hash[formula] = CalculationResolver.result(parameters, formula)
     end
-    answer = result.each_with_object([]) do |(_, calculated_formula), answer|
-      answer << calculated_formula
+    answer = result.each_with_object([]) do |(_, calculated_formula), new_array|
+      new_array << calculated_formula
     end
     number = ''
     (0..answer.count).each do |el|

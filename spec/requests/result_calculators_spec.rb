@@ -42,7 +42,7 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
   let(:json_response) { JSON.parse(response.body) }
   describe 'POST api/v1/calculators/PERMALINK/compute' do
     before do
-      post compute_api_v2_calculator_path(calculator)
+      post compute_api_v1_calculator_path(calculator)
     end
     it 'http 200' do
       expect(response.status).to eql(200)
