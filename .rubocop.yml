@@ -64,5 +64,5 @@ Layout/SpaceInsideReferenceBrackets:
   AutoCorrect: true
 
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context', 'def']
+  IgnoredMethods: ['describe', 'context']
   
