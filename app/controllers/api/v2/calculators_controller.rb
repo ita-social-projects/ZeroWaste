@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Api
-  module V1
+  module V2
     class CalculatorsController < ApplicationController
       def compute
         @fields = Calculator.find_by(slug: params['id']).fields.result

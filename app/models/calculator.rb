@@ -8,4 +8,5 @@ class Calculator < ApplicationRecord
   validates :name, format: { with: /\A[a-zA-Z0-9\s]+\z/,
                              message: 'Only letters and numbers allowed' }
   validates :name, length: { minimum: 2 }
+  validates :name, uniqueness: true
 end
