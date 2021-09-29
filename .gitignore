@@ -45,3 +45,11 @@ yarn-debug.log*
 
 .env
 .env.db
+
+/config/credentials/development.key
+
+/config/credentials/production.key
+
+/config/credentials/staging.key
+
+/config/credentials/uat.key

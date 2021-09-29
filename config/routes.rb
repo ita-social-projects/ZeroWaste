@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations',
+                                    omniauth_callbacks:
+                                    'users/omniauth_callbacks' }
   resources :calculators, only: [:show]
   namespace :admins do
     resources :users, only: %i[index show]

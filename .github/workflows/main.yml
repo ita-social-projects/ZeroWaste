@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: echo ${{ secrets.ENV }} > .env
     - run: echo ${{ secrets.ENV_DB }} | base64 -d > .env.db
-    - run: echo ${{ secrets.MASTER_KEY }} > config/master.key
+    - run: echo ${{ secrets.MASTER_KEY }} > config/credentials/${{ secrets.ENV }}.key
 
     - uses: alex-ac/github-action-ssh-docker-compose@master
       name: Docker-Compose Remote Deployment
