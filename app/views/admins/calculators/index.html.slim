@@ -1,13 +1,26 @@
-.container.table-responsive
-  table.table.table-hover
-    thead
-      tr
-        th ID
-        th Name
-        th Show
-    tbody
-      - @calculators.each do |calculator|
+.container
+  .mb-5
+    = form_tag admins_calculators_path, method: :get, class: "d-flex" do
+      = text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search..."
+      = submit_tag "Search", name: nil, class: "btn btn-outline-primary my-2 my-sm-0"
+
+  .table-responsive
+    table.table.table-hover
+      thead
         tr
-          td= calculator.id
-          td= calculator.name
-          td= link_to 'Show calucator', calculator
+          th ID
+          th Name
+          th Show
+      tbody
+        - @calculators.each do |calculator|
+          tr
+            td= calculator.id
+            td= calculator.name
+            td= link_to 'Show calucator', calculator
+
+
+
+            / = form_tag admins_calculators_path, method: :get do
+            /   = label_tag  "Search for a calculators by title:"
+            /   = text_field_tag :search, params[:search]
+            /   = submit_tag 'Search', name: nil

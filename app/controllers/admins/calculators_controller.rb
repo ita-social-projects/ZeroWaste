@@ -5,7 +5,11 @@ module Admins
     layout 'admin'
 
     def index
-      @calculators = Calculator.friendly.all
+      if params[:search]
+        @calculators = Calculator.where('name LIKE ?', "%#{params[:search]}%")
+      else
+        @calculators = Calculator.friendly.all
+      end
     end
 
     def show
