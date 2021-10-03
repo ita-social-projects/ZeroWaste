@@ -18,9 +18,3 @@
             td= calculator.name
             td= link_to 'Show calucator', calculator
 
-
-
-            / = form_tag admins_calculators_path, method: :get do
-            /   = label_tag  "Search for a calculators by title:"
-            /   = text_field_tag :search, params[:search]
-            /   = submit_tag 'Search', name: nil
