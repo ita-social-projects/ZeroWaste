@@ -8,6 +8,13 @@ module Admins
 
     def index
       @users = User.all
+      respond_to do |format|
+        format.html
+        format.csv do
+          send_data UsersCsvGenerator.call(@users,
+                                           fields: %w[email last_sign_in_at])
+        end
+      end
     end
 
     private

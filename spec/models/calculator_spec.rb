@@ -18,5 +18,8 @@ RSpec.describe Calculator, type: :model do
       is_expected.not_to allow_value('Hh@').for(:name).with_message(I18n
         .t("#{LOCAL_PREFIX_CALCULATOR}.name.invalid"))
     }
+    it {
+      is_expected.to validate_uniqueness_of(:name)
+    }
   end
 end
