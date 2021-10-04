@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Calculators', type: :request do
+RSpec.describe 'Values', type: :request do
   let(:json_response) { JSON.parse(response.body) }
   describe 'POST api/v1/calculators/PERMALINK/compute' do
     before do
