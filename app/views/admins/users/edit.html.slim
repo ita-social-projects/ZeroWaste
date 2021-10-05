@@ -40,29 +40,3 @@
 
 
 
-/ = form_for(resource, as: resource_name, url: edit_admins_user_url(resource_name) do |f|
-/   = render "devise/shared/error_messages", resource: resource
-/   .field
-/     = f.label :email, 'admins.users.update.form.email_label'
-/   br
-/   = f.email_field :email, autofocus: true, autocomplete: "email"
-/   br
-/   .field
-/     = f.label :first_name, 'admins.users.update.form.first_name_label'
-/   br
-/   = f.text_field :first_name, autofocus: true, autocomplete: "name"
-/   .field
-/     = f.label :last_name, 'admins.users.update.form.last_name_label'
-/   br
-/   = f.text_field :last_name, autofocus: true, autocomplete: "name"
-/   br
-/   = f.label :country, 'admins.users.update.form.country_label'
-/   br
-/     = f.text_field :country, autofocus: true, autocomplete: "name"
-/   .actions
-/ br
-/   = f.submit 'admins.users.update.form.update_button'
-/ = render edit_admins_user_url
-
-
-
