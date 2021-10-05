@@ -279,10 +279,9 @@ Devise.setup do |config|
 
   facebook_app_id = Rails.application.credentials.facebook[:facebook_app_id]
   facebook_secret_key = Rails.application.credentials.facebook[:facebook_secret_key]
-  config.omniauth :facebook, facebook_app_id , facebook_secret_key ,
-                  :display => "popup" ,
-                  :scope => 'email,publish_actions', info_fields: 'email,name'
-
+  config.omniauth :facebook, facebook_app_id, facebook_secret_key,
+                  display: 'popup',
+                  scope: 'email,publish_actions', info_fields: 'email,name'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-
   include OmniauthAttributesConcern
 
   has_many :user_authentications
@@ -26,7 +25,7 @@ class User < ApplicationRecord
                                      format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 
   def self.create_from_omniauth(params)
-    self.send(params.provider,params)
+    send(params.provider, params)
   end
 
   def self.from_omniauth(auth)
@@ -36,11 +35,13 @@ class User < ApplicationRecord
       user.first_name = auth.info.first_name
     end
 
-    name_split = auth.info.name.split(" ")
+    name_split = auth.info.name.split
     user = User.where(email: auth.info.email).first
-    user ||= User.create!(provider: auth.provider, uid: auth.uid, last_name: name_split[0], first_name: name_split[1], email: auth.info.email, password: Devise.friendly_token[0, 20])
+    user ||= User.create!(provider: auth.provider, uid: auth.uid,
+                          last_name: name_split[0], first_name: name_split[1],
+                          email: auth.info.email,
+                          password: Devise.friendly_token[0, 20])
     user
-
   end
 
   def self.new_with_session(params, session)
@@ -51,5 +52,4 @@ class User < ApplicationRecord
       end
     end
   end
-
 end
