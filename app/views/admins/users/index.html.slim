@@ -9,7 +9,6 @@ div class="container home"
             td = t '.table.last_visit_col'
             td = t '.table.view_info_col'
             td = t '.table.view_edit_col'
-            td = t '.table.view_change_password_col'
         - @users.each do |user|
           tr id="user-info-#{user.id}"
             td = user.email
