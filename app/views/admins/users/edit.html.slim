@@ -1,13 +1,68 @@
-= form_for @user do |f|
-  .field
-    = f.label :email_col
-    br
-    = f.text_field :email_col
-  .actions
-    = f.submit
+= form_for @user, url: { action: "update"} do |f|
+  - invalid = @user.errors.include?(:email)
+  .form-group
+  = f.label :email
+  = f.text_field :email, class: "form-control #{'is-invalid' if invalid}"
+  - if invalid
+    .invalid-feedback.d-block
+      - @user.errors.full_messages_for(:email).each do |error_message|
+        = error_message
+  br
+    - invalid = @user.errors.include?(:first_name)
+    .form-group
+      = f.label :first_name
+  = f.text_field :first_name, class: "form-control #{'is-invalid' if invalid}"
+  - if invalid
+    .invalid-feedback.d-block
+      - @user.errors.full_messages_for(:first_name).each do |error_message|
+        = error_message
+  br
+    - invalid = @user.errors.include?(:last_name)
+    .form-group
+    = f.label :last_name
+  = f.text_field :last_name, class: "form-control #{'is-invalid' if invalid}"
+  - if invalid
+    .invalid-feedback.d-block
+      - @user.errors.full_messages_for(:last_name).each do |error_message|
+        = error_message
+  br
+    - invalid = @user.errors.include?(:country)
+    .form-group
+    = f.label :country
+  = f.text_field :country, class: "form-control #{'is-invalid' if invalid}"
+  - if invalid
+    .invalid-feedback.d-block
+      - @user.errors.full_messages_for(:country).each do |error_message|
+        = error_message
+  br
+
+  = f.submit "Update"
 
 
 
+/ = form_for(resource, as: resource_name, url: edit_admins_user_url(resource_name) do |f|
+/   = render "devise/shared/error_messages", resource: resource
+/   .field
+/     = f.label :email, 'admins.users.update.form.email_label'
+/   br
+/   = f.email_field :email, autofocus: true, autocomplete: "email"
+/   br
+/   .field
+/     = f.label :first_name, 'admins.users.update.form.first_name_label'
+/   br
+/   = f.text_field :first_name, autofocus: true, autocomplete: "name"
+/   .field
+/     = f.label :last_name, 'admins.users.update.form.last_name_label'
+/   br
+/   = f.text_field :last_name, autofocus: true, autocomplete: "name"
+/   br
+/   = f.label :country, 'admins.users.update.form.country_label'
+/   br
+/     = f.text_field :country, autofocus: true, autocomplete: "name"
+/   .actions
+/ br
+/   = f.submit 'admins.users.update.form.update_button'
+/ = render edit_admins_user_url
 
 
 

@@ -11,10 +11,11 @@ class User < ApplicationRecord
                     length: { minimum: 6, maximum: 100 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true,
+                       on: :create,
                        length: { minimum: 8 },
                        format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} }
   validates :first_name, :last_name, presence: true,
                                      length: { minimum: 2 },
-                                     on: :create,
+                                     on: %i[create update],
                                      format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 end

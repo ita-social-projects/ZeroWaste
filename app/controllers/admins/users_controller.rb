@@ -12,10 +12,17 @@ module Admins
 
     def edit
       @user = User.find(params[:id])
+      render 'edit'
     end
 
     def update
       @user = User.find(params[:id])
+      if @user.update(params[:user].permit(:first_name, :last_name, :email,
+                                           :country))
+        redirect_to edit_admins_user_url, notice: 'Successfully Updated'
+      else
+        render 'edit'
+      end
     end
 
     private

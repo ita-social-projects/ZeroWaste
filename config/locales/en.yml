@@ -59,9 +59,17 @@ en:
           last_visit_col: "Last visit"
           view_info_col: "Show"
           view_edit_col: "Edit"
-      show: 
+          view_change_password_col: "Change password"
+      edit:
+        form:
+          email_label: "Email"
+          first_name_label: "First Name"
+          last_name_label: "Last Name"
+          country_label: "Country"
+          update_button: "Update"
+      show:
         header: "User info"
-        table: 
+        table:
           email_col: "Email:"
           first_name_col: "First name:"
           last_name_col: "Last name:"
@@ -69,6 +77,8 @@ en:
           last_sign_in_col: "Last sign in date and time:"
           current_IP_col: "Current sign in IP:"
           last_IP_col: "Last sign in IP:"
+      form:
+          old_password_col: "old:"
     sessions:
       new:
         log_in_header: "Log in"
@@ -152,7 +162,7 @@ en:
           first_name_label: "First Name"
           last_name_label: "Last Name"
           sing_up_button: "Sing Up"
-    failure:
+  failure:
       timeout: "Your session expired. Please sign in again to continue"
   activerecord:
     errors:

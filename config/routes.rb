@@ -3,9 +3,9 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :calculators, only: %i[show edit]
+  resources :calculators, only: %i[show edit update]
   namespace :admins do
-    resources :users, only: %i[index show edit]
+    resources :users, only: %i[index show edit update]
   end
   namespace :api do
     namespace :v2 do

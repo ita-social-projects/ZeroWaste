@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 describe 'visit admin page', js: true do
+  let(:user) { create(:user) }
+  let(:calculator) { create(:calculator) }
   let(:time_login) { Time.new(2020, 0o1, 0o1).utc }
   let!(:user1) do
     create(:user, email: 'test1@gmail.com', password: '12345878',
@@ -29,6 +31,22 @@ describe 'visit admin page', js: true do
       expect(page).to have_content 'Last sign in date and time'
       expect(page).to have_content 'Current sign in IP'
       expect(page).to have_content 'Last sign in IP'
+    end
+  end
+  context 'when user clicks edit' do
+    it 'should redirect to user edit page' do
+      visit '/admins/users'
+      within(:css, "#user-info-#{user1.id}") do
+        click_link(href: "/admins/users/#{user1.id}/edit")
+      end
+      expect(page).to have_current_path('/admins/users/1/edit')
+      fill_in 'Email', with: 'test2@mail.com'
+      fill_in 'First name', with: 'Adam'
+      fill_in 'Last name', with: 'Adamson'
+      fill_in 'Country', with: 'US'
+      click_button('Update')
+      visit('/admins/users/1/')
+      expect(page).to have_content 'test2@mail.com'
     end
   end
 end
