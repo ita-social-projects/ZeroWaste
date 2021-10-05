@@ -11,7 +11,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :lockable, :timeoutable, :trackable, :confirmable,
          :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
-  # devise :omniauthable, omniauth_providers: %i[facebook]
+
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     length: { minimum: 6, maximum: 100 },
