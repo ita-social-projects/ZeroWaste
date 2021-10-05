@@ -14,6 +14,6 @@ div class="container home"
           tr id="user-info-#{user.id}"
             td = user.email
             td = user.last_sign_in_at
-            td = link_to "Show", admins_user_path(user.id)
-            td = link_to "Edit", edit_admins_user_path(user.id)
-            
+            td = link_to fa_icon('eye'), admins_user_path(user.id)
+            td = link_to fa_icon('edit'), edit_admins_user_path(user.id)
+        
