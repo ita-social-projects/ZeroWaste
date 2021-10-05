@@ -15,6 +15,8 @@ module Admins
 
     def show
       @calculator = Calculator.friendly.find(params[:id])
+    end
+
     def new
       @calculator = Calculator.new
     end
