@@ -16,7 +16,6 @@
       <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider) %><br />
     <%- else %>
       <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-      <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider) %><br />
     <% end %>
   <% end %>
 <% end %>

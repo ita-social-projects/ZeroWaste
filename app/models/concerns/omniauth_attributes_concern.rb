@@ -3,7 +3,7 @@
 module OmniauthAttributesConcern
   extend ActiveSupport::Concern
   module ClassMethods
-    def twitter(params)
+    def facebook(params)
       if params['info']['email'].blank?
         (params['info']['email'] =
            "dummy#{SecureRandom.hex(10)}@dummy.com")
