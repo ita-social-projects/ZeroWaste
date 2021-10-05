@@ -2,6 +2,8 @@
 
 require 'rails_helper'
 
+ROUTE = '/admins/users/'
+
 describe 'visit admin page', js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
@@ -12,14 +14,14 @@ describe 'visit admin page', js: true do
   end
 
   it 'visits admin page' do
-    visit '/admins/users'
+    visit ROUTE 
     expect(page).to have_content 'test1@gmail.com'
     expect(page).to have_content time_login
   end
 
   context 'when user clicks show icon' do
     it 'redirects to user info page' do
-      visit '/admins/users'
+      visit ROUTE 
       within(:css, "#user-info-#{user1.id}") do
         click_link(href: "/admins/users/#{user1.id}")
       end
@@ -35,7 +37,7 @@ describe 'visit admin page', js: true do
   end
   context 'when user clicks edit' do
     it 'should redirect to user edit page' do
-      visit '/admins/users'
+      visit ROUTE 
       within(:css, "#user-info-#{user1.id}") do
         click_link(href: "/admins/users/#{user1.id}/edit")
       end
