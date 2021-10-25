@@ -91,3 +91,7 @@ gem 'faker'
 gem 'slim-rails'
 
 gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'omniauth', '~> 1.9.1'
+
+gem 'omniauth-google-oauth2'
