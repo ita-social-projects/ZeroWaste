@@ -8,25 +8,18 @@ RSpec.describe CalculationResolver, type: :model do
   describe '#result' do
     let(:value) { 'P1 + 2' }
     let(:parameters) { {p1: 2} }
-    let(:calculation) { create(:calculation, value: value) }
+    let(:calculator) { create(:calculator) }
+    let(:calculation) do
+      create(:calculation, value: value, calculator: calculator)
+    end
     subject  { CalculationResolver.result(parameters, calculation.value) }
 
     context 'when pass valid data' do
       it { is_expected.to eq 4 }
     end
 
-    context 'when pass invalid value' do
-      let(:value) { 'not_number' }
-      it { is_expected.to be_nil }
-    end
-
     context 'when pass empty hash' do
       let(:parameters) { {} }
-      it { is_expected.to be_nil }
-    end
-
-    context 'when pass number instead hash' do
-      let(:parameters) { 2 }
       it { is_expected.to be_nil }
     end
 
@@ -42,18 +35,30 @@ RSpec.describe CalculationResolver, type: :model do
       it { is_expected.to eq 396 }
     end
 
-    context 'when pass value with `from_list` formula' do
-      let(:get_params) { FromList.to_hash }
-      let(:calculator) { build(:calculator) }
-      let(:range1) do
-        create(:range_field, from: 5, type: 'Calculation', label: 'label',
-                             kind: 'form', calculator: calculator, to: 19, value: '56')
+    context 'when pass value with `items_per_month` formula' do
+      let(:value) { 'ITEMS_PER_MONTH(P1, F1, F2)' }
+      let(:parameters) { {p1: 5} }
+
+      before do
+        create(:range_field,
+               selector: 'F1',
+               from: 0,
+               to: 2,
+               value: '30',
+               label: 'label',
+               kind: 'form',
+               calculator: calculator)
+        create(:range_field,
+               selector: 'F2',
+               from: 3,
+               to: 5,
+               value: '70',
+               label: 'label',
+               kind: 'form',
+               calculator: calculator)
       end
-      let(:ranges) { [range1] }
-      let(:value) { "FROM_LIST(#{ranges})" }
-      it {
-        expect(get_params.call([range1])).to eq({ range1 => { range1.from..range1.to => range1.value } })
-      }
+
+      it { is_expected.to eq(300) }
     end
   end
 end
