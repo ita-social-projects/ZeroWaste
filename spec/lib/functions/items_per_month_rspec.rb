@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'functions/diapers_per_month'
+require 'functions/items_per_month'
 
-describe DiapersPerMonth do
-  let(:function) { described_class.new }
+describe ItemsPerMonth do
   let(:data) { { 0..2 => 30, 3..5 => 70 } }
 
   describe '#call' do
@@ -18,7 +17,7 @@ describe DiapersPerMonth do
     end
     it 'properly calculates all results' do
       expectations.each do |month, expected|
-        expect(function.call(month, data)).to eq(expected)
+        expect(described_class.call(month, data)).to eq(expected)
       end
     end
   end

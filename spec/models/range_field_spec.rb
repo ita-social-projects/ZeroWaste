@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'functions/from_list'
 LOCAL_PREFIX_RANGE_FIELD = 'activerecord.errors.models.range_field.attributes'
 
 RSpec.describe RangeField, type: :model do
