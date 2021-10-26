@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :calculators, only: [] do
-        post :compute
+        post :compute, on: :member
       end
     end
     namespace :v2 do

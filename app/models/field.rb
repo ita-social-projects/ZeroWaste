@@ -21,8 +21,4 @@ class Field < ApplicationRecord
       self.selector = "#{kind[0].upcase}1"
     end
   end
-
-  def result
-    0
-  end
 end

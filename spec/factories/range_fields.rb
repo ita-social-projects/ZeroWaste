@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :range_field do
     from { 0 }
-    type { 'Calculation' }
+    type { 'RangeField' }
     label { 'Label' }
     kind { 'form' }
     calculator
