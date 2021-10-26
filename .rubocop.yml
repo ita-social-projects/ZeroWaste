@@ -49,7 +49,7 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Enabled: true
-  Max: 30
+  Max: 31
 
 Layout/LineLength:
   Enabled: true
