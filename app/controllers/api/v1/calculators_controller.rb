@@ -3,9 +3,9 @@
 module Api
   module V1
     class CalculatorsController < ApplicationController
+      VALUES = { bought_diapers: 8956, money_spent: 7841, garbage_created: 342 }
       def compute
-        @fields = Calculator.find_by(slug: params['id']).fields.result
-        render json: @fields, root: 'result', adapter: :json
+        render json: VALUES
       end
     end
   end
