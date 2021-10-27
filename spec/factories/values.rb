@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :value do
     value { 'Value' }
-    type { 'Calculation' }
+    type { 'Value' }
     label { 'Label' }
     kind { 'form' }
     calculator

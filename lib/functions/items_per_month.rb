@@ -2,41 +2,35 @@
 
 class ItemsPerMonth
   def self.deferred
-    ->(month, *range_ids) { new(month, range_ids).call }
+    lambda do |month, *range_ids|
+      ranges = RangeField.where(selector: range_ids.map(&:upcase))
+      function = new(month)
+      function.call(function.calculate_data(ranges))
+    end
   end
 
-  def initialize(month, range_ids)
+  def initialize(month)
     @month = month
-    @ranges = Field.where(selector: range_ids.map(&:upcase))
   end
 
-  def call
+  def call(data)
     sum = 0
-    data = calculate_data
-    (month + 1).times do |i|
+    (month.to_i + 1).times do |i|
       set = data.find { |months, _| months.include?(i) }
-      sum += set[1].to_i if set
+      sum += set[1].to_f if set
     end
 
     sum
   end
 
-  private
-
-  attr_reader :month, :ranges
-
-  def calculate_data
-    validate_ranges_instances!(ranges)
-
+  def calculate_data(ranges)
     ranges.each_with_object({}) do |range_field, res|
       res[(range_field.from..range_field.to)] = range_field.value
     end
   end
 
-  def validate_ranges_instances!(ranges)
-    return if ranges.all?(RangeField)
+  private
 
-    raise ArgumentError, 'invalid array format from RangeField model'
-  end
+  attr_reader :month
 end
 
