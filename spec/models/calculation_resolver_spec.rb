@@ -12,7 +12,7 @@ RSpec.describe CalculationResolver, type: :model do
     let(:calculation) do
       create(:calculation, value: value, calculator: calculator)
     end
-    subject  { CalculationResolver.result(parameters, calculation.value) }
+    subject  { CalculationResolver.new.result(parameters, calculation.value) }
 
     context 'when pass valid data' do
       it { is_expected.to eq 4 }

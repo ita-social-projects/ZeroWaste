@@ -31,8 +31,7 @@ class CalculatorResolver
   end
 
   def self.upcase_dependencies(value)
-    calculator = Dentaku::Calculator.new
-    selectors = calculator.dependencies(value)
+    selectors = CalculationResolver.new.calculator.dependencies(value)
     selectors.map!(&:upcase)
   end
 

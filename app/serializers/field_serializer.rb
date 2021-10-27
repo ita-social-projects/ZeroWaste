@@ -15,7 +15,7 @@ class FieldSerializer < ActiveModel::Serializer
       end
     end
     result = res.each_with_object({}) do |(formula, parameters), new_hash|
-      new_hash[formula] = CalculationResolver.result(parameters, formula)
+      new_hash[formula] = CalculationResolver.new.result(parameters, formula)
     end
     answer = result.each_with_object([]) do |(_, calculated_formula), new_array|
       new_array << calculated_formula
