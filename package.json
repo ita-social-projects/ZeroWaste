@@ -11,7 +11,8 @@
     "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "yarn": "^1.22.17"
   },
   "version": "0.1.0",
   "devDependencies": {
