@@ -5,7 +5,7 @@ module Admins
     before_action :find_calculator, except: %i[new create]
     layout 'admin'
 
-     def index
+    def index
       @calculators = if params[:search]
         Calculator.where('name LIKE ?', "%#{params[:search]}%")
       else

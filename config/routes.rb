@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'calculators#index'
+
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
   devise_for :users, controllers: { registrations: 'users/registrations',
