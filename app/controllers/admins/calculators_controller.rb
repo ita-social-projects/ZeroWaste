@@ -2,7 +2,7 @@
 
 module Admins
   class CalculatorsController < ApplicationController
-    before_action :find_calculator, except: %i[new create index]
+    before_action :find_calculator, except: %i[new create]
     layout 'admin'
 
     def index

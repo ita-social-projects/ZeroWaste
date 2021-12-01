@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'admins/calculators#index'
+  root 'calculators#index'
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
