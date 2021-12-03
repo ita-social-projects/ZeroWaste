@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks:
                                     'users/omniauth_callbacks' }
-  resources :calculators, only: %i[index show]
+  resources :calculators, only: %i[index show], param: :slug
+
   namespace :admins do
     resources :users, only: %i[index show edit update]
-    resources :calculators, only: %i[index show new create edit update]
+    resources :calculators, only: %i[index show new create edit update], param: :slug
   end
 
   namespace :api do
