@@ -13,10 +13,11 @@ class User < ApplicationRecord
                     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true,
                        length: { minimum: 8 },
-                       format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} }
+                       format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
+                       on: :create
   validates :first_name, :last_name, presence: true,
                                      length: { minimum: 2 },
-                                     on: :create,
+                                     on: %i[create update],
                                      format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 
   def self.from_omniauth(auth)

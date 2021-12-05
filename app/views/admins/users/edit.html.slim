@@ -1,7 +1,8 @@
 .container
   h2.text-center = t '.edit_user_info'
 
-  = form_with(model: @user, url: admins_user_path(@user), remote: false) do |f|
+  = form_for(@user, url: admins_user_path(@user), remote: false) do |f|
+    = render "devise/shared/error_messages", resource: @user
     .form-group.form-inline.justify-content-center
       = f.label :first_name, class: 'm-2'
       = f.text_field :first_name, class: 'form-control'
@@ -11,7 +12,7 @@
     .form-group.form-inline.justify-content-center
       = f.label :country, class: 'm-3'
       = f.text_field :country, class: 'form-control'
-    = f.button(class: 'justify-content-center btn btn-primary m-2 d-block mx-auto', type: "submit")
+    = f.submit(class: 'justify-content-center btn btn-primary m-2 d-block mx-auto', type: "submit")
 
  
  

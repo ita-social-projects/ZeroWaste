@@ -17,17 +17,12 @@ module Admins
       end
     end
 
-    def edit
-      @user = find_user
-    end
+    def edit; end
 
     def update
-      @user = find_user
       if @user.update(user_params)
-        flash[:success] = 'User`s profile has been updated!'
         redirect_to admins_user_path(@user)
       else
-        flash[:error] = 'User`s profile hasn`t been updated!'
         render 'edit'
       end
     end
