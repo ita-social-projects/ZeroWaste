@@ -33,6 +33,35 @@ describe 'visit admin page', js: true do
   end
 end
 
+#try to test edit user
+context 'when user clicks edit icon' do
+  it 'redirects to user edit info page' do
+    visit '/admins/users/1/edit'
+    within(:css, "#user-info-#{user1.id}-edit") do
+      click_link(href: "/admins/users/#{user1.id}/edit")
+    end
+    expect(page).to have_current_path('/admins/users/1/edit')
+    expect(page).to have_content 'First name'
+    expect(page).to have_content 'Last name'
+    expect(page).to have_content 'Country'
+  end
+end
+end
+#try to test edit user
+context 'when edit user`s info correctly' do
+  it 'redirects to user info page' do
+    visit '/users/sign_up'
+    fill_in 'First Name', with: 'User_test'
+    fill_in 'Last Name', with: 'Users_test'
+    fill_in 'Country', with: 'user_country'
+    click_button 'Update User'
+    expect(page).to have_current_path('/admins/users/1')
+    expect(page).to have_content 'User_test'
+    expect(page).to have_content 'Users_test'
+    expect(page).to have_content 'user_country'
+  end
+end
+
 describe 'user info page' do
   context 'viewing non-existing user' do
     it 'renders the 404 page' do
