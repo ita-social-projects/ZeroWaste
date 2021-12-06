@@ -46,7 +46,6 @@ context 'when user clicks edit icon' do
     expect(page).to have_content 'Country'
   end
 end
-end
 #try to test edit user
 context 'when edit user`s info correctly' do
   it 'redirects to user info page' do
