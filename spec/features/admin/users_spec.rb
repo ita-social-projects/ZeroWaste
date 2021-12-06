@@ -31,34 +31,44 @@ describe 'visit admin page', js: true do
       expect(page).to have_content 'Last sign in IP'
     end
   end
-end
 
-#try to test edit user
-context 'when user clicks edit icon' do
-  it 'redirects to user edit info page' do
+ context 'when user clicks edit icon' do
+   it 'redirects to user edit info page' do
+     visit '/admins/users'
+     within(:css, "#user-info-#{user1.id}") do
+       click_link(href: "/admins/users/#{user1.id}/edit")
+     end
+     expect(page).to have_current_path('/admins/users/1/edit')
+     expect(page).to have_content 'First name'
+     expect(page).to have_content 'Last name'
+     expect(page).to have_content 'Country'
+   end
+ end
+
+ context 'when edit user`s info correctly' do
+   it 'redirects to user info page' do
+     visit '/admins/users/1/edit'
+     find('#user_first_name').set('John')
+     find('#user_last_name').set('Doe')
+     find('#user_country').set('UK')
+     click_button 'Update User'
+     expect(page).to have_current_path('/admins/users/1')
+     expect(page).to have_content 'John'
+     expect(page).to have_content 'Doe'
+     expect(page).to have_content 'UK'
+   end
+ end
+
+ context 'when edit user`s info wrongly' do
+  it 'show error messages' do
     visit '/admins/users/1/edit'
-    within(:css, "#user-info-#{user1.id}-edit") do
-      click_link(href: "/admins/users/#{user1.id}/edit")
-    end
-    expect(page).to have_current_path('/admins/users/1/edit')
-    expect(page).to have_content 'First name'
-    expect(page).to have_content 'Last name'
-    expect(page).to have_content 'Country'
-  end
-end
-#try to test edit user
-context 'when edit user`s info correctly' do
-  it 'redirects to user info page' do
-    visit '/users/sign_up'
-    fill_in 'First Name', with: 'User_test'
-    fill_in 'Last Name', with: 'Users_test'
-    fill_in 'Country', with: 'user_country'
+    find('#user_first_name').set('J')
+    find('#user_last_name').set('D')
     click_button 'Update User'
-    expect(page).to have_current_path('/admins/users/1')
-    expect(page).to have_content 'User_test'
-    expect(page).to have_content 'Users_test'
-    expect(page).to have_content 'user_country'
+    expect(page).to have_content 'First name is too short (minimum is 2 characters)'
+    expect(page).to have_content 'Last name is too short (minimum is 2 characters)'
   end
+ end
 end
 
 describe 'user info page' do
