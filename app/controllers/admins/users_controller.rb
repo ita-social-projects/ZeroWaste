@@ -17,7 +17,20 @@ module Admins
       end
     end
 
+    def update 
+      unless @user.blocked?
+        @user.update_attribute(:blocked, true)
+      else
+        @user.update_attribute(:blocked, false)
+      end
+      redirect_to admins_users_path
+    end
+
     private
+
+    # def block_params
+    #   params.require(:user).permit(:blocked)
+    # end
 
     def find_user
       @user = User.find(params[:id])
