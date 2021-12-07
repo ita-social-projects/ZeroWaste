@@ -2,7 +2,8 @@
   h2.text-center = t '.edit_user_info'
 
   = form_for(@user, url: admins_user_path(@user), remote: false) do |f|
-    = render "devise/shared/error_messages", resource: @user
+    .alert.alert-danger
+      = render "devise/shared/error_messages", resource: @user 
     .form-group.form-inline.justify-content-center
       = f.label :first_name, class: 'm-2'
       = f.text_field :first_name, class: 'form-control'
