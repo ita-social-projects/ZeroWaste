@@ -112,6 +112,7 @@ en:
         change_password_header: "Change your password"
         form:
           new_password_label: "New password"
+          current_password_label: "Current password"
           minimal_length_label: "characters minimum"
           confirm_password_label: "Confirm new password"
           change_password_button: "Change my password"
