@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  attr_accessor :skip_password 
+  
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,7 +16,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        length: { minimum: 8 },
                        format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
-                       on: :create
+                       unless: :skip_password
   validates :first_name, :last_name, presence: true,
                                      length: { minimum: 2 },
                                      on: %i[create update],
