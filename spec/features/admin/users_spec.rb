@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+USERS_PATH = '/admins/users'
+EDIT_USERS_PATH = '/admins/users/1/edit'
 
 describe 'visit admin page', js: true do
   let(:time_login) { Time.new(2020, 0o1, 0o1).utc }
@@ -10,14 +12,14 @@ describe 'visit admin page', js: true do
   end
 
   it 'visits admin page' do
-    visit '/admins/users'
+    visit USERS_PATH
     expect(page).to have_content 'test1@gmail.com'
     expect(page).to have_content time_login
   end
 
   context 'when user clicks show icon' do
     it 'redirects to user info page' do
-      visit '/admins/users'
+      visit USERS_PATH
       within(:css, "#user-info-#{user1.id}") do
         click_link(href: "/admins/users/#{user1.id}")
       end
@@ -34,11 +36,11 @@ describe 'visit admin page', js: true do
 
  context 'when user clicks edit icon' do
    it 'redirects to user edit info page' do
-     visit '/admins/users'
+     visit USERS_PATH
      within(:css, "#user-info-#{user1.id}") do
        click_link(href: "/admins/users/#{user1.id}/edit")
      end
-     expect(page).to have_current_path('/admins/users/1/edit')
+     expect(page).to have_current_path(EDIT_USERS_PATH)
      expect(page).to have_content 'First name'
      expect(page).to have_content 'Last name'
      expect(page).to have_content 'Country'
@@ -47,7 +49,7 @@ describe 'visit admin page', js: true do
 
  context 'when edit user`s info correctly' do
    it 'redirects to user info page' do
-     visit '/admins/users/1/edit'
+     visit EDIT_USERS_PATH
      find('#user_first_name').set('John')
      find('#user_last_name').set('Doe')
      find('#user_country').set('UK')
@@ -61,7 +63,7 @@ describe 'visit admin page', js: true do
 
  context 'when edit user`s info wrongly' do
   it 'show error messages' do
-    visit '/admins/users/1/edit'
+    visit EDIT_USERS_PATH
     find('#user_first_name').set('J')
     find('#user_last_name').set('D')
     click_button 'Update User'
