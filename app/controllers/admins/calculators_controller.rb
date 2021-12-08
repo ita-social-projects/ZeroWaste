@@ -2,7 +2,7 @@
 
 module Admins
   class CalculatorsController < ApplicationController
-    before_action :find_calculator, except: %i[new create]
+    before_action :calculator, only: %i[show edit update]
     layout 'admin'
 
     def index
@@ -14,7 +14,11 @@ module Admins
     end
 
     def show
-      @calculator = Calculator.friendly.find(params[:id])
+      # TODO: feel it
+    end
+
+    def edit
+      # TODO: feel it
     end
 
     def new
@@ -42,8 +46,8 @@ module Admins
 
     private
 
-    def find_calculator
-      @calculator = Calculator.find(params[:id])
+    def calculator
+      @calculator = Calculator.friendly.find(params[:id])
     end
 
     def calculator_params
