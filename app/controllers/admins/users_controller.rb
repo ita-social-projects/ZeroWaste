@@ -18,7 +18,6 @@ module Admins
     end
 
     def update
-      user.skip_password = true
       if user.update(user_params)
         redirect_to admins_user_path(user)
       else
@@ -29,7 +28,7 @@ module Admins
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :country)
+      params.require(:user).permit(:first_name, :last_name, :country).merge(skip_password: true)
     end
 
     def user
