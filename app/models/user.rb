@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  attr_accessor :skip_password 
+  
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,10 +15,11 @@ class User < ApplicationRecord
                     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true,
                        length: { minimum: 8 },
-                       format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} }
+                       format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
+                       unless: :skip_password
   validates :first_name, :last_name, presence: true,
                                      length: { minimum: 2 },
-                                     on: :create,
+                                     on: %i[create update],
                                      format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 
   def self.from_omniauth(auth)

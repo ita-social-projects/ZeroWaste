@@ -4,7 +4,7 @@ module Admins
   class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render404
     layout 'admin'
-    before_action :find_user, except: [:index]
+    before_action :user, except: [:index]
 
     def index
       @users = User.all
@@ -17,10 +17,22 @@ module Admins
       end
     end
 
+    def update
+      if user.update(user_params)
+        redirect_to admins_user_path(user)
+      else
+        render 'edit'
+      end
+    end
+
     private
 
-    def find_user
-      @user = User.find(params[:id])
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :country).merge(skip_password: true)
+    end
+
+    def user
+      @user ||= User.find(params[:id])
     end
 
     def render404
