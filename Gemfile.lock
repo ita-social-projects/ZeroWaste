@@ -74,7 +74,6 @@ GEM
     bootsnap (1.7.3)
       msgpack (~> 1.0)
     builder (3.2.4)
-    byebug (11.1.3)
     capybara (3.35.3)
       addressable
       mini_mime (>= 0.1.3)
@@ -86,8 +85,8 @@ GEM
     case_transform (0.2)
       activesupport
     childprocess (3.0.0)
-    concurrent-ruby (1.1.8)
-    connection_pool (2.2.5)
+    coderay (1.1.3)
+    concurrent-ruby (1.1.9)
     countries (3.1.0)
       i18n_data (~> 0.11.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -139,7 +138,7 @@ GEM
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    i18n (1.8.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     i18n_data (0.11.0)
     jbuilder (2.11.2)
@@ -149,7 +148,7 @@ GEM
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.9.0)
+    loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -160,15 +159,15 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.7)
-    nokogiri (1.11.2)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -206,14 +205,19 @@ GEM
     pronto-rubocop (0.11.1)
       pronto (~> 0.11.0)
       rubocop (>= 0.63.1, < 2.0)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.6)
     puma (5.2.2)
       nio4r (~> 2.0)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-mini-profiler (2.3.1)
       rack (>= 1.2.0)
-    rack-proxy (0.6.5)
+    rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -235,7 +239,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.3.0)
+    rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
     railties (6.1.3.1)
       actionpack (= 6.1.3.1)
@@ -244,7 +248,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rainbow (3.0.0)
-    rake (13.0.3)
+    rake (13.0.6)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -349,7 +353,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webpacker (5.2.1)
+    webpacker (5.4.3)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -359,7 +363,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   ruby
@@ -368,7 +372,6 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   bigdecimal (= 1.3.5)
   bootsnap (>= 1.4.4)
-  byebug
   capybara (>= 3.26)
   country_select (~> 4.0)
   database_cleaner-active_record
@@ -386,6 +389,7 @@ DEPENDENCIES
   pg (~> 1.1)
   pronto
   pronto-rubocop
+  pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.1)
@@ -400,10 +404,10 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
-  webpacker (~> 5.0)
+  webpacker (~> 5.4)
 
 RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.2.8
+   2.2.32

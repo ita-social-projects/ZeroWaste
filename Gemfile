@@ -14,7 +14,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.4'
 # Turbolinks makes navigating your web application faster. Read more:
 # https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -41,12 +41,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font-awesome-rails'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger
-  # console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  # Rspec-rails. Read more: https://github.com/rspec/rspec-rails
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 5.0.0'
-  # Factory_bot. Read more: https://github.com/thoughtbot/factory_bot_rails
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
 end
