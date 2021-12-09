@@ -29,7 +29,7 @@ module Admins
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :country,:password, :password_confirmation).merge(skip_password: true)
+      params.require(:user).permit(:first_name, :last_name, :country, :password, :password_confirmation).merge(skip_password: true)
     end
 
     def user
