@@ -8,21 +8,22 @@ import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 
+require('jquery');
+// const jQuery = require('jquery');
+// global.$ = global.jQuery = jQuery;
+// window.$ = window.jQuery = jQuery;
+
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
-import 'plugins/flatpickr';
 import 'ajax/result_button';
-
-const jQuery = require('jquery');
-global.$ = global.jQuery = jQuery;
-window.$ = window.jQuery = jQuery;
-
-document.addEventListener('turbolinks:load', () => {
-  $('[data-toggle="tooltip"]').tooltip();
-  $('[data-toggle="popover"]').popover();
-});
+import 'plugins/flatpickr';
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+// document.addEventListener('turbolinks:load', () => {
+//   $('[data-toggle="tooltip"]').tooltip();
+//   $('[data-toggle="popover"]').popover();
+// });
