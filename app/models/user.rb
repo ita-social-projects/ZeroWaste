@@ -30,16 +30,16 @@ class User < ApplicationRecord
     end
   end
   
-  def account_active?
+  def active?
     !blocked?
   end
 
   def active_for_authentication?
-    super && account_active?
+    active? && super
   end
 
   def inactive_message
-    account_active? ? super : :locked
+    active? ? super : :locked
   end
 
   def self.new_with_session(params, session)

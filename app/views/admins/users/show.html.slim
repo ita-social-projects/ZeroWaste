@@ -22,7 +22,5 @@ div class="container"
     dt = t '.table.last_IP_col'
     dd = @user.last_sign_in_ip
     
-    dt = t '.table.blocked'
-    dd = @user.blocked
-
-
+    dt = t '.table.block'
+    dd = @user.blocked? ? "Blocked" : "Unblocked"
