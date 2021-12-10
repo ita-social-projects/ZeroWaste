@@ -11,6 +11,7 @@ module Admins
       respond_to do |format|
         format.html
         format.csv do
+          UserReportJob.perform_later
           send_data UsersCsvGenerator.call(@users,
                                            fields: %w[email last_sign_in_at])
         end
