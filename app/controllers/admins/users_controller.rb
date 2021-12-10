@@ -19,7 +19,11 @@ module Admins
 
     def update
       if user.update(user_params)
-        redirect_to admins_users_path(user)
+        if params.dig(:user, :blocked).present?
+          redirect_to admins_users_path 
+        else
+          redirect_to admins_user_path(user)
+        end
       else
         render 'edit'
       end
