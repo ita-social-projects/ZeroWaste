@@ -16,7 +16,7 @@ class Admin < ApplicationRecord
 
   attr_accessor :current_password
 
-  def update_with_password(params, *options)
+  def update_with_password(params)
     if params[:current_password].present? && params[:password].blank?
       errors.add(:password, I18n.t('passwords.password.blank'))
       false

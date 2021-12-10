@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show edit update]
     resources :calculators, only: %i[index show new create edit update]
     resources :admins do
-      post :update_password
-      get :edit_password
+      post :update
+      get :edit
     end
   end
 

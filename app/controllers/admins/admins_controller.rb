@@ -4,13 +4,13 @@ module Admins
   class AdminsController < ApplicationController
     before_action :admin
 
-    def edit_password; end
+    def edit; end
 
-    def update_password
+    def update
       if admin.update_with_password(pass_params)
         redirect_to admins_users_path
       else
-        render :edit_password
+        render :edit
       end
     end
 
