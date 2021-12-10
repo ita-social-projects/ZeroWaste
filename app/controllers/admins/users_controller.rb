@@ -19,7 +19,7 @@ module Admins
 
     def update
       if user.update(user_params)
-        redirect_to admins_users_path
+        redirect_to admins_users_path(user)
       else
         render 'edit'
       end
