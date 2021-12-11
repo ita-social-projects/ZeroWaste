@@ -1,0 +1,16 @@
+.row
+    .admin-pane.ul.col
+        
+        = link_to "Users", admins_users_path, class: 'tab'
+        
+        = link_to "New Admin User", new_admin_registration_path, class: 'tab'
+
+        = link_to "Calculators", admins_calculators_path, class: 'tab'
+        
+        = link_to "New Calculator", new_admins_calculator_path, class: 'tab'
+      
+        = link_to "Log Out", destroy_admin_session_path, class: 'tab'      
+     
+        = link_to "Log In", new_admin_session_path, class: 'tab', id: 'log_in'     
+     
+        = link_to "Sign Up", new_admin_registration_path, class: 'tab'
