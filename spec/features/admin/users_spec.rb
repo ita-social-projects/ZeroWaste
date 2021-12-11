@@ -44,6 +44,8 @@ describe 'visit admin page', js: true do
      expect(page).to have_content 'First name'
      expect(page).to have_content 'Last name'
      expect(page).to have_content 'Country'
+     expect(page).to have_content 'Password'
+     expect(page).to have_content 'Password confirmation'
    end
  end
 
@@ -52,12 +54,14 @@ describe 'visit admin page', js: true do
      visit EDIT_USERS_PATH
      find('#user_first_name').set('John')
      find('#user_last_name').set('Doe')
-     find('#user_country').set('UK')
+     select 'Albania', from: 'user_country'
+     find('#user_password').set('111111111')
+     find('#user_password_confirmation').set('111111111')
      click_button 'Update User'
      expect(page).to have_current_path('/admins/users/1')
      expect(page).to have_content 'John'
      expect(page).to have_content 'Doe'
-     expect(page).to have_content 'UK'
+     expect(page).to have_content 'AL'
    end
  end
 
@@ -66,9 +70,14 @@ describe 'visit admin page', js: true do
     visit EDIT_USERS_PATH
     find('#user_first_name').set('J')
     find('#user_last_name').set('D')
+    select 'Albania', from: 'user_country'
+    find('#user_password').set('1')
+    find('#user_password_confirmation').set('2')
     click_button 'Update User'
     expect(page).to have_content 'First name is too short (minimum is 2 characters)'
     expect(page).to have_content 'Last name is too short (minimum is 2 characters)'
+    expect(page).to have_content 'Password is too short (minimum is 6 characters)'
+    expect(page).to have_content 'Re-password doesn\'t match Password'
   end
  end
 end

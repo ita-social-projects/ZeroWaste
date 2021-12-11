@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :skip_password 
+  attr_accessor :skip_password
   
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
