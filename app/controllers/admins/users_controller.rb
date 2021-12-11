@@ -11,6 +11,7 @@ module Admins
       respond_to do |format|
         format.html
         format.csv do
+          UserReportJob.perform_later
           send_data UsersCsvGenerator.call(@users,
                                            fields: %w[email last_sign_in_at])
         end
@@ -28,7 +29,7 @@ module Admins
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :country).merge(skip_password: true)
+      params.require(:user).permit(:first_name, :last_name, :country, :password, :password_confirmation).merge(skip_password: true)
     end
 
     def user
