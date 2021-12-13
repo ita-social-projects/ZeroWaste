@@ -18,4 +18,5 @@ div class="container home"
             td = link_to fa_icon('eye'), admins_user_path(user.id)
             td = link_to fa_icon('edit'), edit_admins_user_path(user.id)
             td = link_to fa_icon(user.blocked? ? 'lock' : 'lock-open'),
-              admins_user_path(user, user: {blocked: user.blocked? ? false : true}), method: :patch
+              admins_user_path(user, user: {blocked: user.blocked? ? false : true}),
+              onclick: "alert('Are you sure?')", method: :patch
