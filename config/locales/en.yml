@@ -108,6 +108,8 @@ en:
         resend_unlock_instructions_header: "Resend unlock instructions"
         resend_unlock_instructions_button: "Resend unlock instructions"
     passwords:
+      password:
+        blank: "New password can't be blank"
       edit:
         change_password_header: "Change your password"
         form:
