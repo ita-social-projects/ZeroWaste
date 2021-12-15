@@ -3,7 +3,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  mount Sidekiq::Web => '/sidekiq'
+  authenticate :user do
+    mount Sidekiq::Web => 'admins/sidekiq'
+  end
+
   root 'calculators#index'
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
