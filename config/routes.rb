@@ -3,7 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  authenticate :user do
+  authenticate :admin do
     mount Sidekiq::Web => 'admins/sidekiq'
   end
 

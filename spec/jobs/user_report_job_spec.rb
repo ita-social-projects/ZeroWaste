@@ -1,18 +1,15 @@
 require 'rails_helper'
-require 'sidekiq/testing'
-Sidekiq::Testing.fake!
+
 
 RSpec.describe UserReportJob, type: :job do
   describe "#perform_later" do
+  let(:job_report) { UserReportJob.perform_later('report') }
     it "uploads a report" do 
-      expect {
-        UserReportJob.perform_later('report')
-      }.to have_enqueued_job
+     expect { :job_report }.to have_enqueued_job
     end
+  let(:job_with_date) { UserReportJob.set(wait_until: Date.tomorrow.noon, queue: "low").perform_later('report') }
     it "uploads a report" do
-      expect {
-        UserReportJob.set(wait_until: Date.tomorrow.noon, queue: "low").perform_later('report')
-      }.to have_enqueued_job.with('report').on_queue("low").at(Date.tomorrow.noon)
+      expect{ :job_with_date }.to have_enqueued_job.with('report').on_queue("low").at(Date.tomorrow.noon)
     end
   end
 end
