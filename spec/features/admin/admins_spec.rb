@@ -2,8 +2,6 @@
 
 require 'rails_helper'
 
-USERS_PATH = '/admins/users'
-
 describe 'Edit admin`s password page', js: true do
   let!(:admin){ create(:admin, email: 'test1@gmail.com', password: '12345admin') }
   
