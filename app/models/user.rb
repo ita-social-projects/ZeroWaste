@@ -29,6 +29,18 @@ class User < ApplicationRecord
       user.first_name = auth.info.first_name
     end
   end
+  
+  def active?
+    !blocked?
+  end
+
+  def active_for_authentication?
+    active? && super
+  end
+
+  def inactive_message
+    active? ? super : :locked
+  end
 
   def self.new_with_session(params, session)
     super.tap do |user|
