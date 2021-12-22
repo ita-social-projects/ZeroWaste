@@ -43,6 +43,8 @@ en:
       money_spent: "Money Spent"
       mililiters_of_naphtha: "Mililiters of Naphtha"
       gram_of_plastic: "Gram of Plastic"
+      future_diapers: "Future Diapers"
+      future_costs: "Future costs"
   layouts:
     footer:
       about_us: "ABOUT US"
