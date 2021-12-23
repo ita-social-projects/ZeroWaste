@@ -3,7 +3,6 @@
 class User < ApplicationRecord
   attr_accessor :skip_password
   has_one_attached :image
-
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -49,6 +48,14 @@ class User < ApplicationRecord
          session['devise.google_oauth2_data']['extra']['raw_info']
         user.email = data['email']
       end
+    end
+  end
+
+  def displayed_image
+    if image.attached?
+      image.variant(resize: '150x150!').processed
+    else
+      '/default_avatar.png'
     end
   end
 end
