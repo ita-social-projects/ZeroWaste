@@ -3,15 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'AdminsController', type: :request do
-  let!(:admin){ create(:admin, email: 'test1@gmail.com', password: '12345admin') }
+  let!(:admin){ create(:admin) }
 
   context "when new password is valid" do
     it "changes password" do 
       get admins_admin_edit_path admin_id: admin.id
       expect(response).to have_http_status(200)
-
       post admins_admin_update_path, 
-      :params => { :admin => {:current_password => "12345admin", 
+      :params => { :admin => {:current_password => "admin12345", 
                               :password => "123admin", 
                               :password_confirmation => "123admin"} }
       expect(response).to have_http_status(302)

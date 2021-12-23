@@ -5,34 +5,32 @@
         = t ('admins.passwords.edit.change_password_header')
     .card-body
       form
-      = form_for :admin, url: { action: :update } do |form|
+      = form_for :admin, url: { action: :update } do |f|
         .row
           .col-md-12
               .form-group
               label
                 = t ('admins.passwords.edit.form.current_password_label')
-              = form.password_field :current_password,
+              = f.password_field :current_password,
               class: 'form-control'
-              ol.mb-0.mt-1
-                - @admin.errors[:current_password].each do |msg|
-                  li.text-danger
-                    = msg
+              - if @admin.errors[:current_password] != []
+                .alert.alert-danger.m-1
+                  = @admin.errors.full_messages_for(:current_password).last
               .form-group
               label
                 = t ('admins.passwords.edit.form.new_password_label')
-              = form.password_field :password, class: 'form-control'
-              ol.mb-0.mt-1
-                - @admin.errors[:password].each do |msg|
-                  li.text-danger
-                    = msg
+              = f.password_field :password,
+              class: 'form-control'
+              - if @admin.errors[:password] != []
+                .alert.alert-danger.m-1
+                  = @admin.errors.full_messages_for(:password).last
               .form-group
               label
                 = t ('admins.passwords.edit.form.confirm_password_label')
-              = form.password_field :password_confirmation,
+              = f.password_field :password_confirmation,
               class: 'form-control'
-              ol.mb-0.mt-1
-                - @admin.errors[:password_confirmation].each do |msg|
-                  li.text-danger
-                    = msg
+              - if @admin.errors[:password_confirmation] != []
+                  .alert.alert-danger.m-1
+                    = @admin.errors.full_messages_for(:password_confirmation).last
         button.btn.btn-primary type="submit" 
           = t ('admins.passwords.edit.form.change_password_button')
