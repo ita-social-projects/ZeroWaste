@@ -21,7 +21,8 @@ class User < ApplicationRecord
                                      length: { minimum: 2 },
                                      on: %i[create update],
                                      format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
-
+  validate :acceptable_image_type?
+  
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -57,5 +58,11 @@ class User < ApplicationRecord
     else
       '/default_avatar.png'
     end
+  end
+
+  def acceptable_image_type?
+    return unless image.attached?
+    return if image.content_type.in? ["image/png", "image/jpeg"]
+    errors.add :image, "must be a PNG or JPG"
   end
 end
