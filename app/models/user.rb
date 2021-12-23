@@ -22,7 +22,8 @@ class User < ApplicationRecord
                                      on: %i[create update],
                                      format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
   validate :acceptable_image_type?
-  
+  validate :acceptable_image_size?
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -64,5 +65,11 @@ class User < ApplicationRecord
     return unless image.attached?
     return if image.content_type.in? ["image/png", "image/jpeg"]
     errors.add :image, "must be a PNG or JPG"
+  end
+
+  def acceptable_image_size?
+    return unless image.attached?
+    return unless image.byte_size > 1.megabyte
+    errors.add :image, "is over 1MB"
   end
 end
