@@ -3,6 +3,9 @@
 
   = form_for(@user, url: admins_user_path(@user), remote: false) do |f|
     .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
+      = f.label :image, class: "form-label"
+      = f.file_field :image, class: "form-field"
+    .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
       = f.label :first_name, class: 'm-2'
       = f.text_field :first_name, class: 'form-control'
       - if @user.errors[:first_name] != []
