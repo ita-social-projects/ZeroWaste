@@ -1,5 +1,7 @@
-div class="container"
+.container
   h2 = t '.header'
+  .field
+    = image_tag @user.displayed_image, loading: "lazy", class: "rounded-full"
   dl
     dt = t '.table.email_col'
     dd = @user.email
