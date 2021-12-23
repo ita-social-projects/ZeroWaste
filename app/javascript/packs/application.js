@@ -19,6 +19,8 @@ import '../stylesheets/application';
 import 'ajax/result_button';
 import 'plugins/flatpickr';
 
+const images = require.context('../images', true)
+
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
