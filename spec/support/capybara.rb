@@ -1,5 +1,5 @@
-JS_DRIVER = :selenium_chrome_headless
-Capybara.default_driver = :rack_test
+JS_DRIVER = :selenium_chrome
+Capybara.default_driver = :selenium_chrome
 Capybara.javascript_driver = JS_DRIVER
 Capybara.default_max_wait_time = 2
 
