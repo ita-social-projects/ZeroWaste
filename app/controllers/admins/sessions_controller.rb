@@ -3,17 +3,21 @@
 module Admins
   class SessionsController < Devise::SessionsController
     layout 'admin'
-    before_action :check_user
+    #before_action :check_admin
 
     protected
 
-    def check_user
-      return if current_admin
 
-      flash.clear
-      redirect_to('/admins/users')
-
+    def after_sign_in_path_for(resource)
+      admins_users_path
     end
+    #def check_admin
+    #  return if current_admin
+
+    #  flash.clear
+    #  redirect_to('/admins/users')
+
+  #  end
     # GET /resource/sign_in
     # def new
     #   super
