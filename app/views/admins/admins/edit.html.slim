@@ -13,7 +13,7 @@
                 = t ('admins.passwords.edit.form.current_password_label')
               = f.password_field :current_password,
               class: 'form-control'
-              - if @admin.errors[:current_password] != []
+              - if @admin.errors[:current_password].present?
                 .alert.alert-danger.m-1
                   = @admin.errors.full_messages_for(:current_password).last
               .form-group
@@ -21,7 +21,7 @@
                 = t ('admins.passwords.edit.form.new_password_label')
               = f.password_field :password,
               class: 'form-control'
-              - if @admin.errors[:password] != []
+              - if @admin.errors[:password].present?
                 .alert.alert-danger.m-1
                   = @admin.errors.full_messages_for(:password).last
               .form-group
@@ -29,7 +29,7 @@
                 = t ('admins.passwords.edit.form.confirm_password_label')
               = f.password_field :password_confirmation,
               class: 'form-control'
-              - if @admin.errors[:password_confirmation] != []
+              - if @admin.errors[:password_confirmation].present?
                   .alert.alert-danger.m-1
                     = @admin.errors.full_messages_for(:password_confirmation).last
         button.btn.btn-primary type="submit" 

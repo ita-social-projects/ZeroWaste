@@ -10,12 +10,15 @@ RSpec.describe 'AdminsController', type: :request do
       get admins_admin_edit_path admin_id: admin.id
       expect(response).to have_http_status(200)
       post admins_admin_update_path, 
-      :params => { :admin => {:current_password => "admin12345", 
-                              :password => "123admin", 
-                              :password_confirmation => "123admin"} }
+      params: {
+        admin: {
+          current_password: "admin12345", 
+          password: "123admin", 
+          password_confirmation: "123admin"
+        }
+      }
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(admins_users_path)
-
     end
   end
 
@@ -25,9 +28,13 @@ RSpec.describe 'AdminsController', type: :request do
       expect(response).to have_http_status(200)
 
       post admins_admin_update_path, 
-      :params => { :admin => {:current_password => "12345admin", 
-                              :password => "123", 
-                              :password_confirmation => "123"} }
+      params: {
+        admin: {
+          current_password: "admin12345", 
+          password: "123", 
+          password_confirmation: "123"
+        }
+      }
       expect(response).to have_http_status(200)
     end
   end
