@@ -2,7 +2,8 @@
 
 class User < ApplicationRecord
   attr_accessor :skip_password
-  
+  has_one_attached :image
+
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
