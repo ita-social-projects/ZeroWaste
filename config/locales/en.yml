@@ -108,10 +108,13 @@ en:
         resend_unlock_instructions_header: "Resend unlock instructions"
         resend_unlock_instructions_button: "Resend unlock instructions"
     passwords:
+      password:
+        blank: "New password can't be blank"
       edit:
         change_password_header: "Change your password"
         form:
           new_password_label: "New password"
+          current_password_label: "Current password"
           minimal_length_label: "characters minimum"
           confirm_password_label: "Confirm new password"
           change_password_button: "Change my password"

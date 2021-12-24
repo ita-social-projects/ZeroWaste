@@ -34,7 +34,7 @@ services:
 
   redis:
     image: redis:6-alpine
-    expose:
+    ports:
       - 6379:6379
     volumes:
       - redis_data:/data

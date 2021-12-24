@@ -18,9 +18,10 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "yarn": "^1.22.17",
-    "webpack-dev-server": "^4",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.5",
+    "@webpack-cli/serve": "^1.6",
     "webpack-cli": "^4.0",
-    "@webpack-cli/serve": "^1.6"
+    "webpack-dev-server": "^4",
+    "yarn": "^1.22.17"
   }
 }

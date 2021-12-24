@@ -42,6 +42,10 @@ gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'pry-rails'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger
+  # console
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Rspec-rails. Read more: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 5.0.0'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
