@@ -158,6 +158,9 @@ GEM
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     i18n_data (0.11.0)
+    image_processing (1.12.1)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
     jsonapi-renderer (0.2.2)
@@ -176,6 +179,7 @@ GEM
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.1115)
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.14.4)
     msgpack (1.4.2)
@@ -302,6 +306,8 @@ GEM
     rubocop-ast (1.15.0)
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     rugged (1.0.1)
@@ -395,6 +401,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   friendly_id (~> 5.4.0)
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth (~> 1.9.1)
@@ -422,4 +429,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.2.24
+   2.2.33
