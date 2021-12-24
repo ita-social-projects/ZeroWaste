@@ -1,20 +1,30 @@
 .container
-  .mb-5
-    = form_tag admins_calculators_path, method: :get, class: "d-flex" do
-      = text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search..."
-      = submit_tag "Search", name: nil, class: "btn btn-outline-primary my-2 my-sm-0"
+  = form_tag admins_calculators_path, method: :get, class: 'd-flex justify-content-end mb-5' do
+    .d-flex
+      = text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: 'Search...'
+      = button_tag type: :submit, name: nil, class: 'btn btn-primary px-4 d-flex align-items-center' do
+        i.fa.fa-search.mr-2
+        span Search
+    = link_to new_admins_calculator_path, class: 'btn btn-success px-4 ml-1' do
+      i.fa.fa-plus.mr-2
+      span Add calculator
 
-  .table-responsive
-    table.table.table-hover
-      thead
-        tr
-          th ID
-          th Name
-          th Show
-      tbody
-        - @calculators.each do |calculator|
-          tr
-            td= calculator.id
-            td= calculator.name
-            td= link_to 'Show calucator', calculator
-
+  .admin-table
+    .admin-table-header.row.my-3.pb-3
+      .col-2 ID
+      .col-3 Slug
+      .col-4 Name
+      .col-3.actions Actions
+    .admin-table-body.row
+      - @calculators.each do |calculator|
+        .col-2= calculator.id
+        .col-3= calculator.slug
+        .col-4= calculator.name
+        .col-3.actions
+          = link_to calculator_path(calculator) do
+            i.fa.fa-eye
+          = link_to edit_admins_calculator_path(calculator) do
+            i.fa.fa-pen
+          = link_to admins_calculator_path(calculator), method: :delete,
+            data: { confirm: 'Are you certain you want to delete this record?' } do
+            i.fa.fa-trash

@@ -11,4 +11,5 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body.admin
     .container.admin-container
+      = render 'layouts/flash_messages'
       = yield

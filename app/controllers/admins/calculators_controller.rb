@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module Admins
-  class CalculatorsController < ApplicationController
-    before_action :calculator, only: %i[show edit update]
-    layout 'admin'
+  class CalculatorsController < BaseController
+    before_action :calculator, only: %i[show edit update destroy]
 
     def index
       @calculators = if params[:search]
@@ -28,7 +27,7 @@ module Admins
     def create
       @calculator = Calculator.new(calculator_params)
       if @calculator.save
-        redirect_to edit_admins_calculator_path(@calculator.id),
+        redirect_to admins_calculators_path,
                     notice: 'Calculator has been successfully created.'
       else
         render action: 'new'
@@ -37,11 +36,17 @@ module Admins
 
     def update
       if @calculator.update(calculator_params)
-        redirect_to edit_admins_calculator_path(@calculator.id),
+        redirect_to admins_calculators_path,
                     notice: 'Calculator has been successfully updated.'
       else
         render action: 'edit'
       end
+    end
+
+    def destroy
+      @calculator.destroy!
+      redirect_to admins_calculators_path,
+                  notice: 'Calculator has been successfully deleted.'
     end
 
     private
@@ -51,7 +56,7 @@ module Admins
     end
 
     def calculator_params
-      params.require(:calculator).permit(:name, :id)
+      params.require(:calculator).permit(:name, :id, :slug)
     end
   end
 end
