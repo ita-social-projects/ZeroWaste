@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  authenticate :admin do
+    mount Sidekiq::Web => 'admins/sidekiq'
+  end
+
   root 'calculators#index'
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }

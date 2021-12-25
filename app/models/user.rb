@@ -7,7 +7,7 @@ class User < ApplicationRecord
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :lockable, :timeoutable, :trackable, :confirmable,
+         :lockable, :timeoutable, :trackable, :confirmable, :async,
          :omniauthable, omniauth_providers: %i[google_oauth2]
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
