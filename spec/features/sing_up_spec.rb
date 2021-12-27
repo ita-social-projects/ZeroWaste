@@ -5,8 +5,7 @@ require 'rails_helper'
 describe 'User Sign Up', js: true do
   context 'when sign up with correct password and email' do
     it 'shows a message about a confirmation link in the mail' do
-      allow(Devise::Mailer)
-        .to receive(:confirmation_instructions)
+      receive(:confirmation_instructions)
         .and_return(double(deliver: true))
       visit '/users/sign_up'
       fill_in 'Email', with: 'simple@email.com'

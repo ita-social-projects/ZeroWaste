@@ -7,18 +7,21 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
+    "@webpack-cli/serve": "^1.6",
     "bootstrap": "^4.6.0",
     "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0",
+
     "webpack": "^4.46.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "yarn": "^1.22.17",
-    "webpack-dev-server": "^4",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.5",
+    "@webpack-cli/serve": "^1.6",
     "webpack-cli": "^4.0",
-    "@webpack-cli/serve": "^1.6"
+    "webpack-dev-server": "^4",
+    "yarn": "^1.22.17"
   }
 }
