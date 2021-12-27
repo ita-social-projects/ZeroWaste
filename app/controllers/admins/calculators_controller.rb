@@ -13,11 +13,11 @@ module Admins
     end
 
     def show
-      # TODO: feel it
+      # TODO: fill it
     end
 
     def edit
-      # TODO: feel it
+      # TODO: fill it
     end
 
     def new
@@ -52,7 +52,7 @@ module Admins
     private
 
     def calculator
-      @calculator = Calculator.friendly.find(params[:id])
+      @calculator = Calculator.friendly.find(params[:slug])
     end
 
     def calculator_params

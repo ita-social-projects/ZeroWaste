@@ -6,6 +6,6 @@ class CalculatorsController < ApplicationController
   end
 
   def show
-    @calculator = Calculator.friendly.find(params[:id])
+    @calculator = Calculator.friendly.find(params[:slug])
   end
 end

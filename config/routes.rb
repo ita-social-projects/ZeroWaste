@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks:
                                     'users/omniauth_callbacks' }
-  resources :calculators, only: %i[index show]
+  resources :calculators, only: %i[index show], param: :slug
+
   namespace :admins do
     resources :users, only: %i[index show edit update]
-    resources :calculators
+    resources :calculators, param: :slug
     resources :admins do
       post :update
       get :edit
