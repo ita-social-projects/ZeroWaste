@@ -9,12 +9,14 @@
       thead
         tr
           th ID
+          th Slug
           th Name
           th Show
       tbody
         - @calculators.each do |calculator|
           tr
             td= calculator.id
+            td= calculator.slug
             td= calculator.name
             td= link_to 'Show calucator', calculator
 

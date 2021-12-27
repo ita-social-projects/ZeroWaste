@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  authenticate :admin do
+    mount Sidekiq::Web => 'admins/sidekiq'
+  end
+
   root 'calculators#index'
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
@@ -8,10 +14,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks:
                                     'users/omniauth_callbacks' }
-  resources :calculators, only: %i[index show]
+  resources :calculators, only: %i[index show], param: :slug
+
   namespace :admins do
     resources :users, only: %i[index show edit update]
-    resources :calculators, only: %i[index show new create edit update]
+    resources :calculators, only: %i[index show new create edit update], param: :slug
     resources :admins do
       post :update
       get :edit
