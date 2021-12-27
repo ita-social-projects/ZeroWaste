@@ -18,14 +18,14 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :users, only: %i[index show edit update]
-    resources :calculators, only: %i[index show new create edit update], param: :slug
+    resources :calculators, param: :slug
     resources :admins do
       post :update
       get :edit
     end
   end
 
-   namespace :api do
+  namespace :api do
     namespace :v1 do
       resources :calculators, only: [] do
         post :compute, on: :member

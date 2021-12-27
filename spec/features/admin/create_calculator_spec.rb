@@ -18,10 +18,10 @@ describe 'Create Calculator Page', js: true do
   end
 
   context 'when user clicks button Create calculator' do
-    it 'redirects to Edit calculator page' do
+    it 'redirects to Index calculator page' do
       fill_in 'Name', with: 'Calculator2'
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_current_path("/admins/calculators/#{Calculator.last.id}/edit")
+      expect(page).to have_current_path(admins_calculators_path)
     end
   end
 

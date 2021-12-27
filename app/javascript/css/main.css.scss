@@ -54,7 +54,7 @@ div.jumbotron {
 
 /* home-page */
 
-.logo, .tab, .footer-items a, .d-flex a, .donate-btn a {
+.logo, .tab, .footer-items a, .d-flex a, .donate-btn a, input[type=submit] {
   color: white;
 
   &:hover {
@@ -144,9 +144,6 @@ button.btn-success {
 
 .form-control {
   border: 1px solid #9e1503;
-  background-color: #fff;
-  padding: 30px 60px;
-  border-radius: 7px;
 }
 
 
@@ -162,4 +159,53 @@ body.admin {
 
 .admin-container h1 {
   margin-bottom: 30px;
+}
+
+.admin-table {
+  .admin-table-header > *,
+  .admin-table-body > * {
+    display: flex;
+  }
+
+  .admin-table-header {
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+
+    .actions {
+      justify-content: center;
+    }
+  }
+
+  .admin-table-body {
+    & > * {
+      align-items: center;
+    }
+
+    .actions {
+      justify-content: space-between;
+
+      a {
+        color: #8FBA3B;
+        font-size: 1.5em;
+
+        &:hover {
+          color: #3d5217;
+        }
+      }
+    }
+  }
+}
+
+.flash-message {
+  color: white;
+  padding: 20px;
+  border-radius: 3px;
+
+  &.notice {
+    background: $success;
+  }
+
+  &.alert {
+    background: $danger;
+  }
 }

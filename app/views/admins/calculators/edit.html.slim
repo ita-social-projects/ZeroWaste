@@ -3,12 +3,26 @@
   - if @calculator.errors.any?
     div
       h2
-        = pluralize(@calculator.errors.count, "error")
+        = pluralize(@calculator.errors.count, 'error')
         |  prohibited this calculator from being updated:
       ul
         - @calculator.errors.full_messages.each do |error_message|
           li= error_message
-  = form_for @calculator, url: { action: "update" } do |f|
-    = f.label :name
-    = f.text_field :name
-    = f.submit "Update calculator name"
+
+  = form_for @calculator, url: { action: 'update' } do |f|
+    .admin-table
+      .admin-table-header.row.my-3.pb-3
+        .col-2 ID
+        .col-3 Slug
+        .col-4= f.label :name
+      .admin-table-body.row
+        .col-2= f.label @calculator.id
+        .col-3= f.text_field :slug
+        .col-4= f.text_field :name
+
+    .row
+      .col-12.d-flex.justify-content-end
+        = f.submit 'Update calculator', class: 'btn btn-success mr-2'
+        = link_to admins_calculators_path, class: 'btn btn-danger' do
+          span.mr-1 Cancel
+          i.fa.fa-times-circle

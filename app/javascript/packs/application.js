@@ -18,6 +18,7 @@ import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
 import 'ajax/result_button';
 import 'plugins/flatpickr';
+import "@fortawesome/fontawesome-free/css/all"
 
 const images = require.context('../images', true)
 
