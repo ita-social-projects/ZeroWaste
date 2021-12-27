@@ -16,6 +16,9 @@ services:
         protocol: tcp
         mode: host
     env_file: .env
+    networks:
+      - postgres
+      - redis
     links:
       - postgres
       - redis
@@ -31,7 +34,8 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     env_file: .env.db
-
+    networks:
+      - postgres
   redis:
     image: redis:6-alpine
     ports:
@@ -39,7 +43,11 @@ services:
     volumes:
       - redis_data:/data
     env_file: .env.db
-
+    networks:
+      - redis
+networks:
+  postgres:
+  redis:
 volumes:
   db_data:
   redis_data:
