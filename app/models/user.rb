@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   attr_accessor :skip_password
-  
+
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,7 +13,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     length: { minimum: 6, maximum: 100 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, presence: true,
+  validates :password, presence: true, if: :validate_password?,
                        length: { minimum: 8 },
                        format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
                        unless: :skip_password
@@ -29,7 +29,7 @@ class User < ApplicationRecord
       user.first_name = auth.info.first_name
     end
   end
-  
+
   def active?
     !blocked?
   end
@@ -42,6 +42,10 @@ class User < ApplicationRecord
     active? ? super : :locked
   end
 
+  def validate_password?
+    !password.blank?
+  end
+  
   def self.new_with_session(params, session)
     super.tap do |user|
       if (data = session['devise.google_oauth2']) &&
