@@ -65,4 +65,3 @@ gem 'omniauth-google-oauth2'
 gem 'sidekiq'
 gem 'devise-async'
 gem 'simple_form'
-

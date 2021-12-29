@@ -10,7 +10,7 @@ RSpec.describe Admin, type: :model do
     it { is_expected.to allow_value('email@gmail.com').for(:email) }
     it { is_expected.not_to allow_value('email.factory-com').for(:email) }
     it { is_expected.to validate_presence_of(:password) }
-    it { is_expected.to validate_length_of(:password).is_at_least(8) }
+    it { is_expected.to validate_length_of(:password).is_at_least(6) }
     it { is_expected.to allow_value('ddc5+8555dd').for(:password) }
   end
 end
