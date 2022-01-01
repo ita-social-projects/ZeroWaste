@@ -1,7 +1,7 @@
 development:
   :concurrency: 1
 production:
-  :concurrency: <% ENV['SIDEKIQ_CONCURRENCY'] || 15 %>
+  :concurrency: 2
 :queues:
   - default
   - mailers
