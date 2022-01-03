@@ -2,6 +2,8 @@
 
 class User < ApplicationRecord
   attr_accessor :skip_password
+  has_one_attached :avatar
+  # validate :correct_image_type
 
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
@@ -21,6 +23,9 @@ class User < ApplicationRecord
                                      length: { minimum: 2 },
                                      on: %i[create update],
                                      format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
+
+  validates :avatar, content_type: { in: [:png, :jpg, :jpeg], message: 'must be in PNG or JPG or JPEG format'},
+            size: { less_than: 2.megabytes , message: 'size must be less then 2Mb' }
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -45,13 +50,14 @@ class User < ApplicationRecord
   def validate_password?
     !password.blank?
   end
-  
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if (data = session['devise.google_oauth2']) &&
-         session['devise.google_oauth2_data']['extra']['raw_info']
+        session['devise.google_oauth2_data']['extra']['raw_info']
         user.email = data['email']
       end
     end
   end
-end
+
+ end
