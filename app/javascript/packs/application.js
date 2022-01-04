@@ -9,6 +9,8 @@ import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 
 require('jquery');
+require("@nathanvda/cocoon");
+
 // const jQuery = require('jquery');
 // global.$ = global.jQuery = jQuery;
 // window.$ = window.jQuery = jQuery;
@@ -16,9 +18,11 @@ require('jquery');
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
-import 'ajax/result_button';
+// import 'ajax/result_button';
 import 'plugins/flatpickr';
 import "@fortawesome/fontawesome-free/css/all"
+
+import "../js/calculators/edit"
 
 const images = require.context('../images', true)
 

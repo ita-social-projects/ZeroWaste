@@ -17,14 +17,6 @@ describe 'Update Calculator Page', js: true do
     end
   end
 
-  context 'when user clicks button Update calculator' do
-    it 'redirects to Index calculator page' do
-      fill_in 'Name', with: 'Calculator2'
-      click_button UPDATE_CALCULATOR_BUTTON
-      expect(page).to have_current_path(admins_calculators_path)
-    end
-  end
-
   context 'when user fill in the Name field with name shorter than 2 symbols' do
     it 'shows message that name is too short' do
       fill_in 'Name', with: 'o'

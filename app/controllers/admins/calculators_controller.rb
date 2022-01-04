@@ -17,7 +17,7 @@ module Admins
     end
 
     def edit
-      # TODO: fill it
+      collect_form_fields
     end
 
     def new
@@ -36,9 +36,10 @@ module Admins
 
     def update
       if @calculator.update(calculator_params)
-        redirect_to admins_calculators_path,
+        redirect_to edit_admins_calculator_path(@calculator),
                     notice: 'Calculator has been successfully updated.'
       else
+        collect_form_fields
         render action: 'edit'
       end
     end
@@ -55,8 +56,18 @@ module Admins
       @calculator = Calculator.friendly.find(params[:slug])
     end
 
+    def collect_form_fields
+      @all_fields = @calculator.fields
+      @form_fields = @calculator.fields.form.order(:created_at)
+      @parameter_fields = @calculator.fields.parameter.order(:created_at)
+      @result_fields = @calculator.fields.result.order(:created_at)
+    end
+
     def calculator_params
-      params.require(:calculator).permit(:name, :id, :slug)
+      params.require(:calculator).permit(
+        :name, :id, :slug,
+        fields_attributes: %i[id label name value unit from to _destroy]
+      )
     end
   end
 end

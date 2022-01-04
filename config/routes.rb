@@ -19,9 +19,16 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users, only: %i[index show edit update]
     resources :calculators, param: :slug
+
     resources :admins do
       post :update
       get :edit
+    end
+
+    scope module: :calculators do
+      resources :calculators, only: [], param: :slug do
+        resources :fields, only: :create
+      end
     end
   end
 
