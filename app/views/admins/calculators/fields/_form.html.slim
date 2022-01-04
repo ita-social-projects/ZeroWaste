@@ -1,0 +1,14 @@
+.nested-fields.w-100
+  .field
+    .row.my-3
+      - case f.object.type
+      - when 'NamedValue'
+        = render 'admins/calculators/fields/named_value', f: f
+      - when 'Calculation'
+        = render 'admins/calculators/fields/calculation', f: f
+      - when 'RangeField'
+        = render 'admins/calculators/fields/range_value', f: f
+      - when 'Select'
+        = render 'admins/calculators/fields/select', f: f
+      - when 'Value'
+        = render 'admins/calculators/fields/value', f: f

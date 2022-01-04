@@ -1,5 +1,4 @@
-.container
-  p= flash[:notice]
+#calculators-edit.container
   - if @calculator.errors.any?
     div
       h2
@@ -10,17 +9,60 @@
           li= error_message
 
   = form_for @calculator, url: { action: 'update' } do |f|
-    .admin-table
-      .admin-table-header.row.my-3.pb-3
-        .col-2 ID
-        .col-3 Slug
-        .col-4= f.label :name
-      .admin-table-body.row
-        .col-2= f.label @calculator.id
-        .col-3= f.text_field :slug
-        .col-4= f.text_field :name
+    .form-group.row
+      .col-6.has-float-label.my-auto
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+      .col-6.has-float-label.my-auto
+        = f.label :slug
+        = f.text_field :slug, class: 'form-control'
 
-    .row
+    h4.mt-5 Add new Field
+
+    .form-group.row
+      .col-6
+        = select_tag :kind,
+                options_from_collection_for_select(Field.kinds.keys, :itself, :capitalize),
+                id: 'calculator_fields_kind',
+                prompt: 'Select field kind',
+                class: 'custom-select',
+                data: { 'fields-list' => { form: [NamedValue.name, Select.name],
+                                           parameter: [Value.name, RangeField.name, Select.name, Calculation.name],
+                                           result: [Calculation.name] } }
+      .col-4
+        = select_tag :type, '', id: 'calculator_fields_type',
+                                prompt: 'Select field type',
+                                class: 'custom-select',
+                                disabled: true
+
+      .col-2
+        = link_to 'Create', '#',
+                class: 'btn btn-success text-white disabled',
+                id: 'add-calculator-field',
+                data: { url: admins_calculator_fields_path(@calculator) }
+
+    - if @all_fields.any?
+      h3.my-5 Fields List
+
+      - if @form_fields.any?
+        h4.mb-2 Form
+        .form-group.row
+          = f.fields_for :fields, @form_fields do |ff|
+            = render 'admins/calculators/fields/form', f: ff
+
+      - if @parameter_fields.any?
+        h4.mb-2 Parameters
+        .form-group.row
+          = f.fields_for :fields, @parameter_fields do |ff|
+            = render 'admins/calculators/fields/form', f: ff
+
+      - if @result_fields.any?
+        h4.mb-2 Results
+        .form-group.row
+          = f.fields_for :fields, @result_fields do |ff|
+            = render 'admins/calculators/fields/form', f: ff
+
+    .row.my-4
       .col-12.d-flex.justify-content-end
         = f.submit 'Update calculator', class: 'btn btn-success mr-2'
         = link_to admins_calculators_path, class: 'btn btn-danger' do

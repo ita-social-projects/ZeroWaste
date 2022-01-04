@@ -2,11 +2,17 @@
 
 class Field < ApplicationRecord
   belongs_to :calculator
-  before_create :set_selector
+
   enum kind: { form: 0, parameter: 1, result: 2 }
-  enum unit: { month: 0, date: 1, times: 2 }
-  validates :type, :label, :kind, presence: true
-  validates :unit, inclusion: { in: units.keys }
+  enum unit: { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6 , items: 7 }
+
+  validates :type, :kind, presence: true
+
+  with_options if: :persisted? do
+    validates :label, presence: true
+  end
+
+  before_create :set_selector
 
   private
 
