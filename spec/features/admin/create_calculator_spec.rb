@@ -37,7 +37,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name is too short' do
       fill_in 'Name', with: 'i'
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' is too short.")
+      expect(page).to have_content("is too short")
     end
   end
 
@@ -45,7 +45,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name is invalid' do
       fill_in 'Name', with: 'i[]p'
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' is invalid")
+      expect(page).to have_content("is invalid")
     end
   end
 
@@ -53,7 +53,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name can\'t be blank' do
       fill_in 'Name', with: ''
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' can\'t be blank.")
+      expect(page).to have_content("is too short")
     end
   end
 end

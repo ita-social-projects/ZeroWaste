@@ -21,7 +21,7 @@ describe 'Update Calculator Page', js: true do
     it 'shows message that name is too short' do
       fill_in 'Name', with: 'o'
       click_button UPDATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' is too short.")
+      expect(page).to have_content("is too short")
     end
   end
 
@@ -29,15 +29,7 @@ describe 'Update Calculator Page', js: true do
     it 'shows message that name is invalid' do
       fill_in 'Name', with: '\[d]]p'
       click_button UPDATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' is invalid")
-    end
-  end
-
-  context 'when user left the Name field blank' do
-    it 'shows message that name can\'t be blank' do
-      fill_in 'Name', with: ''
-      click_button UPDATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' can\'t be blank.")
+      expect(page).to have_content("is invalid")
     end
   end
 end

@@ -162,63 +162,62 @@ en:
         field:
           attributes:
             type:
-              blank: "The field 'Type' can't be blank."
+              blank: " can't be blank"
             label:
-              blank: "The field 'Label' can't be blank."
+              blank: " can't be blank"
             kind:
-              blank: "The field 'Kind' can't be blank."
+              blank: " can't be blank"
         named_value:
           attributes:
             name:
-              blank: "The field 'Name' can't be blank."
-              too_short: "The field 'Name' is too short."
+              too_short: " is too short"
+            from:
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
+            to:
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
         range_field:
           attributes:
             from:
-              blank: "The field 'From' can't be blank."
-              not_an_integer: "The field 'From' must be an integer."
-              not_a_number: "The field 'From' must be an integer."
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
             to:
-              blank: "The field 'To' can't be blank."
-              not_an_integer: "The field 'To' must be an integer."
-              not_a_number: "The field 'To' must be an integer."
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
             value:
-              blank: "The field 'Value' can't be blank."
-              too_short: "The field 'Value' is too short."
+              too_short: " is too short"
+        calculation:
+          attributes:
+            value:
+              too_short: " is too short"
+        select:
+          attributes:
+            value:
+              too_short: " is too short"
+        value:
+          attributes:
+            value:
+              too_short: " is too short"
+              invalid: " is invalid"
         product_type:
           attributes:
             title:
               blank: "The field 'Title' can't be blank."
               too_short: "The field 'Title' is too short."
               invalid: "Invalid value for the field 'Title'"
+        calculator:
+          attributes:
+            name:
+              blank: " can't be blank"
+              too_short: " is too short"
+              invalid: " is invalid"
         product:
           attributes:
             title:
               blank: "The field 'Title' can't be blank"
               too_long: "The field 'Title' is too long"
               too_short: "The field 'Title' is too short."
-        calculator:
-          attributes:
-            name:
-              blank: "The field 'Name' can't be blank."
-              too_short: "The field 'Name' is too short."
-              invalid: "The field 'Name' is invalid"
-        calculation:
-          attributes:
-            value:
-              blank: "The field 'Value' can't be blank."
-              too_short: "The field 'Value' is too short."
-        select:
-          attributes:
-            value:
-              blank: "The field 'Value' can't be blank."
-              too_short: "The field 'Value' is too short."
-        value:
-          attributes:
-            value:
-              blank: "The field 'Value' can't be blank."
-              too_short: "The field 'Value' is too short."
-              invalid: "The field 'Value' is invalid"
     attributes:
       user:
         email: "Email"

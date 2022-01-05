@@ -17,7 +17,7 @@ module Admins
     end
 
     def edit
-      collect_form_fields
+      collect_fields_for_form
     end
 
     def new
@@ -39,7 +39,7 @@ module Admins
         redirect_to edit_admins_calculator_path(@calculator),
                     notice: 'Calculator has been successfully updated.'
       else
-        collect_form_fields
+        collect_fields_for_form
         render action: 'edit'
       end
     end
@@ -56,11 +56,17 @@ module Admins
       @calculator = Calculator.friendly.find(params[:slug])
     end
 
-    def collect_form_fields
-      @all_fields = @calculator.fields
-      @form_fields = @calculator.fields.form.order(:created_at)
-      @parameter_fields = @calculator.fields.parameter.order(:created_at)
-      @result_fields = @calculator.fields.result.order(:created_at)
+    def collect_fields_for_form
+      @form_fields = collect_fields_for_kind('form')
+      @parameter_fields = collect_fields_for_kind('parameter')
+      @result_fields = collect_fields_for_kind('result')
+    end
+
+    def collect_fields_for_kind(kind)
+      @calculator
+        .fields
+        .select { |field| field.kind == kind }
+        .sort_by(&:created_at)
     end
 
     def calculator_params

@@ -9,7 +9,7 @@ RSpec.describe Value, type: :model do
     it { is_expected.to be_valid }
     it {
       is_expected.to validate_presence_of(:value).with_message(I18n
-        .t("#{LOCAL_PREFIX_VALUE}.value.blank"))
+        .t("#{LOCAL_PREFIX_VALUE}.value.too_short"))
     }
     it { is_expected.to allow_value('Value').for(:value) }
     it {

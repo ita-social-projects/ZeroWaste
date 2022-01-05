@@ -1,15 +1,10 @@
 .col-lg-1.col-md-2.col-sm-12
   .display-4.text-black-50= f.object.selector
-.col-lg-3.col-md-2.col-sm-12.has-float-label.my-auto
-  = f.label :label
-  = f.text_field :label, class: 'form-control'
-.col-lg-2.col-md-2.col-sm-12.has-float-label.my-auto
-  = f.label :value, 'Formula'
-  = f.text_field :value, class: 'form-control'
-.col-lg-2.col-md-2.col-sm-12.has-float-label.my-auto
-  = f.label :unit
-  = f.select :unit, options_from_collection_for_select(Field.units.keys, :itself, :capitalize, selected: f.object.unit),
-          {},
-          { class: 'custom-select' }
+= f.input :label, class: 'form-control',
+          wrapper_html: { class: 'col-lg-3 col-md-2 col-sm-12' }
+= f.input :value, class: 'form-control', label: 'Formula', placeholder: 'P2 * F1 / 10',
+          wrapper_html: { class: 'col-lg-4 col-md-3 col-sm-12' }
+= f.input :unit, collection: Field.units.keys, selected: f.object.unit, class: 'custom-select',
+          wrapper_html: { class: 'col-lg-2 col-md-2 col-sm-12' }
 .col-lg-1.col-md-2.col-sm-12.has-float-label.pt-4.mt-2
   = link_to_remove_association 'Delete', f, class: 'btn btn-danger'
