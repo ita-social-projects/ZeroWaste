@@ -4,13 +4,16 @@ body{
   box-sizing: border-box;
 }
 
-.admin_footer{
+.footer, .admin_footer{
   position: sticky;
   top: 100%;
   width: 100%;
+  margin-top: 10px;
+}
+
+.admin_footer{
   background: #111;
   color: antiquewhite;
-  margin-top: 10px;
 }
 
 .main-content{
@@ -178,7 +181,7 @@ body{
 @media screen and (max-width: 900px){
   .admin_footer{
     position: relative;
-    bottom: 0px;
+    bottom: 0;
   }
 
   .main-content{
