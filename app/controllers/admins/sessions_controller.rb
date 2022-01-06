@@ -3,7 +3,7 @@
 module Admins
   class SessionsController < Devise::SessionsController
     layout 'admin'
-    before_action :check_admin
+    before_action :current_admin
 
     protected
 
