@@ -1,34 +1,45 @@
-.container
-  h2.text-center = t '.edit_user_info'
-
-  = form_for(@user, url: admins_user_path(@user), remote: false) do |f|
-    .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
-      = f.label :first_name, class: 'm-2'
-      = f.text_field :first_name, class: 'form-control'
-      - if @user.errors[:first_name] != []
-        .alert.alert-danger.m-0 
-          = @user.errors.full_messages_for(:first_name).join('! ')
-    .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
-      = f.label :last_name, class: 'm-2'
-      = f.text_field :last_name, class: 'form-control'
-      - if @user.errors[:last_name] != []
-        .alert.alert-danger.m-0
-          = @user.errors.full_messages_for(:last_name).join('! ')
-    .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
-      = f.label :country, class: 'm-3'
-      = f.country_select :country, class: 'form-control form-control-lg'
-    .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
-      = f.label :password, class: 'm-3'
-      = f.password_field :password, class: 'form-control'
-      - if @user.errors[:password] != []
-        .alert.alert-danger.m-0 
-          = @user.errors.full_messages_for(:password).join('! ')
-      = f.label :password_confirmation, 'Password confirmation', class: 'confirmation m-3'
-      = f.password_field :password_confirmation, class: 'form-control'
-      - if @user.errors[:password_confirmation] != []
-        .alert.alert-danger.m-0 
-          = @user.errors.full_messages_for(:password_confirmation).join('! ')
-    = f.submit(class: 'justify-content-center btn btn-primary m-2 d-block mx-auto', type: "submit")
-
- 
- 
+.container.flex-container
+  .flex-child
+    h2.text-center = t '.table.edit_user_info'
+    = form_for(@user, url: admins_user_path(@user), remote: false) do |f|
+      .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
+        = f.label :first_name, class: 'm-2'
+        = f.text_field :first_name, class: 'form-control'
+        - if @user.errors[:first_name] != []
+          .alert.alert-danger.m-0
+            = @user.errors.full_messages_for(:first_name).join('! ')
+      .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
+        = f.label :last_name, class: 'm-2'
+        = f.text_field :last_name, class: 'form-control'
+        - if @user.errors[:last_name] != []
+          .alert.alert-danger.m-0
+            = @user.errors.full_messages_for(:last_name).join('! ')
+      .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
+        = f.label :country, class: 'm-3'
+        = f.country_select :country, class: 'form-control form-control-lg'
+      .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
+        = f.label :password, class: 'm-3'
+        = f.password_field :password, class: 'form-control'
+        - if @user.errors[:password] != []
+          .alert.alert-danger.m-0
+            = @user.errors.full_messages_for(:password).join('! ')
+        = f.label :password_confirmation, 'Password confirmation', class: 'confirmation m-3'
+        = f.password_field :password_confirmation, class: 'form-control'
+        - if @user.errors[:password_confirmation] != []
+          .alert.alert-danger.m-0
+            = @user.errors.full_messages_for(:password_confirmation).join('! ')
+      .form-group.form-inline.justify-content-center.d-flex.flex-column.m-0
+        = f.label :avatar, 'Avatar for the user', class: 'm-3'
+        = f.file_field :avatar, direct_upload: true
+        - if @user.errors[:avatar] != []
+          .alert.alert-danger.m-0
+            = @user.errors.full_messages_for(:avatar).join('! ')
+      = f.submit(class: 'justify-content-center btn btn-primary m-4 d-block mx-auto', type: "submit")
+  .flex-child
+    h2.text-center = t '.avatar'
+    / - binding.pry
+    dd
+      - if @user.avatar.attached? && @user.avatar.persisted?
+        = image_tag(@user.avatar)
+      - else
+        = image_tag('user.png')

@@ -60,6 +60,7 @@ en:
           view_info_col: "Show"
       show: 
         header: "User info"
+        avatar: "Avatar of user"
         table: 
           email_col: "Email:"
           first_name_col: "First name:"
@@ -68,6 +69,12 @@ en:
           last_sign_in_col: "Last sign in date and time:"
           current_IP_col: "Current sign in IP:"
           last_IP_col: "Last sign in IP:"
+          ban_col: "Ban status"
+          avatar_col: "Avatar of user"
+      edit:
+        avatar: "Avatar of user"
+        table:
+          edit_user_info: "Edit user info:"
     sessions:
       new:
         log_in_header: "Log in"
