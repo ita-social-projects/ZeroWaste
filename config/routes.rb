@@ -1,18 +1,12 @@
 # frozen_string_literal: true
-
 require 'sidekiq/web'
 
-# Rails.application.routes.draw do
+Rails.application.routes.draw do
 #   authenticate :user do
 #     mount Sidekiq::Web => 'admins/sidekiq'
 #   end
 
-Rails.application.routes.draw do
-  def draw(routes_name)
-    instance_eval(File.read(Rails.root.join("config/routes/#{routes_name}.rb")))
-  end
-
-  draw :sidekiq
+  mount Sidekiq::Web => "/sidekiq"
 
   root 'calculators#index'
 
