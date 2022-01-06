@@ -8,7 +8,7 @@ RSpec.describe Calculator, type: :model do
   describe 'validations' do
     it {
       is_expected.to validate_presence_of(:name).with_message(I18n
-        .t("#{LOCAL_PREFIX_CALCULATOR}.name.blank"))
+        .t("#{LOCAL_PREFIX_CALCULATOR}.name.too_short"))
     }
     it {
       is_expected.to validate_length_of(:name).is_at_least(2).with_message(I18n

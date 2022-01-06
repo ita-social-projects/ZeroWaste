@@ -23,15 +23,15 @@ RSpec.describe RangeField, type: :model do
     }
     it {
       is_expected.to validate_presence_of(:from)
-        .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.from.blank"))
+        .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.from.not_an_integer"))
     }
     it {
       is_expected.to validate_presence_of(:to)
-        .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.to.blank"))
+        .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.to.not_an_integer"))
     }
     it {
       is_expected.to validate_presence_of(:value)
-        .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.value.blank"))
+        .with_message(I18n.t("#{LOCAL_PREFIX_RANGE_FIELD}.value.too_short"))
     }
   end
 end

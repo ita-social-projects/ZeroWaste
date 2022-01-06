@@ -7,7 +7,6 @@ class Calculator < ApplicationRecord
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 
-  validates :name, presence: true
   validates :name, format: { with: /\A[a-zA-Z0-9\s]+\z/,
                              message: 'Only letters and numbers allowed' }
   validates :name, length: { minimum: 2 }
