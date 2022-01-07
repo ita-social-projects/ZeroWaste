@@ -3,11 +3,15 @@ body
     div
       a.logo href=""  LOGO
     .tabs
+      = link_to "Calculators", admins_calculators_path, class: 'tab' 
+        
+      = link_to "New Calculator", new_admins_calculator_path, class: 'tab'
+
       - if user_signed_in?
         = link_to "Log Out", destroy_user_session_path, class: 'tab'
       - else
-        = link_to "Sign Up", new_user_registration_path, class: 'tab'
         = link_to "Log In", new_user_session_path, class: 'tab', id: 'log_in'
+        = link_to "Sign Up", new_user_registration_path, class: 'tab'
     .donate
       button.donate-btn type="button" 
         a href="https://zerowastelviv.org.ua/pidtrymaty/"  $ DONATE
