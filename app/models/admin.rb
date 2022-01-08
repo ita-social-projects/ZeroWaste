@@ -24,7 +24,6 @@ class Admin < ApplicationRecord
       super
     end
   end
-                       format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} }
 
   def self.from_omniauth(auth)
     authorization = Authorization.find_by(provider: auth.provider,
