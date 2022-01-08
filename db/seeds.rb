@@ -10,8 +10,8 @@
 # Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 admin = Admin.new(
-    email: "foo@bar.com",
-    password: "foob1234",
-    password_confirmation: "foob1234"
+    email: "admin@zw.com",
+    password: "ChangeMe1",
+    password_confirmation: "ChangeMe1"
     )
 admin.save!
