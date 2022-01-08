@@ -29,9 +29,3 @@
     "yarn": "^1.22.17"
   }
 }
-    "@webpack-cli/serve": "^1.6",
-    "webpack-cli": "^4.0",
-    "webpack-dev-server": "^4",
-    "yarn": "^1.22.17"
-  }
-}
