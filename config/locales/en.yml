@@ -226,3 +226,4 @@ en:
         password_confirmation: "Re-password"
         first_name: "First name"
         last_name: "Last name"
+        successful_update: "User info was successfully updated!"
