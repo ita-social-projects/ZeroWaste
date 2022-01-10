@@ -30,6 +30,8 @@ gem 'bigdecimal', '1.3.5'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'font-awesome-rails'
+gem 'active_storage_validations'
+gem 'mini_magick', '>= 4.9.5'
 
 group :development, :test do
   gem 'pry-rails'
