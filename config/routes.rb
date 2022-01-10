@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  authenticate :admin do
-    mount Sidekiq::Web => 'admins/sidekiq'
-  end
+#   authenticate :user do
+#     mount Sidekiq::Web => 'admins/sidekiq'
+#   end
+
+  mount Sidekiq::Web => "/sidekiq"
 
   root 'calculators#index'
 
