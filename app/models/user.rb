@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :skip_password
+  attr_accessor :skip_password, :current_password
   has_one_attached :avatar
   # validate :correct_image_type
 
