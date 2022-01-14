@@ -5,6 +5,7 @@ module Admins
     rescue_from ActiveRecord::RecordNotFound, with: :render404
     layout 'admin'
     before_action :user, except: [:index]
+    before_action :authenticate_admin!
 
     def index
       @users = User.all
