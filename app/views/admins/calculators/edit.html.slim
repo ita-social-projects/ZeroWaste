@@ -10,10 +10,12 @@
 
   = simple_form_for @calculator, url: { action: 'update' }, wrapper: :horizontal_form, html: { novalidate: false } do |f|
     .form-group.row
-      .col-6.has-float-label.my-auto
+      .col-4.has-float-label.my-auto
         = f.input :name, class: 'form-control', required: true
-      .col-6.has-float-label.my-auto
+      .col-4.has-float-label.my-auto
         = f.input :slug, class: 'form-control', required: true
+      .col-4.has-float-label.my-auto
+        = f.input :preferable, class: 'form-control'
 
     h4.mt-5 Add new Field
 
