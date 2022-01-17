@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
     scope module: :calculators do
       resources :calculators, only: [], param: :slug do
-        resources :fields, only: :create
+        resources :fields, only: :new
       end
     end
   end
