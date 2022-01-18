@@ -66,13 +66,15 @@ module Admins
       @calculator
         .fields
         .select { |field| field.kind == kind }
-        .sort_by(&:created_at)
+        .sort_by { |field| field.created_at || Time.zone.now }
     end
 
     def calculator_params
       params.require(:calculator).permit(
         :name, :id, :slug,
-        fields_attributes: %i[id label name value unit from to _destroy]
+        fields_attributes: %i[
+          id label name value unit from to type kind _destroy
+        ]
       )
     end
   end

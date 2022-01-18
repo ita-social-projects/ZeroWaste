@@ -37,26 +37,26 @@
         = link_to 'Create', '#',
                 class: 'btn btn-success text-white disabled',
                 id: 'add-calculator-field',
-                data: { url: admins_calculator_fields_path(@calculator) }
+                data: { url: new_admins_calculator_field_path(@calculator) }
 
     - if f.object.fields.any?
       h3.my-5 Fields List
 
       - if @form_fields.any?
         h4.mb-2 Form
-        .form-group.row
+        .form-group.row data-kind='form'
           = f.fields_for :fields, @form_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
 
       - if @parameter_fields.any?
         h4.mb-2 Parameters
-        .form-group.row
+        .form-group.row data-kind='parameter'
           = f.fields_for :fields, @parameter_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
 
       - if @result_fields.any?
         h4.mb-2 Results
-        .form-group.row
+        .form-group.row data-kind='result'
           = f.fields_for :fields, @result_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
 

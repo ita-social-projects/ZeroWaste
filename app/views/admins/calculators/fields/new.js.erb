@@ -1,0 +1,3 @@
+var newFieldForm = "<%= escape_javascript(render 'admins/calculators/fields/new', calculator: @calculator) %>"
+
+$('.nested-fields', newFieldForm).appendTo("[data-kind=<%= @field.kind %>]")
