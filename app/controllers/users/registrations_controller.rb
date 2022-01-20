@@ -9,8 +9,8 @@ module Users
     def edit; end
 
     def update
-      if @user.update(user_params)
-           redirect_to edit_user_registration_path, notice: I18n.t('activerecord.attributes.user.successful_update')
+      if user_params[:password].blank? ? @user.update_without_password(user_params) : @user.update_with_password(user_params)
+        redirect_to edit_user_registration_path, notice: I18n.t('activerecord.attributes.user.successful_update')
       else
         render 'devise/registrations/edit'
       end
