@@ -16,7 +16,7 @@ module Users
         @user.update_without_password(user_params)
         redirect_to root_path, notice: I18n.t('activerecord.attributes.user.successful_update')
       else
-        super
+        @user.update(user_params)
       end
     end
 
@@ -29,7 +29,13 @@ module Users
     private
 
     def user_params
-      params.require(:user).permit(:email, :first_name, :last_name, :country, :current_password, :password,:password_confirmation)
+      params.require(:user).permit(:email,
+                                   :first_name,
+                                   :last_name,
+                                   :country,
+                                   :current_password,
+                                   :password,
+                                   :password_confirmation)
     end
   end
 end

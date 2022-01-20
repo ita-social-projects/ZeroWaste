@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :skip_password, :current_password
+  attr_accessor :current_password
+
   has_one_attached :avatar
   # validate :correct_image_type
 
@@ -15,10 +16,11 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     length: { minimum: 6, maximum: 100 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, presence: true, if: :validate_password?,
+  validates :password, presence: true,
                        length: { minimum: 8 },
                        format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
-                       unless: :skip_password
+                       if: :validate_password?
+  validates :password_confirmation, presence: true
   validates :first_name, :last_name, presence: true,
                                      length: { minimum: 2 },
                                      on: %i[create update],
@@ -59,5 +61,4 @@ class User < ApplicationRecord
       end
     end
   end
-
- end
+end
