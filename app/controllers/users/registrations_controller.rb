@@ -10,9 +10,9 @@ module Users
 
     def update
       if @user.update(user_params)
-        render 'devise/registrations/edit'
+           redirect_to edit_user_registration_path, notice: I18n.t('activerecord.attributes.user.successful_update')
       else
-        redirect_to edit_user_registration_path, notice: I18n.t('activerecord.attributes.user.successful_update')
+        render 'devise/registrations/edit'
       end
     end
 

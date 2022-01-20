@@ -19,13 +19,7 @@ module Admins
     end
 
     def update
-      updated = if user_params[:password].blank? 
-                  user.update_without_password(user_params)
-                else
-                  user.update(user_params)
-                end
-
-      if updated
+      if user.update(user_params)
         redirect_to admins_user_path(user)
       else
         render 'edit'
@@ -35,13 +29,16 @@ module Admins
     private
 
     def user_params
-      params.require(:user).permit(:first_name,
-                                   :last_name,
-                                   :country,
-                                   :password,
-                                   :password_confirmation,
-                                   :blocked,
-                                   :avatar)
+      prms = params.require(:user).permit(:first_name,
+                                          :last_name,
+                                          :country,
+                                          :password,
+                                          :password_confirmation,
+                                          :blocked,
+                                          :avatar)
+      prms = prms.merge(skip_password_validation: true) unless prms[:password].present? ||
+      prms[:password_confirmation].present?
+      prms
     end
 
     def user
