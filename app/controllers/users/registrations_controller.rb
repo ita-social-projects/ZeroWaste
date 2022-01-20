@@ -9,14 +9,10 @@ module Users
     def edit; end
 
     def update
-      if user_params[:password].blank? && user_params[:password_confirmation].blank?
-        user_params.delete(:password)
-        user_params.delete(:password_confirmation)
-        user_params.delete(:current_password)
-        @user.update_without_password(user_params)
-        redirect_to root_path, notice: I18n.t('activerecord.attributes.user.successful_update')
+      if @user.update(user_params)
+        render 'devise/registrations/edit'
       else
-        @user.update(user_params)
+        redirect_to edit_user_registration_path, notice: I18n.t('activerecord.attributes.user.successful_update')
       end
     end
 
@@ -29,13 +25,15 @@ module Users
     private
 
     def user_params
-      params.require(:user).permit(:email,
+      prms = params.require(:user).permit(:email,
                                    :first_name,
                                    :last_name,
                                    :country,
                                    :current_password,
                                    :password,
                                    :password_confirmation)
+      prms = prms.merge(skip_password_validation: true) unless prms[:password].present?
+      prms
     end
   end
 end
