@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :skip_password
+  attr_accessor :current_password, :skip_password_validation
+
   has_one_attached :avatar
   # validate :correct_image_type
 
@@ -15,10 +16,12 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     length: { minimum: 6, maximum: 100 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, presence: true, if: :validate_password?,
-                       length: { minimum: 8 },
+  validates :password, presence: true,
+                       confirmation: true,
+                       length: { in: 8..64 },
                        format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
-                       unless: :skip_password
+                       unless: :skip_password_validation
+  # validates :password_confirmation, presence: true
   validates :first_name, :last_name, presence: true,
                                      length: { minimum: 2 },
                                      on: %i[create update],
@@ -47,8 +50,10 @@ class User < ApplicationRecord
     active? ? super : :locked
   end
 
-  def validate_password?
-    !password.blank?
+  def password_required?
+    return false if skip_password_validation
+
+    super
   end
 
   def self.new_with_session(params, session)
@@ -59,5 +64,4 @@ class User < ApplicationRecord
       end
     end
   end
-
- end
+end
