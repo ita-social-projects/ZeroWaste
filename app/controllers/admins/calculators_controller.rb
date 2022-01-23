@@ -6,7 +6,9 @@ module Admins
 
     def index
       @calculators = if params[:search]
-                       Calculator.where('name LIKE ?', "%#{params[:search]}%")
+                       Calculator.all.where("name ILIKE ? OR slug ILIKE ?",
+                                            "%#{params[:search]}%",
+                                            "%#{params[:search]}%")
                      else
                        Calculator.friendly.all
                      end
