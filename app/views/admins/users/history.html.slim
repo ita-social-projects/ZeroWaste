@@ -1,0 +1,25 @@
+.container
+  h2.text-center.p-3 = t 'History'
+  table.table.table-striped.table-bordered
+    thead
+      tr.text-center.table-secondary
+        th = t '.table.version_created_at'
+        th = t '.table.event_ID:'
+        th = t '.table.user_id:'
+        th = t '.table.action'
+        th = t '.table.more_info_(field, old_value, new_value)'
+        th = t '.table.author'
+    tbody
+      - @versions.select { |version| version.item_id == params[:user_id].to_i }.each do |version|
+        tr.align-baseline
+          td = l(version.created_at, format: "%-d.%m.%Y %H:%M:%S %Z")
+          td = version.id
+          td = version.item_id
+          td = version.event
+          td
+            table.table-borderless
+              - version.changeset.each do |key, val|
+                tr
+                  td = key
+                  td = val.join(' => ')
+          td = version.whodunnit

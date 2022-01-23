@@ -4,7 +4,8 @@ module Admins
   class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render404
     layout 'admin'
-    before_action :user, except: [:index]
+    before_action :set_paper_trail_whodunnit
+    before_action :user, except: %i[index history]
 
     def index
       @users = User.all
@@ -24,6 +25,10 @@ module Admins
       else
         render 'edit'
       end
+    end
+
+    def history
+      @versions = PaperTrail::Version.order('created_at DESC')
     end
 
     private
