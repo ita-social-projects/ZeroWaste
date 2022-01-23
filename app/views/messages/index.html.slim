@@ -1,0 +1,12 @@
+div class="container home"
+  - @message.each do |message|
+    article.card.mt-3
+      .card-body
+        h4 = message.title
+        section.card-text
+          time datatime ="#{message.created_at_mod}"
+            small = message.created_at_mod
+          p.my-2.form-control
+            = message.email
+          p.my-2.mark.lead.text-center
+            = message.message
