@@ -16,6 +16,8 @@ Rails.application.routes.draw do
                                     omniauth_callbacks:
                                     'users/omniauth_callbacks' }
   resources :calculators, only: %i[index show], param: :slug
+  resources :messages, only: %i[new create index]
+
 
   namespace :admins do
     resources :users, only: %i[index show edit update]
