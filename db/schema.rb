@@ -98,6 +98,14 @@ ActiveRecord::Schema.define(version: 2022_01_23_171234) do
     t.index ["uuid"], name: "index_fields_on_uuid", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "message", null: false
+    t.string "email", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "product_types", force: :cascade do |t|
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "title"
