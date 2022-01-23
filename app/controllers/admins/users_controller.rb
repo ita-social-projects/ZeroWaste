@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 module Admins
-  class UsersController < ApplicationController
+  class UsersController < BaseController
     rescue_from ActiveRecord::RecordNotFound, with: :render404
     layout 'admin'
     before_action :user, except: [:index]
-    before_action :authenticate_admin!
 
     def index
       @users = User.all
