@@ -5,7 +5,7 @@ module Admins
     before_action :calculator, only: %i[show edit update destroy]
 
     def index
-      @calculators = if params[:search]
+      @calculators = if params[:search].present?
                        Calculator.all.where("name ILIKE ? OR slug ILIKE ?",
                                             "%#{params[:search]}%",
                                             "%#{params[:search]}%")
