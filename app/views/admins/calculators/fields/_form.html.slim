@@ -16,3 +16,4 @@
       - if f.object.new_record?
         = f.input :kind, as: :hidden, input_html: { value: f.object.kind }
         = f.input :type, as: :hidden, input_html: { value: f.object.type }
+        = f.input :selector, as: :hidden, input_html: { data: { 'selector-input': true } }

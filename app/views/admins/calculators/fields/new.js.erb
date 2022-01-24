@@ -1,3 +1,19 @@
-var newFieldForm = "<%= escape_javascript(render 'admins/calculators/fields/new', calculator: @calculator) %>"
+// Render HTML for one field on backend
+var newFieldForm = $("<%= escape_javascript(render 'admins/calculators/fields/new', calculator: @calculator) %>")
 
-$('.nested-fields', newFieldForm).appendTo("[data-kind=<%= @field.kind %>]")
+// Extract new selector data
+var fieldsContainer = $("[data-kind=<%= @field.kind %>]")
+var selectorLetter = fieldsContainer.data("selector-letter")
+var selectorNumber = (parseInt(fieldsContainer.data("last-selector")) || 0) + 1
+
+// Hide 'No fields yet' text
+$("[data-empty-text]", fieldsContainer).remove()
+// Increment current selector on fields group by 1
+fieldsContainer.data("last-selector", selectorNumber)
+
+// Set selector in HTML for new field
+$("[data-selector-input]", newFieldForm).val(`${selectorLetter}${selectorNumber}`)
+$("[data-selector]", newFieldForm).html(`${selectorLetter}${selectorNumber}`)
+
+// Append field to the group of fields
+$('.nested-fields', newFieldForm).appendTo(fieldsContainer)

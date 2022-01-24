@@ -13,8 +13,11 @@ class Field < ApplicationRecord
   private
 
   def set_selector
-    previous_field = Field.order(selector: :desc).find_by(kind: kind)
+    index = Field.order(selector: :desc)
+                 .find_by(calculator: calculator, kind: kind)
+                 &.selector
+                 &.gsub(/\D/, '').to_i.next
 
-    self.selector = previous_field&.selector&.succ || "#{kind&.first&.upcase}1"
+    self.selector = "#{kind&.first&.upcase}#{index}"
   end
 end
