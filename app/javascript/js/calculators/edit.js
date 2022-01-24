@@ -34,20 +34,23 @@ $(document).on('turbolinks:load', () => {
   })
 
   $fieldSubmitButton.on('click', (e) => {
+    e.preventDefault()
+
     const url = $fieldSubmitButton.data('url')
 
     $.ajax({
       url: url,
-      type: 'POST',
-      dataType: 'JSON',
+      type: 'GET',
+      dataType: 'SCRIPT',
       data: {
         field: {
           kind: $fieldKindSelect.val(),
           type: $fieldTypeSelect.val()
         }
       },
-      complete: () => {
-        window.location.reload()
+      success: () => {
+        $fieldKindSelect.val('')
+        $fieldKindSelect.trigger('change')
       }
     })
   })

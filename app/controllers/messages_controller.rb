@@ -5,10 +5,6 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
-  def index
-    @message = Message.all.order created_at: :desc
-  end
-
   def create
     @message = Message.new(message_params)
     if @message.save

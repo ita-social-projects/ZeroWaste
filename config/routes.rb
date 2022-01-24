@@ -16,12 +16,13 @@ Rails.application.routes.draw do
                                     omniauth_callbacks:
                                     'users/omniauth_callbacks' }
   resources :calculators, only: %i[index show], param: :slug
-  resources :messages, only: %i[new create index]
+  resources :messages, only: %i[new create]
 
 
   namespace :admins do
     resources :users, only: %i[index show edit update]
     resources :calculators, param: :slug
+    resources :messages, only: %i[index show]
 
     resources :admins do
       post :update
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
 
     scope module: :calculators do
       resources :calculators, only: [], param: :slug do
-        resources :fields, only: :create
+        resources :fields, only: :new
       end
     end
   end

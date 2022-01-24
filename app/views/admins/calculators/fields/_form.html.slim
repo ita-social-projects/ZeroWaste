@@ -12,3 +12,7 @@
         = render 'admins/calculators/fields/select', f: f
       - when 'Value'
         = render 'admins/calculators/fields/value', f: f
+
+      - if f.object.new_record?
+        = f.input :kind, as: :hidden, input_html: { value: f.object.kind }
+        = f.input :type, as: :hidden, input_html: { value: f.object.type }

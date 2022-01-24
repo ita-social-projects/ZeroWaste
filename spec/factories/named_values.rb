@@ -6,6 +6,8 @@ FactoryBot.define do
     type { 'Calculation' }
     label { 'Label' }
     kind { 'form' }
+    from { 0 }
+    to { 200 }
     calculator
   end
 end
