@@ -4,7 +4,7 @@ require 'rails_helper'
 CREATE_CALCULATOR_BUTTON = 'Create calculator'
 
 describe 'Create Calculator Page', js: true do
-  let(:admin){ create(:admin) }
+  let!(:admin){ create(:admin) }
   let(:calculator) { create(:calculator) }
   before do
     visit '/admins/calculators/new'
