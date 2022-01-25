@@ -4,8 +4,9 @@ require 'rails_helper'
 UPDATE_CALCULATOR_BUTTON = 'Update calculator'
 
 describe 'Update Calculator Page', js: true do
+  let(:admin){ create(:admin) }
   let(:calculator) { create(:calculator) }
-  before do 
+  before do
     visit "/admins/calculators/#{calculator.id}/edit"
   end
 
