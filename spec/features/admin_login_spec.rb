@@ -8,8 +8,8 @@ describe 'visit admin page', js: true do
    context "when sign in with correct login and password" do
      it "redirect to admin page" do
        visit '/admins/sign_in'
-       fill_in 'Email', with: admin@zw.com
-       fill_in 'Password', with: ChangeMe1
+       fill_in 'Email', with: admin.email
+       fill_in 'Password', with: admin.password
        click_button 'Log in'
        expect(page).to have_content 'Dashboard'
      end
