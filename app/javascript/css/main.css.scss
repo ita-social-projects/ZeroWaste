@@ -175,7 +175,14 @@ body.admin {
       justify-content: center;
     }
   }
+  .admin-table-links {
+    a {
+      color: #8FBA3B;
 
+      &:hover {
+        color: #3d5217;
+      }
+  }
   .admin-table-body {
     & > * {
       align-items: center;
@@ -184,13 +191,7 @@ body.admin {
     .actions {
       justify-content: space-between;
 
-      a {
-        color: #8FBA3B;
-        font-size: 1.5em;
 
-        &:hover {
-          color: #3d5217;
-        }
       }
     }
   }

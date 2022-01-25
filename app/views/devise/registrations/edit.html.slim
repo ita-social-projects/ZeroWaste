@@ -11,9 +11,9 @@
             = f.input :last_name, placeholder: 'Surname', autofocus: true, autocomplete: "last name"
             = f.label :country, class: 'm-3'
             = f.country_select :country, class: 'form-control form-control-lg'
-            = f.input :current_password, autocomplete: "current-password" 
+            = f.input :current_password, autocomplete: "current-password"
             = f.input :password, autocomplete: "new-password", hint: 'Leave blank if you don\'t want to change it', required: false
-            = f.input :password_confirmation, autocomplete: "new-password", required: false
+            = f.input :password_confirmation, autocomplete: "new-password", label: "Password confirmation", required: false
             = f.submit "Update", class: "btn btn-primary"
 
           h3 Cancel my account
