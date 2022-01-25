@@ -1,5 +1,5 @@
 .col-lg-1.col-md-2.col-sm-12
-  .display-4.text-black-50[data-selector=true]= f.object.selector
+  .display-4.text-black-50= f.object.selector || "#{f.object.kind&.first&.upcase}X"
 = f.input :label, class: 'form-control', required: true,
         wrapper_html: { class: 'col-lg-3 col-md-2 col-sm-12' }
 = f.input :value, class: 'form-control', required: true,

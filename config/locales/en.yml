@@ -51,6 +51,14 @@ en:
         privacy_policy: "Privacy Policy"
         terms_of_use: "Terms of use"
   admins:
+    messages:
+      show:
+        header: "Information"
+        table:
+          title_col: "Title"
+          message_col: "Message"
+          email_col: "Email"
+          time_col: "Date"
     users:
       index:
         main_header: "Dashboard"

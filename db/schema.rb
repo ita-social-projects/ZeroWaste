@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_214301) do
+ActiveRecord::Schema.define(version: 2022_01_22_174636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_214301) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
-    t.boolean "preferable"
+    t.boolean "preferable", default: false
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
   end
@@ -95,6 +95,14 @@ ActiveRecord::Schema.define(version: 2022_01_07_214301) do
     t.integer "unit", default: 0
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
     t.index ["uuid"], name: "index_fields_on_uuid", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "message", null: false
+    t.string "email", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "product_types", force: :cascade do |t|
