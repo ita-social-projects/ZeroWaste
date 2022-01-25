@@ -29,7 +29,16 @@ module Admins
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :country, :password,:password_confirmation, :blocked, :avatar).merge(skip_password: true)
+      prms = params.require(:user).permit(:first_name,
+                                          :last_name,
+                                          :country,
+                                          :password,
+                                          :password_confirmation,
+                                          :blocked,
+                                          :avatar)
+      prms = prms.merge(skip_password_validation: true) unless prms[:password].present? ||
+      prms[:password_confirmation].present?
+      prms
     end
 
     def user

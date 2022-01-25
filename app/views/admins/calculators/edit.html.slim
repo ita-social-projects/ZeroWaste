@@ -10,10 +10,12 @@
 
   = simple_form_for @calculator, url: { action: 'update' }, wrapper: :horizontal_form, html: { novalidate: false } do |f|
     .form-group.row
-      .col-6.has-float-label.my-auto
+      .col-4.has-float-label.my-auto
         = f.input :name, class: 'form-control', required: true
-      .col-6.has-float-label.my-auto
+      .col-4.has-float-label.my-auto
         = f.input :slug, class: 'form-control', required: true
+      .col-4.has-float-label.my-auto
+        = f.input :preferable, class: 'form-control'
 
     h4.mt-5 Add new Field
 
@@ -37,32 +39,36 @@
         = link_to 'Create', '#',
                 class: 'btn btn-success text-white disabled',
                 id: 'add-calculator-field',
-                data: { url: admins_calculator_fields_path(@calculator) }
+                data: { url: new_admins_calculator_field_path(@calculator) }
 
-    - if f.object.fields.any?
-      h3.my-5 Fields List
-
-      - if @form_fields.any?
-        h4.mb-2 Form
-        .form-group.row
+    .my-5
+      h4.mb-2 Form
+      .form-group.row data-kind='form' data-selector-letter=('form'[0].upcase) data-last-selector=(extract_max_selector(@form_fields))
+        - if @form_fields.any?
           = f.fields_for :fields, @form_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
+        - else
+          p.ml-3.my-3.text-black-50 data-empty-text=true No fields yet
 
-      - if @parameter_fields.any?
-        h4.mb-2 Parameters
-        .form-group.row
+      h4.mb-2 Parameters
+      .form-group.row data-kind='parameter' data-selector-letter=('parameter'[0].upcase) data-last-selector=(extract_max_selector(@parameter_fields))
+        - if @parameter_fields.any?
           = f.fields_for :fields, @parameter_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
+        - else
+          p.ml-3.my-3.text-black-50 data-empty-text=true No fields yet
 
-      - if @result_fields.any?
-        h4.mb-2 Results
-        .form-group.row
+      h4.mb-2 Results
+      .form-group.row data-kind='result' data-selector-letter=('result'[0].upcase) data-last-selector=(extract_max_selector(@result_fields))
+        - if @result_fields.any?
           = f.fields_for :fields, @result_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
+        - else
+          p.ml-3.my-3.text-black-50 data-empty-text=true No fields yet
 
-    .row.my-4
-      .col-12.d-flex.justify-content-end
-        = f.button :submit, 'Update calculator', class: 'btn btn-success mr-2'
-        = link_to admins_calculators_path, class: 'btn btn-danger' do
-          span.mr-1 Cancel
-          i.fa.fa-times-circle
+      .row.my-4
+        .col-12.d-flex.justify-content-end
+          = f.button :submit, 'Update calculator', class: 'btn btn-success mr-2'
+          = link_to admins_calculators_path, class: 'btn btn-danger' do
+            span.mr-1 Cancel
+            i.fa.fa-times-circle

@@ -6,10 +6,10 @@ module Admins
 
     def index
       @calculators = if params[:search]
-        Calculator.where('name LIKE ?', "%#{params[:search]}%")
-      else
-        Calculator.friendly.all
-      end
+                       Calculator.where('name LIKE ?', "%#{params[:search]}%")
+                     else
+                       Calculator.friendly.all
+                     end
     end
 
     def show
@@ -35,7 +35,7 @@ module Admins
     end
 
     def update
-      if @calculator.update(calculator_params)
+      if updater
         redirect_to edit_admins_calculator_path(@calculator),
                     notice: 'Calculator has been successfully updated.'
       else
@@ -66,14 +66,23 @@ module Admins
       @calculator
         .fields
         .select { |field| field.kind == kind }
-        .sort_by(&:created_at)
+        .sort_by { |field| field.created_at || Time.zone.now }
     end
 
     def calculator_params
       params.require(:calculator).permit(
-        :name, :id, :slug,
-        fields_attributes: %i[id label name value unit from to _destroy]
+        :name, :id, :slug, :preferable,
+        fields_attributes: %i[
+          id selector label name value unit from to type kind _destroy
+        ]
       )
+    end
+
+    def updater
+      Calculator.transaction do
+        ::Calculators::PreferableService.new(calculator_params).perform!
+        @calculator.update(calculator_params)
+      end
     end
   end
 end

@@ -3,19 +3,15 @@
 module Admins
   module Calculators
     class FieldsController < ApplicationController
-      before_action :calculator, only: :create
+      before_action :calculator, only: :new
 
-      def create
-        @field = @calculator.fields.create(field_params)
+      def new
+        @field = Field.new(field_params)
+        @calculator = Calculator.new(fields: [@field])
 
-        if @field.errors.any?
-          flash[:alert] = 'Field was not added!'
-
-          return head :unprocessable_entity
+        respond_to do |format|
+          format.js
         end
-
-        flash[:notice] = 'Field was successfully added!'
-        head :ok
       end
 
       private

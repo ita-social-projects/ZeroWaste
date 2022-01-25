@@ -6,25 +6,18 @@ class Field < ApplicationRecord
   enum kind: { form: 0, parameter: 1, result: 2 }
   enum unit: { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6 , items: 7 }
 
-  validates :type, :kind, presence: true
+  validates :type, :kind, :label, presence: true
 
-  with_options if: :persisted? do
-    validates :label, presence: true
-  end
-
-  before_create :set_selector
+  before_create :set_selector, if: -> { selector.blank? }
 
   private
 
   def set_selector
-    return if selector.present?
+    index = Field.order(selector: :desc)
+                 .find_by(calculator: calculator, kind: kind)
+                 &.selector
+                 &.gsub(/\D/, '').to_i.next
 
-    selected_rows_count = Field.where(kind: kind).count
-    if selected_rows_count.positive?
-      previous_number = Field.where(kind: kind).last.selector[1]
-      self.selector = kind[0].upcase + previous_number.next.to_s
-    else
-      self.selector = "#{kind[0].upcase}1"
-    end
+    self.selector = "#{kind&.first&.upcase}#{index}"
   end
 end

@@ -57,7 +57,7 @@ describe 'visit admin page', js: true do
      select 'Albania', from: 'user_country'
      find('#user_password').set('111111111')
      find('#user_password_confirmation').set('111111111')
-     click_button 'Update User'
+     find_button('commit').click
      expect(page).to have_current_path('/admins/users/1')
      expect(page).to have_content 'John'
      expect(page).to have_content 'Doe'
@@ -73,7 +73,7 @@ describe 'visit admin page', js: true do
     select 'Albania', from: 'user_country'
     find('#user_password').set('1')
     find('#user_password_confirmation').set('2')
-    click_button 'Update User'
+    find_button('commit').click
     expect(page).to have_content 'First name is too short (minimum is 2 characters)'
     expect(page).to have_content 'Last name is too short (minimum is 2 characters)'
     expect(page).to have_content 'Password is too short (minimum is 6 characters)'
