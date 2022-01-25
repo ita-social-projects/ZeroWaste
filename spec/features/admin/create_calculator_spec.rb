@@ -11,7 +11,6 @@ describe 'Create Calculator Page', js: true do
   end
 
   context 'when user clicks button Create calculator' do
-    before { sign_in admin }
     it 'shows message that calculator has been successfully created' do
       fill_in 'Name', with: 'Calculator1'
       click_button CREATE_CALCULATOR_BUTTON
