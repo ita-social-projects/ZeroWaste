@@ -11,6 +11,8 @@ describe 'visit admin page', js: true do
     create(:user, email: 'test1@gmail.com', password: '12345878',
                   last_sign_in_at: time_login)
   end
+  before { request.env['HTTP_AUTHORIZATION'] = "Token token=#{api_key}" }
+
 
   it 'visits admin page' do
     visit USERS_PATH
