@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require 'spec_helper'
 USERS_PATH = '/admins/users'
 EDIT_USERS_PATH = '/admins/users/1/edit'
 

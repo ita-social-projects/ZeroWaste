@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require 'spec_helper'
 CREATE_CALCULATOR_BUTTON = 'Create calculator'
 
 describe 'Create Calculator Page', js: true do

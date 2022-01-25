@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require 'spec_helper'
 UPDATE_CALCULATOR_BUTTON = 'Update calculator'
 
 describe 'Update Calculator Page', js: true do
