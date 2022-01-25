@@ -5,8 +5,8 @@ CREATE_CALCULATOR_BUTTON = 'Create calculator'
 
 describe 'Create Calculator Page', js: true do
   let(:calculator) { create(:calculator) }
-  before { sign_in admin }
   before do
+    let!(:admin){ create(:admin) }
     visit '/admins/calculators/new'
   end
 
