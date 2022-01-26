@@ -6,9 +6,9 @@ CREATE_CALCULATOR_BUTTON = 'Create calculator'
 describe 'Create Calculator Page', js: true do
   let!(:admin){ create(:admin) }
   let(:calculator) { create(:calculator) }
-  before do
-    @request.env["devise.mapping"] = Devise.mappings[:admin]
-    sign_in current_admin
+  before (:each) do
+    @admin=create(:admin)
+    sign_in @admin
     visit '/admins/calculators/new'
   end
 
