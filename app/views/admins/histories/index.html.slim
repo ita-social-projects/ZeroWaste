@@ -1,7 +1,4 @@
-.btn.btn-light
-  = link_to 'Back', admins_users_path, class: 'text-secondary'
-
-.container
+.container.bg-light.p-3
   h2.text-center.p-3 = t 'History'
   table.table.table-striped.table-bordered
     thead
@@ -13,7 +10,7 @@
         th.align-baseline = t '.table.more_info_(field, old_value, new_value)'
         th.align-baseline = t '.table.author'
     tbody
-      - @versions.select { |version| version.item_id == params[:user_id].to_i }.each do |version|
+      - @versions.each do |version|
         tr.align-baseline
           td = l(version.created_at, format: "%-d.%m.%Y %H:%M:%S %Z")
           td = version.id
@@ -26,3 +23,7 @@
                   td = key
                   td = val.join(' => ')
           td = version.whodunnit
+
+.container
+  .btn.btn-light.m-3
+    = link_to 'Back', admins_users_path, class: 'text-secondary'

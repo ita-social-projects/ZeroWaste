@@ -27,10 +27,6 @@ module Admins
       end
     end
 
-    def history
-      @versions = PaperTrail::Version.order('created_at DESC')
-    end
-
     private
 
     def user_params

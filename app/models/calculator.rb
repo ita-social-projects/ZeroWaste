@@ -4,6 +4,7 @@ class Calculator < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
   has_many :fields
+  has_paper_trail
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 

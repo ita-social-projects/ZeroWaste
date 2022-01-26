@@ -20,10 +20,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users, only: %i[index show edit update]
     resources :calculators, param: :slug
-    
-    resources :users do
-      get :history
-    end
+    resources :histories, only: :index
 
     resources :admins do
       post :update
