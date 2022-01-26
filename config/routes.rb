@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
 
   root 'calculators#index'
-  get 'about_us/index'
+  get '/about_us', to: 'about_us#index', as: 'about_us'
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 

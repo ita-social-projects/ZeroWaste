@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 footer.admin_footer
   .main-content
     .left.box
@@ -44,3 +45,38 @@ footer.admin_footer
         a href='#' Zero Waste Lviv 
       span.far.fa-copyright
       span  2021 All rights reserved.
+=======
+footer.py-4.footer.container
+  .row.footer-items
+    .col
+      h5= t '.name_of_organisation'
+      p
+        = t '.copyrights'
+        a href="mailto:hello@zerowastelviv.org.ua"  hello@zerowastelviv.org.ua
+    .col
+      a href="/about_us" = t '.link.About_Us'
+      div
+        div
+          a href="#" = t '.link.about_organisation'
+        .above
+          a href="#" = t '.link.about_local_organisation'
+        div
+          a href="#" = t '.link.our_team'
+    .col
+      h5= t '.follow_us'
+      div
+        a href="mailto:zerowastelviv@gmail.com"  zerowastelviv@gmail.com
+      .social-links.above
+        a.link href="#"
+          i.fab.fa-youtube.fa-2x
+        a.link href="#"
+          i.fab.fa-instagram.fa-2x
+        a.link href="#"
+          i.fab.fa-facebook-f.fa-2x
+  .d-flex.justify-content-center.mt-3
+    .footer-items &amp;copy2021. Zero Waste Lviv
+    .ml-4.mr-4
+      a href="" = t '.link.privacy_policy'
+    div
+      a href="" = t '.link.terms_of_use'
+>>>>>>> add about us page
