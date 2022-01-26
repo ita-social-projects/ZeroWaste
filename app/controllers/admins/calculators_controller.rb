@@ -5,7 +5,7 @@ module Admins
     before_action :calculator, only: %i[show edit update destroy]
 
     def index
-      @calculators = Calculator.by_name_and_slug(params[:search].lstrip.strip)
+      @calculators = Calculator.by_name_and_slug(params[:search])
     end
 
     def show

@@ -13,6 +13,6 @@ class Calculator < ApplicationRecord
   validates :name, uniqueness: true
 
   scope :by_name_and_slug, -> (params) { where("name ILIKE ? OR slug ILIKE ?", 
-                                               "#{params}%",
-                                               "#{params}%") }
+                                               "%#{params&.strip}%",
+                                               "%#{params&.strip}%") }
 end
