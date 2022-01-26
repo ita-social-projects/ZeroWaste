@@ -29,15 +29,19 @@ RSpec.describe Calculator, type: :model do
       let!(:calc2) { create(:calculator, slug: 'diapers', name: 'Calculator') }
 
       it 'finds two instances by slug or name' do
-        expect(Calculator.by_name_and_slug("calc").to_a).to include(calc, calc2)
+        expect(Calculator.by_name_or_slug("calc").to_a).to include(calc, calc2)
       end
 
       it 'returns all instances when search params are empty' do
-        expect(Calculator.by_name_and_slug("    ").to_a).to include(calc, calc2)
+        expect(Calculator.by_name_or_slug("    ").to_a).to include(calc, calc2)
+      end
+
+      it 'returns all instances when search params are nil' do
+        expect(Calculator.by_name_or_slug(nil).to_a).to include(calc, calc2)
       end
 
       it 'does not find any instances' do
-        expect(Calculator.by_name_and_slug("qwerty").to_a).to eq []
+        expect(Calculator.by_name_or_slug("qwerty").to_a).to eq []
       end
     end
     
