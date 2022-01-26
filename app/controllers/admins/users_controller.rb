@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admins
-  class UsersController < ApplicationController
+  class UsersController < BaseController
     rescue_from ActiveRecord::RecordNotFound, with: :render404
     layout 'admin'
     before_action :set_paper_trail_whodunnit
