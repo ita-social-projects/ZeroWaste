@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   attr_accessor :current_password, :skip_password_validation
 
+  has_paper_trail ignore: %i[current_sign_in_at last_sign_in_at confirmation_token encrypted_password]
   has_one_attached :avatar
   # validate :correct_image_type
 

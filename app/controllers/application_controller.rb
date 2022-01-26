@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  def user_for_paper_trail
+    # binding.pry
+    user_signed_in? ? 'User' : 'Admin'
+  end
+
   protected
 
   def configure_permitted_parameters
