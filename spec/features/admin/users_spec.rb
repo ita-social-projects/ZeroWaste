@@ -87,6 +87,10 @@ describe 'visit admin page', js: true do
 end
 
 describe 'user info page' do
+  before (:each) do
+    @admin=create(:admin)
+    sign_in @admin
+  end
   context 'viewing non-existing user' do
     it 'renders the 404 page' do
       visit '/admins/users/1939'
