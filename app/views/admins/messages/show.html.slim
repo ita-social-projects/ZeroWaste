@@ -12,4 +12,4 @@
       dd = @message.email
 
       dt = t '.table.time_col'
-      dd = @message.created_at_mod
+      dd = l(@message.created_at, format: :short)

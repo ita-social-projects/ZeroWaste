@@ -1,9 +1,6 @@
 module Admins
-  class MessagesController < ApplicationController
-  layout 'admin'
-  # class MessagesController < BaseController
-
-
+  class MessagesController < BaseController
+    
   def index
     @message = Message.all.order created_at: :desc
   end
