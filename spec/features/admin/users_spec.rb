@@ -5,13 +5,15 @@ USERS_PATH = '/admins/users'
 EDIT_USERS_PATH = '/admins/users/1/edit'
 
 describe 'visit admin page', js: true do
-  let!(:admin){ create(:admin) }
   let(:time_login) { Time.new(2020, 0o1, 0o1).utc }
   let!(:user1) do
     create(:user, email: 'test1@gmail.com', password: '12345878',
                   last_sign_in_at: time_login)
   end
-
+  before (:each) do
+    @admin=create(:admin)
+    sign_in @admin
+  end
 
   it 'visits admin page' do
     visit USERS_PATH
