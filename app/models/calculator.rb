@@ -12,4 +12,8 @@ class Calculator < ApplicationRecord
                              message: 'Only letters and numbers allowed' }
   validates :name, length: { minimum: 2 }
   validates :name, uniqueness: true
+
+  scope :by_name_or_slug, -> (search) { where("name ILIKE ? OR slug ILIKE ?", 
+                                               "%#{search&.strip}%",
+                                               "%#{search&.strip}%") }
 end
