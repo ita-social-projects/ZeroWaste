@@ -8,11 +8,11 @@
         th.align-baseline = t '.table.user_id:'
         th.align-baseline = t '.table.action'
         th.align-baseline = t '.table.more_info_(field, old_value, new_value)'
-        th.align-baseline = t '.table.author'
+        th.align-baseline = t '.table.model_type'
     tbody
       - @versions.each do |version|
         tr.align-baseline
-          td = l(version.created_at, format: "%-d.%m.%Y %H:%M:%S %Z")
+          td = l(version.created_at, format: "%-d.%m.%Y %H:%M:%S")
           td = version.id
           td = version.item_id
           td = version.event
@@ -22,7 +22,7 @@
                 tr
                   td = key
                   td = val.join(' => ')
-          td = version.whodunnit
+          td = version.item_type
 
 .container
   .btn.btn-light.m-3

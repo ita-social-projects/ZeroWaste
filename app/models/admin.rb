@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Admin < ApplicationRecord
-  has_paper_trail
+  has_paper_trail ignore: %i[current_sign_in_at last_sign_in_at confirmation_token encrypted_password]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

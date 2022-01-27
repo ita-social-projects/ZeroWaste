@@ -11,7 +11,7 @@ describe 'visit admin page', js: true do
       expect(page).to have_content 'User Id:'
       expect(page).to have_content 'Action'
       expect(page).to have_content 'More Info (Field, Old Value, New Value)'
-      expect(page).to have_content 'Author'
+      expect(page).to have_content 'Model Type'
     end
   end
 end
