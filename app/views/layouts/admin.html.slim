@@ -9,7 +9,7 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body.admin
+    = render 'layouts/flash_messages'
     .container.admin-container
-      = render 'layouts/flash_messages'
       = yield
     = render 'layouts/footer'

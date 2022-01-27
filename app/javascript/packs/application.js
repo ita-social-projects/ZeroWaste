@@ -35,3 +35,9 @@ ActiveStorage.start();
 //   $('[data-toggle="popover"]').popover();
 // });
 console.log('Well done!')
+
+$('document').ready(function() {
+    setTimeout(function() {
+        $('.alert').slideUp();
+    }, 10000);
+});

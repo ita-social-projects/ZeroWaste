@@ -1,7 +1,6 @@
 - flash_messages.each do |message_type, message|
-  p.flash-message class=message_type
+  .alert.alert-dismissible.fade.show.position-absolute.container-fluid class=(message_class_by_name(message_type))
     = message
-
-- flash.each do |k, v|
-  = tag.div v, class: "alert alert-#{k} d-flex justify-content-center h6", role: 'alert'
-  
+    button.close[type="button" data-dismiss="alert" aria-label="Close"]
+      span[aria-hidden="true"]
+        | ×
