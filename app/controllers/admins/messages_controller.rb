@@ -2,7 +2,7 @@ module Admins
   class MessagesController < BaseController
     
   def index
-    @message = Message.all.order created_at: :desc
+    @message = Message.order(created_at: :desc)
   end
 
   def show
