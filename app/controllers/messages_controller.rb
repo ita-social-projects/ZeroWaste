@@ -7,8 +7,8 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      flash[:success] = 'Question has been sent!'
-      redirect_to root_path
+      redirect_to root_path,
+                  notice: 'Question has been sent!'
     else
       render :new
     end
