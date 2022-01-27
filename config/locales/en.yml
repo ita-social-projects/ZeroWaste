@@ -51,6 +51,14 @@ en:
         privacy_policy: "Privacy Policy"
         terms_of_use: "Terms of use"
   admins:
+    messages:
+      show:
+        header: "Information"
+        table:
+          title_col: "Title"
+          message_col: "Message"
+          email_col: "Email"
+          time_col: "Date"
     users:
       index:
         main_header: "Dashboard"
@@ -233,3 +241,8 @@ en:
         first_name: "First name"
         last_name: "Last name"
         successful_update: "User info was successfully updated!"
+  time:
+    formats:
+      long: '%A, %d %B, %Y'
+      short: '%d, %B, %Y'
+      
