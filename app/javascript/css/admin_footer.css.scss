@@ -1,17 +1,11 @@
 
-body{
-  min-height: 100vh;
-  box-sizing: border-box;
-}
-
 .footer, .admin_footer{
   position: sticky;
   top: 100%;
   width: 100%;
-  margin-top: 10px;
 }
 
-.admin_footer{
+.admin_footer {
   background: #111;
   color: antiquewhite;
 }
@@ -49,7 +43,7 @@ body{
   content: '';
   height: 2px;
   width: 15%;
-  background: #f12020;
+  background: $error;
   top: -10px;
 }
 
@@ -73,7 +67,7 @@ body{
 }
 
 .left .content .social a:hover{
-  background: #f12020;
+  background: $error;
 }
 
 .center .content .fas{
@@ -99,7 +93,7 @@ body{
 }
 
 .center .content .fas:hover{
-  background: #f12020;
+  background: $error;
 }
 
 .center .content .text{
@@ -148,7 +142,7 @@ body{
   width: 100%;
   border: none;
   outline: none;
-  background: #f12020;
+  background: $error;
   font-size: 1.0625rem;
   font-weight: 500;
   cursor: pointer;
@@ -170,7 +164,7 @@ body{
 }
 
 .bottom center a{
-  color: #f12020;
+  color: $error;
   text-decoration: none;
 }
 
