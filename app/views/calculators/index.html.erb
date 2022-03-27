@@ -1,0 +1,15 @@
+<%= render 'layouts/heading' %>
+<p class="paragraph">General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info</p>
+
+<div class="button-holder">
+  <%= button_to "VISIT WEBSITE", root_path, method: :get, class: "donate-btn"%>
+  <%# <%= image_tag "calculator.png", alt:"any", width: "24px", height: "30px", id: "calc"%>
+  <%# <%= button_to "CALCULATE", root_path, class: "btn btn-secondary"%>
+ 
+  <a href="calc">
+    <button class="calculate-btn">
+      <img src="assets/calculator.png", alt="any", id="calc">CALCULATE
+    </button>
+  </a>
+
+</div>

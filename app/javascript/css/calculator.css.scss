@@ -1,0 +1,125 @@
+// main header
+.main-heading {
+  text-align: center; 
+  margin-top: 130px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 400;
+  line-height:60px;
+}
+
+.paragraph {
+  margin: 20px auto;
+  width: 645px;
+  height: 60px;
+  opacity: 50%;
+  font-family: 'Nunito';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height:30px;
+  color: #ffff;
+}
+
+.button-holder {
+  margin-top: 60px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.button-holder button {
+  margin: 0 20px;
+}
+
+.calculate-btn {
+  width: 186px;
+  height: 56px;
+  color: #fff;
+  background-color: #8FBA3B;
+  border: none;
+  border-radius: 4px;
+  padding-top: 2px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: 400;
+  font-family: 'Nunito';
+  font-style: normal;
+  text-align: center;
+  transition: transform 0.5s linear;
+}
+
+// .calculate-btn:hover {
+//   transform: scale(1.03)
+// }
+
+#calc {
+  width:24px;
+  height:32px;
+  padding-top: 2px;
+  margin-right: 10px;
+}
+
+.form-p {
+  font-size:20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #666666;
+  position: relative;
+  top: 48px;
+  left: 56px;
+}
+
+.src {
+  position: relative;
+  top: 30px;
+  margin-left: 20px;
+}
+
+.form {
+  padding-top: 15px;
+  padding-left: 55px;
+  width: 800px;
+  height:360px;
+  text-align: start;
+  display: flex;
+}
+
+
+.flex-item {
+  margin-top: 40px;
+  width: fit-content;
+}
+
+.flex-item input[type="text"], .flex-item input[type="date"]{
+  height: 50px;
+  margin-right: 20px;
+}
+
+#baby_weight {
+  width: 160px;
+  padding-left: 20px;
+}
+
+#diapers_per_day {
+  width: 140px;
+  text-align: center;
+}
+
+#date {
+  width:236px;
+  padding-left: 20px;
+  color: #999999;
+}
+
+.result-btn {
+  width:250px;
+  text-align: center;
+}
+
+.result-btn #calc {
+  padding: 0;
+  margin: 0;
+}

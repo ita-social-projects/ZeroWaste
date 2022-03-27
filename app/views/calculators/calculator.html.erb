@@ -1,0 +1,29 @@
+<div class="container home">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="rounded float-left src">
+        <%= image_tag "search.png", height: 70 %>
+      </div>
+          <p class="form-p">Just a couple of questions</p>
+        <div class="form">
+        <%= form_with url: "#", method: :get do |form| %>
+        <div class="flex-item text-input">
+          <%= form.text_field :date, type: "date", id:"date", required: true%>
+          <%= form.text_field :baby_weight, placeholder: "Baby weight", id:"baby_weight", required: true%>
+          <%= form.text_field :diapers_per_day, placeholder: "Diapers per day", id:"diapers_per_day", required: true%>
+        </div>
+        <div class="flex-item">
+          <%= form.check_box :email_reveiver  %>
+          <%= form.label :email_reveiver, "Yes, I want to receive email messages" %> with recommendations
+        </div>
+        <div class="flex-item">
+        <%# <%= form.submit "Calculate result" %>
+          <button type="sumbit" class="calculate-btn result-btn">
+            <img src="assets/calculator.png", alt="any", id="calc"> CALCULATE RESULT
+          </button>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
