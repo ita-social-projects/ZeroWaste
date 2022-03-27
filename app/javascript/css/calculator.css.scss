@@ -51,10 +51,6 @@
   transition: transform 0.5s linear;
 }
 
-// .calculate-btn:hover {
-//   transform: scale(1.03)
-// }
-
 #calc {
   width:24px;
   height:32px;
@@ -87,7 +83,6 @@
   display: flex;
 }
 
-
 .flex-item {
   margin-top: 40px;
   width: fit-content;
@@ -101,6 +96,7 @@
 .check-label {
   margin-left: 15px;
 }
+
 .form-input {
   width: 160px;
   padding-left: 20px;
