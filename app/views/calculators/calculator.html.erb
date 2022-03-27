@@ -9,8 +9,8 @@
         <%= form_with url: "#", method: :get do |form| %>
         <div class="flex-item text-input">
           <%= form.text_field :date, type: "date", id:"date", required: true%>
-          <%= form.text_field :baby_weight, placeholder: "Baby weight", id:"baby_weight", required: true%>
-          <%= form.text_field :diapers_per_day, placeholder: "Diapers per day", id:"diapers_per_day", required: true%>
+          <%= form.text_field :baby_weight, placeholder: "Baby weight", class:"form-input", required: true%>
+          <%= form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input", required: true%>
         </div>
         <div class="flex-item">
           <%= form.check_box :email_receiver  %>
