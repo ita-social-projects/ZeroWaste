@@ -9,7 +9,7 @@ class CalculatorsController < ApplicationController
     @calculator = Calculator.friendly.find(params[:slug])
   end
 
-#renders calculator page
   def calculator
+    #renders calculator page
   end
 end
