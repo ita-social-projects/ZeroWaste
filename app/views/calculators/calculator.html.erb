@@ -6,9 +6,9 @@
       </div>
           <p class="form-p">Just a couple of questions</p>
         <div class="form">
-        <%= form_with url: "#", method: :get do |form| %>
+          <%= form_with url: "#", method: :get do |form| %>
         <div class="flex-item text-input">
-          <%= form.text_field :date, type: "date", id:"date", required: true%>
+          <input placeholder="Child`s birthday" type="text" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" id="date" required="required"> 
           <%= form.text_field :baby_weight, placeholder: "Baby weight", class:"form-input", required: true%>
           <%= form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input", required: true%>
         </div>
@@ -17,7 +17,6 @@
           <%= form.label :email_receiver, "Yes, I want to receive email messages", class:"check-label"%> with recommendations
         </div>
         <div class="flex-item">
-        <%# <%= form.submit "Calculate result" %>
           <button type="sumbit" class="calculate-btn result-btn">
             <img src="assets/calculator.png", alt="any", id="calc"> CALCULATE RESULT
           </button>
