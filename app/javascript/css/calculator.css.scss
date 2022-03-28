@@ -2,7 +2,7 @@
 .main-heading {
   text-align: center; 
   margin-top: 130px;
-  font-family: 'Comfortaa';
+  font-family: 'Comfortaa', sans-serif;
   font-style: normal;
   font-size: 48px;
   font-weight: 400;
@@ -15,7 +15,7 @@
   height: 60px;
   text-align: center;
   opacity: 0.8;
-  font-family: 'Nunito';
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -46,9 +46,8 @@
   letter-spacing: 2px;
   text-align: center;
   font-weight: 400;
-  font-family: 'Nunito';
+  font-family: 'Nunito', sans-serif;
   font-style: normal;
-  text-align: center;
   transition: transform 0.5s linear;
 }
 
