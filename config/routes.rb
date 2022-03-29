@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks:
                                     'users/omniauth_callbacks' }
-  resources :calculators, only: %i[index show], param: :slug
+  resources :calculators, only: %i[index show], param: :slug do
+    post :calculate, on: :member
+  end
   resources :messages, only: %i[new create]
 
 
