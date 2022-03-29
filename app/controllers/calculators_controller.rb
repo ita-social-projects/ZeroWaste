@@ -8,4 +8,9 @@ class CalculatorsController < ApplicationController
   def show
     @calculator = Calculator.friendly.find(params[:slug])
   end
+
+  def calculate
+    @calculator = Calculator.friendly.find(params[:slug])
+  end
+
 end
