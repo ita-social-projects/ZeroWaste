@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   root 'calculators#index'
   get '/about_us', :to => redirect('/about_us.html')
+  get '/calc', to: "calculators#calculator"
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
   devise_for :users, controllers: { registrations: 'users/registrations',
