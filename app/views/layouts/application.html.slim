@@ -9,7 +9,10 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body.wrapper
+  div.filter_block
     = render 'layouts/flash_messages'
     = render 'layouts/navigation'
+    - if !controller_name.in? ['sessions', 'registrations', 'passwords']
+      = render 'layouts/homepage'
     = yield
     = render 'layouts/footer'
