@@ -27,7 +27,6 @@ a {
 .page-header {
   font-family: 'Comfortaa', sans-serif;
   margin-bottom: 10px;
-  padding: 15px 0;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -46,16 +45,16 @@ div.jumbotron {
 .main-container {
   margin-bottom: 20px;
   padding: 20px;
-
   img {
     margin: 0px 30px;
   }
 }
 .main-btns {
-  margin-bottom: 20px;
-  &>:first-of-type {
-    margin-right: 20px;
-  }
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 420px;
+  margin: 20px auto;
   &>:last-of-type {
     & img {
       margin-right: 10px;
@@ -97,6 +96,8 @@ div.jumbotron {
   font-size: 14px;
   padding: 25px;
   color: $color;
+  border-bottom: 3px solid transparent;
+  @include transition(all 0.5s ease-in-out);
   &:hover {
     color: $color;
     border-bottom: 3px solid $success;
@@ -154,7 +155,6 @@ main p {
 }
 .footer-items a, input[type=submit] {
   color: $color;
-
   &:hover {
     color: #262626;
   }
@@ -297,5 +297,22 @@ body.admin {
 
   &.alert {
     background: $danger;
+  }
+}
+
+@media screen and (max-width: $xs) {
+  .tab, .donate-btn a {
+    font-size: 12px;
+  }
+  .main-btns {
+    max-width: 320px;
+    a {
+      padding: 10px;
+    }
+  }
+}
+@media screen and (max-width: $sm) {
+  .tab, .donate-btn a {
+    padding: 10px;
   }
 }
