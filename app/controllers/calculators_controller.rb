@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CalculatorsController < ApplicationController
-  before_action :find_calculator, except: :index
+  before_action :find_calculator, only: [:show, :calculate]
 
   def index
     @calculators = Calculator.friendly.all
@@ -11,6 +11,10 @@ class CalculatorsController < ApplicationController
 
   def calculate; end
 
+  def calculator;
+    # renders calculator.html.slim
+  end
+  
   private
 
   def find_calculator

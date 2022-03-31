@@ -12,7 +12,7 @@ html
   div.filter_block
     = render 'layouts/flash_messages'
     = render 'layouts/navigation'
-    - if !controller_name.in? ['sessions', 'registrations', 'passwords']
+    - unless controller_name.in? ['sessions', 'registrations', 'passwords', 'calculators']
       = render 'layouts/homepage'
     = yield
     = render 'layouts/footer'
