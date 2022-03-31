@@ -1,8 +1,8 @@
 main.container
-  h1.homepage_title Welcome to Zero Waste Calculator
-  p General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info
-  div.d-flex.justify-content-center.main-btns.flex-wrap
-    = link_to "Visit WebSite", "https://zerowastelviv.org.ua", target: '_blank'
+  h1.homepage_title = t '.homepage_title'
+  p = t '.description'
+  .main-btns
+    = link_to t('.visit_website'), "https://zerowastelviv.org.ua", target: '_blank'
     a.btn-success href="#"
       = image_pack_tag "calc.svg"
       = t '.calculate'
