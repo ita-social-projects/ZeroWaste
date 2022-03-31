@@ -44,17 +44,6 @@ en:
       mililiters_of_naphtha: "Mililiters of Naphtha"
       gram_of_plastic: "Gram of Plastic"
   layouts:
-    navigation:
-      log_out: "Log Out"
-      sign_up: "Sign Up"
-      log_in: "Log In"
-      ontact_us: "Contact us"
-      donate: "$ DONATE"
-    homepage:
-      homepage_title: "Welcome to Zero Waste Calculator"
-      description: "General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info"
-      calculate: "Calculate"
-      visit_website: "Visit WebSite"
     footer:
       about_us: "ABOUT US"
       follow_us: "Follow Us"

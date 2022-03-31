@@ -1,52 +1,7 @@
 $success: #8FBA3B;
-$color: #fff;
-$error: #9e1503;
-$gray: #8D8D8D;
-
-$xs: 575.98px;
-$sm: 767.98px;
 
 @import "~bootstrap/scss/bootstrap";
 @import "../css/main.css.scss";
 @import "../css/admin_footer.css.scss";
 @import "../css/admin_edit_show.css.scss";
 @import "../css/calculator.css.scss";
-
-
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('../fonts/Comfortaa-Regular.eot');
-  src: url('../fonts/Comfortaa-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/Comfortaa-Regular.woff2') format('woff2'),
-    url('../fonts/Comfortaa-Regular.woff') format('woff'),
-    url('../fonts/Comfortaa-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-  
-/*Mxn*/
-@mixin transform($transforms) {
-  -webkit-transform: $transforms;
-  -moz-transform: $transforms;
-  -o-transform: $transforms;
-  -ms-transform: $transforms;
-  transform: $transforms;
-}
-@mixin translate ($x, $y) {
-  @include transform(translate($x, $y));
-}
-@mixin transition($args) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-*, :after, :before {
-  box-sizing: border-box;
-}
-html {
-  height: 100%;
-}
-

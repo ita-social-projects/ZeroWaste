@@ -1,14 +1,16 @@
-    .position-block
+.container
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
       .card.text-center
-        .card-block.p-4
+        .card-block
           h2= t('.forgot_password_header')
           = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
             = render "devise/shared/error_messages", resource: resource
-            .d-flex.justify-content-between.flex-wrap
+            .field
               = f.label :email, t('.form.email_label')
-              = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+              br/
+              = f.email_field :email, autofocus: true, autocomplete: "email"
             br/
-            .d-flex.justify-content-between.flex-wrap.flex-row-reverse
+            .actions
               = f.submit t('.send_instructions_button'), class: "btn btn-primary"
-              .d-block.text-left
-                = render "devise/shared/links"
+          = render "devise/shared/links"

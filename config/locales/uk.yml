@@ -3,17 +3,6 @@ uk:
     show:
       calculate_result_button: "Pозрахувати"
   layouts:
-    navigation:
-      log_out: "Вийти"
-      sign_up: "Зареєструватися"
-      log_in: "Увійти"
-      ontact_us: "Зв'яжіться з нами"
-      donate: "$ DONATE"
-    homepage:
-      homepage_title: "Ласкаво просимо до Zero Waste Calculator"
-      description: "Загальні відомості про калькулятор. Опис того, для чого він потрібен і що він розглядає. Ви також можете написати, що нижче користувач може побачити навчальну інформацію"
-      calculate: "Pозрахувати"
-      visit_website: "Відвідайте веб-сайт"
     footer:
       name_of_organisation: 'ГО "НУЛЬ ВІДХОДІВ ЛЬВІВ"'
       copyrights: 'Копіювання змісту цього сайту без дозволу правовласника заборонено. Якщо
