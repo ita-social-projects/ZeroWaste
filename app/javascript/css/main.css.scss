@@ -1,22 +1,41 @@
-/* navigation */
 body {
-  background: url('../images/mother.jpeg') no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  position: relative;
+  margin: 0 auto;
+  background: url('../images/mother.jpeg') no-repeat center top;
   background-size: cover;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+a {
+  display: inline-block;
+  cursor: pointer;
+  @include transition(all 0.5s ease-in-out);
+  outline: 0;
+  &:focus, &:hover, &:active {
+    text-decoration: none;
+  }
+}
+.filter_block {
+  position: absolute;
+  background-color: #00000078;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .page-header {
-  padding: 20px 40px 20px 40px;
+  font-family: 'Comfortaa', sans-serif;
+  margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
-  border-bottom: 2px solid #8D8D8D;
+  border-bottom: 2px solid $gray;
 }
 
 div.jumbotron {
-  background-color: #fff;
+  background-color: $color;
   padding: 25px 10px;
   margin-top: 90px;
   max-width: 1140px;
@@ -26,45 +45,119 @@ div.jumbotron {
 .main-container {
   margin-bottom: 20px;
   padding: 20px;
-
   img {
     margin: 0px 30px;
   }
 }
-
-.donate-btn {
-  background-color: Transparent;
-  border: 2px solid #8D8D8D;
-  border-radius: 4px;
-  padding: 17px 36px;
-  font-size: 12px;
+.main-btns {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 420px;
+  margin: 20px auto;
+  &>:last-of-type {
+    & img {
+      margin-right: 10px;
+    }
+    &:hover{
+      color: $color;
+    }
+  }
+}
+.donate-btn, .main-btns {
+  background-color: transparent;
+  border: none;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  a {
+    border: 2px solid $gray;
+    border-radius: 4px;
+    padding: 17px 36px;
+    font-size: 12px;
+    color: $color;
+    &:hover {
+      color: $success;
+      border-color: $success;
+    }
+  }
 }
 
 .logo {
   font-size: 24px;
-}
-
-.tab {
-  padding-left: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 14px;
-}
-
-/* home-page */
-
-.logo, .tab, .footer-items a, .d-flex a, .donate-btn a, input[type=submit] {
-  color: white;
-
+  color: $color;
+  @include transition(all 0.5s ease-in-out);
   &:hover {
-    color: #262626;
-    text-decoration: none;
+    color: $success;
   }
 }
 
-.logo, .tab, h3.container, h1, .footer-items {
-  font-family: 'Comfortaa', cursive;
+.tab {
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 25px;
+  color: $color;
+  border-bottom: 3px solid transparent;
+  @include transition(all 0.5s ease-in-out);
+  &:hover {
+    color: $color;
+    border-bottom: 3px solid $success;
+  }
+}
+
+/* home-page */
+.homepage_title {
+  font-family: 'Comfortaa', sans-serif;
+  text-align: center;
+  margin-top: 35px;
+  color: $color;
+}
+
+main p {
+  color: $color;
+  max-width: 640px;
+  text-align: center;
+  margin: 20px auto;
+}
+// forms
+.position-block {
+  .card {
+    font-family: 'Comfortaa', sans-serif;
+    max-width: 650px;
+    margin: auto;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    input, select {
+      display: inline-block;
+      outline: none;
+      background: $color;
+      border: 2px solid $gray;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 5px;
+    }
+    input[type=submit] {
+      text-transform: uppercase;
+      white-space: initial;
+      color: $gray;
+      padding: 15px;
+      height: 100%;
+      max-width: 230px;
+      font-size: 14px;
+      &:hover {
+        color: $success;
+        border-color: $success;
+      }
+      &:active {
+        background-color: $success;
+      }
+    }
+  }
+}
+.footer-items a, input[type=submit] {
+  color: $color;
+  &:hover {
+    color: #262626;
+  }
 }
 
 .donate-btn, label.text-center, .form-check-label, .btn-success, .result-card, .last-result-card {
@@ -72,7 +165,7 @@ div.jumbotron {
 }
 
 h1, .footer-items {
-  color: white;
+  color: $color;
 }
 
 h1.display-4 {
@@ -89,7 +182,7 @@ div.calculation-results {
   padding: 10px;
   margin-top: 20px;
   position: center;
-  background-color: #fff;
+  background-color: $color;
   max-width: 1110px;
   min-height: 151px;
   border-radius: 6px;
@@ -131,8 +224,8 @@ div.calculation-results {
 
 button.btn-success {
   padding: 17px 30px 10px 30px;
-  background-color: #8FBA3B;
-  border-color: #8FBA3B;
+  background-color: $success;
+  border-color: $success;
   border-radius: 8px;
   letter-spacing: 2px;
   font-size: 14px;
@@ -143,7 +236,7 @@ button.btn-success {
 }
 
 .field_with_errors input {
-  border: 1px solid #9e1503;
+  border: 1px solid $error;
 }
 
 
@@ -177,28 +270,24 @@ body.admin {
   }
   .admin-table-links {
     a {
-      color: #8FBA3B;
-
+      color: $success;
       &:hover {
         color: #3d5217;
       }
-  }
-  .admin-table-body {
-    & > * {
-      align-items: center;
     }
-
-    .actions {
-      justify-content: space-between;
-
-
+    .admin-table-body {
+      & > * {
+        align-items: center;
+      }
+      .actions {
+        justify-content: space-between;
       }
     }
   }
 }
 
 .flash-message {
-  color: white;
+  color: $color;
   padding: 20px;
   border-radius: 3px;
 
@@ -208,5 +297,22 @@ body.admin {
 
   &.alert {
     background: $danger;
+  }
+}
+
+@media screen and (max-width: $xs) {
+  .tab, .donate-btn a {
+    font-size: 12px;
+  }
+  .main-btns {
+    max-width: 320px;
+    a {
+      padding: 10px;
+    }
+  }
+}
+@media screen and (max-width: $sm) {
+  .tab, .donate-btn a {
+    padding: 10px;
   }
 }

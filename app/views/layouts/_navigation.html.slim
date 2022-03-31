@@ -1,13 +1,12 @@
 body
-  header.container.page-header
-    div
-      a.logo href=""  LOGO
+  header.page-header
+    = link_to "LOGO", root_path, class: 'logo'
     .tabs
       - if user_signed_in?
-        = link_to "Log Out", destroy_user_session_path, class: 'tab'
+        = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
       - else
-        = link_to "Sign Up", new_user_registration_path, class: 'tab'
-        = link_to "Log In", new_user_session_path, class: 'tab', id: 'log_in'
-    .donate
-      button.donate-btn type="button" 
-        a href="https://zerowastelviv.org.ua/pidtrymaty/"  $ DONATE
+        = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
+        = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
+      = link_to t('.contact_us'), '#', class: 'tab' 
+    .donate-btn
+      = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
