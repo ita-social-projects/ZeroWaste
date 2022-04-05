@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
   resources :messages, only: %i[new create]
 
+  resources :contact_us, only: [:index]
   namespace :admins do
     resources :users, only: %i[index show edit update]
     resources :calculators, param: :slug

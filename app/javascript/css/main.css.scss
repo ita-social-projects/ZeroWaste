@@ -153,12 +153,6 @@ main p {
     }
   }
 }
-.footer-items a, input[type=submit] {
-  color: $color;
-  &:hover {
-    color: #262626;
-  }
-}
 
 .donate-btn, label.text-center, .form-check-label, .btn-success, .result-card, .last-result-card {
   font-family: 'Nunito', sans-serif;
@@ -205,40 +199,6 @@ div.calculation-results {
     margin: 0px 15px;
   }
 }
-
-
-/* footer */
-.footer-items {
-  justify-content: space-around;
-  text-align: center;
-}
-
-.link {
-  padding: 10px;
-}
-
-.above {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-button.btn-success {
-  padding: 17px 30px 10px 30px;
-  background-color: $success;
-  border-color: $success;
-  border-radius: 8px;
-  letter-spacing: 2px;
-  font-size: 14px;
-  img {
-    margin: 0px;
-    padding-right: 7px;
-  }
-}
-
-.field_with_errors input {
-  border: 1px solid $error;
-}
-
 
 /* admin */
 
