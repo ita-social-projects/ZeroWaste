@@ -17,24 +17,10 @@ $(document).on('turbolinks:load', function() {
       data: formData,
       dataType: "json",
       success: function(data) {
-                  
-
-                  const boughtDiapers = data.result.find(function(post, index) {
-                    if(post.name == 'bought_diapers')
-                      return true;
-                  });
-                  const moneySpent = data.result.find(function(post, index) {
-                    if(post.name == 'money_spent')
-                      return true;
-                  });  
-                  const garbageCreated = data.result.find(function(post, index) {
-                    if(post.name == 'garbage_created')
-                      return true;
-                  });  
-
-        $('[data-type="bought_diapers"]').text(boughtDiapers.result);
-        $('[data-type="money_spent"]').text(moneySpent.result);
-        $('[data-type="garbage_created"]').text(garbageCreated.result);
+        for (var i = data.result.length - 1; i >= 0; i--) {
+          const oneItemFromArray = data.result[i]
+          $('[data-type="' + oneItemFromArray.name + '"]').text(oneItemFromArray.result);
+        }
       }
     })
   });
