@@ -47,7 +47,7 @@ group :development do
   gem 'pronto'
   gem 'pronto-rubocop', require: false
   gem 'spring'
-  gem 'letter_opener', '1.8.1'
+  gem 'letter_opener'
 end
 
 group :test do
