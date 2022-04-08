@@ -189,12 +189,18 @@ GEM
     mime-types-data (3.2021.1115)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
+    nokogiri (1.12.5-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.12.5-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
@@ -382,7 +388,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2021.5)
+    tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.1.0)
     unicode_utils (1.4.0)
@@ -410,6 +416,8 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
+  arm64-darwin-21
+  ruby
   x64-mingw32
   x86_64-linux
 
