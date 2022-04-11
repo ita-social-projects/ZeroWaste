@@ -14,6 +14,10 @@ class CalculatorsController < ApplicationController
   def calculator;
     # renders calculator.html.slim
   end
+
+  def receive_recomendations
+    current_user.update_attribute(:receive_recomendations, true)
+  end
   
   private
 
