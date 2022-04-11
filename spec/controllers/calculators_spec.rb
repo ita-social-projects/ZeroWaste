@@ -17,5 +17,12 @@ RSpec.describe CalculatorsController, type: :controller do
     it "takes user with receive_recomendations:false" do
       expect(user.receive_recomendations).to eq false
     end
+    before do
+      controller.stub(:current_user){ user }
+    end
+    it "changes user`s receive_recomendations to true" do
+      post :receive_recomendations
+      expect(user.reload.receive_recomendations).to eq(true)
+    end
   end
 end
