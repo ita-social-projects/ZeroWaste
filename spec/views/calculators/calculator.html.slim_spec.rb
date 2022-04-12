@@ -4,6 +4,7 @@ RSpec.describe "calculators/calculator" do
   before do
     allow(view).to receive(:user_signed_in?).and_return(true)
   end
+  
   it "checks for user signning in" do
     render
     expect(rendered).to match /Yes, I want to receive email messages/
