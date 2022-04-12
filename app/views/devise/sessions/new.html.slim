@@ -1,15 +1,17 @@
-.container
-  .row
-    .col-sm-9.col-md-7.col-lg-5.mx-auto
-      .card.text-center
-        .card-block
-          h2 = t('.log_in')
-          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            - flash.each do |type, msg|
-              .alert.alert-danger
-                = msg
-            = f.input :email, class: 'form-control', autofocus: true, autocomplete: "email"
-            = f.input :password, class: 'form-control', autocomplete: "current-password"
-            = f.input :remember_me, as: :boolean, inline_label: true if devise_mapping.rememberable?
-            = f.submit t('.log_in'), class: "btn btn-primary"
-          = render "devise/shared/links"
+.position-block
+  .card
+    .card-block.p-4
+      h2.text-center.p-2 
+        = t('.log_in')
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        - flash.each do |type, msg|
+          .alert.alert-danger
+            = msg
+        = f.input :email, class: 'form-control', autofocus: true, autocomplete: "email"
+        = f.input :password, class: 'form-control', autocomplete: "current-password"
+        = f.input :remember_me, as: :boolean, inline_label: true if devise_mapping.rememberable?
+        .d-flex.justify-content-between.flex-wrap.flex-row-reverse.align-content-center
+          = f.submit t('.log_in'), class: "btn btn-primary"
+          .d-block
+            = render "devise/shared/links"
+

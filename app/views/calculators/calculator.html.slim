@@ -1,0 +1,20 @@
+.container.home
+  .jumbotron
+    .container
+      .rounded.float-left.src
+        = image_tag "search.png", height: 70
+      p.form-p
+        | Just a couple of questions
+      .form
+        = form_with url: "#", method: :get do |form|
+          .flex-item.text-input
+            = form.text_field :child_birthday, class:"form-input", id: "date", onfocus:"(this.type='date')", placeholder:"Child`s birthday", onblur:"if(!this.value) this.type='text'", required: true
+            = form.text_field :baby_weight, placeholder:"Baby weight", class:"form-input", required: true
+            = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input", required: true
+          .flex-item
+            = form.check_box :email_receiver 
+            =< form.label :email_receiver, "Yes, I want to receive email messages"
+          .flex-item
+            button.calculate-btn.result-btn[type="submit"]
+              = image_pack_tag "calc.svg", alt:"calculator", id:"calc"
+              |  CALCULATE RESULT

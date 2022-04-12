@@ -1,0 +1,31 @@
+.position-block
+  .card
+    .card-block.p-4
+      h2.text-center.p-2
+        = t('.contact_us')
+        - flash.each do |type, msg|
+          .alert.alert-danger
+            = msg
+      .contact-form
+        form action="#"
+        .email
+            .text Email
+            input required="" type="email" class='form-control' placeholder='example@example.com' autofocus=''
+        .msg
+            .text Message
+            textarea required="" cols="25" rows="2" class='form-control' placeholder='Your message here'
+        .d-flex.justify-content-between.flex-wrap.flex-row-reverse
+            input type="submit" class='btn btn-primary' value='Send'
+br
+.contact-info.card-block.p-3.m-auto
+  .place
+    span.fas.fa-map-marker-alt>
+    span.text Here address of company
+  .phone
+    span.fas.fa-phone-alt>
+    span.text +380xxxxxxx
+  .email
+    span.fas.fa-envelope>
+    span.text zerowastelviv@gmail.com
+  .about_us
+    a href="/about_us" = t '.link.About_Us'

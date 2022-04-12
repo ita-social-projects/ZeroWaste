@@ -9,16 +9,21 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
 
   root 'calculators#index'
+  get '/calculator', to: "calculators#calculator"
   get '/about_us', :to => redirect('/about_us.html')
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks:
                                     'users/omniauth_callbacks' }
-  resources :calculators, only: %i[index show], param: :slug
+  resources :calculators, only: %i[index show], param: :slug do
+    member do
+      post :calculate
+    end
+  end
   resources :messages, only: %i[new create]
 
-
+  resources :contact_us, only: [:index]
   namespace :admins do
     resources :users, only: %i[index show edit update]
     resources :calculators, param: :slug
