@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       resources :calculators, only: [] do
         post :compute, on: :member
       end
+      resource :diaper_calculators, only: [:create]
     end
     namespace :v2 do
       resources :calculators, only: [] do
