@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_171234) do
+ActiveRecord::Schema.define(version: 2022_04_11_114643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_171234) do
     t.string "provider"
     t.string "uid"
     t.boolean "blocked", default: false
+    t.boolean "receive_recomendations", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
