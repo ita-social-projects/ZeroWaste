@@ -41,6 +41,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener'
   gem 'listen', '~> 3.3'
   gem 'pronto'
   gem 'pronto-rubocop', require: false
