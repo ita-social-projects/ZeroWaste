@@ -1,17 +1,18 @@
 # frozen_string_literal: true
+
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-#   authenticate :user do
-#     mount Sidekiq::Web => 'admins/sidekiq'
-#   end
+  #   authenticate :user do
+  #     mount Sidekiq::Web => 'admins/sidekiq'
+  #   end
 
-  mount Sidekiq::Web => "/sidekiq"
+  mount Sidekiq::Web => '/sidekiq'
 
   root 'calculators#index'
-  get '/calculator', to: "calculators#calculator"
-  post '/receive_recomendations', to: "calculators#receive_recomendations"
-  get '/about_us', :to => redirect('/about_us.html')
+  get '/calculator', to: 'calculators#calculator'
+  post '/receive_recomendations', to: 'calculators#receive_recomendations'
+  get '/about_us', to: redirect('/about_us.html')
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
   devise_for :users, controllers: { registrations: 'users/registrations',
