@@ -9,8 +9,13 @@ orbs:
 workflows:
   heroku_deploy:
     jobs:
-      - build
-      - test
+      - rubocop
+      - build:
+          requires:
+            - rubocop
+      - test:
+          requires:
+            - rubocop
       - heroku/deploy-via-git:
           requires:
             - build
@@ -20,6 +25,17 @@ workflows:
               only: master
 
 jobs:
+  rubocop:
+    docker:
+      - image: cimg/ruby:2.7.2-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run: bundle config set --local without development
+      - ruby/install-deps
+      - run: bash bin/rubocop.sh
   build:
     docker:
       - image: cimg/ruby:2.7.2-node
