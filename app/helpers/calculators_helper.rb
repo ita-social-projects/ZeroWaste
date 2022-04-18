@@ -10,7 +10,8 @@ module CalculatorsHelper
 
     arr = []
     arr << (simple_format '',
-                          { type: 'checkbox', name: 'email_receiver', id: 'checkbox_submit' }, wrapper_tag: 'input')
+                          { type: 'checkbox', name: 'email_receiver',
+                            id: 'checkbox_submit' }, wrapper_tag: 'input')
     arr << (simple_format 'Yes, I want to receive email messages',
                           { for: 'checkbox_submit' }, wrapper_tag: 'label')
     content_tag(:div, class: 'flex-item') do
