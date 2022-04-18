@@ -13,11 +13,9 @@
             = form.text_field :child_birthday, class:"form-input", id: "date", onfocus:"(this.type='date')", placeholder:"Child`s birthday", onblur:"if(!this.value) this.type='text'", required: true, max: Date.today
             = form.text_field :baby_weight, placeholder:"Baby weight", class:"form-input d-none"
             = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
+          = render_email_receiver_checkbox
           .flex-item
-            = form.check_box :email_receiver 
-            =< form.label :email_receiver, "Yes, I want to receive email messages"
-          .flex-item
-            button.calculate-btn.result-btn[type="submit"]
+            button.calculate-btn.result-btn[type="submit" id="button_submit"]
               = image_pack_tag "calc.svg", alt:"calculator", id:"calc"
               |  CALCULATE RESULT
 .container.calculation-results
