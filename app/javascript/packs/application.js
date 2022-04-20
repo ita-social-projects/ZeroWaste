@@ -19,10 +19,12 @@ import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
 // import 'ajax/result_button';
+import 'ajax/checkbox';
 import 'plugins/flatpickr';
 import "@fortawesome/fontawesome-free/css/all"
 
 import "../js/calculators/edit"
+import "../ajax/calculate_result_button"
 
 const images = require.context('../images', true)
 

@@ -26,17 +26,17 @@ h1.display-4.text-center.mt-5.mb-5
   .row
     .col-sm.result-card
       = image_pack_tag "diapers.png", class:"rounded float-left", height: 70
-      p 0
+      p data-type="bought_diapers" 0
       = t '.bought_diapers'
     .col-sm.result-card
       = image_pack_tag "money.png", class:"rounded float-left", height: 70
-      p 0
+      p data-type="money_spent" 0
       = t '.money_spent'
     .col-sm.result-card
       = image_pack_tag "naphtha.png", class:"rounded float-left", height: 70
-      p 0
+      p data-type="mililiters_of_naphtha" 0
       = t '.mililiters_of_naphtha'
     .col-sm.last-result-card
       = image_pack_tag "plastic.png", class:"rounded float-left", height: 70
-      p 0
+      p data-type="garbage_created" 0
       = t '.gram_of_plastic'

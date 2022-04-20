@@ -1,0 +1,103 @@
+version: 2.1
+
+orbs:
+  heroku: circleci/heroku@1.2.6
+  ruby: circleci/ruby@1.6.0
+  node: circleci/node@5.0.2
+  browser-tools: circleci/browser-tools@1.2.5
+
+workflows:
+  heroku_deploy:
+    jobs:
+      - rubocop
+      - build:
+          requires:
+            - rubocop
+      - test:
+          requires:
+            - rubocop
+      - heroku/deploy-via-git:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
+
+jobs:
+  rubocop:
+    docker:
+      - image: cimg/ruby:2.7.2-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run: bundle config set --local without development
+      - ruby/install-deps
+      - run: bash bin/rubocop.sh
+  build:
+    docker:
+      - image: cimg/ruby:2.7.2-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+      - image: cimg/postgres:14.2
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    working_directory: ~/circleci-demo-workflows
+    steps:
+      - checkout
+      - run: bundle config set --local without development
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+      - run: bin/circleci_db_setup
+      - run: bundle exec rake db:create db:schema:load
+
+  test:
+    parallelism: 5
+    docker:
+      - image: cimg/ruby:2.7.2-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+      - image: cimg/postgres:14.2
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+      - image: cimg/node:17.8.0-browsers
+
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      PGPASSWORD: ""
+      RAILS_ENV: test
+
+    steps:
+      - checkout
+      - run: bundle config set --local without development
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+
+      - run: bin/circleci_db_setup
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:create db:schema:load --trace
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          command: |
+            google-chrome --version
+            chromedriver --version
+          name: Check install
+      - run:
+          name: Run tests
+          command: bundle exec rake
