@@ -1,0 +1,15 @@
+nav class=["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "border-bottom", "border-success"]
+  .container-fluid
+    div class=["collapse", "navbar-collapse", "row", "justify-content-between", "m-0"]
+      = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
+      div
+        ul class=["navbar-nav"]
+          li.nav-item.mx-3
+            = link_to "Calculators", admins_calculators_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to "Histories", admins_histories_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to "Users", admins_users_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to "Messages", admins_messages_path, class: 'navbar-brand text-success h3'
+      div.col-2

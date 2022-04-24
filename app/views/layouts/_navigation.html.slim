@@ -1,6 +1,6 @@
 body
   header.page-header
-    = link_to "LOGO", root_path, class: 'logo'
+    = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
     .tabs
       - if user_signed_in?
         = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
