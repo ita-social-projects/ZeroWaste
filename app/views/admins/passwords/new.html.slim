@@ -6,7 +6,7 @@
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
       = render "admins/shared/error_messages", resource: resource
       .field.form-group.text-left
-        = f.label :email
+        = f.label :email, value: t('.email_label')
         br
         = f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email"
       .actions

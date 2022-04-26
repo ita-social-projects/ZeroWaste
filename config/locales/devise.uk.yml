@@ -60,3 +60,4 @@ uk:
         other: "%{resource}: не вдалося зберегти через %{count} помилку"
       wrong_email: "Ваш логін невірний"
       wrong_password: "Ваш пароль невірний"
+      only_letters: "Лише літери"

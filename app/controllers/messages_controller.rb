@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       redirect_to root_path,
-                  notice: 'Question has been sent!'
+                  notice: t('notifications.message_sent')
     else
       render :new
     end

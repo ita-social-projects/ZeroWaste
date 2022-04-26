@@ -24,7 +24,7 @@
       dd = @user.last_sign_in_ip
 
       dt = t '.table.ban_col'
-      dd = @user.blocked? ? "Blocked" : "Unblocked"
+      dd = t(".table.#{ @user.blocked? ? 'blocked' : 'unblocked' }_label")
   .flex-child
-    h2.text-center = t '.avatar'
+    h2.text-center = t('.avatar')
     dd = @user.avatar.attached? ? image_tag(@user.avatar) : image_tag('user.png')

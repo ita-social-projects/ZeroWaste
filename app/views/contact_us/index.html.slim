@@ -2,25 +2,25 @@
   .card
     .card-block.p-4
       h2.text-center.p-2
-        = t('.contact_us')
+        = t('.contact_us_header')
         - flash.each do |type, msg|
           .alert.alert-danger
             = msg
       .contact-form
         form action="#"
         .email
-            .text Email
+            .text = t('.email')
             input required="" type="email" class='form-control' placeholder='example@example.com' autofocus=''
         .msg
-            .text Message
-            textarea required="" cols="25" rows="2" class='form-control' placeholder='Your message here'
+            .text = t('.message')
+            textarea required="" cols="25" rows="2" class='form-control' placeholder= t('.message_hint')
         .d-flex.justify-content-between.flex-wrap.flex-row-reverse
-            input type="submit" class='btn btn-primary' value='Send'
+            input type="submit" class='btn btn-primary' value= t('.send') 
 br
 .contact-info.card-block.p-3.m-auto
   .place
     span.fas.fa-map-marker-alt>
-    span.text Here address of company
+    span.text = t('.company_address')
   .phone
     span.fas.fa-phone-alt>
     span.text +380xxxxxxx
@@ -28,4 +28,4 @@ br
     span.fas.fa-envelope>
     span.text zerowastelviv@gmail.com
   .about_us
-    a href="/about_us" = t '.link.About_Us'
+    a href="/about_us" = t ('.about_us')
