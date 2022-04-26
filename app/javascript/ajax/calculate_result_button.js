@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
 
     const formData = {
-      childs_birthday: $("#date").val()
+      childs_age: $("#childs_age").val()
     }
     $.ajax({
       url: "/api/v1/diaper_calculators",
@@ -22,7 +22,6 @@ $(document).on('turbolinks:load', function() {
           const oneItemFromArray = data.result[i]
           $('[data-type="' + oneItemFromArray.name + '"]').text(oneItemFromArray.result);
         }
-        $('.date-of-birth').text(data.date);
       }
     })
   });

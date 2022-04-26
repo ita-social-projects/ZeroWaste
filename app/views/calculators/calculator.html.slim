@@ -6,11 +6,12 @@
       a.rounded.float-right.src href=root_path
         = image_tag "close.svg", height: 70
       p.form-p
-         =t('.form_description')
+        = t '.form_description'
       .form
         = form_with url: "#", id: "form", method: :get do |form|
           .flex-item.text-input
-            = form.text_field :child_birthday, class:"form-input", id: "date", onfocus:"(this.type='date')", placeholder: t('.form.childs_birthday_label'), onblur:"if(!this.value) this.type='text'", required: true, max: Date.today
+            = form.number_field :childs_age, placeholder:t('.form.childs_age_label'),
+                              class: 'form-input-number', required: true, min: 0, max: 30
             = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
             = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
           = render_email_receiver_checkbox
@@ -19,15 +20,28 @@
               = image_pack_tag "calc.svg", alt:"calculator", id:"calc"
               =<t('.calculate_result_button')
 .container.calculation-results
-  span>=t('.form.childs_birthday_label')
-  span.date-of-birth
-
   .row
     .col-sm.result-card
-      = image_pack_tag "money.png", class:"rounded float-left", height: 70
-      p data-type="money_spent" 0
-      = t '.money_spent'
-    .col-sm.last-result-card
-      = image_pack_tag "plastic.png", class:"rounded float-left", height: 70
-      p data-type="money_will_be_spent" 0
-      = t '.money_will_be_spent'
+      .img-border
+        = image_pack_tag "diaper.png", class:"rounded"
+      span
+        p data-type="used_diapers_amount" 0
+        = t '.bought_diapers'
+    .col-sm.result-card
+      .img-border
+        = image_pack_tag "diaper_new.png", class:"rounded"
+      span  
+        p data-type="to_be_used_diapers_amount" 0
+        = t '.will_buy_diapers'
+    .col-sm.result-card
+      .img-border
+        = image_pack_tag "buying.png", class:"rounded"
+      span
+        p data-type="money_spent" 0
+        = t '.money_spent'
+    .col-sm.result-card
+      .img-border
+        = image_pack_tag "arithmetic.png", class:"rounded"
+      span
+        p data-type="money_will_be_spent" 0
+        = t '.money_will_be_spent'

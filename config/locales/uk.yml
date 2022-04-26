@@ -4,16 +4,23 @@ uk:
       form_description: "Декілька питань:"
       form:
         childs_birthday_label: "Дата народження дитини"
+        childs_age_label: "Вік дитини"
         baby_weight_label: "Baby weight"
       calculate_result_button: "ОБЧИСЛИТИ РЕЗУЛЬТАТ"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
       bought_diapers: "Куплено підгузків"
       money_spent: "Витрачено грошей"
+      will_buy_diapers: "підгузки, які будуть використані"
       money_will_be_spent: "Буде витрачено грошей"
       mililiters_of_naphtha: "Мілілітрів нафти"
       gram_of_plastic: "Грамів пластику"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
+      calculate_result_button: "Pозрахувати"
+      bought_diapers: "Кількості підгузків, що вже були використані"
+      will_buy_diapers: "Кількість підгузків, які ще будуть використані"
+      money_spent: "Вартість використаних підгузків"
+      money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
   layouts:
     navigation:
       log_out: "Вийти"
