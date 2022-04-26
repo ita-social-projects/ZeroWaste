@@ -1,9 +1,31 @@
-.container
-  h1 Contact us
-  = simple_form_for @message, :html => {:class => 'form-horizontal' } do |f|
-    = f.input :title, :required => true
-    = f.input :email, :required => true
-    = f.input :message, :as => :text, :required => false, :input_html => {:rows => 10}
-
-    .form-actions
-      = f.button :submit, 'Send message', :class=> "btn btn-primary"
+.position-block
+  .card
+    .card-block.p-4
+      h2.text-center.p-2
+        = t('.contact_us')
+      .contact-form
+        =form_with model: @message do |form|
+          .title
+            .text Title
+            =form.text_field :title, class:'form-control', placeholder:'Title (at least 5 characters)', minlength:"5", required: true
+          .email
+            .text Email
+            =form.email_field :email, class:'form-control', placeholder:'example@example.com', required: true 
+          .msg
+            .text Message
+            =form.text_area :message, class:'form-control', placeholder:'Your message here (at least 20 characters)', size:"25x2", minlength:"20", required: true
+          .d-flex.justify-content-between.flex-wrap.flex-row-reverse
+            = form.submit :Send, class:"btn btn-primary"
+br
+.contact-info.card-block.p-3.m-auto
+  .place
+    span.fas.fa-map-marker-alt>
+    span.text Here address of company
+  .phone
+    span.fas.fa-phone-alt>
+    span.text +380xxxxxxx
+  .email
+    span.fas.fa-envelope>
+    span.text zerowastelviv@gmail.com
+  .about_us
+    a href="/about_us" = t '.link.About_Us'
