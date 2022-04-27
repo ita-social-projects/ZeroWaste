@@ -2,25 +2,25 @@
   .card
     .card-block.p-4
       h2.text-center.p-2
-        = t('.contact_us')
+        = t('.contact_us_header')
       .contact-form
         =form_with model: @message do |form|
           .title
-            .text Title
-            =form.text_field :title, class:'form-control', placeholder:'Title (at least 5 characters)', minlength:"5", required: true
+            .text = t('.title')
+            =form.text_field :title, class:'form-control', placeholder:t('.title_hint'), minlength:"5", required: true
           .email
-            .text Email
+            .text = t('.email')
             =form.email_field :email, class:'form-control', placeholder:'example@example.com', required: true 
           .msg
-            .text Message
-            =form.text_area :message, class:'form-control', placeholder:'Your message here (at least 20 characters)', size:"25x2", minlength:"20", required: true
+            .text = t('.message')
+            =form.text_area :message, class:'form-control', placeholder:(t('.message_hint')), size:"25x2", minlength:"20", required: true
           .d-flex.justify-content-between.flex-wrap.flex-row-reverse
-            = form.submit :Send, class:"btn btn-primary"
+            = form.submit :Send, class:"btn btn-primary", value:t('.send')
 br
 .contact-info.card-block.p-3.m-auto
   .place
     span.fas.fa-map-marker-alt>
-    span.text Here address of company
+    span.text = t('.company_address')
   .phone
     span.fas.fa-phone-alt>
     span.text +380xxxxxxx
@@ -28,4 +28,4 @@ br
     span.fas.fa-envelope>
     span.text zerowastelviv@gmail.com
   .about_us
-    a href="/about_us" = t '.link.About_Us'
+    a href="/about_us" = t ('.about_us')

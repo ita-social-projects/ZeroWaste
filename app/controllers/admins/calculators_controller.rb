@@ -24,7 +24,7 @@ module Admins
       @calculator = Calculator.new(calculator_params)
       if @calculator.save
         redirect_to admins_calculators_path,
-                    notice: 'Calculator has been successfully created.'
+                    notice: t('notifications.calculator_created')
       else
         render action: 'new'
       end
@@ -33,7 +33,7 @@ module Admins
     def update
       if updater
         redirect_to edit_admins_calculator_path(@calculator),
-                    notice: 'Calculator has been successfully updated.'
+                    notice: t('notifications.calculator_updated')
       else
         collect_fields_for_form
         render action: 'edit'
@@ -43,7 +43,7 @@ module Admins
     def destroy
       @calculator.destroy!
       redirect_to admins_calculators_path,
-                  notice: 'Calculator has been successfully deleted.'
+                  notice: t('notifications.calculator_deleted')
     end
 
     private

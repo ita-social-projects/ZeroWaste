@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
   resources :messages, only: %i[new create]
-
+  resources :locales, only: :update, constraints: { id: /(en|uk)/ }
   namespace :admins do
     resources :users, only: %i[index show edit update]
     resources :calculators, param: :slug

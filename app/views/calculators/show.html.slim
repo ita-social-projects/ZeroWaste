@@ -10,33 +10,33 @@ h1.display-4.text-center.mt-5.mb-5
         .rounded.float-left
           = image_pack_tag "search.png", height: 70
         .form-container
-          h3.container.ml-2= t '.form_description'
+          h3.container.ml-2= t 'calculators.calculator.form_description'
           form#form.container.mt-3 action=""
             .container.input-group.d-flex.justify-content-between
               label.text-center for=""
-                input#birth.col.datepick placeholder=("#{t '.form.childs_birthday_label'}") type="text" /
+                input#birth.col.datepick placeholder=("#{t 'calculators.calculator.form.childs_birthday_label'}") type="text" /
             .container.ml-3.mt-4.form-check
               input#flexCheckChecked.form-check-input checked="checked" type="checkbox" value="" /
               label.form-check-label for="flexCheckChecked" 
-                = t '.want_recomentation_label'
+                = t 'calculators.calculator.want_recomentation_label'
             button.btn.btn-success.ml-3.mt-4 type="submit" 
               = image_pack_tag "calculator.png", height: 25
-              = t '.calculate_result_button'
+              = t 'calculators.calculator.calculate_result_button'
 .container.calculation-results
   .row
     .col-sm.result-card
       = image_pack_tag "diapers.png", class:"rounded float-left", height: 70
       p data-type="bought_diapers" 0
-      = t '.bought_diapers'
+      = t 'calculators.calculator.bought_diapers'
     .col-sm.result-card
       = image_pack_tag "money.png", class:"rounded float-left", height: 70
       p data-type="money_spent" 0
-      = t '.money_spent'
+      = t 'calculators.calculator.money_spent'
     .col-sm.result-card
       = image_pack_tag "naphtha.png", class:"rounded float-left", height: 70
       p data-type="mililiters_of_naphtha" 0
-      = t '.mililiters_of_naphtha'
+      = t 'calculators.calculator.mililiters_of_naphtha'
     .col-sm.last-result-card
       = image_pack_tag "plastic.png", class:"rounded float-left", height: 70
       p data-type="garbage_created" 0
-      = t '.gram_of_plastic'
+      = t 'calculators.calculator.gram_of_plastic'

@@ -9,10 +9,10 @@
           = msg
       .field.form-group
         - f.label :email
-        = f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email"
+        = f.email_field :email, class:"form-control", placeholder: t('.form.email'), autofocus: true, autocomplete: "email"
       .field.form-group
         - f.label :password
-        = f.password_field :password, class:"form-control", placeholder:"Password", autocomplete: "current-password"
+        = f.password_field :password, class:"form-control", placeholder: t('.form.password'), autocomplete: "current-password"
       - if devise_mapping.rememberable?
         .field.form-group.text-left
           = f.check_box :remember_me
