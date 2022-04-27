@@ -22,6 +22,7 @@ gem 'dentaku', '~> 3.1'
 gem 'country_select', '~> 4.0'
 
 gem 'bigdecimal', '1.3.5'
+gem 'rails-i18n', '~> 7.0.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

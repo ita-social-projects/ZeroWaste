@@ -31,38 +31,59 @@
 
 en:
   calculators:
-    show:
-      welcome_header: "Welcome to Zero Waste Calculator"
+    calculator:
       form_description: "Just a couple of questions"
       form:
         childs_birthday_label: "Child's birthday"
         baby_weight_label: "Baby weight"
-      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       calculate_result_button: "CALCULATE RESULT"
+      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       bought_diapers: "Bought Diapers"
       money_spent: "Money Spent"
       mililiters_of_naphtha: "Mililiters of Naphtha"
       gram_of_plastic: "Gram of Plastic"
+    show:
+      welcome_header: "Welcome to ZeroWaste"
   layouts:
     navigation:
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
-      ontact_us: "Contact us"
+      сontact_us: "Contact us"
       donate: "$ DONATE"
     homepage:
       homepage_title: "Welcome to Zero Waste Calculator"
       description: "General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info"
       calculate: "Calculate"
       visit_website: "Visit WebSite"
-    footer:
-      about_us: "ABOUT US"
-      follow_us: "Follow Us"
-      link:
-        privacy_policy: "Privacy Policy"
-        terms_of_use: "Terms of use"
+    admin_navbar:
+      calculators: "Calculators"
+      histories: "History"
+      users: "Users"
+      messages: "Messages"
+  contact_us:
+    index:
+      contact_us_header: "Contact us"
+      email: "Email"
+      message: "Message"
+      send: "Send"  
+      message_hint: "Your message here"
+      company_address: "Company address"
+      about_us: "About us"
   admins:
+    admins:
+      edit:
+        current_password_label: "Current password:"
+        new_password_label: "New password:"
+        confirm_password_label: "Confirm new password:"
+        change_password_button: "Change password"
     messages:
+      index:
+        table:
+          title: "Title"
+          email: "Email"
+          message: "Message"
+          show_more: "Show more"
       show:
         header: "Information"
         table:
@@ -77,27 +98,63 @@ en:
           email_col: "Email"
           last_visit_col: "Last visit"
           view_info_col: "Show"
-      show: 
-        header: "User info"
-        avatar: "Avatar of user"
-        table: 
-          email_col: "Email:"
-          first_name_col: "First name:"
-          last_name_col: "Last name:"
-          country_col: "Country:"
-          last_sign_in_col: "Last sign in date and time:"
-          current_IP_col: "Current sign in IP:"
-          last_IP_col: "Last sign in IP:"
-          ban_col: "Ban status"
-          avatar_col: "Avatar of user"
+          edit: "Edit"
+          ban: "Ban"
       edit:
-        avatar: "Avatar of user"
+        avatar: "User profile photo"
         table:
-          edit_user_info: "Edit user info:"
+          edit_user_info: "Edit user information"
+        form:
+          name_label: "Name"
+          surname_label: "Surname"
+          password_hint: "Leave blank if you don't want to change it"
+          avatar_hint: "Avatar must be less than 2 MB. Allowed file types: PNG,JPG and JPEG"
+          update_user_button: "Update user"
+      show:
+        header: "User information"
+        table:
+          email_col: "Email"
+          first_name_col: "First name"
+          last_name_col: "Last name"
+          country_col: "Country"
+          last_sign_in_col: "Last signing in"
+          current_IP_col: "Current IP-address"
+          last_IP_col: "Last IP-address"
+          ban_col: "Status"
+          blocked_label: "Blocked"
+          unblocked_label: "Unblocked"
+    calculators:
+      index:
+        search_placeholder: "Search"
+        search_button: "Search"
+        add_calculator_button: "Add calculator"
+        confirm_delete: "Are you sure you want to delete calculator?"
+        table:
+          calculator_slug: "Slug"
+          calculator_name: "Name"
+          calculator_actions: "Actions"
+      edit:
+        add_new_field_label: "Add new field"
+        form:
+          select_field_kind_label: "Select field kind"
+          select_field_type_label: "Select field type"
+          create_button: "Create"
+          form_label: "Form"
+          parameters_label: "Parameters"
+          results_label: "Results"
+          no_fields_yet_label: "No fields yet"
+          update_calculator_button: "Update calculator"
+          cancel_button: "Cancel"
+      new:
+        create_calculator_button: "Create calculator"
+        cancel_button: "Cancel"
     sessions:
       new:
         log_in_header: "Log in"
         log_in_button: "Log in"
+        form:
+          email: "Email"
+          password: "Password"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
@@ -108,7 +165,7 @@ en:
         resend_confirmation_instructions_button: "Resend confirmation instructions"
     mailer:
       confirmation_instructions:
-        greetings_to_user: Welcome %{recipient}!
+        greetings_to_user: Welcome, %{recipient}!
         confirmation_email_through_link: "You can confirm your account email through the link below:"
         confirmation_account_link: "Confirm my account"
       email_changed:
@@ -147,13 +204,25 @@ en:
       new:
         forgot_password_header: "Forgot your password?"
         send_instructions_button: "Send me reset password instructions"
+        email_label: "Email"
+    histories:
+      index:
+        history_title: "History"
+        back_link: "Back"
+        table:
+          version_created_at: "Version creation date"
+          event_ID: "Event ID"
+          user_id: "User ID"
+          action: "Action"
+          more_info_(field, old_value, new_value): "More info: field, old value, new value"
+          model_type: "Model type"
   devise:
     passwords:
       new:
         forgot_password_header: "Forgot your password?"
+        send_instructions_button: "Send me reset password instructions"
         form:
           email_label: "Email"
-        send_instructions_button: "Send me reset password instructions"
       edit:
         change_password_header: "Change your password"
         form:
@@ -169,6 +238,7 @@ en:
         forgot_your_password: "Forgot your password?"
         log_in: "Log in"
         sign_up: "Sign up"
+        google_sign_in: "Sign in with Google"
     registrations:
       new:
         sing_up_header: "Sing Up"
@@ -180,8 +250,24 @@ en:
           first_name_label: "First Name"
           last_name_label: "Last Name"
           sing_up_button: "Sing Up"
+          password_hint: "Minimum 8 characters"
+      edit:
+        update_user_button: "Update information"
+        current_password_label: "Current password:"
+        confirm_password_label: "Confirm new password:"
+        change_password_button: "Змінити пароль"
+        delete_account_label: "Delete my profile"
+        are_user_satisfied_question: "Unhappy?"
+        delete_account_button: "Delete profile"
+        are_you_sure: "Are you sure you want to delete your profile?"
+    confirmations:
+      new:
+        resend_confirmation_button: "Resend confirmation request"
+        resend_confirmation_instructions_header: "Resend confirmation request"
     failure:
       timeout: "Your session expired. Please sign in again to continue"
+  models:
+    calculator: "Calculator"
   activerecord:
     errors:
       models:
@@ -244,6 +330,9 @@ en:
               blank: "The field 'Title' can't be blank"
               too_long: "The field 'Title' is too long"
               too_short: "The field 'Title' is too short."
+    form_errors:
+      one: "One error prohibited %{model} from being saved"
+      other: "%{count} errors prohibited this %{model} from being saved"
     attributes:
       user:
         email: "Email"
@@ -251,9 +340,21 @@ en:
         password_confirmation: "Re-password"
         first_name: "First name"
         last_name: "Last name"
+        country: "Country"
         successful_update: "User info was successfully updated!"
-  time:
-    formats:
-      long: '%A, %d %B, %Y'
-      short: '%d, %B, %Y'
+      admin:
+        remember_me: "Remember me"
+      calculator:
+        name: "Name"
+        slug: "Slug"
+        preferable: "Preferable"
+  notifications:
+    calculator_created: "Calculator has been successfully created"
+    calculator_updated: "Calculator has been successfully updated"
+    calculator_deleted: "Calculator has been successfully deleted"
+    message_sent: "Message has been sent"
+  # time:
+  #   formats:
+  #     long: '%A, %d %B, %Y'
+  #     short: '%d, %B, %Y'
       

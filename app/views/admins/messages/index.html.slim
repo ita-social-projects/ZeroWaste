@@ -3,10 +3,10 @@ div class="container home"
     thead
       tr
         th scope="col"  #
-        th scope="col"  Title
-        th scope="col"  Email
-        th scope="col"  Message
-        th scope="col"  Show more
+        th scope="col"  =t('.table.title')
+        th scope="col"  =t('.table.email')
+        th scope="col"  =t('.table.message')
+        th scope="col"  =t('.table.show_more')
 
     tbody
       - @message.each do |message|

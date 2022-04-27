@@ -6,20 +6,20 @@
       a.rounded.float-right.src href=root_path
         = image_tag "close.svg", height: 70
       p.form-p
-        | Just a couple of questions
+         =t('.form_description')
       .form
         = form_with url: "#", id: "form", method: :get do |form|
           .flex-item.text-input
-            = form.text_field :child_birthday, class:"form-input", id: "date", onfocus:"(this.type='date')", placeholder:"Child`s birthday", onblur:"if(!this.value) this.type='text'", required: true, max: Date.today
-            = form.text_field :baby_weight, placeholder:"Baby weight", class:"form-input d-none"
+            = form.text_field :child_birthday, class:"form-input", id: "date", onfocus:"(this.type='date')", placeholder: t('.form.childs_birthday_label'), onblur:"if(!this.value) this.type='text'", required: true, max: Date.today
+            = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
             = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
           = render_email_receiver_checkbox
           .flex-item
             button.calculate-btn.result-btn[type="submit" id="button_submit"]
               = image_pack_tag "calc.svg", alt:"calculator", id:"calc"
-              |  CALCULATE RESULT
+              =<t('.calculate_result_button')
 .container.calculation-results
-  span Date Of Birth: 
+  span>=t('.form.childs_birthday_label')
   span.date-of-birth
 
   .row

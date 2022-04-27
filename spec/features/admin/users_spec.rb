@@ -32,9 +32,9 @@ describe 'visit admin page', js: true do
       expect(page).to have_content 'First name'
       expect(page).to have_content 'Last name'
       expect(page).to have_content 'Country'
-      expect(page).to have_content 'Last sign in date and time'
-      expect(page).to have_content 'Current sign in IP'
-      expect(page).to have_content 'Last sign in IP'
+      expect(page).to have_content 'Last signing in'
+      expect(page).to have_content 'Current IP-address'
+      expect(page).to have_content 'Last IP-address'
     end
   end
 
@@ -49,7 +49,7 @@ describe 'visit admin page', js: true do
      expect(page).to have_content 'Last name'
      expect(page).to have_content 'Country'
      expect(page).to have_content 'Password'
-     expect(page).to have_content 'Password confirmation'
+     expect(page).to have_content 'Re-password'
    end
  end
 
