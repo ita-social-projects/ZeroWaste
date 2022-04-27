@@ -11,7 +11,7 @@ describe 'visit admin page', js: true do
                   last_sign_in_at: time_login)
   end
   before (:each) do
-    @admin=create(:admin)
+    @admin = create(:user, :admin)
     sign_in @admin
   end
 
@@ -88,7 +88,7 @@ end
 
 describe 'user info page' do
   before (:each) do
-    @admin=create(:admin)
+    @admin = create(:user, :admin)
     sign_in @admin
   end
   context 'viewing non-existing user' do

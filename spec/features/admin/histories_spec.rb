@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'visit admin page', js: true do
   context 'signed in admin visit page' do
     before (:each) do
-      @admin=create(:admin)
+      @admin=create(:user, :admin)
       sign_in @admin
       visit "/admins/histories"
     end

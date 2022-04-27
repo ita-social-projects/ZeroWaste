@@ -2,11 +2,8 @@
 
 module Admins
   class CalculatorsController < BaseController
-    before_action :calculator, only: %i[show edit update destroy]
-
-    def index
-      @calculators = Calculator.by_name_or_slug(params[:search])
-    end
+    before_action :calculator, only: %i[edit update destroy]
+    load_and_authorize_resource
 
     def show
       # TODO: fill it
@@ -14,10 +11,6 @@ module Admins
 
     def edit
       collect_fields_for_form
-    end
-
-    def new
-      @calculator = Calculator.new
     end
 
     def create

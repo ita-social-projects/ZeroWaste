@@ -41,7 +41,7 @@ $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
 $ `bin/setup`
 or 
-$ `bundle install` 
+$ `bundle install`
 
 ## How to run local
 
