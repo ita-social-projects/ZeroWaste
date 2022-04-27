@@ -61,13 +61,15 @@ en:
       histories: "History"
       users: "Users"
       messages: "Messages"
-  contact_us:
-    index:
+  messages:
+    new:
       contact_us_header: "Contact us"
       email: "Email"
       message: "Message"
-      send: "Send"  
-      message_hint: "Your message here"
+      title: "Title"
+      send: "Send"
+      title_hint: "title (min 5 characters)"
+      message_hint: "Your message (min 20 characters)"
       company_address: "Company address"
       about_us: "About us"
   admins:

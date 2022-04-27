@@ -31,13 +31,15 @@ uk:
       histories: "Історія"
       users: "Користувачі"
       messages: "Повідомлення"
-  contact_us:
-    index:
+  messages:
+    new:
       contact_us_header: "Зв'яжіться з нами"
       email: "Електронна пошта"
       message: "Повідомлення"
-      send: "Надіслати"  
-      message_hint: "Напишіть ваше повідомлення тут"
+      title: "Заголовок"
+      send: "Надіслати"
+      title_hint: "Заголовок (мінімум 5 символів)"  
+      message_hint: "Напишіть ваше повідомлення тут (мінімум 20 символів)"
       company_address: "Адреса компанії"
       about_us: "Про нас"
   admins:
