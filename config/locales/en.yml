@@ -35,11 +35,14 @@ en:
       form_description: "Just a couple of questions"
       form:
         childs_birthday_label: "Child's birthday"
+        childs_age_label: "Child`s age"
         baby_weight_label: "Baby weight"
       calculate_result_button: "CALCULATE RESULT"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
-      bought_diapers: "Bought Diapers"
-      money_spent: "Money Spent"
+      bought_diapers: "number of diapers that already has been used"
+      will_buy_diapers: "number of diapers that are going to be used"
+      money_spent: "money already spent on disposable diapers"
+      money_will_be_spent: "money that will be spent on disposable diapers until child starts using panties"
       mililiters_of_naphtha: "Mililiters of Naphtha"
       gram_of_plastic: "Gram of Plastic"
     show:

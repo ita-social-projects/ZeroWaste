@@ -30,7 +30,7 @@ module Calculators
                 :used_diapers_price, :to_be_used_diapers_price
 
     def initialize(age)
-      @age = calculate_months(age)
+      @age = age
       @used_diapers_amount = 0
       @to_be_used_diapers_amount = 4575
       @used_diapers_price = 0

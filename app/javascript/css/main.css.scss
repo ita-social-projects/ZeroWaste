@@ -35,11 +35,12 @@ a {
 }
 
 div.jumbotron {
+  font-family: 'Comfortaa', sans-serif;
   background-color: $color;
   padding: 25px 10px;
-  margin-top: 90px;
+  margin-top: 10px;
   max-width: 1140px;
-  min-height: 405px;
+  min-height: 310px;
 }
 
 .main-container {
@@ -94,7 +95,7 @@ div.jumbotron {
 .tab {
   text-transform: uppercase;
   font-size: 14px;
-  padding: 25px;
+  padding: 33px 25px;
   color: $color;
   border-bottom: 3px solid transparent;
   @include transition(all 0.5s ease-in-out);
@@ -183,7 +184,31 @@ div.calculation-results {
 }
 
 .result-card {
+  font-size: 14px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #B3B3B3;
   border-right: 0.5px solid #F5F5F5;
+  display: inline-flex;
+  .img-border {
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+    border: 2px solid #F5F5F5;
+    border-radius: 90%;
+    margin-right: 10px;
+    img {
+      height: 100%;
+      padding: 15px;
+      margin: auto;
+    }
+  }
+  p {
+    font-size: 24px;
+  }
+  &:last-child {
+    border: none;
+  }
 }
 
 .result-card, .last-result-card {
