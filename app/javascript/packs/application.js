@@ -8,21 +8,38 @@ import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 
+require('jquery');
+require("@nathanvda/cocoon");
+
+// const jQuery = require('jquery');
+// global.$ = global.jQuery = jQuery;
+// window.$ = window.jQuery = jQuery;
+
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
+// import 'ajax/result_button';
+import 'ajax/checkbox';
 import 'plugins/flatpickr';
-import 'ajax/result_button';
+import "@fortawesome/fontawesome-free/css/all"
 
-const jQuery = require('jquery');
-global.$ = global.jQuery = jQuery;
-window.$ = window.jQuery = jQuery;
+import "../js/calculators/edit"
+import "../ajax/calculate_result_button"
 
-document.addEventListener('turbolinks:load', () => {
-  $('[data-toggle="tooltip"]').tooltip();
-  $('[data-toggle="popover"]').popover();
-});
+const images = require.context('../images', true)
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+// document.addEventListener('turbolinks:load', () => {
+//   $('[data-toggle="tooltip"]').tooltip();
+//   $('[data-toggle="popover"]').popover();
+// });
+console.log('Well done!')
+
+$('document').ready(function() {
+    setTimeout(function() {
+        $('.alert').slideUp();
+    }, 10000);
+});

@@ -1,0 +1,11 @@
+.container.p-0
+  .card
+    .card-header
+      h5.card-title.mb-0
+        = t ('admins.passwords.edit.change_password_header')
+    .card-body
+      = simple_form_for @admin, url: admins_admin_update_path(@admin), method: :post do |f|
+        = f.input :current_password, label: I18n.t('admins.passwords.edit.form.current_password_label')
+        = f.input :password, label: I18n.t('admins.passwords.edit.form.new_password_label')
+        = f.input :password_confirmation, label: I18n.t('admins.passwords.edit.form.confirm_password_label')
+        = f.button :submit, I18n.t('admins.passwords.edit.form.change_password_button'), class: "btn btn-primary"

@@ -8,7 +8,7 @@ Zero Waste Lviv is a Public Organization that works on the implementation of was
 
 In order to attract attention to financial and ecological consequences of disposable diaper usage it is planned to create a module that will calculate budget spent on diapers and calculations of the future expenses. As visual representation it is planned to show the volume of waste that was made during usage of disposable diapers for one child.
 
-
+- [Deployed Apps and Environments](#deployed-apps-and-environments)
 - [Installation](#installation)
   - [Required to install](#Required-to-install)
   - [Clone](#Clone)
@@ -17,6 +17,10 @@ In order to attract attention to financial and ecological consequences of dispos
 - [Usage](#Usage)
   - [How to run Rubocop](#How-to-run-Rubocop)
   - [Git-hook pre-commit](#Git-hook-pre-commit)
+  
+## Deployed Apps and Environments
+The latest version from the 'develop' branch is automatically deployed to stage environment in Heroku, [staging link](https://zerowaste-staging.herokuapp.com/).
+The latest version from the release branch 'master' is automatically deployed to Production environment, [production link](https://zero-waste-project.herokuapp.com/).
 
 ## Installation
 * Start the project locally

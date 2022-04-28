@@ -3,5 +3,6 @@
 FactoryBot.define do
   factory :calculator do
     name { 'Diapers Calculator' }
+    slug { 'diapers' }
   end
 end

@@ -25,7 +25,7 @@ RSpec.describe Field, type: :model do
     }
     it {
       is_expected.to define_enum_for(:unit)
-        .with_values(%i[month date times])
+        .with_values(%i[day week month year date times money items])
     }
   end
 

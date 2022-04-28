@@ -9,17 +9,23 @@ services:
       - DATABASE_URL
     depends_on:
       - postgres
+      - redis
     ports:
       - target: 3000
         published: 80
         protocol: tcp
         mode: host
     env_file: .env
+    networks:
+      - postgres
+      - redis
     links:
-      - "postgres"
+      - postgres
+      - redis
     environment:
       RAILS_ENV: production
       RAILS_SERVE_STATIC_FILES: "true"
+      RAILS_LOG_TO_STDOUT: "true"
 
   postgres:
     image: postgres:12.1
@@ -28,6 +34,20 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     env_file: .env.db
-
+    networks:
+      - postgres
+  redis:
+    image: redis:6-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    env_file: .env.db
+    networks:
+      - redis
+networks:
+  postgres:
+  redis:
 volumes:
   db_data:
+  redis_data:

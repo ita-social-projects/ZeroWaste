@@ -1,0 +1,32 @@
+.container
+  = form_tag admins_calculators_path, method: :get, class: 'd-flex justify-content-end mb-5' do
+    .d-flex
+      = text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: 'Search...'
+      = button_tag type: :submit, name: nil, class: 'btn btn-primary px-4 d-flex align-items-center' do
+        i.fa.fa-search.mr-2
+        span Search
+    = link_to new_admins_calculator_path, class: 'btn btn-success px-4 ml-1' do
+      i.fa.fa-plus.mr-2
+      span Add calculator
+
+  table.table.admin-table
+    thead
+      tr
+        th[scope="col"] ID
+        th[scope="col"] Slug
+        th[scope="col"] Name
+        th[scope="col"] Actions
+    tbody.admin-table-links
+      - @calculators.each do |calculator|
+        tr class=(calculator.preferable ? 'table-success' : 'table-light')
+          td= calculator.id
+          td= calculator.slug
+          td= calculator.name
+          td.actions
+            = link_to calculator_path(calculator) do
+              i.fa.fa-eye.mx-2
+            = link_to edit_admins_calculator_path(calculator) do
+              i.fa.fa-pen.mx-2
+            = link_to admins_calculator_path(calculator), method: :delete,
+                    data: { confirm: 'Are you certain you want to delete this record?' } do
+              i.fa.fa-trash.mx-2

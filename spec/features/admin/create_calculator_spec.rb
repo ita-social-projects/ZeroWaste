@@ -5,7 +5,9 @@ CREATE_CALCULATOR_BUTTON = 'Create calculator'
 
 describe 'Create Calculator Page', js: true do
   let(:calculator) { create(:calculator) }
-  before do
+  before (:each) do
+    @admin=create(:admin)
+    sign_in @admin
     visit '/admins/calculators/new'
   end
 
@@ -18,10 +20,10 @@ describe 'Create Calculator Page', js: true do
   end
 
   context 'when user clicks button Create calculator' do
-    it 'redirects to Edit calculator page' do
+    it 'redirects to Index calculator page' do
       fill_in 'Name', with: 'Calculator2'
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_current_path("/admins/calculators/#{Calculator.last.id}/edit")
+      expect(page).to have_current_path(admins_calculators_path)
     end
   end
 
@@ -37,7 +39,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name is too short' do
       fill_in 'Name', with: 'i'
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' is too short.")
+      expect(page).to have_content("is too short")
     end
   end
 
@@ -45,7 +47,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name is invalid' do
       fill_in 'Name', with: 'i[]p'
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' is invalid")
+      expect(page).to have_content("is invalid")
     end
   end
 
@@ -53,7 +55,7 @@ describe 'Create Calculator Page', js: true do
     it 'shows message that name can\'t be blank' do
       fill_in 'Name', with: ''
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("The field 'Name' can\'t be blank.")
+      expect(page).to have_content("is too short")
     end
   end
 end

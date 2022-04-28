@@ -10,7 +10,7 @@ RSpec.describe Calculation, type: :model do
     it { is_expected.to be_valid }
     it {
       is_expected.to validate_presence_of(:value).with_message(I18n
-      .t("#{LOCAL_PREFIX_CALCULATION}.value.blank"))
+      .t("#{LOCAL_PREFIX_CALCULATION}.value.too_short"))
     }
     it {
       is_expected.to validate_length_of(:value).is_at_least(2).with_message(I18n

@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'fileutils'
+
+unless File.exist?('config/database.yml')
+  FileUtils.cp 'config/database.yml.sample', 'config/database.yml'
+end

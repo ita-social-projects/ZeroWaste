@@ -12,7 +12,18 @@ RSpec.describe '/api/v1/calculators', type: :request do
     end
 
     it 'returns JSON data correctly' do
-      expect(json_response).to eq({'bought_diapers'=>8956, 'money_spent'=>7841, 'garbage_created'=>342})
+      expect(json_response)
+        .to eq(
+              'result' => [
+                { 'name' => 'bought_diapers', 'result' => 8956 },
+                { 'name' => 'money_spent', 'result' => 7841 },
+                { 'name' => 'garbage_created', 'result' => 342 }
+              ]
+            )
+    end
+
+    it 'JSON contains response' do
+      expect(json_response).to be_truthy
     end
   end
 end

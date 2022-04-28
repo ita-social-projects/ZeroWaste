@@ -1,0 +1,14 @@
+.col-lg-1.col-md-2.col-sm-12
+  .display-4.text-black-50[data-selector=true]= f.object.selector
+= f.input :name, class: 'form-control', required: true,
+          wrapper_html: { class: 'col-lg-2 col-md-2 col-sm-12' }
+= f.input :label, class: 'form-control', required: true,
+          wrapper_html: { class: 'col-lg-2 col-md-2 col-sm-12' }
+= f.input :from, class: 'form-control', required: true,
+          wrapper_html: { class: 'col-lg-2 col-md-2 col-sm-12' }
+= f.input :to, class: 'form-control', required: true,
+          wrapper_html: { class: 'col-lg-2 col-md-2 col-sm-12' }
+= f.input :unit, collection: Field.units.keys, selected: f.object.unit, class: 'custom-select',
+          wrapper_html: { class: 'col-lg-2 col-md-2 col-sm-12' }
+.col-lg-1.col-md-2.col-sm-12.has-float-label.pt-4.mt-2
+  = link_to_remove_association 'Delete', f, class: 'btn btn-danger'

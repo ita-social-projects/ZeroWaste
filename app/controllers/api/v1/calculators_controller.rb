@@ -3,10 +3,14 @@
 module Api
   module V1
     class CalculatorsController < ApplicationController
-      VALUES = { bought_diapers: 8956, money_spent: 7841, garbage_created: 342 }
-      
+      VALUES = [
+        { name: 'bought_diapers', result: 8956 },
+        { name: 'money_spent', result: 7841 },
+        { name: 'garbage_created', result: 342 }
+      ].freeze
+
       def compute
-        render json: VALUES
+        render json: { result: VALUES }
       end
     end
   end

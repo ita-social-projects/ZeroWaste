@@ -1,0 +1,18 @@
+.container.flex-container
+  .flex-child
+    h2.text-center = t '.table.edit_user_info'
+    = simple_form_for(@user, url: admins_user_path(@user), remote: false, wrapper: :horizontal_form)  do |f|
+      = f.input :first_name, placeholder: 'Name', autofocus: true, autocomplete: 'first name'
+      = f.input :last_name, placeholder: 'Surname', autofocus: true, autocomplete: 'last name'
+      = f.input :country, autofocus: true
+      = f.input :password, autocomplete: 'new-password', hint: 'Leave blank if you don\'t want to change it', required: false
+      = f.input :password_confirmation, autocomplete: 'new-password', label: "Password confirmation", required: false
+      = f.input :avatar, as: :file, direct_upload: true, class: 'm-3',  label: 'Avatar for the user', hint: 'Avatar must be less than 2 MB. Allowed file types: PNG,JPG and JPEG', wrapper: :horizontal_form
+      = f.submit 'Update user', class: 'btn btn-primary'
+  .flex-child
+    h2.text-center = t '.avatar'
+    dd
+      - if @user.avatar.attached? && @user.avatar.persisted?
+        = image_tag @user.avatar
+      - else
+        = image_tag 'user.png'
