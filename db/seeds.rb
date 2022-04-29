@@ -9,8 +9,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the
 # Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-admin = Admin.create(
-    email: "admin@zw.com",
-    password: "ChangeMe1",
-    password_confirmation: "ChangeMe1"
-    )
+user = User.create(
+  email: 'user@zw.com',
+  password: 'password',
+  password_confirmation: 'password',
+  first_name: 'John',
+  last_name: 'User',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "user"
+)
+
+admin = User.create(
+  email: 'admin@zw.com',
+  password: 'ChangeMe1',
+  password_confirmation: 'ChangeMe1',
+  first_name: 'Admin',
+  last_name: 'Admin',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "admin"
+)

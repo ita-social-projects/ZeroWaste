@@ -5,13 +5,18 @@ class User < ApplicationRecord
 
   has_paper_trail ignore: %i[current_sign_in_at last_sign_in_at confirmation_token encrypted_password]
   has_one_attached :avatar
+
+  enum role: {
+    user: 0,
+    admin: 1
+  }
   # validate :correct_image_type
 
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :lockable, :timeoutable, :trackable, :confirmable, :async,
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :lockable, :timeoutable, :trackable, :async,
          :omniauthable, omniauth_providers: %i[google_oauth2]
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
@@ -41,6 +46,10 @@ class User < ApplicationRecord
 
   def active?
     !blocked?
+  end
+
+  def admin?
+    role == 'admin'
   end
 
   def active_for_authentication?

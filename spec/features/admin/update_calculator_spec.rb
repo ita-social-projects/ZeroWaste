@@ -6,7 +6,7 @@ UPDATE_CALCULATOR_BUTTON = 'Update calculator'
 describe 'Update Calculator Page', js: true do
   let(:calculator) { create(:calculator) }
   before (:each) do
-    @admin=create(:admin)
+    @admin=create(:user, :admin)
     sign_in @admin
     visit "/admins/calculators/#{calculator.id}/edit"
   end
