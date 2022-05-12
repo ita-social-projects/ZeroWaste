@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :calculators, param: :slug
     resources :histories, only: :index
     resources :messages, only: %i[index show]
+    resource :app_config, only: %i[edit update]
 
     scope module: :calculators do
       resources :calculators, only: [], param: :slug do

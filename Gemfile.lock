@@ -70,6 +70,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_singleton (0.0.8)
+      activerecord (>= 3.1.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
@@ -434,6 +436,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   active_storage_validations
+  acts_as_singleton
   bigdecimal (= 1.3.5)
   bootsnap (>= 1.4.4)
   cancancan (~> 3.3)
