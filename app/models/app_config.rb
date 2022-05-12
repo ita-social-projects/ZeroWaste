@@ -1,11 +1,7 @@
 class AppConfig < ApplicationRecord
-  self.table_name = "app_config"
-  @instance = new
+  validates_inclusion_of :singleton_guard, :in => [0]
+  
   def self.instance
-    @instance
-  end
-
-  class << self
-    private new
+    first_or_create!(singleton_guard: 0)
   end
 end

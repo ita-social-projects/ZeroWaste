@@ -4,7 +4,7 @@ module Calculators
   class DiapersService
     DIAPERS_PER_MONTH = {
       (1..3) =>
-        { price: 1220,
+        { price: config,
           amount: 305 },
       (4..6) =>
         { price: 1098,
@@ -60,6 +60,10 @@ module Calculators
     def calculate_months(age)
       date = age.split('-')
       ((Time.now - Time.new(date[0], date[1], date[2])) / 2_635_200).round
+    end
+
+    def config
+      AppConfig.instance
     end
   end
 end
