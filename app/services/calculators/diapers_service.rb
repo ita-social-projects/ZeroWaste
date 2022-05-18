@@ -2,30 +2,7 @@
 
 module Calculators
   class DiapersService
-    @config = AppConfig.instance.diapers_calculator['age_periods']
-    DIAPERS_PER_MONTH = {
-      (1..3) =>
-        { price: 1220,
-          amount: 305 },
-      (4..6) =>
-        { price: 1098,
-          amount: 244 },
-      (7..9) =>
-        { price: 915,
-          amount: 183 },
-      (10..12) =>
-        { price: 1006.5,
-          amount: 183 },
-      (13..18) =>
-        { price: 671,
-          amount: 122 },
-      (19..24) =>
-        { price: 732,
-          amount: 122 },
-      (25..30) =>
-        { price: 366,
-          amount: 61 }
-    }.freeze
+    DIAPERS_INFO = AppConfig.instance.diapers_calculator
 
     attr_reader :age, :used_diapers_amount, :to_be_used_diapers_amount,
                 :used_diapers_price, :to_be_used_diapers_price
@@ -39,7 +16,8 @@ module Calculators
     end
 
     def calculate!
-      DIAPERS_PER_MONTH.each_key do |key|
+      DIAPERS_INFO.each_key do |key|
+        key = to_range key
         if key.last <= @age
           change(key, key.size)
         elsif key.include? @age
@@ -54,13 +32,13 @@ module Calculators
     private
 
     def change(size, coef)
-      @used_diapers_amount += DIAPERS_PER_MONTH[size][:amount] * coef
-      @used_diapers_price += DIAPERS_PER_MONTH[size][:price] * coef
+      @used_diapers_amount += DIAPERS_INFO[size.to_s]['amount'] * coef * 30.5
+      @used_diapers_price += DIAPERS_INFO[size.to_s]['amount'] * DIAPERS_INFO[size.to_s]['price'] * coef * 30.5
     end
 
-    def calculate_months(age)
-      date = age.split('-')
-      ((Time.now - Time.new(date[0], date[1], date[2])) / 2_635_200).round
+    def to_range(str)
+      arr = str.split('..').map {|d| Integer(d)}
+      arr[0]..arr[1]
     end
   end
 end

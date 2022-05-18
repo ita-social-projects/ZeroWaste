@@ -3,9 +3,8 @@
 module Admins
 class AppConfigsController < BaseController
   before_action :config
-
-  def show; end
-  def edit; end
+  load_and_authorize_resource
+  
   def update; end
 
   private
@@ -13,7 +12,7 @@ class AppConfigsController < BaseController
   def allow_forgery_protection; end
 
   def config
-    AppConfig.instance
+    @config = AppConfig.instance
   end
 end
 end

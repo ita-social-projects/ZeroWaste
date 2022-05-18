@@ -2,42 +2,33 @@ class InitAppConfig < ActiveRecord::Migration[6.1]
   def up
     config = AppConfig.instance
     config.diapers_calculator = {
-      age_periods: {
-        first: {
-          avg_amount: 10,
-          avg_price: 4,
-          period_duration: 3
-        },
-        second: {
-          avg_amount: 8,
-          avg_price: 4.5,
-          period_duration: 3
-        },
-        third: {
-          avg_amount: 6,
-          avg_price: 5,
-          period_duration: 3
-        },
-        fourth: {
-          avg_amount: 6,
-          avg_price: 5.5,
-          period_duration: 3
-        },
-        fifth: {
-          avg_amount: 4,
-          avg_price: 5.5,
-          period_duration: 6
-        },
-        sixth: {
-          avg_amount: 4,
-          avg_price: 6,
-          period_duration: 6
-        },
-        seventh: {
-          avg_amount: 2,
-          avg_price: 6,
-          period_duration: 6
-        }
+      (1..3) => {
+        amount: 10,
+        price: 4
+      },
+      (4..6) => {
+        amount: 8,
+        price: 4.5
+      },
+      (7..9) => {
+        amount: 6,
+        price: 5
+      },
+      (10..12) => {
+        amount: 6,
+        price: 5.5
+      },
+      (13..18) => {
+        amount: 4,
+        price: 5.5
+      },
+      (19..24) => {
+        amount: 4,
+        price: 6
+      },
+      (25..30) => {
+        amount: 2,
+        price: 6
       }
     }
     config.save
