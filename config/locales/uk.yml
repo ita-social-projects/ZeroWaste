@@ -221,6 +221,7 @@ uk:
         forgot_your_password: "Забули пароль?"
         log_in: "Увійти"
         sign_up: "Зареєструватися"
+        sign_in_with: "Увійти через %{provider}"
         google_sign_in: "Увійти через Google"
     registrations:
       new:
