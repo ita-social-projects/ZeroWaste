@@ -5,6 +5,10 @@ uk:
       form:
         childs_birthday_label: "Дата народження дитини"
         childs_age_label: "Вік дитини"
+        childs_years_label: "Скільки років дитині"
+        childs_months_label: "Скільки місяців дитині"
+        years: " років"
+        months: " місяців"
         baby_weight_label: "Baby weight"
       calculate_result_button: "ОБЧИСЛИТИ РЕЗУЛЬТАТ"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"

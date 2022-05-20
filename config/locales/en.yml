@@ -36,6 +36,10 @@ en:
       form:
         childs_birthday_label: "Child's birthday"
         childs_age_label: "Child`s age"
+        childs_years_label: "How many years the child"
+        childs_months_label: "How many months the child"
+        years: " years"
+        months: " months"
         baby_weight_label: "Baby weight"
       calculate_result_button: "CALCULATE RESULT"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
