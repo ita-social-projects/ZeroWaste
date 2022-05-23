@@ -1,11 +1,5 @@
-class AppConfig < ApplicationRecord
-  self.table_name = "app_config"
-  @instance = new
-  def self.instance
-    @instance
-  end
+# frozen_string_literal: true
 
-  class << self
-    private new
-  end
+class AppConfig < ApplicationRecord
+  acts_as_singleton
 end

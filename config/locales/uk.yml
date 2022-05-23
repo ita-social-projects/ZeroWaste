@@ -5,6 +5,10 @@ uk:
       form:
         childs_birthday_label: "Дата народження дитини"
         childs_age_label: "Вік дитини"
+        childs_years_label: "Скільки років дитині"
+        childs_months_label: "Скільки місяців дитині"
+        years: " років"
+        months: " місяців"
         baby_weight_label: "Baby weight"
       calculate_result_button: "ОБЧИСЛИТИ РЕЗУЛЬТАТ"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
@@ -39,6 +43,7 @@ uk:
       histories: "Історія"
       users: "Користувачі"
       messages: "Повідомлення"
+      app_config: "Налаштування"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -57,6 +62,19 @@ uk:
         new_password_label: "Новий пароль:"
         confirm_password_label: "Підтвердіть новий пароль:"
         change_password_button: "Змінити пароль"
+    app_configs:
+      edit:
+        diapers_calculator_config: "Налаштування калькулятора памперсів"
+        first_period: "Перший період"
+        second_period: "Другий період"
+        third_period: "Третій період"
+        fourth_period: "Четвертий період"
+        fifth_period: "П'ятий період"
+        sixth_period: "Шостий період"
+        seventh_period: "Сьомий період"
+        amount: "Кількість"
+        price: "Вартість"
+        update: "Оновити"
     messages:
       index:
         table:

@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.4'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'acts_as_singleton'
 gem 'friendly_id', '~> 5.4.0'
 
 gem 'dentaku', '~> 3.1'
@@ -39,6 +40,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
 end
 
