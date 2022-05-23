@@ -48,6 +48,9 @@
 .flex-item {
   margin-top: 40px;
   width: fit-content;
+  select {
+    margin-top: 10px;
+  }
 }
 
 .flex-item input[type="text"], .flex-item input[type="date"]{
@@ -62,15 +65,11 @@
 .form-input {
   width: 160px;
   padding-left: 20px;
+  
 }
-.form-input-number {
-  display: block;
-  padding: 10px;
-  margin-top: 5px;
-  min-width: 235px;
-  width: 100%;
-  border: 2px solid #F0F0F0;
-  border-radius: 4px;
+
+.last-year option:nth-child(1n+9) {
+  display: none;
 }
 
 #date {
