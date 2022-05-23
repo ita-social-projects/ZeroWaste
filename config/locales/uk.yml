@@ -43,6 +43,7 @@ uk:
       histories: "Історія"
       users: "Користувачі"
       messages: "Повідомлення"
+      app_config: "Налаштування"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -61,6 +62,19 @@ uk:
         new_password_label: "Новий пароль:"
         confirm_password_label: "Підтвердіть новий пароль:"
         change_password_button: "Змінити пароль"
+    app_configs:
+      edit:
+        diapers_calculator_config: "Налаштування калькулятора памперсів"
+        first_period: "Перший період"
+        second_period: "Другий період"
+        third_period: "Третій період"
+        fourth_period: "Четвертий період"
+        fifth_period: "П'ятий період"
+        sixth_period: "Шостий період"
+        seventh_period: "Сьомий період"
+        amount: "Кількість"
+        price: "Вартість"
+        update: "Оновити"
     messages:
       index:
         table:
