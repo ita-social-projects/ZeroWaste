@@ -2,8 +2,8 @@
 
 module Calculators
   class DiapersService
-    attr_reader :age, :used_diapers_amount, :to_be_used_diapers_amount,
-                :used_diapers_price, :to_be_used_diapers_price
+    attr_accessor :age, :used_diapers_amount, :to_be_used_diapers_amount,
+                  :used_diapers_price, :to_be_used_diapers_price, :config
 
     def initialize(age)
       @age = age
