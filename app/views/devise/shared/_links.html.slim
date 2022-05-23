@@ -13,6 +13,6 @@
       = link_to t(".google_sign_in"), omniauth_authorize_path(resource_name, provider)
       br
     - else
-      = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+      = link_to  t('.sign_in_with', :provider =>OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider)
       br
       

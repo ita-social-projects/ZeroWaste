@@ -7,11 +7,19 @@ module Users
     end
 
     def google_oauth2
+      authorization('Google')
+    end
+
+    def facebook
+      authorization('Facebook')
+    end
+
+    def authorization(kind)
       @user = User.from_omniauth(request.env['omniauth.auth'])
 
       if @user.persisted?
         flash[:notice] =
-          I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
+          I18n.t 'devise.omniauth_callbacks.success', kind: kind
         sign_in_and_redirect @user, event: :authentication
       else
         session['devise.google_data'] =

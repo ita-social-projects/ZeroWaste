@@ -18,7 +18,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
          :lockable, :timeoutable, :trackable, :async,
-         :omniauthable, omniauth_providers: %i[google_oauth2]
+         :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     length: { minimum: 6, maximum: 100 },
@@ -48,9 +48,9 @@ class User < ApplicationRecord
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
-
-    user ||= User.create(first_name: data['first_name'],
-                         last_name: data['last_name'],
+    split_name = data['name'].split
+    user ||= User.create(first_name: data['first_name'] || split_name[0],
+                         last_name: data['last_name'] || split_name[1],
                          email: data['email'],
                          confirmed_at: Time.now,
                          password: Devise.friendly_token[0, 20])

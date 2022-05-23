@@ -244,6 +244,7 @@ en:
         forgot_your_password: "Forgot your password?"
         log_in: "Log in"
         sign_up: "Sign up"
+        sign_in_with: "Sign in with %{provider}"
         google_sign_in: "Sign in with Google"
     registrations:
       new:
