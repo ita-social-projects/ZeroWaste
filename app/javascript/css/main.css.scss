@@ -47,6 +47,18 @@ div.jumbotron {
   margin: 10px auto;
 }
 
+.func-btns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 315px;
+}
+
+.mn-vd {
+  min-width: 102px;
+}
+
 .main-container {
   margin-bottom: 20px;
   padding: 20px;
@@ -81,6 +93,8 @@ div.jumbotron {
     padding: 17px 36px;
     font-size: 12px;
     color: $color;
+    text-align: center;
+    min-width: 187px;
     &:hover {
       color: $success;
       border-color: $success;
