@@ -70,6 +70,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_singleton (0.0.8)
+      activerecord (>= 3.1.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
@@ -79,6 +81,7 @@ GEM
     bootsnap (1.9.3)
       msgpack (~> 1.0)
     builder (3.2.4)
+    cancancan (3.3.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -221,6 +224,8 @@ GEM
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
+    omniauth-facebook (9.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.8.2)
       jwt (>= 2.0)
       oauth2 (~> 1.1)
@@ -280,11 +285,18 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.4.4)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-i18n (7.0.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (6.1.4.4)
       actionpack (= 6.1.4.4)
       activesupport (= 6.1.4.4)
@@ -428,8 +440,10 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   active_storage_validations
+  acts_as_singleton
   bigdecimal (= 1.3.5)
   bootsnap (>= 1.4.4)
+  cancancan (~> 3.3)
   capybara (>= 3.26)
   cocoon
   country_select (~> 4.0)
@@ -447,6 +461,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mini_magick (>= 4.9.5)
   omniauth (~> 1.9.1)
+  omniauth-facebook
   omniauth-google-oauth2
   paper_trail
   pg (~> 1.1)
@@ -456,6 +471,8 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.1)
+  rails-controller-testing
+  rails-i18n (~> 7.0.0)
   redis (~> 4.0)
   rspec-rails (~> 5.0.0)
   rubocop

@@ -1,0 +1,21 @@
+nav class=["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "border-bottom", "border-success"]
+  .container-fluid
+    div class=["collapse", "navbar-collapse", "row", "justify-content-between", "m-0"]
+      = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
+      div
+        ul class=["navbar-nav"]
+          li.nav-item.mx-3
+            = link_to t('.calculators'), admins_calculators_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.histories'), admins_histories_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.users'), admins_users_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.messages'), admins_messages_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.app_config'), edit_admins_app_config_path, class: 'navbar-brand text-success h3'
+      div.col-2
+  - if current_locale?(:en)
+    = link_to "Українська", locale_path(:id => :uk), method: :patch, class: "btn btn-outline-success btn-sm"
+  - else
+    = link_to "English", locale_path(:id => :en), method: :patch, class: "btn btn-outline-success btn-sm"

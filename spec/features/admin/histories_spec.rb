@@ -3,15 +3,20 @@
 require 'rails_helper'
 
 describe 'visit admin page', js: true do
-  context 'when visit admins histories path' do
-    it 'has content' do
-      visit '/admins/histories'
-      expect(page).to have_content 'Version Created At'
-      expect(page).to have_content 'Event Id:'
-      expect(page).to have_content 'User Id:'
+  context 'signed in admin visit page' do
+    before (:each) do
+      @admin=create(:user, :admin)
+      sign_in @admin
+      visit "/admins/histories"
+    end
+
+    it '(page) contains some content' do
+      expect(page).to have_content 'Version creation date'
+      expect(page).to have_content 'Event ID'
+      expect(page).to have_content 'User ID'
       expect(page).to have_content 'Action'
-      expect(page).to have_content 'More Info (Field, Old Value, New Value)'
-      expect(page).to have_content 'Model Type'
+      expect(page).to have_content 'More info: field, old value, new value'
+      expect(page).to have_content 'Model type'
     end
   end
 end

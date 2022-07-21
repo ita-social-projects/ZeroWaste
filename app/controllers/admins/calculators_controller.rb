@@ -2,11 +2,8 @@
 
 module Admins
   class CalculatorsController < BaseController
-    before_action :calculator, only: %i[show edit update destroy]
-
-    def index
-      @calculators = Calculator.by_name_or_slug(params[:search])
-    end
+    before_action :calculator, only: %i[edit update destroy]
+    load_and_authorize_resource
 
     def show
       # TODO: fill it
@@ -16,15 +13,11 @@ module Admins
       collect_fields_for_form
     end
 
-    def new
-      @calculator = Calculator.new
-    end
-
     def create
       @calculator = Calculator.new(calculator_params)
       if @calculator.save
         redirect_to admins_calculators_path,
-                    notice: 'Calculator has been successfully created.'
+                    notice: t('notifications.calculator_created')
       else
         render action: 'new'
       end
@@ -33,7 +26,7 @@ module Admins
     def update
       if updater
         redirect_to edit_admins_calculator_path(@calculator),
-                    notice: 'Calculator has been successfully updated.'
+                    notice: t('notifications.calculator_updated')
       else
         collect_fields_for_form
         render action: 'edit'
@@ -43,7 +36,7 @@ module Admins
     def destroy
       @calculator.destroy!
       redirect_to admins_calculators_path,
-                  notice: 'Calculator has been successfully deleted.'
+                  notice: t('notifications.calculator_deleted')
     end
 
     private

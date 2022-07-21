@@ -1,21 +1,21 @@
 .container
   = form_tag admins_calculators_path, method: :get, class: 'd-flex justify-content-end mb-5' do
     .d-flex
-      = text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: 'Search...'
+      = text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: t('.search_placeholder')
       = button_tag type: :submit, name: nil, class: 'btn btn-primary px-4 d-flex align-items-center' do
         i.fa.fa-search.mr-2
-        span Search
+        span =t('.search_button')
     = link_to new_admins_calculator_path, class: 'btn btn-success px-4 ml-1' do
       i.fa.fa-plus.mr-2
-      span Add calculator
+      span =t('.add_calculator_button')
 
   table.table.admin-table
     thead
       tr
         th[scope="col"] ID
-        th[scope="col"] Slug
-        th[scope="col"] Name
-        th[scope="col"] Actions
+        th[scope="col"] =t('.table.calculator_slug')
+        th[scope="col"] =t('.table.calculator_name')
+        th[scope="col"] =t('.table.calculator_actions')
     tbody.admin-table-links
       - @calculators.each do |calculator|
         tr class=(calculator.preferable ? 'table-success' : 'table-light')
@@ -28,5 +28,5 @@
             = link_to edit_admins_calculator_path(calculator) do
               i.fa.fa-pen.mx-2
             = link_to admins_calculator_path(calculator), method: :delete,
-                    data: { confirm: 'Are you certain you want to delete this record?' } do
+                    data: { confirm: t('.confirm_delete') } do
               i.fa.fa-trash.mx-2
