@@ -17,20 +17,13 @@
                 option value = year
                   = year
                   = t('.form.years')
-            select.custom-select#childs_months
+            select.custom-select#childs_months [required]
               option [disabled selected value]
                 =t('.form.childs_months_label')
               - (0..11).each do |month|
                 option value = month
                   = month
                   = t('.form.months')
-            select.custom-select#two_years_childs_months
-              option [disabled selected value]
-                =t('.form.childs_months_label')
-                - (0..6).each do |month|
-                  option value = month
-                    = month
-                    = t('.form.months')
             = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
             = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
           = render_email_receiver_checkbox
