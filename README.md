@@ -51,6 +51,13 @@ You can familiarize yourself with <a href="https://www.postgresql.org/docs/">Pos
 
 In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
 
+For further work, make sure that you have a user 'postgres' with superuser. If is no that one do next:
+$ `sudo -u user psql user`
+$ `CREATE USER postgres SUPERUSER;`
+$ `CREATE DATABASE postgres WITH OWNER postgres;`
+
+If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
+
 <b>pg gem</b>
 
 Under certain circumstances bundle can do not install pg.
@@ -69,6 +76,8 @@ To create the necessary databases and update them:
 $ `rake db:create`
 then
 $ `rake db:migrate`
+
+$ `rake db:reset` can resolve some errors connected with database.
 
 <b>Redis</b>
 
@@ -119,6 +128,7 @@ $ `bundle add sidekiq`
 ## How to run local
 
 1. Open terminal.
+In some systems, after restarting them, the postgresql server remains disabled, perhaps at the first start you should enter "sudo service postgresql start".
 2. Run `rails server`/`rails s` to start application
 3. Open http://localhost:3000 to view it in the browser.
 
