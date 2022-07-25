@@ -6,15 +6,20 @@ body {
   overflow-x: hidden;
   min-height: 100%;
 }
+
 a {
   display: inline-block;
   cursor: pointer;
   @include transition(all 0.5s ease-in-out);
   outline: 0;
-  &:focus, &:hover, &:active {
+
+  &:focus,
+  &:hover,
+  &:active {
     text-decoration: none;
   }
 }
+
 .filter_block {
   position: absolute;
   background-color: #00000078;
@@ -37,7 +42,7 @@ a {
 div.jumbotron {
   font-family: 'Comfortaa', sans-serif;
   background-color: $color;
-  padding: 25px 10px;
+  padding: 0px 10px;
   margin-top: 10px;
   max-width: 1140px;
   min-height: 310px;
@@ -46,36 +51,44 @@ div.jumbotron {
 .main-container {
   margin-bottom: 20px;
   padding: 20px;
+
   img {
     margin: 0px 30px;
   }
 }
+
 .main-btns {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   max-width: 420px;
   margin: 20px auto;
+
   &>:last-of-type {
     & img {
       margin-right: 10px;
     }
-    &:hover{
+
+    &:hover {
       color: $color;
     }
   }
 }
-.donate-btn, .main-btns {
+
+.donate-btn,
+.main-btns {
   background-color: transparent;
   border: none;
   letter-spacing: 2px;
   text-transform: uppercase;
+
   a {
     border: 2px solid $gray;
     border-radius: 4px;
     padding: 17px 36px;
     font-size: 12px;
     color: $color;
+
     &:hover {
       color: $success;
       border-color: $success;
@@ -87,6 +100,7 @@ div.jumbotron {
   font-size: 24px;
   color: $color;
   @include transition(all 0.5s ease-in-out);
+
   &:hover {
     color: $success;
   }
@@ -99,6 +113,7 @@ div.jumbotron {
   color: $color;
   border-bottom: 3px solid transparent;
   @include transition(all 0.5s ease-in-out);
+
   &:hover {
     color: $color;
     border-bottom: 3px solid $success;
@@ -119,6 +134,7 @@ main p {
   text-align: center;
   margin: 20px auto;
 }
+
 // forms
 .position-block {
   .card {
@@ -127,7 +143,9 @@ main p {
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
-    input, select {
+
+    input,
+    select {
       display: inline-block;
       outline: none;
       background: $color;
@@ -136,6 +154,7 @@ main p {
       border-radius: 4px;
       padding: 5px;
     }
+
     input[type=submit] {
       text-transform: uppercase;
       white-space: initial;
@@ -144,10 +163,12 @@ main p {
       height: 100%;
       max-width: 230px;
       font-size: 14px;
+
       &:hover {
         color: $success;
         border-color: $success;
       }
+
       &:active {
         background-color: $success;
       }
@@ -155,11 +176,17 @@ main p {
   }
 }
 
-.donate-btn, label.text-center, .form-check-label, .btn-success, .result-card, .last-result-card {
+.donate-btn,
+label.text-center,
+.form-check-label,
+.btn-success,
+.result-card,
+.last-result-card {
   font-family: 'Nunito', sans-serif;
 }
 
-h1, .footer-items {
+h1,
+.footer-items {
   color: $color;
 }
 
@@ -190,6 +217,7 @@ div.calculation-results {
   color: #B3B3B3;
   border-right: 0.5px solid #F5F5F5;
   display: inline-flex;
+
   .img-border {
     display: inline-block;
     height: 70px;
@@ -197,29 +225,35 @@ div.calculation-results {
     border: 2px solid #F5F5F5;
     border-radius: 90%;
     margin-right: 10px;
+
     img {
       height: 100%;
       padding: 15px;
       margin: auto;
     }
   }
+
   p {
     font-size: 24px;
   }
+
   &:last-child {
     border: none;
   }
 }
 
-.result-card, .last-result-card {
+.result-card,
+.last-result-card {
   font-weight: 300;
   padding: 30px;
+
   p {
     font-size: 22px;
     font-family: Roboto, sans-serif;
     font-weight: bold;
     color: #808080;
   }
+
   img {
     margin: 0px 15px;
   }
@@ -240,8 +274,9 @@ body.admin {
 }
 
 .admin-table {
-  .admin-table-header > *,
-  .admin-table-body > * {
+
+  .admin-table-header>*,
+  .admin-table-body>* {
     display: flex;
   }
 
@@ -253,17 +288,21 @@ body.admin {
       justify-content: center;
     }
   }
+
   .admin-table-links {
     a {
       color: $success;
+
       &:hover {
         color: #3d5217;
       }
     }
+
     .admin-table-body {
-      & > * {
+      &>* {
         align-items: center;
       }
+
       .actions {
         justify-content: space-between;
       }
@@ -286,18 +325,25 @@ body.admin {
 }
 
 @media screen and (max-width: $xs) {
-  .tab, .donate-btn a {
+
+  .tab,
+  .donate-btn a {
     font-size: 12px;
   }
+
   .main-btns {
     max-width: 320px;
+
     a {
       padding: 10px;
     }
   }
 }
+
 @media screen and (max-width: $sm) {
-  .tab, .donate-btn a {
+
+  .tab,
+  .donate-btn a {
     padding: 10px;
   }
 }
