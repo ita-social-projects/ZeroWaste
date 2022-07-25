@@ -1,18 +1,23 @@
-body
-  header.page-header
-    = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
-    .tabs
-      - if user_signed_in?
-        - if current_user.admin?
-          = link_to t('.admin'), admins_calculators_path, class: 'tab'
-        = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
-      - else
-        = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
-        = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
-      = link_to t('.contact_us'), new_message_path, class: 'tab' 
-    .donate-btn
-      = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
-    - if current_locale?(:en)
-      = link_to "Українська", locale_path(:id => :uk), method: :patch, class: "btn btn-outline-success btn-sm"
+header.page-header
+  = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
+  .tabs
+  - if Rails.env.development?
+    - if user_signed_in?
+      - if current_user.admin?
+        = link_to t('.admin'), admins_calculators_path, class: 'tab'
+      = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
     - else
-      = link_to "English", locale_path(:id => :en), method: :patch, class: "btn btn-outline-success btn-sm"
+      = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
+      = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
+    = link_to t('.contact_us'), new_message_path, class: 'tab'
+    = link_to t('.contact_us'), new_message_path, class: 'tab'
+    = link_to t('.contacts'), "https://zerowastelviv.org.ua/kontakty/", class: 'tab'
+  .tabs
+  - if Rails.env.production?
+    = link_to t('.contacts'), "https://zerowastelviv.org.ua/kontakty/", class: 'tab'
+  .donate-btn
+    = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
+  - if current_locale?(:en)
+    = link_to "Українська", locale_path(:id => :uk), method: :patch, class: "btn btn-outline-success btn-sm"
+  - else
+    = link_to "English", locale_path(:id => :en), method: :patch, class: "btn btn-outline-success btn-sm"
