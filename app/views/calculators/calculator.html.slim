@@ -42,25 +42,25 @@
   .row
     .col-sm.result-card
       .img-border
-        = image_pack_tag "diaper.png", class:"rounded"
+        = image_pack_tag "diapers_bought.png", class:"rounded"
       span
         p data-type="used_diapers_amount" 0
         = t '.bought_diapers'
     .col-sm.result-card
       .img-border
-        = image_pack_tag "diaper_new.png", class:"rounded"
-      span  
+        = image_pack_tag "diapers_to_buy.png", class:"rounded"
+      span
         p data-type="to_be_used_diapers_amount" 0
         = t '.will_buy_diapers'
     .col-sm.result-card
       .img-border
-        = image_pack_tag "buying.png", class:"rounded"
+        = image_pack_tag "money_spent.png", class:"rounded"
       span
         p data-type="money_spent" 0
         = t '.money_spent'
     .col-sm.result-card
       .img-border
-        = image_pack_tag "arithmetic.png", class:"rounded"
+        = image_pack_tag "money_to_spent.png", class:"rounded"
       span
         p data-type="money_will_be_spent" 0
         = t '.money_will_be_spent'
