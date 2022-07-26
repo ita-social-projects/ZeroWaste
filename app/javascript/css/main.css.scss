@@ -30,12 +30,12 @@ a {
   font-family: "Comfortaa", sans-serif;
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
-  padding-left: 13.88%;
-  padding-right: 13.88%;
+  padding-left: 11.88%;
+  padding-right: 11.88%;
 }
 
 div.jumbotron {
