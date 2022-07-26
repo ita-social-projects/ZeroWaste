@@ -1,66 +1,55 @@
-.container.home
-  .jumbotron
-    .container
-      .rounded.float-left.src
-        = image_tag "search.png", height: 70
-      a.rounded.float-right.src href=root_path
-        = image_tag "close.svg", height: 70
-      p.form-p
-        = t '.form_description'
-      .form
-        = form_with url: "#", id: "form", method: :get do |form|
-          .flex-item
-            select.custom-select#childs_years [required]
-              option [disabled selected value]
-                = t('.form.childs_years_label')
-              - (0..2).each do |year|
-                option value = year
-                  = year
-                  = t('.form.years')
-            select.custom-select#childs_months
-              option [disabled selected value]
-                =t('.form.childs_months_label')
-              - (0..11).each do |month|
-                option value = month
-                  = month
-                  = t('.form.months')
-            select.custom-select#two_years_childs_months
-              option [disabled selected value]
-                =t('.form.childs_months_label')
-                - (0..6).each do |month|
-                  option value = month
-                    = month
-                    = t('.form.months')
-            = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
-            = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
-          = render_email_receiver_checkbox
-          .flex-item
-            button.calculate-btn.result-btn[type="submit" id="button_submit"]
-              = image_pack_tag "calc.svg", alt:"calculator", id:"calc"
-              =<t('.calculate_result_button')
+.jumbotron
+  .container
+    a.rounded.float-right.src href=root_path
+      = image_tag "close.svg", height: 70
+    p.form-p
+      = t '.form_description'
+    .form
+      = form_with url: "#", id: "form", method: :get do |form|
+        .flex-item
+          select.custom-select#childs_years [required]
+            option [disabled selected value]
+              = t('.form.childs_years_label')
+            - (0..2).each do |year|
+              option value = year
+                = year
+                = t('.form.years')
+          select.custom-select#childs_months [required]
+            option [disabled selected value]
+              =t('.form.childs_months_label')
+            - (0..11).each do |month|
+              option value = month
+                = month
+                = t('.form.months')
+          = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
+          = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
+        = render_email_receiver_checkbox
+        button.calculate-btn.result-btn[type="submit" id="button_submit"]
+          = image_pack_tag "calc.svg", alt:"calculator", id:"calc"
+          =<t('.calculate_result_button')
 .container.calculation-results
-  .row
+  .row.row-l
     .col-sm.result-card
       .img-border
-        = image_pack_tag "diaper.png", class:"rounded"
+        = image_pack_tag "diapers_bought.png", class:"rounded"
       span
         p data-type="used_diapers_amount" 0
         = t '.bought_diapers'
     .col-sm.result-card
       .img-border
-        = image_pack_tag "diaper_new.png", class:"rounded"
-      span  
+        = image_pack_tag "diapers_to_buy.png", class:"rounded"
+      span
         p data-type="to_be_used_diapers_amount" 0
         = t '.will_buy_diapers'
     .col-sm.result-card
       .img-border
-        = image_pack_tag "buying.png", class:"rounded"
+        = image_pack_tag "money_spent.png", class:"rounded"
       span
         p data-type="money_spent" 0
         = t '.money_spent'
     .col-sm.result-card
       .img-border
-        = image_pack_tag "arithmetic.png", class:"rounded"
+        = image_pack_tag "money_to_spent.png", class:"rounded"
       span
         p data-type="money_will_be_spent" 0
         = t '.money_will_be_spent'
