@@ -1,4 +1,3 @@
 class ProductPrice < ApplicationRecord
-  belongs_to :product
-  enum category: [:LOW, :MIDDLE, :HIGH]
+  enum category: [:LOW, :MEDIUM, :HIGH]
 end
