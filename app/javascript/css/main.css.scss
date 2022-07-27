@@ -1,7 +1,7 @@
 body {
   position: relative;
   margin: 0 auto;
-  background: url('../images/mother.jpeg') no-repeat center top;
+  background: url("../images/mother.jpeg") no-repeat center top;
   background-size: cover;
   overflow-x: hidden;
   min-height: 100%;
@@ -11,7 +11,9 @@ a {
   cursor: pointer;
   @include transition(all 0.5s ease-in-out);
   outline: 0;
-  &:focus, &:hover, &:active {
+  &:focus,
+  &:hover,
+  &:active {
     text-decoration: none;
   }
 }
@@ -25,22 +27,36 @@ a {
 }
 
 .page-header {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
+  padding-left: 11.88%;
+  padding-right: 11.88%;
 }
 
 div.jumbotron {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   background-color: $color;
   padding: 25px 10px;
-  margin-top: 10px;
-  max-width: 1140px;
+  max-width: 1110px;
   min-height: 310px;
+  margin: 10px auto;
+}
+
+.func-btns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 315px;
+}
+
+.mn-vd {
+  min-width: 102px;
 }
 
 .main-container {
@@ -56,16 +72,17 @@ div.jumbotron {
   flex-wrap: wrap;
   max-width: 420px;
   margin: 20px auto;
-  &>:last-of-type {
+  & > :last-of-type {
     & img {
       margin-right: 10px;
     }
-    &:hover{
+    &:hover {
       color: $color;
     }
   }
 }
-.donate-btn, .main-btns {
+.donate-btn,
+.main-btns {
   background-color: transparent;
   border: none;
   letter-spacing: 2px;
@@ -76,6 +93,8 @@ div.jumbotron {
     padding: 17px 36px;
     font-size: 12px;
     color: $color;
+    text-align: center;
+    min-width: 187px;
     &:hover {
       color: $success;
       border-color: $success;
@@ -107,7 +126,7 @@ div.jumbotron {
 
 /* home-page */
 .homepage_title {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   text-align: center;
   margin-top: 200px;
   color: $color;
@@ -122,12 +141,13 @@ main p {
 // forms
 .position-block {
   .card {
-    font-family: 'Comfortaa', sans-serif;
+    font-family: "Comfortaa", sans-serif;
     max-width: 650px;
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
-    input, select {
+    input,
+    select {
       display: inline-block;
       outline: none;
       background: $color;
@@ -136,7 +156,7 @@ main p {
       border-radius: 4px;
       padding: 5px;
     }
-    input[type=submit] {
+    input[type="submit"] {
       text-transform: uppercase;
       white-space: initial;
       color: $gray;
@@ -155,11 +175,17 @@ main p {
   }
 }
 
-.donate-btn, label.text-center, .form-check-label, .btn-success, .result-card, .last-result-card {
-  font-family: 'Nunito', sans-serif;
+.donate-btn,
+label.text-center,
+.form-check-label,
+.btn-success,
+.result-card,
+.last-result-card {
+  font-family: "Nunito", sans-serif;
 }
 
-h1, .footer-items {
+h1,
+.footer-items {
   color: $color;
 }
 
@@ -187,19 +213,19 @@ div.calculation-results {
   font-size: 14px;
   text-align: center;
   text-transform: capitalize;
-  color: #B3B3B3;
-  border-right: 0.5px solid #F5F5F5;
+  color: #b3b3b3;
+  border-right: 0.5px solid #f5f5f5;
   display: inline-flex;
   .img-border {
     display: inline-block;
     height: 70px;
     width: 70px;
-    border: 2px solid #F5F5F5;
+    border: 2px solid #f5f5f5;
     border-radius: 90%;
     margin-right: 10px;
     img {
       height: 100%;
-      padding: 15px;
+      padding: 0px;
       margin: auto;
     }
   }
@@ -211,7 +237,8 @@ div.calculation-results {
   }
 }
 
-.result-card, .last-result-card {
+.result-card,
+.last-result-card {
   font-weight: 300;
   padding: 30px;
   p {
@@ -286,7 +313,8 @@ body.admin {
 }
 
 @media screen and (max-width: $xs) {
-  .tab, .donate-btn a {
+  .tab,
+  .donate-btn a {
     font-size: 12px;
   }
   .main-btns {
@@ -297,7 +325,8 @@ body.admin {
   }
 }
 @media screen and (max-width: $sm) {
-  .tab, .donate-btn a {
+  .tab,
+  .donate-btn a {
     padding: 10px;
   }
 }
