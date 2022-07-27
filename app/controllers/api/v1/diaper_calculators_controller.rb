@@ -12,14 +12,19 @@ module Api
 
       def create
         result = diapers_service_handler(childs_age).calculate!
+        diapers_ukrainian_form = diapers_correct_form(result.to_be_used_diapers_amount)
         VALUES[0][:result] = result.used_diapers_price
         VALUES[1][:result] = result.to_be_used_diapers_price
         VALUES[2][:result] = result.used_diapers_amount
         VALUES[3][:result] = result.to_be_used_diapers_amount
-        render(json: { result: VALUES, date: childs_age })
+        render(json: { result: VALUES, date: childs_age, word_form: diapers_ukrainian_form})
       end
 
       private
+
+      def diapers_correct_form(quantity)
+        @diapers_correct_form ||= LanguageHelper::UkrLanguageHelper.new.receive_correct_diapers_form(quantity)
+      end
 
       def diapers_service_handler(age)
         @diapers_service_handler ||= Calculators::DiapersService.new(age)
