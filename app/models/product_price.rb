@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductPrice < ApplicationRecord
   belongs_to :product
   enum category: {
@@ -5,6 +7,5 @@ class ProductPrice < ApplicationRecord
     MEDIUM: 1,
     HIGH: 2
   }
-  
   validates :category, :price, presence: true
 end
