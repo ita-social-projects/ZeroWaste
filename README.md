@@ -128,12 +128,18 @@ $ `bundle add sidekiq`
 ## How to run local
 
 1. Open terminal.
-In some systems, after restarting them, the postgresql server remains disabled, perhaps at the first start you should enter "sudo service postgresql start".
+In some systems, after restarting them, the postgresql server remains disabled, perhaps at the first start you should enter `sudo service postgresql start`.
 2. Run `rails server`/`rails s` to start application
 3. Open http://localhost:3000 to view it in the browser.
 
 Solutions when an errors occurs:
 <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>
+
+If you have Webpacker::Manifest::MissingEntryError you can try next steps:
+$ `rm -rf node_modules`
+$ `rails webpacker:install`
+$ `yarn install`
+
 # Usage
 
 # How to run Rubocop
