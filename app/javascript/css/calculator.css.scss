@@ -13,6 +13,7 @@
   font-family: 'Nunito', sans-serif;
   font-style: normal;
   transition: transform 0.5s linear;
+  margin: 25px 0px;
 }
 
 #calc {
@@ -61,7 +62,7 @@
 
 .flex-item input[type="text"], .flex-item input[type="date"]{
   height: 50px;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .check-label {
