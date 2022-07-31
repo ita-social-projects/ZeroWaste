@@ -32,15 +32,34 @@ a {
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
+  padding-left: 11.88%;
+  padding-right: 11.88%;
 }
 
 div.jumbotron {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   background-color: $color;
-  padding: 25px 10px;
+
+  padding: 0px 10px;
   margin-top: 10px;
   max-width: 1140px;
+
   min-height: 310px;
+  margin: 10px auto;
+}
+
+.func-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 315px;
+}
+
+.mn-vd {
+  min-width: 102px;
 }
 
 .main-container {
@@ -50,6 +69,7 @@ div.jumbotron {
     margin: 0px 30px;
   }
 }
+
 .main-btns {
   display: flex;
   justify-content: space-around;
@@ -70,13 +90,16 @@ div.jumbotron {
   border: none;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin: 15px;
+  margin-bottom: 0.2em;
   a {
     border: 2px solid $gray;
     border-radius: 4px;
     padding: 17px 36px;
     font-size: 12px;
     color: $color;
+
+    text-align: center;
+    min-width: 187px;
     &:hover {
       color: $success;
       border-color: $success;
@@ -176,11 +199,10 @@ h3.container {
 
 div.calculation-results {
   padding: 10px;
-  margin: 20px auto 0px auto;
-  width: fit-content;
+  margin-top: 20px;
   position: center;
   background-color: $color;
-  // max-width: 1110px;
+  max-width: 1110px;
   min-height: 151px;
   border-radius: 6px;
 }
@@ -201,7 +223,7 @@ div.calculation-results {
     margin-right: 10px;
     img {
       height: 100%;
-      padding: 15px;
+      padding: 0px;
       margin: auto;
     }
   }
@@ -287,46 +309,66 @@ body.admin {
   }
 }
 
-.header-btn {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 6px 10px;
-}
-
 @media screen and (max-width: $xs) {
+
   .tab{
     display: none;
   }
+  div.calculation-results{
+    width: auto !important;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+  }
+  .page-header{
+    justify-content: space-between !important;;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  // .tab,
   .donate-btn a {
     font-size: 12px;
   }
-  .donate-btn{
-    margin: 5px 0 0 0;
-  }
+
   .main-btns {
     max-width: 320px;
     a {
       padding: 10px;
     }
   }
-  .header-btn {
+  .func-btns {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
-    flex-direction: column-reverse;
-  div.calculation-results {
-    margin: 20px 15px 0px 15px}
-}
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+  }
 }
 @media screen and (max-width: $sm) {
   .tab{
     display: none;
   }
+  .func-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+  }
+
+  .page-header{
+    justify-content: space-around;
+  }
+  div.calculation-results{
+    width: 510px;
+  }
+
+  // .tab,
   .donate-btn a {
     padding: 10px;
-  }
-  .container{
-    justify-content: center;
   }
 }

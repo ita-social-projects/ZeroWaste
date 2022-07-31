@@ -26,8 +26,11 @@
   font-weight: 400;
   color: #666666;
   position: relative;
-  top: 48px;
-  width: 90%;
+  top: 15px;
+  //New
+  left: 20px;
+  //
+  margin-bottom: 0px;
 }
 
 .src {
@@ -37,19 +40,22 @@
 }
 
 .form {
-  padding-top: 40px;
+  padding-top: 25px;
+  padding-left: 15px;
   max-width: 800px;
   text-align: start;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+}
+
+.row-l {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .flex-item {
-  margin-top: 40px;
   width: fit-content;
   select {
-    margin-top: 10px;
+    margin-top: 25px;
   }
 }
 
@@ -72,6 +78,10 @@
   display: none;
 }
 
+.hidden {
+  display: none;
+}
+
 #date {
   width:236px;
   padding-left: 20px;
@@ -87,11 +97,6 @@
 .result-btn #calc {
   padding: 0;
   margin: 0;
-}
-
-.logo-zerowaste {
-  text-align: center;
-  padding: 6px 0px;
 }
 
 .logo-zerowaste img {

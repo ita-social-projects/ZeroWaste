@@ -2,12 +2,11 @@
   .jumbotron
     .container
       .rounded.float-left.src
-        = image_tag "search.png", height: 70
       a.rounded.float-right.src href=root_path
-        = image_tag "close.svg", height: 70
+        = image_tag "close.svg", height: 40
+      p.form-p
+        = t '.form_description'
       .form
-        label.form-p
-          = t '.form_description'
         = form_with url: "#", id: "form", method: :get do |form|
           .flex-item
             select.custom-select#childs_years [required]
@@ -24,15 +23,21 @@
                 option value = month
                   = month
                   = t('.form.months')
+            select.custom-select#two_years_childs_months
+              option [disabled selected value]
+                =t('.form.childs_months_label')
+                - (0..6).each do |month|
+                  option value = month
+                    = month
+                    = t('.form.months')
             = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
             = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
           = render_email_receiver_checkbox
           .flex-item
             button.calculate-btn.result-btn[type="submit" id="button_submit"]
-              = image_pack_tag "calc.svg", alt:"calculator", id:"calc"
               =<t('.calculate_result_button')
 .container.calculation-results
-  .row
+  .row.row-l
     .col-sm.result-card
       .img-border
         = image_pack_tag "diaper.png", class:"rounded"
