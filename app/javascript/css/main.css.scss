@@ -40,9 +40,8 @@ div.jumbotron {
   font-family: "Comfortaa", sans-serif;
   background-color: $color;
 
-  padding: 0px 10px;
-  margin-top: 10px;
-  max-width: 1140px;
+  padding: 25px 10px;
+  max-width: 1110px;
 
   min-height: 310px;
   margin: 10px auto;
@@ -50,9 +49,7 @@ div.jumbotron {
 
 .func-btns {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
   flex-wrap: wrap;
   align-items: center;
   width: 315px;
@@ -100,6 +97,7 @@ div.jumbotron {
 
     text-align: center;
     min-width: 187px;
+    
     &:hover {
       color: $success;
       border-color: $success;
