@@ -17,15 +17,15 @@ h1.display-4.text-center.mt-5.mb-5
                 input#birth.col.datepick placeholder=("#{t 'calculators.calculator.form.childs_birthday_label'}") type="text" /
             .container.ml-3.mt-4.form-check
               input#flexCheckChecked.form-check-input checked="checked" type="checkbox" value="" /
-              label.form-check-label for="flexCheckChecked" 
+              label.form-check-label for="flexCheckChecked"
                 = t 'calculators.calculator.want_recomentation_label'
-            button.btn.btn-success.ml-3.mt-4 type="submit" 
+            button.btn.btn-success.ml-3.mt-4 type="submit"
               = image_pack_tag "calculator.png", height: 25
               = t 'calculators.calculator.calculate_result_button'
 .container.calculation-results
   .row
     .col-sm.result-card
-      = image_pack_tag "diapers.png", class:"rounded float-left", height: 70
+      = image_pack_tag "diapers_bought.png", class:"rounded float-left", height: 70
       p data-type="bought_diapers" 0
       = t 'calculators.calculator.bought_diapers'
     .col-sm.result-card

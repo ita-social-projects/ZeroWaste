@@ -59,6 +59,7 @@ en:
       log_in: "Log In"
       сontact_us: "Contact us"
       donate: "$ DONATE"
+      local_lang: "English"
     homepage:
       homepage_title: "Welcome to Zero Waste Calculator"
       description: "General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info"
@@ -382,4 +383,3 @@ en:
   #   formats:
   #     long: '%A, %d %B, %Y'
   #     short: '%d, %B, %Y'
-      
