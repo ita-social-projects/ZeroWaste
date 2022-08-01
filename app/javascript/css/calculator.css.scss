@@ -1,8 +1,9 @@
 .calculate-btn {
   width: 186px;
   height: 56px;
+  margin-top: 40px;
   color: #fff;
-  background-color: #8FBA3B;
+  background-color: #8fba3b;
   border: none;
   border-radius: 4px;
   padding-top: 2px;
@@ -10,7 +11,7 @@
   letter-spacing: 2px;
   text-align: center;
   font-weight: 400;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   transition: transform 0.5s linear;
   margin: 25px 0px;
@@ -22,7 +23,7 @@
 }
 
 .form-p {
-  font-size:20px;
+  font-size: 20px;
   line-height: 30px;
   font-weight: 400;
   color: #666666;
@@ -58,7 +59,8 @@
   }
 }
 
-.flex-item input[type="text"], .flex-item input[type="date"]{
+.flex-item input[type="text"],
+.flex-item input[type="date"] {
   height: 50px;
   margin-right: 10px;
 }
@@ -70,10 +72,13 @@
 .form-input {
   width: 160px;
   padding-left: 20px;
-  
 }
 
-.last-year option:nth-child(1n+9) {
+.last-year option:nth-child(1n + 9) {
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 
@@ -82,14 +87,14 @@
 }
 
 #date {
-  width:236px;
+  width: 236px;
   padding-left: 20px;
   padding-right: 12px;
   color: #999999;
 }
 
 .result-btn {
-  width:250px;
+  width: 250px;
   text-align: center;
 }
 
@@ -102,5 +107,4 @@
   aspect-ratio: 16 / 9;
   width: 80%;
   border-radius: 5px;
-
 }
