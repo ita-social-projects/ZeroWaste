@@ -41,10 +41,8 @@ a {
 div.jumbotron {
   font-family: "Comfortaa", sans-serif;
   background-color: $color;
-
   padding: 25px 10px;
   max-width: 1110px;
-
   min-height: 310px;
   margin: 10px auto;
 }
@@ -99,7 +97,6 @@ div.jumbotron {
     color: $color;
     text-align: center;
     min-width: 187px;
-    
     &:hover {
       color: $success;
       border-color: $success;
@@ -373,7 +370,6 @@ body.admin {
     width: 510px;
   }
 
-  // .tab,
   .donate-btn a {
     padding: 10px;
   }
