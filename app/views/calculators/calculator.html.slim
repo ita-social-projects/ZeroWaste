@@ -60,3 +60,13 @@
       span
         p data-type="money_will_be_spent" 0
         = t '.money_will_be_spent'
+.container.calculation-results
+  .row
+    .col-sm.result-card
+      .form
+        p data-type="description_block_html"
+        = t(".description_block_html", href: link_to(t(".description_link_href"), "how we calculate"))
+      .column-right
+        a[ href="https://zerowastelviv.org.ua/en/zero-waste-nappies-en/" target="_blank"]
+          button.calculate-btn.result-btn[type="link" id="use_less"]
+            =< t('.use_less')
