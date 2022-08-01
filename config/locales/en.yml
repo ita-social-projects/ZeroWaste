@@ -58,7 +58,7 @@ en:
       sign_up: "Sign Up"
       log_in: "Log In"
       сontact_us: "Contact us"
-      donate: "$ DONATE"
+      donate: "DONATE"
     homepage:
       homepage_title: "Welcome to Zero Waste Calculator"
       description: "General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info"
