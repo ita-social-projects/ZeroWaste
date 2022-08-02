@@ -47,7 +47,12 @@
         = image_pack_tag "diapers_to_buy.png", class:"rounded"
       span
         p data-type="to_be_used_diapers_amount" 0
-        div id="localized_diaper_string" Підгузки, які будуть використані
+        - if I18n.locale == :en
+          | number of diapers that are going to be used
+        - elsif I18n.locale == :uk
+          #localized_parent
+            #localized_diaper_string
+              | підгузки, які будуть використані
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_spent.png", class:"rounded"

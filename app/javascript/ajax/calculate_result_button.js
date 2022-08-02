@@ -54,6 +54,7 @@ $(document).on('turbolinks:load', function() {
           const oneItemFromArray = data.result[i]
           $('[data-type="' + oneItemFromArray.name + '"]').text(oneItemFromArray.result);
         }
+        $("#localized_parent").children().last().text("");
         $("#localized_diaper_string").text(data.word_form + ", які будуть використані")
       }
     })
