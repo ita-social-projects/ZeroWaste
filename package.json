@@ -10,7 +10,7 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "^5.4.3",
+    "@rails/webpacker": "5.4.3",
     "@webpack-cli/serve": "^1.6",
     "babel-loader": "^8.2.3",
     "bootstrap": "^4.6.0",
