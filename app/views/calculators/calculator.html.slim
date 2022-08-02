@@ -2,11 +2,11 @@
   .container
     a.rounded.float-right.src href=root_path
       = image_tag "close.svg", height: 70
-    p.form-p
-      = t '.form_description'
     .form
       = form_with url: "#", id: "form", method: :get do |form|
         .flex-item
+          p.form-p
+            = t '.form_description'
           select.custom-select#childs_years [required]
             option [disabled selected value]
               = t('.form.childs_years_label')
@@ -21,6 +21,12 @@
               option value = month
                 = month
                 = t('.form.months')
+          p.form-p
+            = t '.form_price'
+          select.custom-select#childs_months [required]
+            - ([(t('.form.budgetary')), (t('.form.medium')), (t('.form.premium'))]).each do |price|
+              option value = price
+                = price
           = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
           = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
         = render_email_receiver_checkbox

@@ -32,7 +32,8 @@
 en:
   calculators:
     calculator:
-      form_description: "Just a couple of questions"
+      form_description: "Child`s age"
+      form_price: "Price category"
       form:
         childs_birthday_label: "Child's birthday"
         childs_age_label: "Child`s age"
@@ -41,7 +42,10 @@ en:
         years: " years"
         months: " months"
         baby_weight_label: "Baby weight"
-      calculate_result_button: "CALCULATE RESULT"
+        budgetary: "budgetary"
+        medium: "medium"
+        premium: "premium"
+      calculate_result_button: "To calculate"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       bought_diapers: "number of diapers that already has been used"
       will_buy_diapers: "number of diapers that are going to be used"
