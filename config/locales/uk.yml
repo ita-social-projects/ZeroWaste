@@ -14,7 +14,7 @@ uk:
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
       bought_diapers: "Куплено підгузків"
       money_spent: "Витрачено грошей"
-      will_buy_diapers: "%{diapers_form}, які будуть використані"
+      will_buy_diapers: "підгузки, які будуть використані"
       money_will_be_spent: "Буде витрачено грошей"
       mililiters_of_naphtha: "Мілілітрів нафти"
       gram_of_plastic: "Грамів пластику"
