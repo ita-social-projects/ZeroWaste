@@ -44,6 +44,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
 end
 
+gem 'simplecov'
+
 group :development do
   gem 'letter_opener'
   gem 'listen', '~> 3.3'

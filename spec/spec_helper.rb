@@ -114,3 +114,13 @@ RSpec.configure do |config|
     metadata[:type] = :function
   end
 end
+
+#Adding rule for Simplecov test coverage tool to skip tests directory
+
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter "/spec/"
+end
+
+SimpleCov.minimum_coverage 94
