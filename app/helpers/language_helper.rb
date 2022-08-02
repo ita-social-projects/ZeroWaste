@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module LanguageHelper
   class UkrLanguage
     def correct_word_form(diapers)
