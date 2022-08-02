@@ -318,7 +318,8 @@ body.admin {
   .tab{
     display: none;
   }
-  div.calculation-results{
+  .calculation-results, 
+  .jumbotron{
     width: auto !important;
     margin-right: 15px !important;
     margin-left: 15px !important;
@@ -366,7 +367,9 @@ body.admin {
   .page-header{
     justify-content: space-around;
   }
-  div.calculation-results{
+
+  .calculation-results,
+  .jumbotron{
     width: 510px;
   }
 
