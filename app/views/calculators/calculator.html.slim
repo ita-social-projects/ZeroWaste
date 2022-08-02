@@ -62,11 +62,14 @@
         = t '.money_will_be_spent'
 .container.calculation-results
   .row
-    .col-sm.result-card
-      .form
+    .col-sm-8.result-card
+      span
         p data-type="description_block_html"
-        = t(".description_block_html", href: link_to(t(".description_link_href"), "how we calculate"))
-      .column-right
-        a[ href="https://zerowastelviv.org.ua/en/zero-waste-nappies-en/" target="_blank"]
-          button.calculate-btn.result-btn[type="link" id="use_less"]
-            =< t('.use_less')
+        =it(".description_block_html",
+                calculate_link_one: It.link("https://zerowastelviv.org.ua/en/diaper-calculator-method-en/",
+                        target: '_blank'),
+                calculate_link_two: It.link("https://zerowastelviv.org.ua/en/contacts/", target: '_blank'))
+    .col-sm.result-card
+      button.calculate-btn.result-btn.discrip-btn
+        =it('.use_less',
+                use_less_link: It.link("https://zerowastelviv.org.ua/en/zero-waste-nappies-en/", target: '_blank'))
