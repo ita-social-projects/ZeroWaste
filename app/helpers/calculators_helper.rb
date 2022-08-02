@@ -18,5 +18,4 @@ module CalculatorsHelper
       arr.join(' ').html_safe
     end
   end
-
 end
