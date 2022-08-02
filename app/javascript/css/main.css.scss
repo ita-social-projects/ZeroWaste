@@ -1,7 +1,7 @@
 body {
   position: relative;
   margin: 0 auto;
-  background: url('../images/mother.jpeg') no-repeat center top;
+  background: url("../images/mother.jpeg") no-repeat center top;
   background-size: cover;
   overflow-x: hidden;
   min-height: 100%;
@@ -30,22 +30,37 @@ a {
 }
 
 .page-header {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
+  padding-left: 11.88%;
+  padding-right: 11.88%;
 }
 
 div.jumbotron {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   background-color: $color;
   padding: 0px 10px;
   margin-top: 10px;
   max-width: 1140px;
   min-height: 310px;
+  margin: 10px auto;
+}
+
+.func-btns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 315px;
+}
+
+.mn-vd {
+  min-width: 102px;
 }
 
 .main-container {
@@ -64,11 +79,11 @@ div.jumbotron {
   max-width: 420px;
   margin: 20px auto;
 
+
   &>:last-of-type {
     & img {
       margin-right: 10px;
     }
-
     &:hover {
       color: $color;
     }
@@ -88,7 +103,8 @@ div.jumbotron {
     padding: 17px 36px;
     font-size: 12px;
     color: $color;
-
+    text-align: center;
+    min-width: 187px;
     &:hover {
       color: $success;
       border-color: $success;
@@ -122,7 +138,7 @@ div.jumbotron {
 
 /* home-page */
 .homepage_title {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   text-align: center;
   margin-top: 200px;
   color: $color;
@@ -138,12 +154,12 @@ main p {
 // forms
 .position-block {
   .card {
-    font-family: 'Comfortaa', sans-serif;
+    font-family: "Comfortaa", sans-serif;
     max-width: 650px;
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
-
+    
     input,
     select {
       display: inline-block;
@@ -156,6 +172,7 @@ main p {
     }
 
     input[type=submit] {
+
       text-transform: uppercase;
       white-space: initial;
       color: $gray;
@@ -214,21 +231,21 @@ div.calculation-results {
   font-size: 14px;
   text-align: center;
   text-transform: capitalize;
-  color: #B3B3B3;
-  border-right: 0.5px solid #F5F5F5;
+  color: #b3b3b3;
+  border-right: 0.5px solid #f5f5f5;
   display: inline-flex;
 
   .img-border {
     display: inline-block;
     height: 70px;
     width: 70px;
-    border: 2px solid #F5F5F5;
+    border: 2px solid #f5f5f5;
     border-radius: 90%;
     margin-right: 10px;
 
     img {
       height: 100%;
-      padding: 15px;
+      padding: 0px;
       margin: auto;
     }
   }
@@ -325,7 +342,6 @@ body.admin {
 }
 
 @media screen and (max-width: $xs) {
-
   .tab,
   .donate-btn a {
     font-size: 12px;
@@ -341,7 +357,6 @@ body.admin {
 }
 
 @media screen and (max-width: $sm) {
-
   .tab,
   .donate-btn a {
     padding: 10px;
