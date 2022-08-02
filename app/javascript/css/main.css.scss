@@ -30,7 +30,7 @@ a {
   font-family: "Comfortaa", sans-serif;
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
@@ -66,6 +66,7 @@ div.jumbotron {
     margin: 0px 30px;
   }
 }
+
 .main-btns {
   display: flex;
   justify-content: space-around;
@@ -87,6 +88,7 @@ div.jumbotron {
   border: none;
   letter-spacing: 2px;
   text-transform: uppercase;
+  margin-bottom: 0.2em;
   a {
     border: 2px solid $gray;
     border-radius: 4px;
@@ -313,19 +315,64 @@ body.admin {
 }
 
 @media screen and (max-width: $xs) {
-  .tab,
+  .tab{
+    display: none;
+  }
+  .calculation-results, 
+  .jumbotron{
+    width: auto !important;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+  }
+  .page-header{
+    justify-content: space-between !important;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .donate-btn a {
     font-size: 12px;
   }
+
   .main-btns {
     max-width: 320px;
     a {
       padding: 10px;
     }
   }
+  .func-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+  }
 }
 @media screen and (max-width: $sm) {
-  .tab,
+  .tab{
+    display: none;
+  }
+  .func-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+  }
+
+  .page-header{
+    justify-content: space-around;
+  }
+
+  .calculation-results,
+  .jumbotron{
+    width: 510px;
+  }
+
   .donate-btn a {
     padding: 10px;
   }
