@@ -20,6 +20,7 @@ gem 'acts_as_singleton'
 gem 'friendly_id', '~> 5.4.0'
 
 gem 'dentaku', '~> 3.1'
+gem 'it'
 
 gem 'country_select', '~> 4.0'
 
@@ -78,5 +79,4 @@ gem 'paper_trail'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'it'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
