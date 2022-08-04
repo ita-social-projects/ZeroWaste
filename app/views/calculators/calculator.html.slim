@@ -21,13 +21,6 @@
               option value = month
                 = month
                 = t('.form.months')
-          select.custom-select#two_years_childs_months
-            option [disabled selected value]
-              =t('.form.childs_months_label')
-            - (0..6).each do |month|
-              option value = month
-                = month
-                = t('.form.months')
           p.form-a
             = t '.form_price'
             select.custom-select#childs_months [required]
