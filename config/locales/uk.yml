@@ -1,7 +1,7 @@
 uk:
   calculators:
     calculator:
-      form_description: "Вік дитини"
+      form_description: "Декілька питань:"
       form_price: "Цінова категорія"
       form:
         childs_birthday_label: "Дата народження дитини"
@@ -14,7 +14,7 @@ uk:
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
-      calculate_result_button: "Розрахувати"
+      calculate_result_button: "ОБЧИСЛИТИ РЕЗУЛЬТАТ"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
       bought_diapers: "Куплено підгузків"
       money_spent: "Витрачено грошей"
