@@ -351,28 +351,7 @@ body.admin {
   }
 }
 @media screen and (max-width: $sm) {
-  .tab{
-    display: none;
-  }
-  .func-btns {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-top: initial;
-    padding-bottom: initial;
-    width: fit-content;
-  }
-
-  .page-header{
-    justify-content: space-around;
-  }
-
-  .calculation-results,
-  .jumbotron{
-    width: 510px;
-  }
-
+  .tab,
   .donate-btn a {
     padding: 10px;
   }
