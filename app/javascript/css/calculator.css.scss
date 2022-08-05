@@ -1,8 +1,9 @@
 .calculate-btn {
   width: 186px;
   height: 56px;
+  margin-top: 40px;
   color: #fff;
-  background-color: #8FBA3B;
+  background-color: #8fba3b;
   border: none;
   border-radius: 4px;
   padding-top: 2px;
@@ -10,7 +11,7 @@
   letter-spacing: 2px;
   text-align: center;
   font-weight: 400;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   transition: transform 0.5s linear;
 }
@@ -21,14 +22,14 @@
 }
 
 .form-p {
-  font-size:20px;
+  font-size: 20px;
   line-height: 30px;
   font-weight: 400;
   color: #666666;
   position: relative;
-  top: 48px;
-  left: 56px;
-  width: 90%;
+  top: 15px;
+  left: 20px;
+  margin-bottom: 0px;
 }
 
 .src {
@@ -38,22 +39,27 @@
 }
 
 .form {
-  padding-top: 15px;
-  padding-left: 55px;
+  padding-top: 25px;
+  padding-left: 15px;
   max-width: 800px;
   text-align: start;
   display: flex;
 }
 
+.row-l {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .flex-item {
-  margin-top: 40px;
   width: fit-content;
   select {
-    margin-top: 10px;
+    margin-top: 25px;
   }
 }
 
-.flex-item input[type="text"], .flex-item input[type="date"]{
+.flex-item input[type="text"],
+.flex-item input[type="date"] {
   height: 50px;
   margin-right: 20px;
 }
@@ -65,22 +71,25 @@
 .form-input {
   width: 160px;
   padding-left: 20px;
-  
 }
 
-.last-year option:nth-child(1n+9) {
+.last-year option:nth-child(1n + 9) {
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 
 #date {
-  width:236px;
+  width: 236px;
   padding-left: 20px;
   padding-right: 12px;
   color: #999999;
 }
 
 .result-btn {
-  width:250px;
+  width: 250px;
   text-align: center;
 }
 
@@ -89,14 +98,8 @@
   margin: 0;
 }
 
-.logo-zerowaste {
-  text-align: center;
-  padding: 6px 0px;
-}
-
 .logo-zerowaste img {
   aspect-ratio: 16 / 9;
   width: 80%;
   border-radius: 5px;
-
 }
