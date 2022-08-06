@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+if Rails.env.development?
 
 describe 'visit Login page', js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
-
+  describe 'visit Calculator page for ENV' do
+    context 'ascending mode' do
+      before do
+        ENV['production'] = 'It`s for development`'
+      end
   it 'when sign in with correct login and password' do
     allow_any_instance_of(ApplicationController)
       .to receive(:after_sign_in_path_for)
@@ -18,4 +23,7 @@ describe 'visit Login page', js: true do
     click_button 'Log in'
     expect(page).to have_selector("a[href='/users/sign_out']")
   end
+    end
+    end
+end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
+if Rails.env.development?
 describe 'sign out', js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
@@ -21,4 +21,5 @@ describe 'sign out', js: true do
     expect(page).to have_current_path("/calculators/#{calculator.slug}")
     expect(page).to have_selector("a[href='/users/sign_in']")
   end
+end
 end
