@@ -55,7 +55,7 @@ $(document).on('turbolinks:load', function() {
           $('[data-type="' + oneItemFromArray.name + '"]').text(oneItemFromArray.result);
         }
         $("#localized_parent").children().last().text("");
-        $("#localized_uk_diaper_string").text(data.word_form + ", які будуть використані")
+        $("#localized_uk_diaper_string").text(data.word_form + ", ви ще використаєте")
       }
     })
   });

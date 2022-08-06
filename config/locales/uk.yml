@@ -1,21 +1,21 @@
 uk:
   calculators:
     calculator:
-      form_description: "Декілька питань:"
+      form_description: "Скільки виповнилося дитині:"
       form:
         childs_birthday_label: "Дата народження дитини"
         childs_age_label: "Вік дитини"
-        childs_years_label: "Скільки років дитині"
-        childs_months_label: "Скільки місяців дитині"
+        childs_years_label: "повних років"
+        childs_months_label: "місяців"
         years: " років"
         months: " місяців"
         baby_weight_label: "Baby weight"
-      calculate_result_button: "ОБЧИСЛИТИ РЕЗУЛЬТАТ"
+      calculate_result_button: "Розрахувати"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
-      bought_diapers: "Куплено підгузків"
-      money_spent: "Витрачено грошей"
+      bought_diapers: "підгузок ви вже використали"
+      money_spent: "грн ви вже витратили"
       will_buy_diapers: "підгузки, які будуть використані"
-      money_will_be_spent: "Буде витрачено грошей"
+      money_will_be_spent: "грн ви ще витратите"
       mililiters_of_naphtha: "Мілілітрів нафти"
       gram_of_plastic: "Грамів пластику"
     show:
