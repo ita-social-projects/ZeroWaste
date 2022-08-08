@@ -7,7 +7,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
 
     let (:values) {}
 
-    context "підгузків" do
+    context "default values" do
 
       let (:values){[
         { name: 'money_spent', result: 0 },
