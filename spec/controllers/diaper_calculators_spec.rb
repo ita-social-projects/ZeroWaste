@@ -15,14 +15,14 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     let(:expected) do
       { result: values,
         date: 0,
-        word_form: 'підгузків' }.to_json
+        word_form: 'підгузків' }
     end
     context 'when default values' do
       before do
         get :create
       end
       it 'renders expected result' do
-        expect(response.body).to eq(expected)
+        expect(response.body).to eq(expected.to_json)
       end
     end
   end
