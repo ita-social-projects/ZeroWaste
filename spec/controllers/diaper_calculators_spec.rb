@@ -3,9 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::DiaperCalculatorsController do
-  before do
-    get :create
-  end
   describe '#create' do
     let(:values) do
       [
@@ -21,6 +18,9 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
         word_form: 'підгузків' }.to_json
     end
     context 'when default values' do
+      before do
+        get :create
+      end
       it 'renders expected result' do
         expect(response.body).to eq(expected)
       end
