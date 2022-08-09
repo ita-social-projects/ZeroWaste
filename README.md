@@ -30,6 +30,7 @@ The latest version from the release branch 'master' is automatically deployed to
 - PostgreSQL 12
 - Puma as a web server
 - Yarn
+- Redis as NoSQL database
 - jQuery
 - Bootstrap
 

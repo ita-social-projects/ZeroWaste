@@ -12,7 +12,7 @@ body
       = link_to t('.contact_us'), new_message_path, class: 'tab' 
     .donate-btn
       = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
-    - if current_locale?(:en)
+    - if user_signed_in? && current_locale?(:en)
       = link_to "Українська", locale_path(:id => :uk), method: :patch, class: "btn btn-outline-success btn-sm"
     - else
       = link_to "English", locale_path(:id => :en), method: :patch, class: "btn btn-outline-success btn-sm"
