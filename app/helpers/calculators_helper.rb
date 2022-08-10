@@ -5,14 +5,14 @@ module CalculatorsHelper
     fields.map { |field| field.selector&.gsub(/\D/, '').to_i }.max
   end
 
-  def render_email_receiver_checkbox
+  def render_email_receiver_checkbox(title_chkbox = {label: 'Yes, I want to receive email messages'})
     return unless user_signed_in?
 
     arr = []
     arr << (simple_format '',
                           { type: 'checkbox', name: 'email_receiver',
                             id: 'checkbox_submit' }, wrapper_tag: 'input')
-    arr << (simple_format 'Yes, I want to receive email messages',
+    arr << (simple_format title_chkbox[:label],
                           { for: 'checkbox_submit' }, wrapper_tag: 'label')
     content_tag(:div, class: 'flex-item') do
       arr.join(' ').html_safe
