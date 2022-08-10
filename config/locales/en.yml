@@ -61,9 +61,9 @@ en:
       donate: "$ DONATE"
       local_lang: "English"
     homepage:
-      homepage_title: "Welcome to Zero Waste Calculator"
-      description: "General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info"
-      calculate: "Calculate"
+      homepage_title: "Welcome to the diaper calculator"
+      description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
+      calculate: "Let's go"
       visit_website: "Visit WebSite"
     admin_navbar:
       calculators: "Calculators"
