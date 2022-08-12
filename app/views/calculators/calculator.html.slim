@@ -28,6 +28,12 @@
               option value = month
                 = month
                 = t('.form.months')
+          p.form-a
+            = t '.form_price'
+            select.custom-select#childs_months [required]
+              - ([(t('.form.budgetary')), (t('.form.medium')), (t('.form.premium'))]).each do |price|
+                option value = price
+                  = price
           = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
           = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
         = render_email_receiver_checkbox
@@ -47,7 +53,12 @@
         = image_pack_tag "diapers_to_buy.png", class:"rounded"
       span
         p data-type="to_be_used_diapers_amount" 0
-        = t '.will_buy_diapers'
+        - if I18n.locale == :en
+          | number of diapers that are going to be used
+        - elsif I18n.locale == :uk
+          #localized_parent
+            #localized_uk_diaper_string
+              | підгузки, які будуть використані
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_spent.png", class:"rounded"
@@ -67,3 +78,4 @@
     .col-sm.result-card
       button.calculate-btn.result-btn.description-btn
         = render 'layouts/description_button'
+
