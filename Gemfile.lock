@@ -171,8 +171,6 @@ GEM
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     i18n_data (0.11.0)
-    it (2.0.0)
-      actionpack (>= 3.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -458,7 +456,6 @@ DEPENDENCIES
   faker
   font-awesome-rails
   friendly_id (~> 5.4.0)
-  it
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.3)
@@ -496,4 +493,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.3.18
+   2.3.11
