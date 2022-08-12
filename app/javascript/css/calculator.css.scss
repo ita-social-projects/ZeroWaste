@@ -113,3 +113,36 @@
   width: 80%;
   border-radius: 5px;
 }
+
+.description-btn {
+  margin-left: 50px;
+  margin-top: 45px;
+  a {
+    color:$color;
+    background-color: transparent;
+    text-decoration: none;
+  }
+}
+
+.col-xl-8.result-card {
+  span {
+    text-align: left;
+    margin-left: 30px;
+    a {
+        color: $success;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+      color: #256d36;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 400px) {
+  button.calculate-btn.result-btn.description-btn {
+    margin: auto;
+  }
+}
