@@ -28,3 +28,41 @@ admin = User.create(
   confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
   role: "admin"
 )
+
+p "Created #{User.count} users"
+
+
+hygiene_type = ProductType.create!(
+  title: 'hygiene',
+)
+
+p "Created #{ProductType.count} product types"
+
+
+diaper = Product.create!(
+  title: 'diaper',
+  product_type_id: hygiene_type.id
+)
+
+p "Created #{Product.count} products"
+
+
+budgetary = ProductPrice.create!(
+  price: 4.99,
+  category: 0,
+  product_id: diaper.id
+)
+
+medium = ProductPrice.create!(
+  price: 6.36,
+  category: 1,
+  product_id: diaper.id
+)
+
+premium = ProductPrice.create!(
+  price: 8.21,
+  category: 2,
+  product_id: diaper.id
+)
+
+p "Created #{ProductPrice.count} product prices"
