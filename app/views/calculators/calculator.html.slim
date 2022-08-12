@@ -71,4 +71,11 @@
       span
         p data-type="money_will_be_spent" 0
         = t '.money_will_be_spent'
+.container.calculation-results
+  .row
+    .col-xl-8.result-card
+      = render 'layouts/description_block'
+    .col-sm.result-card
+      button.calculate-btn.result-btn.description-btn
+        = render 'layouts/description_button'
 
