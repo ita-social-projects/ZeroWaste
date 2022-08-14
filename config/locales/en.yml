@@ -46,7 +46,7 @@ en:
         medium: "medium"
         premium: "premium"
       calculate_result_button: "CALCULATE RESULT"
-      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
+      desire_getting_email: "Yes, I want to receive email messages"
       bought_diapers: "number of diapers that already has been used"
       will_buy_diapers: "number of diapers that are going to be used"
       money_spent: "money already spent on disposable diapers"
