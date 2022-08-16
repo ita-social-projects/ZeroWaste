@@ -35,23 +35,23 @@ hygiene_type = ProductType.create!(
 
 diaper = Product.create!(
   title: 'diaper',
-  product_type_id: hygiene_type
+  product_type: hygiene_type
 )
 
 budgetary = ProductPrice.create!(
   price: 4.99,
   category: 0,
-  product_id: diaper
+  product: diaper
 )
 
 medium = ProductPrice.create!(
   price: 6.36,
   category: 1,
-  product_id: diaper
+  product: diaper
 )
 
 premium = ProductPrice.create!(
   price: 8.21,
   category: 2,
-  product_id: diaper
+  product: diaper
 )
