@@ -30,7 +30,7 @@ admin = User.create(
 )
 
 hygiene_type = ProductType.create!(
-  title: 'hygiene',
+  title: 'hygiene'
 )
 
 diaper = Product.create!(
