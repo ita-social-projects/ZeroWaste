@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe FeatureFlag, type: :model do
   subject(:created_feature) { described_class.new(name: 'created_feature') }
-  subject(:added_feature) { created_feature.add_new_feature }
+  subject(:added_feature) { created_feature.create }
 
   describe 'validations' do
     it {
@@ -16,9 +15,9 @@ RSpec.describe FeatureFlag, type: :model do
     }
   end
 
-  describe '#feature_added?' do
+  describe '#feature_exist?' do
     it 'reaturn true if feature is added to table' do
-      expect(added_feature.feature_added?).to be_truthy
+      expect(added_feature.feature_exist?).to be_truthy
     end
   end
 
