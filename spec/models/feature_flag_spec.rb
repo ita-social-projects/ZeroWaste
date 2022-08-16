@@ -4,8 +4,8 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe FeatureFlag, type: :model do
-  subject(:created_feature){ described_class.new(name:'created_feature')}
-  subject(:added_feature){ created_feature.add_new_feature}
+  subject(:created_feature) { described_class.new(name: 'created_feature') }
+  subject(:added_feature) { created_feature.add_new_feature }
 
   describe 'validations' do
     it {
@@ -30,7 +30,7 @@ RSpec.describe FeatureFlag, type: :model do
     end
     context 'when feature is added in table' do
       it {
-        expect(added_feature.activate.enabled).to be_truthy 
+        expect(added_feature.activate.enabled).to be_truthy
       }
     end
   end
@@ -43,30 +43,27 @@ RSpec.describe FeatureFlag, type: :model do
     end
     context 'when feature is added in table' do
       it {
-        expect(added_feature.deactivate.enabled).to be_falsey 
+        expect(added_feature.deactivate.enabled).to be_falsey
       }
     end
   end
 
-  describe '#active?' do    
+  describe '#active?' do
     context 'when feature is not added in table' do
       it 'return false' do
         expect(created_feature.active?).to be_falsey
       end
     end
-  
+
     context 'when feature is added in table' do
-      let(:activated_feature) { added_feature.activate}
+      let(:activated_feature) { added_feature.activate }
       it 'return true if feature has active status' do
         expect(activated_feature.active?).to be_truthy
       end
-      let(:deactivated_feature) { added_feature.deactivate}
+      let(:deactivated_feature) { added_feature.deactivate }
       it 'return false if feature is inactive status' do
         expect(deactivated_feature.active?).to be_falsey
       end
     end
   end
-
 end
-
-
