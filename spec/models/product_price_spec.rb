@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ProductPrice, type: :model do
-  subject { create(:product_price) }
-  describe 'validations' do
-    context 'price' do
+  describe "validations" do
+    context "price" do
       it {
         is_expected.to validate_presence_of(:price)
       }
     end
-    context 'category' do
+    context "category" do
       it {
         is_expected.to validate_presence_of(:category)
       }
@@ -19,29 +18,30 @@ RSpec.describe ProductPrice, type: :model do
       }
     end
   end
-  describe 'category names' do
+  describe "category names" do
     subject { create(:product_price, category: category) }
-    context 'when category 0' do
+    context "when category 0" do
       let(:category) { 0 }
       it {
-        expect(subject.category).to eq('LOW')
+        expect(subject.category).to eq("LOW")
       }
     end
-    context 'when category 1' do
+    context "when category 1" do
       let(:category) { 1 }
       it {
-        expect(subject.category).to eq('MEDIUM')
+        expect(subject.category).to eq("MEDIUM")
       }
     end
-    context 'when category 2' do
+    context "when category 2" do
       let(:category) { 2 }
       it {
-        expect(subject.category).to eq('HIGH')
+        expect(subject.category).to eq("HIGH")
       }
     end
   end
-  describe 'correct datatype' do
-    context 'when price is a float' do
+  describe "correct datatype" do
+    subject { create(:product_price) }
+    context "when price is a float" do
       it {
         expect(subject.price).to be_a(Float)
       }
