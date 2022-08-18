@@ -27,4 +27,8 @@ class CalculatorsController < ApplicationController
   def find_calculator
     @calculator = Calculator.friendly.find(params[:slug])
   end
+
+  def product_price
+    @product_price = ProductPrice.find_by_id(params[:price])
+  end
 end
