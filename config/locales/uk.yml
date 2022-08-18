@@ -8,8 +8,6 @@ uk:
         childs_age_label: "Вік дитини"
         childs_years_label: "повних років"
         childs_months_label: "місяців"
-        years: " років"
-        months: " місяців"
         baby_weight_label: "Baby weight"
         budgetary: "бюджетна"
         medium: "середня"

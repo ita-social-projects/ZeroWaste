@@ -39,8 +39,6 @@ en:
         childs_age_label: "Child`s age"
         childs_years_label: "years"
         childs_months_label: "months"
-        years: " years"
-        months: " months"
         baby_weight_label: "Baby weight"
         budgetary: "budgetary"
         medium: "medium"
