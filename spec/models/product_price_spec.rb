@@ -3,34 +3,47 @@
 require "rails_helper"
 
 RSpec.describe ProductPrice, type: :model do
-  subject { build(:product_price) }
+  subject { create(:product_price) }
   describe "validations" do
     context "price" do
       it {
-        should validate_presence_of(:price)
-      }
-      it {
-        expect(subject.price).to be_a(Float)
+        is_expected.to validate_presence_of(:price)
       }
     end
     context "category" do
       it {
-        should validate_presence_of(:category)
+        is_expected.to validate_presence_of(:category)
       }
       it {
         should validate_inclusion_of(:category).in?([0, 1, 2])
       }
+    end
+  end
+  describe "category names" do
+    subject { create(:product_price, category: category) }
+    context "when category 0" do
+      let(:category) { 0 }
       it {
-        subject.category = 0
         expect(subject.category).to eq("LOW")
       }
+    end
+    context "when category 1" do
+      let(:category) { 1 }
       it {
-        subject.category = 1
         expect(subject.category).to eq("MEDIUM")
       }
+    end
+    context "when category 2" do
+      let(:category) { 2 }
       it {
-        subject.category = 2
         expect(subject.category).to eq("HIGH")
+      }
+    end
+  end
+  describe "correct datatype" do
+    context "when price is a float" do
+      it {
+        expect(subject.price).to be_a(Float)
       }
     end
   end
