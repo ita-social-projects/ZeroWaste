@@ -13,30 +13,67 @@ RSpec.describe ProductPrice, type: :model do
       it {
         is_expected.to validate_presence_of(:category)
       }
-      it {
-        should validate_inclusion_of(:category).in?([0, 1, 2])
-      }
     end
   end
-  describe "category names" do
+  describe "category" do
     subject { create(:product_price, category: category) }
-    context "when category 0" do
-      let(:category) { 0 }
-      it {
-        expect(subject.category).to eq("LOW")
-      }
+    context "check correct input" do
+      context "when category is -1" do
+        let(:category) { -1 }
+        it {
+          expect { subject }.to raise_error(ArgumentError)
+        }
+      end
+      context "when category is 3" do
+        let(:category) { 3 }
+        it {
+          expect { subject }.to raise_error(ArgumentError)
+        }
+      end
+      context "when category is \"Sd5\"" do
+        let(:category) { "Sd5" }
+        it {
+          expect { subject }.to raise_error(ArgumentError)
+        }
+      end
+      context "when category is 123456789" do
+        let(:category) { 123456789 }
+        it {
+          expect { subject }.to raise_error(ArgumentError)
+        }
+      end
+      context "when category is 1.23456789" do
+        let(:category) { 1.23456789 }
+        it {
+          expect { subject }.to raise_error(ArgumentError)
+        }
+      end
+      context "when category is nil" do
+        let(:category) { nil }
+        it {
+          expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
+        }
+      end
     end
-    context "when category 1" do
-      let(:category) { 1 }
-      it {
-        expect(subject.category).to eq("MEDIUM")
-      }
-    end
-    context "when category 2" do
-      let(:category) { 2 }
-      it {
-        expect(subject.category).to eq("HIGH")
-      }
+    context "check names output" do
+      context "when category 0" do
+        let(:category) { 0 }
+        it {
+          expect(subject.category).to eq("LOW")
+        }
+      end
+      context "when category 1" do
+        let(:category) { 1 }
+        it {
+          expect(subject.category).to eq("MEDIUM")
+        }
+      end
+      context "when category 2" do
+        let(:category) { 2 }
+        it {
+          expect(subject.category).to eq("HIGH")
+        }
+      end
     end
   end
   describe "correct datatype" do
