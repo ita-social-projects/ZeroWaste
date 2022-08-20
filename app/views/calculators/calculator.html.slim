@@ -30,7 +30,7 @@
                 = t('.form.months')
           p.form-a
             = t '.form_price'
-            select.custom-select#childs_months [required]
+            select.custom-select#product_price [required]
               - ([(t('.form.budgetary')), (t('.form.medium')), (t('.form.premium'))]).each do |price|
                 option value = price
                   = price
@@ -78,4 +78,3 @@
     .col-sm.result-card
       button.calculate-btn.result-btn.description-btn
         = render 'layouts/description_button'
-

@@ -34,6 +34,10 @@ module Api
       def childs_age
         params[:childs_age].to_i
       end
+
+      def product_price
+        ProductPrice.find_by_id(params[:price])
+      end
     end
   end
 end
