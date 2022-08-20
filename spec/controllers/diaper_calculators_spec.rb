@@ -24,6 +24,9 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       it 'renders expected result' do
         expect(response.body).to eq(expected.to_json)
       end
+      it 'diaper price category selected' do
+        allow(product_price).to receive(1).and_return(ProductPrice.first)
+      end
     end
   end
 end
