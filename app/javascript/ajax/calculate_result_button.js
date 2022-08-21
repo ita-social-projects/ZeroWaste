@@ -40,7 +40,8 @@ $(document).on('turbolinks:load', function() {
     }
 
     const formData = {
-      childs_age: $("#childs_years").val() * 12 + months
+      childs_age: $("#childs_years").val() * 12 + months,
+      price: document.getElementById("#product_category").selectedIndex + 1;
     }
 
     $.ajax({
