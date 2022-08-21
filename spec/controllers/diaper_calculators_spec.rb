@@ -30,7 +30,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#product_price' do
     context 'when default value' do
       it 'diaper price category selected' do
-        allow(DiaperCalculatorsController).to receive(:price) {1}
+        allow(Api::V1::DiaperCalculatorsController).to receive(:price) {1}
 
         expect(dcc.product_price).to eq(ProductPrice.first)
       end
