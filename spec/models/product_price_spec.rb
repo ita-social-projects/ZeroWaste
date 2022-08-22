@@ -18,26 +18,26 @@ RSpec.describe ProductPrice, type: :model do
   describe "category" do
     subject { create(:product_price, category: category) }
     context "check correct input" do
-      context "when category is -1" do
+      context "when category is minus" do
         let(:category) { -1 }
         it {
           expect { subject }.to raise_error(ArgumentError)
         }
       end
-      context "when category is \"Sd5\"" do
+      context "when category is string" do
         let(:category) { "Sd5" }
         it {
           expect { subject }.to raise_error(ArgumentError)
         }
       end
-      context "when category is 1.23456789" do
+      context "when category is float" do
         let(:category) { 1.23456789 }
         it {
           expect { subject }.to raise_error(ArgumentError)
         }
       end
-      context "when category is nil" do
-        let(:category) { nil }
+      context "when category is empty" do
+        let(:category) { }
         it {
           expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
         }
