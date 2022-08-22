@@ -30,7 +30,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#product_price' do
     context 'when default value' do
       it 'diaper price category selected' do
-        expect(product_price).to be_an_instance_of(ProductPrice)
+        controller = Api::V1::DiaperCalculatorsController.new
+        expect(controller.send(:product_price)).to eq(ProductPrice.first)
       end
     end
   end
