@@ -24,20 +24,8 @@ RSpec.describe ProductPrice, type: :model do
           expect { subject }.to raise_error(ArgumentError)
         }
       end
-      context "when category is 3" do
-        let(:category) { 3 }
-        it {
-          expect { subject }.to raise_error(ArgumentError)
-        }
-      end
       context "when category is \"Sd5\"" do
         let(:category) { "Sd5" }
-        it {
-          expect { subject }.to raise_error(ArgumentError)
-        }
-      end
-      context "when category is 123456789" do
-        let(:category) { 123456789 }
         it {
           expect { subject }.to raise_error(ArgumentError)
         }
