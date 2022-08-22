@@ -4,7 +4,7 @@ class FeatureFlag < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def create
-    FeatureFlag.create(name: name, enabled: false)
+    FactoryBot.create(:feature_flag, name: name)
   end
 
   def feature_exist?
