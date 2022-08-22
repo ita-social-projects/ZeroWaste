@@ -79,11 +79,12 @@ div.jumbotron {
   max-width: 420px;
   margin: 20px auto;
 
-
   &>:last-of-type {
+
     & img {
       margin-right: 10px;
     }
+
     &:hover {
       color: $color;
     }
@@ -106,6 +107,7 @@ div.jumbotron {
     color: $color;
     text-align: center;
     min-width: 187px;
+
     &:hover {
       color: $success;
       border-color: $success;
@@ -160,7 +162,7 @@ main p {
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
-    
+
     input,
     select {
       display: inline-block;
@@ -172,8 +174,8 @@ main p {
       padding: 5px;
     }
 
-    input[type=submit] {
 
+      input[type=submit] {
       text-transform: uppercase;
       white-space: initial;
       color: $gray;
@@ -231,7 +233,6 @@ div.calculation-results {
 .result-card {
   font-size: 14px;
   text-align: center;
-  text-transform: capitalize;
   color: #b3b3b3;
   border-right: 0.5px solid #f5f5f5;
   display: inline-flex;
@@ -253,6 +254,7 @@ div.calculation-results {
 
   p {
     font-size: 24px;
+
   }
 
   &:last-child {
@@ -267,6 +269,7 @@ div.calculation-results {
 
   p {
     font-size: 22px;
+
     font-family: Roboto, sans-serif;
     font-weight: bold;
     color: #808080;
@@ -343,16 +346,22 @@ body.admin {
 }
 
 @media screen and (max-width: $xs) {
-  .tab{
+  .tab {
     display: none;
   }
+
   .calculation-results,
-  .jumbotron{
+  .jumbotron {
     width: auto !important;
     margin-right: 15px !important;
     margin-left: 15px !important;
   }
-  .page-header{
+
+  .calculation-results span {
+    width: 410px;
+  }
+
+  .page-header {
     justify-content: space-between !important;
     padding-left: 15px;
     padding-right: 15px;
@@ -369,6 +378,7 @@ body.admin {
       padding: 10px;
     }
   }
+
   .func-btns {
     display: flex;
     flex-direction: column;
@@ -381,9 +391,10 @@ body.admin {
 }
 
 @media screen and (max-width: $sm) {
-  .tab{
+  .tab {
     display: none;
   }
+
   .func-btns {
     display: flex;
     flex-direction: column;
@@ -394,12 +405,12 @@ body.admin {
     width: fit-content;
   }
 
-  .page-header{
+  .page-header {
     justify-content: space-around;
   }
 
   .calculation-results,
-  .jumbotron{
+  .jumbotron {
     width: 510px;
   }
 

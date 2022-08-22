@@ -51,11 +51,11 @@
       span
         p data-type="to_be_used_diapers_amount" 0
         - if I18n.locale == :en
-          | number of diapers that are going to be used
+          | diapers to be used in the future
         - elsif I18n.locale == :uk
           #localized_parent
             #localized_uk_diaper_string
-              | підгузки, які будуть використані
+              | підгузок ви ще використаєте
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_spent.png", class:"rounded"
