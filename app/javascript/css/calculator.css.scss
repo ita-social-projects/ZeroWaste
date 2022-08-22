@@ -15,6 +15,48 @@
   font-style: normal;
   transition: transform 0.5s linear;
 }
+.scales-image {
+  width: 428px;
+  height: 327px;
+  margin-left: 0px;
+  margin-top: 0;
+}
+.scales-bigger-image {
+  display: none;
+}
+.custom-select {
+  background: #ECECEC;
+  border-radius: 8px;
+  height: 35px;
+  margin-top: 10px;
+}
+#childs_months {
+  background-image: url("../images/select_arrow.png");
+  background-repeat: no-repeat;
+  background-position: 97% 20%;
+}
+#button_submit {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 20px;
+  width: 275px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.price-container{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.calculate-container{
+  width: 275px;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
 
 #calc {
   padding-top: 2px;
@@ -22,14 +64,13 @@
 }
 
 .form-p {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 20px;
   font-weight: 400;
-  color: #666666;
+  color: #515151;
   position: relative;
   top: 15px;
   left: 20px;
-  margin-bottom: 0px;
 }
 .form-a {
   font-size: 20px;
@@ -41,7 +82,6 @@
   left: 0px;
   margin-bottom: 0px;
 }
-
 .src {
   position: relative;
   top: 25px;
@@ -144,5 +184,54 @@
 @media screen and (max-width: 1199px) and (min-width: 400px) {
   button.calculate-btn.result-btn.description-btn {
     margin: auto;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  .price-container{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .scales-image{
+    display: none;
+  }
+  .scales-bigger-image {
+    display: block;
+    width: 300px;
+    height: 350px;
+    align-self: center;
+    margin-left: 100px;
+  }
+  .calculate-container, .container, {
+    background-color: #ECECEC;
+    margin: 0;
+  }
+  .calculate-container {
+    margin-bottom: 50px;
+  }
+  .image-container {
+    align-self: center;
+    background-color: white;
+    width: 510px;
+
+  }
+  .calculate-container {
+    align-self: center;
+  }
+  .custom-select {
+    background: #FFFFFF;
+  }
+  #button_submit {
+    height: 85px;
+  }
+
+  #childs_months {
+  background-image: url("../images/select_arrow.png");
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  }
+  div.jumbotron {
+    background-color: #ECECEC;
+    padding-bottom: 0;
   }
 }

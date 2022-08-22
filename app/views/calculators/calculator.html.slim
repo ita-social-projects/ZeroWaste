@@ -1,6 +1,21 @@
 .jumbotron
   .container
-    
+   .price-container
+    .image-container
+       = image_pack_tag "scales.png", class:"scales-image"
+       = image_pack_tag "scales-bigger.png", class:"scales-bigger-image"
+    .calculate-container
+       p.form-p
+        = t '.form.childs_age_label'
+        select.custom-select#childs_years [required]
+       p.form-p
+         = t '.form_price'
+         select.custom-select#childs_months [required]
+                - ([(t('.form.budgetary')), (t('.form.medium')), (t('.form.premium'))]).each do |price|
+                  option value = price
+                    = price
+       button.calculate-btn.result-btn[type="submit" id="button_submit"]
+        =<t('.calculate_result_button')
 .container.calculation-results
   .row
     .col-xl-8.result-card
