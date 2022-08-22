@@ -1,7 +1,7 @@
 uk:
   calculators:
     calculator:
-      form_description: "Декілька питань:"
+      form_description: "Скільки виповнилося дитині:"
       form_price: "Цінова категорія"
       form:
         childs_birthday_label: "Дата народження дитини"
@@ -12,12 +12,12 @@ uk:
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
-      calculate_result_button: "ОБЧИСЛИТИ РЕЗУЛЬТАТ"
+      calculate_result_button: "Розрахувати"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
-      bought_diapers: "Куплено підгузків"
-      money_spent: "Витрачено грошей"
-      will_buy_diapers: "підгузки, які будуть використані"
-      money_will_be_spent: "Буде витрачено грошей"
+      bought_diapers: "підгузок ви вже використали"
+      money_spent: "грн ви вже витратили"
+      will_buy_diapers: "підгузки які будуть використані"
+      money_will_be_spent: "грн ви ще витратите"
       mililiters_of_naphtha: "Мілілітрів нафти"
       gram_of_plastic: "Грамів пластику"
     show:
