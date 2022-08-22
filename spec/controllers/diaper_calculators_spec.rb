@@ -30,7 +30,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#product_price' do
     let(:params) do
       [
-        price: 1
+        { price: 1 }
       ]
     end
     context 'when default value' do
