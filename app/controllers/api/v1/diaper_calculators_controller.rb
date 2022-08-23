@@ -28,8 +28,8 @@ module Api
       end
 
       def diapers_service_handler(age, price_category)
-          @diapers_service_handler ||=
-            Calculators::DiapersService.new(age, price_category)
+        @diapers_service_handler ||=
+          Calculators::DiapersService.new(age, price_category)
       end
 
       def childs_age
