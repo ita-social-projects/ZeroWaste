@@ -27,9 +27,8 @@ module Api
         LanguageHelper::UkrLanguage.new.correct_word_form(quantity)
       end
 
-      def diapers_service_handler(age, price_category)
-        @diapers_service_handler ||=
-          Calculators::DiapersService.new(age, price_category)
+      def diapers_service_handler(age)
+        @diapers_service_handler ||= Calculators::DiapersService.new(age)
       end
 
       def childs_age
