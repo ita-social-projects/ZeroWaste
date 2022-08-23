@@ -41,9 +41,9 @@ $(document).on('turbolinks:load', function() {
 
     let price_index = $("#product_category").selectedIndex + 1;
 
-    if(price_index == 0)
+    if (price_index == 0)
     {
-    price_index = 2;
+      price_index = 2;
     }
 
     const formData = {
