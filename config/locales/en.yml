@@ -32,21 +32,23 @@
 en:
   calculators:
     calculator:
-      form_description: "Just a couple of questions"
+      form_description: "Child’s age:"
+      form_price: "Price category"
       form:
         childs_birthday_label: "Child's birthday"
         childs_age_label: "Child`s age"
-        childs_years_label: "How many years the child"
-        childs_months_label: "How many months the child"
-        years: " years"
-        months: " months"
+        childs_years_label: "years"
+        childs_months_label: "months"
         baby_weight_label: "Baby weight"
-      calculate_result_button: "CALCULATE RESULT"
+        budgetary: "budgetary"
+        medium: "medium"
+        premium: "premium"
+      calculate_result_button: "Calculate"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
-      bought_diapers: "number of diapers that already has been used"
-      will_buy_diapers: "number of diapers that are going to be used"
-      money_spent: "money already spent on disposable diapers"
-      money_will_be_spent: "money that will be spent on disposable diapers until child starts using panties"
+      bought_diapers: "diapers already used"
+      will_buy_diapers: "diapers to be used in the future"
+      money_spent: "UAH already spent on diapers"
+      money_will_be_spent: "UAH yet to be spent on diapers"
       mililiters_of_naphtha: "Mililiters of Naphtha"
       gram_of_plastic: "Gram of Plastic"
     show:
@@ -58,13 +60,21 @@ en:
       sign_up: "Sign Up"
       log_in: "Log In"
       сontact_us: "Contact us"
-      contacts: "Contacts"
       donate: "$ DONATE"
       local_lang: "English"
+    description_block:
+      description_block_html: "These how are approximate results. The exact numbers for your
+      family may differ depending on your daily habits and the diaper brand of choice. At any point of using
+      diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
+      this can be done and what reusable alternatives to disposable diapers there are. You can also learn
+      more about %{calculate_link_one:how we calculate} the number and cost of diapers 
+      or %{calculate_link_two:contact us} with any other questions you may have."
+    description_button:
+      use_less: "%{use_less_link:HOW TO USE LESS}"
     homepage:
-      homepage_title: "Welcome to Zero Waste Calculator"
-      description: "General information about the calculator. Description of why it is needed and what it considers. You can also write that below user can see educational info"
-      calculate: "Calculate"
+      homepage_title: "Welcome to the diaper calculator"
+      description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
+      calculate: "Let's go"
       visit_website: "Visit WebSite"
     admin_navbar:
       calculators: "Calculators"
