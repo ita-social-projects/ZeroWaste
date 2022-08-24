@@ -7,31 +7,29 @@
     .calculate-container
        p.form-p
         = t '.form.childs_age_label'
-        .custom-select#childs_years [required]
-          select.inline_select
+        .custom-select#years_form [required]
+          select.inline_select#childs_years
                option value=""  __
-               option 0
-               option 1
-               option 2
+               option
+               -(0..2).each do |year|
+                option value = year
+                 =year
           | р.
-          select.inline_select
+          select.inline_select#childs_months
                option value=""  __
-               option 1
-               option 2
-               option 3
-               option 4
-               option 5
-               option 6
-               option 7
-               option 8
-               option 9
-               option 10
-               option 11
-               option 12
+               option
+               -(0..11).each do |month|
+                option value = month
+                 =month
+          select.inline_select#two_years_childs_months
+                option [disabled selected value]
+                -(0..11).each do |month|
+                  option value = month
+                   =month
           | міс.
        p.form-p
          = t '.form_price'
-         select.custom-select#childs_months [required]
+         select.custom-select#budget_form [required]
                 - ([(t('.form.budgetary')), (t('.form.medium')), (t('.form.premium'))]).each do |price|
                   option value = price
                     = price

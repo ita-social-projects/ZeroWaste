@@ -30,10 +30,13 @@
   height: 35px;
   margin-top: 10px;
 }
-#childs_months {
+#budget_form{
   background-image: url("../images/select_arrow.png");
   background-repeat: no-repeat;
   background-position: 97% 20%;
+}
+#two_years_childs_months{
+  display: none;
 }
 .inline_select{
   border:none;
@@ -48,7 +51,7 @@
   line-height: 18px;
   color: #515151;
 }
-#childs_years{
+#years_form{
   margin-left: 20px;
 }
 #button_submit {
@@ -198,7 +201,7 @@
     margin: auto;
   }
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .price-container{
     display: flex;
     flex-direction: column-reverse;
@@ -237,7 +240,7 @@
     height: 85px;
   }
 
-  #childs_months {
+  #budget_form {
   background-image: url("../images/select_arrow.png");
   background-repeat: no-repeat;
   background-position: 95% 50%;
