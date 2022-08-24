@@ -24,15 +24,15 @@ module ApplicationHelper
 
   def change_locale!
     sl = I18n.locale.to_s
-     if !user_signed_in?
-       sl = (sl == 'en' ? 'uk' : 'en').to_sym
-     else
-         if sl == 'uk'
+    if !user_signed_in?
+      sl = (sl == 'en' ? 'uk' : 'en').to_sym
+    else
+        if sl == 'uk'
            sl = 'en'.to_sym
-         else 
+        else
            sl = 'uk'.to_sym
         end
-     end
-    sl==:uk ? { sl => 'Українська' } : { sl => 'English' }
+    end
+    sl == :uk ? { sl => 'Українська' } : { sl => 'English' }
   end
 end
