@@ -26,13 +26,13 @@ module ApplicationHelper
     sl = I18n.locale.to_s
     if user_signed_in?
       sl = if sl == 'uk'
-             'en'.to_sym
+             'en'
            else
-             'uk'.to_sym
+             'uk'
            end
     else
-      sl = (sl == 'en' ? 'uk' : 'en').to_sym
+      sl = sl == 'en' ? 'uk' : 'en'
     end
-    sl == :uk ? { sl => 'Українська' } : { sl => 'English' }
+    sl.to_sym == :uk ? { sl => 'Українська' } : { sl => 'English' }
   end
 end
