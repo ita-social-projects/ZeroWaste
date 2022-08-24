@@ -27,11 +27,11 @@ module ApplicationHelper
     if !user_signed_in?
       sl = (sl == 'en' ? 'uk' : 'en').to_sym
     else
-        if sl == 'uk'
-           sl = 'en'.to_sym
-        else
-           sl = 'uk'.to_sym
-        end
+      if sl == 'uk'
+          sl = 'en'.to_sym
+      else
+          sl = 'uk'.to_sym
+      end
     end
     sl == :uk ? { sl => 'Українська' } : { sl => 'English' }
   end
