@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-if Rails.env.development?
+
+if RAILSENVDEV
 describe 'sign out', js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
@@ -13,7 +14,7 @@ describe 'sign out', js: true do
     fill_in 'Password', with: user.password
     click_button 'Log in'
     Capybara.using_wait_time flash_message_disappear_time do
-      click_link 'Log Out'
+    click_link 'Log Out'
     end
   end
 
