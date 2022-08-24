@@ -35,6 +35,22 @@
   background-repeat: no-repeat;
   background-position: 97% 20%;
 }
+.inline_select{
+  border:none;
+  -webkit-appearance: none;
+  width:20px;
+  background: none;
+  border: none;
+  outline: 0px;
+  font-family: "Comfortaa", normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #515151;
+}
+#childs_years{
+  margin-left: 20px;
+}
 #button_submit {
   font-family: "Comfortaa", sans-serif;
   font-size: 18px;
@@ -45,7 +61,6 @@
   height: 40px;
   margin-left: 20px;
 }
-
 .price-container{
   display: flex;
   flex-direction: row-reverse;
@@ -56,13 +71,10 @@
   margin-left: 100px;
   margin-top: 50px;
 }
-
-
 #calc {
   padding-top: 2px;
   margin-right: 10px;
 }
-
 .form-p {
   font-size: 18px;
   line-height: 20px;
