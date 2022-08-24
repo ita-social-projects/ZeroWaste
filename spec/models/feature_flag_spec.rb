@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe FeatureFlag, type: :model do
   let(:new_flag) { build(:feature_flag) }
-  subject(:feature) { described_class.new(name: new_flag.name, enabled: new_flag.enabled)}
+  subject(:feature) { described_class.new(new_flag.attributes)}
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
