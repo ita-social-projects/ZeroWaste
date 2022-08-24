@@ -25,11 +25,11 @@ module ApplicationHelper
   def change_locale!
     sl = I18n.locale.to_s
     sl = if user_signed_in?
-           sl = if sl == 'uk'
-                  'en'
-                else
-                  'uk'
-                end
+           if sl == 'uk'
+             'en'
+           else
+             'uk'
+           end
          else
            sl == 'en' ? 'uk' : 'en'
          end
