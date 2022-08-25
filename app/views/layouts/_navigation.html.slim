@@ -13,5 +13,5 @@ body
     .func-btns
       .donate-btn
         = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
-      - res = change_locale!
-      = link_to res.values.first, locale_path(:id => res.keys.first), method: :patch, class: "btn btn-outline-success btn-sm"
+       - res = change_locale!
+       = link_to res.values.first, locale_path(:id => res.keys.first), method: :patch, class: "btn btn-outline-success btn-sm"

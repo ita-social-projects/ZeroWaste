@@ -15,5 +15,5 @@ nav class=["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "border-bot
           li.nav-item.mx-3
             = link_to t('.app_config'), edit_admins_app_config_path, class: 'navbar-brand text-success h3'
       div.col-2
-        - res = change_locale!
-        = link_to res.values.first, locale_path(:id => res.keys.first), method: :patch, class: "btn btn-outline-success btn-sm" 
+         - res = change_locale!
+         = link_to res.values.first, locale_path(:id => res.keys.first), method: :patch, class: "btn btn-outline-success btn-sm" 
