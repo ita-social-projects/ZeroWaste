@@ -44,8 +44,9 @@ a {
 div.jumbotron {
   font-family: "Comfortaa", sans-serif;
   background-color: $color;
-  padding: 25px 10px;
-  max-width: 1110px;
+  padding: 0px 10px;
+  margin-top: 10px;
+  max-width: 1140px;
   min-height: 310px;
   margin: 10px auto;
 }
@@ -78,7 +79,8 @@ div.jumbotron {
   max-width: 420px;
   margin: 20px auto;
 
-  &> :last-of-type {
+  &>:last-of-type {
+
     & img {
       margin-right: 10px;
     }
@@ -172,7 +174,8 @@ main p {
       padding: 5px;
     }
 
-    input[type="submit"] {
+
+      input[type=submit] {
       text-transform: uppercase;
       white-space: initial;
       color: $gray;
@@ -199,7 +202,7 @@ label.text-center,
 .btn-success,
 .result-card,
 .last-result-card {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 h1,
