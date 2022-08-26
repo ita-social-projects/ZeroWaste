@@ -11,7 +11,7 @@ module Api
       ].freeze
 
       def create
-        result = diapers_service_handler(childs_age, product_price).calculate!
+        result = diapers_service_handler(childs_age).calculate!
         diapers = diapers_correct_form(result.to_be_used_diapers_amount)
         VALUES[0][:result] = result.used_diapers_price
         VALUES[1][:result] = result.to_be_used_diapers_price
