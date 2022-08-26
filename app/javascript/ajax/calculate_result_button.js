@@ -39,8 +39,15 @@ $(document).on('turbolinks:load', function() {
       months = (+$("#childs_months").val())
     }
 
+    let price_index = $("#product_category").selectedIndex + 1;
+
+    if (price_index < 1 or price_index > 3) {
+      price_index = 2;
+    }
+
     const formData = {
-      childs_age: $("#childs_years").val() * 12 + months
+      childs_age: $("#childs_years").val() * 12 + months,
+      price: price_index
     }
 
     $.ajax({
