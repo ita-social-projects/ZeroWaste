@@ -80,5 +80,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-
-RAILSENVDEV = Rails.env.development?

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-if RAILSENVDEV
+
 describe 'visit Calculator page', js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
@@ -17,5 +17,4 @@ describe 'visit Calculator page', js: true do
     click_link ('Log In')
     expect(page).to have_content 'Forgot your password'
   end
-end
 end
