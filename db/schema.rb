@@ -63,10 +63,11 @@ ActiveRecord::Schema.define(version: 2022_08_08_110227) do
   end
 
   create_table "feature_flags", force: :cascade do |t|
-    t.string "name"
-    t.boolean "enabled"
+    t.string "name", null: false
+    t.boolean "enabled", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_feature_flags_on_name", unique: true
   end
 
   create_table "fields", force: :cascade do |t|

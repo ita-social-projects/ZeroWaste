@@ -12,15 +12,11 @@ class FeatureFlag < ApplicationRecord
   end
 
   def activate
-    feature_flag = feature_exist? ? self : create
-    feature_flag.update(enabled: true)
-    feature_flag
+    (feature_exist? ? self : create).tap{ |f| f.update(enabled: true)}
   end
 
   def deactivate
-    feature_flag = feature_exist? ? self : create
-    feature_flag.update(enabled: false)
-    feature_flag
+    (feature_exist? ? self : create).tap{ |f| f.update(enabled: false)}
   end
 
   def active?
