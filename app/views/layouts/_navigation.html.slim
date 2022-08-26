@@ -11,10 +11,14 @@ body
             = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
             = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
         = link_to t('.contact_us'), new_message_path, class: 'tab'
-        = render 'layouts/contacts_link'
+        = it 'layouts.navigation.contacts',
+                contacts: It.link(("https://zerowastelviv.org.ua/en/contacts/"), class: 'tab'),
+             contacts_uk: It.link(("https://zerowastelviv.org.ua/kontakty/"), class: 'tab')
       - else
         .tabs
-          = render 'layouts/contacts_link'
+          = it 'layouts.navigation.contacts',
+                  contacts: It.link(("https://zerowastelviv.org.ua/en/contacts/"), class: 'tab'),
+                  contacts_uk: It.link(("https://zerowastelviv.org.ua/kontakty/"), class: 'tab')
     .func-btns
       .donate-btn
         = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
