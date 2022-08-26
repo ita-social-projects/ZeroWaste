@@ -1,0 +1,6 @@
+- if I18n.locale == :en
+  = link_to I18n.t('layouts.navigation.contacts'), "https://zerowastelviv.org.ua/en/contacts/",
+          class: 'tab', id: 'contacts'
+- else
+  = link_to I18n.t('layouts.navigation.contacts'), "https://zerowastelviv.org.ua/kontakty/",
+          class: 'tab', id: 'contacts'
