@@ -4,7 +4,7 @@ class FeatureFlag < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def create
-    FeatureFlag.create(name: name, enabled: false)
+    FeatureFlag.create!(name: name, enabled: false)
   end
 
   def feature_exist?
@@ -12,11 +12,11 @@ class FeatureFlag < ApplicationRecord
   end
 
   def activate
-    (feature_exist? ? self : create).tap{ |f| f.update(enabled: true)}
+    (feature_exist? ? self : create).tap { |f| f.update(enabled: true) }
   end
 
   def deactivate
-    (feature_exist? ? self : create).tap{ |f| f.update(enabled: false)}
+    (feature_exist? ? self : create).tap { |f| f.update(enabled: false) }
   end
 
   def active?
