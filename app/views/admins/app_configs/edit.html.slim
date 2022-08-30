@@ -72,6 +72,7 @@ h2.text-center = t '.diapers_calculator_config'
       .col
         = f.label t('.seventh_period'), class: 'h3'
       .col
+        = f.label t('calculators.calculator.form_price'), class: 'h3'
     .row
       .col-3
         = f.label :seventh_amount, t('.amount')
@@ -81,6 +82,15 @@ h2.text-center = t '.diapers_calculator_config'
         = f.label :seventh_price, t('.price')
         = f.number_field :seventh_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['25..30']['price'],
                       class: 'form-input-number'
-      .col-6
+      .col-2
+        = f.label :price_category, t('calculators.calculator.form.budgetary')
+        = f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number', id: 'field_for_price'
+      .col-2
+        = f.label :price_category, t('calculators.calculator.form.medium')
+        = f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number', id: 'field_for_price'
+      .col-2
+        = f.label :price_category, t('calculators.calculator.form.premium')
+        = f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number', id: 'field_for_price'
+      .col
         button.calculate-btn.result-btn[type='submit']
           = t '.update'
