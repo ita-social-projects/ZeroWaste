@@ -36,7 +36,7 @@ module Api
       end
 
       def product_price
-        ProductPrice.find_by_id(params[:price])
+        ProductPrice.find_by_id(params[:price_id])
       end
     end
   end

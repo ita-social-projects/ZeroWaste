@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
 
     const formData = {
       childs_age: $("#childs_years").val() * 12 + months,
-      price: price_index
+      price_id: price_index
     }
 
     $.ajax({
