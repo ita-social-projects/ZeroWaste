@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+
 describe 'sign out', js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }

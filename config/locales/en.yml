@@ -60,7 +60,8 @@ en:
       sign_up: "Sign Up"
       log_in: "Log In"
       сontact_us: "Contact us"
-      donate: "$ DONATE"
+      contacts: "%{contacts:Contacts}"
+      donate: "DONATE"
       local_lang: "English"
     description_block:
       description_block_html: "These how are approximate results. The exact numbers for your
