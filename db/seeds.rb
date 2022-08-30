@@ -55,3 +55,8 @@ premium = ProductPrice.create!(
   category: 2,
   product: diaper
 )
+
+feature_budget_category = FeatureFlag.create!(
+  name: "feature_budget_category",
+  enabled: false
+)
