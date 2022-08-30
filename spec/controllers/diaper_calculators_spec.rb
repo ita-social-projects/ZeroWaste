@@ -30,7 +30,15 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     context 'when default value' do
       it 'diaper price category selected' do
         controller.params[:price_id] = 1
-        expect(controller.send(:product_price)).to eq(ProductPrice.first)
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by_id(1))
+      end
+    end
+  end
+  describe '#childs_age' do
+    context 'when default value' do
+      it 'child`s age selected' do
+        controller.params[:childs_age] = 1
+        expect(controller.send(:childs_age)).to eq(1)
       end
     end
   end
