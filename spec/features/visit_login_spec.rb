@@ -16,6 +16,7 @@ describe 'visit Login page', js: true do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
+    expect(page).to have_content 'Signed in successfully'
     expect(page).to have_selector("a[href='/users/sign_out']")
   end
 end

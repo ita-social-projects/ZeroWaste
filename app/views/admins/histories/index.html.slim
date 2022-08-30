@@ -1,11 +1,11 @@
 .container.bg-light.p-3
-  h2.text-center.p-3 = t 'History'
+  h2.text-center.p-3 =t('.history_title')
   table.table.table-striped.table-bordered
     thead
       tr.text-center.table-secondary
         th.align-baseline = t '.table.version_created_at'
-        th.align-baseline = t '.table.event_ID:'
-        th.align-baseline = t '.table.user_id:'
+        th.align-baseline = t '.table.event_ID'
+        th.align-baseline = t '.table.user_id'
         th.align-baseline = t '.table.action'
         th.align-baseline = t '.table.more_info_(field, old_value, new_value)'
         th.align-baseline = t '.table.model_type'
@@ -26,4 +26,4 @@
 
 .container
   .btn.btn-light.m-3
-    = link_to 'Back', admins_users_path, class: 'text-secondary'
+    = link_to t('.back_link'), admins_users_path, class: 'text-secondary'

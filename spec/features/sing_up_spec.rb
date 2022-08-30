@@ -14,7 +14,7 @@ describe 'User Sign Up', js: true do
       fill_in 'First name', with: 'User'
       fill_in 'Last name', with: 'Users'
       select 'Albania', from: 'user_country'
-      click_button 'Sign Up'
+      click_button 'Sing Up'
       expect(page).to have_content 'A message with a confirmation link has '
     end
   end

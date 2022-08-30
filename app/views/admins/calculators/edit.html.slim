@@ -2,12 +2,12 @@
   - if @calculator.errors.any?
     div
       h2
-        = pluralize(@calculator.errors.count, 'error')
-        |  prohibited this calculator from being updated:
+      = t('activerecord.form_errors', :count => @calculator.errors.count,
+                       :model => t('models.calculator').downcase)
       ul
         - @calculator.errors.full_messages.each do |error_message|
           li= error_message
-
+few
   = simple_form_for @calculator, url: { action: 'update' }, wrapper: :horizontal_form, html: { novalidate: false } do |f|
     .form-group.row
       .col-4.has-float-label.my-auto
@@ -17,58 +17,58 @@
       .col-4.has-float-label.my-auto
         = f.input :preferable, class: 'form-control'
 
-    h4.mt-5 Add new Field
+    h4.mt-5 =t('.add_new_field_label')
 
     .form-group.row
       .col-6
         = select_tag :kind,
                 options_from_collection_for_select(Field.kinds.keys, :itself, :capitalize),
                 id: 'calculator_fields_kind',
-                prompt: 'Select field kind',
+                prompt: t('.form.select_field_kind_label'),
                 class: 'custom-select',
                 data: { 'fields-list' => { form: [NamedValue.name, Select.name],
                                            parameter: [Value.name, RangeField.name, Select.name, Calculation.name],
                                            result: [Calculation.name] } }
       .col-4
         = select_tag :type, '', id: 'calculator_fields_type',
-                                prompt: 'Select field type',
+                                prompt:  t('.form.select_field_type_label'),
                                 class: 'custom-select',
                                 disabled: true
 
       .col-2
-        = link_to 'Create', '#',
+        = link_to t('.form.create_button'), '#',
                 class: 'btn btn-success text-white disabled',
                 id: 'add-calculator-field',
                 data: { url: new_admins_calculator_field_path(@calculator) }
 
     .my-5
-      h4.mb-2 Form
+      h4.mb-2 =t('.form.form_label')
       .form-group.row data-kind='form' data-selector-letter=('form'[0].upcase) data-last-selector=(extract_max_selector(@form_fields))
         - if @form_fields.any?
           = f.fields_for :fields, @form_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
         - else
-          p.ml-3.my-3.text-black-50 data-empty-text=true No fields yet
+          p.ml-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
 
-      h4.mb-2 Parameters
+      h4.mb-2 =t('.form.parameters_label')
       .form-group.row data-kind='parameter' data-selector-letter=('parameter'[0].upcase) data-last-selector=(extract_max_selector(@parameter_fields))
         - if @parameter_fields.any?
           = f.fields_for :fields, @parameter_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
         - else
-          p.ml-3.my-3.text-black-50 data-empty-text=true No fields yet
+          p.ml-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
 
-      h4.mb-2 Results
+      h4.mb-2 =t('.form.results_label')
       .form-group.row data-kind='result' data-selector-letter=('result'[0].upcase) data-last-selector=(extract_max_selector(@result_fields))
         - if @result_fields.any?
           = f.fields_for :fields, @result_fields do |ff|
             = render 'admins/calculators/fields/form', f: ff
         - else
-          p.ml-3.my-3.text-black-50 data-empty-text=true No fields yet
+          p.ml-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
 
       .row.my-4
         .col-12.d-flex.justify-content-end
-          = f.button :submit, 'Update calculator', class: 'btn btn-success mr-2'
+          = f.button :submit, t('.form.update_calculator_button'), class: 'btn btn-success mr-2'
           = link_to admins_calculators_path, class: 'btn btn-danger' do
-            span.mr-1 Cancel
+            span.mr-1 =t('.form.cancel_button')
             i.fa.fa-times-circle

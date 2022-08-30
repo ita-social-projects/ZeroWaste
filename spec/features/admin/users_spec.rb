@@ -11,7 +11,7 @@ describe 'visit admin page', js: true do
                   last_sign_in_at: time_login)
   end
   before (:each) do
-    @admin=create(:admin)
+    @admin = create(:user, :admin)
     sign_in @admin
   end
 
@@ -32,9 +32,9 @@ describe 'visit admin page', js: true do
       expect(page).to have_content 'First name'
       expect(page).to have_content 'Last name'
       expect(page).to have_content 'Country'
-      expect(page).to have_content 'Last sign in date and time'
-      expect(page).to have_content 'Current sign in IP'
-      expect(page).to have_content 'Last sign in IP'
+      expect(page).to have_content 'Last signing in'
+      expect(page).to have_content 'Current IP-address'
+      expect(page).to have_content 'Last IP-address'
     end
   end
 
@@ -49,7 +49,7 @@ describe 'visit admin page', js: true do
      expect(page).to have_content 'Last name'
      expect(page).to have_content 'Country'
      expect(page).to have_content 'Password'
-     expect(page).to have_content 'Password confirmation'
+     expect(page).to have_content 'Re-password'
    end
  end
 
@@ -88,7 +88,7 @@ end
 
 describe 'user info page' do
   before (:each) do
-    @admin=create(:admin)
+    @admin = create(:user, :admin)
     sign_in @admin
   end
   context 'viewing non-existing user' do
