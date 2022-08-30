@@ -12,15 +12,15 @@ module Api
 
       def create
         result = diapers_service_handler(childs_age).calculate!
-        diapers_to_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
+        diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
         diapers_used = diapers_correct_form(result.used_diapers_amount)
         VALUES[0][:result] = result.used_diapers_price
         VALUES[1][:result] = result.to_be_used_diapers_price
         VALUES[2][:result] = result.used_diapers_amount
         VALUES[3][:result] = result.to_be_used_diapers_amount
         render(json: { result: VALUES, date: childs_age,
-                       word_form_to_be_used: diapers_to_be_used,
-                       word_form_used: diapers_used})
+                       word_form_to_be_used: diapers_be_used,
+                       word_form_used: diapers_used })
       end
 
       private
