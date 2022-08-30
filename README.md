@@ -17,10 +17,6 @@ In order to attract attention to financial and ecological consequences of dispos
 - [Usage](#Usage)
   - [How to run Rubocop](#How-to-run-Rubocop)
   - [Git-hook pre-commit](#Git-hook-pre-commit)
-  
-## Deployed Apps and Environments
-The latest version from the 'develop' branch is automatically deployed to stage environment in Heroku, [staging link](https://zerowaste-staging.herokuapp.com/).
-The latest version from the release branch 'master' is automatically deployed to Production environment, [production link](https://zero-waste-project.herokuapp.com/).
 
 ## Deployed Apps and Environments
 The latest version from the 'develop' branch is automatically deployed to stage environment in Heroku, [staging link](https://zerowaste-staging.herokuapp.com/).
