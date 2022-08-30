@@ -33,7 +33,7 @@
                   = price
           = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
           = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
-        = render_email_receiver_checkbox
+        = render_email_receiver_checkbox label: t('.desire_getting_email')
         button.calculate-btn.result-btn[type="submit" id="button_submit"]
           =<t('.calculate_result_button')
 .container.calculation-results
