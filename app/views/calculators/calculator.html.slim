@@ -43,7 +43,12 @@
         = image_pack_tag "diapers_bought.png", class:"rounded"
       span
         p data-type="used_diapers_amount" 0
-        = t '.bought_diapers'
+        - if I18n.locale == :en
+          | diapers already used
+        - elsif I18n.locale == :uk
+          .localized_parent
+            #localized_uk_used_diapers_amount
+              | підгузок ви вже використали
     .col-sm.result-card
       .img-border
         = image_pack_tag "diapers_to_buy.png", class:"rounded"
@@ -52,8 +57,8 @@
         - if I18n.locale == :en
           | diapers to be used in the future
         - elsif I18n.locale == :uk
-          #localized_parent
-            #localized_uk_diaper_string
+          .localized_parent
+            #localized_uk_to_be_used_diapers_amount
               | підгузок ви ще використаєте
     .col-sm.result-card
       .img-border
@@ -74,4 +79,3 @@
     .col-sm.result-card
       button.calculate-btn.result-btn.description-btn
         = render 'layouts/description_button'
-
