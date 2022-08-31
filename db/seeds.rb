@@ -55,3 +55,8 @@ premium = ProductPrice.create!(
   category: 2,
   product: diaper
 )
+
+show_admin_menu = FeatureFlag.create!(
+  name: 'show_admin_menu',
+  enabled: true
+)
