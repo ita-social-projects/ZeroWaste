@@ -58,5 +58,5 @@ premium = ProductPrice.create!(
 
 feature_budget_category = FeatureFlag.create!(
   name: "feature_budget_category",
-  enabled: false
+  enabled: true
 )

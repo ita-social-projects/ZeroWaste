@@ -25,7 +25,7 @@
             - (0..6).each do |month|
               option value = month
                 = month
-          - if FeatureFlag.exists?('feature_budget_category')
+          - if FeatureFlag.find_by(name:'feature_budget_category').enabled? == false
             p.form-a
               = t '.form_price'
               select.custom-select#childs_months [required]
