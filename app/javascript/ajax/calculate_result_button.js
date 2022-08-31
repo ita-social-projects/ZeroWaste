@@ -41,10 +41,6 @@ $(document).on('turbolinks:load', function() {
 
     let price_index = $("#product_category").selectedIndex + 1;
 
-    if (price_index < 1 || price_index > 3) {
-      price_index = 2;
-    }
-
     const formData = {
       childs_age: $("#childs_years").val() * 12 + months,
       price_id: price_index
