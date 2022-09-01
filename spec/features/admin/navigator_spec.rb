@@ -12,10 +12,10 @@ require 'rails_helper'
           expect(page).to have_css('.tabs')
         end
 
-        it 'is not valid without a link' do
-          expect(page).to have_link('Contacts')
-          click_link('Contacts', href: 'https://zerowastelviv.org.ua/en/contacts/')
-      end
+      #   it 'is not valid without a link' do
+      #     expect(page).to have_link('Contacts')
+      #     click_link('Contacts', href: 'https://zerowastelviv.org.ua/en/contacts/')
+      # end
     end
     end
   end

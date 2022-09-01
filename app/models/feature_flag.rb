@@ -22,4 +22,9 @@ class FeatureFlag < ApplicationRecord
   def active?
     feature_exist? ? enabled : false
   end
+
+  def self.get(name)
+    feature_flag=FeatureFlag.find_by(name: name)
+    feature_flag ? feature_flag : FeatureFlag.new(name: '')
+   end
 end
