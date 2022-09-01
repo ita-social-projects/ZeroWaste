@@ -19,7 +19,8 @@ module Admins
       params.permit(%i[first_amount first_price second_amount second_price
                        third_amount third_price fourth_amount fourth_price
                        fifth_amount fifth_price sixth_amount sixth_price
-                       seventh_amount seventh_price])
+                       seventh_amount seventh_price price_category_budgetary price_category_medium
+                       price_category_premium])
     end
 
     def update_diapers_calculator
@@ -51,6 +52,11 @@ module Admins
         (25..30) => {
           amount: params[:seventh_amount],
           price: params[:seventh_price]
+        },
+        (31..32) => {
+          budgetary: params[:price_category_budgetary],
+          medium: params[:price_category_medium],
+          premium: params[:price_category_premium]
         }
       }
       @app_config.save

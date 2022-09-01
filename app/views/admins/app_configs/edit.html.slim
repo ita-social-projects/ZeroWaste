@@ -83,14 +83,17 @@ h2.text-center = t '.diapers_calculator_config'
         = f.number_field :seventh_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['25..30']['price'],
                       class: 'form-input-number'
       .col-2
-        = f.label :price_category, t('calculators.calculator.form.budgetary')
-        = f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number', id: 'field_for_price'
+        = f.label :price_category_budgetary, t('calculators.calculator.form.budgetary')
+        = f.number_field :price_category_budgetary, step: 0.5, min: 0, value: @app_config.diapers_calculator['31..32']['budgetary'],
+                      class: 'form-input-number', id: 'field_for_price'
       .col-2
-        = f.label :price_category, t('calculators.calculator.form.medium')
-        = f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number', id: 'field_for_price'
+        = f.label :price_category_medium, t('calculators.calculator.form.medium')
+        = f.number_field :price_category_medium, step: 0.5, min: 0, value: @app_config.diapers_calculator['31..32']['medium'],
+                      class: 'form-input-number', id: 'field_for_price'
       .col-2
-        = f.label :price_category, t('calculators.calculator.form.premium')
-        = f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number', id: 'field_for_price'
+        = f.label :price_category_premium, t('calculators.calculator.form.premium')
+        = f.number_field :price_category_premium, step: 0.5, min: 0, value: @app_config.diapers_calculator['31..32']['premium'],
+                      class: 'form-input-number', id: 'field_for_price'
       .col
         button.calculate-btn.result-btn[type='submit']
           = t '.update'
