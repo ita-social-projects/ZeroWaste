@@ -2,7 +2,7 @@ body
   header.page-header
     = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
     .tabs
-      - if FeatureFlag.get('show_admin_menu').active? == false  
+      - if FeatureFlag.get('show_admin_menu').active?
         - if user_signed_in?
           - if current_user.admin?
             = link_to t('.admin'), admins_calculators_path, class: 'tab'
