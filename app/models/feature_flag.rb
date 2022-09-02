@@ -24,6 +24,6 @@ class FeatureFlag < ApplicationRecord
   end
 
   def self.get(name)
-    FeatureFlag.try(:find_by, name: name) || FeatureFlag.new(enabled: false)
+    FeatureFlag.find_by(name: name) || FeatureFlag.new(name: name)
   end
 end

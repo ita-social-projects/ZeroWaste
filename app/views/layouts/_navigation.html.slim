@@ -2,7 +2,7 @@ body
   header.page-header
     = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
     .tabs
-      - if Rails.env.development? || Rails.env.test?
+      - if FeatureFlag.get('show_admin_menu').active?
         - if user_signed_in?
           - if current_user.admin?
             = link_to t('.admin'), admins_calculators_path, class: 'tab'
@@ -11,14 +11,6 @@ body
             = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
             = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
         = link_to t('.contact_us'), new_message_path, class: 'tab'
-        = it 'layouts.navigation.contacts',
-                contacts: It.link(("https://zerowastelviv.org.ua/en/contacts/"), class: 'tab'),
-             contacts_uk: It.link(("https://zerowastelviv.org.ua/kontakty/"), class: 'tab')
-      - else
-        .tabs
-          = it 'layouts.navigation.contacts',
-                  contacts: It.link(("https://zerowastelviv.org.ua/en/contacts/"), class: 'tab'),
-                  contacts_uk: It.link(("https://zerowastelviv.org.ua/kontakty/"), class: 'tab')
     .func-btns
       .donate-btn
         = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
