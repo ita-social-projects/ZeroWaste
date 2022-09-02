@@ -58,5 +58,5 @@ premium = ProductPrice.create!(
 
 show_admin_menu = FeatureFlag.create!(
   name: 'show_admin_menu',
-  enabled: true
+  enabled: false
 )
