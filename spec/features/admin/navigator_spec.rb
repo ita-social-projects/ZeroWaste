@@ -15,7 +15,7 @@ require 'rails_helper'
         xit 'is not valid without a link' do
           expect(page).not_to have_link('Contacts')
           click_link('Contacts', href: 'https://zerowastelviv.org.ua/en/contacts/')
+        end
       end
-    end
     end
   end
