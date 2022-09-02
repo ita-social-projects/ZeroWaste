@@ -25,12 +25,14 @@
             - (0..6).each do |month|
               option value = month
                 = month
-          p.form-a
-            = t '.form_price'
-            select.custom-select#childs_months [required]
-              - ([(t('.form.budgetary')), (t('.form.medium')), (t('.form.premium'))]).each do |price|
-                option value = price
-                  = price
+          - if FeatureFlag.get('feature_budget_category').active? 
+            p.form-a
+              = t '.form_price'
+              select.custom-select#childs_months [required]
+                - ([(t('.form.budgetary')), (t('.form.medium')), (t('.form.premium'))]).each do |price|
+                  option value = price
+                    = price
+
           = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
           = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
         = render_email_receiver_checkbox
