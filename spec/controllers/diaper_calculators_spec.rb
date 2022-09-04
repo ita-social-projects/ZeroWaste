@@ -15,7 +15,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     let(:expected) do
       { result: values,
         date: 0,
-        word_form: 'підгузків' }
+        word_form_to_be_used: 'підгузків',
+        word_form_used: 'підгузків' }
     end
     context 'when default values' do
       before do
