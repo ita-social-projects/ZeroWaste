@@ -25,15 +25,16 @@
             - (0..6).each do |month|
               option value = month
                 = month
-          p.form-a
-            = t '.form_price'
-            select.custom-select#product_category [required]
-              option
-                =t('calculators.calculator.form.budgetary')
-              option selected=""
-                =t('calculators.calculator.form.medium')
-              option
-                =t('calculators.calculator.form.premium')
+          - if FeatureFlag.get('feature_budget_category').active?
+            p.form-a
+              = t '.form_price'
+              select.custom-select#product_category [required]
+                option
+                  =t('calculators.calculator.form.budgetary')
+                option selected=""
+                  =t('calculators.calculator.form.medium')
+                option
+                  =t('calculators.calculator.form.premium')
           = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
           = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
         = render_email_receiver_checkbox
