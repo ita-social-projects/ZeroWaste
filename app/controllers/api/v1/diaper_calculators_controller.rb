@@ -36,7 +36,10 @@ module Api
       end
 
       def product_price
-        ProductPrice.find_by_id(params[:price_id])
+        if (ProductPrice.find_by_id(params[:price_id]) != nil)
+          ProductPrice.find_by_id(params[:price_id])
+        end
+          ProductPrice.find_by_id(2)
       end
     end
   end
