@@ -29,9 +29,17 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   end
   describe '#product_price' do
     context 'when default value' do
-      it 'diaper price category selected' do
+      it 'custom diaper price category selected' do
         controller.params[:price_id] = 1
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by_id(1))
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 1)
+      end
+      it 'default diaper price category selected' do
+        controller.params[:price_id] = 2
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 2)
+      end
+      it 'incorrect diaper price category selected' do
+        controller.params[:price_id] = 0
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 2)
       end
     end
   end
