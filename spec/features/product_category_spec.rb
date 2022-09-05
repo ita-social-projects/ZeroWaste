@@ -5,6 +5,7 @@ require 'rails_helper'
 describe 'product category dropdown list', js: true do
   let(:calculator) { create(:calculator) }
   before do
+    FeatureFlag.get('feature_budget_category').activate
     visit '/calculator'
     find(:select, 'product_category')
     has_select?('product_category', with_options: ['budgetary', 'medium', 'premium'])
