@@ -30,7 +30,7 @@ a {
 }
 
 .page-header {
-  width: 1110px;
+  max-width: 1110px;
   font-family: "Comfortaa", sans-serif;
   margin: auto;
   margin-bottom: 10px;
@@ -350,21 +350,18 @@ body.admin {
 
   .calculation-results,
   .jumbotron {
-    width: auto !important;
-    margin-right: 15px !important;
-    margin-left: 15px !important;
+    width: auto;
+    margin-right: 15px;
+    margin-left: 15px;
   }
-
   .calculation-results span {
     width: 410px;
   }
-
   .page-header {
-    justify-content: space-between !important;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: auto;
+    margin-right: 15px;
+    margin-left: 15px;
   }
-
   .donate-btn a {
     font-size: 12px;
   }
@@ -402,16 +399,13 @@ body.admin {
     padding-bottom: initial;
     width: fit-content;
   }
-
   .page-header {
-    justify-content: space-around;
+    width: 510px;
   }
-
   .calculation-results,
   .jumbotron {
     width: 510px;
   }
-
   .donate-btn a {
     padding: 10px;
   }
