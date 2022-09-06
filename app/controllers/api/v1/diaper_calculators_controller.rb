@@ -39,10 +39,9 @@ module Api
 
       def product_price
         diaper = Product.find_by title: 'diaper'
-        selected_price = ProductPrice.find_by category: params[:price_id], product: diaper
-        if selected_price.present?
-          selected_price
-        end
+        selected_price = ProductPrice.find_by category: params[:price_id],
+                                              product: diaper
+        selected_price if selected_price.present?
         ProductPrice.find_by category: 1, product: diaper
       end
     end
