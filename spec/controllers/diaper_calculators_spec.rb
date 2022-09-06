@@ -22,27 +22,35 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       before do
         get :create
       end
+      
       it 'renders expected result' do
         expect(response.body).to eq(expected.to_json)
       end
     end
   end
+
   describe '#product_price' do
     context 'when default value' do
       it 'custom diaper price category selected' do
         controller.params[:price_id] = 1
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 1)
+        diaper = Product.find_by title: 'diaper'
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 0, product: diaper)
       end
+
       it 'default diaper price category selected' do
         controller.params[:price_id] = 2
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 2)
+        diaper = Product.find_by title: 'diaper'
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 1, product: diaper)
       end
+
       it 'incorrect diaper price category selected' do
         controller.params[:price_id] = 0
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 2)
+        diaper = Product.find_by title: 'diaper'
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 1, product: diaper)
       end
     end
   end
+
   describe '#childs_age' do
     context 'when default value' do
       it 'child`s age selected' do

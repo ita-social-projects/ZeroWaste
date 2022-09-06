@@ -38,10 +38,12 @@ module Api
       end
 
       def product_price
-        unless ProductPrice.find_by_id(params[:price_id]).nil?
-          ProductPrice.find_by_id(params[:price_id])
+        diaper = Product.find_by title: 'diaper'
+        selected_price = ProductPrice.find_by category: params[:price_id], product: diaper
+        if selected_price.present?
+          selected_price
         end
-        ProductPrice.find_by category: 2
+        ProductPrice.find_by category: 1, product: diaper
       end
     end
   end
