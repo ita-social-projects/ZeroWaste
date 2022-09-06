@@ -347,7 +347,9 @@ body.admin {
   .tab {
     display: none;
   }
-
+  .filter_block {
+    width: auto;
+  }
   .calculation-results,
   .jumbotron {
     width: auto;
@@ -389,7 +391,6 @@ body.admin {
   .tab {
     display: none;
   }
-
   .func-btns {
     display: flex;
     flex-direction: column;
