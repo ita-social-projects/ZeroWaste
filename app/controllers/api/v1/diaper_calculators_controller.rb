@@ -40,7 +40,7 @@ module Api
       end
 
       def diaper
-        @diaper_product ||= Product.find_by(title: DIAPER_TITLE)
+        @diaper ||= Product.find_by(title: DIAPER_TITLE)
       end
 
       def default_price
@@ -50,7 +50,7 @@ module Api
       def product_price
         selected_price = ProductPrice.find_by(category: params[:price_id],
                                               product: diaper)
-        selected_price ||= default_price
+        selected_price || default_price
       end
     end
   end
