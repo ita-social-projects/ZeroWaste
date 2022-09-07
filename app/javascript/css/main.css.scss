@@ -30,15 +30,16 @@ a {
 }
 
 .page-header {
+  max-width: 1110px;
   font-family: "Comfortaa", sans-serif;
+  margin: auto;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
-  padding-left: 11.88%;
-  padding-right: 11.88%;
+
 }
 
 div.jumbotron {
@@ -346,24 +347,23 @@ body.admin {
   .tab {
     display: none;
   }
-
+  .filter_block {
+    width: auto;
+  }
   .calculation-results,
   .jumbotron {
-    width: auto !important;
-    margin-right: 15px !important;
-    margin-left: 15px !important;
+    width: auto;
+    margin-right: 15px;
+    margin-left: 15px;
   }
-
   .calculation-results span {
     width: 410px;
   }
-
   .page-header {
-    justify-content: space-between !important;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: auto;
+    margin-right: 15px;
+    margin-left: 15px;
   }
-
   .donate-btn a {
     font-size: 12px;
   }
@@ -391,7 +391,6 @@ body.admin {
   .tab {
     display: none;
   }
-
   .func-btns {
     display: flex;
     flex-direction: column;
@@ -401,16 +400,13 @@ body.admin {
     padding-bottom: initial;
     width: fit-content;
   }
-
   .page-header {
-    justify-content: space-around;
+    width: 510px;
   }
-
   .calculation-results,
   .jumbotron {
     width: 510px;
   }
-
   .donate-btn a {
     padding: 10px;
   }
