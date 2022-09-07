@@ -40,7 +40,7 @@ module Api
       def diaper
         Product.find_by(title: 'diaper')
       end
-      
+
       def default_price
         ProductPrice.find_by(category: 1, product: DIAPER)
       end
