@@ -34,12 +34,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       Product.find_by(title: 'diaper')
     end
     let(:default) do
-      ProductPrice.find_by(category: 1, product: diaper)
+      ProductPrice.find_by(category: 'MEDIUM', product: diaper)
     end
     context 'when get value' do
       it 'custom diaper price category selected' do
         controller.params[:price_id] = 0
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by(category: 0, product: diaper))
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by(category: 'LOW', product: diaper))
       end
 
       it 'default diaper price category selected' do
@@ -52,7 +52,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
         expect(controller.send(:product_price)).to eq(default)
       end
 
-      it 'void parameter returner' do
+      it 'void parameter sended' do
         controller.params[:price_id] = nil
         expect(controller.send(:product_price)).to eq(default)
       end
