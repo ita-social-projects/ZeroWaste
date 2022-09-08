@@ -6,7 +6,7 @@ module CalculatorsHelper
   end
 
   def render_email_receiver_checkbox title_chkbox =
-                             { label: 'Yes, I want to receive email messages' }
+                             { label: 'Yes, I want to receive email messages' } 
     return unless user_signed_in?
 
     arr = []
