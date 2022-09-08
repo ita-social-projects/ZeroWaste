@@ -33,34 +33,48 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     let!(:product_price) do
       create(:product_price)
     end
-    let(:custom) do
+    let(:first) do
       ProductPrice.find_by(category: 'LOW', product: diaper)
     end
     let(:default) do
       ProductPrice.find_by(category: 'MEDIUM', product: diaper)
     end
+    let(:last) do
+      ProductPrice.find_by(category: 'HIGH', product: diaper)
+    end
     let(:diaper) do
       Product.find_by(title: 'diaper')
     end
     context 'when get value' do
-      it 'custom diaper price category selected' do
+      it 'first diaper price category returned' do
         controller.params[:price_id] = 0
-        expect(controller.send(:product_price)).to eq(custom)
+        result = controller.send(:product_price)
+        expect(result).not_to eq(nil)
+        expect(result).to eq(first)
       end
 
-      it 'default diaper price category selected' do
+      it 'default diaper price category returned' do
         controller.params[:price_id] = 1
-        expect(controller.send(:product_price)).to eq(default)
-      end
+        result = controller.send(:product_price)
+        expect(result).not_to eq(nil)
+        expect(result).to eq(default)
 
-      it 'incorrect diaper price category selected' do
         controller.params[:price_id] = -1
-        expect(controller.send(:product_price)).to eq(default)
+        result = controller.send(:product_price)
+        expect(result).not_to eq(nil)
+        expect(result).to eq(default)
+
+        controller.params[:price_id] = nil
+        result = controller.send(:product_price)
+        expect(result).not_to eq(nil)
+        expect(result).to eq(default)
       end
 
-      it 'void parameter sended' do
-        controller.params[:price_id] = nil
-        expect(controller.send(:product_price)).to eq(default)
+      it 'last diaper price category returned' do
+        controller.params[:price_id] = 2
+        result = controller.send(:product_price)
+        expect(result).not_to eq(nil)
+        expect(result).to eq(last)
       end
     end
   end
