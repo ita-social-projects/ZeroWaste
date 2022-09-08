@@ -30,16 +30,22 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   end
 
   describe '#product_price' do
-    let(:diaper) do
-      Product.find_by(title: 'diaper')
+    let!(:product_price) do
+      create(:product_price)
+    end
+    let(:custom) do
+      ProductPrice.find_by(category: 'LOW', product: diaper)
     end
     let(:default) do
       ProductPrice.find_by(category: 'MEDIUM', product: diaper)
     end
+    let(:diaper) do
+      Product.find_by(title: 'diaper')
+    end
     context 'when get value' do
       it 'custom diaper price category selected' do
         controller.params[:price_id] = 0
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by(category: 'LOW', product: diaper))
+        expect(controller.send(:product_price)).to eq(custom)
       end
 
       it 'default diaper price category selected' do
