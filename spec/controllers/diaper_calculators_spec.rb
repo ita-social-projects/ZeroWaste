@@ -30,23 +30,31 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   end
 
   describe '#product_price' do
-    context 'when default value' do
+    let(:diaper) do
+      Product.find_by(title: 'diaper')
+    end
+    let(:default) do
+      ProductPrice.find_by(category: 'MEDIUM', product: diaper)
+    end
+    context 'when get value' do
       it 'custom diaper price category selected' do
         controller.params[:price_id] = 0
-        diaper = Product.find_by title: 'diaper'
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 0, product: diaper)
+        expect(controller.send(:product_price)).to eq(ProductPrice.find_by(category: 'LOW', product: diaper))
       end
 
       it 'default diaper price category selected' do
         controller.params[:price_id] = 1
-        diaper = Product.find_by title: 'diaper'
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 1, product: diaper)
+        expect(controller.send(:product_price)).to eq(default)
       end
 
       it 'incorrect diaper price category selected' do
         controller.params[:price_id] = -1
-        diaper = Product.find_by title: 'diaper'
-        expect(controller.send(:product_price)).to eq(ProductPrice.find_by category: 1, product: diaper)
+        expect(controller.send(:product_price)).to eq(default)
+      end
+
+      it 'void parameter sended' do
+        controller.params[:price_id] = nil
+        expect(controller.send(:product_price)).to eq(default)
       end
     end
   end
