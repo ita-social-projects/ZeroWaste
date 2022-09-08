@@ -45,7 +45,7 @@ en:
         medium: "medium"
         premium: "premium"
       calculate_result_button: "Calculate"
-      desire_getting_email: "Yes, I want to receive email messages"
+      desire_getting_email: "Yes, I want to receive email messages" 
       bought_diapers: "diapers already used"
       will_buy_diapers: "diapers to be used in the future"
       money_spent: "UAH already spent on diapers"

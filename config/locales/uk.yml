@@ -14,7 +14,7 @@ uk:
         medium: "середня"
         premium: "преміум"
       calculate_result_button: "Розрахувати"
-      desire_getting_email: "Так, Я бажаю отримувати повідомлення електронною поштою"
+      desire_getting_email: "Так, Я бажаю отримувати повідомлення електронною поштою" 
       bought_diapers: "підгузок ви вже використали"
       money_spent: "грн ви вже витратили"
       will_buy_diapers: "підгузки які будуть використані"
