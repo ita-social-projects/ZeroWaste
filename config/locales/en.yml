@@ -1,0 +1,397 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  calculators:
+    calculator:
+      form_description: "Child’s age:"
+      form_price: "Price category"
+      form:
+        childs_birthday_label: "Child's birthday"
+        childs_age_label: "Child`s age"
+        childs_years_label: "years"
+        childs_months_label: "months"
+        baby_weight_label: "Baby weight"
+        budgetary: "budgetary"
+        medium: "medium"
+        premium: "premium"
+      calculate_result_button: "Calculate"
+      desire_getting_email: "Yes, I want to receive email messages"
+      bought_diapers: "diapers already used"
+      will_buy_diapers: "diapers to be used in the future"
+      money_spent: "UAH already spent on diapers"
+      money_will_be_spent: "UAH yet to be spent on diapers"
+      mililiters_of_naphtha: "Mililiters of Naphtha"
+      gram_of_plastic: "Gram of Plastic"
+    show:
+      welcome_header: "Welcome to ZeroWaste"
+  layouts:
+    navigation:
+      admin: "Admin"
+      log_out: "Log Out"
+      sign_up: "Sign Up"
+      log_in: "Log In"
+      сontact_us: "Contact us"
+      contacts: "%{contacts:Contacts}"
+      donate: "DONATE"
+      local_lang: "English"
+    description_block:
+      description_block_html: "These how are approximate results. The exact numbers for your
+      family may differ depending on your daily habits and the diaper brand of choice. At any point of using
+      diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
+      this can be done and what reusable alternatives to disposable diapers there are. You can also learn
+      more about %{calculate_link_one:how we calculate} the number and cost of diapers 
+      or %{calculate_link_two:contact us} with any other questions you may have."
+    description_button:
+      use_less: "%{use_less_link:HOW TO USE LESS}"
+    homepage:
+      homepage_title: "Welcome to the diaper calculator"
+      description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
+      calculate: "Let's go"
+      visit_website: "Visit WebSite"
+    admin_navbar:
+      calculators: "Calculators"
+      histories: "History"
+      users: "Users"
+      messages: "Messages"
+      app_config: "App Config"
+  messages:
+    new:
+      contact_us_header: "Contact us"
+      email: "Email"
+      message: "Message"
+      title: "Title"
+      send: "Send"
+      title_hint: "title (min 5 characters)"
+      message_hint: "Your message (min 20 characters)"
+      company_address: "Company address"
+      about_us: "About us"
+  admins:
+    admins:
+      edit:
+        current_password_label: "Current password:"
+        new_password_label: "New password:"
+        confirm_password_label: "Confirm new password:"
+        change_password_button: "Change password"
+    app_configs:
+      edit:
+        diapers_calculator_config: "Diapers calculator configuration"
+        first_period: "First period"
+        second_period: "Second period"
+        third_period: "Third period"
+        fourth_period: "Fourth period"
+        fifth_period: "Fifth period"
+        sixth_period: "Sixth period"
+        seventh_period: "Seventh period"
+        amount: "Amount"
+        price: "Price"
+        update: "Update"
+    messages:
+      index:
+        table:
+          title: "Title"
+          email: "Email"
+          message: "Message"
+          show_more: "Show more"
+      show:
+        header: "Information"
+        table:
+          title_col: "Title"
+          message_col: "Message"
+          email_col: "Email"
+          time_col: "Date"
+    users:
+      index:
+        main_header: "Dashboard"
+        table:
+          email_col: "Email"
+          last_visit_col: "Last visit"
+          view_info_col: "Show"
+          edit: "Edit"
+          ban: "Ban"
+      edit:
+        avatar: "User profile photo"
+        table:
+          edit_user_info: "Edit user information"
+        form:
+          name_label: "Name"
+          surname_label: "Surname"
+          password_hint: "Leave blank if you don't want to change it"
+          avatar_hint: "Avatar must be less than 2 MB. Allowed file types: PNG,JPG and JPEG"
+          update_user_button: "Update user"
+      show:
+        header: "User information"
+        table:
+          email_col: "Email"
+          first_name_col: "First name"
+          last_name_col: "Last name"
+          country_col: "Country"
+          last_sign_in_col: "Last signing in"
+          current_IP_col: "Current IP-address"
+          last_IP_col: "Last IP-address"
+          ban_col: "Status"
+          blocked_label: "Blocked"
+          unblocked_label: "Unblocked"
+    calculators:
+      index:
+        search_placeholder: "Search"
+        search_button: "Search"
+        add_calculator_button: "Add calculator"
+        confirm_delete: "Are you sure you want to delete calculator?"
+        table:
+          calculator_slug: "Slug"
+          calculator_name: "Name"
+          calculator_actions: "Actions"
+      edit:
+        add_new_field_label: "Add new field"
+        form:
+          select_field_kind_label: "Select field kind"
+          select_field_type_label: "Select field type"
+          create_button: "Create"
+          form_label: "Form"
+          parameters_label: "Parameters"
+          results_label: "Results"
+          no_fields_yet_label: "No fields yet"
+          update_calculator_button: "Update calculator"
+          cancel_button: "Cancel"
+      new:
+        create_calculator_button: "Create calculator"
+        cancel_button: "Cancel"
+    sessions:
+      new:
+        log_in_header: "Log in"
+        log_in_button: "Log in"
+        form:
+          email: "Email"
+          password: "Password"
+    shared:
+      links:
+        forgot_your_password: "Forgot your password?"
+        log_in: "Log in"
+    confirmations:
+      new:
+        resend_confirmation_instructions_header: "Resend confirmation instructions"
+        resend_confirmation_instructions_button: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        greetings_to_user: Welcome, %{recipient}!
+        confirmation_email_through_link: "You can confirm your account email through the link below:"
+        confirmation_account_link: "Confirm my account"
+      email_changed:
+        greeting: Hello %{recipient}!
+        message_confirmed: We're contacting you to notify you that your email has been changed to %{email}.
+        message_unconfirmed: We're contacting you to notify you that your email is being changed to %{email}.
+      password_change:
+        greeting: Hello %{recipient}!
+        successful_change: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        greeting: Hello %{recipient}!
+        change_password_link: "Change my password"
+        request_change_password: "Someone has requested a link to change your password. You can do this through the link below."
+        ignore_email: "If you didn't request this, please ignore this email."
+        access_to_changing: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        greeting: Hello %{recipient}!
+        locked_message: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        unlock_your_account: "Click the link below to unlock your account:"
+        unlock_link: "Unlock my account"
+    unlocks:
+      new:
+        resend_unlock_instructions_header: "Resend unlock instructions"
+        resend_unlock_instructions_button: "Resend unlock instructions"
+    passwords:
+      password:
+        blank: "New password can't be blank"
+      edit:
+        change_password_header: "Change your password"
+        form:
+          new_password_label: "New password"
+          current_password_label: "Current password"
+          minimal_length_label: "characters minimum"
+          confirm_password_label: "Confirm new password"
+          change_password_button: "Change my password"
+      new:
+        forgot_password_header: "Forgot your password?"
+        send_instructions_button: "Send me reset password instructions"
+        email_label: "Email"
+    histories:
+      index:
+        history_title: "History"
+        back_link: "Back"
+        table:
+          version_created_at: "Version creation date"
+          event_ID: "Event ID"
+          user_id: "User ID"
+          action: "Action"
+          more_info_(field, old_value, new_value): "More info: field, old value, new value"
+          model_type: "Model type"
+  devise:
+    passwords:
+      new:
+        forgot_password_header: "Forgot your password?"
+        send_instructions_button: "Send me reset password instructions"
+        form:
+          email_label: "Email"
+      edit:
+        change_password_header: "Change your password"
+        form:
+          new_password_label: "New password"
+          minimal_length_label: "characters minimum"
+          confirm_password_label: "Confirm new password"
+        change_password_button: "Change my password"
+    sessions:
+      new:
+        log_in: "Log in"
+    shared:
+      links:
+        forgot_your_password: "Forgot your password?"
+        log_in: "Log in"
+        sign_up: "Sign up"
+        sign_in_with: "Sign in with %{provider}"
+        google_sign_in: "Sign in with Google"
+    registrations:
+      new:
+        sing_up_header: "Sing Up"
+        form:
+          email_label: "Email"
+          password_label: "Password"
+          password_characters_minimum_label: "Characters Minimum"
+          password_confirmation_label: "Password Confirmation"
+          first_name_label: "First Name"
+          last_name_label: "Last Name"
+          sing_up_button: "Sing Up"
+          password_hint: "Minimum 8 characters"
+      edit:
+        update_user_button: "Update information"
+        current_password_label: "Current password:"
+        confirm_password_label: "Confirm new password:"
+        change_password_button: "Змінити пароль"
+        delete_account_label: "Delete my profile"
+        are_user_satisfied_question: "Unhappy?"
+        delete_account_button: "Delete profile"
+        are_you_sure: "Are you sure you want to delete your profile?"
+    confirmations:
+      new:
+        resend_confirmation_button: "Resend confirmation request"
+        resend_confirmation_instructions_header: "Resend confirmation request"
+    failure:
+      timeout: "Your session expired. Please sign in again to continue"
+  models:
+    calculator: "Calculator"
+  activerecord:
+    errors:
+      models:
+        field:
+          attributes:
+            type:
+              blank: " can't be blank"
+            label:
+              blank: " can't be blank"
+            kind:
+              blank: " can't be blank"
+        named_value:
+          attributes:
+            name:
+              too_short: " is too short"
+            from:
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
+            to:
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
+        range_field:
+          attributes:
+            from:
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
+            to:
+              not_an_integer: " must be an integer"
+              not_a_number: " must be an integer"
+            value:
+              too_short: " is too short"
+        calculation:
+          attributes:
+            value:
+              too_short: " is too short"
+        select:
+          attributes:
+            value:
+              too_short: " is too short"
+        value:
+          attributes:
+            value:
+              too_short: " is too short"
+              invalid: " is invalid"
+        product_type:
+          attributes:
+            title:
+              blank: "The field 'Title' can't be blank."
+              too_short: "The field 'Title' is too short."
+              invalid: "Invalid value for the field 'Title'"
+        calculator:
+          attributes:
+            name:
+              blank: " can't be blank"
+              too_short: " is too short"
+              invalid: " is invalid"
+        product:
+          attributes:
+            title:
+              blank: "The field 'Title' can't be blank"
+              too_long: "The field 'Title' is too long"
+              too_short: "The field 'Title' is too short."
+    form_errors:
+      one: "One error prohibited %{model} from being saved"
+      other: "%{count} errors prohibited this %{model} from being saved"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Re-password"
+        first_name: "First name"
+        last_name: "Last name"
+        country: "Country"
+        successful_update: "User info was successfully updated!"
+      admin:
+        remember_me: "Remember me"
+      calculator:
+        name: "Name"
+        slug: "Slug"
+        preferable: "Preferable"
+  notifications:
+    calculator_created: "Calculator has been successfully created"
+    calculator_updated: "Calculator has been successfully updated"
+    calculator_deleted: "Calculator has been successfully deleted"
+    message_sent: "Message has been sent"
+  # time:
+  #   formats:
+  #     long: '%A, %d %B, %Y'
+  #     short: '%d, %B, %Y'
