@@ -350,11 +350,14 @@ body.admin {
   .filter_block {
     width: auto;
   }
-  .calculation-results,
-  .jumbotron {
-    width: auto;
-    margin-right: 15px;
+
+  div.jumbotron,
+  div.container {
+    max-width: 350px ;
+    margin-right: auto;
     margin-left: 15px;
+
+    padding-left: 0px;
   }
   .calculation-results span {
     width: 410px;
@@ -363,11 +366,13 @@ body.admin {
     width: auto;
     margin-right: 15px;
     margin-left: 15px;
+    display: flex;
+    justify-content: flex-start;
   }
+
   .donate-btn a {
     font-size: 12px;
   }
-
   .main-btns {
     max-width: 320px;
 
@@ -384,6 +389,8 @@ body.admin {
     padding-top: initial;
     padding-bottom: initial;
     width: fit-content;
+    margin-right: 5px;
+    margin-left: 10px;
   }
 }
 
