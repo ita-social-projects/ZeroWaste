@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :product do
-    title { 'Diaper' }
+    title { 'diaper' }
+    product_type { association :product_type }
   end
 end

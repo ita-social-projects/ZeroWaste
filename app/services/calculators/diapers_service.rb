@@ -3,15 +3,17 @@
 module Calculators
   class DiapersService
     attr_accessor :age, :used_diapers_amount, :to_be_used_diapers_amount,
-                  :used_diapers_price, :to_be_used_diapers_price, :config
+                  :used_diapers_price, :to_be_used_diapers_price, :config,
+                  :price_category
 
-    def initialize(age)
+    def initialize(age, price_category)
       @age = age
       @used_diapers_amount = 0
       @to_be_used_diapers_amount = 0
       @used_diapers_price = 0
       @to_be_used_diapers_price = 0
       @config = AppConfig.instance.diapers_calculator
+      @price_category = price_category
       total
     end
 
@@ -33,7 +35,7 @@ module Calculators
 
     def change(period, coef)
       @used_diapers_amount += month_amount(period) * coef
-      @used_diapers_price += month_price(period) * coef
+      @used_diapers_price += month_price(period) * coef * @price_category
     end
 
     def to_range(str)
@@ -47,6 +49,7 @@ module Calculators
                                       to_range(key).size
         @to_be_used_diapers_price +=
           value['amount'].to_f * value['price'].to_f * 30.5 * to_range(key).size
+        @to_be_used_diapers_price *= @price_category
       end
     end
 
@@ -57,5 +60,6 @@ module Calculators
     def month_price(period)
       month_amount(period) * @config[period.to_s]['price'].to_f
     end
+   
   end
 end

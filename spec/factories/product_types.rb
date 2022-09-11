@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :product_type do
-    title { 'Title' }
+    title { 'hygiene' }
   end
 end
