@@ -72,6 +72,45 @@
       span
         p data-type="money_will_be_spent" 0
         = t '.money_will_be_spent'
+.jumbotron
+  .container
+    .main-result-container
+      .result-container-first
+        div
+          = image_pack_tag "diapers_bought_2.png", class: "img-margin"
+          p data-type="used_diapers_amount" 000 000
+          p.diapers-font
+            = t '.pieces'
+          p.diapers-font-text
+            = t '.used_diapers'
+        .vector-width
+          = image_pack_tag "vector_5.png", class: "vector"
+          = image_pack_tag "vector_3.png", class: "vector-mobile"
+        div
+          = image_pack_tag "diapers_to_buy_2.png", class: "img-margin"
+          p data-type="to_be_used_diapers_amount" 000 000
+          p.diapers-font
+            = t '.pieces'
+          p.diapers-font-text.diapers-font-width
+            = t '.will_be_used_diapers'
+      .result-container-second
+        div
+          = image_pack_tag "money_spent_2.png", class: "img-margin-money"
+          p data-type="money_spent" 000 000
+          p.diapers-font
+            = t '.hryvnia'
+          p.diapers-font-text
+            = t '.used_money'
+        .vector-width
+          = image_pack_tag "vector_5.png", class: "vector"
+          = image_pack_tag "vector_2.png", class: "vector-mobile"
+        div
+          = image_pack_tag "money_to_spent_2.png", class: "img-margin-money"
+          p data-type="money_will_be_spent" 000 000
+          p.diapers-font
+            = t '.hryvnia'
+          p.diapers-font-text
+            = t '.money_will_be_used'
 .container.calculation-results
   .row
     .col-xl-8.result-card

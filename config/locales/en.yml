@@ -49,6 +49,12 @@ en:
       will_buy_diapers: "diapers to be used in the future"
       money_spent: "UAH already spent on diapers"
       money_will_be_spent: "UAH yet to be spent on diapers"
+      used_diapers: "одноразових підгузків уже використано"
+      will_be_used_diapers: "одноразових підгузків ще буде використано"
+      pieces: "pcs"
+      used_money: "витрачено на одноразові підгузки станом на сьогодні"
+      money_will_be_used: "ще буде витрачено до моменту відмови від одноразових підгузків"
+      hryvnia: "UAH"
       mililiters_of_naphtha: "Mililiters of Naphtha"
       gram_of_plastic: "Gram of Plastic"
     show:
