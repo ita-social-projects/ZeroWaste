@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2022_08_08_110227) do
   create_table "product_prices", force: :cascade do |t|
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.bigint "product_id", null: false
-    t.float "price"
+    t.integer "price"
     t.integer "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
