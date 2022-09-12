@@ -103,6 +103,13 @@ en:
         change_password_button: "Change password"
     app_configs:
       edit:
+        price_category_for_period_first: "Price category for first period"
+        price_category_for_period_second: "Price category for second period"
+        price_category_for_period_third: "Price category for third period"
+        price_category_for_period_fourth: "Price category for fourth period"
+        price_category_for_period_fifth: "Price category for fifth period"
+        price_category_for_period_sixth: "Price category for sixth period"
+        price_category_for_period_seventh: "Price category for seventh period"
         diapers_calculator_config: "Diapers calculator configuration"
         first_period: "First period"
         second_period: "Second period"

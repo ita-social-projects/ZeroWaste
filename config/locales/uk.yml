@@ -77,6 +77,13 @@ uk:
         change_password_button: "Змінити пароль"
     app_configs:
       edit:
+        price_category_for_period_first: "Цінова категорія для першого періоду"
+        price_category_for_period_second: "Цінова категорія для другого періоду"
+        price_category_for_period_third: "Цінова категорія для третього періоду"
+        price_category_for_period_fourth: "Цінова категорія для четвертого періоду"
+        price_category_for_period_fifth: "Цінова категорія для п'ятого періоду"
+        price_category_for_period_sixth: "Цінова категорія для шостого періоду"
+        price_category_for_period_seventh: "Цінова категорія для сьомого періоду"
         diapers_calculator_config: "Налаштування калькулятора памперсів"
         first_period: "Перший період"
         second_period: "Другий період"
