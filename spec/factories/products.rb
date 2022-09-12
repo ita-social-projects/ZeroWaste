@@ -3,5 +3,6 @@
 FactoryBot.define do
   factory :product do
     title { 'Diaper' }
+    product_type
   end
 end
