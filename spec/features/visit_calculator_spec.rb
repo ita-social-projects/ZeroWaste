@@ -9,7 +9,7 @@ describe 'visit Calculator page', js: true do
   it 'visits calculator page' do
     visit "/calculators/#{calculator.slug}"
     expect(page).to have_content
-                         I18n.t('.calculators.calculator.desire_getting_email')
+                        I18n.t('.calculators.calculator.desire_getting_email')
   end
 
 
