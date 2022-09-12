@@ -20,13 +20,20 @@ module Admins
                        third_amount third_price fourth_amount fourth_price
                        fifth_amount fifth_price sixth_amount sixth_price
                        seventh_amount seventh_price
-                       price_category_budgetary_first_period price_category_premium_first_period
-                       price_category_budgetary_second_period price_category_premium_second_period
-                       price_category_budgetary_third_period price_category_premium_third_period
-                       price_category_budgetary_fourth_period price_category_premium_fourth_period
-                       price_category_budgetary_fifth_period price_category_premium_fifth_period
-                       price_category_budgetary_sixth_period price_category_premium_sixth_period
-                       price_category_budgetary_seventh_period price_category_premium_seventh_period])
+                       price_category_budgetary_first_period
+                       price_category_premium_first_period
+                       price_category_budgetary_second_period
+                       price_category_premium_second_period
+                       price_category_budgetary_third_period
+                       price_category_premium_third_period
+                       price_category_budgetary_fourth_period
+                       price_category_premium_fourth_period
+                       price_category_budgetary_fifth_period
+                       price_category_premium_fifth_period
+                       price_category_budgetary_sixth_period
+                       price_category_premium_sixth_period
+                       price_category_budgetary_seventh_period
+                       price_category_premium_seventh_period])
     end
 
     def update_diapers_calculator
