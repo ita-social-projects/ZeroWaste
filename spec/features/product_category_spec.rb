@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-BUDGETARY = 'budgetary'.freeze
-MEDIUM = 'medium'.freeze
-PREMIUM = 'premium'.freeze
+BUDGETARY = 'budgetary'
+MEDIUM = 'medium'
+PREMIUM = 'premium'
 
 describe 'product category dropdown list', js: true do
   let(:calculator) { create(:calculator) }
@@ -16,11 +16,11 @@ describe 'product category dropdown list', js: true do
   end
 
   it 'default product category' do
-    expect(page).to have_select('product_category', selected: 'medium')
+    expect(page).to have_select('product_category', selected: MEDIUM)
   end
 
   it 'custom product category selected' do
-    select('budgetary', from: 'product_category')
-    expect(page).to have_select('product_category', selected: 'budgetary')
+    select(BUDGETARY, from: 'product_category')
+    expect(page).to have_select('product_category', selected: BUDGETARY)
   end
 end

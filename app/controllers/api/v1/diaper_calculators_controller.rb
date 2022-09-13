@@ -12,6 +12,8 @@ module Api
 
       DIAPER_TITLE = 'diaper'
 
+      MEDIUM = 'MEDIUM'
+
       def create
         result = diapers_service_handler(childs_age).calculate!
         diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
@@ -44,7 +46,7 @@ module Api
       end
 
       def default_price
-        ProductPrice.find_by(category: 1, product: diaper)
+        ProductPrice.find_by(category: MEDIUM, product: diaper)
       end
 
       def product_price

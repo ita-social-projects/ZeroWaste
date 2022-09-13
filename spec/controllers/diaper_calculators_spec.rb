@@ -2,6 +2,12 @@
 
 require 'rails_helper'
 
+LOW = 'LOW'
+MEDIUM = 'MEDIUM'
+HIGH = 'HIGH'
+
+DIAPER_TITLE = 'diaper'
+
 RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#create' do
     let(:values) do
@@ -31,20 +37,20 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
 
   describe '#product_price' do
     let(:first) do
-      ProductPrice.find_by(category: 'LOW', product: diaper)
+      ProductPrice.find_by(category: LOW, product: diaper)
     end
     let(:default) do
-      ProductPrice.find_by(category: 'MEDIUM', product: diaper)
+      ProductPrice.find_by(category: MEDIUM, product: diaper)
     end
     let(:last) do
-      ProductPrice.find_by(category: 'HIGH', product: diaper)
+      ProductPrice.find_by(category: HIGH, product: diaper)
     end
     let(:diaper) do
-      Product.find_by(title: 'diaper')
+      Product.find_by(title: DIAPER_TITLE)
     end
     context 'when get value' do
       it 'first diaper price category returned' do
-        create(:product_price, category: 0)
+        create(:product_price, :LOW)
 
         controller.params[:price_id] = 0
         result = controller.send(:product_price)
@@ -53,7 +59,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       end
 
       it 'default diaper price category returned' do
-        create(:product_price, category: 1)
+        create(:product_price, :MEDIUM)
 
         controller.params[:price_id] = 1
         result = controller.send(:product_price)
@@ -72,7 +78,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       end
 
       it 'last diaper price category returned' do
-        create(:product_price, category: 2)
+        create(:product_price, :HIGH)
 
         controller.params[:price_id] = 2
         result = controller.send(:product_price)
