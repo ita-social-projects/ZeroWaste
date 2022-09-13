@@ -21,6 +21,7 @@ import '../stylesheets/application';
 // import 'ajax/result_button';
 import 'ajax/checkbox';
 import 'plugins/flatpickr';
+import 'plugins/no_style_datalist';
 import "@fortawesome/fontawesome-free/css/all"
 
 import "../js/calculators/edit"

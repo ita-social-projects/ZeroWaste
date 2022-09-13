@@ -38,6 +38,33 @@
 #two_years_childs_months{
   display: none;
 }
+
+#childs_years, #childs_months{
+  width: 20px;
+  border: none;
+  outline: none;
+  background-color: #ECECEC;
+  color: #515151;
+}
+#childs_years_helper {
+  position: absolute;
+  width: 20px;
+  background-color: #ECECEC;
+  color: #515151;
+  z-index: 1;
+}
+#childs_months_helper {
+  position: absolute;
+  left: 280px;
+  width: 50px;
+  z-index: 1;
+  background-color: #ECECEC;
+  color: #515151;
+}
+option {
+  background-color: #ECECEC;
+}
+
 .inline_select{
   border:none;
   -webkit-appearance: none;
@@ -51,6 +78,7 @@
   line-height: 18px;
   color: #515151;
 }
+
 #years_form{
   margin-left: 20px;
 }

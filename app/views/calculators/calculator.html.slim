@@ -8,16 +8,16 @@
        p.form-p
         = t '.form.childs_age_label'
         .custom-select#years_form [required]
-          select.inline_select#childs_years
-               option value=""  __
-               option
-               -(0..2).each do |year|
+          input#childs_years[autocomplete="off" role="combobox" list="" name="childs_years" placeholder="_"]
+            datalist#childs_years_helper.inline-select[role="listbox"]
+              option
+              -(0..2).each do |year|
                 option value = year
                  =year
           | р.
-          select.inline_select#childs_months
-               option value=""  __
-               option
+          input#childs_months[autocomplete="off" role="combobox" list="" name="browsers" placeholder="_"]
+            datalist#childs_months_helper[role="listbox"]
+              option
                -(0..11).each do |month|
                 option value = month
                  =month
