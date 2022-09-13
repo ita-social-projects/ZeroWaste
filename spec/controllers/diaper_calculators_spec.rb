@@ -30,9 +30,6 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   end
 
   describe '#product_price' do
-    let!(:product_price) do
-      create(:product_price)
-    end
     let(:first) do
       ProductPrice.find_by(category: 'LOW', product: diaper)
     end
@@ -47,6 +44,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     end
     context 'when get value' do
       it 'first diaper price category returned' do
+        create(:product_price, category: 0)
+
         controller.params[:price_id] = 0
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
@@ -54,6 +53,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       end
 
       it 'default diaper price category returned' do
+        create(:product_price, category: 1)
+
         controller.params[:price_id] = 1
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
@@ -71,6 +72,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       end
 
       it 'last diaper price category returned' do
+        create(:product_price, category: 2)
+
         controller.params[:price_id] = 2
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
