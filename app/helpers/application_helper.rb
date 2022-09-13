@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-LN = [
-       { :en => 'English' },
-       { :uk => 'Українська' }
-     ]
+  LN = [
+         { :en: 'English' },
+         { :uk: 'Українська' }
+     ].freeze
 
   def flash_messages
     {
@@ -30,7 +30,7 @@ LN = [
   def change_locale!
     sl = I18n.locale.to_s
     res = Hash.new(0)
-    res = LN.each_with_index do | h, ind |
+    res = LN.each_with_index do |h, ind|
       if sl == h.keys.first.to_s
         if user_signed_in?
           i = (ind + 1) % LN.length
@@ -40,6 +40,6 @@ LN = [
         break LN[i]
       end
     end
-    res = res.empty? ? LN[0] : res
+    res.empty? ? LN[0] : res
   end
 end
