@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
 LN = [
        { :en => 'English' },
        { :uk => 'Українська' }
