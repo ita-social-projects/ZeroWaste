@@ -2,19 +2,16 @@ body
   header.page-header
     = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste'
     .tabs
-      - if FeatureFlag.get('show_admin_menu').active?
-        - if user_signed_in?
-          - if current_user.admin?
-            = link_to t('.admin'), admins_calculators_path, class: 'tab'
-          = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
-        - else
-            = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
-            = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
-        = link_to t('.contact_us'), new_message_path, class: 'tab'
+      - if user_signed_in?
+        - if current_user.admin?
+          = link_to t('.admin'), admins_calculators_path, class: 'tab'
+        = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
+      - else
+        = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
+        = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
+      = link_to t('.contact_us'), new_message_path, class: 'tab'
     .func-btns
       .donate-btn
         = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
-      - if current_locale?(:en)
-        = link_to t(".local_lang"), locale_path(:id => :uk), method: :patch, class: "btn btn-outline-success btn-sm mn-vd"
-      - else
-        = link_to t(".local_lang"), locale_path(:id => :en), method: :patch, class: "btn btn-outline-success btn-sm mn-vd"
+      - res = change_locale!
+      = link_to res.values.first, locale_path(:id => res.keys.first), method: :patch, class: "btn btn-outline-success btn-sm"

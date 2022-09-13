@@ -6,12 +6,16 @@ describe 'visit Calculator page', js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
 
-  it 'visits calculator page' do
+  it 'visits calculator page ENG localization' do
     visit "/calculators/#{calculator.slug}"
-    expect(page).to have_content
-                        I18n.t('.calculators.calculator.desire_getting_email')
+    expect(page).to have_content 'Yes, I want to receive email messages'
   end
 
+  it 'visits calculator page UKR localization' do
+    visit "/calculators/#{calculator.slug}"
+    expect(page).to have_content
+                      'Так, Я бажаю отримувати повідомлення електронною поштою'
+  end
 
   xit "visits calculator page and open log_in page" do
     visit "/calculators/#{calculator.slug}"
