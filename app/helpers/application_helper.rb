@@ -2,9 +2,9 @@
 
 module ApplicationHelper
   LN = [
-         { en: 'English' },
-         { uk: 'Українська' }
-     ].freeze
+           { en: 'English' },
+           { uk: 'Українська' }
+       ].freeze
 
   def flash_messages
     {
@@ -29,7 +29,6 @@ module ApplicationHelper
 
   def change_locale!
     sl = I18n.locale.to_s
-    res = Hash.new(0)
     res = LN.each_with_index do |h, ind|
       if sl == h.keys.first.to_s
         if user_signed_in?
