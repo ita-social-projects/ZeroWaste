@@ -2,9 +2,9 @@
 
 module ApplicationHelper
   LN = [
-           { en: 'English' },
-           { uk: 'Українська' }
-       ].freeze
+     { en: 'English' },
+     { uk: 'Українська' }
+  ].freeze
 
   def flash_messages
     {
