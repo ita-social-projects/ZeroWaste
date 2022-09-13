@@ -23,28 +23,28 @@ RSpec.describe ProductPrice, type: :model do
       context 'when category is minus' do
         let(:category) { -1 }
         it {
-            is_expected.not_to be_valid
+          expect { subject }.to raise_error(ArgumentError)
         }
       end
 
       context 'when category is string' do
         let(:category) { 'Sd5' }
         it {
-          is_expected.not_to be_valid
+          expect { subject }.to raise_error(ArgumentError)
         }
       end
 
       context 'when category is float' do
         let(:category) { 1.23456789 }
         it {
-            is_expected.not_to be_valid
+          expect { subject }.to raise_error(ArgumentError)
         }
       end
 
       context 'when category is empty' do
         let(:category) { }
         it {
-            is_expected.not_to be_valid
+          expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
         }
       end
 

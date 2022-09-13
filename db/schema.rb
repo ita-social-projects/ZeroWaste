@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2022_08_08_110227) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "hstore"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
@@ -57,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_08_08_110227) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
-    t.boolean "preferable"
+    t.boolean "preferable", default: false
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
   end
@@ -150,7 +149,6 @@ ActiveRecord::Schema.define(version: 2022_08_08_110227) do
     t.string "provider"
     t.string "uid"
     t.boolean "blocked", default: false
-    t.boolean "receive_recomendations", default: false
     t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
