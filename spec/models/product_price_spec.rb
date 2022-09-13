@@ -2,10 +2,6 @@
 
 require 'rails_helper'
 
-LOW = 'LOW'
-MEDIUM = 'MEDIUM'
-HIGH = 'HIGH'
-
 RSpec.describe Product, type: :model do
   let(:diaper) do
     Product.find_by(title: 'diaper')
