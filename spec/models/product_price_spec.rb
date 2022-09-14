@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   let(:diaper) do
-    Product.find_by(title: 'diaper')
+    Product.find_by(title: DIAPER_TITLE)
   end
   describe 'factory' do
     context 'product prices factory not nil' do

@@ -10,10 +10,6 @@ module Api
         { name: 'to_be_used_diapers_amount', result: 0 }
       ].freeze
 
-      DIAPER_TITLE = 'diaper'
-
-      MEDIUM = 'MEDIUM'
-
       def create
         result = diapers_service_handler(childs_age).calculate!
         diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)

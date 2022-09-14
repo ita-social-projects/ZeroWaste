@@ -2,12 +2,6 @@
 
 require 'rails_helper'
 
-LOW = 'LOW'
-MEDIUM = 'MEDIUM'
-HIGH = 'HIGH'
-
-DIAPER_TITLE = 'diaper'
-
 RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#create' do
     let(:values) do
