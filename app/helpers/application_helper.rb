@@ -35,6 +35,6 @@ module ApplicationHelper
         break LN[i]
       end
     end
-    res.empty? ? LN[0] : res
+    res == LN ? LN[0] : res
   end
 end
