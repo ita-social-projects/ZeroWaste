@@ -5,7 +5,7 @@ module CalculatorsHelper
     fields.map { |field| field.selector&.gsub(/\D/, '').to_i }.max
   end
 
-  def render_email_receiver_checkbox (title_chkbox =
+  def render_email_receiver_checkbox(title_chkbox =
                              { label: 'Yes, I want to receive email messages' })
     return unless user_signed_in?
 
