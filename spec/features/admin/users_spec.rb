@@ -26,6 +26,7 @@ describe 'visit admin page', js: true do
       visit USERS_PATH
       within(:css, "#user-info-#{user1.id}") do
         click_link(href: "/admins/users/#{user1.id}")
+        sleep 3
       end
       expect(page).to have_current_path('/admins/users/1')
       expect(page).to have_content 'Email'
@@ -43,6 +44,7 @@ describe 'visit admin page', js: true do
      visit USERS_PATH
      within(:css, "#user-info-#{user1.id}") do
        click_link(href: "/admins/users/#{user1.id}/edit")
+       sleep 3
      end
      expect(page).to have_current_path(EDIT_USERS_PATH)
      expect(page).to have_content 'First name'
