@@ -1,24 +1,20 @@
 name: Deploy
 
 on:
-  push:
-    branches: [ master ]
+  pull_request:
+    types:
+      - closed
+    branches:
+      - develop
 
 jobs:
-  deploy:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - run: echo ${{ secrets.ENV }} > .env
-    - run: echo ${{ secrets.ENV_DB }} | base64 -d > .env.db
-    - run: echo ${{ secrets.MASTER_KEY }} > config/credentials/production.key
-
-    - uses: alex-ac/github-action-ssh-docker-compose@master
-      name: Docker-Compose Remote Deployment
-      with:
-        ssh_host: ${{ secrets.SSH_HOST }}
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh_user: ${{ secrets.SSH_USER }}
-        docker_compose_prefix: staging
-   
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: zerowaste-staging
+          heroku_email: ${{secrets.HEROKU_AUTODEPLOY_EMAIL}}
