@@ -10,6 +10,12 @@ module Api
         { name: 'to_be_used_diapers_amount', result: 0 }
       ].freeze
 
+      LOW = 'LOW'
+      MEDIUM = 'MEDIUM'
+      HIGH = 'HIGH'
+
+      DIAPER_TITLE = 'diaper'
+
       def create
         result = diapers_service_handler(childs_age).calculate!
         diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
@@ -35,6 +41,20 @@ module Api
 
       def childs_age
         params[:childs_age].to_i
+      end
+
+      def diaper
+        @diaper ||= Product.find_by(title: DIAPER_TITLE)
+      end
+
+      def default_price
+        ProductPrice.find_by(category: MEDIUM, product: diaper)
+      end
+
+      def product_price
+        selected_price = ProductPrice.find_by(category: params[:price_id],
+                                              product: diaper)
+        selected_price || default_price
       end
     end
   end
