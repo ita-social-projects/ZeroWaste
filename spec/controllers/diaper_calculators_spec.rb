@@ -57,14 +57,17 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
         expect(result).to eq(high)
       end
     end
-    context 'when get not awaited value' do
-      it 'default diaper price category returned' do
+    context 'when get unawaited value' do
+      it 'get unawaited number' do
         medium = create(:product_price, :MEDIUM)
 
         controller.params[:price_id] = -1
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
         expect(result).to eq(medium)
+      end
+      it 'get nil' do
+        medium = create(:product_price, :MEDIUM)
 
         controller.params[:price_id] = nil
         result = controller.send(:product_price)
