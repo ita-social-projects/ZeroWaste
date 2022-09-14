@@ -31,11 +31,7 @@ module ApplicationHelper
     sl = I18n.locale.to_s
     res = LN.each_with_index do |h, ind|
       if sl == h.keys.first.to_s
-        if user_signed_in?
-          i = (ind + 1) % LN.length
-        else
-          i = ind - 1
-        end
+        i = user_signed_in? ? (ind + 1) % LN.length : ind - 1
         break LN[i]
       end
     end
