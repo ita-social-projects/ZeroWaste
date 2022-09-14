@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2022_08_08_110227) do
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.bigint "product_id", null: false
     t.integer "price"
-    t.integer "category"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_product_prices_on_product_id"

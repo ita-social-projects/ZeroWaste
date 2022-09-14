@@ -2,6 +2,10 @@
 
 class ProductPrice < ApplicationRecord
   belongs_to :product
-  enum category: %i[BUDGETARY MEDIUM PREMIUM]
+  enum category: {
+    "BUDGETARY": "BUDGETARY",
+    "MEDIUM": "MEDIUM",
+    "PREMIUM": "PREMIUM"
+  }
   validates :category, :price, presence: true
 end

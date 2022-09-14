@@ -4,7 +4,7 @@ class CreateProductPrices < ActiveRecord::Migration[6.1]
       t.uuid :uuid, default: -> { "gen_random_uuid()" }, null: false
       t.references :product, null: false
       t.integer :price
-      t.integer :category
+      t.string :category
 
       t.timestamps
     end

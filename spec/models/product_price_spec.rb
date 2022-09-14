@@ -50,22 +50,22 @@ RSpec.describe ProductPrice, type: :model do
 
     end
     context 'check names output' do
-      context 'when category 0' do
-        let(:category) { 0 }
+      context 'when category "BUDGETARY"' do
+        let(:category) { 'BUDGETARY' }
         it {
           expect(subject.category).to eq('BUDGETARY')
         }
       end
 
-      context 'when category 1' do
-        let(:category) { 1 }
+      context 'when category "MEDIUM"' do
+        let(:category) { 'MEDIUM' }
         it {
           expect(subject.category).to eq('MEDIUM')
         }
       end
 
-      context 'when category 2' do
-        let(:category) { 2 }
+      context 'when category "PREMIUM"' do
+        let(:category) { 'PREMIUM' }
         it {
           expect(subject.category).to eq('PREMIUM')
         }
