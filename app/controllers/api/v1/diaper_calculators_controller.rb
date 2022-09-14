@@ -15,7 +15,7 @@ module Api
       HIGH = 'HIGH'
 
       DIAPER_TITLE = 'diaper'
-      
+
       def create
         result = diapers_service_handler(childs_age).calculate!
         diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
