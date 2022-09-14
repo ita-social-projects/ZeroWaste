@@ -65,7 +65,7 @@ describe 'user views sign up', :type => :feature do
 
     it 'displays a translated welcome message to the user', :js => true do
       visit '/users/sign_up'
-      expect(page).to have_content I18n.t('devise.registrations.new.sing_up_header')
+      expect(page).to have_content ('Sing Up')
     end
   end
 
