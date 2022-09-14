@@ -30,54 +30,46 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   end
 
   describe '#product_price' do
-    let(:first) do
-      ProductPrice.find_by(category: Api::V1::DiaperCalculatorsController::LOW, product: diaper)
-    end
-    let(:default) do
-      ProductPrice.find_by(category: Api::V1::DiaperCalculatorsController::MEDIUM, product: diaper)
-    end
-    let(:last) do
-      ProductPrice.find_by(category: Api::V1::DiaperCalculatorsController::HIGH, product: diaper)
-    end
-    let(:diaper) do
-      Product.find_by(title: Api::V1::DiaperCalculatorsController::DIAPER_TITLE)
-    end
-    context 'when get value' do
+    context 'when get awaited value' do
       it 'first diaper price category returned' do
-        create(:product_price, :LOW)
-
+        low = create(:product_price, :LOW)
         controller.params[:price_id] = 0
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
-        expect(result).to eq(first)
+        expect(result).to eq(low)
       end
 
       it 'default diaper price category returned' do
-        create(:product_price, :MEDIUM)
+        medium = create(:product_price, :MEDIUM)
 
         controller.params[:price_id] = 1
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
-        expect(result).to eq(default)
-
-        controller.params[:price_id] = -1
-        result = controller.send(:product_price)
-        expect(result).not_to eq(nil)
-        expect(result).to eq(default)
-
-        controller.params[:price_id] = nil
-        result = controller.send(:product_price)
-        expect(result).not_to eq(nil)
-        expect(result).to eq(default)
+        expect(result).to eq(medium)
       end
 
       it 'last diaper price category returned' do
-        create(:product_price, :HIGH)
+        high = create(:product_price, :HIGH)
 
         controller.params[:price_id] = 2
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
-        expect(result).to eq(last)
+        expect(result).to eq(high)
+      end
+    end
+    context 'when get not awaited value' do
+      it 'default diaper price category returned' do
+        medium = create(:product_price, :MEDIUM)
+
+        controller.params[:price_id] = -1
+        result = controller.send(:product_price)
+        expect(result).not_to eq(nil)
+        expect(result).to eq(medium)
+
+        controller.params[:price_id] = nil
+        result = controller.send(:product_price)
+        expect(result).not_to eq(nil)
+        expect(result).to eq(medium)
       end
     end
   end
