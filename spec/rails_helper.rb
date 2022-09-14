@@ -80,9 +80,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-
-LOW = 'LOW'
-MEDIUM = 'MEDIUM'
-HIGH = 'HIGH'
-
-DIAPER_TITLE = 'diaper'
