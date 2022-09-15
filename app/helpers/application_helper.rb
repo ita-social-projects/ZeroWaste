@@ -28,13 +28,7 @@ module ApplicationHelper
   end
 
   def change_locale!
-    sl = I18n.locale.to_s
-    res = LN.each_with_index do |h, ind|
-      if sl == h.keys.first.to_s
-        i = user_signed_in? ? (ind + 1) % LN.length : ind - 1
-        break LN[i]
-      end
-    end
-    res == LN ? LN[0] : res
+    ind = LN.find_index { | h | h.keys.first.to_s == I18n.locale.to_s }
+    ind.nil? ? LN[0] : user_signed_in? ? LN[(ind + 1) % LN.length] : LN[ind - 1]
   end
 end
