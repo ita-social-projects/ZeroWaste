@@ -57,11 +57,16 @@ ProductPrice.create!(
 )
 
 feature_budget_category = FeatureFlag.create!(
-  name: "feature_budget_category", 
-  enabled: false 
+  name: "feature_budget_category",
+  enabled: false
 )
 
 show_admin_menu = FeatureFlag.create!(
   name: 'show_admin_menu',
+  enabled: false
+)
+
+new_results_display_section = FeatureFlag.create!(
+  name: 'new_results_display_section',
   enabled: false
 )

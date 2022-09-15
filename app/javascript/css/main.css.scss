@@ -1,7 +1,7 @@
 body {
   position: relative;
   margin: 0 auto;
-  background: url("../images/mother.jpeg") no-repeat center top;
+  background: url("../images/mother.jpeg") no-repeat center center fixed;
   background-size: cover;
   overflow-x: hidden;
   min-height: 100%;
@@ -23,10 +23,11 @@ a {
 .filter_block {
   position: absolute;
   background-color: #00000078;
-  height: 100%;
+  height: auto;
   width: 100%;
   top: 0;
   left: 0;
+  bottom: -450px;
 }
 
 .page-header {
