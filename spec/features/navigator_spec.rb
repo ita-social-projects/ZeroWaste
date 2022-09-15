@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'pry'
-
 
 describe 'navigator', js: true do
   it 'should style the navbar' do
