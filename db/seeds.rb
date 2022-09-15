@@ -38,20 +38,30 @@ diaper = Product.create!(
   product_type: hygiene_type
 )
 
-budgetary = ProductPrice.create!(
+ProductPrice.create!(
   price: 4.99,
   category: 0,
   product: diaper
 )
 
-medium = ProductPrice.create!(
+ProductPrice.create!(
   price: 6.36,
   category: 1,
   product: diaper
 )
 
-premium = ProductPrice.create!(
+ProductPrice.create!(
   price: 8.21,
   category: 2,
   product: diaper
+)
+
+feature_budget_category = FeatureFlag.create!(
+  name: "feature_budget_category", 
+  enabled: false 
+)
+
+show_admin_menu = FeatureFlag.create!(
+  name: 'show_admin_menu',
+  enabled: false
 )
