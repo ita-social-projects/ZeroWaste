@@ -286,5 +286,12 @@
     .vector-width {
       width: 300px;
     }
+
+@media screen and (max-width: $xs) {
+  .logo-zerowaste img {
+    width: 100%;
+  }
+  .logo-zerowaste {
+    width: 140px;
   }
 }
