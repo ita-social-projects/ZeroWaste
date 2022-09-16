@@ -51,7 +51,7 @@ module Api
         ProductPrice.find_by(category: MEDIUM, product: diaper)
       end
 
-      def product_price_id_to_name
+      def category_id_to_name
         array = [BUDGETARY, MEDIUM, PREMIUM]
         return MEDIUM if params[:price_id].nil?
 
@@ -59,7 +59,7 @@ module Api
       end
 
       def product_price
-        selected_price = ProductPrice.find_by(category: product_price_id_to_name,
+        selected_price = ProductPrice.find_by(category: category_id_to_name,
                                               product: diaper)
         selected_price || default_price
       end
