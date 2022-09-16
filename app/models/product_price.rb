@@ -2,10 +2,7 @@
 
 class ProductPrice < ApplicationRecord
   belongs_to :product
-  enum category: {
-    BUDGETARY: 'BUDGETARY',
-    MEDIUM: 'MEDIUM',
-    PREMIUM: 'PREMIUM'
-  }
+  validates :category, inclusion: { in: %w(BUDGETARY MEDIUM PREMIUM),
+    message: "%{value} is not a valid category" }
   validates :category, :price, presence: true
 end

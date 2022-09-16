@@ -23,21 +23,21 @@ RSpec.describe ProductPrice, type: :model do
       context 'when category is minus' do
         let(:category) { -1 }
         it {
-          expect { subject }.to raise_error(ArgumentError)
+          expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
         }
       end
 
       context 'when category is string' do
         let(:category) { 'Sd5' }
         it {
-          expect { subject }.to raise_error(ArgumentError)
+          expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
         }
       end
 
       context 'when category is float' do
         let(:category) { 1.23456789 }
         it {
-          expect { subject }.to raise_error(ArgumentError)
+          expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
         }
       end
 
@@ -51,23 +51,22 @@ RSpec.describe ProductPrice, type: :model do
     end
     context 'check names output' do
       context 'when category "BUDGETARY"' do
-        let(:category) { 'BUDGETARY' }
         it {
-          expect(subject.category).to eq('BUDGETARY')
+          expect(create(:product_price, :BUDGETARY).category).to eq('BUDGETARY')
         }
       end
 
       context 'when category "MEDIUM"' do
         let(:category) { 'MEDIUM' }
         it {
-          expect(subject.category).to eq('MEDIUM')
+          expect(create(:product_price, :MEDIUM).category).to eq('MEDIUM')
         }
       end
 
       context 'when category "PREMIUM"' do
         let(:category) { 'PREMIUM' }
         it {
-          expect(subject.category).to eq('PREMIUM')
+          expect(create(:product_price, :PREMIUM).category).to eq('PREMIUM')
         }
       end
     end

@@ -32,11 +32,11 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#product_price' do
     context 'when get awaited value' do
       it 'first diaper price category returned' do
-        low = create(:product_price, :LOW)
+        budgetary = create(:product_price, :BUDGETARY)
         controller.params[:price_id] = 0
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
-        expect(result).to eq(low)
+        expect(result).to eq(budgetary)
       end
 
       it 'default diaper price category returned' do
@@ -49,12 +49,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       end
 
       it 'last diaper price category returned' do
-        high = create(:product_price, :HIGH)
+        premium = create(:product_price, :PREMIUM)
 
         controller.params[:price_id] = 2
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
-        expect(result).to eq(high)
+        expect(result).to eq(premium)
       end
     end
     context 'when get unawaited value' do

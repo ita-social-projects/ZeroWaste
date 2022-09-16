@@ -10,9 +10,9 @@ module Api
         { name: 'to_be_used_diapers_amount', result: 0 }
       ].freeze
 
-      LOW = 'LOW'
+      BUDGETARY = 'BUDGETARY'
       MEDIUM = 'MEDIUM'
-      HIGH = 'HIGH'
+      PREMIUM = 'PREMIUM'
 
       DIAPER_TITLE = 'diaper'
 
@@ -51,8 +51,15 @@ module Api
         ProductPrice.find_by(category: MEDIUM, product: diaper)
       end
 
+      def product_price_id_to_name
+        array = [BUDGETARY, MEDIUM, PREMIUM]
+        return MEDIUM if params[:price_id].nil?
+
+        array[params[:price_id]]
+      end
+
       def product_price
-        selected_price = ProductPrice.find_by(category: params[:price_id],
+        selected_price = ProductPrice.find_by(category: product_price_id_to_name,
                                               product: diaper)
         selected_price || default_price
       end
