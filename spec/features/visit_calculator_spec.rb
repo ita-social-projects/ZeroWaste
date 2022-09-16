@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 describe 'visit Calculator page', js: true do
-  let(:user) { create(:user) }
-  let(:calculator) { create(:calculator) }
   before(:each) do
     @user = create(:user)
     sign_in @user
   end
-
+  let(:user) { create(:user) }
+  let(:calculator) { create(:calculator) }
+  
   it 'visits calculator page ENG localization' do
     visit "/calculators/#{calculator.slug}"
     expect(page).to have_content 'Yes, I want to receive email messages'
@@ -17,8 +17,8 @@ describe 'visit Calculator page', js: true do
 
   it 'visits calculator page UKR localization' do
     visit "/calculators/#{calculator.slug}"
-    expect(page).to have_content
-                      'Так, Я бажаю отримувати повідомлення електронною поштою'
+    expect(page).to have_content(
+                      'Так, Я бажаю отримувати повідомлення електронною поштою')
   end
 
   xit "visits calculator page and open log_in page" do
