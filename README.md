@@ -41,7 +41,19 @@ $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
 $ `bin/setup`
 or 
-$ `bundle install` 
+$ `bundle install`
+
+## Yarn installation
+run `yarn install` to install all dependencies from yarn.lock
+
+## Postgressql setup
+1. copy database.yml.sample as database.yml
+2. create role 'postgres' with command `createuser -P -d postgres` and password specified in `database.yml`
+3. run commands to create and migrate DB:
+   - `rails db:create RAILS_ENV=development` to also specify RAILS_ENV for the first time
+   - `rails db:migrate`
+4. in case the following error is shown: ``PG::UndefinedTable: ERROR:  relation "versions" does not exist
+   LINE 8:  WHERE a.attrelid = '"versions"'::regclass`` try with rerun `rails db:reset` and `rails db:migrate`
 
 ## How to run local
 
