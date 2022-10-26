@@ -68,6 +68,7 @@ group :test do
 end
 
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'any_login'
 gem 'cocoon'
 gem 'devise'
 gem 'devise-async'
@@ -80,4 +81,3 @@ gem 'sidekiq'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'any_login'
