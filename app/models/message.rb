@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Message < ApplicationRecord
   validates :title, presence: true, length: { minimum: 5 }
   validates :message, presence: true, length: { minimum: 20 }

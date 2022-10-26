@@ -12,10 +12,12 @@ describe 'visit Login page', js: true do
       .and_return("/calculators/#{calculator.slug}")
     allow(Devise::Mailer).to receive(:confirmation_instructions)
       .and_return(double(deliver: true))
+    create(:feature_flag, :show_admin_menu)
     visit '/users/sign_in'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
-    expect(page).to have_selector("a[href='/users/sign_out']")
+    expect(page).to have_content('Signed in successfully')
+    expect(page).to have_content('LOG OUT')
   end
 end

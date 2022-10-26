@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
 
   private
 
@@ -28,9 +29,8 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
-  def user_for_paper_trail
-    # binding.pry
-    user_signed_in? ? 'User' : 'Admin'
+  def set_locale
+    I18n.locale = session[:locale] || I18n.default_locale
   end
 
   protected

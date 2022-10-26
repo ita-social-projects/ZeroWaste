@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get '/calculator', to: 'calculators#calculator'
   post '/receive_recomendations', to: 'calculators#receive_recomendations'
   get '/about_us', to: redirect('/about_us.html')
-  devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks:
@@ -24,18 +23,13 @@ Rails.application.routes.draw do
     end
   end
   resources :messages, only: %i[new create]
-
-  resources :contact_us, only: [:index]
+  resources :locales, only: :update, constraints: { id: /(en|uk)/ }
   namespace :admins do
     resources :users, only: %i[index show edit update]
     resources :calculators, param: :slug
     resources :histories, only: :index
     resources :messages, only: %i[index show]
-
-    resources :admins do
-      post :update
-      get :edit
-    end
+    resource :app_config, only: %i[edit update]
 
     scope module: :calculators do
       resources :calculators, only: [], param: :slug do
