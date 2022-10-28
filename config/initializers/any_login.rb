@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 AnyLogin.setup do |config|
   config.collection_method = :grouped_collection_by_role
   # # provider (:devise, :authlogic, sorcery, clearance). Provider can be identified automatically based on your Gemfile

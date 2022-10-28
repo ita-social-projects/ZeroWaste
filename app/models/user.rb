@@ -13,8 +13,8 @@ class User < ApplicationRecord
   }
   def self.grouped_collection_by_role
     {
-      'admin'     => User.admin.limit(10),
-      'user'      => User.user.limit(10)
+      'admin' => User.admin.limit(10),
+      'user' => User.user.limit(10)
     }
   end
   # validate :correct_image_type
