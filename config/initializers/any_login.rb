@@ -2,7 +2,8 @@
 
 AnyLogin.setup do |config|
   config.collection_method = :grouped_collection_by_role
-  # # provider (:devise, :authlogic, sorcery, clearance). Provider can be identified automatically based on your Gemfile
+  # # provider (:devise, :authlogic, sorcery, clearance). \
+  # Provider can be identified automatically based on your Gemfile
   # config.provider = nil
 
   # # enabled or not
@@ -11,7 +12,8 @@ AnyLogin.setup do |config|
   # # Account, User, Person, etc
   # config.klass_name = 'User'
 
-  #  # .all, .active, .admins, .groped_collection, etc ... need to return an array (or hash with arrays) of users
+  #  # .all, .active, .admins, .groped_collection, etc ... \
+  # need to return an array (or hash with arrays) of users
   # config.collection_method = :all
 
   # # to format user name in dropdown list
