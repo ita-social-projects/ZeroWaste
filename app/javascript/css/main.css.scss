@@ -4,7 +4,7 @@ body {
   background: url("../images/mother.jpeg") no-repeat center top;
   background-size: cover;
   overflow-x: hidden;
-  min-height: 100%;
+  height: 100%;
 }
 
 a {
@@ -23,7 +23,8 @@ a {
 .filter_block {
   position: absolute;
   background-color: #00000078;
-  height: 100%;
+  height: auto !important;
+  min-height: 100%;
   width: 100%;
   top: 0;
   left: 0;
