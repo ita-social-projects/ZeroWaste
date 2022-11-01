@@ -12,7 +12,6 @@ uk:
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
-      email_receiver_checkbox: "Так, я хочу отримувати електронні листи"
       calculate_result_button: "Розрахувати"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
       bought_diapers: "підгузок ви вже використали"

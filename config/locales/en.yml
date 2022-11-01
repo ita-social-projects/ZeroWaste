@@ -43,7 +43,6 @@ en:
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
-      email_receiver_checkbox: "Yes, I want to receive email messages"
       calculate_result_button: "Calculate"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       bought_diapers: "diapers already used"
