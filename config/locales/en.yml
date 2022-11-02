@@ -43,6 +43,12 @@ en:
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
+        years:
+          one: "1 year"
+          other: "%{count} years"
+        months:
+          one: "1 month"
+          other: "%{count} months"
       calculate_result_button: "Calculate"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       bought_diapers: "diapers already used"

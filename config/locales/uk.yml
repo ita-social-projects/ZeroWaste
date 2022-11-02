@@ -12,6 +12,14 @@ uk:
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
+        years:
+          zero: "0 років"
+          one: "1 рік"
+          few: "%{count} роки"
+        months:
+          one: "1 місяць"
+          few: "%{count} місяці"
+          many: "%{count}"
       calculate_result_button: "Розрахувати"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
       bought_diapers: "підгузок ви вже використали"
