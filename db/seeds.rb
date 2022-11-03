@@ -19,12 +19,72 @@ user = User.create(
   role: "user"
 )
 
+user1 = User.create(
+  email: '1user@zw.com',
+  password: 'password',
+  password_confirmation: 'password',
+  first_name: 'Vince',
+  last_name: 'User',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "user"
+)
+
+user2 = User.create(
+  email: '2user@zw.com',
+  password: 'password',
+  password_confirmation: 'password',
+  first_name: 'Shawn',
+  last_name: 'User',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "user"
+)
+
+user3 = User.create(
+  email: '3user@zw.com',
+  password: 'password',
+  password_confirmation: 'password',
+  first_name: 'Tom',
+  last_name: 'User',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "user"
+)
+
 admin = User.create(
   email: 'admin@zw.com',
   password: 'ChangeMe1',
   password_confirmation: 'ChangeMe1',
   first_name: 'Admin',
   last_name: 'Admin',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "admin"
+)
+
+admin1 = User.create(
+  email: '1admin@zw.com',
+  password: 'ChangeMe1',
+  password_confirmation: 'ChangeMe1',
+  first_name: 'Admin1',
+  last_name: 'Admin1',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "admin"
+)
+
+admin2 = User.create(
+  email: '2admin@zw.com',
+  password: 'ChangeMe1',
+  password_confirmation: 'ChangeMe1',
+  first_name: 'Admin2',
+  last_name: 'Admin2',
+  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  role: "admin"
+)
+
+admin3 = User.create(
+  email: '3admin@zw.com',
+  password: 'ChangeMe1',
+  password_confirmation: 'ChangeMe1',
+  first_name: 'Admin3',
+  last_name: 'Admin3',
   confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
   role: "admin"
 )
@@ -57,8 +117,8 @@ ProductPrice.create!(
 )
 
 feature_budget_category = FeatureFlag.create!(
-  name: "feature_budget_category", 
-  enabled: false 
+  name: "feature_budget_category",
+  enabled: false
 )
 
 show_admin_menu = FeatureFlag.create!(

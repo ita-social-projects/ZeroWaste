@@ -11,12 +11,12 @@ class User < ApplicationRecord
     user: 0,
     admin: 1
   }
+
   def self.grouped_collection_by_role
-    {
-      'admin' => User.admin.limit(10),
-      'user' => User.user.limit(10)
-    }
+    User.all.group_by(&:role).map{ |key, value|  [key, value.take(2)] }
   end
+
+
   # validate :correct_image_type
 
   # Include default devise modules. Others available are:
