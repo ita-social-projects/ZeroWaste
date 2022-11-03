@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database
 # with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created
@@ -15,38 +16,8 @@ user = User.create(
   password_confirmation: 'password',
   first_name: 'John',
   last_name: 'User',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "user"
-)
-
-user1 = User.create(
-  email: '1user@zw.com',
-  password: 'password',
-  password_confirmation: 'password',
-  first_name: 'Vince',
-  last_name: 'User',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "user"
-)
-
-user2 = User.create(
-  email: '2user@zw.com',
-  password: 'password',
-  password_confirmation: 'password',
-  first_name: 'Shawn',
-  last_name: 'User',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "user"
-)
-
-user3 = User.create(
-  email: '3user@zw.com',
-  password: 'password',
-  password_confirmation: 'password',
-  first_name: 'Tom',
-  last_name: 'User',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "user"
+  confirmed_at: '2022-04-27 15:29:25.414540000 +0000',
+  role: 'user'
 )
 
 admin = User.create(
@@ -55,38 +26,8 @@ admin = User.create(
   password_confirmation: 'ChangeMe1',
   first_name: 'Admin',
   last_name: 'Admin',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "admin"
-)
-
-admin1 = User.create(
-  email: '1admin@zw.com',
-  password: 'ChangeMe1',
-  password_confirmation: 'ChangeMe1',
-  first_name: 'Admin1',
-  last_name: 'Admin1',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "admin"
-)
-
-admin2 = User.create(
-  email: '2admin@zw.com',
-  password: 'ChangeMe1',
-  password_confirmation: 'ChangeMe1',
-  first_name: 'Admin2',
-  last_name: 'Admin2',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "admin"
-)
-
-admin3 = User.create(
-  email: '3admin@zw.com',
-  password: 'ChangeMe1',
-  password_confirmation: 'ChangeMe1',
-  first_name: 'Admin3',
-  last_name: 'Admin3',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "admin"
+  confirmed_at: '2022-04-27 15:29:25.414540000 +0000',
+  role: 'admin'
 )
 
 hygiene_type = ProductType.create!(
@@ -117,7 +58,7 @@ ProductPrice.create!(
 )
 
 feature_budget_category = FeatureFlag.create!(
-  name: "feature_budget_category",
+  name: 'feature_budget_category',
   enabled: false
 )
 
