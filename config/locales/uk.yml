@@ -13,11 +13,11 @@ uk:
         medium: "середня"
         premium: "преміум"
         years:
-          zero: "0 років"
-          one: "1 рік"
+          one: "%{count} рік"
           few: "%{count} роки"
+          many: "%{count} років"
         months:
-          one: "1 місяць"
+          one: "%{count} місяць"
           few: "%{count} місяці"
           many: "%{count} місяців"
       calculate_result_button: "Розрахувати"
