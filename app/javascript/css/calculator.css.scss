@@ -1,5 +1,5 @@
 .calculate-btn {
-  width: 186px;
+  width: 100%;
   height: 56px;
   margin-top: 40px;
   color: #fff;
@@ -14,6 +14,7 @@
   font-family: "Nunito", sans-serif;
   font-style: normal;
   transition: transform 0.5s linear;
+  max-width: 300px;
 }
 
 #calc {
@@ -27,7 +28,6 @@
   font-weight: 400;
   color: #666666;
   position: relative;
-  top: 15px;
   left: 20px;
   margin-bottom: 0px;
 }
@@ -44,16 +44,13 @@
 
 .src {
   position: relative;
-  top: 10px;
+  top: -5px;
   margin-left: 20px;
 }
 
 .form {
-  padding-top: 25px;
   padding-left: 15px;
   max-width: 800px;
-  text-align: start;
-  display: flex;
 }
 
 .row-l {
@@ -62,9 +59,13 @@
 }
 
 .flex-item {
-  width: fit-content;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
   select {
     margin-top: 25px;
+    width: 300px;
   }
 }
 
@@ -99,7 +100,6 @@
 }
 
 .result-btn {
-  width: 250px;
   text-align: center;
 }
 
@@ -157,5 +157,20 @@
   }
   .logo-zerowaste {
     width: 140px;
+  }
+  .src {
+    margin-right: 5px;
+  }
+  .form {
+    padding-left: 10px;
+  }
+  .form-p {
+    left: 10px;
+  }
+  .flex-item {
+    width: 300px;
+  }
+  .result-btn {
+    width: 300px;
   }
 }
