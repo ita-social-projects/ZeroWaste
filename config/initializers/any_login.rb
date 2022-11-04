@@ -7,7 +7,7 @@ AnyLogin.setup do |config|
   # config.provider = nil
 
   # # enabled or not
-   config.enabled = Rails.env.to_s == 'development'
+  # config.enabled = Rails.env.development?
 
   # # Account, User, Person, etc
   # config.klass_name = 'User'
@@ -51,4 +51,4 @@ AnyLogin.setup do |config|
 
   # # Use controller proc condition
   # config.verify_access_proc = proc { |controller| true }
-end
+end if Rails.env.development?
