@@ -46,6 +46,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'any_login'
   gem 'letter_opener'
   gem 'listen', '~> 3.3'
   gem 'pronto'
@@ -68,7 +69,6 @@ group :test do
 end
 
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'any_login'
 gem 'cocoon'
 gem 'devise'
 gem 'devise-async'
