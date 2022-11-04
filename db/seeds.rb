@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database
 # with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created
@@ -15,8 +16,8 @@ user = User.create(
   password_confirmation: 'password',
   first_name: 'John',
   last_name: 'User',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "user"
+  confirmed_at: '2022-04-27 15:29:25.414540000 +0000',
+  role: 'user'
 )
 
 admin = User.create(
@@ -25,8 +26,8 @@ admin = User.create(
   password_confirmation: 'ChangeMe1',
   first_name: 'Admin',
   last_name: 'Admin',
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
-  role: "admin"
+  confirmed_at: '2022-04-27 15:29:25.414540000 +0000',
+  role: 'admin'
 )
 
 hygiene_type = ProductType.create!(
@@ -57,8 +58,8 @@ ProductPrice.create!(
 )
 
 feature_budget_category = FeatureFlag.create!(
-  name: "feature_budget_category", 
-  enabled: false 
+  name: 'feature_budget_category',
+  enabled: false
 )
 
 show_admin_menu = FeatureFlag.create!(
