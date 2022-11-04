@@ -8,19 +8,19 @@
       = form_with url: "#", id: "form", method: :get do |form|
         .flex-item
           select.custom-select#childs_years [required]
-            option [disabled selected value]
+            option [disabled selected hidden value]
               = t('.form.childs_years_label')
             - (0..2).each do |year|
               option value = year
                 = t('calculators.calculator.form.years', count: year)
           select.custom-select#childs_months
-            option [disabled selected value]
+            option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..11).each do |month|
               option value = month
                 = t('calculators.calculator.form.months', count: month)
           select.custom-select#two_years_childs_months
-            option [disabled selected value]
+            option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..6).each do |month|
               option value = month
