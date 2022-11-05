@@ -228,6 +228,10 @@ div.calculation-results {
   border-radius: 6px;
 }
 
+.break-calculation-results-in-column{
+  display: none;
+}
+
 .result-card {
   font-size: 14px;
   text-align: center;
@@ -394,7 +398,7 @@ body.admin {
   }
 }
 
-@media screen and (max-width: $md) {
+@media screen and (max-width: $sm) {
   .tab {
     display: none;
   }
@@ -413,6 +417,25 @@ body.admin {
   .calculation-results,
   .jumbotron {
     width: 510px;
+  }
+  .donate-btn a {
+    padding: 10px;
+  }
+  .break-calculation-results-in-column{
+    display: block;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $sm) {
+  .page-header {
+    width: 750px;
+  }
+  .calculation-results,
+  .jumbotron {
+    width: 750px;
+  }
+  .break-calculation-results-in-column{
+    display: block;
   }
   .donate-btn a {
     padding: 10px;
