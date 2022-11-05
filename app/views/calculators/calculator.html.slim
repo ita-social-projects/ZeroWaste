@@ -12,19 +12,19 @@
               = t('.form.childs_years_label')
             - (0..2).each do |year|
               option value = year
-                = t('calculators.calculator.form.years', count: year)
+                = t('datetime.distance_in_words.x_years', count: year)
           select.custom-select#childs_months
             option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..11).each do |month|
               option value = month
-                = t('calculators.calculator.form.months', count: month)
+                = t('datetime.distance_in_words.x_months', count: month)
           select.custom-select#two_years_childs_months
             option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..6).each do |month|
               option value = month
-                = t('calculators.calculator.form.months', count: month)
+                = t('datetime.distance_in_words.x_months', count: month)
 
           - if FeatureFlag.get('feature_budget_category').active?
             p.form-a
