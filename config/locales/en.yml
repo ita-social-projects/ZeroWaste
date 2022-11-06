@@ -279,7 +279,7 @@ en:
         google_sign_in: "Sign in with Google"
     registrations:
       new:
-        sing_up_header: "Sing Up"
+        sign_up_header: "Sign Up"
         form:
           email_label: "Email"
           password_label: "Password"
@@ -287,7 +287,7 @@ en:
           password_confirmation_label: "Password Confirmation"
           first_name_label: "First Name"
           last_name_label: "Last Name"
-          sing_up_button: "Sing Up"
+          sign_up_button: "Sign Up"
           password_hint: "Minimum 8 characters"
       edit:
         update_user_button: "Update information"

@@ -256,7 +256,7 @@ uk:
         google_sign_in: "Увійти через Google"
     registrations:
       new:
-        sing_up_header: "Зареєструватися"
+        sign_up_header: "Зареєструватися"
         form:
           email_label: "Поштова Скринька"
           password_label: "Пароль"
@@ -264,7 +264,7 @@ uk:
           password_confirmation_label: "Підтвердження Паролю"
           first_name_label: "Ім'я"
           last_name_label: "Прізвище"
-          sing_up_button: "Зареєструватися"
+          sign_up_button: "Зареєструватися"
           password_hint: "Мінімум 8 символів"
       edit:
         update_user_button: "Оновити інформацію"
