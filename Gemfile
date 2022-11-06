@@ -68,6 +68,7 @@ group :test do
 end
 
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'any_login'
 gem 'cocoon'
 gem 'devise'
 gem 'devise-async'
