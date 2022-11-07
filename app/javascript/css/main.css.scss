@@ -5,6 +5,7 @@ body {
   background-size: cover;
   overflow-x: hidden;
   height: 100vh;
+  font-family: "Comfortaa", sans-serif;
 }
 
 a {
@@ -31,7 +32,6 @@ a {
 
 .page-header {
   max-width: 1110px;
-  font-family: "Comfortaa", sans-serif;
   margin: auto;
   margin-bottom: 10px;
   display: flex;
@@ -43,7 +43,6 @@ a {
 }
 
 div.jumbotron {
-  font-family: "Comfortaa", sans-serif;
   background-color: $color;
   padding: 25px 10px;
   max-width: 1110px;
@@ -140,7 +139,6 @@ div.jumbotron {
 
 /* home-page */
 .homepage_title {
-  font-family: "Comfortaa", sans-serif;
   text-align: center;
   margin-top: 200px;
   color: $color;
@@ -156,7 +154,6 @@ main p {
 // forms
 .position-block {
   .card {
-    font-family: "Comfortaa", sans-serif;
     max-width: 650px;
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
@@ -192,16 +189,6 @@ main p {
       }
     }
   }
-}
-
-.donate-btn,
-.func-btns,
-label.text-center,
-.form-check-label,
-.btn-success,
-.result-card,
-.last-result-card {
-  font-family: "Nunito", sans-serif;
 }
 
 h1,
@@ -268,8 +255,6 @@ div.calculation-results {
 
   p {
     font-size: 22px;
-
-    font-family: Roboto, sans-serif;
     font-weight: bold;
     color: #808080;
   }
