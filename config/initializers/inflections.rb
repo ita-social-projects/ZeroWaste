@@ -15,3 +15,12 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+require 'inflector_extensions'
+
+ActiveSupport::Inflector.inflections(:uk) do |inflect|
+  inflect.plural('місяць', 'місяців', (5..11).to_a << 0)
+  inflect.plural('місяць', 'місяці', (2..4).to_a)
+  inflect.plural('рік', 'років', [0])
+  inflect.plural('рік', 'роки', [2])
+end

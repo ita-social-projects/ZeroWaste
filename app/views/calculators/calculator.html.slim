@@ -12,19 +12,19 @@
               = t('.form.childs_years_label')
             - (0..2).each do |year|
               option value = year
-                = t('datetime.distance_in_words.x_years', count: year)
+                = "#{year} #{t('datetime.prompts.year').downcase.pluralize(year, I18n.locale)}"
           select.custom-select#childs_months
             option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..11).each do |month|
               option value = month
-                = t('datetime.distance_in_words.x_months', count: month)
+                = "#{month} #{t('datetime.prompts.month').downcase.pluralize(month, I18n.locale)}"
           select.custom-select#two_years_childs_months
             option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..6).each do |month|
               option value = month
-                = t('datetime.distance_in_words.x_months', count: month)
+                = "#{month} #{t('datetime.prompts.month').downcase.pluralize(month, I18n.locale)}"
 
           - if FeatureFlag.get('feature_budget_category').active?
             p.form-a
