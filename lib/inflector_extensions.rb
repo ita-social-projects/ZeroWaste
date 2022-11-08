@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class String
   def pluralize(count = nil, locale = :en)
     locale = count if count.is_a?(Symbol)
@@ -38,11 +40,16 @@ module InflectionsExtensions
   end
 end
 
-module ActiveSupport::Inflector
-  extend self
-  extend InflectorExtensions
+module ActiveSupport
+  module Inflector
+    extend InflectorExtensions
+  end
 end
 
-class ActiveSupport::Inflector::Inflections
-  prepend InflectionsExtensions
+module ActiveSupport
+  module Inflector
+    class Inflections
+      prepend InflectionsExtensions
+    end
+  end
 end
