@@ -39,7 +39,6 @@ a {
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
-
 }
 
 div.jumbotron {
@@ -78,7 +77,7 @@ div.jumbotron {
   max-width: 420px;
   margin: 20px auto;
 
-  &> :last-of-type {
+  & > :last-of-type {
     & img {
       margin-right: 10px;
     }
@@ -227,6 +226,10 @@ div.calculation-results {
   border-radius: 6px;
 }
 
+.row_break {
+  display: none;
+}
+
 .result-card {
   font-size: 14px;
   text-align: center;
@@ -251,7 +254,6 @@ div.calculation-results {
 
   p {
     font-size: 24px;
-
   }
 
   &:last-child {
@@ -292,9 +294,8 @@ body.admin {
 }
 
 .admin-table {
-
-  .admin-table-header>*,
-  .admin-table-body>* {
+  .admin-table-header > *,
+  .admin-table-body > * {
     display: flex;
   }
 
@@ -317,7 +318,7 @@ body.admin {
     }
 
     .admin-table-body {
-      &>* {
+      & > * {
         align-items: center;
       }
 
@@ -346,21 +347,24 @@ body.admin {
   .tab {
     display: none;
   }
+
   .filter_block {
     width: auto;
   }
 
   div.jumbotron,
   div.container {
-    max-width: 350px ;
+    max-width: 350px;
     margin-right: auto;
     margin-left: 15px;
 
     padding-left: 0px;
   }
+
   .calculation-results span {
     width: 410px;
   }
+
   .page-header {
     width: auto;
     margin-right: 15px;
@@ -372,6 +376,7 @@ body.admin {
   .donate-btn a {
     font-size: 12px;
   }
+
   .main-btns {
     max-width: 320px;
 
@@ -397,6 +402,7 @@ body.admin {
   .tab {
     display: none;
   }
+
   .func-btns {
     display: flex;
     flex-direction: column;
@@ -406,13 +412,39 @@ body.admin {
     padding-bottom: initial;
     width: fit-content;
   }
+
   .page-header {
     width: 510px;
   }
+
   .calculation-results,
   .jumbotron {
     width: 510px;
   }
+
+  .donate-btn a {
+    padding: 10px;
+  }
+
+  .row_break {
+    display: block;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $sm) {
+  .page-header {
+    width: 750px;
+  }
+
+  .calculation-results,
+  .jumbotron {
+    width: 750px;
+  }
+
+  .row_break {
+    display: block;
+  }
+
   .donate-btn a {
     padding: 10px;
   }
