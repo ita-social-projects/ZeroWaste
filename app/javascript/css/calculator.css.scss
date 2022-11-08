@@ -118,7 +118,7 @@
   margin-left: 50px;
   margin-top: 45px;
   a {
-    color:$color;
+    color: $color;
     background-color: transparent;
     text-decoration: none;
   }
@@ -129,9 +129,9 @@
     text-align: left;
     margin-left: 30px;
     a {
-        color: $success;
-        background-color: transparent;
-        text-decoration: none;
+      color: $success;
+      background-color: transparent;
+      text-decoration: none;
     }
     a:hover {
       color: #256d36;
@@ -151,6 +151,7 @@
   .logo-zerowaste img {
     width: 100%;
   }
+
   .logo-zerowaste {
     width: 140px;
   }
