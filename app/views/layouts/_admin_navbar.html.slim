@@ -15,7 +15,5 @@ nav class=["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "border-bot
           li.nav-item.mx-3
             = link_to t('.app_config'), edit_admins_app_config_path, class: 'navbar-brand text-success h3'
       div.col-2
-  - if current_locale?(:en)
-    = link_to "Українська", locale_path(:id => :uk), method: :patch, class: "btn btn-outline-success btn-sm"
-  - else
-    = link_to "English", locale_path(:id => :en), method: :patch, class: "btn btn-outline-success btn-sm"
+
+    = link_to t(".#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm'

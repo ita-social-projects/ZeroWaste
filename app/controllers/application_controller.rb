@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include I18nExt
+
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
+
+  def redirection
+    redirect_to root_url
+  end
 
   private
 
@@ -27,10 +32,6 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(_)
     new_user_session_path
-  end
-
-  def set_locale
-    I18n.locale = session[:locale] || I18n.default_locale
   end
 
   protected

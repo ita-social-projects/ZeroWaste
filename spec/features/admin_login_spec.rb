@@ -2,6 +2,8 @@
 
 require 'rails_helper'
 
+LANG_BUTTON_TEXT = I18n.t('layouts.navigation.local_lang')
+
 RSpec.feature 'AdminLogins', type: :feature do
   describe 'sign in admin page', js: true do
     let(:user) { create(:user, :admin) }
@@ -38,7 +40,7 @@ RSpec.feature 'AdminLogins', type: :feature do
         end
       end
 
-      context 'when sign in with wrong login' do 
+      context 'when sign in with wrong login' do
         it 'redirect to admin login page' do
           visit '/users/sign_in'
           fill_in 'Email', with: 'wrong@email.com'
@@ -49,52 +51,50 @@ RSpec.feature 'AdminLogins', type: :feature do
       end
     end
 
-    context 'ukrainian local' do
-
+    context 'with ukrainian locale' do
       context 'when sign in with correct login and password' do
         it 'redirect to admin page' do
           visit '/users/sign_in'
-          click_on 'English'
+          click_on LANG_BUTTON_TEXT
           fill_in 'user_email', with: user.email
           fill_in 'user_password', with: user.password
           click_button 'Увійти'
-          expect(page).to have_content 'Ви увійшли в систему.'
+          expect(page).to have_content "Ви увійшли в систему."
         end
       end
 
       context 'when sign in with wrong login and password' do
         it 'redirect to admin login page' do
           visit '/users/sign_in'
-          click_on 'English'
+          click_on LANG_BUTTON_TEXT
           fill_in 'user_email', with: 'wrong@email.com'
           fill_in 'user_password', with: 'wrong password'
           click_button 'Увійти'
-          expect(page).to have_content 'Невірний email чи пароль.'
+          expect(page).to have_content 'Увійти'
         end
       end
 
       context 'when sign in with wrong password' do
         it 'redirect to admin login page' do
           visit '/users/sign_in'
-          click_on 'English'
+          click_on LANG_BUTTON_TEXT
           fill_in 'user_email', with: user.email
           fill_in 'user_password', with: 'wrong password'
           click_button 'Увійти'
-          expect(page).to have_content 'Невірний email чи пароль.'
+          expect(page).to have_content 'Увійти'
         end
       end
 
-      context 'when sign in with wrong login' do 
+      context 'when sign in with wrong login' do
         it 'redirect to admin login page' do
           visit '/users/sign_in'
-          click_on 'English'
+          click_on LANG_BUTTON_TEXT
           fill_in 'user_email', with: 'wrong@email.com'
           fill_in 'user_password', with: user.password
           click_button 'Увійти'
-          expect(page).to have_content 'Невірний email чи пароль.'
+          expect(page).to have_content 'Увійти'
         end
       end
     end
-
   end
 end

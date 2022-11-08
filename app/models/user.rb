@@ -37,9 +37,9 @@ class User < ApplicationRecord
             format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 
   validates :avatar, content_type: {
-    in: %i[png jpg jpeg],
-    message: 'must be in PNG or JPG or JPEG format'
-  },
+                       in: %i[png jpg jpeg],
+                       message: 'must be in PNG or JPG or JPEG format'
+                     },
                      size: {
                        less_than: 2.megabytes,
                        message: 'size must be less then 2Mb'

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-USERS_PATH = '/admins/users'
-EDIT_USERS_PATH = '/admins/users/1/edit'
+USERS_PATH = '/en/admins/users'
+EDIT_USERS_PATH = '/en/admins/users/1/edit'
 
 describe 'visit admin page', js: true do
   let(:time_login) { Time.new(2020, 0o1, 0o1).utc }
@@ -25,10 +25,10 @@ describe 'visit admin page', js: true do
     it 'redirects to user info page' do
       visit USERS_PATH
       within(:css, "#user-info-#{user1.id}") do
-        click_link(href: "/admins/users/#{user1.id}")
+        click_link(href: admins_user_path(id: user1.id))
         sleep 3
       end
-      expect(page).to have_current_path('/admins/users/1')
+      expect(page).to have_current_path(admins_user_path(id: user1.id))
       expect(page).to have_content 'Email'
       expect(page).to have_content 'First name'
       expect(page).to have_content 'Last name'
@@ -43,7 +43,7 @@ describe 'visit admin page', js: true do
    it 'redirects to user edit info page' do
      visit USERS_PATH
      within(:css, "#user-info-#{user1.id}") do
-       click_link(href: "/admins/users/#{user1.id}/edit")
+       click_link(href: edit_admins_user_path(id: user1.id))
        sleep 3
      end
      expect(page).to have_current_path(EDIT_USERS_PATH)
@@ -64,7 +64,7 @@ describe 'visit admin page', js: true do
      find('#user_password').set('111111111')
      find('#user_password_confirmation').set('111111111')
      find_button('commit').click
-     expect(page).to have_current_path('/admins/users/1')
+     expect(page).to have_current_path(admins_user_path(id: user1.id))
      expect(page).to have_content 'John'
      expect(page).to have_content 'Doe'
      expect(page).to have_content 'AL'

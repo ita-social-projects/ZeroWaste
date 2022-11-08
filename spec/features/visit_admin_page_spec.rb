@@ -9,17 +9,17 @@ describe 'visit Admin page', js: true do
   end
 
   it 'visits manage calculators page' do
-    visit '/admins/calculators/'
+    visit admins_calculators_path
     expect(page).to have_content 'You are not authorized to access this page.'
   end
 
   it 'visits manage histories page' do
-    visit '/admins/histories/'
+    visit '/en/admins/histories/'
     expect(page).to have_content 'You are not authorized to access this page.'
   end
 
   it 'visits manage users page' do
-    visit '/admins/users/'
+    visit '/en/admins/users/'
     expect(page).to have_content 'You are not authorized to access this page.'
   end
 end
