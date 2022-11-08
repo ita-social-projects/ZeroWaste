@@ -3,6 +3,7 @@ body {
   margin: 0 auto;
   background: url("../images/mother.jpeg") no-repeat center top;
   background-size: cover;
+  background-attachment: fixed;
   overflow-x: hidden;
   height: 100vh;
 }
@@ -347,15 +348,27 @@ body.admin {
     display: none;
   }
   .filter_block {
-    width: auto;
+    width: 100%;
+  }
+
+  .homepage_title {
+    margin-top: 15vh;
+  }
+
+  main {
+    max-width: 95%;
+  }
+
+  .container {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   div.jumbotron,
   div.container {
-    max-width: 350px ;
+    max-width: 360px;
     margin-right: auto;
     margin-left: 15px;
-
     padding-left: 0px;
   }
   .calculation-results span {
