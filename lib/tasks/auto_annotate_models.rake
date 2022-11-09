@@ -3,7 +3,7 @@
 # NOTE: only doing this in development as some production environments (Heroku)
 # NOTE: are sensitive to local FS writes, and besides -- it's just not proper
 # NOTE: to have a dev-mode tool do its thing in production.
-if Rails.env.development? && Rails.env.test?
+if Rails.env.development?
   require 'annotate'
   # rubocop:disable Metrics/BlockLength
   task :set_annotation_options do
