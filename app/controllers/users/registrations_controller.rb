@@ -15,7 +15,9 @@ module Users
            @user.update_with_password(user_params)
          end
         redirect_to edit_user_registration_path,
-                    notice: I18n.t('activerecord.attributes.user.successful_update')
+                    notice: I18n.t(
+                      'activerecord.attributes.user.successful_update'
+                    )
       else
         render 'devise/registrations/edit'
       end
