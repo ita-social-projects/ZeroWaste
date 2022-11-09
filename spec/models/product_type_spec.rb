@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: product_types
+#
+#  id         :bigint           not null, primary key
+#  uuid       :uuid             not null
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 LOCAL_PREFIX_PRIDUCT_TYPE = 'activerecord.errors.models.product_type.attributes'
 

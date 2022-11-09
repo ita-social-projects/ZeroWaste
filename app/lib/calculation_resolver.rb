@@ -15,9 +15,9 @@ class CalculationResolver
   def result(parameters, value)
     calculator.evaluate(
       value,
-      calculator.dependencies(value).each_with_object({}) do |i, res|
+      calculator.dependencies(value).each_with_object({}) { |i, res|
         res[i.to_sym] = i
-      end.merge(parameters)
+      }.merge(parameters)
     )
   end
 end

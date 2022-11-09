@@ -1,5 +1,6 @@
-class MessagesController < ApplicationController
+# frozen_string_literal: true
 
+class MessagesController < ApplicationController
   def new
     @message = Message.new
   end

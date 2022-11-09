@@ -9,9 +9,10 @@ module ApplicationHelper
   end
 
   def message_class_by_name(type)
-    if type.to_s == 'notice'
+    case type.to_s
+    when 'notice'
       'alert-success'
-    elsif type.to_s == 'alert'
+    when 'alert'
       'alert-danger'
     else
       'alert-warning'

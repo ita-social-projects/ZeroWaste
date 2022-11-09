@@ -10,7 +10,8 @@ module Users
 
     def update
       if user_params[:password].blank? ? @user.update_without_password(user_params) : @user.update_with_password(user_params)
-        redirect_to edit_user_registration_path, notice: I18n.t('activerecord.attributes.user.successful_update')
+        redirect_to edit_user_registration_path,
+                    notice: I18n.t('activerecord.attributes.user.successful_update')
       else
         render 'devise/registrations/edit'
       end
@@ -26,13 +27,15 @@ module Users
 
     def user_params
       prms = params.require(:user).permit(:email,
-                                   :first_name,
-                                   :last_name,
-                                   :country,
-                                   :current_password,
-                                   :password,
-                                   :password_confirmation)
-      prms = prms.merge(skip_password_validation: true) unless prms[:password].present?
+                                          :first_name,
+                                          :last_name,
+                                          :country,
+                                          :current_password,
+                                          :password,
+                                          :password_confirmation)
+      unless prms[:password].present?
+        prms = prms.merge(skip_password_validation: true)
+      end
       prms
     end
   end

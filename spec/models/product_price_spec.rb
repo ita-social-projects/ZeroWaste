@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: product_prices
+#
+#  id         :bigint           not null, primary key
+#  uuid       :uuid             not null
+#  product_id :bigint           not null
+#  price      :float
+#  category   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do

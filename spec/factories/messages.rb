@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: messages
+#
+#  id         :bigint           not null, primary key
+#  title      :string           not null
+#  message    :string           not null
+#  email      :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 FactoryBot.define do
   factory :message do
     title { 'title' }
