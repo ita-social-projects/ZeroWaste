@@ -46,7 +46,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate'
+  gem 'annotate', require: false
   gem 'letter_opener'
   gem 'listen', '~> 3.3'
   gem 'pronto'
