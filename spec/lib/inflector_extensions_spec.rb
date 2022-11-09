@@ -129,6 +129,10 @@ RSpec.describe ActiveSupport::Inflector do
       expect(ActiveSupport::Inflector.apply_inflections('кіт',
                                                         uk_rules,
                                                         locale = :uk)).to eq('коти')
+      expect(ActiveSupport::Inflector.apply_inflections('кіт',
+                                                        uk_rules,
+                                                        locale = :uk,
+                                                        count = 99)).to eq('коти')
     end
 
     it 'applies properly plurals with english rules' do
@@ -147,6 +151,34 @@ RSpec.describe ActiveSupport::Inflector do
       expect(ActiveSupport::Inflector.apply_inflections('cat',
                                                         en_rules,
                                                         locale = :en)).to eq('cats')
+      expect(ActiveSupport::Inflector.apply_inflections('cat',
+                                                        en_rules,
+                                                        locale = :en,
+                                                        count = 99)).to eq('cats')
+    end
+
+    it 'does not plural empty string' do
+      expect(ActiveSupport::Inflector.apply_inflections('',
+                                                        en_rules,
+                                                        locale = :en,
+                                                        count = 99)).to eq('')
+      expect(ActiveSupport::Inflector.apply_inflections('',
+                                                        en_rules,
+                                                        locale = :uk,
+                                                        count = 99)).to eq('')
+      expect(ActiveSupport::Inflector.apply_inflections('',
+                                                        en_rules,
+                                                        locale = :en)).to eq('')
+    end
+
+    it 'does not plural uncountable words' do
+      expect(ActiveSupport::Inflector.apply_inflections('equipment',
+                                                        en_rules,
+                                                        locale = :en,
+                                                        count = 99)).to eq('equipment')
+      expect(ActiveSupport::Inflector.apply_inflections('money',
+                                                        en_rules,
+                                                        locale = :en)).to eq('money')
     end
   end
 end

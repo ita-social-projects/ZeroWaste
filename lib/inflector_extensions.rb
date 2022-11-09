@@ -19,15 +19,12 @@ module InflectorExtensions
   def apply_inflections(word, rules, locale = :en, count = nil)
     result = word.to_s.dup
 
-    if word.empty? || inflections(locale).uncountables.uncountable?(result)
-      result
-    elsif count.nil?
-      rules.each { |(rule, replacement)| break if result.sub!(rule, replacement) }
-    else
-      rules.each do |(rule, replacement, range)|
-        break if range&.include?(count) && result.sub!(rule, replacement)
-        break if range.nil? && result.sub!(rule, replacement)
-      end
+    return result if word.empty? \
+                       || inflections(locale).uncountables.uncountable?(result)
+
+    rules.each do |rule, replacement, range|
+      break if (range.nil? || range.include?(count)) \
+                                              && result.sub!(rule, replacement)
     end
     result
   end
