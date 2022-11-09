@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module I18nExt
+module I18nExtended
   extend ActiveSupport::Concern
 
   included do
