@@ -31,6 +31,7 @@ class FieldSerializer < ActiveModel::Serializer
     object.name.parameterize.underscore
   end
 
+  # rubocop:disable Metrics/AbcSize
   def result
     cal_res = CalculatorResolver.call(object.calculator)
     res = cal_res.each_with_object({}) do |(key, value), result|
@@ -50,4 +51,5 @@ class FieldSerializer < ActiveModel::Serializer
     end
     number
   end
+  # rubocop:enable Metrics/AbcSize
 end
