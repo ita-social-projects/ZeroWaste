@@ -38,6 +38,7 @@ gem 'font-awesome-rails'
 gem 'mini_magick', '>= 4.9.5'
 
 group :development, :test do
+  gem 'annotate'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
@@ -46,7 +47,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate', require: false
   gem 'letter_opener'
   gem 'listen', '~> 3.3'
   gem 'pronto'
