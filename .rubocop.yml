@@ -66,4 +66,5 @@ Layout/SpaceInsideReferenceBrackets:
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
-  
+  Exclude:
+    - 'config/**/*'
