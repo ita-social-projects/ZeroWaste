@@ -38,8 +38,8 @@ module Admins
                                           :password_confirmation,
                                           :blocked,
                                           :avatar)
-      prms = prms.merge(skip_password_validation: true) unless prms[:password].present? ||
-                                                               prms[:password_confirmation].present?
+      prms = prms.merge(skip_password_validation: true)
+      unless prms[:password].present? || prms[:password_confirmation].present?
       prms
     end
 
