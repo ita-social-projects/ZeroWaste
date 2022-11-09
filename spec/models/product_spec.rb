@@ -1,5 +1,21 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: products
+#
+#  id              :bigint           not null, primary key
+#  title           :string
+#  uuid            :uuid             not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  product_type_id :bigint
+#
+# Indexes
+#
+#  index_products_on_product_type_id  (product_type_id)
+#  index_products_on_uuid             (uuid) UNIQUE
+#
 require 'rails_helper'
 LOCAL_PREFIX_PRODUCT = 'activerecord.errors.models.product.attributes'
 
