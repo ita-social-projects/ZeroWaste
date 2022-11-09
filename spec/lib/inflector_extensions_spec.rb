@@ -88,8 +88,8 @@ RSpec.describe ActiveSupport::Inflector do
     it 'pluralizes properly' do
       expect(ActiveSupport::Inflector.pluralize('місяць', 2, :uk)).to eq('місяці')
       expect(ActiveSupport::Inflector.pluralize('рік', 0, :uk)).to eq('років')
-      expect(ActiveSupport::Inflector.pluralize('dog', locale = :en)).to eq('dogs')
-      expect(ActiveSupport::Inflector.pluralize('money', count = 15)).to eq('money')
+      expect(ActiveSupport::Inflector.pluralize('dog', :en)).to eq('dogs')
+      expect(ActiveSupport::Inflector.pluralize('money', 15)).to eq('money')
       expect(ActiveSupport::Inflector.pluralize('person', 2)).to eq('people')
     end
   end
