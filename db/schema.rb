@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_11_161437) do
+ActiveRecord::Schema.define(version: 2022_11_11_171905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2022_11_11_161437) do
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.bigint "product_id", null: false
     t.decimal "price", precision: 8, scale: 2
-    t.string "category"
+    t.string "category", default: "medium", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_product_prices_on_product_id"
