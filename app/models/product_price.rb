@@ -27,7 +27,7 @@ class ProductPrice < ApplicationRecord
 
   enum :category, {
     budgetary: 'budgetary',
-    mediun: 'medium',
+    medium: 'medium',
     premium: 'premium'
   }
 
