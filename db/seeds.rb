@@ -41,19 +41,19 @@ diaper = Product.create!(
 
 ProductPrice.create!(
   price: 4.99,
-  category: 0,
+  category: 'budgetary',
   product: diaper
 )
 
 ProductPrice.create!(
   price: 6.36,
-  category: 1,
+  category: 'medium',
   product: diaper
 )
 
 ProductPrice.create!(
   price: 8.21,
-  category: 2,
+  category: 'premium',
   product: diaper
 )
 
