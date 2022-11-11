@@ -32,42 +32,43 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#product_price' do
     context 'when get awaited value' do
       it 'first diaper price category returned' do
-        low = create(:product_price, :LOW)
-        controller.params[:price_id] = 0
+        budgetary = create(:product_price, :budgetary)
+        controller.params[:price_id] = 'budgetary'
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
-        expect(result).to eq(low)
+        expect(result).to eq(budgetary)
+
       end
 
       it 'default diaper price category returned' do
-        medium = create(:product_price, :MEDIUM)
+        medium = create(:product_price, :medium)
 
-        controller.params[:price_id] = 1
+        controller.params[:price_id] = 'medium'
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
         expect(result).to eq(medium)
       end
 
       it 'last diaper price category returned' do
-        high = create(:product_price, :HIGH)
+        premium = create(:product_price, :premium)
 
-        controller.params[:price_id] = 2
+        controller.params[:price_id] = 'premium'
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
-        expect(result).to eq(high)
+        expect(result).to eq(premium)
       end
     end
     context 'when get unawaited value' do
       it 'get unawaited number' do
-        medium = create(:product_price, :MEDIUM)
+        medium = create(:product_price, :medium)
 
-        controller.params[:price_id] = -1
+        controller.params[:price_id] = 'medium'
         result = controller.send(:product_price)
         expect(result).not_to eq(nil)
         expect(result).to eq(medium)
       end
       it 'get nil' do
-        medium = create(:product_price, :MEDIUM)
+        medium = create(:product_price, :medium)
 
         controller.params[:price_id] = nil
         result = controller.send(:product_price)
