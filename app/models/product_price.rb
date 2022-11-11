@@ -25,7 +25,7 @@ class ProductPrice < ApplicationRecord
   PREMIUM = 'premium'.freeze
   CATEGORIES = [BUDGETARY, MEDIUM, PREMIUM].freeze
 
-  enum :category, {
+  enum category: {
     budgetary: 'budgetary',
     medium: 'medium',
     premium: 'premium'

@@ -10,10 +10,6 @@ module Api
         { name: 'to_be_used_diapers_amount', result: 0 }
       ].freeze
 
-      LOW = 'LOW'
-      MEDIUM = 'MEDIUM'
-      HIGH = 'HIGH'
-
       DIAPER_TITLE = 'diaper'
 
       def create
@@ -48,7 +44,7 @@ module Api
       end
 
       def default_price
-        ProductPrice.find_by(category: MEDIUM, product: diaper)
+        ProductPrice.find_by(category: 'medium', product: diaper)
       end
 
       def product_price
