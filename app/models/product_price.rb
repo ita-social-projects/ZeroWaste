@@ -19,10 +19,18 @@
 #
 class ProductPrice < ApplicationRecord
   belongs_to :product
-  enum category: {
-    LOW: 0,
-    MEDIUM: 1,
-    HIGH: 2
+
+  BUDGETARY = 'budgetary'.freeze
+  MEDIUM = 'medium'.freeze
+  PREMIUM = 'premium'.freeze
+  CATEGORIES = [BUDGETARY, MEDIUM, PREMIUM].freeze
+
+  enum :category, {
+    budgetary: 'budgetary',
+    mediun: 'medium',
+    premium: 'premium'
   }
+
+  validates :category, inclusion: CATEGORIES
   validates :category, :price, presence: true
 end
