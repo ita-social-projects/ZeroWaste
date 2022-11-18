@@ -3,6 +3,7 @@
 class String
   def pluralize(count = nil, locale = :en)
     locale = count if count.is_a?(Symbol)
+
     if count == 1
       dup
     else
@@ -19,7 +20,7 @@ module InflectorExtensions
   def apply_inflections(word, rules, locale = :en, count = nil)
     result = word.to_s.dup
 
-    if word.empty? || inflections(locale).uncountables.uncountable?(result)
+    if word.blank? || inflections(locale).uncountables.uncountable?(result)
       return result
     end
 
