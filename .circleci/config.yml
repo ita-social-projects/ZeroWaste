@@ -5,6 +5,7 @@ orbs:
   ruby: circleci/ruby@1.6.0
   node: circleci/node@5.0.2
   browser-tools: circleci/browser-tools@1.2.5
+  codecov: codecov/codecov@3.2.4
 
 workflows:
   heroku_deploy:
@@ -101,3 +102,4 @@ jobs:
       - run:
           name: Run tests
           command: bundle exec rake
+      - codecov/upload
