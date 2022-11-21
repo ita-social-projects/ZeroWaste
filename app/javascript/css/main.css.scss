@@ -366,11 +366,8 @@ body.admin {
   }
 
   .page-header {
-    width: auto;
-    margin-right: 15px;
-    margin-left: 15px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
   .donate-btn a {
@@ -413,10 +410,6 @@ body.admin {
     width: fit-content;
   }
 
-  .page-header {
-    width: 510px;
-  }
-
   .calculation-results,
   .jumbotron {
     width: 510px;
@@ -447,5 +440,13 @@ body.admin {
 
   .donate-btn a {
     padding: 10px;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $xs) {
+  .page-header {
+    width: auto;
+    margin-right: 15px;
+    margin-left: 15px;
   }
 }
