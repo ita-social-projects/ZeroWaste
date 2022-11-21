@@ -54,7 +54,7 @@ RSpec.feature 'AdminLogins', type: :feature do
     context 'with ukrainian locale' do
       context 'when sign in with correct login and password' do
         it 'redirect to admin page' do
-          visit '/users/sign_in'
+          visit new_user_session_path
           click_on LANG_BUTTON_TEXT
           fill_in 'user_email', with: user.email
           fill_in 'user_password', with: user.password
@@ -65,34 +65,37 @@ RSpec.feature 'AdminLogins', type: :feature do
 
       context 'when sign in with wrong login and password' do
         it 'redirect to admin login page' do
-          visit '/users/sign_in'
+          visit new_user_session_path
           click_on LANG_BUTTON_TEXT
+          binding.pry
           fill_in 'user_email', with: 'wrong@email.com'
           fill_in 'user_password', with: 'wrong password'
+          # binding.pry
           click_button 'Увійти'
-          expect(page).to have_content 'Увійти'
+          # binding.pry
+          expect(page).to have_content 'Невірний email чи пароль.'
         end
       end
 
       context 'when sign in with wrong password' do
         it 'redirect to admin login page' do
-          visit '/users/sign_in'
+          visit new_user_session_path
           click_on LANG_BUTTON_TEXT
           fill_in 'user_email', with: user.email
           fill_in 'user_password', with: 'wrong password'
           click_button 'Увійти'
-          expect(page).to have_content 'Увійти'
+          expect(page).to have_content 'Невірний email чи пароль.'
         end
       end
 
       context 'when sign in with wrong login' do
         it 'redirect to admin login page' do
-          visit '/users/sign_in'
+          visit new_user_session_path
           click_on LANG_BUTTON_TEXT
           fill_in 'user_email', with: 'wrong@email.com'
           fill_in 'user_password', with: user.password
           click_button 'Увійти'
-          expect(page).to have_content 'Увійти'
+          expect(page).to have_content 'Невірний email чи пароль.'
         end
       end
     end

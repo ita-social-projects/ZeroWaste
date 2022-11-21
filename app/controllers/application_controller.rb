@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
 
   def redirection
     redirect_to root_url
@@ -32,6 +33,21 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(_)
     new_user_session_path
+  end
+
+  def set_locale
+    params[:locale] ||= I18n.default_locale
+
+    if I18n.available_locales.include?(params[:locale].to_sym)
+      I18n.locale = params[:locale]
+    else
+      I18n.locale = I18n.default_locale
+      redirect_to root_url
+    end
+  end
+
+  def default_url_options(options = {})
+    options.merge(locale: I18n.locale)
   end
 
   protected
