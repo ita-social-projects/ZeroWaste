@@ -38,9 +38,6 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-I18n.default_locale = :en
-I18n.locale = :en
-
 RSpec.configure do |config|
   config.before(:each) do
     Rails.application.routes.default_url_options[:locale] = I18n.default_locale

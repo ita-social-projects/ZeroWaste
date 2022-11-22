@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
+  prepend_before_action :set_locale
 
   def redirection
     redirect_to root_url

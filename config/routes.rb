@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/', to: 'application#redirection', as: :root_redirection
 
   scope '/(:locale)', locale: /uk|en/ do
-    devise_for :users, controllers: { registrations: 'users/registrations', sessions: :sessions },
+    devise_for :users, controllers: { registrations: 'users/registrations' },
                        skip: :omniauth_callbacks
 
     root 'calculators#index'
