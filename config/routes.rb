@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { registrations: 'users/registrations' },
                        skip: :omniauth_callbacks
 
-    root 'calculators#index'
+    root 'home#index'
 
     get '/calculator', to: 'calculators#calculator'
     post '/receive_recomendations', to: 'calculators#receive_recomendations'

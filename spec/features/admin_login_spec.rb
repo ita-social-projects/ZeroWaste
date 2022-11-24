@@ -67,12 +67,9 @@ RSpec.feature 'AdminLogins', type: :feature do
         it 'redirect to admin login page' do
           visit new_user_session_path
           click_on LANG_BUTTON_TEXT
-          binding.pry
           fill_in 'user_email', with: 'wrong@email.com'
           fill_in 'user_password', with: 'wrong password'
-          # binding.pry
           click_button 'Увійти'
-          # binding.pry
           expect(page).to have_content 'Невірний email чи пароль.'
         end
       end
