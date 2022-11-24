@@ -8,4 +8,4 @@ profiling:
     # up to the repository name on the left side
     # with respect to the environment running
     # e.g. - "/home/runner/src/ownername/reponame::"
-    - "::"
+    - "/home/runner/work/ZeroWaste/ZeroWaste::"
