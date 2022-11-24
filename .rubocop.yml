@@ -68,3 +68,6 @@ Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
   Exclude:
     - 'config/**/*'
+
+Style/SymbolArray:
+  Enabled: false
