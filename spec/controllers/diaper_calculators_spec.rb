@@ -39,10 +39,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       ]
     end
     let(:expected_result) do
-      { result: values,
+      {
+        result: values,
         date: 12,
         word_form_to_be_used: 'підгузків',
-        word_form_used: 'підгузків' }
+        word_form_used: 'підгузків'
+      }
     end
 
     context 'when get awaited values' do
