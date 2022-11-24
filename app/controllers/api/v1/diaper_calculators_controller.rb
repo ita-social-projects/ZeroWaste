@@ -3,6 +3,7 @@
 module Api
   module V1
     class DiaperCalculatorsController < ApplicationController
+      # rubocop:disable Layout/LineLength
       def create
         result = Calculators::DiapersService.new(params[:childs_age].to_i).calculate!
         diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
@@ -20,6 +21,7 @@ module Api
                        word_form_to_be_used: diapers_be_used,
                        word_form_used: diapers_used })
       end
+      # rubocop:enable Layout/LineLength
 
       private
 
