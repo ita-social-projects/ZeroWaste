@@ -55,9 +55,9 @@ jobs:
         run: |
           mv config/database.yml.docker config/database.yml
 
-      - name: Precompile assets
-        run: |
-          bundle exec rails assets:precompile
+      # - name: Precompile assets
+      #   run: |
+      #     bundle exec rails assets:precompile
 
       # - name: Run tests
       #   run: |
@@ -73,6 +73,10 @@ jobs:
       #     token: ${{ secrets.GITHUB_TOKEN }}
       #     json-path: tmp/rspec_results.json
       #   if: always()
+
+      - name: Check files
+        run: |
+          ls
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
