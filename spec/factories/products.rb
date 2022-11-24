@@ -22,7 +22,7 @@ FactoryBot.define do
 
     trait :diaper do
       association :product_type, :hygiene
-      title { 'diaper' }
+      title { Product::DIAPER }
     end
   end
 end

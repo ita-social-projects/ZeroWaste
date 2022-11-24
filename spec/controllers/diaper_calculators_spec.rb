@@ -59,6 +59,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     end
 
     context 'when get unawaited values' do
+      include_context :app_config_load
+
       let(:invalid_values) do
         [
           { name: 'money_spent', result: 42 },
@@ -68,10 +70,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
         ]
       end
 
-      include_context :app_config_load
-
       it 'got the unexpected result' do
-
         expected_result[:result] = invalid_values
         post :create, params: { childs_age: 12 }
 
