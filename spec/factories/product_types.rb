@@ -16,6 +16,9 @@
 #
 FactoryBot.define do
   factory :product_type do
-    title { 'hygiene' }
+
+    trait :hygiene do
+      title { 'hygiene' }
+    end
   end
 end

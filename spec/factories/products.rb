@@ -18,7 +18,11 @@
 #
 FactoryBot.define do
   factory :product do
-    title { 'diaper' }
-    association :product_type, title: "hygiene", id: 1
+    association :product_type
+
+    trait :diaper do
+      association :product_type, :hygiene
+      title { 'diaper' }
+    end
   end
 end
