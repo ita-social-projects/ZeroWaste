@@ -66,6 +66,7 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
+  gem 'simplecov-cobertura'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'webdrivers'
 end
