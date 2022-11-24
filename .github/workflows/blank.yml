@@ -5,6 +5,7 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
+  push:
   pull_request:
     branches: [ master ]
 
@@ -68,3 +69,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           json-path: tmp/rspec_results.json
         if: always()
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: '0794ef7c-f574-4d04-a9c3-fb93e0c75ece'
