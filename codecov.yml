@@ -1,5 +1,11 @@
+comment:
+  layout: "diff,flags,tree,betaprofiling"
+  show_critical_paths: true
+
 profiling:
   fixes:
-    - "before/::after/"  # move path   e.g., "before/path" => "after/path"
-    - "::after/"         # move root   e.g., "path/" => "after/path/"
-    - "before/::"        # reduce root e.g., "before/path/" => "path/"
+    # you may need to add fixes with the full directory
+    # up to the repository name on the left side
+    # with respect to the environment running
+    # e.g. - "/home/runner/src/ownername/reponame::"
+    - "::"

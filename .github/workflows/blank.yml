@@ -59,20 +59,24 @@ jobs:
         run: |
           bundle exec rails assets:precompile
 
+      # - name: Run tests
+      #   run: |
+      #     bundle exec rspec ./spec -f j -o tmp/rspec_results.json -f p
+
       - name: Run tests
         run: |
-          bundle exec rspec ./spec -f j -o tmp/rspec_results.json -f p
+          bundle exec rspec
 
-      - name: RSpec Report
-        uses: SonicGarden/rspec-report-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json-path: tmp/rspec_results.json
-        if: always()
+      # - name: RSpec Report
+      #   uses: SonicGarden/rspec-report-action@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     json-path: tmp/rspec_results.json
+      #   if: always()
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: 0794ef7c-f574-4d04-a9c3-fb93e0c75ece
-          files: ./coverage.xml
+          files: coverage/coverage.xml
           verbose: true
