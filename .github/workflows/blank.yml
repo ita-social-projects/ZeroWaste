@@ -74,5 +74,5 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: 0794ef7c-f574-4d04-a9c3-fb93e0c75ece
-          files: /home/runner/work/ZeroWaste/ZeroWaste/coverage/coverage.xml
+          files: ./coverage.xml
           verbose: true
