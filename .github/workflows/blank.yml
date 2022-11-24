@@ -76,6 +76,7 @@ jobs:
 
       - name: Check files
         run: |
+          cd coverage
           ls
 
       - name: Upload coverage to Codecov
