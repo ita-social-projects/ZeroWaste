@@ -20,9 +20,9 @@
 class ProductPrice < ApplicationRecord
   belongs_to :product
 
-  BUDGETARY = 'budgetary'.freeze
-  MEDIUM = 'medium'.freeze
-  PREMIUM = 'premium'.freeze
+  BUDGETARY = 'budgetary'
+  MEDIUM = 'medium'
+  PREMIUM = 'premium'
   CATEGORIES = [BUDGETARY, MEDIUM, PREMIUM].freeze
 
   enum category: {

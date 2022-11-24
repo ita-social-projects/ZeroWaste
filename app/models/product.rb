@@ -17,7 +17,13 @@
 #  index_products_on_uuid             (uuid) UNIQUE
 #
 class Product < ApplicationRecord
+  DIAPER = 'diaper'.freeze
+
   belongs_to :product_type
 
   validates :title, presence: true, length: { in: 2..50 }
+
+  def self.diaper
+    find_by(title: DIAPER)
+  end
 end
