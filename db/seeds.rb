@@ -10,6 +10,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the
 # Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 user = User.create(
   email: 'user@zw.com',
   password: 'password',
@@ -30,32 +31,11 @@ admin = User.create(
   role: 'admin'
 )
 
-hygiene_type = ProductType.create!(
-  title: 'hygiene'
-)
-
-diaper = Product.create!(
-  title: 'diaper',
-  product_type: hygiene_type
-)
-
-ProductPrice.create!(
-  price: 4.99,
-  category: 0,
-  product: diaper
-)
-
-ProductPrice.create!(
-  price: 6.36,
-  category: 1,
-  product: diaper
-)
-
-ProductPrice.create!(
-  price: 8.21,
-  category: 2,
-  product: diaper
-)
+ FactoryBot.create(:product_type, :hygiene)
+ FactoryBot.create(:product, :diaper)
+ FactoryBot.create(:product_price, :budgetary)
+ FactoryBot.create(:product_price, :medium)
+ FactoryBot.create(:product_price, :premium)
 
 feature_budget_category = FeatureFlag.create!(
   name: 'feature_budget_category',
