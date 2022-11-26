@@ -14,12 +14,12 @@ describe 'visit Admin page', js: true do
   end
 
   it 'visits manage histories page' do
-    visit '/en/admins/histories/'
+    visit admins_histories_path
     expect(page).to have_content 'You are not authorized to access this page.'
   end
 
   it 'visits manage users page' do
-    visit '/en/admins/users/'
+    visit admins_users_path
     expect(page).to have_content 'You are not authorized to access this page.'
   end
 end
