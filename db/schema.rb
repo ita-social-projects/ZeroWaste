@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_26_072654) do
+ActiveRecord::Schema.define(version: 2022_11_24_165030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_072654) do
   create_table "product_prices", force: :cascade do |t|
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.bigint "product_id", null: false
-    t.float "price"
-    t.integer "category"
+    t.decimal "price", precision: 8, scale: 2
+    t.string "category", default: "medium", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_product_prices_on_product_id"
