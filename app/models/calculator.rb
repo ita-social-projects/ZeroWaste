@@ -16,5 +16,6 @@ class Calculator < ApplicationRecord
   scope :by_name_or_slug, (lambda do |search|
                             where('name ILIKE ? OR slug ILIKE ?',
                                   "%#{search&.strip}%",
-                                  "%#{search&.strip}%") end)
+                                  "%#{search&.strip}%")
+                          end)
 end

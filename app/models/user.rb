@@ -46,11 +46,6 @@ class User < ApplicationRecord
                        message: 'size must be less then 2Mb'
                      }
   # rubocop:enable Layout/FirstHashElementIndentation
-  # before_validation :something
-  # def something
-  #   binding.pry
-  # end
-
 
   def self.from_omniauth(access_token)
     data = access_token.info

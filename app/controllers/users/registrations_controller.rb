@@ -8,6 +8,7 @@ module Users
 
     def edit; end
 
+    # rubocop:disable Style/GuardClause
     def update
       if user_params[:password].blank? ?
         @user.update_without_password(user_params) :
@@ -18,6 +19,7 @@ module Users
         render 'devise/registrations/edit'
       end
     end
+    # rubocop:enable Style/GuardClause
 
     protected
 

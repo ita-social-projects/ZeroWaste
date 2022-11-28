@@ -71,3 +71,9 @@ Metrics/BlockLength:
 
 Style/SymbolArray:
   Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
