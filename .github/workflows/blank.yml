@@ -74,10 +74,6 @@ jobs:
       #     json-path: tmp/rspec_results.json
       #   if: always()
 
-      - name: Check files
-        run: |
-          cd coverage
-          ls
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
