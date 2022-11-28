@@ -105,10 +105,11 @@
   padding: 0;
   margin: 0;
 }
-
+.logo-zerowaste {
+  width: 185px;
+}
 .logo-zerowaste img {
-  // aspect-ratio: 16 / 9;
-  width: 30%;
+  width: 100%;
   border-radius: 5px;
 }
 
@@ -149,7 +150,7 @@
   }
 }
 
-@media screen and (max-width: $md) {
+@media screen and (max-width: $sm) {
   .logo-zerowaste img {
     width: 100%;
   }

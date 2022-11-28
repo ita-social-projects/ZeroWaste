@@ -335,14 +335,14 @@ body.admin {
   }
 
   .filter_block {
-    width: auto;
+    width: 100%;
   }
 
   div.jumbotron,
   div.container {
-    max-width: 350px;
-    margin-right: auto;
-    margin-left: 15px;
+    max-width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
 
     padding-left: 0px;
   }
@@ -396,11 +396,6 @@ body.admin {
     width: fit-content;
   }
 
-  .calculation-results,
-  .jumbotron {
-    width: 510px;
-  }
-
   .donate-btn a {
     padding: 10px;
   }
@@ -411,15 +406,6 @@ body.admin {
 }
 
 @media screen and (max-width: $md) and (min-width: $sm) {
-  .page-header {
-    width: 750px;
-  }
-
-  .calculation-results,
-  .jumbotron {
-    width: 750px;
-  }
-
   .row_break {
     display: block;
   }
@@ -434,5 +420,9 @@ body.admin {
     width: auto;
     margin-right: 16px;
     margin-left: 16px;
+  }
+  .calculation-results,
+  .jumbotron {
+    width: 96%;
   }
 }
