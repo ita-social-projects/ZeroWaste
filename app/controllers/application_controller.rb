@@ -3,9 +3,9 @@
 class ApplicationController < ActionController::Base
   include I18nExtended
 
+  prepend_before_action :set_i18n_locale_from_params
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
-  prepend_before_action :set_locale
 
   def redirection
     redirect_to root_url
@@ -35,16 +35,14 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
-  def set_locale
-    params[:locale] ||= I18n.default_locale
-
-    if I18n.available_locales.include?(params[:locale].to_sym)
+  def set_i18n_locale_from_params
+    if params[:locale]
+      if I18n.available_locales.map(&:to_s).include?(params[:locale])
       I18n.locale = params[:locale]
+      else flash.now[:notice] = "#{params[:locale]} translation not available"
+      logger.error flash.now[:notice]
+      end
     end
-  end
-
-  def default_url_options(options = {})
-    options.merge(locale: I18n.locale)
   end
 
   protected
