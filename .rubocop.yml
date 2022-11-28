@@ -77,3 +77,9 @@ Style/MethodCalledOnDoEndBlock:
 
 Style/BlockDelimiters:
   Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false

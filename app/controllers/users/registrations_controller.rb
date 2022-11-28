@@ -8,8 +8,8 @@ module Users
 
     def edit; end
 
-    # rubocop:disable Style/GuardClause
     def update
+      # rubocop:disable Style/MultilineTernaryOperator
       if user_params[:password].blank? ?
         @user.update_without_password(user_params) :
         @user.update_with_password(user_params)
@@ -18,8 +18,8 @@ module Users
       else
         render 'devise/registrations/edit'
       end
+      # rubocop:enable Style/MultilineTernaryOperator
     end
-    # rubocop:enable Style/GuardClause
 
     protected
 

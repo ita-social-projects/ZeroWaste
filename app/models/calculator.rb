@@ -17,5 +17,5 @@ class Calculator < ApplicationRecord
                             where('name ILIKE ? OR slug ILIKE ?',
                                   "%#{search&.strip}%",
                                   "%#{search&.strip}%")
-                          end)
+                            end)
 end
