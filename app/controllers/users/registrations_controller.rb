@@ -9,7 +9,6 @@ module Users
     def edit; end
 
     def update
-      # rubocop:disable Style/MultilineTernaryOperator
       if user_params[:password].blank? ?
         @user.update_without_password(user_params) :
         @user.update_with_password(user_params)
@@ -18,7 +17,6 @@ module Users
       else
         render 'devise/registrations/edit'
       end
-      # rubocop:enable Style/MultilineTernaryOperator
     end
 
     protected

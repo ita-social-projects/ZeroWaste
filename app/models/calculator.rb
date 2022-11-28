@@ -14,8 +14,8 @@ class Calculator < ApplicationRecord
   validates :name, uniqueness: true
 
   scope :by_name_or_slug, (lambda do |search|
-                            where('name ILIKE ? OR slug ILIKE ?',
-                                  "%#{search&.strip}%",
-                                  "%#{search&.strip}%")
-                            end)
+                             where('name ILIKE ? OR slug ILIKE ?',
+                                   "%#{search&.strip}%",
+                                   "%#{search&.strip}%")
+                           end)
 end

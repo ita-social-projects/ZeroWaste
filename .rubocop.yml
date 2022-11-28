@@ -83,3 +83,6 @@ Style/MultilineTernaryOperator:
 
 Style/GuardClause:
   Enabled: false
+
+Lint/RedundantCopDisableDirective:
+  Enabled: false
