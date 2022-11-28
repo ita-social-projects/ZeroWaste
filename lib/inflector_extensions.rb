@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class String
-  def pluralize(count = nil, locale = :en)
-    locale = count if count.is_a?(Symbol)
-
+  def pluralize(count: nil, locale: :en)
     if count == 1
       dup
     else
