@@ -26,6 +26,9 @@ Lint/UselessAccessModifier:
 Style/AndOr:
   Enabled: true
 
+Layout/EndOfLine:
+  EnforcedStyle: crlf
+
 Style/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
 
@@ -66,4 +69,3 @@ Layout/SpaceInsideReferenceBrackets:
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
-  
