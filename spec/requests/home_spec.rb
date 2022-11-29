@@ -27,6 +27,7 @@ RSpec.describe 'HomeController', type: :request do
     context 'with locale switching' do
       it 'is successful' do
         get root_path(locale: :uk)
+
         expect(root_path).to eq('/uk')
 
         expect(response.body).to include('Вас вітає калькулятор підгузків')
