@@ -13,7 +13,8 @@ module Users
 
       if @user.public_send("update_#{update_method_name}", usr_params)
         redirect_to edit_user_registration_path,
-          notice: I18n.t('activerecord.attributes.user.successful_update')
+                    notice:
+                    I18n.t('activerecord.attributes.user.successful_update')
       else
         render 'devise/registrations/edit'
       end
