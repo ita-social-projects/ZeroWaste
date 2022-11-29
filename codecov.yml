@@ -1,2 +1,6 @@
 codecov:
   require_ci_to_pass: false
+
+comment:
+  require_head: false
+  require_base: false
