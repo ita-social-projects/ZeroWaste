@@ -62,7 +62,7 @@ module Admins
       params.require(:calculator).permit(
         :name, :id, :slug, :preferable,
         fields_attributes: %i[
-          locale selector label name value unit from to type kind _destroy
+          id selector label name value unit from to type kind _destroy
         ]
       )
     end

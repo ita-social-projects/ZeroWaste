@@ -10,6 +10,7 @@ RSpec.describe 'HomeController', type: :request do
       expect(response).to render_template(:index)
       expect(response).to be_successful
     end
+
     context 'with default locale' do
       it 'is successful' do
         get root_path

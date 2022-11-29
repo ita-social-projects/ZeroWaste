@@ -13,9 +13,9 @@ class Calculator < ApplicationRecord
   validates :name, length: { minimum: 2 }
   validates :name, uniqueness: true
 
-  scope :by_name_or_slug, (lambda do |search|
-                             where('name ILIKE ? OR slug ILIKE ?',
-                                   "%#{search&.strip}%",
-                                   "%#{search&.strip}%")
-                           end)
+  scope :by_name_or_slug, lambda { |search|
+                            where('name ILIKE ? OR slug ILIKE ?',
+                                  "%#{search&.strip}%",
+                                  "%#{search&.strip}%")
+                          }
 end

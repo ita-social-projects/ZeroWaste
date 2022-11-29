@@ -9,13 +9,20 @@ module Users
     def edit; end
 
     def update
-      if user_params[:password].blank? ?
-        @user.update_without_password(user_params) :
-        @user.update_with_password(user_params)
+      password_presence = check_user_password?
+      if @user.public_send("update_#{password_presence}", user_params)
         redirect_to edit_user_registration_path, notice:
-        I18n.t('activerecord.attributes.user.successful_update')
+          I18n.t('activerecord.attributes.user.successful_update')
       else
-        render 'devise/registrations/edit'
+      render 'devise/registrations/edit'
+      end
+    end
+
+    def check_user_password?
+      if user_params[:password].blank?
+        'without_password'
+      else
+        'with_password'
       end
     end
 
