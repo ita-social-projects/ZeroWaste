@@ -9,20 +9,13 @@ module Users
     def edit; end
 
     def update
-      password_presence = check_user_password?
-      if @user.public_send("update_#{password_presence}", user_params)
-        redirect_to edit_user_registration_path, notice:
-          I18n.t('activerecord.attributes.user.successful_update')
+      update_method_name, usr_params = user_params
+
+      if @user.public_send("update_#{update_method_name}", usr_params)
+        redirect_to edit_user_registration_path,
+          notice: I18n.t('activerecord.attributes.user.successful_update')
       else
         render 'devise/registrations/edit'
-      end
-    end
-
-    def check_user_password?
-      if user_params[:password].blank?
-        'without_password'
-      else
-        'with_password'
       end
     end
 
@@ -39,9 +32,9 @@ module Users
                                           :country, :current_password,
                                           :password, :password_confirmation)
       if prms[:password].blank?
-        prms.merge(skip_password_validation: true)
+        [:without_password, prms.merge(skip_password_validation: true)]
       else
-        prms
+        [:with_password, prms]
       end
     end
   end
