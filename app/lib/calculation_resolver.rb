@@ -18,6 +18,6 @@ class CalculationResolver
       calculator.dependencies(value).each_with_object({}) do |key, hash|
         hash[key.to_sym] = key
       end.merge(parameters)
-      )
+    )
   end
 end

@@ -14,7 +14,7 @@ module Users
         redirect_to edit_user_registration_path, notice:
           I18n.t('activerecord.attributes.user.successful_update')
       else
-      render 'devise/registrations/edit'
+        render 'devise/registrations/edit'
       end
     end
 
