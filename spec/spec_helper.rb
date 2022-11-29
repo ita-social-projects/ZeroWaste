@@ -18,10 +18,12 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
+
 SimpleCov.start 'rails'
 
 if ENV['CI']
   require 'codecov'
+
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
