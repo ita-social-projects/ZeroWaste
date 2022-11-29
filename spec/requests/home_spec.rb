@@ -4,6 +4,7 @@ RSpec.describe 'HomeController', type: :request do
   describe 'GET :index' do
     it 'is successful' do
       get root_path
+
       expect(root_path).to eq('/en')
 
       expect(response.body).to include('The calculator tells you how many')
@@ -14,6 +15,7 @@ RSpec.describe 'HomeController', type: :request do
     context 'with default locale' do
       it 'is successful' do
         get root_path
+
         expect(root_path).to eq('/en')
 
         expect(response.body).to include('Welcome to the diaper calculator')
@@ -26,10 +28,12 @@ RSpec.describe 'HomeController', type: :request do
       it 'is successful' do
         get root_path(locale: :uk)
         expect(root_path).to eq('/uk')
+
         expect(response.body).to include('Вас вітає калькулятор підгузків')
 
         get root_path(locale: :en)
         expect(root_path).to eq('/en')
+
         expect(response.body).to include('Welcome to the diaper calculator')
 
         expect(response).to render_template(:index)
