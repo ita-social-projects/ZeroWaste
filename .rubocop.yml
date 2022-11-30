@@ -83,3 +83,6 @@ Style/BlockDelimiters:
 
 Style/GuardClause:
   Enabled: false
+
+Style/EndOfLine:
+  EnforcedStyle: lf
