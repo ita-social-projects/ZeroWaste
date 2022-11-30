@@ -12,7 +12,5 @@ html
   div.filter_block
     = render 'layouts/flash_messages'
     = render 'layouts/navigation'
-    - unless controller_name.in? ['sessions', 'registrations', 'passwords', 'calculators', 'contact_us', 'messages']
-      = render 'layouts/homepage'
     = yield
     = any_login_here if defined?(AnyLogin)

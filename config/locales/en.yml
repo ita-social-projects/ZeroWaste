@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  uk: "Українська"
   calculators:
     calculator:
       form_description: "Child’s age:"
@@ -62,7 +63,7 @@ en:
       сontact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
       donate: "DONATE"
-      local_lang: "English"
+      local_lang: "Українська"
     description_block:
       description_block_html: "These are approximate results. The exact numbers for your
       family may differ depending on your daily habits and the diaper brand of choice. At any point of using
