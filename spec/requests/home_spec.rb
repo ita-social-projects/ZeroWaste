@@ -6,7 +6,7 @@ RSpec.describe 'HomeController', type: :request do
       get root_path
 
       expect(root_path).to eq('/en')
-      expect(response.body).to include('The calculator tells you how many')
+      expect(response.body).to include('The calculator tells you how many disposable')
       expect(response).to render_template(:index)
       expect(response).to be_successful
     end
