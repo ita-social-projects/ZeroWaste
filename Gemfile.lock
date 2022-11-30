@@ -74,6 +74,11 @@ GEM
       activerecord (>= 3.1.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
+    any_login (1.5.2)
+      rails (>= 6.0)
     ast (2.4.2)
     bcrypt (3.1.16)
     bigdecimal (1.3.5)
@@ -95,6 +100,8 @@ GEM
       activesupport
     childprocess (4.1.0)
     cocoon (1.2.15)
+    codecov (0.6.0)
+      simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
@@ -122,6 +129,7 @@ GEM
       activejob (>= 5.0)
       devise (>= 4.0)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -379,6 +387,12 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sixarm_ruby_unaccent (1.2.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
@@ -443,11 +457,14 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   active_storage_validations
   acts_as_singleton
+  annotate
+  any_login
   bigdecimal (= 1.3.5)
   bootsnap (>= 1.4.4)
   cancancan (~> 3.3)
   capybara (>= 3.26)
   cocoon
+  codecov
   country_select (~> 4.0)
   database_cleaner-active_record
   dentaku (~> 3.1)
@@ -484,6 +501,7 @@ DEPENDENCIES
   shoulda-matchers (~> 4.0)
   sidekiq
   simple_form
+  simplecov
   slim-rails
   spring
   turbolinks (~> 5)
@@ -496,4 +514,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.3.18
+   2.3.26

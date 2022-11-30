@@ -52,6 +52,9 @@ Metrics/AbcSize:
   Enabled: true
   Max: 31
 
+Layout/EndOfLine:
+  EnforcedStyle: crlf
+
 Layout/LineLength:
   Enabled: true
   Max: 80
@@ -78,11 +81,5 @@ Style/MethodCalledOnDoEndBlock:
 Style/BlockDelimiters:
   Enabled: false
 
-Style/MultilineTernaryOperator:
-  Enabled: false
-
 Style/GuardClause:
-  Enabled: false
-
-Lint/RedundantCopDisableDirective:
   Enabled: false

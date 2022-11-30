@@ -36,7 +36,6 @@ ActiveStorage.start();
 //   $('[data-toggle="tooltip"]').tooltip();
 //   $('[data-toggle="popover"]').popover();
 // });
-console.log('Well done!')
 
 $('document').ready(function() {
     setTimeout(function() {

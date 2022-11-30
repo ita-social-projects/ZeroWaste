@@ -1,6 +1,6 @@
 body
   header.page-header
-    = link_to image_tag('logo-zerowaste.jpg'), root_path, class: 'logo-zerowaste py-4'
+    = link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste'
     .tabs
       - if FeatureFlag.get('show_admin_menu').active?
         - if user_signed_in?

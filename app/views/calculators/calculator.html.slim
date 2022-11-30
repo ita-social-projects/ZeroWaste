@@ -1,30 +1,30 @@
 .jumbotron
   .container
-    a.rounded.float-right.src href=root_path
-      = image_tag "close.svg", height: 40
+    a.rounded.float-right.calculator__cross__space href=root_path
+      = image_tag "close.svg", height: 40, class:"z-1 position-relative"
     p.form-p
       = t '.form_description'
     .form
       = form_with url: "#", id: "form", method: :get do |form|
         .flex-item
           select.custom-select#childs_years [required]
-            option [disabled selected value]
+            option [disabled selected hidden value]
               = t('.form.childs_years_label')
             - (0..2).each do |year|
               option value = year
-                = year
+                = "#{year} #{t('datetime.prompts.year').downcase.pluralize(count: year, locale: I18n.locale)}"
           select.custom-select#childs_months
-            option [disabled selected value]
+            option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..11).each do |month|
               option value = month
-                = month
+                = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
           select.custom-select#two_years_childs_months
-            option [disabled selected value]
+            option [disabled selected hidden value]
               =t('.form.childs_months_label')
             - (0..6).each do |month|
               option value = month
-                = month
+                = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
 
           - if FeatureFlag.get('feature_budget_category').active?
             p.form-a
@@ -63,6 +63,7 @@
         - elsif I18n.locale == :uk
             #localized_uk_to_be_used_diapers_amount
               | підгузків ви ще використаєте
+    .w-100.row_break
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_spent.png", class:"rounded"

@@ -1,5 +1,5 @@
 .calculate-btn {
-  width: 186px;
+  width: 100%;
   height: 56px;
   margin-top: 40px;
   color: #fff;
@@ -11,9 +11,9 @@
   letter-spacing: 2px;
   text-align: center;
   font-weight: 400;
-  font-family: "Nunito", sans-serif;
   font-style: normal;
   transition: transform 0.5s linear;
+  max-width: 300px;
 }
 
 #calc {
@@ -27,7 +27,6 @@
   font-weight: 400;
   color: #666666;
   position: relative;
-  top: 15px;
   left: 20px;
   margin-bottom: 0px;
 }
@@ -42,18 +41,14 @@
   margin-bottom: 0px;
 }
 
-.src {
+.calculator__cross__space {
   position: relative;
-  top: 25px;
-  margin-left: 20px;
+  top: -5px;
 }
 
 .form {
-  padding-top: 25px;
   padding-left: 15px;
   max-width: 800px;
-  text-align: start;
-  display: flex;
 }
 
 .row-l {
@@ -62,9 +57,13 @@
 }
 
 .flex-item {
-  width: fit-content;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
   select {
     margin-top: 25px;
+    width: 300px;
   }
 }
 
@@ -99,7 +98,6 @@
 }
 
 .result-btn {
-  width: 250px;
   text-align: center;
 }
 
@@ -109,8 +107,8 @@
 }
 
 .logo-zerowaste img {
-  aspect-ratio: 16 / 9;
-  width: 80%;
+  // aspect-ratio: 16 / 9;
+  width: 30%;
   border-radius: 5px;
 }
 
@@ -118,7 +116,7 @@
   margin-left: 50px;
   margin-top: 45px;
   a {
-    color:$color;
+    color: $color;
     background-color: transparent;
     text-decoration: none;
   }
@@ -129,9 +127,9 @@
     text-align: left;
     margin-left: 30px;
     a {
-        color: $success;
-        background-color: transparent;
-        text-decoration: none;
+      color: $success;
+      background-color: transparent;
+      text-decoration: none;
     }
     a:hover {
       color: #256d36;
@@ -141,17 +139,37 @@
   }
 }
 
+.z-1 {
+  z-index: 1;
+}
+
 @media screen and (max-width: 1199px) and (min-width: 400px) {
   button.calculate-btn.result-btn.description-btn {
     margin: auto;
   }
 }
 
-@media screen and (max-width: $xs) {
+@media screen and (max-width: $md) {
   .logo-zerowaste img {
     width: 100%;
   }
+
   .logo-zerowaste {
     width: 140px;
+  }
+  .calculator__cross__space {
+    margin-right: 5px;
+  }
+  .form {
+    padding-left: 10px;
+  }
+  .form-p {
+    left: 10px;
+  }
+  .flex-item {
+    width: 300px;
+  }
+  .result-btn {
+    width: 300px;
   }
 }
