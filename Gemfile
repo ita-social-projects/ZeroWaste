@@ -83,4 +83,5 @@ gem 'paper_trail'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'stimulus-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

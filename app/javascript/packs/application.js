@@ -3,42 +3,57 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from '@rails/ujs';
-import Turbolinks from 'turbolinks';
-import * as ActiveStorage from '@rails/activestorage';
-import 'channels';
+import Rails from "@rails/ujs";
+import Turbolinks from "turbolinks";
+import * as ActiveStorage from "@rails/activestorage";
+import "channels";
 
-require('jquery');
+require("jquery");
 require("@nathanvda/cocoon");
 
 // const jQuery = require('jquery');
 // global.$ = global.jQuery = jQuery;
 // window.$ = window.jQuery = jQuery;
 
-import 'bootstrap';
-import '@fortawesome/fontawesome-free/js/all';
-import '../stylesheets/application';
+import "bootstrap";
+import "@fortawesome/fontawesome-free/js/all";
+import "../stylesheets/application";
 // import 'ajax/result_button';
-import 'ajax/checkbox';
-import 'plugins/flatpickr';
-import "@fortawesome/fontawesome-free/css/all"
+import "ajax/checkbox";
+import "plugins/flatpickr";
+import "@fortawesome/fontawesome-free/css/all";
 
-import "../js/calculators/edit"
-import "../ajax/calculate_result_button"
+import "../js/calculators/edit";
+import "../ajax/calculate_result_button";
 
-const images = require.context('../images', true)
+const images = require.context("../images", true);
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+// Stimulus
+
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
+
+const application = Application.start();
+
+// Configure Stimulus development experience
+application.debug = true;
+window.Stimulus = application;
+
+const context = require.context("../controllers", true, /\.js$/);
+
+application.load(definitionsFromContext(context));
 
 // document.addEventListener('turbolinks:load', () => {
 //   $('[data-toggle="tooltip"]').tooltip();
 //   $('[data-toggle="popover"]').popover();
 // });
 
-$('document').ready(function() {
-    setTimeout(function() {
-        $('.alert').slideUp();
-    }, 10000);
+$("document").ready(function () {
+  setTimeout(function () {
+    $(".alert").slideUp();
+  }, 10000);
 });
