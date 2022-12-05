@@ -105,10 +105,11 @@
   padding: 0;
   margin: 0;
 }
-
+.logo-zerowaste {
+  width: 11em;
+}
 .logo-zerowaste img {
-  // aspect-ratio: 16 / 9;
-  width: 30%;
+  width: 100%;
   border-radius: 5px;
 }
 
@@ -149,13 +150,13 @@
   }
 }
 
-@media screen and (max-width: $md) {
+@media screen and (max-width: $sm) {
   .logo-zerowaste img {
     width: 100%;
   }
 
   .logo-zerowaste {
-    width: 140px;
+    width: 9em;
   }
   .calculator__cross__space {
     margin-right: 5px;

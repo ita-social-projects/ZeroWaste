@@ -29,59 +29,53 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     end
   end
 
-  describe '#product_price' do
-    context 'when get awaited value' do
-      it 'first diaper price category returned' do
-        low = create(:product_price, :LOW)
-        controller.params[:price_id] = 0
-        result = controller.send(:product_price)
-        expect(result).not_to eq(nil)
-        expect(result).to eq(low)
-      end
+  describe 'sending params to create' do
+    let(:values) do
+      [
+        { name: 'money_spent', result: 12_718.5 },
+        { name: 'money_will_be_spent', result: 10_614.0 },
+        { name: 'used_diapers_amount', result: 2745.0 },
+        { name: 'to_be_used_diapers_amount', result: 1830.0 }
+      ]
+    end
+    let(:expected_result) do
+      {
+        result: values,
+        date: 12,
+        word_form_to_be_used: 'підгузків',
+        word_form_used: 'підгузків'
+      }
+    end
 
-      it 'default diaper price category returned' do
-        medium = create(:product_price, :MEDIUM)
+    context 'when get awaited values' do
+      include_context :app_config_load
 
-        controller.params[:price_id] = 1
-        result = controller.send(:product_price)
-        expect(result).not_to eq(nil)
-        expect(result).to eq(medium)
-      end
+      it 'got the expected result' do
+        post :create, params: { childs_age: 12 }
 
-      it 'last diaper price category returned' do
-        high = create(:product_price, :HIGH)
-
-        controller.params[:price_id] = 2
-        result = controller.send(:product_price)
-        expect(result).not_to eq(nil)
-        expect(result).to eq(high)
+        expect(response.body).to eq(expected_result.to_json)
+        expect(response).to be_successful
       end
     end
-    context 'when get unawaited value' do
-      it 'get unawaited number' do
-        medium = create(:product_price, :MEDIUM)
 
-        controller.params[:price_id] = -1
-        result = controller.send(:product_price)
-        expect(result).not_to eq(nil)
-        expect(result).to eq(medium)
+    context 'when get unawaited values' do
+      include_context :app_config_load
+
+      let(:invalid_values) do
+        [
+          { name: 'money_spent', result: 42 },
+          { name: 'money_will_be_spent', result: 42 },
+          { name: 'used_diapers_amount', result: 42 },
+          { name: 'to_be_used_diapers_amount', result: 42 }
+        ]
       end
-      it 'get nil' do
-        medium = create(:product_price, :MEDIUM)
 
-        controller.params[:price_id] = nil
-        result = controller.send(:product_price)
-        expect(result).not_to eq(nil)
-        expect(result).to eq(medium)
-      end
-    end
-  end
+      it 'got the unexpected result' do
+        expected_result[:result] = invalid_values
+        post :create, params: { childs_age: 12 }
 
-  describe '#childs_age' do
-    context 'when default value' do
-      it 'child`s age selected' do
-        controller.params[:childs_age] = 1
-        expect(controller.send(:childs_age)).to eq(1)
+        expect(response.body).not_to eq(expected_result.to_json)
+        expect(response).to be_successful
       end
     end
   end
