@@ -6,6 +6,8 @@
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 import "channels";
 
 require("jquery");
@@ -33,17 +35,13 @@ Turbolinks.start();
 ActiveStorage.start();
 
 // Stimulus
-
-import { Application } from "@hotwired/stimulus";
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
-
 const application = Application.start();
 
 // Configure Stimulus development experience
 application.debug = true;
 window.Stimulus = application;
 
-const context = require.context("../controllers", true, /\.js$/);
+const context = require.context("../controllers", true, /_controller\.js$/);
 
 application.load(definitionsFromContext(context));
 
