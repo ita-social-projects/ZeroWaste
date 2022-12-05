@@ -91,12 +91,12 @@ describe 'User Sign Up', js: true do
     end
   end
 
-  # context 'when the user has set their locale to :uk' do
+  context 'when the user has set their locale to :uk' do
   #   it 'displays a translated welcome message to the user' do
   #     visit new_user_registration_path(locale: :uk)
 
   #     expect(new_user_registration_path).to eq('/uk')
   #     expect(page).to have_content ('Зареєструватися')
   #   end
-  # end
+  end
 end
