@@ -2,6 +2,14 @@
 
 require 'rails_helper'
 
+EMAIL = 'Email'
+PASSWORD = 'Password'
+RE_PASSWORD = 'Re-password'
+FIRSTNAME = 'First name'
+LASTNAME = 'Last name'
+SIGN_UP_BUTTON_TEXT = I18n.t('layouts.navigation.sign_up')
+
+
 describe 'User Sign Up', js: true do
   context 'when sign up with correct password and email' do
     it 'shows a message about a confirmation link in the mail' do
@@ -9,14 +17,14 @@ describe 'User Sign Up', js: true do
         .and_return(double(deliver: true))
       visit new_user_registration_path
 
-      fill_in 'Email', with: 'simple@email.com'
-      fill_in 'Password', with: '111111111'
-      fill_in 'Re-password', with: '111111111'
-      fill_in 'First name', with: 'User'
-      fill_in 'Last name', with: 'Users'
+      fill_in EMAIL, with: 'simple@email.com'
+      fill_in PASSWORD, with: '111111111'
+      fill_in RE_PASSWORD, with: '111111111'
+      fill_in FIRSTNAME, with: 'User'
+      fill_in LASTNAME, with: 'Users'
       select 'Albania', from: 'user_country'
 
-      click_button 'Sign Up'
+      click_button SIGN_UP_BUTTON_TEXT
 
       expect(page).to have_content 'A message with a confirmation link has '
     end
@@ -26,14 +34,10 @@ describe 'User Sign Up', js: true do
     it 'shows a message about incorrect password' do
       visit new_user_registration_path
 
-      fill_in 'Email', with: 'users@gmail.com'
-      fill_in 'Password', with: ' '
-      fill_in 'Re-password', with: ' '
-      fill_in 'First name', with: 'Margaret'
-      fill_in 'Last name', with: 'Thatcher'
-      select 'Albania', from: 'user_country'
+      fill_in PASSWORD, with: ' '
+      fill_in RE_PASSWORD, with: ' '
 
-      click_button 'Sign Up'
+      click_button SIGN_UP_BUTTON_TEXT
 
       expect(page).to have_content 'Password is invalid'
     end
@@ -43,14 +47,10 @@ describe 'User Sign Up', js: true do
     it 'shows a message that password is too short' do
       visit new_user_registration_path
 
-      fill_in 'Email', with: 'users@gmail.com'
-      fill_in 'Password', with: 'n'
-      fill_in 'Re-password', with: 'n'
-      fill_in 'First name', with: 'Margaret'
-      fill_in 'Last name', with: 'Thatcher'
-      select 'Albania', from: 'user_country'
+      fill_in PASSWORD, with: 'n'
+      fill_in RE_PASSWORD, with: 'n'
 
-      click_button 'Sign Up'
+      click_button SIGN_UP_BUTTON_TEXT
 
       expect(page).to have_content 'Password is too short'
     end
@@ -60,14 +60,9 @@ describe 'User Sign Up', js: true do
     it 'shows a message that Email is invalid' do
       visit new_user_registration_path
 
-      fill_in 'Email', with: ' '
-      fill_in 'Password', with: 'Password1'
-      fill_in 'Re-password', with: 'Password1'
-      fill_in 'First name', with: 'Margaret'
-      fill_in 'Last name', with: 'Thatcher'
-      select 'Albania', from: 'user_country'
+      fill_in EMAIL, with: ' '
 
-      click_button 'Sign Up'
+      click_button SIGN_UP_BUTTON_TEXT
 
       expect(page).to have_content 'Email is invalid'
     end
@@ -77,26 +72,15 @@ describe 'User Sign Up', js: true do
     it 'shows a message that first and last name is invalid' do
       visit new_user_registration_path
 
-      fill_in 'Email', with: 'users@gmail.com'
-      fill_in 'Password', with: 'Password1'
-      fill_in 'Re-password', with: 'Password1'
-      fill_in 'First name', with: '123'
-      fill_in 'Last name', with: ' '
-      select 'Albania', from: 'user_country'
+      fill_in FIRSTNAME, with: '123'
+      fill_in LASTNAME, with: ' '
 
-      click_button 'Sign Up'
+      click_button SIGN_UP_BUTTON_TEXT
 
       expect(page).to have_content 'First name is invalid'
+      expect(page).to have_content 'Last name can\'t be blank'
+      expect(page).to have_content 'Last name is too short'
       expect(page).to have_content 'minimum is 2 characters'
     end
   end
-
-  # context 'when the user has set their locale to :uk' do
-  #   it 'displays a translated welcome message to the user' do
-  #     visit new_user_registration_path(locale: :uk)
-
-  #     expect(new_user_registration_path).to eq('/uk')
-  #     expect(page).to have_content ('Зареєструватися')
-  #   end
-  # end
 end
