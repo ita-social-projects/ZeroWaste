@@ -144,9 +144,9 @@ Rails.application.configure do
     address: 'smtp.sendgrid.net',
     port: 587,
     domain: 'zero-waste-project.herokuapp.com',
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_API_KEY'],
+    user_name: ENV.fetch('SENDGRID_USERNAME', nil),
+    password: ENV.fetch('SENDGRID_API_KEY', nil),
     authentication: 'plain',
     enable_starttls_auto: true
-}
+  }
 end

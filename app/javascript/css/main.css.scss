@@ -4,7 +4,8 @@ body {
   background: url("../images/mother.jpeg") no-repeat center center fixed;
   background-size: cover;
   overflow-x: hidden;
-  min-height: 100%;
+  height: 100vh;
+  font-family: "Comfortaa", sans-serif;
 }
 
 a {
@@ -23,7 +24,7 @@ a {
 .filter_block {
   position: absolute;
   background-color: #00000078;
-  height: auto;
+  min-height: 100%;
   width: 100%;
   top: 0;
   left: 0;
@@ -32,7 +33,6 @@ a {
 
 .page-header {
   max-width: 1110px;
-  font-family: "Comfortaa", sans-serif;
   margin: auto;
   margin-bottom: 10px;
   display: flex;
@@ -40,16 +40,13 @@ a {
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
-
 }
 
 div.jumbotron {
-  font-family: "Comfortaa", sans-serif;
   background-color: $color;
   padding: 25px 10px;
   max-width: 1110px;
-  min-height: 310px;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 
 .func-btns {
@@ -80,7 +77,7 @@ div.jumbotron {
   max-width: 420px;
   margin: 20px auto;
 
-  &> :last-of-type {
+  & > :last-of-type {
     & img {
       margin-right: 10px;
     }
@@ -141,7 +138,6 @@ div.jumbotron {
 
 /* home-page */
 .homepage_title {
-  font-family: "Comfortaa", sans-serif;
   text-align: center;
   margin-top: 200px;
   color: $color;
@@ -157,7 +153,6 @@ main p {
 // forms
 .position-block {
   .card {
-    font-family: "Comfortaa", sans-serif;
     max-width: 650px;
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
@@ -195,15 +190,6 @@ main p {
   }
 }
 
-.donate-btn,
-label.text-center,
-.form-check-label,
-.btn-success,
-.result-card,
-.last-result-card {
-  font-family: "Nunito", sans-serif;
-}
-
 h1,
 .footer-items {
   color: $color;
@@ -227,6 +213,10 @@ div.calculation-results {
   max-width: 1110px;
   min-height: 151px;
   border-radius: 6px;
+}
+
+.row_break {
+  display: none;
 }
 
 .result-card {
@@ -253,7 +243,6 @@ div.calculation-results {
 
   p {
     font-size: 24px;
-
   }
 
   &:last-child {
@@ -268,8 +257,6 @@ div.calculation-results {
 
   p {
     font-size: 22px;
-
-    font-family: Roboto, sans-serif;
     font-weight: bold;
     color: #808080;
   }
@@ -294,9 +281,8 @@ body.admin {
 }
 
 .admin-table {
-
-  .admin-table-header>*,
-  .admin-table-body>* {
+  .admin-table-header > *,
+  .admin-table-body > * {
     display: flex;
   }
 
@@ -319,7 +305,7 @@ body.admin {
     }
 
     .admin-table-body {
-      &>* {
+      & > * {
         align-items: center;
       }
 
@@ -348,32 +334,33 @@ body.admin {
   .tab {
     display: none;
   }
+
   .filter_block {
-    width: auto;
+    width: 100%;
   }
 
   div.jumbotron,
   div.container {
-    max-width: 350px ;
-    margin-right: auto;
-    margin-left: 15px;
+    max-width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
 
     padding-left: 0px;
   }
+
   .calculation-results span {
     width: 410px;
   }
+
   .page-header {
-    width: auto;
-    margin-right: 15px;
-    margin-left: 15px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
   .donate-btn a {
     font-size: 12px;
   }
+
   .main-btns {
     max-width: 320px;
 
@@ -399,6 +386,7 @@ body.admin {
   .tab {
     display: none;
   }
+
   .func-btns {
     display: flex;
     flex-direction: column;
@@ -408,14 +396,34 @@ body.admin {
     padding-bottom: initial;
     width: fit-content;
   }
+
+  .donate-btn a {
+    padding: 10px;
+  }
+
+  .row_break {
+    display: block;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $sm) {
+  .row_break {
+    display: block;
+  }
+
+  .donate-btn a {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $xs) {
   .page-header {
-    width: 510px;
+    width: auto;
+    margin-right: 16px;
+    margin-left: 16px;
   }
   .calculation-results,
   .jumbotron {
-    width: 510px;
-  }
-  .donate-btn a {
-    padding: 10px;
+    width: 96%;
   }
 }
