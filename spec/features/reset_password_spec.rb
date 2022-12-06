@@ -20,7 +20,7 @@ describe 'Password Reset Page', js: true do
     it 'redirect to sign in page' do
       visit PASSWORD_RESET_PATH
       click_link 'Log in'
-      expect(page).to have_current_path('/users/sign_in')
+      expect(page).to have_current_path(new_user_session_path)
     end
   end
 
@@ -28,7 +28,7 @@ describe 'Password Reset Page', js: true do
     it 'redirect to sign up page' do
       visit PASSWORD_RESET_PATH
       click_link 'Sign up'
-      expect(page).to have_current_path('/users/sign_up')
+      expect(page).to have_current_path(new_user_registration_path)
     end
   end
 end

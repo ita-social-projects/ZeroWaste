@@ -33,4 +33,3 @@ class ItemsPerMonth
 
   attr_reader :month
 end
-

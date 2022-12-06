@@ -38,6 +38,7 @@ gem 'font-awesome-rails'
 gem 'mini_magick', '>= 4.9.5'
 
 group :development, :test do
+  gem 'annotate'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
@@ -61,13 +62,16 @@ end
 
 group :test do
   gem 'capybara', '>= 3.26'
+  gem 'codecov', require: false
   gem 'database_cleaner-active_record'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 4.0'
   gem 'webdrivers'
 end
 
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'any_login'
 gem 'cocoon'
 gem 'devise'
 gem 'devise-async'

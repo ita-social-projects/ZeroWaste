@@ -1,4 +1,5 @@
 uk:
+  # en: English
   devise:
     confirmations:
       confirmed: "Ваш обліковий запис підтверджено. Ви увійшли в систему."

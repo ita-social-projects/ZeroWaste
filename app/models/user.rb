@@ -1,5 +1,42 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint           not null, primary key
+#  blocked                :boolean          default(FALSE)
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  country                :string
+#  current_sign_in_at     :datetime
+#  current_sign_in_ip     :string
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  failed_attempts        :integer          default(0), not null
+#  first_name             :string
+#  last_name              :string
+#  last_sign_in_at        :datetime
+#  last_sign_in_ip        :string
+#  locked_at              :datetime
+#  provider               :string
+#  receive_recomendations :boolean          default(FALSE)
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  role                   :integer          default("user")
+#  sign_in_count          :integer          default(0), not null
+#  uid                    :string
+#  unlock_token           :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
 class User < ApplicationRecord
   attr_accessor :current_password, :skip_password_validation
 
@@ -11,6 +48,11 @@ class User < ApplicationRecord
     user: 0,
     admin: 1
   }
+
+  def self.grouped_collection_by_role
+    User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }
+  end
+
   # validate :correct_image_type
 
   # Include default devise modules. Others available are:
@@ -36,14 +78,16 @@ class User < ApplicationRecord
             on: %i[create update],
             format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 
+  # rubocop:disable Layout/FirstHashElementIndentation
   validates :avatar, content_type: {
-    in: %i[png jpg jpeg],
-    message: 'must be in PNG or JPG or JPEG format'
-  },
+                       in: %i[png jpg jpeg],
+                       message: 'must be in PNG or JPG or JPEG format'
+                     },
                      size: {
                        less_than: 2.megabytes,
                        message: 'size must be less then 2Mb'
                      }
+  # rubocop:enable Layout/FirstHashElementIndentation
 
   def self.from_omniauth(access_token)
     data = access_token.info
