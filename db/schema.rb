@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_10_114001) do
+ActiveRecord::Schema.define(version: 2022_12_10_114531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 2022_12_10_114001) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "category_categoryables", force: :cascade do |t|
+    t.bigint "category_id"
+    t.string "categoryable_type"
+    t.bigint "categoryable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_categoryables_on_category_id"
+    t.index ["categoryable_type", "categoryable_id", "category_id"], name: "unique_index", unique: true
+    t.index ["categoryable_type", "categoryable_id"], name: "index_category_categoryables_on_categoryable"
   end
 
   create_table "feature_flags", force: :cascade do |t|
@@ -173,4 +184,5 @@ ActiveRecord::Schema.define(version: 2022_12_10_114001) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "category_categoryables", "categories"
 end
