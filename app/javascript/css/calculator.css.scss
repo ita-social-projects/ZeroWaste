@@ -48,7 +48,7 @@
 
 .form {
   padding-left: 15px;
-  max-width: 800px;
+  max-width: 200px;
 }
 
 .row-l {
@@ -61,9 +61,23 @@
   gap: 10px;
   width: 100%;
   flex-wrap: wrap;
-  select {
-    margin-top: 25px;
-    width: 300px;
+  margin-left: 2%;
+
+  .age_wrapper {
+    background-color: #ececec;
+    width: fit-content;
+    gap: 0px;
+
+    .select_age {
+      width: 30px;
+      border: none;
+      outline: none;
+      background-color: #ececec;
+      color: #515151;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding: 0rem 0rem 0rem 0.5rem;
+    }
   }
 }
 

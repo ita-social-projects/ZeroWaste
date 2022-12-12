@@ -1,7 +1,7 @@
-$success: #8FBA3B;
+$success: #8fba3b;
 $color: #fff;
 $error: #9e1503;
-$gray: #8D8D8D;
+$gray: #8d8d8d;
 
 $xs: 576px;
 $sm: 768px;
@@ -14,12 +14,12 @@ $md: 1024px;
 @import "../css/calculator.css.scss";
 
 @font-face {
-  font-family: 'Comfortaa';
-  src: url('../fonts/Comfortaa-Regular.eot');
-  src: url('../fonts/Comfortaa-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/Comfortaa-Regular.woff2') format('woff2'),
-    url('../fonts/Comfortaa-Regular.woff') format('woff'),
-    url('../fonts/Comfortaa-Regular.ttf') format('truetype');
+  font-family: "Comfortaa";
+  src: url("../fonts/Comfortaa-Regular.eot");
+  src: url("../fonts/Comfortaa-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Comfortaa-Regular.woff2") format("woff2"),
+    url("../fonts/Comfortaa-Regular.woff") format("woff"),
+    url("../fonts/Comfortaa-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@ $md: 1024px;
   -ms-transform: $transforms;
   transform: $transforms;
 }
-@mixin translate ($x, $y) {
+@mixin translate($x, $y) {
   @include transform(translate($x, $y));
 }
 @mixin transition($args) {
@@ -43,7 +43,9 @@ $md: 1024px;
   -o-transition: $args;
   transition: $args;
 }
-*, :after, :before {
+*,
+:after,
+:before {
   box-sizing: border-box;
 }
 html {

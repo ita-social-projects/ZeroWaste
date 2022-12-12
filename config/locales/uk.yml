@@ -2,13 +2,13 @@ uk:
   en: English
   calculators:
     calculator:
-      form_description: "Скільки виповнилося дитині:"
+      form_description: "Вік дитини:"
       form_price: "Цінова категорія"
       form:
         childs_birthday_label: "Дата народження дитини"
         childs_age_label: "Вік дитини"
-        childs_years_label: "повних років"
-        childs_months_label: "місяців"
+        childs_years_label: "р."
+        childs_months_label: "міс."
         baby_weight_label: "Baby weight"
         budgetary: "бюджетна"
         medium: "середня"
