@@ -65,8 +65,8 @@ group :test do
   gem 'codecov', require: false
   gem 'database_cleaner-active_record'
   gem 'selenium-webdriver'
-  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'simplecov', require: false
   gem 'webdrivers'
 end
 
