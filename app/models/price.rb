@@ -3,5 +3,6 @@ class Price < ApplicationRecord
   belongs_to :category, optional: true
 
   validates :price, presence: true
-  validates :priceable, uniqueness: { scope: :category_id }
+  # потрібно переписати валідацію на старішу версію
+  # validates :priceable, uniqueness: { scope: :category_id }
 end
