@@ -19,3 +19,39 @@ AllCops:
   SuggestExtensions: true
   NewCops: enable
   TargetRubyVersion: 2.7
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: compact
+
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: aligned
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+  EnforcedStyle: compact
+
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_first_argument
+
+Layout/ExtraSpacing:
+  Enabled: true
+  ForceEqualSignAlignment: true
+
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+Style/BlockDelimiters:
+  Enabled: true
+  EnforcedStyle: line_count_based

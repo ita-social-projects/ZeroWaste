@@ -15,3 +15,14 @@ Lint/Env:
     - "**/spec/*_helper.rb"
     - "**/spec/**/support/**/*"
     - "lib/generators/**/*"
+
+Layout/ExtraSpacing:
+  Exclude:
+    - "**/config/environments/**/*"
+    - "**/config/application.rb"
+    - "**/config/environment.rb"
+    - "**/config/puma.rb"
+    - "**/config/boot.rb"
+    - "**/spec/*_helper.rb"
+    - "**/spec/**/support/**/*"
+    - "lib/generators/**/*"
