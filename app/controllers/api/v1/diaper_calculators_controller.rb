@@ -3,26 +3,29 @@
 module Api
   module V1
     class DiaperCalculatorsController < ApplicationController
-      VALUES = [
-        { name: 'money_spent', result: 7841 },
-        { name: 'money_will_be_spent', result: 342 }
-      ].freeze
-
       def create
-        result = diapers_service_handler(childs_birthday).calculate!
-        VALUES.first[:result] = result.used_diapers_price
-        VALUES.last[:result] = result.to_be_used_diapers_price
-        render(json: { result: VALUES, date: childs_birthday })
+        result = Calculators::DiapersService.new(params[:childs_age].to_i)
+                                            .calculate!
+        diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
+        diapers_used = diapers_correct_form(result.used_diapers_amount)
+        values = [
+          { name: 'money_spent', result: result.used_diapers_price || 0 },
+          { name: 'money_will_be_spent',
+            result: result.to_be_used_diapers_price || 0 },
+          { name: 'used_diapers_amount',
+            result: result.used_diapers_amount || 0 },
+          { name: 'to_be_used_diapers_amount',
+            result: result.to_be_used_diapers_amount || 0 }
+        ]
+        render(json: { result: values, date: params[:childs_age].to_i,
+                       word_form_to_be_used: diapers_be_used,
+                       word_form_used: diapers_used })
       end
 
       private
 
-      def diapers_service_handler(age)
-        @diapers_service_handler ||= Calculators::DiapersService.new(age)
-      end
-
-      def childs_birthday
-        params[:childs_birthday]
+      def diapers_correct_form(quantity)
+        LanguageHelper::UkrLanguage.new.correct_word_form(quantity)
       end
     end
   end

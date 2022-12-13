@@ -70,8 +70,15 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_singleton (0.0.8)
+      activerecord (>= 3.1.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
+    any_login (1.5.2)
+      rails (>= 6.0)
     ast (2.4.2)
     bcrypt (3.1.16)
     bigdecimal (1.3.5)
@@ -79,6 +86,7 @@ GEM
     bootsnap (1.9.3)
       msgpack (~> 1.0)
     builder (3.2.4)
+    cancancan (3.3.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -92,6 +100,8 @@ GEM
       activesupport
     childprocess (4.1.0)
     cocoon (1.2.15)
+    codecov (0.6.0)
+      simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
@@ -119,6 +129,7 @@ GEM
       activejob (>= 5.0)
       devise (>= 4.0)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -168,6 +179,8 @@ GEM
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     i18n_data (0.11.0)
+    it (2.0.0)
+      actionpack (>= 3.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -221,6 +234,8 @@ GEM
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
+    omniauth-facebook (9.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.8.2)
       jwt (>= 2.0)
       oauth2 (~> 1.1)
@@ -280,11 +295,18 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.4.4)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-i18n (7.0.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (6.1.4.4)
       actionpack (= 6.1.4.4)
       activesupport (= 6.1.4.4)
@@ -365,6 +387,12 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sixarm_ruby_unaccent (1.2.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
@@ -428,10 +456,15 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   active_storage_validations
+  acts_as_singleton
+  annotate
+  any_login
   bigdecimal (= 1.3.5)
   bootsnap (>= 1.4.4)
+  cancancan (~> 3.3)
   capybara (>= 3.26)
   cocoon
+  codecov
   country_select (~> 4.0)
   database_cleaner-active_record
   dentaku (~> 3.1)
@@ -442,11 +475,13 @@ DEPENDENCIES
   faker
   font-awesome-rails
   friendly_id (~> 5.4.0)
+  it
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.3)
   mini_magick (>= 4.9.5)
   omniauth (~> 1.9.1)
+  omniauth-facebook
   omniauth-google-oauth2
   paper_trail
   pg (~> 1.1)
@@ -456,6 +491,8 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.1)
+  rails-controller-testing
+  rails-i18n (~> 7.0.0)
   redis (~> 4.0)
   rspec-rails (~> 5.0.0)
   rubocop
@@ -464,6 +501,7 @@ DEPENDENCIES
   shoulda-matchers (~> 4.0)
   sidekiq
   simple_form
+  simplecov
   slim-rails
   spring
   turbolinks (~> 5)
@@ -476,4 +514,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.3.11
+   2.3.26

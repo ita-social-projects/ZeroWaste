@@ -1,5 +1,6 @@
-class MessagesController < ApplicationController
+# frozen_string_literal: true
 
+class MessagesController < ApplicationController
   def new
     @message = Message.new
   end
@@ -8,7 +9,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       redirect_to root_path,
-                  notice: 'Question has been sent!'
+                  notice: t('notifications.message_sent')
     else
       render :new
     end

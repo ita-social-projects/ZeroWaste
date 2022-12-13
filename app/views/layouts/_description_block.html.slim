@@ -1,0 +1,12 @@
+span
+  p data-type="description_block_html"
+  - if I18n.locale == :en
+    = it ".description_block_html",
+            calculate_link_one: It.link("https://zerowastelviv.org.ua/en/diaper-calculator-method-en/",
+                    target: '_blank'),
+            calculate_link_two: It.link("https://zerowastelviv.org.ua/en/contacts/", target: '_blank')
+  - else
+    = it ".description_block_html",
+            calculate_link_one: It.link("https://zerowastelviv.org.ua/diaper-calculator-method/",
+                    target: '_blank'),
+            calculate_link_two: It.link("https://zerowastelviv.org.ua/kontakty/", target: '_blank')

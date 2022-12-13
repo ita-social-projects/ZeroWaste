@@ -5,7 +5,8 @@ module Admins
     rescue_from ActiveRecord::RecordNotFound, with: :render404
     layout 'admin'
     before_action :set_paper_trail_whodunnit
-    before_action :user, except: %i[index history]
+    before_action :user, except: %i[index]
+    load_and_authorize_resource
 
     def index
       @users = User.all
@@ -37,8 +38,9 @@ module Admins
                                           :password_confirmation,
                                           :blocked,
                                           :avatar)
-      prms = prms.merge(skip_password_validation: true) unless prms[:password].present? ||
-      prms[:password_confirmation].present?
+      if !prms[:password].present? || !prms[:password_confirmation].present?
+        prms = prms.merge(skip_password_validation: true)
+      end
       prms
     end
 

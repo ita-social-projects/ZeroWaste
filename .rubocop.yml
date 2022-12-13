@@ -52,6 +52,9 @@ Metrics/AbcSize:
   Enabled: true
   Max: 31
 
+Layout/EndOfLine:
+  EnforcedStyle: crlf
+
 Layout/LineLength:
   Enabled: true
   Max: 80
@@ -66,4 +69,20 @@ Layout/SpaceInsideReferenceBrackets:
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
-  
+  Exclude:
+    - 'config/**/*'
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/EndOfLine:
+  EnforcedStyle: lf
