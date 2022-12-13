@@ -26,3 +26,7 @@ Layout/ExtraSpacing:
     - "**/spec/*_helper.rb"
     - "**/spec/**/support/**/*"
     - "lib/generators/**/*"
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - "**/config/application.rb"
