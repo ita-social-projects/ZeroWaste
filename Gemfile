@@ -46,19 +46,28 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
 end
 
+group :development, :test, :ci do
+  # Code linters
+  gem "rubocop", "~> 1.39", require: false
+  gem "rubocop-rspec", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "standard", "~> 1.0", require: false
+end
+
 group :development do
   gem 'letter_opener'
   gem 'listen', '~> 3.3'
   gem 'pronto'
-  gem 'pronto-rubocop', require: false
+  # gem 'pronto-rubocop', require: false
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
 
-group :ci do
-  gem 'rubocop', require: false
-end
+# group :ci do
+#   gem 'rubocop', require: false
+# end
 
 group :test do
   gem 'capybara', '>= 3.26'

@@ -1,88 +1,21 @@
+inherit_from:
+  - .rubocop/rails.yml
+  - .rubocop/rspec.yml
+  - .rubocop_custom.yml
+  - .rubocop/strict.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+require:
+  - rubocop-performance
+  - standard
+
+inherit_gem:
+  standard: config/base.yml
+
 AllCops:
-  # Additional exclude patterns for files that should not be analyzed.
-  # These extend the default RuboCop exclude patterns:
-  # https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+  SuggestExtensions: true
   NewCops: enable
-  Exclude:
-    - 'script/**/*'
-    - 'db/**/*'
-    - 'tmp/**/*'
-    - 'storage/**/*'
-    - 'log/**/*'
-    - 'node_modules/**/*'
-    - 'bin/bundle'
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'config/initializers/devise.rb'
-    - 'vendor/**/*'
-  DisplayStyleGuide: true
-
-Style/Documentation:
-  Enabled: false
-
-Lint/UselessAccessModifier:
-  Enabled: true
-
-Style/AndOr:
-  Enabled: true
-
-Style/BlockDelimiters:
-  EnforcedStyle: braces_for_chaining
-
-Style/ClassAndModuleChildren:
-  EnforcedStyle: nested
-
-Style/CollectionMethods:
-  Enabled: true
-
-Style/MethodCalledOnDoEndBlock:
-  Enabled: true
-
-Style/FrozenStringLiteralComment:
-  EnforcedStyle: always
-
-Style/MutableConstant:
-  Enabled: true
-
-Metrics/MethodLength:
-  Enabled: true
-  Max: 40
-
-Metrics/AbcSize:
-  Enabled: true
-  Max: 31
-
-Layout/EndOfLine:
-  EnforcedStyle: crlf
-
-Layout/LineLength:
-  Enabled: true
-  Max: 80
-
-Layout/SpaceInsideArrayLiteralBrackets:
-  Enabled: true
-  AutoCorrect: true
-
-Layout/SpaceInsideReferenceBrackets:
-  Enabled: true
-  AutoCorrect: true
-
-Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context']
-  Exclude:
-    - 'config/**/*'
-
-Style/SymbolArray:
-  Enabled: false
-
-Style/MethodCalledOnDoEndBlock:
-  Enabled: false
-
-Style/BlockDelimiters:
-  Enabled: false
-
-Style/GuardClause:
-  Enabled: false
-
-Style/EndOfLine:
-  EnforcedStyle: lf
+  TargetRubyVersion: 2.7
