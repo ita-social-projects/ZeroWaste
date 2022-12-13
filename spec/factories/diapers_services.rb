@@ -9,17 +9,17 @@ FactoryBot.define do
     to_be_used_diapers_price { 23_332.5 }
     config do
       {
-        '1..3' => {
-          'amount' => 10,
-          'price' => 4
+        "1..3" => {
+          "amount" => 10,
+          "price" => 4
         },
-        '4..6' => {
-          'amount' => 8,
-          'price' => 4.5
+        "4..6" => {
+          "amount" => 8,
+          "price" => 4.5
         },
-        '7..9' => {
-          'amount' => 6,
-          'price' => 5
+        "7..9" => {
+          "amount" => 6,
+          "price" => 5
         }
       }
     end

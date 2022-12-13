@@ -8,7 +8,7 @@ class Since
   def self.get_diff_of_date(from, to, unit)
     validate_date_format!(from, to)
     validate_unit!(unit)
-    diff = to.to_time - from.to_time
+    diff     = to.to_time - from.to_time
     distance = diff / 1.send(unit)
     distance.abs.round
   end
@@ -16,7 +16,7 @@ class Since
   def self.validate_date_format!(from, to)
     return if from.is_a?(Date) && to.is_a?(Date)
 
-    raise ArgumentError, 'invalid date format'
+    raise ArgumentError, "invalid date format"
   end
 
   def self.validate_unit!(unit)

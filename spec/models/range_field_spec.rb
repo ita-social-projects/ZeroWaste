@@ -24,12 +24,14 @@
 #  index_fields_on_calculator_id  (calculator_id)
 #  index_fields_on_uuid           (uuid) UNIQUE
 #
-require 'rails_helper'
-LOCAL_PREFIX_RANGE_FIELD = 'activerecord.errors.models.range_field.attributes'
+require "rails_helper"
+
+LOCAL_PREFIX_RANGE_FIELD = "activerecord.errors.models.range_field.attributes"
 
 RSpec.describe RangeField, type: :model do
   subject { create(:range_field) }
-  describe 'validations' do
+
+  describe "validations" do
     it {
       is_expected.to validate_numericality_of(:from)
         .only_integer

@@ -3,7 +3,7 @@
 class ItemsPerMonth
   def self.deferred
     lambda do |month, *range_ids|
-      ranges = RangeField.where(selector: range_ids.map(&:upcase))
+      ranges   = RangeField.where(selector: range_ids.map(&:upcase))
       function = new(month)
       function.call(function.calculate_data(ranges))
     end
@@ -16,7 +16,7 @@ class ItemsPerMonth
   def call(data)
     sum = 0
     (month.to_i + 1).times do |i|
-      set = data.find { |months, _| months.include?(i) }
+      set  = data.find { |months, _| months.include?(i) }
       sum += set[1].to_f if set
     end
 

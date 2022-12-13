@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 class CalculatorsController < ApplicationController
-  before_action :find_calculator, only: %i[show calculate]
+  before_action :find_calculator, only: [:show, :calculate]
 
   def index
     @calculators = Calculator.friendly.all
   end
 
-  def show; end
+  def show
+  end
 
-  def calculate; end
+  def calculate
+  end
 
   def calculator
     # renders calculator.html.slim
@@ -18,8 +20,7 @@ class CalculatorsController < ApplicationController
   def receive_recomendations
     return unless user_signed_in?
 
-    current_user.update_attribute(:receive_recomendations,
-                                  true)
+    current_user.update_attribute(:receive_recomendations, true)
   end
 
   private

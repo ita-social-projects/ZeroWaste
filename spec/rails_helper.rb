@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
+require "spec_helper"
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
 if Rails.env.production?
-  abort('The Rails environment is running in production mode!')
+  abort("The Rails environment is running in production mode!")
 end
-require 'rspec/rails'
-require 'devise'
+require "rspec/rails"
+require "devise"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -25,7 +25,7 @@ require 'devise'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each do |f|
+Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each do |f|
   require f
 end
 
@@ -39,7 +39,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
-  config.before(:each) do
+  config.before do
     Rails.application.routes.default_url_options[:locale] = I18n.default_locale
   end
 
@@ -88,6 +88,6 @@ end
 
 class ActionView::TestCase::TestController
   def default_url_options(options = {})
-    {locale: I18n.default_locale}
+    { locale: I18n.default_locale }
   end
 end

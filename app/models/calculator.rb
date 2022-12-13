@@ -19,20 +19,25 @@
 #
 class Calculator < ApplicationRecord
   extend FriendlyId
+
   friendly_id :name, use: :slugged
-  has_many :fields
+
   has_paper_trail
+
+  has_many :fields
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 
   validates :name, format: { with: /\A[a-zA-Z0-9\s]+\z/,
-                             message: 'Only letters and numbers allowed' }
+                             message: "Only letters and numbers allowed" }
   validates :name, length: { minimum: 2 }
   validates :name, uniqueness: true
 
   scope :by_name_or_slug, lambda { |search|
-                            where('name ILIKE ? OR slug ILIKE ?',
-                                  "%#{search&.strip}%",
-                                  "%#{search&.strip}%")
+                            where(
+                              "name ILIKE ? OR slug ILIKE ?",
+                              "%#{search&.strip}%",
+                              "%#{search&.strip}%"
+                            )
                           }
 end

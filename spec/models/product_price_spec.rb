@@ -17,18 +17,18 @@
 #  index_product_prices_on_product_id  (product_id)
 #  index_product_prices_on_uuid        (uuid) UNIQUE
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Product, type: :model do
-  describe 'factory' do
-    context 'product prices factory not nil' do
-      it 'budgetary' do
+  describe "factory" do
+    context "product prices factory not nil" do
+      it "budgetary" do
         expect(create(:product_price, :budgetary)).not_to be_nil
       end
-      it 'medium' do
+      it "medium" do
         expect(create(:product_price, :medium)).not_to be_nil
       end
-      it 'premium' do
+      it "premium" do
         expect(create(:product_price, :premium)).not_to be_nil
       end
     end

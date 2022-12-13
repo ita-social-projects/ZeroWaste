@@ -49,8 +49,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    user_attr = %i[email password password_confirmation first_name
-                   last_name country]
+    user_attr = [:email, :password, :password_confirmation, :first_name, :last_name, :country]
+
     devise_parameter_sanitizer.permit(:sign_up, keys: user_attr)
   end
 end

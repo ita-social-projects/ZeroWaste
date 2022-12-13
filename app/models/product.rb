@@ -17,7 +17,7 @@
 #  index_products_on_uuid             (uuid) UNIQUE
 #
 class Product < ApplicationRecord
-  DIAPER = 'diaper'
+  DIAPER = "diaper"
 
   belongs_to :product_type
 

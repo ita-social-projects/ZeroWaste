@@ -26,10 +26,10 @@
 #
 FactoryBot.define do
   factory :named_value do
-    name { 'NamedValue' }
-    type { 'Calculation' }
-    label { 'Label' }
-    kind { 'form' }
+    name { "NamedValue" }
+    type { "Calculation" }
+    label { "Label" }
+    kind { "form" }
     from { 0 }
     to { 200 }
     calculator

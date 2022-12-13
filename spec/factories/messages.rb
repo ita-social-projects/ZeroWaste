@@ -13,8 +13,8 @@
 #
 FactoryBot.define do
   factory :message do
-    title { 'title' }
-    email { 'test@test.com' }
-    message { 'sometext_sometext_sometext_sometext_' }
+    title { "title" }
+    email { "test@test.com" }
+    message { "sometext_sometext_sometext_sometext_" }
   end
 end
