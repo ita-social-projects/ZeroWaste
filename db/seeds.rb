@@ -47,6 +47,11 @@ show_admin_menu = FeatureFlag.create!(
   enabled: false
 )
 
+old_results_display_section = FeatureFlag.create!(
+  name: 'old_results_display_section',
+  enabled: true
+)
+
 new_results_display_section = FeatureFlag.create!(
   name: 'new_results_display_section',
   enabled: false
