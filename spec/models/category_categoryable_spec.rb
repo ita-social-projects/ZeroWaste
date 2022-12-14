@@ -14,7 +14,7 @@ RSpec.describe CategoryCategoryable, type: :model do
       it 'returns valid product' do
         product_diaper.categories = [budgetary_category]
 
-        expect(product_diaper.save!).to eq true
+        expect(product_diaper.save).to eq true
       end
     end
 
@@ -22,7 +22,7 @@ RSpec.describe CategoryCategoryable, type: :model do
       it 'returns valid product' do
         product_diaper.categories = [budgetary_category, medium_category]
 
-        expect(product_diaper.save!).to eq true
+        expect(product_diaper.save).to eq true
       end
     end
 
@@ -31,8 +31,8 @@ RSpec.describe CategoryCategoryable, type: :model do
         product_diaper.categories = [budgetary_category, medium_category]
         product_napkin.categories = [budgetary_category, medium_category]
 
-        expect(product_diaper.save!).to eq true
-        expect(product_napkin.save!).to eq true
+        expect(product_diaper.save).to eq true
+        expect(product_napkin.save).to eq true
       end
     end
 
@@ -42,8 +42,8 @@ RSpec.describe CategoryCategoryable, type: :model do
           product_diaper.categories = [budgetary_category, medium_category]
           resource.categories = [budgetary_category, medium_category]
 
-          expect(product_diaper.save!).to eq true
-          expect(resource.save!).to eq true
+          expect(product_diaper.save).to eq true
+          expect(resource.save).to eq true
         end
       end
     end
