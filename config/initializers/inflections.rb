@@ -18,9 +18,38 @@
 
 require 'inflector_extensions'
 
+def generate_inflections_callback(one, few, many)
+  lambda do |count|
+    last2 = count.to_s[-2..].to_i
+    last1 = count.to_s[-1].to_i
+
+    return one if (last1 == 1) && (last2 != 11)
+    return few if (2..4).include?(last1) && !(12..14).include?(last2)
+
+    many
+  end
+end
+
+diaper_inflections_callback = generate_inflections_callback(
+  'підгузок',
+  'підгузки',
+  'підгузків'
+)
+
+month_inflections_callback = generate_inflections_callback(
+  'місяць',
+  'місяці',
+  'місяців'
+)
+
+year_inflections_callback = generate_inflections_callback(
+  'рік',
+  'роки',
+  'років'
+)
+
 ActiveSupport::Inflector.inflections(:uk) do |inflect|
-  inflect.plural('місяць', 'місяців', (5..11).to_a << 0)
-  inflect.plural('місяць', 'місяці', (2..4).to_a)
-  inflect.plural('рік', 'років', [0])
-  inflect.plural('рік', 'роки', [2])
+  inflect.plural('місяць', 'місяців', month_inflections_callback)
+  inflect.plural('рік', 'років', year_inflections_callback)
+  inflect.plural('підгузок', 'підгузки', diaper_inflections_callback)
 end

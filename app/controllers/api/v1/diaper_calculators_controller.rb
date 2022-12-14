@@ -25,7 +25,7 @@ module Api
       private
 
       def diapers_correct_form(quantity)
-        LanguageHelper::UkrLanguage.new.correct_word_form(quantity)
+        'підгузок'.pluralize(count: quantity, locale: :uk)
       end
     end
   end

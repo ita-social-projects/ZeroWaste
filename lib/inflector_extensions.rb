@@ -22,19 +22,23 @@ module InflectorExtensions
       return result
     end
 
-    rules.each do |rule, replacement, range|
-      if (range.nil? || range.include?(count)) && result.sub!(rule, replacement)
-        break
+    rules.each do |rule, replacement, callback|
+      if callback.is_a?(Proc)
+        default_replacement = replacement
+        replacement = callback.call(count)
+        replacement = default_replacement if replacement.nil?
       end
+
+      break if result.sub!(rule, replacement)
     end
     result
   end
 end
 
 module InflectionsExtensions
-  def plural(rule, replacement, range = nil)
+  def plural(rule, replacement, callback = nil)
     super(rule, replacement)
-    @plurals.first << range unless range.nil?
+    @plurals.first << callback unless callback.nil?
   end
 end
 
