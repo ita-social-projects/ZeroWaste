@@ -1,34 +1,41 @@
 body {
   position: relative;
   margin: 0 auto;
-  background: url('../images/mother.jpeg') no-repeat center top;
+  background: url("../images/mother.jpeg") no-repeat center top;
   background-size: cover;
   overflow-x: hidden;
-  min-height: 100%;
+  height: 100vh;
+  font-family: "Comfortaa", sans-serif;
 }
+
 a {
   display: inline-block;
   cursor: pointer;
   @include transition(all 0.5s ease-in-out);
   outline: 0;
-  &:focus, &:hover, &:active {
+
+  &:focus,
+  &:hover,
+  &:active {
     text-decoration: none;
   }
 }
+
 .filter_block {
   position: absolute;
   background-color: #00000078;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   top: 0;
   left: 0;
 }
 
 .page-header {
-  font-family: 'Comfortaa', sans-serif;
+  max-width: 1110px;
+  margin: auto;
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   border-bottom: 2px solid $gray;
@@ -37,44 +44,66 @@ a {
 div.jumbotron {
   background-color: $color;
   padding: 25px 10px;
-  margin-top: 90px;
-  max-width: 1140px;
-  min-height: 405px;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.func-btns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 315px;
+}
+
+.mn-vd {
+  min-width: 102px;
 }
 
 .main-container {
   margin-bottom: 20px;
   padding: 20px;
+
   img {
     margin: 0px 30px;
   }
 }
+
 .main-btns {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   max-width: 420px;
   margin: 20px auto;
-  &>:last-of-type {
+
+  & > :last-of-type {
     & img {
       margin-right: 10px;
     }
-    &:hover{
+
+    &:hover {
       color: $color;
     }
   }
 }
-.donate-btn, .main-btns {
+
+.donate-btn,
+.main-btns {
   background-color: transparent;
   border: none;
   letter-spacing: 2px;
   text-transform: uppercase;
+  margin-bottom: 0.2em;
+
   a {
     border: 2px solid $gray;
     border-radius: 4px;
     padding: 17px 36px;
     font-size: 12px;
     color: $color;
+    text-align: center;
+    min-width: 187px;
+
     &:hover {
       color: $success;
       border-color: $success;
@@ -86,6 +115,7 @@ div.jumbotron {
   font-size: 24px;
   color: $color;
   @include transition(all 0.5s ease-in-out);
+
   &:hover {
     color: $success;
   }
@@ -94,10 +124,11 @@ div.jumbotron {
 .tab {
   text-transform: uppercase;
   font-size: 14px;
-  padding: 25px;
+  padding: 33px 25px;
   color: $color;
   border-bottom: 3px solid transparent;
   @include transition(all 0.5s ease-in-out);
+
   &:hover {
     color: $color;
     border-bottom: 3px solid $success;
@@ -106,7 +137,6 @@ div.jumbotron {
 
 /* home-page */
 .homepage_title {
-  font-family: 'Comfortaa', sans-serif;
   text-align: center;
   margin-top: 200px;
   color: $color;
@@ -118,15 +148,17 @@ main p {
   text-align: center;
   margin: 20px auto;
 }
+
 // forms
 .position-block {
   .card {
-    font-family: 'Comfortaa', sans-serif;
     max-width: 650px;
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
-    input, select {
+
+    input,
+    select {
       display: inline-block;
       outline: none;
       background: $color;
@@ -135,7 +167,8 @@ main p {
       border-radius: 4px;
       padding: 5px;
     }
-    input[type=submit] {
+
+    input[type="submit"] {
       text-transform: uppercase;
       white-space: initial;
       color: $gray;
@@ -143,10 +176,12 @@ main p {
       height: 100%;
       max-width: 230px;
       font-size: 14px;
+
       &:hover {
         color: $success;
         border-color: $success;
       }
+
       &:active {
         background-color: $success;
       }
@@ -154,11 +189,8 @@ main p {
   }
 }
 
-.donate-btn, label.text-center, .form-check-label, .btn-success, .result-card, .last-result-card {
-  font-family: 'Nunito', sans-serif;
-}
-
-h1, .footer-items {
+h1,
+.footer-items {
   color: $color;
 }
 
@@ -182,19 +214,52 @@ div.calculation-results {
   border-radius: 6px;
 }
 
-.result-card {
-  border-right: 0.5px solid #F5F5F5;
+.row_break {
+  display: none;
 }
 
-.result-card, .last-result-card {
+.result-card {
+  font-size: 14px;
+  text-align: center;
+  color: #b3b3b3;
+  border-right: 0.5px solid #f5f5f5;
+  display: inline-flex;
+
+  .img-border {
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+    border: 2px solid #f5f5f5;
+    border-radius: 90%;
+    margin-right: 10px;
+
+    img {
+      height: 100%;
+      padding: 0px;
+      margin: auto;
+    }
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.result-card,
+.last-result-card {
   font-weight: 300;
   padding: 30px;
+
   p {
     font-size: 22px;
-    font-family: Roboto, sans-serif;
     font-weight: bold;
     color: #808080;
   }
+
   img {
     margin: 0px 15px;
   }
@@ -228,17 +293,21 @@ body.admin {
       justify-content: center;
     }
   }
+
   .admin-table-links {
     a {
       color: $success;
+
       &:hover {
         color: #3d5217;
       }
     }
+
     .admin-table-body {
       & > * {
         align-items: center;
       }
+
       .actions {
         justify-content: space-between;
       }
@@ -261,18 +330,99 @@ body.admin {
 }
 
 @media screen and (max-width: $xs) {
-  .tab, .donate-btn a {
+  .tab {
+    display: none;
+  }
+
+  .filter_block {
+    width: 100%;
+  }
+
+  div.jumbotron,
+  div.container {
+    max-width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
+
+    padding-left: 0px;
+  }
+
+  .calculation-results span {
+    width: 410px;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .donate-btn a {
     font-size: 12px;
   }
+
   .main-btns {
     max-width: 320px;
+
     a {
       padding: 10px;
     }
   }
+
+  .func-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+    margin-right: 5px;
+    margin-left: 10px;
+  }
 }
+
 @media screen and (max-width: $sm) {
-  .tab, .donate-btn a {
+  .tab {
+    display: none;
+  }
+
+  .func-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+  }
+
+  .donate-btn a {
     padding: 10px;
+  }
+
+  .row_break {
+    display: block;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $sm) {
+  .row_break {
+    display: block;
+  }
+
+  .donate-btn a {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $xs) {
+  .page-header {
+    width: auto;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+  .calculation-results,
+  .jumbotron {
+    width: 96%;
   }
 }

@@ -1,12 +1,15 @@
 # frozen_string_literal: true
+
 require 'sidekiq/web'
 
 Sidekiq.configure_client do |config|
-  config.redis = { size: 1, url: ENV['REDIS_URL'], namespace: ENV['SIDEKIQ_NAMESPACE'] }
+  config.redis = { size: 1, url: ENV.fetch('REDIS_URL', nil),
+                   namespace: ENV.fetch('SIDEKIQ_NAMESPACE', nil) }
 end
 
 Sidekiq.configure_server do |config|
-  config.redis = { size: 7, url: ENV['REDIS_URL'], namespace: ENV['SIDEKIQ_NAMESPACE'] }
+  config.redis = { size: 7, url: ENV.fetch('REDIS_URL', nil),
+                   namespace: ENV.fetch('SIDEKIQ_NAMESPACE', nil) }
 end
 
 Sidekiq::Web.use(Rack::Auth::Basic) do |username, password|

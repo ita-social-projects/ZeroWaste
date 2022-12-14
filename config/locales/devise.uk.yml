@@ -1,4 +1,5 @@
 uk:
+  # en: English
   devise:
     confirmations:
       confirmed: "Ваш обліковий запис підтверджено. Ви увійшли в систему."
@@ -60,3 +61,4 @@ uk:
         other: "%{resource}: не вдалося зберегти через %{count} помилку"
       wrong_email: "Ваш логін невірний"
       wrong_password: "Ваш пароль невірний"
+      only_letters: "Лише літери"

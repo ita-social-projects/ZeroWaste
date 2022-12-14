@@ -1,12 +1,18 @@
 body
   header.page-header
-    = link_to "LOGO", root_path, class: 'logo'
+    = link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste'
     .tabs
-      - if user_signed_in?
-        = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
-      - else
-        = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
-        = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
-      = link_to t('.contact_us'), contact_us_path, class: 'tab' 
-    .donate-btn
-      = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
+      - if FeatureFlag.get('show_admin_menu').active?
+        - if user_signed_in?
+          - if current_user.admin?
+            = link_to t('.admin'), admins_calculators_path, class: 'tab'
+          = link_to t('.log_out'), destroy_user_session_path, class: 'tab'
+        - else
+            = link_to t('.sign_up'), new_user_registration_path, class: 'tab'
+            = link_to t('.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
+        = link_to t('.contact_us'), new_message_path, class: 'tab'
+    .func-btns
+      .donate-btn
+        = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
+
+      = link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm'
