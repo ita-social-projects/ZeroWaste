@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_24_165030) do
+ActiveRecord::Schema.define(version: 2022_12_10_114531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -61,6 +61,23 @@ ActiveRecord::Schema.define(version: 2022_11_24_165030) do
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "category_categoryables", force: :cascade do |t|
+    t.bigint "category_id"
+    t.string "categoryable_type"
+    t.bigint "categoryable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_categoryables_on_category_id"
+    t.index ["categoryable_type", "categoryable_id", "category_id"], name: "unique_of_category_categoryables_index", unique: true
+    t.index ["categoryable_type", "categoryable_id"], name: "index_category_categoryables_on_categoryable"
+  end
+
   create_table "feature_flags", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "enabled", default: false, null: false
@@ -95,15 +112,15 @@ ActiveRecord::Schema.define(version: 2022_11_24_165030) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "product_prices", force: :cascade do |t|
-    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
-    t.bigint "product_id", null: false
-    t.decimal "price", precision: 8, scale: 2
-    t.string "category", default: "medium", null: false
+  create_table "prices", force: :cascade do |t|
+    t.decimal "sum", precision: 8, scale: 2
+    t.string "priceable_type"
+    t.bigint "priceable_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_product_prices_on_product_id"
-    t.index ["uuid"], name: "index_product_prices_on_uuid", unique: true
+    t.index ["category_id"], name: "index_prices_on_category_id"
+    t.index ["priceable_type", "priceable_id"], name: "index_prices_on_priceable"
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -168,4 +185,5 @@ ActiveRecord::Schema.define(version: 2022_11_24_165030) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "category_categoryables", "categories"
 end
