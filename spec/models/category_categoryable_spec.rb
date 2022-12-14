@@ -30,25 +30,27 @@ RSpec.describe CategoryCategoryable, type: :model do
         product_napkin.categories = [budgetary_category,medium_category]
 
         expect(product_diaper.save!).to eq true
-        expect(product_diaper.save!).to eq true
+        expect(product_napkin.save!).to eq true
       end
     end
 
-    # context 'when a resource model can have the same categories as a product model' do
-    #   it 'returns valid product' do
-    #     product_diaper.categories = [budgetary_category,medium_category]
-    #     resource.categories = [budgetary_category,medium_category]
+    skip "is skipped" do
+      context 'when a resource model can have the same categories as a product model' do
+        it 'returns valid product' do
+          product_diaper.categories = [budgetary_category,medium_category]
+          resource.categories = [budgetary_category,medium_category]
 
-    #     expect(product_diaper.save!).to eq true
-    #     expect(resource.save!).to eq true
-    #   end
-    # end
+          expect(product_diaper.save!).to eq true
+          expect(resource.save!).to eq true
+        end
+      end
+    end
 
     context 'when a product(diaper) cannot have two identical categories' do
       it 'returns invalid product' do
         product_diaper.categories = [budgetary_category, budgetary_category]
 
-        expect{product_diaper.save!}.to raise_error(ActiveRecord::RecordInvalid)
+        expect{ product_diaper.save! }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Category has already been taken')
       end
     end
   end

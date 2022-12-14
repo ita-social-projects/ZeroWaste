@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_114531) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_category_categoryables_on_category_id"
-    t.index ["categoryable_type", "categoryable_id", "category_id"], name: "unique_index", unique: true
+    t.index ["categoryable_type", "categoryable_id", "category_id"], name: "unique_of_category_categoryables_index", unique: true
     t.index ["categoryable_type", "categoryable_id"], name: "index_category_categoryables_on_categoryable"
   end
 
@@ -113,12 +113,13 @@ ActiveRecord::Schema.define(version: 2022_12_10_114531) do
   end
 
   create_table "prices", force: :cascade do |t|
-    t.decimal "price", precision: 8, scale: 2
+    t.decimal "sum", precision: 8, scale: 2
     t.string "priceable_type"
     t.bigint "priceable_id"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_prices_on_category_id"
     t.index ["priceable_type", "priceable_id"], name: "index_prices_on_priceable"
   end
 
