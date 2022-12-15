@@ -6,8 +6,8 @@ export default class extends Controller {
 
   yearChanged() {}
 
-  submit(event) {
-    event.preventDefault();
+  submit(e) {
+    e.preventDefault();
 
     this.years = parseInt(this.yearTarget.value);
     this.months = parseInt(this.monthTarget.value);
