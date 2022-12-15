@@ -6,8 +6,16 @@ module Api
       def create
         result = Calculators::DiapersService.new(params[:childs_age].to_i)
                                             .calculate!
-        diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
-        diapers_used = diapers_correct_form(result.used_diapers_amount)
+        diapers_be_used = 'підгузок'.pluralize(
+          count: result.to_be_used_diapers_amount,
+          locale: :uk
+        )
+
+        diapers_used = 'підгузок'.pluralize(
+          count: result.used_diapers_amount,
+          locale: :uk
+        )
+
         values = [
           { name: 'money_spent', result: result.used_diapers_price || 0 },
           { name: 'money_will_be_spent',
@@ -20,12 +28,6 @@ module Api
         render(json: { result: values, date: params[:childs_age].to_i,
                        word_form_to_be_used: diapers_be_used,
                        word_form_used: diapers_used })
-      end
-
-      private
-
-      def diapers_correct_form(quantity)
-        'підгузок'.pluralize(count: quantity, locale: :uk)
       end
     end
   end
