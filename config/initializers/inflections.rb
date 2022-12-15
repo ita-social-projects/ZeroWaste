@@ -20,8 +20,9 @@ require 'inflector_extensions'
 
 def generate_inflections_callback(one, few, many)
   lambda do |count|
-    last2 = count.to_s[-2..].to_i
-    last1 = count.to_s[-1].to_i
+    count = count.round.to_s
+    last2 = count[-2..].to_i
+    last1 = count[-1].to_i
 
     return one if (last1 == 1) && (last2 != 11)
     return few if (2..4).include?(last1) && !(12..14).include?(last2)
