@@ -6,16 +6,16 @@
       = t '.form_description'
     .form
       = simple_form_for(:child, url: "#", html: {method: :get,
-                                                data:{controller: "input-form",
-                                                      input_form_results_outlet: '.result'}}) do |form|
-        = form.input_field :authenticity_token, as: :hidden, value: form_authenticity_token, data: {input_form_target: 'token'}
+                                                data:{controller: "input-child-info",
+                                                      input_child_info_results_outlet: '.result'}}) do |form|
+        = form.input_field :authenticity_token, as: :hidden, value: form_authenticity_token, data: {input_child_info_target: 'token'}
         .flex-item.flex-column
           .flex-item.flex-row.rounded.age_wrapper
             = form.input_field :years,
                                 collection: 0..2,
                                 prompt:'__',
                                 class:'select_age rounded',
-                                data: {input_form_target: 'year', action:'input-form#yearChanged'}
+                                data: {input_child_info_target: 'year', action:'input-child-info#yearChanged'}
 
             = t('.form.childs_years_label')
 
@@ -23,7 +23,7 @@
                                 collection: 0..11,
                                 prompt:'__',
                                 class:'select_age rounded',
-                                data: {"input-form-target": 'month'}
+                                data: {input_child_info_target: 'month'}
 
             = t('.form.childs_months_label')
 
@@ -33,7 +33,7 @@
                                                         t('calculators.calculator.form.premium')],
                                                         selected: t('calculators.calculator.form.medium'),
                                                         label: t('.form_price'),
-                                                        data: {"input-form-target": 'productCategory'}
+                                                        data: {input_child_info_target: 'productCategory'}
 
 
           / = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label')
@@ -41,7 +41,7 @@
         = render_email_receiver_checkbox
         = form.submit t('.calculate_result_button'),
                       class:'calculate-btn result-btn',
-                      data: {action:'input-form#submit'}
+                      data: {action:'input-child-info#submit'}
 .container.calculation-results.result [data-controller='results']
   .row.row-l
     .col-sm.result-card
