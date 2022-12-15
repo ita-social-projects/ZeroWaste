@@ -20,7 +20,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     end
     context 'when default values' do
       before do
-        get :create
+        get :diaper_calc_communicator
       end
 
       it 'renders expected result' do
@@ -29,7 +29,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     end
   end
 
-  describe 'sending params to create' do
+  describe 'sending params to diaper_calc_communicator' do
     let(:values) do
       [
         { name: 'money_spent', result: 12_718.5 },
@@ -51,7 +51,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       include_context :app_config_load
 
       it 'got the expected result' do
-        post :create, params: { childs_age: 12 }
+        post :diaper_calc_communicator, params: { childs_age: 12 }
 
         expect(response.body).to eq(expected_result.to_json)
         expect(response).to be_successful
@@ -72,7 +72,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
 
       it 'got the unexpected result' do
         expected_result[:result] = invalid_values
-        post :create, params: { childs_age: 12 }
+        post :diaper_calc_communicator, params: { childs_age: 12 }
 
         expect(response.body).not_to eq(expected_result.to_json)
         expect(response).to be_successful
