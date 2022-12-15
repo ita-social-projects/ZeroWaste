@@ -6,7 +6,7 @@ module Calculators
                   :used_diapers_price, :to_be_used_diapers_price, :config
 
     def initialize(age)
-      @age = age
+      @age = age.to_i
       @used_diapers_amount = 0
       @to_be_used_diapers_amount = 0
       @used_diapers_price = 0

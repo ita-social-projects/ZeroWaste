@@ -6,8 +6,7 @@ module Api
       skip_before_action :verify_authenticity_token, only: [:create]
 
       def create
-        childs_age = params[:childs_age].to_i
-        result = Calculators::DiapersService.new(childs_age).calculate!
+        result = Calculators::DiapersService.new(params[:childs_age]).calculate!
         diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
         diapers_used = diapers_correct_form(result.used_diapers_amount)
         values = [
