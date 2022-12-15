@@ -7,7 +7,7 @@ export default class extends Controller {
 
   yearChanged() {}
 
-  submit(event) {
+  submit(e) {
     event.preventDefault();
 
     this.years = parseInt(this.yearTarget.value);
