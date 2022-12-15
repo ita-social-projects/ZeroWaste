@@ -23,10 +23,8 @@ module InflectorExtensions
     end
 
     rules.each do |rule, replacement, callback|
-      if callback.is_a?(Proc) && count.is_a?(Numeric)
-        default_replacement = replacement
-        replacement = callback.call(count)
-        replacement = default_replacement if replacement.nil?
+      if callback.is_a?(Proc) && !count.nil?
+        replacement = callback.call(count) || replacement
       end
 
       break if result.sub!(rule, replacement)

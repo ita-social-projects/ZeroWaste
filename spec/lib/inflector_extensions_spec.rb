@@ -43,6 +43,26 @@ RSpec.describe String do
       end
     end
 
+    context 'with diapers' do
+      let(:diapers) do
+        {
+          0 => 'підгузків',
+          1 => 'підгузок',
+          2 => 'підгузки',
+          9 => 'підгузків',
+          11 => 'підгузків',
+          91 => 'підгузок',
+          1004 => 'підгузки'
+        }
+      end
+
+      it 'properly pluralizes all diapers' do
+        diapers.each do |count, expected|
+          expect('підгузок'.pluralize(count: count, locale: :uk)).to eq(expected)
+        end
+      end
+    end
+
     context 'with common cases with english locale' do
       context 'with words that can be plural' do
         it 'pluralizes properly without count parameter' do
@@ -151,14 +171,15 @@ end
 RSpec.describe ActiveSupport::Inflector::Inflections do
   context 'with #plural' do
     let(:uk_plurals) { ActiveSupport::Inflector.inflections(:uk).plurals }
+    let(:fake_callback) { lambda {} }
 
     after do
       ActiveSupport::Inflector.inflections(:uk).plurals.shift
     end
 
     it 'runs properly' do
-      ActiveSupport::Inflector.inflections(:uk).plural('машина', 'машини', [2, 3, 4])
-      expect(uk_plurals.first).to eq(['машина', 'машини', [2, 3, 4]])
+      ActiveSupport::Inflector.inflections(:uk).plural('машина', 'машини', fake_callback)
+      expect(uk_plurals.first).to eq(['машина', 'машини', fake_callback])
     end
   end
 end
