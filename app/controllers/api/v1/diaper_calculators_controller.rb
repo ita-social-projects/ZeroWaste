@@ -3,9 +3,9 @@
 module Api
   module V1
     class DiaperCalculatorsController < ApplicationController
-      skip_before_action :verify_authenticity_token, only: [:create]
+      skip_before_action :verify_authenticity_token, only: [:diaper_calc_communicator]
 
-      def create
+      def diaper_calc_communicator
         result = Calculators::DiapersService.new(params[:childs_age]).calculate!
         diapers_be_used = diapers_correct_form(result.to_be_used_diapers_amount)
         diapers_used = diapers_correct_form(result.used_diapers_amount)
