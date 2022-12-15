@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::DiaperCalculatorsController do
-  describe '#create' do
+  describe '#diaper_calc_communicator' do
     let(:values) do
       [
         { name: 'money_spent', result: 0 },
