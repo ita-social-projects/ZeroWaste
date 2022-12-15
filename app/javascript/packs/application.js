@@ -6,8 +6,7 @@
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
-import { Application } from "@hotwired/stimulus";
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
+
 import "channels";
 
 require("jquery");
@@ -27,23 +26,13 @@ import "@fortawesome/fontawesome-free/css/all";
 
 import "../js/calculators/edit";
 import "../ajax/calculate_result_button";
+import "../controllers/stimulus_application";
 
 const images = require.context("../images", true);
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-
-// Stimulus
-const application = Application.start();
-
-// Configure Stimulus development experience
-application.debug = true;
-window.Stimulus = application;
-
-const context = require.context("../controllers", true, /_controller\.js$/);
-
-application.load(definitionsFromContext(context));
 
 // document.addEventListener('turbolinks:load', () => {
 //   $('[data-toggle="tooltip"]').tooltip();
