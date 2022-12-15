@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus";
-import { json } from "body-parser";
 
 export default class extends Controller {
   static targets = ["month", "year", "productCategory", "token"];
