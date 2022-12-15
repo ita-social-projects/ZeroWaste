@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import { json } from "body-parser";
 
 export default class extends Controller {
-  static targets = ["month", "year", "productCategory"];
+  static targets = ["month", "year", "productCategory", "token"];
   static outlets = ["results"];
 
   yearChanged() {}
@@ -16,6 +16,7 @@ export default class extends Controller {
     this.formData = {
       childs_age: this.years * 12 + this.months,
       price_id: this.productCategoryTarget.selectedIndex,
+      authenticity_token: this.tokenTarget.value,
     };
 
     this.request = new Request("/api/v1/diaper_calculators", {

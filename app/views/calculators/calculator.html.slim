@@ -8,6 +8,7 @@
       = simple_form_for(:child, url: "#", html: {method: :get,
                                                 data:{controller: "input-form",
                                                       input_form_results_outlet: '.result'}}) do |form|
+        = form.input_field :authenticity_token, as: :hidden, value: form_authenticity_token, data: {input_form_target: 'token'}
         .flex-item.flex-column
           .flex-item.flex-row.rounded.age_wrapper
             = form.input_field :years,
