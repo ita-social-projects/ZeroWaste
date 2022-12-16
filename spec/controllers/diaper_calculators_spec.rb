@@ -51,7 +51,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       include_context :app_config_load
 
       it 'got the expected result' do
-        post :create, params: { childs_age: 12 }
+        post :create, params: { childs_age: 12, locale: 'uk' }
 
         expect(response.body).to eq(expected_result.to_json)
         expect(response).to be_successful
