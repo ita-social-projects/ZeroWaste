@@ -33,9 +33,6 @@ admin = User.create(
 
  FactoryBot.create(:product_type, :hygiene)
  FactoryBot.create(:product, :diaper)
- FactoryBot.create(:product_price, :budgetary)
- FactoryBot.create(:product_price, :medium)
- FactoryBot.create(:product_price, :premium)
 
 feature_budget_category = FeatureFlag.create!(
   name: 'feature_budget_category',
