@@ -3,6 +3,12 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["month", "year", "productCategory", "token"];
   static outlets = ["results"];
+  static values = {
+    locale: {
+      type: String,
+      default: "en",
+    },
+  };
 
   yearChanged() {}
 
@@ -16,9 +22,10 @@ export default class extends Controller {
       childs_age: this.years * 12 + this.months,
       price_id: this.productCategoryTarget.selectedIndex,
       authenticity_token: this.tokenTarget.value,
+      locale: this.localeValue,
     };
 
-    this.request = new Request("/api/v1/diaper_calculators", {
+    this.request = new Request(`/api/v1/diaper_calculators`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
