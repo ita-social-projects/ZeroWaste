@@ -1,0 +1,17 @@
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+}
+
+.flex-child:first-child {
+  margin-right: 20px;
+}
+
+.flex-child img {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+}
