@@ -53,7 +53,7 @@
         - if I18n.locale == :en
           | diapers already used
         - elsif I18n.locale == :uk
-            #localized_uk_used_diapers_amount
+            .[data-results-target="localUkUsedDiapersAmount"]
               | підгузків ви вже використали
     .col-sm.result-card
       .img-border
@@ -63,7 +63,7 @@
         - if I18n.locale == :en
           | diapers to be used in the future
         - elsif I18n.locale == :uk
-            #localized_uk_to_be_used_diapers_amount
+            .[data-results-target="localUkToBeUsedDiapersAmount"]
               | підгузків ви ще використаєте
     .w-100.row_break
     .col-sm.result-card
