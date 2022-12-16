@@ -25,7 +25,7 @@ class Product < ApplicationRecord
   has_many :prices, as: :priceable, dependent: :destroy
 
   validates :title, presence: true, length: { in: 2..50 }
-
+  # validates :prices, uniqueness: true
   def self.diaper
     find_by(title: DIAPER)
   end
