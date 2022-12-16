@@ -9,12 +9,10 @@ export default class extends Controller {
   ];
 
   showResults(data) {
-    console.log(data.result);
-    this.results = data.result;
-
-    this.moneySpentTarget.innerHTML = this.results[0].result;
-    this.moneyWillBeSpentTarget.innerHTML = this.results[1].result;
-    this.diapersUsedTarget.innerHTML = this.results[2].result;
-    this.diapersToBeUsedTarget.innerHTML = this.results[3].result;
+    this.moneySpentTarget.innerHTML = data.result.money_spent;
+    this.moneyWillBeSpentTarget.innerHTML = data.result.money_will_be_spent;
+    this.diapersUsedTarget.innerHTML = data.result.used_diapers_amount;
+    this.diapersToBeUsedTarget.innerHTML =
+      data.result.to_be_used_diapers_amount;
   }
 }
