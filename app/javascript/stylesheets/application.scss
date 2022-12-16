@@ -1,17 +1,10 @@
-$success: #8fba3b;
-$color: #fff;
-$error: #9e1503;
-$gray: #8d8d8d;
-
-$xs: 576px;
-$sm: 768px;
-$md: 1024px;
-
 @import "~bootstrap/scss/bootstrap";
-@import "../css/main.css.scss";
-@import "../css/message.css.scss";
-@import "../css/admin_edit_show.css.scss";
-@import "../css/calculator.css.scss";
+@import "../css/components/colors.scss";
+@import "../css/components/breakpoints.scss";
+@import "../css/main.scss";
+@import "../css/message.scss";
+@import "../css/admin_edit_show.scss";
+@import "../css/calculator.scss";
 
 @font-face {
   font-family: "Comfortaa";
