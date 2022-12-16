@@ -6,14 +6,16 @@ module Api
       def create
         result = Calculators::DiapersService.new(params[:childs_age].to_i)
                                             .calculate!
-        diapers_be_used = 'підгузок'.pluralize(
+        I18n.locale = params[:locale]
+
+        diapers_be_used = t('calculators.calculator.diaper').pluralize(
           count: result.to_be_used_diapers_amount,
-          locale: :uk
+          locale: I18n.locale
         )
 
-        diapers_used = 'підгузок'.pluralize(
+        diapers_used = t('calculators.calculator.diaper').pluralize(
           count: result.used_diapers_amount,
-          locale: :uk
+          locale: I18n.locale
         )
 
         values = [

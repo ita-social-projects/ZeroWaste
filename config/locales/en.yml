@@ -33,6 +33,7 @@ en:
   uk: "Українська"
   calculators:
     calculator:
+      diaper: "diaper"
       form_description: "Child’s age:"
       form_price: "Price category"
       form:
