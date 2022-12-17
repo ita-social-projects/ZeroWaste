@@ -51,7 +51,6 @@ $(document).on('turbolinks:load', function() {
       data: formData,
       dataType: "json",
       success: function(data) {
-        console.log(data)
         for (var i = data.result.length - 1; i >= 0; i--) {
           const oneItemFromArray = data.result[i]
           $('[data-type="' + oneItemFromArray.name + '"]').text(oneItemFromArray.result);
