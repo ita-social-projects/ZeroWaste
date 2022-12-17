@@ -14,7 +14,7 @@ RSpec.describe CalculatorsController, type: :controller do
   end
 
   describe "POST /receive_recomendations" do
-    let!(:user) { User.create }
+    let!(:user) { create(:user) }
 
     before do
       controller.stub(:current_user) { user }
@@ -25,16 +25,16 @@ RSpec.describe CalculatorsController, type: :controller do
     end
 
     it "doesn`t change user attribute unless user signed in" do
-      post :receive_recomendations
-
       expect do
-        :receive_recomendations
+        post :receive_recomendations
+
         user.reload
       end.not_to change { user.receive_recomendations }
     end
 
     it "changes user`s receive_recomendations to true" do
       post :receive_recomendations
+
       expect(user.reload.receive_recomendations).to eq(true)
     end
   end

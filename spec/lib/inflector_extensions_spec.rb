@@ -114,71 +114,63 @@ RSpec.describe ActiveSupport::Inflector do
     end
 
     it "applies properly plurals with ukrainian rules" do
-      expect(ActiveSupport::Inflector.apply_inflections("людина",
-                                                        uk_rules,
-                                                        locale = :uk,
-                                                        count  = 1)).to eq("людина")
-      expect(ActiveSupport::Inflector.apply_inflections("людина",
-                                                        uk_rules,
-                                                        locale = :uk,
-                                                        count  = 3)).to eq("людини")
-      expect(ActiveSupport::Inflector.apply_inflections("людина",
-                                                        uk_rules,
-                                                        locale = :uk,
-                                                        count  = 9)).to eq("людей")
-      expect(ActiveSupport::Inflector.apply_inflections("кіт",
-                                                        uk_rules,
-                                                        locale = :uk)).to eq("коти")
-      expect(ActiveSupport::Inflector.apply_inflections("кіт",
-                                                        uk_rules,
-                                                        locale = :uk,
-                                                        count  = 99)).to eq("коти")
+      expect(
+        ActiveSupport::Inflector.apply_inflections("людина", uk_rules, :uk, 1)
+      ).to eq("людина")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("людина", uk_rules, :uk, 3)
+      ).to eq("людини")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("людина", uk_rules, :uk, 9)
+      ).to eq("людей")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("кіт", uk_rules, :uk)
+      ).to eq("коти")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("кіт", uk_rules, :uk, 99)
+      ).to eq("коти")
     end
 
     it "applies properly plurals with english rules" do
-      expect(ActiveSupport::Inflector.apply_inflections("dog",
-                                                        en_rules,
-                                                        locale = :en,
-                                                        count  = 1)).to eq("dog")
-      expect(ActiveSupport::Inflector.apply_inflections("dog",
-                                                        en_rules,
-                                                        locale = :en,
-                                                        count  = 99)).to eq("dogs")
-      expect(ActiveSupport::Inflector.apply_inflections("dog",
-                                                        en_rules,
-                                                        locale = :en,
-                                                        count  = 101)).to eq("other dogs")
-      expect(ActiveSupport::Inflector.apply_inflections("cat",
-                                                        en_rules,
-                                                        locale = :en)).to eq("cats")
-      expect(ActiveSupport::Inflector.apply_inflections("cat",
-                                                        en_rules,
-                                                        locale = :en,
-                                                        count  = 99)).to eq("cats")
+      expect(
+        ActiveSupport::Inflector.apply_inflections("dog", en_rules, :en, 1)
+      ).to eq("dog")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("dog", en_rules, :en, 99)
+      ).to eq("dogs")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("dog", en_rules, :en, 101)
+      ).to eq("other dogs")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("cat", en_rules, :en)
+      ).to eq("cats")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("cat", en_rules, :en, 99)
+      ).to eq("cats")
     end
 
     it "does not plural empty string" do
-      expect(ActiveSupport::Inflector.apply_inflections("",
-                                                        en_rules,
-                                                        locale = :en,
-                                                        count  = 99)).to eq("")
-      expect(ActiveSupport::Inflector.apply_inflections("",
-                                                        en_rules,
-                                                        locale = :uk,
-                                                        count  = 99)).to eq("")
-      expect(ActiveSupport::Inflector.apply_inflections("",
-                                                        en_rules,
-                                                        locale = :en)).to eq("")
+      expect(ActiveSupport::Inflector.apply_inflections("", en_rules, :en, 99)).to eq("")
+      expect(ActiveSupport::Inflector.apply_inflections("", en_rules, :uk, 99)).to eq("")
+      expect(ActiveSupport::Inflector.apply_inflections("", en_rules, :en)).to eq("")
     end
 
     it "does not plural uncountable words" do
-      expect(ActiveSupport::Inflector.apply_inflections("equipment",
-                                                        en_rules,
-                                                        locale = :en,
-                                                        count  = 99)).to eq("equipment")
-      expect(ActiveSupport::Inflector.apply_inflections("money",
-                                                        en_rules,
-                                                        locale = :en)).to eq("money")
+      expect(
+        ActiveSupport::Inflector.apply_inflections("equipment", en_rules, :en, 99)
+      ).to eq("equipment")
+
+      expect(
+        ActiveSupport::Inflector.apply_inflections("money", en_rules, :en)
+      ).to eq("money")
     end
   end
 end

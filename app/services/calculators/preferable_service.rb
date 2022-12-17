@@ -9,6 +9,8 @@ class Calculators::PreferableService
   def perform!
     return unless @preferable.to_i == 1
 
-    Calculator.where.not(slug: @slug).update_all(preferable: false)
+    Calculator.where.not(slug: @slug).each do |calc|
+      calc.update(preferable: false)
+    end
   end
 end

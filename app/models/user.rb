@@ -79,16 +79,14 @@ class User < ApplicationRecord
             on: [:create, :update],
             format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 
-  # rubocop:disable Layout/FirstHashElementIndentation
-  validates :avatar, content_type: {
-                       in: [:png, :jpg, :jpeg],
-                       message: "must be in PNG or JPG or JPEG format"
-                     },
-                     size: {
-      less_than: 2.megabytes,
-      message: "size must be less then 2Mb"
-    }
-  # rubocop:enable Layout/FirstHashElementIndentation
+  validates :avatar, content_type: ["image/png", "image/jpeg", "image/jpg"],
+                     size: { less_than: 2.megabytes }
+  # validates :avatar, attached: true, content_type: {
+  #                                      in: [:png, :jpg, :jpeg]
+  #                                    },
+  #  size: {
+  #    less_than: 2.megabytes
+  #  }
 
   def self.from_omniauth(access_token)
     data       = access_token.info

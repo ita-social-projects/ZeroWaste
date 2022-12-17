@@ -50,6 +50,6 @@ class Admins::UsersController < Admins::BaseController
   end
 
   def render404
-    render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
+    render file: Rails.public_path.join("404.html"), layout: false, status: :not_found
   end
 end

@@ -53,4 +53,12 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:sign_up, keys: user_attr)
   end
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to new_user_session_path(locale: I18n.locale), alert: t("devise.failure.unauthenticated")
+    end
+  end
 end

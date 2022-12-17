@@ -11,7 +11,8 @@
 # Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(
+# A regular user
+User.create(
   email: "user@zw.com",
   password: "password",
   password_confirmation: "password",
@@ -21,7 +22,8 @@ user = User.create(
   role: "user"
 )
 
-admin = User.create(
+# An admin
+User.create(
   email: "admin@zw.com",
   password: "ChangeMe1",
   password_confirmation: "ChangeMe1",
@@ -37,12 +39,12 @@ FactoryBot.create(:product_price, :budgetary)
 FactoryBot.create(:product_price, :medium)
 FactoryBot.create(:product_price, :premium)
 
-feature_budget_category = FeatureFlag.create!(
+FeatureFlag.create!(
   name: "feature_budget_category",
   enabled: false
 )
 
-show_admin_menu = FeatureFlag.create!(
+FeatureFlag.create!(
   name: "show_admin_menu",
   enabled: false
 )

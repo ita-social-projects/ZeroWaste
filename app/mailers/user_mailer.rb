@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
     @email   = email
     @message = message
 
-    mail(to: @email, subject: "Test email. No reply")
+    mail(to: @email, subject: I18n.t("mailer.test_mail.subject"))
   end
 end

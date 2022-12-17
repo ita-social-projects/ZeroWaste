@@ -2,6 +2,7 @@
 
 class CalculatorsController < ApplicationController
   before_action :find_calculator, only: [:show, :calculate]
+  before_action :authenticate_user!, only: :receive_recomendations
 
   def index
     @calculators = Calculator.friendly.all
@@ -18,9 +19,9 @@ class CalculatorsController < ApplicationController
   end
 
   def receive_recomendations
-    return unless user_signed_in?
+    current_user.toggle(:receive_recomendations)
 
-    current_user.update_attribute(:receive_recomendations, true)
+    current_user.save
   end
 
   private

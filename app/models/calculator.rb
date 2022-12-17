@@ -24,14 +24,13 @@ class Calculator < ApplicationRecord
 
   has_paper_trail
 
-  has_many :fields
+  has_many :fields, dependent: :destroy
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 
-  validates :name, format: { with: /\A[a-zA-Z0-9\s]+\z/,
-                             message: "Only letters and numbers allowed" }
-  validates :name, length: { minimum: 2 }
-  validates :name, uniqueness: true
+  validates :name, length: { minimum: 2 },
+                   format: { with: /\A[a-zA-Z0-9\s]+\z/, message: :name_format_validation },
+                   uniqueness: true
 
   scope :by_name_or_slug, lambda { |search|
                             where(
