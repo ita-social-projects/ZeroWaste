@@ -10,7 +10,30 @@ export default class extends Controller {
     },
   };
 
-  yearChanged() {}
+  yearChanged(e) {
+    if (e.target.value == 2) {
+      this.amount_options = 5;
+    } else {
+      this.amount_options = 11;
+    }
+
+    this.previous_month_value = this.monthTarget.value;
+
+    this.monthTarget.innerHTML = "";
+
+    this.option = document.createElement("option");
+    this.option.innerText = "__";
+    this.monthTarget.appendChild(this.option);
+    for (let i = 0; i <= this.amount_options; i++) {
+      this.option = document.createElement("option");
+      this.option.value = i;
+      this.option.innerText = i;
+      this.monthTarget.appendChild(this.option);
+
+      if (i == this.previous_month_value && this.previous_month_value != "")
+        this.monthTarget.value = i;
+    }
+  }
 
   submit(e) {
     e.preventDefault();
