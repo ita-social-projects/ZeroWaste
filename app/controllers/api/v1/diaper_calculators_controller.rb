@@ -6,7 +6,6 @@ module Api
       def create
         result = Calculators::DiapersService.new(params[:childs_age].to_i)
                                             .calculate!
-        I18n.locale = params[:locale] || :uk
 
         diapers_be_used = t('calculators.calculator.diaper').pluralize(
           count: result.to_be_used_diapers_amount,
