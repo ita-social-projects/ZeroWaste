@@ -21,30 +21,23 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
+    let amount_options;
     if (e.target.value == 2) {
-      this.amount_options = 5;
+      amount_options = 5;
     } else {
-      this.amount_options = 11;
+      amount_options = 11;
     }
 
-    this.previous_month_value = this.monthTarget.value;
+    let previous_month_value = this.monthTarget.value;
 
     this.monthTarget.innerHTML = "";
 
-    this.option = document.createElement("option");
-    this.option.innerText = "__";
-    this.option.disabled = true;
-    this.option.hidden = true;
-    if (this.previous_month_value == "") this.option.selected = true;
-    this.monthTarget.appendChild(this.option);
+    this.monthTarget.appendChild(this.getNillOption(previous_month_value));
 
-    for (let i = 0; i <= this.amount_options; i++) {
-      this.option = document.createElement("option");
-      this.option.value = i;
-      this.option.innerText = i;
-      this.monthTarget.appendChild(this.option);
+    for (let i = 0; i <= amount_options; i++) {
+      this.monthTarget.appendChild(this.getBasicOption(i));
 
-      if (i == this.previous_month_value && this.previous_month_value != "")
+      if (i == previous_month_value && previous_month_value != "")
         this.monthTarget.value = i;
     }
   }
@@ -52,30 +45,44 @@ export default class extends Controller {
   submit(e) {
     e.preventDefault();
 
-    this.years = parseInt(this.yearTarget.value);
-    this.months = parseInt(this.monthTarget.value);
+    let years = parseInt(this.yearTarget.value);
+    let months = parseInt(this.monthTarget.value);
 
-    this.formData = {
-      childs_age: this.years * 12 + this.months,
+    let formData = {
+      childs_age: years * 12 + months,
       price_id: this.productCategoryTarget.selectedIndex,
       authenticity_token: this.tokenTarget.value,
       locale: this.localeValue,
     };
 
-    this.request = new Request(`/api/v1/diaper_calculators`, {
+    let request = new Request(`/api/v1/diaper_calculators`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(this.formData),
+      body: JSON.stringify(formData),
     });
 
-    console.log(this.request);
-
-    fetch(this.request)
+    fetch(request)
       .then((response) => response.json())
       .then((data) => {
         this.resultsOutlet.showResults(data);
       });
+  }
+
+  getNillOption(previous_month_value) {
+    let option = document.createElement("option");
+    option.innerText = "__";
+    option.disabled = true;
+    option.hidden = true;
+    if (previous_month_value == "") option.selected = true;
+    return option;
+  }
+
+  getBasicOption(i) {
+    let option = document.createElement("option");
+    option.value = i;
+    option.innerText = i;
+    return option;
   }
 }
