@@ -11,11 +11,11 @@ export default class extends Controller {
   ];
 
   showResults(data) {
-    this.moneySpentTarget.innerHTML = data.result.money_spent;
-    this.moneyWillBeSpentTarget.innerHTML = data.result.money_will_be_spent;
-    this.diapersUsedTarget.innerHTML = data.result.used_diapers_amount;
-    this.diapersToBeUsedTarget.innerHTML =
-      data.result.to_be_used_diapers_amount;
+    let result = data.result;
+    this.moneySpentTarget.innerHTML = result.money_spent;
+    this.moneyWillBeSpentTarget.innerHTML = result.money_will_be_spent;
+    this.diapersUsedTarget.innerHTML = result.used_diapers_amount;
+    this.diapersToBeUsedTarget.innerHTML = result.to_be_used_diapers_amount;
 
     if (this.hasLocalUkUsedDiapersAmountTarget) {
       this.localUkToBeUsedDiapersAmountTarget.innerHTML =
