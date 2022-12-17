@@ -32,7 +32,8 @@ export default class extends Controller {
 
     this.monthTarget.innerHTML = "";
 
-    this.monthTarget.appendChild(this.getNillOption(previous_month_value));
+    if (previous_month_value == "")
+      this.monthTarget.appendChild(this.getNillOption(previous_month_value));
 
     for (let i = 0; i <= amount_options; i++) {
       this.monthTarget.appendChild(this.getBasicOption(i));
@@ -75,6 +76,7 @@ export default class extends Controller {
     option.innerText = "__";
     option.disabled = true;
     option.hidden = true;
+    option.value = "";
     if (previous_month_value == "") option.selected = true;
     return option;
   }
