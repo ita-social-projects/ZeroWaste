@@ -10,6 +10,16 @@ export default class extends Controller {
     },
   };
 
+  connect() {
+    this.yearTarget[0].disabled = true;
+    this.yearTarget[0].hidden = true;
+    this.yearTarget[0].selected = true;
+
+    this.monthTarget[0].disabled = true;
+    this.monthTarget[0].hidden = true;
+    this.monthTarget[0].selected = true;
+  }
+
   yearChanged(e) {
     if (e.target.value == 2) {
       this.amount_options = 5;
@@ -23,7 +33,11 @@ export default class extends Controller {
 
     this.option = document.createElement("option");
     this.option.innerText = "__";
+    this.option.disabled = true;
+    this.option.hidden = true;
+    if (this.previous_month_value == "") this.option.selected = true;
     this.monthTarget.appendChild(this.option);
+
     for (let i = 0; i <= this.amount_options; i++) {
       this.option = document.createElement("option");
       this.option.value = i;
