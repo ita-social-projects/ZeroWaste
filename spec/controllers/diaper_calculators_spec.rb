@@ -15,8 +15,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     let(:expected) do
       { result: values,
         date: 0,
-        word_form_to_be_used: 'підгузків',
-        word_form_used: 'підгузків' }
+        word_form_to_be_used: 'diapers',
+        word_form_used: 'diapers' }
     end
     context 'when default values' do
       before do
@@ -42,8 +42,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       {
         result: values,
         date: 12,
-        word_form_to_be_used: 'підгузків',
-        word_form_used: 'підгузків'
+        word_form_to_be_used: 'diapers',
+        word_form_used: 'diapers'
       }
     end
 
@@ -51,7 +51,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       include_context :app_config_load
 
       it 'got the expected result' do
-        post :create, params: { childs_age: 12, locale: :uk }
+        post :create, params: { childs_age: 12 }
 
         expect(response.body).to eq(expected_result.to_json)
         expect(response).to be_successful
