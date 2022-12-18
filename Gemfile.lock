@@ -101,9 +101,14 @@ GEM
     capistrano-rails (1.6.2)
       capistrano (~> 3.1)
       capistrano-bundler (>= 1.1, < 3)
+    capistrano-rails-tail-log (0.1.0)
+      capistrano (>= 3.0)
+      capistrano-rails
     capistrano-rbenv (2.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    capistrano-yarn (2.0.2)
+      capistrano (~> 3.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -504,7 +509,9 @@ DEPENDENCIES
   capistrano (~> 3.11)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
+  capistrano-rails-tail-log
   capistrano-rbenv (~> 2.1, >= 2.1.4)
+  capistrano-yarn
   capybara (>= 3.26)
   cocoon
   codecov
