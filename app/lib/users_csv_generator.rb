@@ -2,7 +2,7 @@
 
 class UsersCsvGenerator
   def initialize(users, fields:)
-    @users = users
+    @users  = users
     @fields = fields
   end
 

@@ -16,12 +16,14 @@
 #  index_products_on_product_type_id  (product_type_id)
 #  index_products_on_uuid             (uuid) UNIQUE
 #
-require 'rails_helper'
-LOCAL_PREFIX_PRODUCT = 'activerecord.errors.models.product.attributes'
+require "rails_helper"
+
+LOCAL_PREFIX_PRODUCT = "activerecord.errors.models.product.attributes"
 
 RSpec.describe Product, type: :model do
   subject { build(:product) }
-  describe 'validations' do
+
+  describe "validations" do
     it {
       is_expected.to validate_presence_of(:title)
         .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.blank"))

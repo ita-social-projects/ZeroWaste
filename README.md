@@ -1,6 +1,7 @@
 <a href="https://softserve.academy/"><img src="https://s.057.ua/section/newsInternalIcon/upload/images/news/icon/000/050/792/vnutr_5ce4f980ef15f.jpg" title="SoftServe IT Academy" alt="SoftServe IT Academy"></a>
 
 # ZERO WASTE
+#### [Staging](https://zero-waste-staging.onrender.com/)
 
 # 1. About the project
 <img src='logo.jpg' alt='zero-waste'>
