@@ -39,7 +39,7 @@ gem "mini_magick", ">= 4.9.5"
 
 group :development, :test do
   gem "annotate"
-  gem "dotenv-rails"
+  gem "dotenv-rails", require: "dotenv/rails-now"
   gem "factory_bot_rails"
   gem "pry-rails"
   gem "rails-controller-testing"
@@ -94,3 +94,9 @@ gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# deploy
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
