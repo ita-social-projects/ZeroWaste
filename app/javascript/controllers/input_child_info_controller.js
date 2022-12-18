@@ -43,28 +43,11 @@ export default class extends Controller {
     }
   }
 
-  validateAndSubmit(e) {
+  submit(e) {
     e.preventDefault();
 
-    if (this.yearTarget.value == "" && this.monthTarget.value == "") {
-      toastr.error(e.params.yearAndMonthErrorMsg);
-      return;
-    }
+    if (!this.valid(e.params)) return;
 
-    if (this.yearTarget.value == "") {
-      toastr.error(e.params.yearErrorMsg);
-      return;
-    }
-
-    if (this.monthTarget.value == "") {
-      toastr.error(e.params.monthErrorMsg);
-      return;
-    }
-
-    this.submit();
-  }
-
-  submit() {
     let years = parseInt(this.yearTarget.value);
     let months = parseInt(this.monthTarget.value);
 
@@ -88,6 +71,25 @@ export default class extends Controller {
       .then((data) => {
         this.resultsOutlet.showResults(data);
       });
+  }
+
+  valid(params) {
+    if (this.yearTarget.value == "" && this.monthTarget.value == "") {
+      toastr.error(params.yearAndMonthErrorMsg);
+      return false;
+    }
+
+    if (this.yearTarget.value == "") {
+      toastr.error(params.yearErrorMsg);
+      return false;
+    }
+
+    if (this.monthTarget.value == "") {
+      toastr.error(params.monthErrorMsg);
+      return false;
+    }
+
+    return true;
   }
 
   getNillOption(previous_month_value) {
