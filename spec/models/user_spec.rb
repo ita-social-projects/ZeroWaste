@@ -35,11 +35,12 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   let!(:user) { build(:user) }
-  describe 'validations' do
+
+  describe "validations" do
     it {
       is_expected.to validate_presence_of(:email)
     }
@@ -53,16 +54,16 @@ RSpec.describe User, type: :model do
       is_expected.to validate_length_of(:email).is_at_most(100)
     }
     it {
-      is_expected.to allow_value('email@gmail.com').for(:email)
+      is_expected.to allow_value("email@gmail.com").for(:email)
     }
     it {
-      is_expected.not_to allow_value('email.factory-com').for(:email)
+      is_expected.not_to allow_value("email.factory-com").for(:email)
     }
     it {
-      is_expected.to allow_value('ddc5+/8/555/dd').for(:password)
+      is_expected.to allow_value("ddc5+/8/555/dd").for(:password)
     }
     it {
-      is_expected.not_to allow_value('/asd').for(:password)
+      is_expected.not_to allow_value("/asd").for(:password)
     }
     it {
       is_expected.to validate_length_of(:password).is_at_least(8)

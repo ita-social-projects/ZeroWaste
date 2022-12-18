@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # Add new inflection rules using the following format. Inflections
@@ -16,11 +17,11 @@
 #   inflect.acronym 'RESTful'
 # end
 
-require 'inflector_extensions'
+require "inflector_extensions"
 
 ActiveSupport::Inflector.inflections(:uk) do |inflect|
-  inflect.plural('місяць', 'місяців', (5..11).to_a << 0)
-  inflect.plural('місяць', 'місяці', (2..4).to_a)
-  inflect.plural('рік', 'років', [0])
-  inflect.plural('рік', 'роки', [2])
+  inflect.plural("місяць", "місяців", (5..11).to_a << 0)
+  inflect.plural("місяць", "місяці", (2..4).to_a)
+  inflect.plural("рік", "років", [0])
+  inflect.plural("рік", "роки", [2])
 end

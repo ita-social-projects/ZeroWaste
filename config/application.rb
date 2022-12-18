@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
-require 'csv'
+require "rails/all"
+require "csv"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -22,7 +22,9 @@ module ZeroWaste
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.i18n.available_locales = [:en, :uk]
-    config.i18n.default_locale = :en
+    config.i18n.available_locales   = [:en, :uk]
+    config.i18n.default_locale      = :en
+
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
   end
 end

@@ -11,12 +11,12 @@ module I18nExtended
 
   def switch_locale(&action)
     locale = params.permit(:locale)[:locale]
-    locale = %w[uk en].include?(locale.to_s) ? locale : I18n.default_locale
+    locale = ["uk", "en"].include?(locale.to_s) ? locale : I18n.default_locale
     I18n.with_locale(locale, &action)
   end
 
   def default_url_options
-    if request.path =~ /account/
+    if /account/.match?(request.path)
       super
     else
       { locale: I18n.locale }

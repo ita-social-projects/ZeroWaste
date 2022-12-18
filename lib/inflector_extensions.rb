@@ -38,16 +38,10 @@ module InflectionsExtensions
   end
 end
 
-module ActiveSupport
-  module Inflector
-    extend InflectorExtensions
-  end
+module ActiveSupport::Inflector
+  extend InflectorExtensions
 end
 
-module ActiveSupport
-  module Inflector
-    class Inflections
-      prepend InflectionsExtensions
-    end
-  end
+class ActiveSupport::Inflector::Inflections
+  prepend InflectionsExtensions
 end

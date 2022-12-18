@@ -24,8 +24,9 @@
 #  index_fields_on_calculator_id  (calculator_id)
 #  index_fields_on_uuid           (uuid) UNIQUE
 #
-require 'rails_helper'
-LOCAL_PREFIX_SELECT = 'activerecord.errors.models.select.attributes'
+require "rails_helper"
+
+LOCAL_PREFIX_SELECT = "activerecord.errors.models.select.attributes"
 
 # RSpec.describe Select, type: :model do
 #   subject { create(:select) }

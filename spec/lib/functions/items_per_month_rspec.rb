@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-require 'functions/items_per_month'
+require "rails_helper"
+require "functions/items_per_month"
 
 RSpec.describe ItemsPerMonth do
   let(:data) { { 0..2 => 30, 3..5 => 70 } }
 
-  describe '#call' do
+  describe "#call" do
     let(:expectations) do
       {
         2 => 90,
@@ -15,7 +15,8 @@ RSpec.describe ItemsPerMonth do
         1 => 60
       }
     end
-    it 'properly calculates all results' do
+
+    it "properly calculates all results" do
       expectations.each do |month, expected|
         expect(described_class.new(month).call(data)).to eq(expected)
       end
