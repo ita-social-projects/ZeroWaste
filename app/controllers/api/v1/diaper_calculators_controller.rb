@@ -5,24 +5,24 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
     result = Calculators::DiapersService.new(params[:childs_age].to_i)
                                         .calculate!
 
-    diapers_be_used = t('calculators.calculator.diaper').pluralize(
+    diapers_be_used = t("calculators.calculator.diaper").pluralize(
       count: result.to_be_used_diapers_amount,
       locale: I18n.locale
     )
 
-    diapers_used = t('calculators.calculator.diaper').pluralize(
+    diapers_used = t("calculators.calculator.diaper").pluralize(
       count: result.used_diapers_amount,
       locale: I18n.locale
     )
 
     values = [
-      { name: 'money_spent',
+      { name: "money_spent",
         result: result.used_diapers_price || 0 },
-      { name: 'money_will_be_spent',
+      { name: "money_will_be_spent",
         result: result.to_be_used_diapers_price || 0 },
-      { name: 'used_diapers_amount',
+      { name: "used_diapers_amount",
         result: result.used_diapers_amount || 0 },
-      { name: 'to_be_used_diapers_amount',
+      { name: "to_be_used_diapers_amount",
         result: result.to_be_used_diapers_amount || 0 }
     ]
 

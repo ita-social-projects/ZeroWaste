@@ -15,8 +15,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     let(:expected) do
       { result: values,
         date: 0,
-        word_form_to_be_used: 'diapers',
-        word_form_used: 'diapers' }
+        word_form_to_be_used: "diapers",
+        word_form_used: "diapers" }
     end
 
     context "when default values" do
@@ -43,8 +43,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       {
         result: values,
         date: 12,
-        word_form_to_be_used: 'diapers',
-        word_form_used: 'diapers'
+        word_form_to_be_used: "diapers",
+        word_form_used: "diapers"
       }
     end
 

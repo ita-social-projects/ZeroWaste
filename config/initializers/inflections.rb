@@ -26,20 +26,20 @@ def generate_inflections(one, few, many)
     last1 = count[-1].to_i
 
     return one if (last1 == 1) && (last2 != 11)
-    return few if (2..4).include?(last1) && !(12..14).include?(last2)
+    return few if (2..4).cover?(last1) && (12..14).exclude?(last2)
 
     many
   end
 end
 
 ActiveSupport::Inflector.inflections(:uk) do |inflect|
-  inflect.plural('місяць', 'місяців', generate_inflections('місяць',
-                                                           'місяці',
-                                                           'місяців'))
-  inflect.plural('рік', 'років', generate_inflections('рік',
-                                                      'роки',
-                                                      'років'))
-  inflect.plural('підгузок', 'підгузки', generate_inflections('підгузок',
-                                                              'підгузки',
-                                                              'підгузків'))
+  inflect.plural("місяць", "місяців", generate_inflections("місяць",
+                                                           "місяці",
+                                                           "місяців"))
+  inflect.plural("рік", "років", generate_inflections("рік",
+                                                      "роки",
+                                                      "років"))
+  inflect.plural("підгузок", "підгузки", generate_inflections("підгузок",
+                                                              "підгузки",
+                                                              "підгузків"))
 end
