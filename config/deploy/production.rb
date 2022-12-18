@@ -1,4 +1,4 @@
-set :user, "deployuser"
+set :user, "deploy"
 
 server "185.233.37.137", user: fetch(:user), roles: ["app", "db", "web"], primary: true, port: 22
 
