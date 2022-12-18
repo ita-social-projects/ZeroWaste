@@ -1,0 +1,4 @@
+uk:
+  mailer:
+    test_mail:
+      subject: Test email. No reply

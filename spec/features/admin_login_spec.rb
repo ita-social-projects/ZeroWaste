@@ -1,98 +1,97 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-LANG_BUTTON_TEXT = I18n.t('layouts.navigation.local_lang')
+LANG_BUTTON_TEXT = I18n.t("layouts.navigation.local_lang")
 
-RSpec.feature 'AdminLogins', type: :feature do
-  describe 'sign in admin page', js: true do
+RSpec.feature "AdminLogins", type: :feature do
+  describe "sign in admin page", js: true do
     let(:user) { create(:user, :admin) }
 
-    context 'english local' do
-
-      context 'when sign in with correct login and password' do
-        it 'redirect to admin page' do
-          visit '/users/sign_in'
-          fill_in 'Email', with: user.email
-          fill_in 'Password', with: user.password
-          click_button 'Log in'
-          expect(page).to have_content 'Signed in successfully.'
+    context "english local" do
+      context "when sign in with correct login and password" do
+        it "redirect to admin page" do
+          visit "/users/sign_in"
+          fill_in "Email", with: user.email
+          fill_in "Password", with: user.password
+          click_button "Log in"
+          expect(page).to have_content "Signed in successfully."
         end
       end
 
-      context 'when sign in with wrong login and password' do
-        it 'redirect to admin login page' do
-          visit '/users/sign_in'
-          fill_in 'Email', with: 'wrong@email.com'
-          fill_in 'Password', with: 'wrong password'
-          click_button 'Log in'
-          expect(page).to have_content 'Invalid Email or password'
+      context "when sign in with wrong login and password" do
+        it "redirect to admin login page" do
+          visit "/users/sign_in"
+          fill_in "Email", with: "wrong@email.com"
+          fill_in "Password", with: "wrong password"
+          click_button "Log in"
+          expect(page).to have_content "Invalid Email or password"
         end
       end
 
-      context 'when sign in with wrong password' do
-        it 'redirect to admin login page' do
-          visit '/users/sign_in'
-          fill_in 'Email', with: user.email
-          fill_in 'Password', with: 'wrong password'
-          click_button 'Log in'
-          expect(page).to have_content 'Invalid Email or password'
+      context "when sign in with wrong password" do
+        it "redirect to admin login page" do
+          visit "/users/sign_in"
+          fill_in "Email", with: user.email
+          fill_in "Password", with: "wrong password"
+          click_button "Log in"
+          expect(page).to have_content "Invalid Email or password"
         end
       end
 
-      context 'when sign in with wrong login' do
-        it 'redirect to admin login page' do
-          visit '/users/sign_in'
-          fill_in 'Email', with: 'wrong@email.com'
-          fill_in 'Password', with: user.password
-          click_button 'Log in'
-          expect(page).to have_content 'Invalid Email or password'
+      context "when sign in with wrong login" do
+        it "redirect to admin login page" do
+          visit "/users/sign_in"
+          fill_in "Email", with: "wrong@email.com"
+          fill_in "Password", with: user.password
+          click_button "Log in"
+          expect(page).to have_content "Invalid Email or password"
         end
       end
     end
 
-    context 'with ukrainian locale' do
-      context 'when sign in with correct login and password' do
-        it 'redirect to admin page' do
+    context "with ukrainian locale" do
+      context "when sign in with correct login and password" do
+        it "redirect to admin page" do
           visit new_user_session_path
           click_on LANG_BUTTON_TEXT
-          fill_in 'user_email', with: user.email
-          fill_in 'user_password', with: user.password
-          click_button 'Увійти'
+          fill_in "user_email", with: user.email
+          fill_in "user_password", with: user.password
+          click_button "Увійти"
           expect(page).to have_content "Ви увійшли в систему."
         end
       end
 
-      context 'when sign in with wrong login and password' do
-        it 'redirect to admin login page' do
+      context "when sign in with wrong login and password" do
+        it "redirect to admin login page" do
           visit new_user_session_path
           click_on LANG_BUTTON_TEXT
-          fill_in 'user_email', with: 'wrong@email.com'
-          fill_in 'user_password', with: 'wrong password'
-          click_button 'Увійти'
-          expect(page).to have_content 'Невірний email чи пароль.'
+          fill_in "user_email", with: "wrong@email.com"
+          fill_in "user_password", with: "wrong password"
+          click_button "Увійти"
+          expect(page).to have_content "Невірний email чи пароль."
         end
       end
 
-      context 'when sign in with wrong password' do
-        it 'redirect to admin login page' do
+      context "when sign in with wrong password" do
+        it "redirect to admin login page" do
           visit new_user_session_path
           click_on LANG_BUTTON_TEXT
-          fill_in 'user_email', with: user.email
-          fill_in 'user_password', with: 'wrong password'
-          click_button 'Увійти'
-          expect(page).to have_content 'Невірний email чи пароль.'
+          fill_in "user_email", with: user.email
+          fill_in "user_password", with: "wrong password"
+          click_button "Увійти"
+          expect(page).to have_content "Невірний email чи пароль."
         end
       end
 
-      context 'when sign in with wrong login' do
-        it 'redirect to admin login page' do
+      context "when sign in with wrong login" do
+        it "redirect to admin login page" do
           visit new_user_session_path
           click_on LANG_BUTTON_TEXT
-          fill_in 'user_email', with: 'wrong@email.com'
-          fill_in 'user_password', with: user.password
-          click_button 'Увійти'
-          expect(page).to have_content 'Невірний email чи пароль.'
+          fill_in "user_email", with: "wrong@email.com"
+          fill_in "user_password", with: user.password
+          click_button "Увійти"
+          expect(page).to have_content "Невірний email чи пароль."
         end
       end
     end
