@@ -95,3 +95,4 @@ gem "simple_form"
 gem "slim-rails"
 gem "stimulus-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "toastr-rails"

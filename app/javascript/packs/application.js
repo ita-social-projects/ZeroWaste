@@ -28,6 +28,7 @@ import "../ajax/calculate_result_button";
 import "../controllers/stimulus_application";
 
 const images = require.context("../images", true);
+global.toastr = require("toastr");
 
 Rails.start();
 Turbolinks.start();

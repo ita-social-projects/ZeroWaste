@@ -19,6 +19,7 @@
     "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
+    "toastr": "^2.1.4",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0"
   },
