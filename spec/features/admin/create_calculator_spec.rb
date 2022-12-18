@@ -48,7 +48,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name is invalid" do
       fill_in "Name", with: "i[]p"
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("is invalid")
+      expect(page).to have_content("Name must contain only letters or numbers")
     end
   end
 
