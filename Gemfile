@@ -77,6 +77,7 @@ group :test do
   gem "simplecov", require: false
   gem "shoulda-matchers", "~> 4.0"
   gem "webdrivers"
+  gem "fuubar"
 end
 
 gem "active_model_serializers", "~> 0.10.0"

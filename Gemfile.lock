@@ -167,6 +167,9 @@ GEM
       railties (>= 3.2, < 8.0)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    fuubar (2.5.1)
+      rspec-core (~> 3.0)
+      ruby-progressbar (~> 1.4)
     gitlab (4.17.0)
       httparty (~> 0.18)
       terminal-table (~> 1.5, >= 1.5.1)
@@ -488,6 +491,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   friendly_id (~> 5.4.0)
+  fuubar
   it
   jbuilder (~> 2.7)
   letter_opener

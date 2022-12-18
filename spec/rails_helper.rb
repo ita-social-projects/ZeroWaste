@@ -77,6 +77,9 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   config.include Devise::Test::IntegrationHelpers, type: :feature
+
+  config.add_formatter "Fuubar"
+  config.fuubar_output_pending_results = false
 end
 
 Shoulda::Matchers.configure do |config|
