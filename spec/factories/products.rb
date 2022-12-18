@@ -27,7 +27,7 @@ FactoryBot.define do
 
     trait :napkin do
       association :product_type, :hygiene
-      title { 'napkin'}
+      title { "napkin" }
     end
   end
 end

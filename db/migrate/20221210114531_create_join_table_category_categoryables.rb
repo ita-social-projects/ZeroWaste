@@ -5,7 +5,7 @@ class CreateJoinTableCategoryCategoryables < ActiveRecord::Migration[6.1]
       t.references :categoryable, index: true, polymorphic: true
       t.index [
         :categoryable_type, :categoryable_id, :category_id
-        ], unique: true, name: 'unique_of_category_categoryables_index'
+      ], unique: true, name: "unique_of_category_categoryables_index"
 
       t.timestamps
     end
