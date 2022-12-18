@@ -41,11 +41,11 @@ uk:
       local_lang: "English"
     description_block:
       description_block_html: "Ці результати є приблизними, точні цифри для вашої сімʼї можуть бути дещо іншими
-      та залежать від ваших щоденних звичок та обраної марки підгузків. На будь-якому етапі користування підгузками
-      є можливість зменшити рівень їхнього використання. Запрошуємо вас дізнатися більше про методи, як це можна
-      зробити, та про доступні багаторазові альтернативи одноразовим дитячим підгузкам. А ще ви можете почитати
-      детальніше про те, %{calculate_link_one:як ми розраховуємо} кількість та вартість підгузків,
-      або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
+                              та залежать від ваших щоденних звичок та обраної марки підгузків. На будь-якому етапі користування підгузками
+                              є можливість зменшити рівень їхнього використання. Запрошуємо вас дізнатися більше про методи, як це можна
+                              зробити, та про доступні багаторазові альтернативи одноразовим дитячим підгузкам. А ще ви можете почитати
+                              детальніше про те, %{calculate_link_one:як ми розраховуємо} кількість та вартість підгузків,
+                              або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
     description_button:
       use_less: "%{use_less_link:ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ}"
     homepage:
@@ -306,6 +306,32 @@ uk:
         slug: "Шлях"
         preferable: "Бажаний"
     errors:
+      models:
+        calculator:
+          attributes:
+            name:
+              name_format_validation: Only letters and numbers allowed
+        user:
+          attributes:
+            avatar:
+            content_type: "%{extension}"
+              # extension_allowlist_error: "Вам заборонено завантажувати %{extension} файли, дозволені типи: %{allowed_types}"
+
+            # uk:
+              # carrierwave:
+              #   hint: "Дозволені формати: %{allowed_extensions}, рекомендоване розширення фото - %{dimension}, а максимальний розмір файлу: %{size}"
+              # errors:
+              #   messages:
+              #     carrierwave_processing_error: не вдалося обробити
+              #     carrierwave_integrity_error: не є дозволеним типом файлу
+              #     carrierwave_download_error: не вдалося завантажити
+              #     extension_denylist_error: "Вам заборонено завантажувати %{extension} файли, заборонені типи: %{prohibited_types}"
+              #     content_type_allowlist_error: "Вам заборонено завантажувати %{content_type} файли, дозволені типи: %{allowed_types}"
+              #     content_type_denylist_error: "Вам заборонено завантажувати %{content_type} файли"
+              #     processing_error: "Не вдалося опрацювати, можливо, це не зображення?"
+              #     min_size_error: "Розмір файлу має бути більшим за %{min_size}"
+              #     max_size_error: "Розмір файлу має бути менше %{max_size}"
+              #     mini_magick_processing_error: "Не вдалося опрацювати з MiniMagick, можливо, це не зображення?"
       messages:
         record_invalid: 'Виникли помилки: %{errors}'
         restrict_dependent_destroy:

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # Add new inflection rules using the following format. Inflections
@@ -16,7 +17,7 @@
 #   inflect.acronym 'RESTful'
 # end
 
-require 'inflector_extensions'
+require "inflector_extensions"
 
 def generate_inflections(one, few, many)
   lambda do |count|

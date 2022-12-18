@@ -34,18 +34,18 @@ class FieldSerializer < ActiveModel::Serializer
   # rubocop:disable Metrics/AbcSize
   def result
     cal_res = CalculatorResolver.call(object.calculator)
-    res = cal_res.each_with_object({}) do |(key, value), result|
+    res     = cal_res.each_with_object({}) do |(key, value), result|
       result[key[:value]] = value.each_with_object({}) do |v, sel|
         sel[v[:selector].downcase] = v[:value]
       end
     end
-    result = res.each_with_object({}) do |(formula, parameters), new_hash|
+    result  = res.each_with_object({}) do |(formula, parameters), new_hash|
       new_hash[formula] = CalculationResolver.new.result(parameters, formula)
     end
-    answer = result.each_with_object([]) do |(_, calculated_formula), new_array|
+    answer  = result.each_with_object([]) do |(_, calculated_formula), new_array|
       new_array << calculated_formula
     end
-    number = ''
+    number  = ""
     (0..answer.count).each do |el|
       number = answer[el] if object.selector == "R#{el + 1}"
     end

@@ -1,6 +1,6 @@
 class InitAppConfig < ActiveRecord::Migration[6.1]
   def up
-    config = AppConfig.instance
+    config                    = AppConfig.instance
     config.diapers_calculator = {
       (1..3) => {
         amount: 10,
@@ -35,7 +35,7 @@ class InitAppConfig < ActiveRecord::Migration[6.1]
   end
 
   def down
-    config = AppConfig.instance
+    config                    = AppConfig.instance
     config.diapers_calculator = {}
     config.save
   end

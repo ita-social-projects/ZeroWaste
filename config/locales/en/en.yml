@@ -67,11 +67,11 @@ en:
       local_lang: "Українська"
     description_block:
       description_block_html: "These are approximate results. The exact numbers for your
-      family may differ depending on your daily habits and the diaper brand of choice. At any point of using
-      diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
-      this can be done and what reusable alternatives to disposable diapers there are. You can also learn
-      more about %{calculate_link_one:how we calculate} the number and cost of diapers
-      or %{calculate_link_two:contact us} with any other questions you may have."
+                              family may differ depending on your daily habits and the diaper brand of choice. At any point of using
+                              diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
+                              this can be done and what reusable alternatives to disposable diapers there are. You can also learn
+                              more about %{calculate_link_one:how we calculate} the number and cost of diapers
+                              or %{calculate_link_two:contact us} with any other questions you may have."
     description_button:
       use_less: "%{use_less_link:HOW TO USE LESS}"
     homepage:
@@ -364,6 +364,7 @@ en:
               blank: " can't be blank"
               too_short: " is too short"
               invalid: " is invalid"
+              name_format_validation: must contain only letters or numbers
         product:
           attributes:
             title:

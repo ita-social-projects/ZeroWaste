@@ -24,13 +24,14 @@
 #  index_fields_on_calculator_id  (calculator_id)
 #  index_fields_on_uuid           (uuid) UNIQUE
 #
-require 'rails_helper'
-LOCAL_PREFIX_CALCULATION = 'activerecord.errors.models.calculation.attributes'
+require "rails_helper"
+
+LOCAL_PREFIX_CALCULATION = "activerecord.errors.models.calculation.attributes"
 
 RSpec.describe Calculation, type: :model do
   subject(:calculation) { create(:calculation) }
 
-  describe 'validations' do
+  describe "validations" do
     it { is_expected.to be_valid }
     it {
       is_expected.to validate_presence_of(:value).with_message(I18n
