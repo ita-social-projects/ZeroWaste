@@ -5,12 +5,12 @@ require 'rails_helper'
 RSpec.describe Api::V1::DiaperCalculatorsController do
   describe '#diaper_calc_communicator' do
     let(:values) do
-      [
-        { name: 'money_spent', result: 0 },
-        { name: 'money_will_be_spent', result: 0 },
-        { name: 'used_diapers_amount', result: 0 },
-        { name: 'to_be_used_diapers_amount', result: 0 }
-      ]
+      {
+        money_spent: 0,
+        money_will_be_spent: 0,
+        used_diapers_amount: 0,
+        to_be_used_diapers_amount: 0
+      }
     end
     let(:expected) do
       { result: values,
@@ -31,12 +31,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
 
   describe 'sending params to diaper_calc_communicator' do
     let(:values) do
-      [
-        { name: 'money_spent', result: 12_718.5 },
-        { name: 'money_will_be_spent', result: 10_614.0 },
-        { name: 'used_diapers_amount', result: 2745.0 },
-        { name: 'to_be_used_diapers_amount', result: 1830.0 }
-      ]
+      {
+        money_spent: 12_718.5,
+        money_will_be_spent: 10_614.0,
+        used_diapers_amount: 2745.0,
+        to_be_used_diapers_amount: 1830.0
+      }
     end
     let(:expected_result) do
       {
@@ -62,12 +62,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       include_context :app_config_load
 
       let(:invalid_values) do
-        [
-          { name: 'money_spent', result: 42 },
-          { name: 'money_will_be_spent', result: 42 },
-          { name: 'used_diapers_amount', result: 42 },
-          { name: 'to_be_used_diapers_amount', result: 42 }
-        ]
+        {
+          money_spent: 42,
+          money_will_be_spent: 42,
+          used_diapers_amount: 42,
+          to_be_used_diapers_amount: 42
+        }
       end
 
       it 'got the unexpected result' do
