@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::DiaperCalculatorsController do
-  describe '#diaper_calc_communicator' do
+  describe "#diaper_calc_communicator" do
     let(:values) do
       {
         money_spent: 0,
@@ -30,7 +30,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     end
   end
 
-  describe 'sending params to diaper_calc_communicator' do
+  describe "sending params to diaper_calc_communicator" do
     let(:values) do
       {
         money_spent: 12_718.5,
