@@ -43,9 +43,28 @@ export default class extends Controller {
     }
   }
 
-  submit(e) {
+  validateAndSubmit(e) {
     e.preventDefault();
 
+    if (this.yearTarget.value == "" && this.monthTarget.value == "") {
+      toastr.error(e.params.yearAndMonthErrorMsg);
+      return;
+    }
+
+    if (this.yearTarget.value == "") {
+      toastr.error(e.params.yearErrorMsg);
+      return;
+    }
+
+    if (this.monthTarget.value == "") {
+      toastr.error(e.params.monthErrorMsg);
+      return;
+    }
+
+    this.submit();
+  }
+
+  submit() {
     let years = parseInt(this.yearTarget.value);
     let months = parseInt(this.monthTarget.value);
 
