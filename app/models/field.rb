@@ -41,7 +41,7 @@ class Field < ApplicationRecord
     index = Field.order(selector: :desc)
                  .find_by(calculator: calculator, kind: kind)
                  &.selector
-                 &.gsub(/\D/, '').to_i.next
+                 &.gsub(/\D/, "").to_i.next
 
     self.selector = "#{kind&.first&.upcase}#{index}"
   end

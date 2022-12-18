@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'functions/since.rb'
+require "rails_helper"
+require "functions/since"
 
 RSpec.describe Since, type: :function do
   subject { described_class }
@@ -10,9 +10,9 @@ RSpec.describe Since, type: :function do
 
   describe "#calculate_units" do
     let(:calculate_units) { Since.calculate_units }
-    let(:from) { Date.new(2020,01,01) }
-    let(:to) { Date.new(2021,01,31) }
-    let(:invalid_date_format) { Time.new(2001,01,01) }
+    let(:from) { Date.new(2020, 0o1, 0o1) }
+    let(:to) { Date.new(2021, 0o1, 31) }
+    let(:invalid_date_format) { Time.zone.local(2001, 0o1, 0o1) }
 
     it {
       expect(calculate_units).to be_a(Proc)
@@ -20,37 +20,37 @@ RSpec.describe Since, type: :function do
 
     context "when unit is `day`" do
       it {
-      expect(calculate_units.call(from, to, 'day')).to be(396)
+        expect(calculate_units.call(from, to, "day")).to be(396)
       }
     end
 
     context "when unit is `month`" do
       it {
-      expect(calculate_units.call(from, to, 'month')).to be(13)
+        expect(calculate_units.call(from, to, "month")).to be(13)
       }
     end
 
     context "when unit is `year`" do
       it {
-      expect(calculate_units.call(from, to, 'year')).to be(1)
+        expect(calculate_units.call(from, to, "year")).to be(1)
       }
     end
 
     context "when `unit` is invalid" do
       it {
-      expect { calculate_units.call(from, to, 'century') }.to raise_error(ArgumentError)
+        expect { calculate_units.call(from, to, "century") }.to raise_error(ArgumentError)
       }
     end
 
     context "when `from` format is invalid" do
       it {
-      expect { calculate_units.call(invalid_date_format, to, 'day') }.to raise_error(ArgumentError)
+        expect { calculate_units.call(invalid_date_format, to, "day") }.to raise_error(ArgumentError)
       }
     end
 
     context "when `to` format is invalid" do
       it {
-      expect { calculate_units.call(from, invalid_date_format, 'day') }.to raise_error(ArgumentError)
+        expect { calculate_units.call(from, invalid_date_format, "day") }.to raise_error(ArgumentError)
       }
     end
   end

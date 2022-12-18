@@ -5,17 +5,17 @@ module ApplicationHelper
     {
       notice: notice,
       alert: alert
-    }.reject { |_key, message| message.blank? }
+    }.compact_blank
   end
 
   def message_class_by_name(type)
     case type.to_s
-    when 'notice'
-      'alert-success'
-    when 'alert'
-      'alert-danger'
+    when "notice"
+      "alert-success"
+    when "alert"
+      "alert-danger"
     else
-      'alert-warning'
+      "alert-warning"
     end
   end
 
@@ -24,6 +24,6 @@ module ApplicationHelper
   end
 
   def switch_locale_to
-    I18n.locale == :en ? :uk : :en
+    (I18n.locale == :en) ? :uk : :en
   end
 end
