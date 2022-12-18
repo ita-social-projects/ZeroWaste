@@ -5,5 +5,5 @@ class Price < ApplicationRecord
   belongs_to :category, optional: true
 
   validates :sum, presence: true
-  validates :priceable_id, uniqueness: { scope: [:category_id] }
+  validates :category_id, uniqueness: { scope: [:priceable_id, :priceable_type] }
 end
