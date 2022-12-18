@@ -1,13 +1,9 @@
 class AddDefaultToCategory < ActiveRecord::Migration[6.1]
   def up
-    change_table :product_prices, bulk: true do |t|
-      t.string :category, null: false, default: "medium"
-    end
+    change_column :product_prices, :category, :string, null: false, default: "medium"
   end
 
   def down
-    change_table :product_prices, bulk: true do |t|
-      t.string :category
-    end
+    change_column :product_prices, :category, :string, null: true, default: nil
   end
 end
