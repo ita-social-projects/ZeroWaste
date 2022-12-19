@@ -5,7 +5,6 @@ body {
   background-size: cover;
   overflow-x: hidden;
   height: 100vh;
-  font-family: "Comfortaa", sans-serif;
 }
 
 a {
@@ -32,6 +31,7 @@ a {
 
 .page-header {
   max-width: 1110px;
+  font-family: "Comfortaa", sans-serif;
   margin: auto;
   margin-bottom: 10px;
   display: flex;
@@ -42,6 +42,7 @@ a {
 }
 
 div.jumbotron {
+  font-family: "Comfortaa", sans-serif;
   background-color: $color;
   padding: 25px 10px;
   max-width: 1110px;
@@ -54,6 +55,7 @@ div.jumbotron {
   flex-wrap: wrap;
   align-items: center;
   width: 315px;
+  font-family: "Nunito", sans-serif;
 }
 
 .mn-vd {
@@ -93,6 +95,7 @@ div.jumbotron {
   border: none;
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-family: "Nunito", sans-serif;
   margin-bottom: 0.2em;
 
   a {
@@ -343,7 +346,6 @@ body.admin {
     max-width: 96%;
     margin-right: 2%;
     margin-left: 2%;
-
     padding-left: 0px;
   }
 
