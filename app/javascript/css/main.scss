@@ -31,7 +31,7 @@ a {
 }
 
 .page-header {
-  max-width: 1110px;
+  max-width: $max_width_content;
   margin: auto;
   margin-bottom: 10px;
   display: flex;
@@ -44,7 +44,7 @@ a {
 div.jumbotron {
   background-color: $color;
   padding: 25px 10px;
-  max-width: 1110px;
+  max-width: $max_width_content;
   margin: 0 auto;
 }
 
@@ -209,7 +209,7 @@ div.calculation-results {
   margin-top: 20px;
   position: center;
   background-color: $color;
-  max-width: 1110px;
+  max-width: $max_width_content;
   min-height: 151px;
   border-radius: 6px;
 }

@@ -21,15 +21,6 @@
   margin-right: 10px;
 }
 
-.form-p {
-  font-size: 20px;
-  line-height: 30px;
-  font-weight: 400;
-  color: #666666;
-  position: relative;
-  left: 20px;
-  margin-bottom: 0px;
-}
 .form-a {
   font-size: 20px;
   line-height: 30px;
@@ -42,13 +33,13 @@
 }
 
 .calculator__cross__space {
-  position: relative;
-  top: -5px;
+  position: absolute;
+  top: 0;
+  right: 1%;
 }
 
 .form {
   padding-left: 15px;
-  max-width: 200px;
 }
 
 .row-l {
@@ -58,36 +49,53 @@
 
 .flex-item {
   display: flex;
-  gap: 10px;
   width: 100%;
   flex-wrap: wrap;
-  margin-left: 2%;
 
+  .input_lable {
+    color: $dark_gray;
+    font-weight: 700;
+  }
+
+  .form_fild {
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
   .age_wrapper {
-    background-color: #ececec;
-    width: fit-content;
-    gap: 0px;
+    background-color: $light_gray;
 
-    .select_age {
-      width: 30px;
+    select {
+      width: 20px;
+      margin-left: 3px;
+      text-align: center;
+      background-color: $light_gray;
       border: none;
       outline: none;
-      background-color: #ececec;
-      color: #515151;
+      color: $dark_gray;
       appearance: none;
-      padding: 0rem 0rem 0rem 0.5rem;
+      padding: 0rem;
     }
+  }
+  select {
+    text-align: center;
+    background-color: $light_gray;
+    border: none;
+    outline: none;
+    color: $dark_gray;
+    appearance: none;
+    padding: 0rem;
   }
 }
 
-.flex-item input[type="text"],
-.flex-item input[type="date"] {
-  height: 50px;
-  margin-right: 20px;
+.input_filds {
+  margin-top: 48px;
+  width: 90%;
+  max-width: 275px;
 }
 
 .check-label {
   margin-left: 15px;
+  margin-bottom: 0;
 }
 
 .form-input {
@@ -111,7 +119,10 @@
 }
 
 .result-btn {
+  font-size: 18px;
+  height: 40px;
   text-align: center;
+  margin-top: 0;
 }
 
 .result-btn #calc {
@@ -146,7 +157,7 @@
       text-decoration: none;
     }
     a:hover {
-      color: #256d36;
+      color: $dark_green;
       background-color: transparent;
       text-decoration: none;
     }
@@ -158,8 +169,15 @@
 }
 
 @media screen and (max-width: 1199px) and (min-width: 400px) {
-  button.calculate-btn.result-btn.description-btn {
+  .description-btn {
     margin: auto;
+  }
+}
+
+@media screen and (max-width: $md) {
+  .scales {
+    width: 90%;
+    max-width: 400px;
   }
 }
 
@@ -167,12 +185,12 @@
   .logo-zerowaste img {
     width: 100%;
   }
-
+  .input_filds {
+    width: 90%;
+    max-width: 400px;
+  }
   .logo-zerowaste {
     width: 9em;
-  }
-  .calculator__cross__space {
-    margin-right: 5px;
   }
   .form {
     padding-left: 10px;
@@ -180,10 +198,7 @@
   .form-p {
     left: 10px;
   }
-  .flex-item {
-    width: 300px;
-  }
   .result-btn {
-    width: 300px;
+    max-width: 400px;
   }
 }

@@ -38,7 +38,7 @@ en:
       form:
         childs_birthday_label: "Child's birthday"
         childs_age_label: "Child`s age"
-        childs_years_label: "y/o"
+        childs_years_label: "y/o."
         childs_months_label: "mth."
         baby_weight_label: "Baby weight"
         budgetary: "budgetary"
@@ -48,7 +48,7 @@ en:
       year_error_msg: "Error: pleace, select years"
       month_error_msg: "Error: pleace, select month"
       calculate_result_button: "Calculate"
-      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
+      want_recomentation_label: "Recommendations via email"
       bought_diapers: "diapers already used"
       will_buy_diapers: "diapers to be used in the future"
       money_spent: "UAH already spent on diapers"

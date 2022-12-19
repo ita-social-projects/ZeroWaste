@@ -17,7 +17,7 @@ uk:
       year_error_msg: "Помилка: будь ласка, виберіть скільки років дитині"
       month_error_msg: "Помилка: будь ласка, виберіть скільки місяців дитині"
       calculate_result_button: "Розрахувати"
-      want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
+      want_recomentation_label: "Листи з рекомендаціями"
       bought_diapers: "підгузок ви вже використали"
       money_spent: "грн ви вже витратили"
       will_buy_diapers: "підгузки які будуть використані"
