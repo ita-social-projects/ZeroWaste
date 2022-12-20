@@ -84,6 +84,7 @@ en:
       users: "Users"
       messages: "Messages"
       app_config: "App Config"
+      categories: 'Categories'
   messages:
     new:
       contact_us_header: "Contact us"
@@ -95,8 +96,8 @@ en:
       message_hint: "Your message (min 20 characters)"
       company_address: "Company address"
       about_us: "About us"
-  admins:
-    admins:
+  account:
+    account:
       edit:
         current_password_label: "Current password:"
         new_password_label: "New password:"
@@ -129,6 +130,17 @@ en:
           message_col: "Message"
           email_col: "Email"
           time_col: "Date"
+    categories:
+      index:
+        add_category_button: 'Add category'
+        confirm_delete: 'Delete category?'
+        cancel_button: 'Cancel'
+      edit:
+        update_button: 'Update'
+        cancel_button: 'Cancel'
+      new:
+        create_button: 'Create'
+        cancel_button: 'Cancel'
     users:
       index:
         main_header: "Dashboard"

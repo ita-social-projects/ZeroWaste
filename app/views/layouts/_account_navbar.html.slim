@@ -1,0 +1,21 @@
+nav class=["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "border-bottom", "border-success"]
+  .container-fluid
+    div class=["collapse", "navbar-collapse", "row", "justify-content-between", "m-0"]
+      = link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste'
+      div
+        ul class=["navbar-nav"]
+          li.nav-item.mx-3
+            = link_to t('.calculators'), account_calculators_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.histories'), account_histories_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.users'), account_users_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.messages'), account_messages_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.app_config'), edit_account_app_config_path, class: 'navbar-brand text-success h3'
+          li.nav-item.mx-3
+            = link_to t('.categories'), account_categories_path, class: 'navbar-brand text-success h3'
+      div.col-2
+
+    = link_to t(".#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm'
