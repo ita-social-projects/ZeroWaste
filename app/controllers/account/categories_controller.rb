@@ -25,6 +25,7 @@ class Account::CategoriesController < Account::BaseController
 
   def update
     @category = resource
+
     if @category.update(category_params)
       redirect_to account_categories_path, notice: t("notifications.category_updated")
     else
