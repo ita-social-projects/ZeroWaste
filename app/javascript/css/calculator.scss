@@ -34,7 +34,7 @@
 
 .calculator__cross__space {
   position: absolute;
-  top: 0;
+  top: 1%;
   right: 1%;
 }
 
@@ -49,8 +49,10 @@
 
 .flex-item {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
+  max-width: 275px;
+  margin-left: auto;
+  margin-right: auto;
 
   .input_lable {
     color: $dark_gray;
@@ -58,17 +60,20 @@
   }
 
   .form_fild {
+    min-height: 33px;
     font-weight: 400;
     margin-bottom: 24px;
-  }
-  .age_wrapper {
+    max-width: 275px;
     background-color: $light_gray;
+  }
 
-    select {
+  .age_wrapper {
+    align-items: center;
+    .age_select {
+      background-color: $light_gray;
       width: 20px;
       margin-left: 3px;
       text-align: center;
-      background-color: $light_gray;
       border: none;
       outline: none;
       color: $dark_gray;
@@ -76,26 +81,31 @@
       padding: 0rem;
     }
   }
-  select {
+  .price_select {
     text-align: center;
-    background-color: $light_gray;
     border: none;
     outline: none;
     color: $dark_gray;
-    appearance: none;
-    padding: 0rem;
+  }
+  .result-btn {
+    margin-bottom: 30px;
   }
 }
 
-.input_filds {
+.scales {
+  align-self: center;
+  width: 50%;
+  max-width: 428px;
+}
+.simple_form_element {
+  width: 40%;
   margin-top: 48px;
-  width: 90%;
-  max-width: 275px;
 }
 
 .check-label {
   margin-left: 15px;
   margin-bottom: 0;
+  width: 200px;
 }
 
 .form-input {
@@ -174,20 +184,9 @@
   }
 }
 
-@media screen and (max-width: $md) {
-  .scales {
-    width: 90%;
-    max-width: 400px;
-  }
-}
-
 @media screen and (max-width: $sm) {
   .logo-zerowaste img {
     width: 100%;
-  }
-  .input_filds {
-    width: 90%;
-    max-width: 400px;
   }
   .logo-zerowaste {
     width: 9em;
@@ -200,5 +199,23 @@
   }
   .result-btn {
     max-width: 400px;
+  }
+}
+
+@media screen and (max-width: $xs) {
+  .calculator_wrap {
+    background-color: $light_gray;
+  }
+  .form_fild,
+  .price_select,
+  .age_select {
+    background-color: $white !important;
+  }
+  .simple_form_element {
+    width: 100%;
+    margin-top: 24px;
+  }
+  .scales {
+    min-width: 300px;
   }
 }

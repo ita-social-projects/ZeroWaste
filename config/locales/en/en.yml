@@ -48,7 +48,7 @@ en:
       year_error_msg: "Error: pleace, select years"
       month_error_msg: "Error: pleace, select month"
       calculate_result_button: "Calculate"
-      want_recomentation_label: "Recommendations via email"
+      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
       bought_diapers: "diapers already used"
       will_buy_diapers: "diapers to be used in the future"
       money_spent: "UAH already spent on diapers"
