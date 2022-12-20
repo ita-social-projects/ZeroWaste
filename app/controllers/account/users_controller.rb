@@ -3,7 +3,7 @@
 class Account::UsersController < Account::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :render404
 
-  layout 'account'
+  layout "account"
 
   before_action :set_paper_trail_whodunnit
   before_action :user, except: [:index]
@@ -26,7 +26,7 @@ class Account::UsersController < Account::BaseController
     if user.update(user_params)
       redirect_to account_user_path(id: user)
     else
-      render 'edit'
+      render "edit"
     end
   end
 

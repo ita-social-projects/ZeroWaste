@@ -16,26 +16,26 @@ class Account::CalculatorsController < Account::BaseController
     @calculator = Calculator.new(calculator_params)
 
     if @calculator.save
-      redirect_to account_calculators_path, notice: t('notifications.calculator_created')
+      redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
-      render action: 'new'
+      render action: "new"
     end
   end
 
   def update
     if updater
-      redirect_to edit_account_calculator_path(slug: @calculator), notice: t('notifications.calculator_updated')
+      redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
     else
       collect_fields_for_form
 
-      render action: 'edit'
+      render action: "edit"
     end
   end
 
   def destroy
     @calculator.destroy!
 
-    redirect_to account_calculators_path, notice: t('notifications.calculator_deleted')
+    redirect_to account_calculators_path, notice: t("notifications.calculator_deleted")
   end
 
   private
