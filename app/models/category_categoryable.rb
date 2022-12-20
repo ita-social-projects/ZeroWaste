@@ -14,8 +14,12 @@
 # Indexes
 #
 #  index_category_categoryables_on_category_id   (category_id)
+#  rubocop:disable Layout/LineLength
+
 #  index_category_categoryables_on_categoryable  (categoryable_type,categoryable_id)
 #  unique_of_category_categoryables_index        (categoryable_type,categoryable_id,category_id) UNIQUE
+
+#  rubocop:enable Layout/LineLength
 #
 # Foreign Keys
 #
