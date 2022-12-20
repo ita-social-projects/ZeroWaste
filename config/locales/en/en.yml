@@ -405,6 +405,9 @@ en:
     calculator_updated: "Calculator has been successfully updated"
     calculator_deleted: "Calculator has been successfully deleted"
     message_sent: "Message has been sent"
+    category_created: "Category was successfully created."
+    category_updated: "Category was successfully updated."
+    category_deleted: "Category was successfully destroyed."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

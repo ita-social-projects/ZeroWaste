@@ -17,7 +17,7 @@ class Account::CategoriesController < Account::BaseController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to account_categories_path, notice: "Category was successfully created."
+      redirect_to account_categories_path, notice: t("notifications.category_created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class Account::CategoriesController < Account::BaseController
   def update
     @category = resource
     if @category.update(category_params)
-      redirect_to account_categories_path, notice: "Category was successfully updated."
+      redirect_to account_categories_path, notice: t("notifications.category_updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class Account::CategoriesController < Account::BaseController
     @category = resource
     @category.destroy
 
-    redirect_to account_categories_path, notice: "Category was successfully destroyed."
+    redirect_to account_categories_path, notice: t("notifications.category_deleted")
   end
 
   private

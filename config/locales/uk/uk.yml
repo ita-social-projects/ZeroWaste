@@ -354,6 +354,9 @@ uk:
     calculator_updated: "Калькулятор було успішно оновлено"
     calculator_deleted: "Калькулятор було успішно видалено"
     message_sent: "Повідомлення було надіслано"
+    category_created: "Категорію було успішно створено."
+    category_updated: "Категорію було успішно оновлено."
+    category_deleted: "Категорію було успішно видалено."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
