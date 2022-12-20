@@ -24,7 +24,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def update
     if updater
-      redirect_to edit_account_calculator_path(@calculator), notice: t('notifications.calculator_updated')
+      redirect_to edit_account_calculator_path(slug: @calculator), notice: t('notifications.calculator_updated')
     else
       collect_fields_for_form
 
