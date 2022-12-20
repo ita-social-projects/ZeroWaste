@@ -11,6 +11,7 @@
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
+    "@rails/request.js": "^0.0.8",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
     "@webpack-cli/serve": "^1.6",

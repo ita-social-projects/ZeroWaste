@@ -7,6 +7,7 @@ import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
+import "@rails/request.js";
 
 require("jquery");
 require("@nathanvda/cocoon");
@@ -18,6 +19,7 @@ require("@nathanvda/cocoon");
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
 import "../stylesheets/application";
+
 // import 'ajax/result_button';
 import "ajax/checkbox";
 import "plugins/flatpickr";
