@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'functions/items_per_month'
-require 'functions/since'
+require "functions/items_per_month"
+require "functions/since"
 
 class CalculationResolver
   attr_reader :calculator
@@ -15,8 +15,8 @@ class CalculationResolver
   def result(parameters, value)
     calculator.evaluate(
       value,
-      calculator.dependencies(value).each_with_object({}) do |key, hash|
-        hash[key.to_sym] = key
+      calculator.dependencies(value).index_by do |key|
+        key.to_sym
       end.merge(parameters)
     )
   end

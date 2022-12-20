@@ -17,11 +17,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'simplecov'
-SimpleCov.start 'rails'
+require "simplecov"
+SimpleCov.start "rails"
 
-if ENV['CI']
-  require 'codecov'
+if ENV["CI"]
+  require "codecov"
+
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
@@ -102,7 +103,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.strategy = :transaction
   end
 
@@ -110,15 +111,15 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.start
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
 
-  config.define_derived_metadata(:file_path => Regexp.new('/spec/functions/')) do |metadata|
+  config.define_derived_metadata(file_path: Regexp.new("/spec/functions/")) do |metadata|
     metadata[:type] = :function
   end
 end

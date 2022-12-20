@@ -24,12 +24,13 @@
 #  index_fields_on_calculator_id  (calculator_id)
 #  index_fields_on_uuid           (uuid) UNIQUE
 #
-require 'rails_helper'
-LOCAL_PREFIX_NAMED_VALUE = 'activerecord.errors.models.named_value.attributes'
+require "rails_helper"
+LOCAL_PREFIX_NAMED_VALUE = "activerecord.errors.models.named_value.attributes"
 
 RSpec.describe NamedValue, type: :model do
   subject(:named_value) { create(:named_value) }
-  describe 'validations' do
+
+  describe "validations" do
     it {
       is_expected.to validate_presence_of(:name).with_message(I18n
         .t("#{LOCAL_PREFIX_NAMED_VALUE}.name.too_short"))
@@ -40,21 +41,21 @@ RSpec.describe NamedValue, type: :model do
     }
     it {
       is_expected.to validate_numericality_of(:from)
-                       .only_integer
-                       .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.from.not_a_number"))
+        .only_integer
+        .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.from.not_a_number"))
     }
     it {
       is_expected.to validate_numericality_of(:to)
-                       .only_integer
-                       .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.to.not_an_integer"))
+        .only_integer
+        .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.to.not_an_integer"))
     }
     it {
       is_expected.to validate_presence_of(:from)
-                       .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.from.not_an_integer"))
+        .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.from.not_an_integer"))
     }
     it {
       is_expected.to validate_presence_of(:to)
-                       .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.to.not_an_integer"))
+        .with_message(I18n.t("#{LOCAL_PREFIX_NAMED_VALUE}.to.not_an_integer"))
     }
   end
 end

@@ -9,13 +9,12 @@
 #
 FactoryBot.define do
   factory :category do
-
     trait :budgetary do
-      name { 'budgetary'}
+      name { "budgetary" }
     end
 
     trait :medium do
-      name { 'medium'}
+      name { "medium" }
     end
   end
 end

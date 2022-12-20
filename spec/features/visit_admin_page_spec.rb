@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-describe 'visit Admin page', js: true do
-  before(:each) do
+describe "visit Admin page", js: true do
+  before do
     @user = create(:user)
     sign_in @user
   end
 
-  it 'visits manage calculators page' do
+  it "visits manage calculators page" do
     visit admins_calculators_path
-    expect(page).to have_content 'You are not authorized to access this page.'
+    expect(page).to have_content "You are not authorized to access this page."
   end
 
-  it 'visits manage histories page' do
+  it "visits manage histories page" do
     visit admins_histories_path
-    expect(page).to have_content 'You are not authorized to access this page.'
+    expect(page).to have_content "You are not authorized to access this page."
   end
 
-  it 'visits manage users page' do
+  it "visits manage users page" do
     visit admins_users_path
-    expect(page).to have_content 'You are not authorized to access this page.'
+    expect(page).to have_content "You are not authorized to access this page."
   end
 end
