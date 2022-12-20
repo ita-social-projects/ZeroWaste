@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
+import { FetchRequest } from "@rails/request.js";
 
 export default class extends Controller {
   static targets = ["month", "year", "productCategory", "token"];
@@ -60,19 +61,20 @@ export default class extends Controller {
       locale: this.localeValue,
     };
 
-    let request = new Request(this.urlValue, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const request = new FetchRequest("POST", this.urlValue, {
+      responseKind: "json",
       body: JSON.stringify(formData),
     });
 
-    fetch(request)
-      .then((response) => response.json())
-      .then((data) => {
-        this.resultsOutlet.showResults(data);
-      });
+    this.send_request(request);
+  }
+
+  async send_request(request) {
+    const response = await request.perform();
+    if (response.ok) {
+      const result = await response.json;
+      this.resultsOutlet.showResults(result);
+    }
   }
 
   valid(params) {
