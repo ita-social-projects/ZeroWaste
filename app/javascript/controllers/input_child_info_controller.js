@@ -8,16 +8,18 @@ export default class extends Controller {
       type: String,
       default: "en",
     },
+    url: {
+      type: String,
+      default: "/api/v1/diaper_calculators",
+    },
   };
 
   connect() {
     this.yearTarget[0].disabled = true;
     this.yearTarget[0].hidden = true;
-    this.yearTarget[0].selected = true;
 
     this.monthTarget[0].disabled = true;
     this.monthTarget[0].hidden = true;
-    this.monthTarget[0].selected = true;
   }
 
   yearChanged(e) {
@@ -58,7 +60,7 @@ export default class extends Controller {
       locale: this.localeValue,
     };
 
-    let request = new Request(`/api/v1/diaper_calculators`, {
+    let request = new Request(this.urlValue, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

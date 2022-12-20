@@ -7,6 +7,7 @@
                                                 class: "simple_form_element",
                                                 data:{controller: "input-child-info",
                                                       input_child_info_locale_value: I18n.locale,
+                                                      input_child_info_url_value:"/api/v1/diaper_calculators",
                                                       input_child_info_results_outlet: '.result'}}) do |form|
         = form.input_field :authenticity_token, as: :hidden, value: form_authenticity_token, data: {input_child_info_target: 'token'}
         .flex-item.flex-column
