@@ -11,6 +11,6 @@ html
   body.wrapper
   div.filter_block
     = render 'layouts/flash_messages'
-    = render 'layouts/navigation'
+    = render 'account/shared/navigation'
     = yield
     = any_login_here if defined?(AnyLogin)
