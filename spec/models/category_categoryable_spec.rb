@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 # == Schema Information
 #
 # Table name: category_categoryables
@@ -22,7 +21,7 @@
 #
 #  fk_rails_...  (category_id => categories.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe CategoryCategoryable, type: :model do
   describe "validations" do

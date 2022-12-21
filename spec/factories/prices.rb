@@ -17,7 +17,6 @@
 #
 FactoryBot.define do
   factory :price do
-
     trait :budgetary_price do
       association :category, :budgetary
       sum { 42 }
