@@ -2,7 +2,7 @@
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
   def diaper_calc_communicator
-    result          = Calculators::DiapersService.new(params[:childs_age].to_i).calculate!
+    result          = Calculators::DiapersService.new(params[:childs_age]).calculate!
     diapers_be_used = t("calculators.calculator.diaper").pluralize(
       count: result.to_be_used_diapers_amount,
       locale: I18n.locale
