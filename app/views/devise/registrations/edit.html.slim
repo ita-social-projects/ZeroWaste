@@ -4,15 +4,15 @@
       .card.text-center
         .card-block
           h2
-            =t('admins.users.edit.table.edit_user_info')
+            =t('account.users.edit.table.edit_user_info')
           = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
             = f.input :email, placeholder: 'user@domain.com', autofocus: true, autocomplete: "email"
-            = f.input :first_name, placeholder: t('admins.users.edit.form.name_label'), autofocus: true, autocomplete: "first name"
-            = f.input :last_name, placeholder: t('admins.users.edit.form.surname_label'), autofocus: true, autocomplete: "last name"
+            = f.input :first_name, placeholder: t('account.users.edit.form.name_label'), autofocus: true, autocomplete: "first name"
+            = f.input :last_name, placeholder: t('account.users.edit.form.surname_label'), autofocus: true, autocomplete: "last name"
             = f.label :country, class: 'm-3'
             = f.country_select :country, class: 'form-control form-control-lg'
             = f.input :current_password, autocomplete: "current-password", label: t('.current_password_label')
-            = f.input :password, autocomplete: "new-password", hint: t('admins.users.edit.form.password_hint'), required: false
+            = f.input :password, autocomplete: "new-password", hint: t('account.users.edit.form.password_hint'), required: false
             = f.input :password_confirmation, autocomplete: "new-password", label: t('.confirm_password_label'), required: false
             = f.submit t('.update_user_button'), class: "btn btn-primary"
 
