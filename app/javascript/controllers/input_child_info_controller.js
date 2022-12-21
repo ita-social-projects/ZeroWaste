@@ -60,10 +60,10 @@ export default class extends Controller {
       body: JSON.stringify(formData),
     });
 
-    this.send_request(request);
+    this.sendRequest(request);
   }
 
-  async send_request(request) {
+  async sendRequest(request) {
     const response = await request.perform();
     if (response.ok) {
       const result = await response.json;
