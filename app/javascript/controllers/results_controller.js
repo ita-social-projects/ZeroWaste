@@ -18,10 +18,8 @@ export default class extends Controller {
     this.diapersToBeUsedTarget.innerHTML = result.to_be_used_diapers_amount;
 
     if (this.hasLocalUkUsedDiapersAmountTarget) {
-      this.localUkToBeUsedDiapersAmountTarget.innerHTML =
-        data.word_form_to_be_used + " ви ще використаєте";
-      this.localUkUsedDiapersAmountTarget.innerHTML =
-        data.word_form_used + " ви вже використали";
+      this.localUkToBeUsedDiapersAmountTarget.innerHTML = `${data.word_form_to_be_used} ви ще використаєте`;
+      this.localUkUsedDiapersAmountTarget.innerHTML = `${data.word_form_used} ви вже використали`;
     }
   }
 }
