@@ -24,12 +24,7 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
-    let amount_options;
-    if (e.target.value == 2) {
-      amount_options = 5;
-    } else {
-      amount_options = 11;
-    }
+    let amount_options =  e.target.value == 2 ? 5 : 11;
 
     let previous_month_value = this.monthTarget.value;
 
