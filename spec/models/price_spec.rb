@@ -55,14 +55,14 @@ RSpec.describe Price, type: :model do
       include_examples "compare categories"
     end
 
-    # skip "is skipped" do
-    #   context "when a resource model can have the same prices as a product model" do
-    #     it "returns valid product" do
-    #       expect(product_napkin).to be_valid
-    #       expect(resource).to be_valid
-    #     end
-    #   end
-    # end
+    skip "skipped because resource isnt alredy created" do
+      context "when a resource model can have the same prices as a product model" do
+        it "returns valid product" do
+          expect(product_napkin).to be_valid
+          expect(resource).to be_valid
+        end
+      end
+    end
 
     context "when a product(diaper) cannot have two identical prices" do
       it "returns invalid product" do
