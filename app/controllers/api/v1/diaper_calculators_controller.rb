@@ -12,10 +12,10 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
       count: result.used_diapers_amount,
       locale: I18n.locale
     )
-    values          = {
-      money_spent: result.used_diapers_price ,
-      money_will_be_spent: result.to_be_used_diapers_price ,
-      used_diapers_amount: result.used_diapers_amount ,
+    values       = {
+      money_spent: result.used_diapers_price,
+      money_will_be_spent: result.to_be_used_diapers_price,
+      used_diapers_amount: result.used_diapers_amount,
       to_be_used_diapers_amount: result.to_be_used_diapers_amount
     }
     render(

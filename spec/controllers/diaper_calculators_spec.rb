@@ -51,7 +51,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     context "when get awaited values" do
       include_context :app_config_load
 
-      it 'got the expected result' do
+      it "got the expected result" do
         post :calculate, params: { childs_age: 12 }
 
         expect(response.body).to eq(expected_result.to_json)
