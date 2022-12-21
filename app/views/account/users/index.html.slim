@@ -1,9 +1,9 @@
 div class="container home"
-  div class="row"
-    div class="col"
+  div.row
+    div.col
       h1 = t '.main_header'
       h3 = link_to fa_icon('download'), account_users_path(format: "csv")
-      table class="table"
+      table.table
         thead
           tr
             td = t '.table.email_col'
