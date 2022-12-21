@@ -11,6 +11,7 @@
   letter-spacing: 2px;
   text-align: center;
   font-weight: 400;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   transition: transform 0.5s linear;
   max-width: 300px;
@@ -139,9 +140,11 @@
   padding: 0;
   margin: 0;
 }
+
 .logo-zerowaste {
   width: 11em;
 }
+
 .logo-zerowaste img {
   width: 100%;
   border-radius: 5px;

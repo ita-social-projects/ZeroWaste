@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
-  include LanguageHelpers::UkrLanguage
-
   def diaper_calc_communicator
     result          = Calculators::DiapersService.new(params[:childs_age].to_i).calculate!
-    diapers_be_used = correct_word_form(result.to_be_used_diapers_amount)
-    diapers_used    = correct_word_form(result.used_diapers_amount)
+    diapers_be_used = t("calculators.calculator.diaper").pluralize(
+      count: result.to_be_used_diapers_amount,
+      locale: I18n.locale
+    )
+
+    diapers_used = t("calculators.calculator.diaper").pluralize(
+      count: result.used_diapers_amount,
+      locale: I18n.locale
+    )
     values          = {
       money_spent: result.used_diapers_price || 0,
       money_will_be_spent: result.to_be_used_diapers_price || 0,
