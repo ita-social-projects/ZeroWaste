@@ -11,7 +11,7 @@ export default class extends Controller {
     },
     url: {
       type: String,
-      default: "/api/v1/diaper_calculators",
+      default: "en/api/v1/diaper_calculators",
     },
   };
 
