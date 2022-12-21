@@ -51,7 +51,7 @@ Rails.application.routes.draw do
           post :compute, on: :member
         end
         post "/diaper_calculators",
-             to: "diaper_calculators#diaper_calc_communicator"
+             to: "diaper_calculators#calculate"
       end
       namespace :v2 do
         resources :calculators, only: [] do

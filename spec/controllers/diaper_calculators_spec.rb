@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::DiaperCalculatorsController do
-  describe "#diaper_calc_communicator" do
+  describe "#calculate" do
     let(:values) do
       {
         money_spent: 0,
@@ -21,7 +21,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
 
     context "when default values" do
       before do
-        get :diaper_calc_communicator
+        get :calculate
       end
 
       it "renders expected result" do
@@ -30,7 +30,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     end
   end
 
-  describe "sending params to diaper_calc_communicator" do
+  describe "sending params to calculate" do
     let(:values) do
       {
         money_spent: 12_718.5,
@@ -52,7 +52,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       include_context :app_config_load
 
       it 'got the expected result' do
-        post :diaper_calc_communicator, params: { childs_age: 12 }
+        post :calculate, params: { childs_age: 12 }
 
         expect(response.body).to eq(expected_result.to_json)
         expect(response).to be_successful
@@ -73,7 +73,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
 
       it "got the unexpected result" do
         expected_result[:result] = invalid_values
-        post :diaper_calc_communicator, params: { childs_age: 12 }
+        post :calculate, params: { childs_age: 12 }
 
         expect(response.body).not_to eq(expected_result.to_json)
         expect(response).to be_successful

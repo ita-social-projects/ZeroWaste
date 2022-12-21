@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
-  def diaper_calc_communicator
+  def calculate
     result          = Calculators::DiapersService.new(params[:childs_age]).calculate!
     diapers_be_used = t("calculators.calculator.diaper").pluralize(
       count: result.to_be_used_diapers_amount,
