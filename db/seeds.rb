@@ -43,5 +43,5 @@ FeatureFlag.create!(
 
 FeatureFlag.create!(
   name: "show_admin_menu",
-  enabled: false
+  enabled: true
 )

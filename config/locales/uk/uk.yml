@@ -58,6 +58,7 @@ uk:
       users: "Користувачі"
       messages: "Повідомлення"
       app_config: "Налаштування"
+      site_settings: "Налаштування сайту"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"

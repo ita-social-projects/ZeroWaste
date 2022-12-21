@@ -2,7 +2,8 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title ZeroWaste
+    title = SiteSetting.get_active_title
+    link rel="icon" href=url_for(SiteSetting.get_active_favicon)
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag

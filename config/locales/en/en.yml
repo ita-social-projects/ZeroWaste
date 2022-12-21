@@ -84,6 +84,7 @@ en:
       users: "Users"
       messages: "Messages"
       app_config: "App Config"
+      site_settings: "Site Settings"
   messages:
     new:
       contact_us_header: "Contact us"

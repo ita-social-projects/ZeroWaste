@@ -1,0 +1,15 @@
+= form_for(@site_setting, url: admins_site_settings_path) do |f|
+  div.field
+    = f.label :title
+    br
+    = f.text_field :title
+  div.field
+    = f.label :favicon
+    br
+    = f.file_field :favicon
+  div.field
+    = f.label :enabled
+    br
+    = f.check_box :enabled
+  div.actions
+    = f.submit
