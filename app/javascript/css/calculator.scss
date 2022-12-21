@@ -100,7 +100,7 @@
 }
 .simple_form_element {
   width: 40%;
-  margin-top: 48px;
+  margin-top: 30px;
 }
 
 .check-label {
@@ -206,14 +206,6 @@
 }
 
 @media screen and (max-width: $xs) {
-  .calculator_wrap {
-    background-color: $light_gray;
-  }
-  .form_fild,
-  .price_select,
-  .age_select {
-    background-color: $white !important;
-  }
   .simple_form_element {
     width: 100%;
     margin-top: 24px;
