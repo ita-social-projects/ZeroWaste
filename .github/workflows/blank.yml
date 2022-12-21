@@ -18,7 +18,7 @@ jobs:
       postgres:
         image: postgres:10.8
         env:
-          POSTGRES_USER: user
+          POSTGRES_USER: test
           POSTGRES_PASSWORD: password
           POSTGRES_DB: zero_waste_test
         ports:
