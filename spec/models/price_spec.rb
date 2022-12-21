@@ -20,11 +20,7 @@
 require "rails_helper"
 
 RSpec.describe Price, type: :model do
-  describe "validations of attributes" do
-    it { is_expected.to validate_presence_of(:sum) }
-  end
-
-  describe "validations of unique index" do
+  describe "validations" do
     let(:budgetary_price) { build(:price, :budgetary_price) }
     let(:medium_price) { build(:price, :medium_price) }
     let(:product_diaper) do
@@ -34,6 +30,10 @@ RSpec.describe Price, type: :model do
       create(:product, :napkin, prices: [budgetary_price, medium_price])
     end
     # let(:resource) { create(:resource) }
+
+    context "when a sum of price will presence" do
+      it { is_expected.to validate_presence_of(:sum) }
+    end
 
     context "when a product(diaper) has one price" do
       it "returns valid product" do
@@ -55,14 +55,14 @@ RSpec.describe Price, type: :model do
       include_examples "compare categories"
     end
 
-    skip "is skipped" do
-      context "when a resource model can have the same prices as a product model" do
-        it "returns valid product" do
-          expect(product_napkin).to be_valid
-          expect(resource).to be_valid
-        end
-      end
-    end
+    # skip "is skipped" do
+    #   context "when a resource model can have the same prices as a product model" do
+    #     it "returns valid product" do
+    #       expect(product_napkin).to be_valid
+    #       expect(resource).to be_valid
+    #     end
+    #   end
+    # end
 
     context "when a product(diaper) cannot have two identical prices" do
       it "returns invalid product" do
