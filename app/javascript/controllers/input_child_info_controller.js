@@ -2,13 +2,9 @@ import { Controller } from "@hotwired/stimulus";
 import { FetchRequest } from "@rails/request.js";
 
 export default class extends Controller {
-  static targets = ["month", "year", "productCategory", "token"];
+  static targets = ["month", "year", "productCategory"];
   static outlets = ["results"];
   static values = {
-    locale: {
-      type: String,
-      default: "en",
-    },
     url: {
       type: String,
       default: "en/api/v1/diaper_calculators",
@@ -57,8 +53,6 @@ export default class extends Controller {
     let formData = {
       childs_age: years * 12 + months,
       price_id: this.productCategoryTarget.selectedIndex,
-      authenticity_token: this.tokenTarget.value,
-      locale: this.localeValue,
     };
 
     const request = new FetchRequest("POST", this.urlValue, {
