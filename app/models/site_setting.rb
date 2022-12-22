@@ -8,7 +8,7 @@ class SiteSetting < ApplicationRecord
   before_destroy :restrict_enabled_destroy, if: -> { enabled }
 
   def disable_all_except_current
-    SiteSetting.where.not(id: id).each { |s| s.update(enabled: false) }
+    SiteSetting.where.not(id: id).find_each { |s| s.update(enabled: false) }
   end
 
   def restrict_enabled_destroy
