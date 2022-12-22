@@ -65,7 +65,7 @@ RSpec.describe Price, type: :model do
     end
 
     context "with two identical prices and the same category a product(diaper)" do
-      it "returns invalid product" do
+      it "is invalid" do
         product_diaper.prices.build(budgetary_price.attributes)
 
         expect(product_diaper).not_to be_valid
