@@ -9,7 +9,7 @@ class SiteSetting < ApplicationRecord
   after_save :enable_last, if: -> { !enabled && SiteSetting.get_enabled.nil? }
 
   def disable_all_except_current
-    SiteSetting.where.not(id: id).update_all(enabled: false)
+    SiteSetting.where.not(id: id).find_each { |s| s.update(enabled: false) }
   end
 
   def enable_last
