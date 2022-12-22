@@ -2,22 +2,14 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-
-    - site_setting = SiteSetting.get_enabled
-    - if !site_setting.nil?
-      title = site_setting.title
-      link rel="icon" href=url_for(site_setting.favicon)
-    - else
-      title ZeroWaste
-
+    title ZeroWaste
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body.wrapper
-  div.filter_block
+  body.admin
     = render 'layouts/flash_messages'
-    = render 'account/shared/navigation'
-    = yield
-    = any_login_here if defined?(AnyLogin)
+    = render 'layouts/account_navbar'
+    .container.admin-container
+      = yield

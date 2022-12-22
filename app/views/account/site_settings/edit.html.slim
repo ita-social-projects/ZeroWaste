@@ -1,0 +1,11 @@
+few
+  = simple_form_for @site_setting, url: { action: 'update' }, html: { novalidate: false } do |f|
+    .form-group.row
+      .col-12.has-float-label.my-auto
+        = f.input :title, class: 'form-control', required: true
+        = f.input :favicon, class: 'form-control', required: true
+        = f.input :enabled, class: 'form-control'
+    = f.submit "", value: t('.update_button'), class: 'btn btn-success mr-2'
+    = link_to account_site_settings_path, class: 'btn btn-danger' do
+      span.mr-1 =t('.cancel_button')
+      i.fa.fa-times-circle

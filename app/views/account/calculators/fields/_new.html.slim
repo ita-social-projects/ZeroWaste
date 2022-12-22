@@ -1,0 +1,3 @@
+= simple_form_for calculator do |f|
+  = f.fields_for :fields, child_index: -> { Time.zone.now.to_i } do |ff|
+    = render 'account/calculators/fields/form', f: ff

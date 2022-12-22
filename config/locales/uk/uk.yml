@@ -2,6 +2,7 @@ uk:
   en: English
   calculators:
     calculator:
+      diaper: "підгузок"
       form_description: "Скільки виповнилося дитині:"
       form_price: "Цінова категорія"
       form:
@@ -70,8 +71,8 @@ uk:
       message_hint: "Напишіть ваше повідомлення тут (мінімум 20 символів)"
       company_address: "Адреса компанії"
       about_us: "Про нас"
-  admins:
-    admins:
+  account:
+    account:
       edit:
         current_password_label: "Поточний пароль:"
         new_password_label: "Новий пароль:"
@@ -104,6 +105,19 @@ uk:
           message_col: "Повідомлення"
           email_col: "Електронна пошта"
           time_col: "Дата"
+    categories:
+      index:
+        table:
+          title: 'Назва'
+          actions: 'Дії'
+        add_category_button: 'Додати категорію'
+        confirm_delete: 'Видалити категорію?'
+      edit:
+        update_button: 'Оновити'
+        cancel_button: 'Скасувати'
+      new:
+        create_button: 'Create'
+        cancel_button: 'Скасувати'
     site_settings:
       index:
         table:
@@ -359,6 +373,9 @@ uk:
     calculator_updated: "Калькулятор було успішно оновлено"
     calculator_deleted: "Калькулятор було успішно видалено"
     message_sent: "Повідомлення було надіслано"
+    category_created: "Категорію було успішно створено."
+    category_updated: "Категорію було успішно оновлено."
+    category_deleted: "Категорію було успішно видалено."
     site_setting_created: "Налаштування було успішно створено"
     site_setting_updated: "Налаштування було успішно оновлено"
     site_setting_deleted: "Налаштування було успішно видалено"

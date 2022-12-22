@@ -1,0 +1,30 @@
+.container
+  = form_tag account_site_setting_path(id: @site_settings), method: :get, class: 'd-flex justify-content-end mb-5' do
+    .d-flex
+    = link_to new_account_site_setting_path, class: 'btn btn-success px-4 ml-1' do
+      i.fa.fa-plus.mr-2
+      span =t('.add_site_setting_button')
+
+div class="container home"
+  table.table
+    thead
+      tr
+        th scope="col"  #
+        th scope="col"  =t('.table.browser_bar')
+        th scope="col"  =t('.table.browser_bar')
+        th scope="col"  =t('.table.actions')
+        th scope="col"  =t('.table.enabled')
+
+    tbody
+      - @site_settings.each do |site_setting|
+        tr
+          th scope="row"  = site_setting.id
+          td = site_setting.title
+          td = image_tag(site_setting.favicon_with_proper_size)
+          td.actions
+            = link_to edit_account_site_setting_path(id: site_setting) do
+              i.fa.fa-pen.mx-2
+            = link_to account_site_setting_path(id: site_setting), method: :delete,
+                    data: { confirm: t('.confirm_delete') } do
+              i.fa.fa-trash.mx-2
+          td = site_setting.enabled ? t('.enabled_yes') : t('.enabled_no')
