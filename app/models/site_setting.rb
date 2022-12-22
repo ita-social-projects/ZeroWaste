@@ -6,14 +6,9 @@ class SiteSetting < ApplicationRecord
 
   before_save :disable_all_except_current, if: -> { enabled }
   before_destroy :restrict_enabled_destroy, if: -> { enabled }
-  after_save :enable_last, if: -> { !enabled && SiteSetting.get_enabled.nil? }
 
   def disable_all_except_current
-    SiteSetting.where.not(id: id).find_each { |s| s.update(enabled: false) }
-  end
-
-  def enable_last
-    SiteSetting.last.update(enabled: true)
+    SiteSetting.where.not(id: id).each { |s| s.update(enabled: false) }
   end
 
   def restrict_enabled_destroy

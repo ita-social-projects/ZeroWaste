@@ -10,8 +10,8 @@ div class="container home"
     thead
       tr
         th scope="col"  #
-        th scope="col"  =t('.table.browser_bar')
-        th scope="col"  =t('.table.browser_bar')
+        th scope="col"  =t('.table.title')
+        th scope="col"  =t('.table.favicon')
         th scope="col"  =t('.table.actions')
         th scope="col"  =t('.table.enabled')
 
@@ -27,4 +27,8 @@ div class="container home"
             = link_to account_site_setting_path(id: site_setting), method: :delete,
                     data: { confirm: t('.confirm_delete') } do
               i.fa.fa-trash.mx-2
-          td = site_setting.enabled ? t('.enabled_yes') : t('.enabled_no')
+          - if site_setting.enabled
+            td = t('.enabled_yes')
+          - else
+            td
+              = button_to 'Enable', account_site_setting_path(id: site_setting), method: :put, params: { site_setting: { enabled: true } }

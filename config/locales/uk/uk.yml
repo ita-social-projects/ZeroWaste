@@ -53,13 +53,14 @@ uk:
       description: "Цей калькулятор дозволяє порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
       calculate: "Почати"
       visit_website: "Наш сайт"
-    admin_navbar:
+    account_navbar:
       calculators: "Калькулятори"
       histories: "Історія"
       users: "Користувачі"
       messages: "Повідомлення"
       app_config: "Налаштування"
       site_settings: "Налаштування сайту"
+      categories: "Категорії"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -121,7 +122,8 @@ uk:
     site_settings:
       index:
         table:
-          browser_bar: 'Браузерна вкладка'
+          title: 'Заголовок'
+          favicon: 'Зображення'
           actions: 'Дії'
           enabled: 'Активовано?'
         enabled_yes: 'Так'

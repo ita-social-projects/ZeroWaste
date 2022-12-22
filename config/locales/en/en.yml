@@ -79,7 +79,7 @@ en:
       description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
       calculate: "Let's go"
       visit_website: "Visit WebSite"
-    admin_navbar:
+    account_navbar:
       calculators: "Calculators"
       histories: "History"
       users: "Users"
@@ -146,7 +146,8 @@ en:
     site_settings:
       index:
         table:
-          browser_bar: 'Browser bar'
+          title: 'Title'
+          favicon: 'Favicon'
           actions: 'Actions'
           enabled: 'Enabled?'
         enabled_yes: 'Yes'
