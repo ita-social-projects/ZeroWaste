@@ -8,7 +8,7 @@ RSpec.describe Account::AppConfigsController do
     @admin = create(:user, :admin)
   end
 
-  context 'inherited' do
+  context "inherited" do
     it { expect(described_class).to be < Account::BaseController }
   end
 
