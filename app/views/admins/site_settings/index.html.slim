@@ -1,25 +1,21 @@
-/ = link_to 'new', new_admins_site_setting_path
-
-/ - @site_settings.each do |site_setting|
-/   p
-/     = site_setting.title
-/     = image_tag(site_setting.favicon)
+= flash_messages
 
 .container
   = form_tag admins_site_setting_path(id: @site_settings), method: :get, class: 'd-flex justify-content-end mb-5' do
     .d-flex
     = link_to new_admins_site_setting_path, class: 'btn btn-success px-4 ml-1' do
       i.fa.fa-plus.mr-2
-      span =t('.add_category_button')
+      span =t('.add_site_setting_button')
 
 div class="container home"
   table.table
     thead
       tr
         th scope="col"  #
-        th scope="col"  =t('.table.title')
-        th scope="col"  =t('.table.title')
+        th scope="col"  =t('.table.browser_bar')
+        th scope="col"  =t('.table.browser_bar')
         th scope="col"  =t('.table.actions')
+        th scope="col"  =t('.table.enabled')
 
     tbody
       - @site_settings.each do |site_setting|
@@ -33,3 +29,4 @@ div class="container home"
             = link_to admins_site_setting_path(id: site_setting), method: :delete,
                     data: { confirm: t('.confirm_delete') } do
               i.fa.fa-trash.mx-2
+          td = site_setting.enabled ? t('.enabled_yes') : t('.enabled_no')

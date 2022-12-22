@@ -2,12 +2,11 @@ class SiteSetting < ApplicationRecord
   has_one_attached :favicon, dependent: :destroy
 
   validates :title, presence: true
+  validates :favicon, presence: true
 
-  before_save :disable_all_except_current, if: ->() { enabled }
-  after_save :enable_last, if: ->() { !enabled && SiteSetting.get_active.nil? }
-
-  before_destroy :restrict_enabled_destroy, if: ->() { enabled }
-
+  before_save :disable_all_except_current, if: -> { enabled }
+  before_destroy :restrict_enabled_destroy, if: -> { enabled }
+  after_save :enable_last, if: -> { !enabled && SiteSetting.get_enabled.nil? }
 
   def disable_all_except_current
     SiteSetting.where.not(id: id).update_all(enabled: false)
@@ -18,22 +17,18 @@ class SiteSetting < ApplicationRecord
   end
 
   def restrict_enabled_destroy
-    raise ActiveRecord::RecordNotDestroyed, 'Enabled record cannot be destroyed'
+    raise ActiveRecord::RecordNotDestroyed, "Enabled record cannot be destroyed"
   end
 
   def favicon_with_proper_size
     favicon.variant(resize_to_limit: [100, 100]).processed
   end
 
-  def self.get_active
+  def self.get_enabled
     find_by(enabled: true)
   end
 
-  def self.get_active_favicon
-    get_active.favicon
-  end
-
-  def self.get_active_title
-    get_active.title
+  def enable
+    update(enabled: true)
   end
 end

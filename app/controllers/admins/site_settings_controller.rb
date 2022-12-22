@@ -17,7 +17,7 @@ class Admins::SiteSettingsController < Admins::BaseController
     @site_setting = SiteSetting.new(site_setting_params)
 
     if @site_setting.save
-      redirect_to admins_site_settings_path, notice: t("notifications.category_created")
+      redirect_to admins_site_settings_path, notice: t("notifications.site_setting_created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admins::SiteSettingsController < Admins::BaseController
     @site_setting = resource
 
     if @site_setting.update(site_setting_params)
-      redirect_to admins_site_settings_path, notice: t("notifications.category_updated")
+      redirect_to admins_site_settings_path, notice: t("notifications.site_setting_updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,9 +36,7 @@ class Admins::SiteSettingsController < Admins::BaseController
   def destroy
     @site_setting = resource
     if @site_setting.destroy
-      redirect_to admins_site_settings_path, notice: t("notifications.category_deleted")
-    else
-      flash.now[:status] = :unprocessable_entity
+      redirect_to admins_site_settings_path, notice: t("notifications.site_setting_deleted")
     end
   end
 

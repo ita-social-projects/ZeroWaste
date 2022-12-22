@@ -130,6 +130,23 @@ en:
           message_col: "Message"
           email_col: "Email"
           time_col: "Date"
+    site_settings:
+      index:
+        table:
+          browser_bar: 'Browser bar'
+          actions: 'Actions'
+          enabled: 'Enabled?'
+        enabled_yes: 'Yes'
+        enabled_no: 'No'
+        add_site_setting_button: 'Add new setting'
+        confirm_delete: 'Delete setting?'
+        cancel_button: 'Cancel'
+      edit:
+        update_button: 'Update'
+        cancel_button: 'Cancel'
+      new:
+        create_button: 'Create'
+        cancel_button: 'Cancel'
     users:
       index:
         main_header: "Dashboard"
@@ -394,6 +411,9 @@ en:
     calculator_updated: "Calculator has been successfully updated"
     calculator_deleted: "Calculator has been successfully deleted"
     message_sent: "Message has been sent"
+    site_setting_created: "Setting was successfully created"
+    site_setting_updated: "Setting was successfully updated"
+    site_setting_deleted: "Setting was successfully destroyed"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

@@ -1,15 +1,11 @@
-= form_for(@site_setting, url: admins_site_settings_path) do |f|
-  div.field
-    = f.label :title
-    br
-    = f.text_field :title
-  div.field
-    = f.label :favicon
-    br
-    = f.file_field :favicon
-  div.field
-    = f.label :enabled
-    br
-    = f.check_box :enabled
-  div.actions
-    = f.submit
+few
+  = simple_form_for @site_setting, url: { action: 'create' }, html: { novalidate: false } do |f|
+    .form-group.row
+      .col-12.has-float-label.my-auto
+        = f.input :title, class: 'form-control', required: true
+        = f.input :favicon, class: 'form-control', required: true
+        = f.input :enabled, class: 'form-control'
+    = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2'
+    = link_to admins_site_settings_path, class: 'btn btn-danger' do
+      span.mr-1 =t('.cancel_button')
+      i.fa.fa-times-circle

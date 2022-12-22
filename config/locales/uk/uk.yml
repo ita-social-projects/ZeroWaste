@@ -104,6 +104,23 @@ uk:
           message_col: "Повідомлення"
           email_col: "Електронна пошта"
           time_col: "Дата"
+    site_settings:
+      index:
+        table:
+          browser_bar: 'Браузерна вкладка'
+          actions: 'Дії'
+          enabled: 'Активовано?'
+        enabled_yes: 'Так'
+        enabled_no: 'Ні'
+        add_site_setting_button: 'Додати налаштування'
+        confirm_delete: 'Видалити налаштування?'
+        cancel_button: 'Скасувати'
+      edit:
+        update_button: 'Оновити'
+        cancel_button: 'Скасувати'
+      new:
+        create_button: 'Створити'
+        cancel_button: 'Скасувати'
     users:
       index:
         main_header: "Адмінпанель"
@@ -342,6 +359,9 @@ uk:
     calculator_updated: "Калькулятор було успішно оновлено"
     calculator_deleted: "Калькулятор було успішно видалено"
     message_sent: "Повідомлення було надіслано"
+    site_setting_created: "Налаштування було успішно створено"
+    site_setting_updated: "Налаштування було успішно оновлено"
+    site_setting_deleted: "Налаштування було успішно видалено"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
