@@ -24,7 +24,7 @@ import 'plugins/flatpickr';
 import "@fortawesome/fontawesome-free/css/all"
 
 import "../js/calculators/edit"
-
+import "../js/account/read_url"
 import "../ajax/calculate_result_button"
 
 const images = require.context('../images', true)
@@ -32,8 +32,6 @@ const images = require.context('../images', true)
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-
-import "../js/account/read_url"
 
 // document.addEventListener('turbolinks:load', () => {
 //   $('[data-toggle="tooltip"]').tooltip();
