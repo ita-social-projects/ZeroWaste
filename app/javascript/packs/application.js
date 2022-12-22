@@ -26,7 +26,6 @@ import "plugins/flatpickr";
 import "@fortawesome/fontawesome-free/css/all";
 
 import "../js/calculators/edit";
-import "../ajax/calculate_result_button";
 import "../controllers/stimulus_application";
 
 const images = require.context("../images", true);
