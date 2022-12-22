@@ -55,7 +55,7 @@ RSpec.describe Price, type: :model do
       include_examples "compare categories"
     end
 
-    skip "skipped because resource isnt alredy created" do
+    skip "are skipped because resource isn't alredy created" do
       context "when a resource model can have the same prices as a product model" do
         it "returns valid product" do
           expect(product_napkin).to be_valid
@@ -64,7 +64,7 @@ RSpec.describe Price, type: :model do
       end
     end
 
-    context "when a product(diaper) cannot have two identical prices" do
+    context "with two identical prices and the same category a product(diaper)" do
       it "returns invalid product" do
         product_diaper.prices.build(budgetary_price.attributes)
 
