@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Account::Calculators::FieldsController < ApplicationController
+class Account::Calculators::FieldsController < Account::BaseController
   before_action :calculator, only: :new
 
   def new
