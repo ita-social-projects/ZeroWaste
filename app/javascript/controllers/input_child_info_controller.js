@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
-    let amount_options =  e.target.value == 2 ? 5 : 11;
+    let amount_options = e.target.value == 2 ? 5 : 11;
 
     let previous_month_value = this.monthTarget.value;
 
@@ -40,13 +40,9 @@ export default class extends Controller {
   submit(e) {
     e.preventDefault();
 
-    if (!this.valid(e.params)) return;
-
-    let years = parseInt(this.yearTarget.value);
-    let months = parseInt(this.monthTarget.value);
-
     let formData = {
-      childs_age: years * 12 + months,
+      childs_years: parseInt(this.yearTarget.value),
+      childs_months: parseInt(this.monthTarget.value),
       price_id: this.productCategoryTarget.selectedIndex,
     };
 
@@ -60,29 +56,14 @@ export default class extends Controller {
 
   async sendRequest(request) {
     const response = await request.perform();
+    const result = await response.json;
     if (response.ok) {
-      const result = await response.json;
       this.resultsOutlet.showResults(result);
+    } else if (response.statusCode == 422) {
+      result.errors.forEach((error) => {
+        toastr.error(error);
+      });
     }
-  }
-
-  valid(params) {
-    if (this.yearTarget.value == "" && this.monthTarget.value == "") {
-      toastr.error(params.yearAndMonthErrorMsg);
-      return false;
-    }
-
-    if (this.yearTarget.value == "") {
-      toastr.error(params.yearErrorMsg);
-      return false;
-    }
-
-    if (this.monthTarget.value == "") {
-      toastr.error(params.monthErrorMsg);
-      return false;
-    }
-
-    return true;
   }
 
   getNillOption(previous_month_value) {
