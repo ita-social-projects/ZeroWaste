@@ -3,11 +3,7 @@ function readURL(input) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      $('#img_prev')
-        .attr('src', e.target.result)
-        .width(200)
-        .height(200)
-        .removeClass('d-none');
+      $('.tab-icon').attr('src', e.target.result)
     };
 
     reader.readAsDataURL(input.target.files[0]);

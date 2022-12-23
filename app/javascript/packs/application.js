@@ -25,6 +25,7 @@ import "@fortawesome/fontawesome-free/css/all"
 
 import "../js/calculators/edit"
 import "../js/account/read_url"
+import "../js/account/handle_browser_tab"
 import "../ajax/calculate_result_button"
 
 const images = require.context('../images', true)

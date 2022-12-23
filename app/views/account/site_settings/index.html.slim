@@ -10,25 +10,31 @@ div class="container home"
     thead
       tr
         th scope="col"  #
-        th scope="col"  =t('.table.title')
-        th scope="col"  =t('.table.favicon')
+        th scope="col"  =t('.table.view')
         th scope="col"  =t('.table.actions')
         th scope="col"  =t('.table.enabled')
 
     tbody
       - @site_settings.each do |site_setting|
         tr
-          th scope="row"  = site_setting.id
-          td = site_setting.title
-          td = image_tag(site_setting.favicon_with_proper_size)
+          th scope="row"
+            = site_setting.id
+          td
+            = render 'browser_tab', title: site_setting.title, favicon: site_setting.favicon
           td.actions
             = link_to edit_account_site_setting_path(id: site_setting) do
               i.fa.fa-pen.mx-2
-            = link_to account_site_setting_path(id: site_setting), method: :delete,
-                    data: { confirm: t('.confirm_delete') } do
+
+            - if !site_setting.enabled
+              = link_to account_site_setting_path(id: site_setting), method: :delete,
+                      data: { confirm: t('.confirm_delete') } do
+                i.fa.fa-trash.mx-2
+            - else
               i.fa.fa-trash.mx-2
-          - if site_setting.enabled
-            td = t('.enabled_yes')
-          - else
+
             td
-              = button_to 'Enable', account_site_setting_path(id: site_setting), method: :put, params: { site_setting: { enabled: true } }
+              = button_to 'Enable', account_site_setting_path(id: site_setting),
+                                    method: :put,
+                                    params: { site_setting: { enabled: true } },
+                                    disabled: site_setting.enabled,
+                                    class: "btn btn-success"

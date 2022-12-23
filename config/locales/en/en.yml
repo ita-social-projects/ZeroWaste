@@ -146,8 +146,7 @@ en:
     site_settings:
       index:
         table:
-          title: 'Title'
-          favicon: 'Favicon'
+          view: 'View'
           actions: 'Actions'
           enabled: 'Enabled?'
         enabled_yes: 'Yes'

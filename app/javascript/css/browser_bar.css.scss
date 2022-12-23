@@ -1,0 +1,37 @@
+
+.tab-browser {
+  background: white;
+  width: 213px;
+  margin-left: 0px;
+  overflow: hidden;
+  height: 100%;
+  padding: 1px 0;
+
+  border-radius: 3px;
+  box-shadow: 2px -2px 2px -2px black, -2px -2px 2px -2px black;
+
+  padding-left: 8px;
+  display: block;
+}
+
+.tab-content {
+  padding: 2px 0;
+}
+
+.tab-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+
+  margin-right: 7px;
+}
+
+.tab-text {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  font-size: 12px;
+  max-width: 170px;
+  overflow: hidden;
+}

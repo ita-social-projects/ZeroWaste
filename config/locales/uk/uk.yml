@@ -122,8 +122,7 @@ uk:
     site_settings:
       index:
         table:
-          title: 'Заголовок'
-          favicon: 'Зображення'
+          view: 'Вигляд'
           actions: 'Дії'
           enabled: 'Активовано?'
         enabled_yes: 'Так'

@@ -5,6 +5,7 @@ few
         = f.input :title, class: 'form-control', required: true
         = f.input :favicon, as: :file, class: 'form-control', required: true
         img id="img_prev" src="" alt="favicon" class="d-none"
+        = render 'browser_tab', title: 'Empty', favicon: ''
         = f.input :enabled, class: 'form-control'
     = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2'
     = link_to account_site_settings_path, class: 'btn btn-danger' do
