@@ -1,4 +1,6 @@
 class SiteSetting < ApplicationRecord
+  default_scope { order("created_at DESC") }
+
   has_one_attached :favicon, dependent: :destroy
 
   validates :title, presence: true

@@ -2,7 +2,7 @@ class AddDefaultRecordToSiteSettings < ActiveRecord::Migration[6.1]
   def up
     site_setting = SiteSetting.new(
       title: "ZeroWaste",
-      enabled: true,
+      enabled: true
     )
 
     site_setting.favicon.attach(
