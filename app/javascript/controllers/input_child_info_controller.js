@@ -60,9 +60,7 @@ export default class extends Controller {
     if (response.ok) {
       this.resultsOutlet.showResults(result);
     } else if (response.statusCode == 422) {
-      result.errors.forEach((error) => {
-        toastr.error(error);
-      });
+      toastr.error(result.error);
     }
   }
 
