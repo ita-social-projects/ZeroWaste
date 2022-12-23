@@ -47,10 +47,7 @@
 
         = form.submit t('.calculate_result_button'),
                     class:'calculate-btn result-btn',
-                    data: {action:'input-child-info#submit',
-                          input_child_info_year_error_msg_param: t('.year_error_msg'),
-                          input_child_info_year_and_month_error_msg_param: t('.year_and_month_error_msg'),
-                          input_child_info_month_error_msg_param: t('.month_error_msg')}
+                    data: {action:'input-child-info#submit'}
     = image_pack_tag "scales.png", class:"scales"
 .container.calculation-results.result [data-controller='results']
   .row.row-l
