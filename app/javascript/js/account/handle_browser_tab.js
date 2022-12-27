@@ -1,8 +1,8 @@
-document.addEventListener('turbolinks:load', () => {
-  const input = document.querySelector('input#site_setting_title');
-  const title = document.querySelector('.tab-text');
+$(document).on('turbolinks:load', () => {
+  const input = $("input#site_setting_title")
+  const title = $(".tab-text")
 
-  input.addEventListener('input', function (e) {
-    title.textContent = e.target.value;
+  input.on('input', function (e) {
+    title.text($(e.target).val())
   })
 })
