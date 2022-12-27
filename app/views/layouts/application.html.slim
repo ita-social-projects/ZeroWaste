@@ -2,8 +2,8 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title = SiteSetting.get_enabled.title
-    link rel="icon" href=url_for( SiteSetting.get_enabled.favicon )
+    title = SiteSetting.active.title
+    = favicon_link_tag(url_for(SiteSetting.active.favicon))
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag

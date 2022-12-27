@@ -120,6 +120,8 @@ uk:
         create_button: 'Create'
         cancel_button: 'Скасувати'
     site_settings:
+      validations:
+        size: 'надто великий'
       index:
         table:
           view: 'Вигляд'
