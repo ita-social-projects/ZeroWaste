@@ -11,13 +11,11 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
         }
       end
 
-      before do
-        get :calculate
-      end
-
       it "renders year and month error" do
-        expect(response.body).to eq(year_and_month_error.to_json)
+        get :calculate
+
         expect(response.status).to eq(422)
+        expect(response.body).to eq(year_and_month_error.to_json)
       end
     end
 
@@ -31,8 +29,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       it "renders year error" do
         post :calculate, params: { childs_months: 0 }
 
-        expect(response.body).to eq(year_error.to_json)
         expect(response.status).to eq(422)
+        expect(response.body).to eq(year_error.to_json)
       end
     end
 
@@ -46,8 +44,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       it "renders month error" do
         post :calculate, params: { childs_years: 1 }
 
-        expect(response.body).to eq(month_error.to_json)
         expect(response.status).to eq(422)
+        expect(response.body).to eq(month_error.to_json)
       end
     end
   end
@@ -76,8 +74,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       it "got the expected result" do
         post :calculate, params: { childs_years: 1, childs_months: 0 }
 
-        expect(response.body).to eq(expected_result.to_json)
         expect(response).to be_successful
+        expect(response.body).to eq(expected_result.to_json)
       end
     end
 
@@ -97,8 +95,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
         expected_result[:result] = invalid_values
         post :calculate, params: { childs_years: 1, childs_months: 0 }
 
-        expect(response.body).not_to eq(expected_result.to_json)
         expect(response).to be_successful
+        expect(response.body).not_to eq(expected_result.to_json)
       end
     end
   end
