@@ -2,7 +2,7 @@
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
   def calculate
-    if !(params[:childs_years].nil? || params[:childs_months].nil?)
+    if is_valid?()
       result          = Calculators::DiapersService.new(params[:childs_years], params[:childs_months]).calculate!
       diapers_be_used = t("calculators.calculator.diaper").pluralize(
         count: result.to_be_used_diapers_amount,
@@ -30,7 +30,7 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
     else
       render(
         json: {
-          error: check_data_present
+          error: @error_msg
         }, status: :unprocessable_entity
       )
     end
@@ -38,15 +38,18 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
 
   private
 
-  def check_data_present
+  def is_valid?
     if params[:childs_years].nil? && params[:childs_months].nil?
-      error = t("calculators.calculator.year_and_month_error_msg")
+      @error_msg = t("calculators.calculator.year_and_month_error_msg")
+      return false
     elsif params[:childs_years].nil?
-      error = t("calculators.calculator.year_error_msg")
+      @error_msg = t("calculators.calculator.year_error_msg")
+      return false
     elsif params[:childs_months].nil?
-      error = t("calculators.calculator.month_error_msg")
+      @error_msg = t("calculators.calculator.month_error_msg")
+      return false
     end
 
-    error
+    true
   end
 end
