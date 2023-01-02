@@ -2,7 +2,7 @@
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
   def calculate
-    if is_valid?()
+    if is_valid?
       result          = Calculators::DiapersService.new(params[:childs_years], params[:childs_months]).calculate!
       diapers_be_used = t("calculators.calculator.diaper").pluralize(
         count: result.to_be_used_diapers_amount,
