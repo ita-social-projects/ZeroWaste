@@ -39,7 +39,7 @@
 
         / = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label')
         / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
-        div.flex-item.mb-4
+        div.flex-item.mb-4.hidden
           = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit"},
                               wrapper_tag: "input")
           = simple_format(t("calculators.calculator.want_recomentation_label"),
