@@ -7,7 +7,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     context "when no year and no month values" do
       let(:year_and_month_error) do
         {
-          error: "Error: pleace, select years and months"
+          error: "Error: please, select years and months"
         }
       end
 
@@ -22,7 +22,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     context "when no year value" do
       let(:year_error) do
         {
-          error: "Error: pleace, select years"
+          error: "Error: please, select years"
         }
       end
 
@@ -37,7 +37,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
     context "when no month value" do
       let(:month_error) do
         {
-          error: "Error: pleace, select month"
+          error: "Error: please, select month"
         }
       end
 
