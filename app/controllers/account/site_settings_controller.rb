@@ -35,15 +35,15 @@ class Account::SiteSettingsController < Account::BaseController
 
   def destroy
     @site_setting = resource
-    if @site_setting.destroy
-      redirect_to account_site_settings_path, notice: t("notifications.site_setting_deleted")
-    end
+    @site_setting.destroy
+
+    redirect_to account_site_settings_path, notice: t("notifications.site_setting_deleted")
   end
 
   private
 
   def collection
-    SiteSetting.all
+    SiteSetting.all.order(created_at: :desc)
   end
 
   def resource
@@ -51,6 +51,6 @@ class Account::SiteSettingsController < Account::BaseController
   end
 
   def site_setting_params
-    params.require(:site_setting).permit(:title, :favicon, :enabled)
+    params.require(:site_setting).permit(:title, :favicon, :active)
   end
 end

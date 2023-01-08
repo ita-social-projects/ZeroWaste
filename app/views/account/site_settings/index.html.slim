@@ -12,7 +12,7 @@ div class="container home"
         th scope="col"  #
         th scope="col"  =t('.table.view')
         th scope="col"  =t('.table.actions')
-        th scope="col"  =t('.table.enabled')
+        th scope="col"  =t('.table.active')
 
     tbody
       - @site_settings.each do |site_setting|
@@ -25,7 +25,7 @@ div class="container home"
             = link_to edit_account_site_setting_path(id: site_setting) do
               i.fa.fa-pen.mx-2
 
-            - if !site_setting.enabled
+            - if !site_setting.active
               = link_to account_site_setting_path(id: site_setting), method: :delete,
                       data: { confirm: t('.confirm_delete') } do
                 i.fa.fa-trash.mx-2
@@ -35,6 +35,6 @@ div class="container home"
             td
               = button_to 'Enable', account_site_setting_path(id: site_setting),
                                     method: :put,
-                                    params: { site_setting: { enabled: true } },
-                                    disabled: site_setting.enabled,
+                                    params: { site_setting: { active: true } },
+                                    disabled: site_setting.active,
                                     class: "btn btn-success"

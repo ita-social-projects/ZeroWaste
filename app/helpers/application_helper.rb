@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def current_site_setting
+    SiteSetting.find_or_create_by(active: true) do |site_setting|
+      site_setting.title = "ZeroWaste"
+
+      site_setting.favicon.attach(
+        io: File.open("app/assets/images/logo_zerowaste.png"),
+        filename: "logo_zerowaste.png",
+        content_type: "image/png"
+      )
+    end
+  end
+
   def flash_messages
     {
       notice: notice,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_22_234832) do
+ActiveRecord::Schema.define(version: 2022_12_20_124102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 2022_12_22_234832) do
 
   create_table "site_settings", force: :cascade do |t|
     t.string "title"
-    t.boolean "enabled", default: false
+    t.boolean "active", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
