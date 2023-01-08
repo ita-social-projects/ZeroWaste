@@ -3,7 +3,7 @@
     = image_tag "close.svg", height: 40, class:"z-1"
   .d-flex.justify-content-around.flex-wrap.calculator_wrap
     = simple_form_for(:child, url: "#", html: {method: :get,
-                                              class: "simple_form_element",
+                                              class: "simple_form_calculator",
                                               data:{controller: "input-child-info",
                                                     input_child_info_url_value: api_v1_diaper_calculators_url,
                                                     input_child_info_results_outlet: '.result'}}) do |form|
@@ -48,7 +48,7 @@
         = form.submit t('.calculate_result_button'),
                     class:'calculate-btn result-btn',
                     data: {action:'input-child-info#submit'}
-    = image_pack_tag "scales.png", class:"scales"
+    = image_pack_tag "scales.png", class:"scales_img"
 .container.calculation-results.result [data-controller='results']
   .row.row-l
     .col-sm.result-card

@@ -82,15 +82,18 @@
       padding: 0rem;
     }
   }
+
   .price_select {
     text-align: center;
     border: none;
     outline: none;
     color: $dark_gray;
   }
+
   .result-btn {
     margin-bottom: 30px;
   }
+
   .check-label {
     font-size: small;
     margin-left: 16px;
@@ -99,12 +102,13 @@
   }
 }
 
-.scales {
+.scales_img {
   align-self: center;
   width: 50%;
   max-width: 428px;
 }
-.simple_form_element {
+
+.simple_form_calculator {
   width: 40%;
   margin-top: 32px;
 }
@@ -206,11 +210,11 @@
 }
 
 @media screen and (max-width: $xs) {
-  .simple_form_element {
+  .simple_form_calculator {
     width: 100%;
     margin-top: 24px;
   }
-  .scales {
+  .scales_img {
     min-width: 300px;
   }
 }

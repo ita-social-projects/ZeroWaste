@@ -42,7 +42,7 @@ a {
   border-bottom: 2px solid $gray;
 }
 
-div.jumbotron {
+.jumbotron {
   width: 96%;
   background-color: $color;
   max-width: $max_width_content;
@@ -82,7 +82,7 @@ div.jumbotron {
   max-width: 420px;
   margin: 20px auto;
 
-  & > :last-of-type {
+  &> :last-of-type {
     & img {
       margin-right: 10px;
     }
@@ -287,8 +287,9 @@ body.admin {
 }
 
 .admin-table {
-  .admin-table-header > *,
-  .admin-table-body > * {
+
+  .admin-table-header>*,
+  .admin-table-body>* {
     display: flex;
   }
 
@@ -311,7 +312,7 @@ body.admin {
     }
 
     .admin-table-body {
-      & > * {
+      &>* {
         align-items: center;
       }
 
@@ -344,9 +345,11 @@ body.admin {
   .filter_block {
     width: 100%;
   }
+
   .jumbotron {
     width: 100%;
   }
+
   .calculation-results {
     width: 100%;
   }
