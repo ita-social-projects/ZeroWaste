@@ -1,4 +1,4 @@
-.container.flex-container
+.container.d-flex.justify-content-between
   .flex-child
     h2 = t '.header'
     dl
@@ -27,4 +27,8 @@
       dd = t(".table.#{ @user.blocked? ? 'blocked' : 'unblocked' }_label")
   .flex-child
     h2.text-center = t('.avatar')
-    dd = @user.avatar.attached? ? image_tag(@user.avatar) : image_tag('user.png')
+    dd
+      - if @user.avatar.attached?
+        = image_tag @user.avatar, class: "w-75 d-block my-0 mx-auto"
+      - else
+        = image_tag 'user.png', class: "w-75 d-block my-0 mx-auto"

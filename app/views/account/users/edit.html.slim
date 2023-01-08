@@ -1,4 +1,4 @@
-.container.flex-container
+.container.d-flex.justify-content-between
   .flex-child
     h2.text-center = t '.table.edit_user_info'
     = simple_form_for(@user, url: account_user_path(id: @user), remote: false, wrapper: :horizontal_form)  do |f|
@@ -13,6 +13,6 @@
     h2.text-center = t '.avatar'
     dd
       - if @user.avatar.attached? && @user.avatar.persisted?
-        = image_tag @user.avatar
+        = image_tag @user.avatar, class: "w-75 d-block my-0 mx-auto"
       - else
-        = image_tag 'user.png'
+        = image_tag 'user.png', class: "w-75 d-block my-0 mx-auto"
