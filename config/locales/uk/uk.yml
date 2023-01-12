@@ -122,22 +122,8 @@ uk:
     site_settings:
       validations:
         size: 'надто великий'
-      index:
-        table:
-          view: 'Вигляд'
-          actions: 'Дії'
-          enabled: 'Активовано?'
-        enabled_yes: 'Так'
-        enabled_no: 'Ні'
-        add_site_setting_button: 'Додати налаштування'
-        confirm_delete: 'Видалити налаштування?'
-        cancel_button: 'Скасувати'
       edit:
         update_button: 'Оновити'
-        cancel_button: 'Скасувати'
-      new:
-        create_button: 'Створити'
-        cancel_button: 'Скасувати'
     users:
       index:
         main_header: "Адмінпанель"
@@ -379,9 +365,7 @@ uk:
     category_created: "Категорію було успішно створено."
     category_updated: "Категорію було успішно оновлено."
     category_deleted: "Категорію було успішно видалено."
-    site_setting_created: "Налаштування було успішно створено"
     site_setting_updated: "Налаштування було успішно оновлено"
-    site_setting_deleted: "Налаштування було успішно видалено"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

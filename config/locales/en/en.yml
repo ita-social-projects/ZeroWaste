@@ -145,23 +145,9 @@ en:
         cancel_button: 'Cancel'
     site_settings:
       validations:
-          size: 'is too large'
-      index:
-        table:
-          view: 'View'
-          actions: 'Actions'
-          enabled: 'Enabled?'
-        enabled_yes: 'Yes'
-        enabled_no: 'No'
-        add_site_setting_button: 'Add new setting'
-        confirm_delete: 'Delete setting?'
-        cancel_button: 'Cancel'
+        size: 'is too large'
       edit:
         update_button: 'Update'
-        cancel_button: 'Cancel'
-      new:
-        create_button: 'Create'
-        cancel_button: 'Cancel'
     users:
       index:
         main_header: "Dashboard"
@@ -429,9 +415,7 @@ en:
     category_created: "Category was successfully created."
     category_updated: "Category was successfully updated."
     category_deleted: "Category was successfully destroyed."
-    site_setting_created: "Setting was successfully created"
     site_setting_updated: "Setting was successfully updated"
-    site_setting_deleted: "Setting was successfully destroyed"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
