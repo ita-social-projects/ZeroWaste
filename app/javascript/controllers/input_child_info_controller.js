@@ -66,18 +66,22 @@ export default class extends Controller {
 
   getNillOption(previous_month_value) {
     let option = document.createElement("option");
+
     option.innerText = "__";
     option.disabled = true;
     option.hidden = true;
     option.value = "";
     if (previous_month_value == "") option.selected = true;
+
     return option;
   }
 
   getBasicOption(i) {
     let option = document.createElement("option");
+
     option.value = i;
     option.innerText = i;
+
     return option;
   }
 }
