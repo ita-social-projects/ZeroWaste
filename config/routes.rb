@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]
-      resources :site_settings
+      resource :site_setting, only: [:edit, :update]
 
       scope module: :calculators do
         resources :calculators, only: [], param: :slug do
