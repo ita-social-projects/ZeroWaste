@@ -9,7 +9,4 @@ RSpec.describe SiteSetting, type: :model do
       expect(SiteSetting.instance).to be_an SiteSetting
     end
   end
-
-  context "validates properly" do
-  end
 end
