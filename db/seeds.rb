@@ -11,6 +11,17 @@
 # Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Default site settings initialization
+site_setting       = SiteSetting.instance
+site_setting.title = "ZeroWaste"
+site_setting.favicon.attach(
+  io: File.open("app/assets/images/logo_zerowaste.png"),
+  filename: "logo_zerowaste.png",
+  content_type: "image/png"
+)
+
+site_setting.save!
+
 # A regular user
 User.create(
   email: "user@zw.com",
