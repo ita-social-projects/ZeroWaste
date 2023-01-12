@@ -2,11 +2,10 @@
   a.rounded.calculator__cross__space href=root_path
     = image_tag "close.svg", height: 40, class:"z-1"
   .d-flex.justify-content-around.flex-wrap.calculator_wrap
-    = simple_form_for(:child, url: "#", html: {method: :get,
-                                              class: "simple_form_calculator",
-                                              data:{controller: "input-child-info",
-                                                    input_child_info_url_value: api_v1_diaper_calculators_url,
-                                                    input_child_info_results_outlet: '.result'}}) do |form|
+    = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
+                                               data:{ controller: "input-child-info",
+                                                      input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                      input_child_info_results_outlet: '.result' }}) do |form|
       .flex-item.flex-column
         .input_lable
           = t('.form_description')
@@ -15,7 +14,7 @@
                               collection: 0..2,
                               prompt:'__',
                               class:'age_select ml-2 rounded',
-                              data: {input_child_info_target: 'year', action:'input-child-info#yearChanged'}
+                              data: { input_child_info_target: 'year', action:'input-child-info#yearChanged' }
 
           = t('.form.childs_years_label')
 
@@ -23,7 +22,7 @@
                               collection: 0..11,
                               prompt:'__',
                               class:'age_select rounded',
-                              data: {input_child_info_target: 'month'}
+                              data: { input_child_info_target: 'month' }
 
           = t('.form.childs_months_label')
         .input_lable
@@ -34,20 +33,20 @@
                                                       selected: t('.form.medium'),
                                                       label: t('.form_price'),
                                                       class: 'form_fild price_select rounded w-100',
-                                                      data: {input_child_info_target: 'productCategory'}
+                                                      data: { input_child_info_target: 'productCategory' }
 
 
         / = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label')
         / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
         .flex-item.mb-4.hidden
-          = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit"},
+          = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
                               wrapper_tag: "input")
           = simple_format(t("calculators.calculator.want_recomentation_label"),
-                          { for: "checkbox_submit", class:"check-label"}, wrapper_tag: "label")
+                          { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
 
         = form.submit t('.calculate_result_button'),
                     class:'calculate-btn result-btn',
-                    data: {action:'input-child-info#submit'}
+                    data: { action:'input-child-info#submit' }
     = image_pack_tag "scales.png", class:"scales_img"
 .container.calculation-results.result [data-controller='results']
   .row.row-l
