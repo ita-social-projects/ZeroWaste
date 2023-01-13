@@ -53,7 +53,7 @@ div.jumbotron {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   width: 315px;
   font-family: "Nunito", sans-serif;
 }
@@ -96,7 +96,6 @@ div.jumbotron {
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: "Nunito", sans-serif;
-  margin-bottom: 0.2em;
 
   a {
     border: 2px solid $gray;
@@ -411,10 +410,6 @@ body.admin {
   .row_break {
     display: block;
   }
-
-  .donate-btn a {
-    padding: 10px;
-  }
 }
 
 @media screen and (max-width: $md) and (min-width: $xs) {
@@ -426,5 +421,11 @@ body.admin {
   .calculation-results,
   .jumbotron {
     width: 96%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .donate-btn a {
+    margin-bottom: 0.4rem;
   }
 }
