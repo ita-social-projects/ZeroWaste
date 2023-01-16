@@ -48,63 +48,56 @@ RSpec.describe SiteSetting, type: :model do
   end
 
   context "validates properly" do
-    before do
-      @original_site_setting = SiteSetting.instance
-      @site_setting          = SiteSetting.instance
-    end
-
-    after do
-      SiteSetting.instance.update(@original_site_setting.attributes)
-    end
+    let!(:site_setting) { SiteSetting.instance }
 
     it "has a valid factory" do
-      @site_setting.update(title: "Test Title", favicon: create_valid_file)
+      site_setting.update(title: "Test Title", favicon: create_valid_file)
 
-      expect(@site_setting).to be_valid
+      expect(site_setting).to be_valid
     end
 
     it "is valid with valid attributes" do
-      @site_setting.update(title: "Test Title", favicon: create_valid_file)
+      site_setting.update(title: "Test Title", favicon: create_valid_file)
 
-      expect(@site_setting.valid?).to be_truthy
+      expect(site_setting.valid?).to be_truthy
     end
 
     it "is not valid without a title" do
-      @site_setting.update(favicon: create_valid_file)
+      site_setting.update(favicon: create_valid_file)
 
-      expect(@site_setting.valid?).to be_falsey
+      expect(site_setting.valid?).to be_falsey
     end
 
     it "is not valid with a title longer than 20 characters" do
-      @site_setting.update(title: "a" * 21, favicon: create_valid_file)
+      site_setting.update(title: "a" * 21, favicon: create_valid_file)
 
-      expect(@site_setting.valid?).to be_falsey
+      expect(site_setting.valid?).to be_falsey
     end
 
     it "is not valid without a favicon" do
-      @site_setting.update(title: "Test Title")
-      @site_setting.favicon.purge
+      site_setting.update(title: "Test Title")
+      site_setting.favicon.purge
 
-      expect(@site_setting.valid?).to be_falsey
+      expect(site_setting.valid?).to be_falsey
     end
 
     it "is not valid with a favicon of invalid type" do
-      @site_setting.update(title: "Test Title", favicon: create_invalid_file)
+      site_setting.update(title: "Test Title", favicon: create_invalid_file)
 
-      expect(@site_setting.valid?).to be_falsey
+      expect(site_setting.valid?).to be_falsey
     end
 
     it "is valid with a favicon of valid type" do
-      @site_setting.update(title: "Test Title", favicon: create_valid_file)
+      site_setting.update(title: "Test Title", favicon: create_valid_file)
 
-      expect(@site_setting.valid?).to be_truthy
+      expect(site_setting.valid?).to be_truthy
     end
 
     it "is not valid with a favicon larger than 500 KB" do
-      @site_setting.update(title: "Test Title", favicon: create_big_file)
+      site_setting.update(title: "Test Title", favicon: create_big_file)
 
-      expect(@site_setting.valid?).to be_falsey
-      expect(@site_setting.errors.messages[:favicon]).to include(I18n.t("account.site_settings.validations.size"))
+      expect(site_setting.valid?).to be_falsey
+      expect(site_setting.errors.messages[:favicon]).to include(I18n.t("account.site_settings.validations.size"))
     end
   end
 end
