@@ -4,7 +4,7 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
   def calculate
     @validation = Calculators::ValidationService.new(params).validate
 
-    if @validation[:valid?]
+    if @validation[:is_valid]
       result          = Calculators::DiapersService.new(params[:childs_years], params[:childs_months]).calculate!
       diapers_be_used = t("calculators.calculator.diaper").pluralize(
         count: result.to_be_used_diapers_amount,

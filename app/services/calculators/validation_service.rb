@@ -9,27 +9,24 @@ class Calculators::ValidationService
     childs_years  = parse(:childs_years)
     childs_months = parse(:childs_months)
 
-    childs_years  = childs_years[/^\d+$/] if childs_years.is_a? String
-    childs_months = childs_months[/^\d+$/] if childs_months.is_a? String
-
-    if childs_years.nil? && childs_months.nil?
+    if !childs_years.present? && !childs_months.present?
       return {
-        valid?: false,
+        is_valid: false,
         error: I18n.t("calculators.calculator.year_and_month_error_msg")
       }
-    elsif childs_years.nil?
+    elsif !childs_years.present?
       return {
-        valid?: false,
+        is_valid: false,
         error: I18n.t("calculators.calculator.year_error_msg")
       }
-    elsif childs_months.nil?
+    elsif !childs_months.present?
       return {
-        valid?: false,
+        is_valid: false,
         error: I18n.t("calculators.calculator.month_error_msg")
       }
     end
 
-    { valid?: true }
+    { is_valid: true }
   end
 
   private
