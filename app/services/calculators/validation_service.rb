@@ -9,17 +9,17 @@ class Calculators::ValidationService
     childs_years  = parse(:childs_years)
     childs_months = parse(:childs_months)
 
-    if !childs_years.present? && !childs_months.present?
+    if childs_years.blank? && childs_months.blank?
       return {
         is_valid: false,
         error: I18n.t("calculators.calculator.year_and_month_error_msg")
       }
-    elsif !childs_years.present?
+    elsif childs_years.blank?
       return {
         is_valid: false,
         error: I18n.t("calculators.calculator.year_error_msg")
       }
-    elsif !childs_months.present?
+    elsif childs_months.blank?
       return {
         is_valid: false,
         error: I18n.t("calculators.calculator.month_error_msg")
