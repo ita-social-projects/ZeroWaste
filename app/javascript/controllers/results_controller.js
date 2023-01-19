@@ -6,20 +6,19 @@ export default class extends Controller {
     "diapersToBeUsed",
     "moneySpent",
     "moneyWillBeSpent",
-    "localUkToBeUsedDiapersAmount",
-    "localUkUsedDiapersAmount",
+    "ToBeUsedDiapersAmount",
+    "UsedDiapersAmount",
   ];
 
   showResults(data) {
     let result = data.result;
+
     this.moneySpentTarget.innerHTML = result.money_spent;
     this.moneyWillBeSpentTarget.innerHTML = result.money_will_be_spent;
     this.diapersUsedTarget.innerHTML = result.used_diapers_amount;
     this.diapersToBeUsedTarget.innerHTML = result.to_be_used_diapers_amount;
 
-    if (this.hasLocalUkUsedDiapersAmountTarget) {
-      this.localUkToBeUsedDiapersAmountTarget.innerHTML = `${data.word_form_to_be_used} ви ще використаєте`;
-      this.localUkUsedDiapersAmountTarget.innerHTML = `${data.word_form_used} ви вже використали`;
-    }
+    this.UsedDiapersAmountTarget.innerHTML = data.text_products_used;
+    this.ToBeUsedDiapersAmountTarget.innerHTML = data.text_products_to_be_used;
   }
 }

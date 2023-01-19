@@ -55,21 +55,15 @@
         = image_pack_tag "diapers_bought.png", class:"rounded"
       span
         p [data-results-target="diapersUsed"] 0
-        - if I18n.locale == :en
-          | diapers already used
-        - elsif I18n.locale == :uk
-            .[data-results-target="localUkUsedDiapersAmount"]
-              | підгузків ви вже використали
+        .[data-results-target="UsedDiapersAmount"]
+          = "#{t(".diaper").pluralize(count: 0, locale: I18n.locale)} #{t('.bought_diapers')}"
     .col-sm.result-card
       .img-border
         = image_pack_tag "diapers_to_buy.png", class:"rounded"
       span
         p [data-results-target="diapersToBeUsed"] 0
-        - if I18n.locale == :en
-          | diapers to be used in the future
-        - elsif I18n.locale == :uk
-            .[data-results-target="localUkToBeUsedDiapersAmount"]
-              | підгузків ви ще використаєте
+        .[data-results-target="ToBeUsedDiapersAmount"]
+          ="#{t(".diaper").pluralize(count: 0, locale: I18n.locale)} #{t('.will_buy_diapers')}"
     .w-100.row_break
     .col-sm.result-card
       .img-border
