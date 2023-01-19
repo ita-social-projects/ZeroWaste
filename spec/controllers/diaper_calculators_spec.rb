@@ -63,8 +63,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController do
       {
         result: values,
         date: 12,
-        word_form_to_be_used: "diapers",
-        word_form_used: "diapers"
+        text_products_to_be_used: "diapers to be used in the future",
+        text_products_used: "diapers already used"
       }
     end
 
