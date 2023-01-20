@@ -366,6 +366,7 @@ body.admin {
 
     a {
       padding: 10px;
+      margin-top: 1vh;
     }
   }
 
@@ -428,4 +429,11 @@ body.admin {
   .donate-btn a {
     margin-bottom: 0.4rem;
   }
+}
+
+@media screen and ( max-width: 375px ) and ( max-height: 667px )
+{
+   body{
+     background-size: auto;
+    }
 }
