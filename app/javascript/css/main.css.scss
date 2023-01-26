@@ -5,6 +5,10 @@ body {
   background-size: cover;
   overflow-x: hidden;
   height: 100vh;
+
+  @media screen and ( max-width: 375px ){
+     background-size: auto;
+    }
 }
 
 a {
@@ -429,11 +433,4 @@ body.admin {
   .donate-btn a {
     margin-bottom: 0.4rem;
   }
-}
-
-@media screen and ( max-width: 375px ) and ( max-height: 667px )
-{
-   body{
-     background-size: auto;
-    }
 }
