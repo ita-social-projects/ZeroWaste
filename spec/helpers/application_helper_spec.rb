@@ -2,20 +2,9 @@ require "rails_helper"
 
 RSpec.describe ApplicationHelper, type: :helper do
   describe "#current_site_setting" do
-    def image
-      file = Tempfile.new(["test_image", ".png"], content_type: "image/png")
-
-      blob = ActiveStorage::Blob.create_and_upload!(io: file, filename: "test_image.png")
-
-      file.close
-      file.unlink
-
-      blob
-    end
-
     context "when site setting is invalid" do
       it "should set default values" do
-        expect(SiteSetting.instance.valid?).to be_falsey
+        expect(SiteSetting.instance).not_to be_valid
 
         current_site_setting = helper.current_site_setting
 
@@ -27,8 +16,18 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     context "when site setting is valid" do
+      before do
+        file = Tempfile.new(["test_image", ".png"], content_type: "image/png")
+
+        @blob = ActiveStorage::Blob.create_and_upload!(io: file, filename: "test_image.png")
+
+        file.close
+        file.unlink
+      end
+
       it "should return the existing site setting" do
-        SiteSetting.instance.update(title: "My Title", favicon: image)
+        SiteSetting.instance.update(title: "My Title", favicon: @blob)
+
         expect(SiteSetting.instance).to be_valid
 
         current_site_setting = helper.current_site_setting

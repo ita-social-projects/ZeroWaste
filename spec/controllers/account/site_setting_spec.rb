@@ -42,7 +42,7 @@ RSpec.describe Account::SiteSettingsController do
 
       expect(response).to redirect_to(edit_account_site_setting_path)
       expect(flash[:notice]).to eq(I18n.t("notifications.site_setting_updated"))
-      expect(SiteSetting.instance.valid?).to be_truthy
+      expect(SiteSetting.instance).to be_valid
       expect(SiteSetting.instance.title).to eq("Test Title")
       expect(SiteSetting.instance.favicon.attached?).to be_truthy
     end
@@ -53,7 +53,7 @@ RSpec.describe Account::SiteSettingsController do
       put :update, params: { site_setting: { title: "", favicon: @file }}
 
       expect(response).to render_template(:edit)
-      expect(SiteSetting.instance.valid?).to be_falsey
+      expect(SiteSetting.instance).not_to be_valid
       expect(SiteSetting.instance.errors.messages[:title]).to include("can't be blank")
     end
   end

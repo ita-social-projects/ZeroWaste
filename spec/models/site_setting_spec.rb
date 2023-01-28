@@ -59,44 +59,44 @@ RSpec.describe SiteSetting, type: :model do
     it "is valid with valid attributes" do
       site_setting.update(title: "Test Title", favicon: create_valid_file)
 
-      expect(site_setting.valid?).to be_truthy
+      expect(site_setting).to be_valid
     end
 
     it "is not valid without a title" do
       site_setting.update(favicon: create_valid_file)
 
-      expect(site_setting.valid?).to be_falsey
+      expect(site_setting).not_to be_valid
     end
 
     it "is not valid with a title longer than 20 characters" do
       site_setting.update(title: "a" * 21, favicon: create_valid_file)
 
-      expect(site_setting.valid?).to be_falsey
+      expect(site_setting).not_to be_valid
     end
 
     it "is not valid without a favicon" do
       site_setting.update(title: "Test Title")
       site_setting.favicon.purge
 
-      expect(site_setting.valid?).to be_falsey
+      expect(site_setting).not_to be_valid
     end
 
     it "is not valid with a favicon of invalid type" do
       site_setting.update(title: "Test Title", favicon: create_invalid_file)
 
-      expect(site_setting.valid?).to be_falsey
+      expect(site_setting).not_to be_valid
     end
 
     it "is valid with a favicon of valid type" do
       site_setting.update(title: "Test Title", favicon: create_valid_file)
 
-      expect(site_setting.valid?).to be_truthy
+      expect(site_setting).to be_valid
     end
 
     it "is not valid with a favicon larger than 500 KB" do
       site_setting.update(title: "Test Title", favicon: create_big_file)
 
-      expect(site_setting.valid?).to be_falsey
+      expect(site_setting).not_to be_valid
       expect(site_setting.errors.messages[:favicon]).to include(I18n.t("account.site_settings.validations.size"))
     end
   end
