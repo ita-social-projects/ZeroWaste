@@ -5,6 +5,14 @@ body {
   background-size: cover;
   overflow-x: hidden;
   height: 100vh;
+
+  @media screen and (max-width: 300px){
+    background-size: cover;
+  }
+  @media screen and (max-height: 600px) {
+    background-size: auto;
+  }
+
 }
 
 a {
@@ -335,11 +343,12 @@ body.admin {
   .tab {
     display: none;
   }
-
+  .homepage_title {
+    margin-top: 50px;
+  }
   .filter_block {
     width: 100%;
   }
-
   div.jumbotron,
   div.container {
     max-width: 96%;
@@ -366,6 +375,7 @@ body.admin {
 
     a {
       padding: 10px;
+      margin-top: 0.5rem;
     }
   }
 
@@ -413,6 +423,9 @@ body.admin {
 }
 
 @media screen and (max-width: $md) and (min-width: $xs) {
+  .homepage_title {
+    margin-top: 50px;
+  }
   .page-header {
     width: auto;
     margin-right: 16px;
@@ -427,5 +440,14 @@ body.admin {
 @media screen and (max-width: 768px) {
   .donate-btn a {
     margin-bottom: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main p {
+    margin: 0 auto;
+  }
+  .main-btns {
+    margin: 0 auto;
   }
 }
