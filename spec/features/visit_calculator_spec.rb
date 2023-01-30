@@ -8,7 +8,8 @@ describe "visit Calculator page", js: true do
 
   it "visits calculator page" do
     visit "/calculators/#{calculator.slug}"
-    expect(page).to have_content "receive email messages"
+
+    expect(page).to have_content "Child’s age"
   end
 
   it "visits calculator page and open log_in page" do

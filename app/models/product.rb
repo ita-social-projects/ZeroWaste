@@ -20,10 +20,17 @@ class Product < ApplicationRecord
   DIAPER = "diaper"
 
   belongs_to :product_type
+  has_many :category_categoryables, as: :categoryable, dependent: :destroy
+  has_many :categories, through: :category_categoryables
+  has_many :prices, as: :priceable, dependent: :destroy
 
   validates :title, presence: true, length: { in: 2..50 }
 
   def self.diaper
     find_by(title: DIAPER)
+  end
+
+  def price_by_category(category)
+    prices.where(category: category).first
   end
 end

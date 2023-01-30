@@ -1,0 +1,19 @@
+.nested-fields.w-100
+  .field
+    .row.my-3
+      - case f.object.type
+      - when 'NamedValue'
+        = render 'account/calculators/fields/named_value', f: f
+      - when 'Calculation'
+        = render 'account/calculators/fields/calculation', f: f
+      - when 'RangeField'
+        = render 'account/calculators/fields/range_value', f: f
+      - when 'Select'
+        = render 'account/calculators/fields/select', f: f
+      - when 'Value'
+        = render 'account/calculators/fields/value', f: f
+
+      - if f.object.new_record?
+        = f.input :kind, as: :hidden, input_html: { value: f.object.kind }
+        = f.input :type, as: :hidden, input_html: { value: f.object.type }
+        = f.input :selector, as: :hidden, input_html: { data: { 'selector-input': true } }
