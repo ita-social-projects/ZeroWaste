@@ -31,9 +31,10 @@ Rails.application.routes.draw do
       end
     end
     resources :messages, only: [:new, :create]
-    namespace :admins do
+    namespace :account do
       resources :users, only: [:index, :show, :edit, :update]
       resources :calculators, param: :slug
+      resources :categories
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]

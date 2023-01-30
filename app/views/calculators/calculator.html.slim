@@ -5,7 +5,7 @@
     p.form-p
       = t '.form_description'
     .form
-      = form_with url: "#", id: "form", method: :get do |form|
+      = form_with url: "#", id: "form", method: :get, data: { locale: I18n.locale } do |form|
         .flex-item
           select.custom-select#childs_years [required]
             option [disabled selected hidden value]

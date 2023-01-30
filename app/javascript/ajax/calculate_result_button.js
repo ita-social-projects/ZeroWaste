@@ -41,7 +41,8 @@ $(document).on('turbolinks:load', function() {
 
     const formData = {
       childs_age: $("#childs_years").val() * 12 + months,
-      price_id: $("#product_category").selectedIndex
+      price_id: $("#product_category").selectedIndex,
+      locale: $("#form").attr("data-locale")
     }
 
     $.ajax({
@@ -50,7 +51,6 @@ $(document).on('turbolinks:load', function() {
       data: formData,
       dataType: "json",
       success: function(data) {
-        console.log(data)
         for (var i = data.result.length - 1; i >= 0; i--) {
           const oneItemFromArray = data.result[i]
           $('[data-type="' + oneItemFromArray.name + '"]').text(oneItemFromArray.result);
