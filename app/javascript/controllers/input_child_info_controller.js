@@ -57,6 +57,7 @@ export default class extends Controller {
   async sendRequest(request) {
     const response = await request.perform();
     const result = await response.json;
+
     if (response.ok) {
       this.resultsOutlet.showResults(result);
     } else if (response.statusCode == 422) {
