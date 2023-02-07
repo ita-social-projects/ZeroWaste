@@ -10,7 +10,7 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
 
       calculator_decorator = CalculatorDecorator.new(result)
 
-      render json: calculator_decorator.for_json, status: :ok
+      render json: calculator_decorator.to_json, status: :ok
     else
       render(
         json: {
