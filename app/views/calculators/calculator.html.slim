@@ -38,11 +38,11 @@
                   =t('calculators.calculator.form.premium')
           = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
           = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
-        div.flex-item.mt-4
-          = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
-                               wrapper_tag: "input")
-          = simple_format(t("calculators.calculator.want_recomentation_label"),
-                           { for: "checkbox_submit" }, wrapper_tag: "label")
+        / div.flex-item.mt-4
+        /   = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
+        /                        wrapper_tag: "input")
+          / = simple_format(t("calculators.calculator.want_recomentation_label"),
+          /                  { for: "checkbox_submit" }, wrapper_tag: "label")
         button.calculate-btn.result-btn[type="submit" id="button_submit"]
           =<t('.calculate_result_button')
 .container.calculation-results
