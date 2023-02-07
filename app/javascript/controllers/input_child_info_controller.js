@@ -22,6 +22,7 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
+    //generate 6 options for month if chosen year = 2, else generate 11 options
     let amount_options = e.target.value == 2 ? 5 : 11;
 
     let previous_month_value = this.monthTarget.value;
