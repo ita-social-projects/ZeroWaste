@@ -37,7 +37,7 @@ class CalculatorDecorator
     "#{word_form_used} #{I18n.t("calculators.calculator.bought_diapers")}"
   end
 
-  #returns word should be used for amount of diapers to be used in the future
+  # returns word should be used for amount of diapers to be used in the future
   def word_form_to_be_used
     I18n.t("calculators.calculator.diaper").pluralize(
       count: @result.to_be_used_diapers_amount,
@@ -45,7 +45,7 @@ class CalculatorDecorator
     )
   end
 
-  #returns word should be used for amount of diapers have been used in the past
+  # returns word should be used for amount of diapers have been used in the past
   def word_form_used
     I18n.t("calculators.calculator.diaper").pluralize(
       count: @result.used_diapers_amount,
