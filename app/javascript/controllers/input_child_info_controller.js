@@ -12,9 +12,11 @@ export default class extends Controller {
   };
 
   connect() {
+    //hide option '__' from user in year selector
     this.yearTarget[0].disabled = true;
     this.yearTarget[0].hidden = true;
 
+    //hide option '__' from user in month selector
     this.monthTarget[0].disabled = true;
     this.monthTarget[0].hidden = true;
   }
