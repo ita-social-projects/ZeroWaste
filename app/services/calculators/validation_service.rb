@@ -6,8 +6,8 @@ class Calculators::ValidationService
   end
 
   def validate
-    childs_years  = parse(:childs_years)
-    childs_months = parse(:childs_months)
+    childs_years  = @params.fetch(:childs_years, nil)
+    childs_months = @params.fetch(:childs_months, nil)
 
     if childs_years.blank? && childs_months.blank?
       return {
@@ -27,11 +27,5 @@ class Calculators::ValidationService
     end
 
     { is_valid: true }
-  end
-
-  private
-
-  def parse(key)
-    @params.fetch(key, nil)
   end
 end
