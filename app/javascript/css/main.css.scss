@@ -1,18 +1,27 @@
 body {
-  position: relative;
   margin: 0 auto;
-  background: url("../images/mother.jpeg") no-repeat center top;
-  background-size: cover;
   overflow-x: hidden;
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 32px;
+}
 
-  @media screen and (max-width: 300px){
-    background-size: cover;
-  }
-  @media screen and (max-height: 600px) {
-    background-size: auto;
-  }
-
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/mother.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(50%);
+}
+.body-inside {
+  /* This will make it stack on top of the ::before */
+  position: relative;
 }
 
 a {
@@ -26,15 +35,6 @@ a {
   &:active {
     text-decoration: none;
   }
-}
-
-.filter_block {
-  position: absolute;
-  background-color: #00000078;
-  min-height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
 }
 
 .page-header {
@@ -345,9 +345,6 @@ body.admin {
   }
   .homepage_title {
     margin-top: 50px;
-  }
-  .filter_block {
-    width: 100%;
   }
   div.jumbotron,
   div.container {

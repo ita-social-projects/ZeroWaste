@@ -63,7 +63,6 @@ en:
       log_in: "Log In"
       сontact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
-      donate: "DONATE"
       local_lang: "Українська"
     description_block:
       description_block_html: "These are approximate results. The exact numbers for your
@@ -74,11 +73,6 @@ en:
                               or %{calculate_link_two:contact us} with any other questions you may have."
     description_button:
       use_less: "%{use_less_link:HOW TO USE LESS}"
-    homepage:
-      homepage_title: "Welcome to the diaper calculator"
-      description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
-      calculate: "Let's go"
-      visit_website: "Visit WebSite"
     admin_navbar:
       calculators: "Calculators"
       histories: "History"
