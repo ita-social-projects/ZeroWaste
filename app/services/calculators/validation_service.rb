@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 class Calculators::ValidationService
+  attr_reader :params
+
   def initialize(params)
     @params = params
   end
 
   def validate
-    childs_years  = @params.fetch(:childs_years, nil)
-    childs_months = @params.fetch(:childs_months, nil)
+    childs_years  = params.fetch(:childs_years, nil)
+    childs_months = params.fetch(:childs_months, nil)
 
     if childs_years.blank? && childs_months.blank?
       return {
