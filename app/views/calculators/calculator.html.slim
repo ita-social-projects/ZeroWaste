@@ -27,9 +27,7 @@
           = t('.form.childs_months_label')
         .input_lable
           = t('.form_price')
-        = form.input_field :product_category, collection: [t('.form.budgetary'),
-                                                          t('.form.medium'),
-                                                          t('.form.premium')],
+        = form.input_field :product_category, collection: collection_product_category,
                                                       selected: t('.form.medium'),
                                                       label: t('.form_price'),
                                                       class: 'form_fild price_select rounded w-100',
