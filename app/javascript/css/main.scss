@@ -21,7 +21,7 @@ a {
   }
 }
 
-.filter_block {
+.body-inside {
   position: absolute;
   background-color: #00000078;
   min-height: 100%;
@@ -339,7 +339,7 @@ body.admin {
     display: none;
   }
 
-  .filter_block {
+  .body-inside {
     width: 100%;
     padding-right: 0;
     padding-left: 0;

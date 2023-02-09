@@ -39,7 +39,6 @@ uk:
       sign_up: "Зареєструватися"
       log_in: "Увійти"
       contact_us: "Зв'яжіться з нами"
-      donate: "Підтримати"
       contacts: "%{contacts_uk:Контакти}"
       local_lang: "English"
     description_block:
@@ -51,11 +50,6 @@ uk:
                               або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
     description_button:
       use_less: "%{use_less_link:ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ}"
-    homepage:
-      homepage_title: "Вас вітає калькулятор підгузків"
-      description: "Цей калькулятор дозволяє порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
-      calculate: "Почати"
-      visit_website: "Наш сайт"
     admin_navbar:
       calculators: "Калькулятори"
       histories: "Історія"
