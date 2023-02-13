@@ -13,7 +13,7 @@
           = form.input_field :years,
                               collection: 0..2,
                               prompt:'__',
-                              class:'age_select ml-2 rounded',
+                              class:'select-age ml-2 rounded',
                               data: { input_child_info_target: 'year', action:'input-child-info#yearChanged' }
 
           = t('.form.childs_years_label')
@@ -21,7 +21,7 @@
           = form.input_field :months,
                               collection: 0..11,
                               prompt:'__',
-                              class:'age_select rounded',
+                              class:'select-age rounded',
                               data: { input_child_info_target: 'month' }
 
           = t('.form.childs_months_label')
