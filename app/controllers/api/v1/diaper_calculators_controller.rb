@@ -2,9 +2,9 @@
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
   def calculate
-    @validation = Calculators::ValidationService.new(params).validate
+    @validation = CalculatorValidator.new(params)
 
-    if @validation[:is_valid] == true
+    if @validation.valid?
 
       result = Calculators::DiapersService.new(params[:childs_years], params[:childs_months]).calculate!
 
@@ -14,7 +14,7 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
     else
       render(
         json: {
-          error: @validation[:error]
+          error: @validation.error
         }, status: :unprocessable_entity
       )
     end
