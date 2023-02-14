@@ -1,38 +1,22 @@
 # frozen_string_literal: true
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
-  def create
-    result = Calculators::DiapersService.new(params[:childs_age].to_i)
-                                        .calculate!
+  def calculate
+    @validation = CalculatorValidator.new(params)
 
-    diapers_be_used = t("calculators.calculator.diaper").pluralize(
-      count: result.to_be_used_diapers_amount,
-      locale: I18n.locale
-    )
+    if @validation.valid?
 
-    diapers_used = t("calculators.calculator.diaper").pluralize(
-      count: result.used_diapers_amount,
-      locale: I18n.locale
-    )
+      result = Calculators::DiapersService.new(params[:childs_years], params[:childs_months]).calculate!
 
-    values = [
-      { name: "money_spent",
-        result: result.used_diapers_price || 0 },
-      { name: "money_will_be_spent",
-        result: result.to_be_used_diapers_price || 0 },
-      { name: "used_diapers_amount",
-        result: result.used_diapers_amount || 0 },
-      { name: "to_be_used_diapers_amount",
-        result: result.to_be_used_diapers_amount || 0 }
-    ]
+      calculator_decorator = CalculatorDecorator.new(result)
 
-    render(
-      json: {
-        result: values,
-        date: params[:childs_age].to_i,
-        word_form_to_be_used: diapers_be_used,
-        word_form_used: diapers_used
-      }
-    )
+      render json: calculator_decorator.to_json, status: :ok
+    else
+      render(
+        json: {
+          error: @validation.error
+        }, status: :unprocessable_entity
+      )
+    end
   end
 end

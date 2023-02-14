@@ -1,89 +1,85 @@
-.jumbotron
-  .container-fluid
-    a.rounded.float-right.calculator__cross__space href=root_path
-      = image_tag "close.svg", height: 40, class:"z-1 position-relative"
-    p.form-p
-      = t '.form_description'
-    .form
-      = form_with url: "#", id: "form", method: :get, data: { locale: I18n.locale } do |form|
-        .flex-item
-          select.custom-select#childs_years [required]
-            option [disabled selected hidden value]
-              = t('.form.childs_years_label')
-            - (0..2).each do |year|
-              option value = year
-                = "#{year} #{t('datetime.prompts.year').downcase.pluralize(count: year, locale: I18n.locale)}"
-          select.custom-select#childs_months
-            option [disabled selected hidden value]
-              =t('.form.childs_months_label')
-            - (0..11).each do |month|
-              option value = month
-                = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
-          select.custom-select#two_years_childs_months
-            option [disabled selected hidden value]
-              =t('.form.childs_months_label')
-            - (0..6).each do |month|
-              option value = month
-                = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
+.jumbotron.jumbotron-fluid.position-relative.rounded
+  a.rounded.calculator__cross__space href=root_path
+    = image_tag "close.svg", height: 40, class:"z-1"
+  .d-flex.justify-content-around.flex-wrap.calculator_wrap
+    = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
+                                               data:{ controller: "input-child-info",
+                                                      input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                      input_child_info_results_outlet: '.result' }}) do |form|
+      .flex-item.flex-column
+        .input_lable
+          = t('.form_description')
+        .flex-item.flex-row.rounded.w-100.age_wrapper.form_fild
+          = form.input_field :years,
+                              collection: 0..2,
+                              prompt:'__',
+                              class:'select-age ml-2 rounded',
+                              data: { input_child_info_target: 'year', action:'input-child-info#yearChanged' }
 
-          - if FeatureFlag.get('feature_budget_category').active?
-            p.form-a
-              = t '.form_price'
-              select.custom-select#product_category [required]
-                option
-                  =t('calculators.calculator.form.budgetary')
-                option selected=""
-                  =t('calculators.calculator.form.medium')
-                option
-                  =t('calculators.calculator.form.premium')
-          = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
-          = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
-        / div.flex-item.mt-4
-        /   = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
-        /                        wrapper_tag: "input")
-          / = simple_format(t("calculators.calculator.want_recomentation_label"),
-          /                  { for: "checkbox_submit" }, wrapper_tag: "label")
-        button.calculate-btn.result-btn[type="submit" id="button_submit"]
-          =<t('.calculate_result_button')
-.container.calculation-results
+          = t('.form.childs_years_label')
+
+          = form.input_field :months,
+                              collection: 0..11,
+                              prompt:'__',
+                              class:'select-age rounded',
+                              data: { input_child_info_target: 'month' }
+
+          = t('.form.childs_months_label')
+        .input_lable
+          = t('.form_price')
+        = form.input_field :product_category, collection: collection_product_category,
+                                                      selected: t('.form.medium'),
+                                                      label: t('.form_price'),
+                                                      class: 'form_fild price_select rounded w-100',
+                                                      data: { input_child_info_target: 'productCategory' }
+
+
+        / = form.text_field  :baby_weight, placeholder:t('.form.baby_weight_label')
+        / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
+        /.flex-item.mb-4
+          = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
+                              wrapper_tag: "input")
+          = simple_format(t("calculators.calculator.want_recomentation_label"),
+                          { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
+
+        = form.submit t('.calculate_result_button'),
+                    class:'calculate-btn result-btn',
+                    data: { action:'input-child-info#submit' }
+    = image_pack_tag "scales.png", class:"scales_img"
+.container.calculation-results.result [data-controller='results']
   .row.row-l
     .col-sm.result-card
       .img-border
         = image_pack_tag "diapers_bought.png", class:"rounded"
       span
-        p data-type="used_diapers_amount" 0
-        - if I18n.locale == :en
-          | diapers already used
-        - elsif I18n.locale == :uk
-            #localized_uk_used_diapers_amount
-              | підгузків ви вже використали
+        p [data-results-target="diapersUsed"] 0
+        .[data-results-target="UsedDiapersAmount"]
+          = "#{t(".diaper").pluralize(count: 0, locale: I18n.locale)} #{t('.bought_diapers')}"
     .col-sm.result-card
       .img-border
         = image_pack_tag "diapers_to_buy.png", class:"rounded"
       span
-        p data-type="to_be_used_diapers_amount" 0
-        - if I18n.locale == :en
-          | diapers to be used in the future
-        - elsif I18n.locale == :uk
-            #localized_uk_to_be_used_diapers_amount
-              | підгузків ви ще використаєте
+        p [data-results-target="diapersToBeUsed"] 0
+        .[data-results-target="ToBeUsedDiapersAmount"]
+          ="#{t(".diaper").pluralize(count: 0, locale: I18n.locale)} #{t('.will_buy_diapers')}"
     .w-100.row_break
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_spent.png", class:"rounded"
       span
-        p data-type="money_spent" 0
+        p [data-results-target="moneySpent"] 0
         = t '.money_spent'
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_to_spent.png", class:"rounded"
       span
-        p data-type="money_will_be_spent" 0
+        p [data-results-target="moneyWillBeSpent"] 0
         = t '.money_will_be_spent'
+
 .container.calculation-results
   .row
     .col-xl-8.result-card
       = render 'layouts/description_block'
     .col-sm.result-card
-      button.calculate-btn.result-btn.description-btn
+      button.calculate-btn.description-btn
         = render 'layouts/description_button'
