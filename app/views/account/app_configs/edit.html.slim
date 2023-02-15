@@ -10,20 +10,20 @@ h2.text-center = t '.diapers_calculator_config'
     .row
       .col
         = f.label :first_amount, t('.amount')
-        = f.number_field :first_amount, step: 0.5, min: 0, value: @app_config.diapers_calculator['1..3']['amount'],
-                      class: 'form-input-number'
+        = f.number_field :first_amount, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('1..3', 'amount')
       .col
         = f.label :first_amount, t('.price')
-        = f.number_field :first_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['1..3']['price'],
-                      class: 'form-input-number'
+        = f.number_field :first_price, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('1..3', 'price')
       .col
         = f.label :second_amount, t('.amount')
-        = f.number_field :second_amount, step: 0.5, min: 0, value: @app_config.diapers_calculator['4..6']['amount'],
-                      class: 'form-input-number'
+        = f.number_field :second_amount, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('4..6', 'amount')
       .col
         = f.label :second_price, t('.price')
-        = f.number_field :second_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['4..6']['price'],
-                      class: 'form-input-number'
+        = f.number_field :second_price, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('4..6', 'price')
     .row.my-3
       .col
         = f.label t('.third_period'), class: 'h3'
@@ -32,20 +32,20 @@ h2.text-center = t '.diapers_calculator_config'
     .row
       .col
         = f.label :third_amount, t('.amount')
-        = f.number_field :third_amount, step: 0.5, min: 0, value: @app_config.diapers_calculator['7..9']['amount'],
-                      class: 'form-input-number'
+        = f.number_field :third_amount, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('7..9', 'amount')
       .col
         = f.label :third_price, t('.price')
-        = f.number_field :third_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['7..9']['price'],
-                      class: 'form-input-number'
+        = f.number_field :third_price, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('7..9', 'price')
       .col
         = f.label :fourth_amount, t('.amount')
-        = f.number_field :fourth_amount, step: 0.5, min: 0, value: @app_config.diapers_calculator['10..12']['amount'],
-                      class: 'form-input-number'
+        = f.number_field :fourth_amount, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('10..12', 'amount')
       .col
         = f.label :fourth_price, t('.price')
-        = f.number_field :fourth_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['10..12']['price'],
-                      class: 'form-input-number'
+        = f.number_field :fourth_price, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('10..12', 'price')
     .row.my-3
       .col
         = f.label t('.fifth_period'), class: 'h3'
@@ -54,20 +54,20 @@ h2.text-center = t '.diapers_calculator_config'
     .row
       .col
         = f.label :fifth_amount, t('.amount')
-        = f.number_field :fifth_amount, step: 0.5, min: 0, value: @app_config.diapers_calculator['13..18']['amount'],
-                      class: 'form-input-number'
+        = f.number_field :fifth_amount, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('13..18', 'amount')
       .col
         = f.label :fifth_price, t('.price')
-        = f.number_field :fifth_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['13..18']['price'],
-                      class: 'form-input-number'
+        = f.number_field :fifth_price, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('13..18', 'price')
       .col
         = f.label :sixth_amount, t('.amount')
-        = f.number_field :sixth_amount, step: 0.5, min: 0, value: @app_config.diapers_calculator['19..24']['amount'],
-                      class: 'form-input-number'
+        = f.number_field :sixth_amount, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('19..24', 'amount')
       .col
         = f.label :sixth_price, t('.price')
-        = f.number_field :sixth_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['19..24']['price'],
-                      class: 'form-input-number'
+        = f.number_field :sixth_price, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('19..24', 'price')
     .row.my-3
       .col
         = f.label t('.seventh_period'), class: 'h3'
@@ -75,12 +75,12 @@ h2.text-center = t '.diapers_calculator_config'
     .row
       .col-3
         = f.label :seventh_amount, t('.amount')
-        = f.number_field :seventh_amount, step: 0.5, min: 0, value: @app_config.diapers_calculator['25..30']['amount'],
-                      class: 'form-input-number'
+        = f.number_field :seventh_amount, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('25..30', 'amount')
       .col-3
         = f.label :seventh_price, t('.price')
-        = f.number_field :seventh_price, step: 0.5, min: 0, value: @app_config.diapers_calculator['25..30']['price'],
-                      class: 'form-input-number'
+        = f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number',
+                          value: @app_config.diapers_calculator.dig('25..30', 'price')
       .col-6
         button.calculate-btn.result-btn[type='submit']
           = t '.update'
