@@ -39,16 +39,19 @@ en:
       form:
         childs_birthday_label: "Child's birthday"
         childs_age_label: "Child`s age"
-        childs_years_label: "years"
-        childs_months_label: "months"
+        childs_years_label: "y/o."
+        childs_months_label: "mth."
         baby_weight_label: "Baby weight"
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
+      year_and_month_error_msg: "Error: please, select years and months"
+      year_error_msg: "Error: please, select years"
+      month_error_msg: "Error: please, select month"
       calculate_result_button: "Calculate"
       want_recomentation_label: "Yes, I want to receive email messages with recommendations"
-      bought_diapers: "diapers already used"
-      will_buy_diapers: "diapers to be used in the future"
+      bought_diapers: "already used"
+      will_buy_diapers: "to be used in the future"
       money_spent: "UAH already spent on diapers"
       money_will_be_spent: "UAH yet to be spent on diapers"
       mililiters_of_naphtha: "Mililiters of Naphtha"
@@ -63,7 +66,6 @@ en:
       log_in: "Log In"
       сontact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
-      donate: "DONATE"
       local_lang: "Українська"
     description_block:
       description_block_html: "These are approximate results. The exact numbers for your
@@ -74,11 +76,6 @@ en:
                               or %{calculate_link_two:contact us} with any other questions you may have."
     description_button:
       use_less: "%{use_less_link:HOW TO USE LESS}"
-    homepage:
-      homepage_title: "Welcome to the diaper calculator"
-      description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
-      calculate: "Let's go"
-      visit_website: "Visit WebSite"
     admin_navbar:
       calculators: "Calculators"
       histories: "History"

@@ -3,22 +3,25 @@ uk:
   calculators:
     calculator:
       diaper: "підгузок"
-      form_description: "Скільки виповнилося дитині:"
+      form_description: "Вік дитини:"
       form_price: "Цінова категорія"
       form:
         childs_birthday_label: "Дата народження дитини"
         childs_age_label: "Вік дитини"
-        childs_years_label: "повних років"
-        childs_months_label: "місяців"
+        childs_years_label: "р."
+        childs_months_label: "міс."
         baby_weight_label: "Baby weight"
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
+      year_and_month_error_msg: "Помилка: будь ласка, виберіть скільки років та місяців дитині"
+      year_error_msg: "Помилка: будь ласка, виберіть скільки років дитині"
+      month_error_msg: "Помилка: будь ласка, виберіть скільки місяців дитині"
       calculate_result_button: "Розрахувати"
       want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
-      bought_diapers: "підгузок ви вже використали"
+      bought_diapers: "ви вже використали"
       money_spent: "грн ви вже витратили"
-      will_buy_diapers: "підгузки які будуть використані"
+      will_buy_diapers: "ви ще використаєте"
       money_will_be_spent: "грн ви ще витратите"
       mililiters_of_naphtha: "Мілілітрів нафти"
       gram_of_plastic: "Грамів пластику"
@@ -36,7 +39,6 @@ uk:
       sign_up: "Зареєструватися"
       log_in: "Увійти"
       contact_us: "Зв'яжіться з нами"
-      donate: "Підтримати"
       contacts: "%{contacts_uk:Контакти}"
       local_lang: "English"
     description_block:
@@ -48,11 +50,6 @@ uk:
                               або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
     description_button:
       use_less: "%{use_less_link:ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ}"
-    homepage:
-      homepage_title: "Вас вітає калькулятор підгузків"
-      description: "Цей калькулятор дозволяє порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
-      calculate: "Почати"
-      visit_website: "Наш сайт"
     admin_navbar:
       calculators: "Калькулятори"
       histories: "Історія"

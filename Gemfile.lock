@@ -205,6 +205,9 @@ GEM
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     i18n_data (0.11.0)
+    importmap-rails (1.1.5)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     it (2.0.0)
       actionpack (>= 3.0.0)
     jbuilder (2.11.5)
@@ -350,6 +353,8 @@ GEM
     regexp_parser (2.2.0)
     request_store (1.5.1)
       rack (>= 1.4)
+    requestjs-rails (0.0.10)
+      rails (>= 6.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -456,10 +461,14 @@ GEM
       language_server-protocol (~> 3.17.0.2)
       rubocop (= 1.39.0)
       rubocop-performance (= 1.15.1)
+    stimulus-rails (1.2.1)
+      railties (>= 6.0.0)
     temple (0.8.2)
     terminal-table (1.6.0)
     thor (1.1.0)
     tilt (2.0.10)
+    toastr-rails (1.0.3)
+      railties (>= 3.1.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -528,6 +537,7 @@ DEPENDENCIES
   font-awesome-rails
   friendly_id (~> 5.4.0)
   fuubar
+  importmap-rails (~> 1.1)
   it
   jbuilder (~> 2.7)
   letter_opener
@@ -546,6 +556,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n (~> 7.0.0)
   redis (~> 4.0)
+  requestjs-rails
   rspec-rails (~> 5.0.0)
   rubocop (~> 1.39)
   rubocop-performance
@@ -560,6 +571,8 @@ DEPENDENCIES
   slim-rails
   spring
   standard (~> 1.0)
+  stimulus-rails
+  toastr-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

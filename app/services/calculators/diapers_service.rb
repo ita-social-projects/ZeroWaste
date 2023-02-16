@@ -4,8 +4,8 @@ class Calculators::DiapersService
   attr_accessor :age, :used_diapers_amount, :to_be_used_diapers_amount,
                 :used_diapers_price, :to_be_used_diapers_price, :config
 
-  def initialize(age)
-    @age                       = age
+  def initialize(years, month)
+    @age                       = years.to_i * 12 + month.to_i
     @used_diapers_amount       = 0
     @to_be_used_diapers_amount = 0
     @used_diapers_price        = 0
