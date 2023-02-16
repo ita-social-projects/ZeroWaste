@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :diapers_service, class: Calculators::DiapersService do
-    initialize_with { new(0, 8) }
+    initialize_with { new(8) }
     used_diapers_amount { 0 }
     used_diapers_price { 0 }
     to_be_used_diapers_amount { 4575 }

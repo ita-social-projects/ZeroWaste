@@ -1,11 +1,27 @@
 body {
-  position: relative;
   margin: 0 auto;
-  background: url("../images/mother.jpeg") no-repeat center top;
-  background-size: cover;
   overflow-x: hidden;
-  height: 100vh;
-  font-family: "Comfortaa", sans-serif;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 32px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/mother.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(50%);
+}
+.body-inside {
+  /* This will make it stack on top of the ::before */
+  position: relative;
 }
 
 a {
@@ -21,17 +37,9 @@ a {
   }
 }
 
-.body-inside {
-  position: absolute;
-  background-color: #00000078;
-  min-height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
 .page-header {
-  max-width: $max_width_content;
+  max-width: 1110px;
+  font-family: "Comfortaa", sans-serif;
   margin: auto;
   margin-bottom: 10px;
   display: flex;
@@ -41,23 +49,21 @@ a {
   border-bottom: 2px solid $gray;
 }
 
-.jumbotron {
+div.jumbotron {
+  font-family: "Comfortaa", sans-serif;
   background-color: $color;
-  max-width: $max_width_content;
+  padding: 25px 10px;
+  max-width: 1110px;
   margin: 0 auto;
-}
-
-.jumbotron-fluid {
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 .func-btns {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   width: 315px;
+  font-family: "Nunito", sans-serif;
 }
 
 .mn-vd {
@@ -80,7 +86,7 @@ a {
   max-width: 420px;
   margin: 20px auto;
 
-  &> :last-of-type {
+  & > :last-of-type {
     & img {
       margin-right: 10px;
     }
@@ -97,7 +103,7 @@ a {
   border: none;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 0.2em;
+  font-family: "Nunito", sans-serif;
 
   a {
     border: 2px solid $gray;
@@ -208,12 +214,12 @@ h3.container {
   padding: 20px;
 }
 
-.calculation-results {
+div.calculation-results {
   padding: 10px;
   margin-top: 20px;
   position: center;
   background-color: $color;
-  max-width: $max_width_content;
+  max-width: 1110px;
   min-height: 151px;
   border-radius: 6px;
 }
@@ -256,7 +262,7 @@ h3.container {
 .result-card,
 .last-result-card {
   font-weight: 300;
-  padding: 20px;
+  padding: 30px;
 
   p {
     font-size: 22px;
@@ -288,7 +294,6 @@ body:where(.admin)::before {
 }
 
 .admin-table {
-
   .admin-table-header > *,
   .admin-table-body > * {
     display: flex;
@@ -313,7 +318,7 @@ body:where(.admin)::before {
     }
 
     .admin-table-body {
-      &>* {
+      & > * {
         align-items: center;
       }
 
@@ -342,19 +347,15 @@ body:where(.admin)::before {
   .tab {
     display: none;
   }
-
-  .body-inside {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
+  .homepage_title {
+    margin-top: 50px;
   }
-
-  .jumbotron {
-    width: 100%;
-  }
-
-  .calculation-results {
-    width: 100%;
+  div.jumbotron,
+  div.container {
+    max-width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
+    padding-left: 0px;
   }
 
   .calculation-results span {
@@ -363,7 +364,6 @@ body:where(.admin)::before {
 
   .page-header {
     display: flex;
-    width: 100%;
     justify-content: space-between;
   }
 
@@ -376,6 +376,7 @@ body:where(.admin)::before {
 
     a {
       padding: 10px;
+      margin-top: 0.5rem;
     }
   }
 
@@ -420,16 +421,34 @@ body:where(.admin)::before {
   .row_break {
     display: block;
   }
-
-  .donate-btn a {
-    padding: 10px;
-  }
 }
 
 @media screen and (max-width: $md) and (min-width: $xs) {
+  .homepage_title {
+    margin-top: 50px;
+  }
   .page-header {
     width: auto;
     margin-right: 16px;
     margin-left: 16px;
+  }
+  .calculation-results,
+  .jumbotron {
+    width: 96%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .donate-btn a {
+    margin-bottom: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main p {
+    margin: 0 auto;
+  }
+  .main-btns {
+    margin: 0 auto;
   }
 }

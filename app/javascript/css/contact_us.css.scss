@@ -1,0 +1,26 @@
+.contact-form .msg,
+.contact-form .email {
+  margin-bottom: 1rem;
+}
+
+.contact-form textarea {
+  border: 2px solid $gray;
+}
+
+.text {
+  margin-bottom: 0.5rem;
+}
+
+.contact-info {
+  color: #000;
+  background-color: $color;
+  width: 40%;
+  border-radius: 10px;
+  text-align: center;
+  min-width: max-content;
+  & a {
+    color: #000;
+    border-bottom: solid #212529 2px;
+    padding: 1%;
+  }
+}

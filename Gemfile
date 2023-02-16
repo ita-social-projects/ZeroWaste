@@ -93,11 +93,7 @@ gem "paper_trail"
 gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
-gem "stimulus-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "toastr-rails"
-gem "importmap-rails", "~> 1.1"
-gem "requestjs-rails"
 
 # deploy
 gem "capistrano", "~> 3.11"
