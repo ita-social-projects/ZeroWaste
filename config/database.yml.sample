@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("ZW_DATABASE_HOST") { "localhost" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("ZW_DATABASE_USERNAME") { "postgres" } %>
+  password: <%= ENV["ZW_DATABASE_PASSWORD"] %>
+  port: <%= ENV.fetch("ZW_DATABASE_PORT") { "5432" } %>
+
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+  <<: *default
+  database: zero_waste_development
+
+test:
+  <<: *default
+  database: zero_waste_test
+
+production:
+  <<: *default
+#   database: zero_waste_production
+#   username: zero_waste
+#   password: <%= ENV['ZERO_WASTE_DATABASE_PASSWORD'] %>
