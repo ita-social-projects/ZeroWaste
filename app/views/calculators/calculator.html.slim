@@ -49,16 +49,6 @@
   .row.row-l
     .col-sm.result-card
       .img-border
-        = image_pack_tag "diapers_bought.png", class:"rounded"
-      span
-        p data-type="used_diapers_amount" 0
-        - if I18n.locale == :en
-          | diapers already used
-        - elsif I18n.locale == :uk
-            #localized_uk_used_diapers_amount
-              | підгузків ви вже використали
-    .col-sm.result-card
-      .img-border
         = image_pack_tag "diapers_to_buy.png", class:"rounded"
       span
         p data-type="to_be_used_diapers_amount" 0
@@ -70,16 +60,26 @@
     .w-100.row_break
     .col-sm.result-card
       .img-border
-        = image_pack_tag "money_spent.png", class:"rounded"
+        = image_pack_tag "diapers_bought.png", class:"rounded"
       span
-        p data-type="money_spent" 0
-        = t '.money_spent'
+        p data-type="used_diapers_amount" 0
+        - if I18n.locale == :en
+          | diapers already used
+        - elsif I18n.locale == :uk
+            #localized_uk_used_diapers_amount
+              | підгузків ви вже використали
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_to_spent.png", class:"rounded"
       span
         p data-type="money_will_be_spent" 0
         = t '.money_will_be_spent'
+    .col-sm.result-card
+      .img-border
+        = image_pack_tag "money_spent.png", class:"rounded"
+      span
+        p data-type="money_spent" 0
+        = t '.money_spent'    
 .container.calculation-results
   .row
     .col-xl-8.result-card
