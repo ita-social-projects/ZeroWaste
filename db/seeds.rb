@@ -18,7 +18,7 @@ User.create(
   password_confirmation: "password",
   first_name: "John",
   last_name: "User",
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  confirmed_at: DateTime.current,
   role: "user"
 )
 
@@ -29,7 +29,7 @@ User.create(
   password_confirmation: "ChangeMe1",
   first_name: "Admin",
   last_name: "Admin",
-  confirmed_at: "2022-04-27 15:29:25.414540000 +0000",
+  confirmed_at: DateTime.current,
   role: "admin"
 )
 
