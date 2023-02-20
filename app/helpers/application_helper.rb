@@ -6,11 +6,13 @@ module ApplicationHelper
 
     if site_setting.invalid?
       site_setting.title = "ZeroWaste"
-      site_setting.favicon.attach(
-        io: File.open("app/assets/images/logo_zerowaste.png"),
-        filename: "logo_zerowaste.png",
-        content_type: "image/png"
-      )
+      unless site_setting.favicon.attached?
+        site_setting.favicon.attach(
+          io: File.open("app/assets/images/logo_zerowaste.png"),
+          filename: "logo_zerowaste.png",
+          content_type: "image/png"
+        )
+      end
 
       site_setting.save!
     end
