@@ -41,7 +41,6 @@
                               wrapper_tag: "input")
           = simple_format(t("calculators.calculator.want_recomentation_label"),
                           { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
-
         = form.submit t('.calculate_result_button'),
                     class:'calculate-btn result-btn',
                     data: { action:'input-child-info#submit' }
@@ -74,7 +73,7 @@
         = image_pack_tag "money_spent.png", class:"rounded"
       span
         p [data-results-target="moneySpent"] 0
-        = t '.money_spent'    
+        = t '.money_spent'
 
 .container.calculation-results
   .row
