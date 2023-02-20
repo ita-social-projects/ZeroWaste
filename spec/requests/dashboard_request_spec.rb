@@ -3,12 +3,7 @@ require "rails_helper"
 RSpec.describe Account::DashboardController, type: :request do
   describe "GET :index" do
     context "when the user is signed in" do
-      let(:user) { create(:user) }
-
-      before do
-        sign_in user
-        get account_root_path
-      end
+      include_context :signed_in_user
 
       it "returns a success response" do
         expect(response).to be_successful
