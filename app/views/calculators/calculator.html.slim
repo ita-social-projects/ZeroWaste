@@ -41,20 +41,12 @@
                               wrapper_tag: "input")
           = simple_format(t("calculators.calculator.want_recomentation_label"),
                           { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
-
         = form.submit t('.calculate_result_button'),
                     class:'calculate-btn result-btn',
                     data: { action:'input-child-info#submit' }
     = image_pack_tag "scales.png", class:"scales_img"
 .container.calculation-results.result [data-controller='results']
   .row.row-l
-    .col-sm.result-card
-      .img-border
-        = image_pack_tag "diapers_bought.png", class:"rounded"
-      span
-        p [data-results-target="diapersUsed"] 0
-        .[data-results-target="UsedDiapersAmount"]
-          = "#{t(".diaper").pluralize(count: 0, locale: I18n.locale)} #{t('.bought_diapers')}"
     .col-sm.result-card
       .img-border
         = image_pack_tag "diapers_to_buy.png", class:"rounded"
@@ -65,16 +57,23 @@
     .w-100.row_break
     .col-sm.result-card
       .img-border
-        = image_pack_tag "money_spent.png", class:"rounded"
+        = image_pack_tag "diapers_bought.png", class:"rounded"
       span
-        p [data-results-target="moneySpent"] 0
-        = t '.money_spent'
+        p [data-results-target="diapersUsed"] 0
+        .[data-results-target="UsedDiapersAmount"]
+          = "#{t(".diaper").pluralize(count: 0, locale: I18n.locale)} #{t('.bought_diapers')}"
     .col-sm.result-card
       .img-border
         = image_pack_tag "money_to_spent.png", class:"rounded"
       span
         p [data-results-target="moneyWillBeSpent"] 0
         = t '.money_will_be_spent'
+    .col-sm.result-card
+      .img-border
+        = image_pack_tag "money_spent.png", class:"rounded"
+      span
+        p [data-results-target="moneySpent"] 0
+        = t '.money_spent'    
 
 .container.calculation-results
   .row
