@@ -13,8 +13,8 @@ export default class extends Controller {
   showResults(data) {
     let result = data.result;
 
-    this.moneySpentTarget.innerHTML = result.money_spent.toFixed(1);
-    this.moneyWillBeSpentTarget.innerHTML = result.money_will_be_spent.toFixed(1);
+    this.moneySpentTarget.innerHTML = result.money_spent;
+    this.moneyWillBeSpentTarget.innerHTML = result.money_will_be_spent;
     this.diapersUsedTarget.innerHTML = result.used_diapers_amount;
     this.diapersToBeUsedTarget.innerHTML = result.to_be_used_diapers_amount;
 
