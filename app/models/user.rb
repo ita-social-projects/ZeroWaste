@@ -48,12 +48,12 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   enum role: {
-    user: 0,
-    admin: 1
+    admin: 1,
+    user: 0
   }
 
   def self.grouped_collection_by_role
-    User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }
+    User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }.sort
   end
 
   # validate :correct_image_type
