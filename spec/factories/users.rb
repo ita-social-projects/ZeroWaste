@@ -47,4 +47,12 @@ FactoryBot.define do
       role { "admin" }
     end
   end
+
+  sequence :first_name do |num|
+    if Rails.env.test?
+      "#{clear_special_characters(Faker::Name.first_name.strip)} #{num}"
+    else
+      Faker::Name.first_name
+    end
+  end
 end
