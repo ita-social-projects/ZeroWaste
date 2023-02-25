@@ -27,7 +27,7 @@ class Account::CategoriesController < Account::BaseController
     @category = resource
 
     if @category.update(category_params)
-      redirect_to account_categories_path, notice: t("notifications.category_created")
+      redirect_to account_categories_path, notice: t("notifications.category_updated")
     else
       render :edit, status: :unprocessable_entity
     end
