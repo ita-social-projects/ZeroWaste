@@ -3,7 +3,7 @@ FactoryBot.define do
     title { "ZeroWaste" }
 
     trait :with_favicon do
-      favicon { Rack::Test::UploadedFile.new('spec/fixtures/files/logo_zerowaste.png', 'image/png') }
+      favicon { Rack::Test::UploadedFile.new("spec/fixtures/files/logo_zerowaste.png", "image/png") }
     end
   end
 
