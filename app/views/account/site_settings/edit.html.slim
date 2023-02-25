@@ -1,9 +1,9 @@
 few
-  = simple_form_for @site_setting, url: { action: 'update' }, html: { novalidate: false } do |f|
+  = simple_form_for @site_setting, url: account_site_setting_path do |f|
     .form-group.row
       .col-12.has-float-label.my-auto
-        = f.input :title, class: 'form-control', required: true
+        = f.input :title, class: 'form-control'
         = f.input :favicon, class: 'form-control'
         = render 'browser_tab', title: @site_setting.title, favicon: @site_setting.favicon
-    = f.submit "", value: t('.update_button'), class: 'btn btn-success mr-2'
+    = f.submit nil, value: t('.update_button'), class: 'btn btn-success mr-2'
       i.fa.fa-times-circle
