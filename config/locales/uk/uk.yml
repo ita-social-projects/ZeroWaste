@@ -355,6 +355,9 @@ uk:
     category_created: "Категорію було успішно створено."
     category_updated: "Категорію було успішно оновлено."
     category_deleted: "Категорію було успішно видалено."
+    product_created: "Продукт був успішно створений."
+    product_updated: "Продукт був успішно оновлений."
+    product_deleted: "Продукт був успішно видалений."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

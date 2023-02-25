@@ -406,6 +406,9 @@ en:
     category_created: "Category was successfully created."
     category_updated: "Category was successfully updated."
     category_deleted: "Category was successfully destroyed."
+    product_created: "A product was successfully created."
+    product_updated: "A product was successfully updated."
+    product_deleted: "A product was successfully destroyed."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
