@@ -1,5 +1,5 @@
 .container
-  = form_tag account_categories_path(id: @categories), method: :get, class: 'd-flex justify-content-end mb-5' do
+  = form_tag account_category_path(id: @categories), method: :get, class: 'd-flex justify-content-end mb-5' do
     .d-flex
     = link_to new_account_category_path(id: @categories), class: 'btn btn-success px-4 ml-1' do
       i.fa.fa-plus.mr-2

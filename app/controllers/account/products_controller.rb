@@ -11,6 +11,10 @@ class Account::ProductsController < Account::BaseController
     @product = Product.new
   end
 
+  def edit
+    @product = resource
+  end
+
   def create
     @product = Product.new(products_params)
 
@@ -19,10 +23,6 @@ class Account::ProductsController < Account::BaseController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @product = resource
   end
 
   def update
