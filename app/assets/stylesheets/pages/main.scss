@@ -1,7 +1,7 @@
 body {
   position: relative;
   margin: 0 auto;
-  background: url("../images/mother.jpeg") no-repeat center top;
+  background: asset-url("mother.jpeg") no-repeat center top;
   background-size: cover;
   overflow-x: hidden;
   height: 100vh;
@@ -330,7 +330,7 @@ body.admin {
   }
 
   &.alert {
-    background: $danger;
+    background: $error;
   }
 }
 
