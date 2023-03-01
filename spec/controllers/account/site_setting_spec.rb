@@ -7,12 +7,10 @@ RSpec.describe Account::SiteSettingsController, type: :request do
       let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
 
       it "renders the edit template" do
-
-      get edit_account_site_setting_path
-
-      expect(response).to be_successful
-      expect(response).to render_template(:edit)
-      expect(response.body).to include(site_setting_params[:title])
+        get edit_account_site_setting_path
+        expect(response).to be_successful
+        expect(response).to render_template(:edit)
+        expect(response.body).to include(site_setting_params[:title])
       end
     end
   end
@@ -20,7 +18,6 @@ RSpec.describe Account::SiteSettingsController, type: :request do
   describe "PUT update" do
     include_context :authorize_admin
     context "with valid params" do
-
       let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
       let(:params) { { site_setting: site_setting_params } }
 
