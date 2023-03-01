@@ -2,7 +2,11 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 
-import HandleBrowserTabController from "./handle_browser_tab_controller"
-application.register("handle-browser-tab", HandleBrowserTabController)
+const application = Application.start()
+const context = require.context("./controllers", true, /\.js$/)
+const definitions = definitionsFromContext(context)
+
+application.load(definitions)

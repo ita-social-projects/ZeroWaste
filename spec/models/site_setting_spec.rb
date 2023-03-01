@@ -15,7 +15,7 @@ RSpec.describe SiteSetting, type: :model do
     include_context :update_site_setting
 
     let!(:site_setting) { SiteSetting.instance }
-    let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_favicon) }
+    let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
 
     it "has a valid factory" do
       expect(site_setting).to be_valid

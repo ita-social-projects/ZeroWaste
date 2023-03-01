@@ -13,16 +13,4 @@ export default class extends Controller {
   setTitle(event) {
     this.title.textContent = event.target.value
   }
-
-  readURL(event) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader()
-
-      reader.onload = (event) => {
-        this.icon.setAttribute('src', event.target.result)
-      }
-
-      reader.readAsDataURL(event.target.files[0])
-    }
-  }
 }

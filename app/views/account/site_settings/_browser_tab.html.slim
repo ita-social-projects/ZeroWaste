@@ -1,5 +1,6 @@
 .tab-browser
   .tab-content
-    = image_tag(favicon, class: 'tab-icon')
+
+    = image_tag(current_site_setting.favicon, class: 'tab-icon')
     span.tab-text
-      = title
+      = current_site_setting.title

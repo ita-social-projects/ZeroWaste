@@ -6,8 +6,6 @@ RSpec.describe ApplicationHelper, type: :helper do
       it "should set default values" do
         expect(SiteSetting.instance).not_to be_valid
 
-        current_site_setting = helper.current_site_setting
-
         expect(current_site_setting.title).to eq("ZeroWaste")
         expect(current_site_setting.favicon).to be_attached
         expect(current_site_setting.favicon.filename).to eq("logo_zerowaste.png")
@@ -16,14 +14,14 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     context "when site setting is valid" do
-      let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_favicon) }
+      let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
+
+      before { SiteSetting.instance.update((site_setting_params)) }
 
       it "should return the existing site setting" do
         SiteSetting.instance.update((site_setting_params))
+
         expect(SiteSetting.instance).to be_valid
-
-        current_site_setting = helper.current_site_setting
-
         expect(current_site_setting.title).to eq("ZeroWaste")
         expect(current_site_setting.favicon).to be_attached
         expect(current_site_setting.favicon.filename).to eq("logo_zerowaste.png")

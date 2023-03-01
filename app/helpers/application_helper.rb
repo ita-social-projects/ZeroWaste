@@ -4,9 +4,8 @@ module ApplicationHelper
   def current_site_setting
     site_setting = SiteSetting.instance
 
-    if site_setting.invalid?
-      site_setting.title = "ZeroWaste"
-      unless site_setting.favicon.attached?
+
+      if !site_setting.favicon.attached?
         site_setting.favicon.attach(
           io: File.open("app/assets/images/logo_zerowaste.png"),
           filename: "logo_zerowaste.png",
@@ -15,7 +14,7 @@ module ApplicationHelper
       end
 
       site_setting.save!
-    end
+
 
     site_setting
   end
