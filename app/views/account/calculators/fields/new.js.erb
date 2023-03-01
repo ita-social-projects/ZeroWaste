@@ -1,19 +1,24 @@
 // Render HTML for one field on backend
-var newFieldForm = $("<%= escape_javascript(render 'account/calculators/fields/new', calculator: @calculator) %>")
+const newFieldForm = document.createElement("div");
+newFieldForm.innerHTML = `<%= escape_javascript(render 'account/calculators/fields/new', calculator: @calculator) %>`;
 
 // Extract new selector data
-var fieldsContainer = $("[data-kind=<%= @field.kind %>]")
-var selectorLetter = fieldsContainer.data("selector-letter")
-var selectorNumber = (parseInt(fieldsContainer.data("last-selector")) || 0) + 1
-
+const fieldsContainer = document.querySelector(`[data-kind="${@field.kind}"]`);
+const selectorLetter = fieldsContainer.getAttribute('data-selector-letter');
+const selectorNumber = (parseInt(fieldsContainer.getAttribute('data-last-selector')) || 0) + 1;
 // Hide 'No fields yet' text
-$("[data-empty-text]", fieldsContainer).remove()
+const emptyTextElements = fieldsContainer.querySelectorAll("[data-empty-text]");
+emptyTextElements.forEach(function(element) {
+  element.remove();
+});
 // Increment current selector on fields group by 1
-fieldsContainer.data("last-selector", selectorNumber)
-
+fieldsContainer.setAttribute("data-last-selector", selectorNumber);
 // Set selector in HTML for new field
-$("[data-selector-input]", newFieldForm).val(`${selectorLetter}${selectorNumber}`)
-$("[data-selector]", newFieldForm).html(`${selectorLetter}${selectorNumber}`)
+const selectorInput = newFieldForm.querySelector("[data-selector-input]");
+selectorInput.value = `${selectorLetter}${selectorNumber}`;
+const selector = newFieldForm.querySelector("[data-selector]");
+selector.innerHTML = `${selectorLetter}${selectorNumber}`;
 
 // Append field to the group of fields
-$('.nested-fields', newFieldForm).appendTo(fieldsContainer)
+const nestedFields = newFieldForm.querySelector(".nested-fields");
+fieldsContainer.appendChild(nestedFields);
