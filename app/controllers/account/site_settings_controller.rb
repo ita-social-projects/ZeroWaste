@@ -10,7 +10,6 @@ class Account::SiteSettingsController < Account::BaseController
   def update
     @site_setting = resource
 
-
     if @site_setting.update(site_setting_params)
       redirect_to edit_account_site_setting_path, notice: t("notifications.site_setting_updated")
     else
