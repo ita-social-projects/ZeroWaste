@@ -43,7 +43,7 @@ class Account::CategoriesController < Account::BaseController
   private
 
   def collection
-    Category.all
+    Category.ordered_by_priority
   end
 
   def resource
@@ -51,6 +51,6 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :priority)
   end
 end
