@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: prices
@@ -17,11 +15,18 @@
 #  index_prices_on_category_id  (category_id)
 #  index_prices_on_priceable    (priceable_type,priceable_id)
 #
-class Price < ApplicationRecord
-  belongs_to :priceable, polymorphic: true
-  belongs_to :category, optional: true
+FactoryBot.define do
+  factory :price do
+    trait :budgetary_price do
+      association :category, :budgetary
 
-  validates :sum, presence: true
-  validates :priceable_id,
-            uniqueness: { scope: [:category_id, :priceable_type] }
+      sum { Faker::Number.between(from: 20, to: 42) }
+    end
+
+    trait :medium_price do
+      association :category, :medium
+
+      sum { Faker::Number.between(from: 42, to: 71) }
+    end
+  end
 end
