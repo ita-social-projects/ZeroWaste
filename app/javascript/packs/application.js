@@ -17,7 +17,7 @@ require("@nathanvda/cocoon");
 // window.$ = window.jQuery = jQuery;
 
 // import "bootstrap";
-// import "@fortawesome/fontawesome-free/js/all";
+import "@fortawesome/fontawesome-free/js/all";
 // import "../stylesheets/application";
 
 // import 'ajax/result_button';
