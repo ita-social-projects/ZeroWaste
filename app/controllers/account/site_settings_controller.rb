@@ -20,7 +20,7 @@ class Account::SiteSettingsController < Account::BaseController
   private
 
   def resource
-    SiteSetting.instance
+    SiteSetting.current
   end
 
   def site_setting_params

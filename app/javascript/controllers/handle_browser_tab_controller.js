@@ -7,10 +7,24 @@ export default class extends Controller {
     this.icon = this.element.querySelector('.tab-icon')
 
     this.input.addEventListener('input', this.setTitle.bind(this))
-    this.input.addEventListener('change', this.readURL.bind(this))
+
+    const fileInput = this.element.querySelector("input#site_setting_favicon")
+    fileInput.addEventListener('change', this.readURL.bind(this))
   }
 
-  setTitle(event) {
-    this.title.textContent = event.target.value
+    setTitle(event) {
+      this.title.textContent = event.target.value
+    }
+
+    readURL(event) {
+      if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('.tab-icon').attr('src', e.target.result)
+        };
+
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    }
   }
-}

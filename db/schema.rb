@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_01_141524) do
+ActiveRecord::Schema.define(version: 2023_03_03_124621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2023_03_01_141524) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "priority", default: 0, null: false
   end
 
   create_table "category_categoryables", force: :cascade do |t|
@@ -103,6 +104,22 @@ ActiveRecord::Schema.define(version: 2023_03_01_141524) do
     t.integer "unit", default: 0
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
     t.index ["uuid"], name: "index_fields_on_uuid", unique: true
+  end
+
+  create_table "flipper_features", force: :cascade do |t|
+    t.string "key", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["key"], name: "index_flipper_features_on_key", unique: true
+  end
+
+  create_table "flipper_gates", force: :cascade do |t|
+    t.string "feature_key", null: false
+    t.string "key", null: false
+    t.string "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
@@ -145,8 +162,8 @@ ActiveRecord::Schema.define(version: 2023_03_01_141524) do
 
   create_table "site_settings", force: :cascade do |t|
     t.string "title", default: "ZeroWaste"
-    t.datetime "created_at", precision: 6, default: "2023-03-01 14:17:21", null: false
-    t.datetime "updated_at", precision: 6, default: "2023-03-01 14:17:21", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

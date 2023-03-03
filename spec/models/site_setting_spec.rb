@@ -6,15 +6,15 @@ RSpec.describe SiteSetting, type: :model do
       expect { SiteSetting.new }.to raise_error NoMethodError
     end
 
-    it "should have instance method" do
-      expect(SiteSetting.instance).to be_an SiteSetting
+    it "should have current method" do
+      expect(SiteSetting.current).to be_an SiteSetting
     end
   end
 
   context "validates properly" do
     include_context :update_site_setting
 
-    let!(:site_setting) { SiteSetting.instance }
+    let!(:site_setting) { SiteSetting.current }
     let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
 
     it "has a valid factory" do
