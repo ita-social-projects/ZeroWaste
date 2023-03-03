@@ -11,7 +11,7 @@ class SiteSetting < ApplicationRecord
   acts_as_singleton
 
   class << self
-    alias current instance
+    alias_method :current, :instance
   end
 
   has_one_attached :favicon, dependent: :destroy
