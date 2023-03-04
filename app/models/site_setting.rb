@@ -10,10 +10,6 @@
 class SiteSetting < ApplicationRecord
   acts_as_singleton
 
-  class << self
-    alias_method :current, :instance
-  end
-
   has_one_attached :favicon, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 20, minimum: 3 }
@@ -23,6 +19,10 @@ class SiteSetting < ApplicationRecord
                               message: I18n.t("account.site_settings.validations.size") }
 
   after_initialize :set_default_favicon
+
+  class << self
+    alias_method :current, :instance
+  end
 
   private
 
