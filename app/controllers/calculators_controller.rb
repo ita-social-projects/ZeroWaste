@@ -8,9 +8,11 @@ class CalculatorsController < ApplicationController
     @calculators = collection
   end
 
-  def show;end
+  def show
+  end
 
-  def calculate;end
+  def calculate
+  end
 
   def calculator
     # renders calculator.html.slim
@@ -35,5 +37,4 @@ class CalculatorsController < ApplicationController
   def collection
     Calculator.friendly.all
   end
-
 end
