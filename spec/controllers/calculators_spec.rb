@@ -1,6 +1,17 @@
 require "rails_helper"
 
 RSpec.describe CalculatorsController, type: :controller do
+  describe "#collection" do
+    it "returns all calculators" do
+      calculator1 = create(:calculator)
+      
+      expect(Calculator).to receive(:friendly).and_return(Calculator)
+      expect(Calculator).to receive(:all).and_return([calculator1])
+      
+      expect(controller.send(:collection)).to eq([calculator1])
+    end
+  end
+
   describe "GET /calculator" do
     let!(:subject) { get :calculator }
 
