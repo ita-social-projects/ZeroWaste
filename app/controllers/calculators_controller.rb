@@ -5,14 +5,12 @@ class CalculatorsController < ApplicationController
   before_action :authenticate_user!, only: :receive_recomendations
 
   def index
-    @calculators = Calculator.friendly.all
+    @calculators = collection
   end
 
-  def show
-  end
+  def show;end
 
-  def calculate
-  end
+  def calculate;end
 
   def calculator
     # renders calculator.html.slim
@@ -27,6 +25,15 @@ class CalculatorsController < ApplicationController
   private
 
   def find_calculator
-    @calculator = Calculator.friendly.find(params[:slug])
+    @calculator = resource
   end
+
+  def resource
+    Calculator.friendly.find(params[:slug])
+  end
+
+  def collection
+    Calculator.friendly.all
+  end
+
 end
