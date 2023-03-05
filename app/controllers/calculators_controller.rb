@@ -20,7 +20,6 @@ class CalculatorsController < ApplicationController
 
   def receive_recomendations
     current_user.toggle(:receive_recomendations)
-
     current_user.save
   end
 
