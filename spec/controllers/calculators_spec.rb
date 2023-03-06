@@ -1,14 +1,33 @@
 require "rails_helper"
 
 RSpec.describe CalculatorsController, type: :controller do
-  describe "#collection" do
-    it "returns all calculators" do
-      calculator1 = create(:calculator)
+  let(:calculator) { create(:calculator) }
 
-      expect(Calculator).to receive(:friendly).and_return(Calculator)
-      expect(Calculator).to receive(:all).and_return([calculator1])
+  describe ".collection" do
+    let!(:calculator1) { create(:calculator) }
 
-      expect(controller.send(:collection)).to eq([calculator1])
+    it "returns all Calculator instances" do
+      expect(controller.send(:collection)).to match_array([calculator1])
+    end
+  end
+
+  describe "GET /show" do
+    it "assigns the requested calculator to @calculator" do
+      get :show, params: { slug: calculator.slug }
+
+      expect(assigns(:calculator)).to eq(calculator)
+    end
+
+    it "should return success response status" do
+      get :show, params: { slug: calculator.slug }
+
+      expect(response).to have_http_status(200)
+    end
+
+    it "renders the show template" do
+      get :show, params: { slug: calculator.slug }
+
+      expect(response).to render_template(:show)
     end
   end
 
@@ -21,6 +40,14 @@ RSpec.describe CalculatorsController, type: :controller do
 
     it "shouldn`t create any instance" do
       expect(subject).not_to be_a_new(Calculator)
+    end
+  end
+
+  describe "POST /calculate" do
+    it "renders the calculate template" do
+      post :calculate, params: { slug: calculator.slug }
+
+      expect(response).to render_template(:calculate)
     end
   end
 
@@ -43,11 +70,14 @@ RSpec.describe CalculatorsController, type: :controller do
       end.not_to change { user.receive_recomendations }
     end
 
-    # TODO: rewrite it to good spec
-    # it "changes user`s receive_recomendations to true" do
-    #   post :receive_recomendations
+    it "changes user's receive_recomendations to true" do
+      allow(controller).to receive(:authenticate_user!).and_return(true)
 
-    #   expect(user.reload.receive_recomendations).to eq(true)
-    # end
+      expect do
+        post :receive_recomendations
+
+        user.reload
+      end.to change { user.receive_recomendations }.from(false).to(true)
+    end
   end
 end
