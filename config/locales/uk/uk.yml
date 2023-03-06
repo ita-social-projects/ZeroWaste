@@ -355,6 +355,7 @@ uk:
     category_created: "Категорію було успішно створено."
     category_updated: "Категорію було успішно оновлено."
     category_deleted: "Категорію було успішно видалено."
+    feature_flags_updated: "Оновлено успішно"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

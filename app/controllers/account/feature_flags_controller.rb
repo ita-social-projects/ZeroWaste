@@ -6,7 +6,6 @@ class Account::FeatureFlagsController < Account::BaseController
   end
 
   def update
-
     Flipper.features.each do |feature|
       # Get the current state of the feature from the form
       enabled = params["#{feature.key}_enabled"] == "1"
@@ -19,6 +18,6 @@ class Account::FeatureFlagsController < Account::BaseController
       end
     end
 
-    redirect_to account_feature_flags_path, notice: "Features updated successfully"
+    redirect_to account_feature_flags_path, notice: t("notifications.category_updated")
   end
 end
