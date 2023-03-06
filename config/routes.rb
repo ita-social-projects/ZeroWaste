@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #   end
 
   mount Sidekiq::Web => "/sidekiq"
+  mount Flipper::UI.app(Flipper) => '/flipper'
+  # mount Flipper::UI::Web, at: '/flipper'
 
   devise_for :users, only: :omniauth_callbacks,
                      controllers: { omniauth_callbacks:
@@ -39,6 +41,10 @@ Rails.application.routes.draw do
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]
+      resources :feature_flags do
+        put :enable, on: :member
+        put :disable, on: :member
+      end
 
       scope module: :calculators do
         resources :calculators, only: [], param: :slug do
