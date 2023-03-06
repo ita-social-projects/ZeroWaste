@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]
       resources :feature_flags, only: [:index, :show]
-      patch "/feature_flags', to: 'feature_flags#update', as: 'features_flags"
+      patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
       scope module: :calculators do
         resources :calculators, only: [], param: :slug do
           resources :fields, only: :new
