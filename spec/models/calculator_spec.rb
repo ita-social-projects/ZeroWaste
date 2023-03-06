@@ -24,6 +24,14 @@ LOCAL_PREFIX_CALCULATOR = "activerecord.errors.models.calculator.attributes"
 RSpec.describe Calculator, type: :model do
   subject { build(:calculator) }
 
+  describe "associations" do
+    it { is_expected.to have_attribute(:slug) }
+
+    it { is_expected.to have_many(:fields).dependent(:destroy) }
+
+    it { is_expected.to accept_nested_attributes_for(:fields).allow_destroy(true) }
+  end
+
   describe "validations" do
     it {
       is_expected.to validate_presence_of(:name).with_message(
