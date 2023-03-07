@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
 class CalculatorsController < ApplicationController
-  before_action :find_calculator, only: [:show, :calculate]
   before_action :authenticate_user!, only: :receive_recomendations
 
-  def index
-    @calculators = collection
-  end
+  # def index
+  #   @calculators = collection
+  # end
 
   def show
+    @calculator = resource
   end
 
   def calculate
+    @calculator = resource
   end
 
   def calculator
@@ -25,15 +26,11 @@ class CalculatorsController < ApplicationController
 
   private
 
-  def find_calculator
-    @calculator = resource
+  def collection
+    Calculator.friendly.all
   end
 
   def resource
-    Calculator.friendly.find(params[:slug])
-  end
-
-  def collection
-    Calculator.friendly.all
+    collection.find(params[:slug])
   end
 end

@@ -3,51 +3,51 @@ require "rails_helper"
 RSpec.describe CalculatorsController, type: :controller do
   let(:calculator) { create(:calculator) }
 
-  describe ".collection" do
-    let!(:calculator1) { create(:calculator) }
-
-    it "returns all Calculator instances" do
-      expect(controller.send(:collection)).to match_array([calculator1])
-    end
-  end
-
   describe "GET /show" do
-    it "assigns the requested calculator to @calculator" do
-      get :show, params: { slug: calculator.slug }
+    context "when calculator exist" do
+      it "assigns the requested calculator to @calculator" do
+        get :show, params: { slug: calculator.slug }
 
-      expect(assigns(:calculator)).to eq(calculator)
+        expect(assigns(:calculator)).to eq(calculator)
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:show)
+      end
     end
 
-    it "should return success response status" do
-      get :show, params: { slug: calculator.slug }
-
-      expect(response).to have_http_status(200)
-    end
-
-    it "renders the show template" do
-      get :show, params: { slug: calculator.slug }
-
-      expect(response).to render_template(:show)
+    context "when calculator doesn't exist" do
+      it "raises a 404 error" do
+        expect do
+          get :show, params: { slug: "non-existent-slug" }
+        end.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 
   describe "GET /calculator" do
-    let!(:subject) { get :calculator }
+    it "renders the calculator template" do
+      get :calculator
 
-    it "should return success response status" do
-      expect(subject).to have_http_status(200)
-    end
-
-    it "shouldn`t create any instance" do
-      expect(subject).not_to be_a_new(Calculator)
+      expect(response).to have_http_status(200)
+      expect(response).to render_template(:calculator)
     end
   end
 
   describe "POST /calculate" do
-    it "renders the calculate template" do
-      post :calculate, params: { slug: calculator.slug }
+    context "when the calculator with the specified slug exist" do
+      it "renders the calculate template" do
+        post :calculate, params: { slug: calculator.slug }
 
-      expect(response).to render_template(:calculate)
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:calculate)
+      end
+    end
+
+    context "when the calculator with the specified slug does not exist" do
+      it "returns a 404 response" do
+        expect do
+          post :calculate, params: { slug: "nonexistent-slug" }
+        end.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 
@@ -78,6 +78,14 @@ RSpec.describe CalculatorsController, type: :controller do
 
         user.reload
       end.to change { user.receive_recomendations }.from(false).to(true)
+    end
+
+    context "if unauthorized users" do
+      it "redirects to the login page" do
+        post :receive_recomendations
+
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
   end
 end
