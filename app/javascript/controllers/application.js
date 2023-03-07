@@ -2,12 +2,14 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { Application } from "@hotwired/stimulus"
-
-const application = Application.start()
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
+const application = Application.start();
 
 // Configure Stimulus development experience
-application.debug = false
-window.Stimulus = application
+application.debug = false;
+window.Stimulus = application;
 
-export { application }
+const context = require.context("../controllers", true, /_controller\.js$/);
+
+application.load(definitionsFromContext(context));
