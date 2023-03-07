@@ -20,9 +20,7 @@ class SiteSetting < ApplicationRecord
 
   after_initialize :set_default_favicon
 
-  class << self
-    alias_method :current, :instance
-  end
+  singleton_class.alias_method :current, :instance
 
   private
 
