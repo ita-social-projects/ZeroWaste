@@ -6,14 +6,6 @@ Flipper.configure do |config|
   end
 end
 
-Flipper.register(:my_feature) do |actor|
-  actor.admin?
-end
-
-Flipper.register(:new_feature) do |actor|
-  actor.admin?
-end
-
-Flipper.register(:then_feature) do |actor|
+Flipper.register(:show_admin_menu) do |actor|
   actor.admin?
 end

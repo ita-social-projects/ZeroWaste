@@ -1,17 +1,8 @@
-h1 My Features
-
 = form_tag account_features_flags_path, method: :patch do
   - Flipper.features.each do |feature|
-    div
+    .feature-container
       label
         = check_box_tag "#{feature.key}_enabled", 1, feature.enabled?
         = feature.key.to_s.titleize
   div
     = submit_tag 'Save'
-
-
-- Flipper.features.each do |feature|
-  - if feature.enabled?(current_user)
-    p = "#{feature} is enabled"
-  - else
-    p = "#{feature} is disabled"
