@@ -7,7 +7,7 @@ RSpec.describe SiteSetting, type: :model do
     end
 
     it "should have current method" do
-      expect(SiteSetting.current).to be_an SiteSetting
+      expect(SiteSetting.current).to be_persisted
     end
   end
 

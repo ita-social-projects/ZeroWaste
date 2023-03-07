@@ -24,7 +24,7 @@ import 'plugins/flatpickr';
 import "@fortawesome/fontawesome-free/css/all"
 
 import "../js/calculators/edit"
-import "../controllers/stimulus_application"
+import "../controllers/application"
 
 import "../ajax/calculate_result_button"
 
