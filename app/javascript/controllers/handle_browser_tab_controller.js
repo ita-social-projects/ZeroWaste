@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   connect() {
@@ -6,7 +6,9 @@ export default class extends Controller {
     this.title = this.element.querySelector(".tab-text")
     this.icon = this.element.querySelector('.tab-icon')
 
-    this.input.addEventListener('input', this.setTitle.bind(this))
+    this.input.addEventListener('input', (event) => {
+      this.setTitle(event);
+    });
 
     const fileInput = this.element.querySelector("input#site_setting_favicon")
     fileInput.addEventListener('change', this.readURL.bind(this))
@@ -19,12 +21,13 @@ export default class extends Controller {
   readURL(event) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
+      const icon = this.element.querySelector('.tab-icon');
 
       reader.onload = function (e) {
-        $('.tab-icon').attr('src', e.target.result)
-      };
+      icon.setAttribute('src', e.target.result);
+    };
 
-      reader.readAsDataURL(event.target.files[0]);
+    reader.readAsDataURL(event.target.files[0]);
     }
   }
 }

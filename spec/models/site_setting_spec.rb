@@ -12,7 +12,7 @@ RSpec.describe SiteSetting, type: :model do
   end
 
   context "validates properly" do
-    include_context :update_site_setting
+    before { site_setting.update(site_setting_params) }
 
     let!(:site_setting) { SiteSetting.current }
     let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }

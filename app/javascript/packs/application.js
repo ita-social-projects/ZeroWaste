@@ -7,11 +7,14 @@ import Rails from '@rails/ujs';
 import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
+
 require('jquery');
 require("@nathanvda/cocoon");
+
 // const jQuery = require('jquery');
 // global.$ = global.jQuery = jQuery;
 // window.$ = window.jQuery = jQuery;
+
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
@@ -21,7 +24,7 @@ import 'plugins/flatpickr';
 import "@fortawesome/fontawesome-free/css/all"
 
 import "../js/calculators/edit"
-import "../controllers/index"
+import "../controllers/stimulus_application"
 
 import "../ajax/calculate_result_button"
 

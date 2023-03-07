@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def current_site_setting
-    site_setting = SiteSetting.current
-    site_setting.save!
-    site_setting
-  end
-
   def flash_messages
     {
       notice: notice,
