@@ -67,7 +67,7 @@ jobs:
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
-      - image: cimg/node
+      - image: cimg/node:14.21.3-browsers
 
     environment:
       BUNDLE_JOBS: "3"
