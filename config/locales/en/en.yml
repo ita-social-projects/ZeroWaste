@@ -63,7 +63,6 @@ en:
       log_in: "Log In"
       сontact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
-      donate: "DONATE"
       local_lang: "Українська"
     description_block:
       description_block_html: "These are approximate results. The exact numbers for your

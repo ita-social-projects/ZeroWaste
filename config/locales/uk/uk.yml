@@ -36,7 +36,6 @@ uk:
       sign_up: "Зареєструватися"
       log_in: "Увійти"
       contact_us: "Зв'яжіться з нами"
-      donate: "Підтримати"
       contacts: "%{contacts_uk:Контакти}"
       local_lang: "English"
     description_block:
