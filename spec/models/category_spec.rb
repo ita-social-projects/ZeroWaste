@@ -18,8 +18,6 @@ RSpec.describe Category, type: :model do
 
   describe "associations" do
     it { is_expected.to have_many(:category_categoryables).dependent(:restrict_with_exception) }
-
-    it { is_expected.to have_many(:categoryables).through(:category_categoryables).source(:category) }
   end
 
   describe "validations" do
