@@ -22,21 +22,36 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
-    //generate 6 options for month if chosen year = 2, else generate 11 options
-    let amount_options = e.target.value == 2 ? 5 : 11;
 
-    let previous_month_value = this.monthTarget.value;
+    // Якщо значення року не пусте, то скидаємо значення місяця на null, інакше на порожнє рядок
+    if (e.target.value !== "") {
+      this.monthTarget.value = null;
+    } else {
+      this.monthTarget.value = "";
+    }
 
+    // Очистка старих опцій зі списку вибору місяця
     this.monthTarget.innerHTML = "";
 
-    if (previous_month_value == "")
-      this.monthTarget.appendChild(this.getNillOption(previous_month_value));
+    // Визначення кількості опцій для місяців
+    const amount_options = e.target.value == 2 ? 6 : 11;
 
+    // Збереження попереднього значення місяця перед оновленням
+    const previous_month_value = this.monthTarget.value;
+
+    // Якщо місяць не було вибрано до оновлення, додаємо порожню опцію на початок списку
+    if (this.monthTarget && !previous_month_value) {
+      this.monthTarget.appendChild(this.getNillOption(previous_month_value));
+    }
+
+    // Додавання нових опцій до списку вибору місяця
     for (let i = 0; i <= amount_options; i++) {
       this.monthTarget.appendChild(this.getBasicOption(i));
 
-      if (i == previous_month_value && previous_month_value != "")
+      // Якщо попереднє значення місяця збережене, встановлюємо його як вибране значення
+      if (i == previous_month_value && previous_month_value) {
         this.monthTarget.value = i;
+      }
     }
   }
 
