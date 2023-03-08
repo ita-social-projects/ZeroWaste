@@ -23,32 +23,32 @@ export default class extends Controller {
 
   yearChanged(e) {
 
-    // Якщо значення року не пусте, то скидаємо значення місяця на null, інакше на порожнє рядок
+    // If the year value is not empty, then reset the month value to null, otherwise to an empty string
     if (e.target.value !== "") {
       this.monthTarget.value = null;
     } else {
       this.monthTarget.value = "";
     }
 
-    // Очистка старих опцій зі списку вибору місяця
+    // Clear old options from the month selection list
     this.monthTarget.innerHTML = "";
 
-    // Визначення кількості опцій для місяців
+    // Determining the number of options for months
     const amount_options = e.target.value == 2 ? 6 : 11;
 
-    // Збереження попереднього значення місяця перед оновленням
+    // Save the previous month value before updating
     const previous_month_value = this.monthTarget.value;
 
-    // Якщо місяць не було вибрано до оновлення, додаємо порожню опцію на початок списку
+    // If the month was not selected before the update, add an empty option to the top of the list
     if (this.monthTarget && !previous_month_value) {
       this.monthTarget.appendChild(this.getNillOption(previous_month_value));
     }
 
-    // Додавання нових опцій до списку вибору місяця
+    // Adding new options to the month selection list
     for (let i = 0; i <= amount_options; i++) {
       this.monthTarget.appendChild(this.getBasicOption(i));
 
-      // Якщо попереднє значення місяця збережене, встановлюємо його як вибране значення
+      // If the previous month value is saved, set it as the selected value
       if (i == previous_month_value && previous_month_value) {
         this.monthTarget.value = i;
       }
