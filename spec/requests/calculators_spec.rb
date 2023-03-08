@@ -39,6 +39,10 @@ RSpec.describe CalculatorsController, type: :request do
     it "returns JSON" do
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq("application/json; charset=utf-8")
+
+      json_response = JSON.parse(response.body)
+      expect(json_response).to include("result")
+      expect(json_response["result"][0]).to include("name", "result")
     end
 
     it "JSON response contains `result` in the root" do
