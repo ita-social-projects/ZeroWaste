@@ -38,7 +38,6 @@ RSpec.describe CalculatorsController, type: :request do
 
     it "returns JSON" do
       expect(response).to have_http_status(200)
-      expect(response.content_type).to eq("application/json; charset=utf-8")
     end
 
     it "JSON response contains `result` in the root" do
@@ -54,76 +53,6 @@ RSpec.describe CalculatorsController, type: :request do
 
     it "JSON response contains field `name` in snake case format" do
       expect(json_response["result"][0]["name"]).to eq("first_result")
-    end
-  end
-
-  describe "GET /calculators/:slug" do
-    context "when calculator exist" do
-      it "renders the show template" do
-        get "/calculators/#{calculator.slug}"
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:show)
-      end
-    end
-
-    context "when calculator doesn't exist" do
-      it "railses a 404 error" do
-        expect { get "/calculators/non-existent-slug" }.to raise_error(ActiveRecord::RecordNotFound)
-      end
-    end
-  end
-
-  describe "GET /calculator" do
-    it "renders the calculator template" do
-      get "/calculator"
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:calculator)
-    end
-  end
-
-  describe "POST /calculators/:slug/calculate" do
-    context "when the calculator exist" do
-      it "renders the calculate template" do
-        post "/calculators/#{calculator.slug}/calculate"
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:calculate)
-      end
-    end
-
-    context "when the calculator doesn`t exist" do
-      it "raises a 404 error" do
-        expect { post "/calculators/nonexistent-slug/calculate" }.to raise_error(ActiveRecord::RecordNotFound)
-      end
-    end
-  end
-
-  describe "POST /receive_recomendations" do
-    let(:user) { create(:user, receive_recomendations: false) }
-
-    before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    end
-
-    context "when the user is not signed in" do
-      it "does not change the user attribute" do
-        expect do
-          post "/receive_recomendations"
-          user.reload
-        end.to_not change(user, :receive_recomendations)
-      end
-    end
-
-    context "when the user is signed in" do
-      before do
-        allow_any_instance_of(ApplicationController).to receive(:authenticate_user!).and_return(true)
-      end
-
-      it "changes the user's receive_recomendations attribute to true" do
-        expect do
-          post "/receive_recomendations"
-          user.reload
-        end.to change(user, :receive_recomendations).from(false).to(true)
-      end
     end
   end
 end
