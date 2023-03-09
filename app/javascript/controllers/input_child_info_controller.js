@@ -23,10 +23,6 @@ export default class extends Controller {
 
   yearChanged(e) {
 
-    // If the year value is not empty, then reset the month value to null, otherwise to an empty string
-    (e.target.value !== '')
-    this.monthTarget.value = null;
-
     // Clear old options from the month selection list
     this.monthTarget.innerHTML = '';
 
