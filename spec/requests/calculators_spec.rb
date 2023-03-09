@@ -4,7 +4,6 @@ require "rails_helper"
 
 RSpec.describe CalculatorsController, type: :request do
   let(:calculator) { create(:calculator) }
-  let(:user) { create(:user) }
   let!(:calculation_r1) do
     create(:calculation, value: "P1 * P2 / P3", type: "Calculation",
                          selector: "R1", name: "First result",
@@ -106,12 +105,12 @@ RSpec.describe CalculatorsController, type: :request do
 
   describe "POST /receive_recomendations" do
     context "when user is authenticated" do
-      before { sign_in user }
+      include_context :authorize_admin
 
       it "toggles the receive_recomendations flag for the current user" do
         expect do
           post receive_recomendations_path
-        end.to change { user.receive_recomendations }.from(false).to(true)
+        end.to change { current_user.receive_recomendations }.from(false).to(true)
       end
     end
 
