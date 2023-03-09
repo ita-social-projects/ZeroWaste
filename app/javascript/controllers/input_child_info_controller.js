@@ -24,33 +24,30 @@ export default class extends Controller {
   yearChanged(e) {
 
     // If the year value is not empty, then reset the month value to null, otherwise to an empty string
-    if (e.target.value !== "") {
-      this.monthTarget.value = null;
-    } else {
-      this.monthTarget.value = "";
-    }
+    (e.target.value !== '')
+    this.monthTarget.value = null;
 
     // Clear old options from the month selection list
-    this.monthTarget.innerHTML = "";
+    this.monthTarget.innerHTML = '';
 
     // Determining the number of options for months
-    const amount_options = e.target.value == 2 ? 6 : 11;
+    const amountOptions = e.target.value == 2 ? 6 : 11;
 
     // Save the previous month value before updating
-    const previous_month_value = this.monthTarget.value;
+    const previousMonthValue = this.monthTarget.value;
 
     // If the month was not selected before the update, add an empty option to the top of the list
-    if (this.monthTarget && !previous_month_value) {
-      this.monthTarget.appendChild(this.getNillOption(previous_month_value));
+    if (this.monthTarget && !previousMonthValue) {
+      this.monthTarget.appendChild(this.getNillOption(previousMonthValue));
     }
 
     // Adding new options to the month selection list
-    for (let i = 0; i <= amount_options; i++) {
-      this.monthTarget.appendChild(this.getBasicOption(i));
+    for (let monthIndex = 0; monthIndex <= amountOptions; monthIndex++) {
+      this.monthTarget.appendChild(this.getBasicOption(monthIndex));
 
       // If the previous month value is saved, set it as the selected value
-      if (i == previous_month_value && previous_month_value) {
-        this.monthTarget.value = i;
+      if (monthIndex == previousMonthValue && previousMonthValue) {
+        this.monthTarget.value = monthIndex;
       }
     }
   }
