@@ -23,6 +23,16 @@ LOCAL_PREFIX_PRODUCT = "activerecord.errors.models.product.attributes"
 RSpec.describe Product, type: :model do
   subject { build(:product) }
 
+  describe "associations" do
+    it { is_expected.to belong_to(:product_type) }
+
+    it { is_expected.to have_many(:category_categoryables).dependent(:destroy) }
+
+    it { is_expected.to have_many(:categories).through(:category_categoryables) }
+
+    it { is_expected.to have_many(:prices).dependent(:destroy) }
+  end
+
   describe "validations" do
     it {
       is_expected.to validate_presence_of(:title)
