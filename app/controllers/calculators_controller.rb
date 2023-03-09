@@ -27,10 +27,10 @@ class CalculatorsController < ApplicationController
   private
 
   def collection
-    Calculator.friendly.all
+    Calculator.all
   end
 
   def resource
-    collection.find(params[:slug])
+    collection.friendly.find(params[:slug])
   end
 end

@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe CalculatorsController, type: :request do
   let(:calculator) { create(:calculator) }
+  let(:user) { create(:user) }
   let!(:calculation_r1) do
     create(:calculation, value: "P1 * P2 / P3", type: "Calculation",
                          selector: "R1", name: "First result",
@@ -40,7 +41,6 @@ RSpec.describe CalculatorsController, type: :request do
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq("application/json; charset=utf-8")
 
-      json_response = JSON.parse(response.body)
       expect(json_response).to include("result")
       expect(json_response["result"][0]).to include("name", "result")
     end
@@ -64,7 +64,8 @@ RSpec.describe CalculatorsController, type: :request do
   describe "GET /calculators/:slug" do
     context "when calculator exist" do
       it "renders the show template" do
-        get "/calculators/#{calculator.slug}"
+        get calculators_path(calculator.slug)
+
         expect(response).to have_http_status(200)
         expect(response).to render_template(:show)
       end
@@ -72,14 +73,15 @@ RSpec.describe CalculatorsController, type: :request do
 
     context "when calculator doesn't exist" do
       it "railses a 404 error" do
-        expect { get "/calculators/non-existent-slug" }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { get calculators_path("non-existent-slug") }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
 
   describe "GET /calculator" do
     it "renders the calculator template" do
-      get "/calculator"
+      get calculator_path
+
       expect(response).to have_http_status(200)
       expect(response).to render_template(:calculator)
     end
@@ -88,7 +90,8 @@ RSpec.describe CalculatorsController, type: :request do
   describe "POST /calculators/:slug/calculate" do
     context "when the calculator exist" do
       it "renders the calculate template" do
-        post "/calculators/#{calculator.slug}/calculate"
+        post calculate_calculator_path(calculator.slug)
+
         expect(response).to have_http_status(200)
         expect(response).to render_template(:calculate)
       end
@@ -96,37 +99,28 @@ RSpec.describe CalculatorsController, type: :request do
 
     context "when the calculator doesn`t exist" do
       it "raises a 404 error" do
-        expect { post "/calculators/nonexistent-slug/calculate" }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { post calculate_calculator_path("nonexistent-slug") }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
 
   describe "POST /receive_recomendations" do
-    let(:user) { create(:user, receive_recomendations: false) }
+    context "when user is authenticated" do
+      before { sign_in user }
 
-    before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    end
-
-    context "when the user is not signed in" do
-      it "does not change the user attribute" do
+      it "toggles the receive_recomendations flag for the current user" do
         expect do
-          post "/receive_recomendations"
-          user.reload
-        end.to_not change(user, :receive_recomendations)
+          post receive_recomendations_path
+        end.to change { user.receive_recomendations }.from(false).to(true)
       end
     end
 
-    context "when the user is signed in" do
-      before do
-        allow_any_instance_of(ApplicationController).to receive(:authenticate_user!).and_return(true)
-      end
+    context "when user is not authenticated" do
+      it "redirects to the sign in page" do
+        post receive_recomendations_path
 
-      it "changes the user's receive_recomendations attribute to true" do
-        expect do
-          post "/receive_recomendations"
-          user.reload
-        end.to change(user, :receive_recomendations).from(false).to(true)
+        expect(response).to have_http_status(:redirect)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
