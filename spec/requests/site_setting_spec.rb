@@ -45,7 +45,7 @@ RSpec.describe Account::SiteSettingsController, type: :request do
       let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :invalid_site_setting) }
 
       it "renders edit page with error message" do
-        put account_site_setting_path, params: { site_setting: site_setting_params }
+        patch account_site_setting_path, params: { site_setting: site_setting_params }
 
         expect(response).to render_template(:edit)
         expect(response).to have_http_status(:unprocessable_entity)
