@@ -24,19 +24,18 @@ import 'plugins/flatpickr';
 import "@fortawesome/fontawesome-free/css/all"
 
 import "../js/calculators/edit"
+import "../controllers/application"
+
 import "../ajax/calculate_result_button"
 
 const images = require.context('../images', true)
-
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-
 // document.addEventListener('turbolinks:load', () => {
 //   $('[data-toggle="tooltip"]').tooltip();
 //   $('[data-toggle="popover"]').popover();
 // });
-
 $('document').ready(function() {
     setTimeout(function() {
         $('.alert').slideUp();
