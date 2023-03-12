@@ -1,10 +1,27 @@
 body {
-  position: relative;
   margin: 0 auto;
-  background: url("../images/mother.jpeg") no-repeat center top;
-  background-size: cover;
   overflow-x: hidden;
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 32px;
+}
+
+body:not(.admin)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/mother.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(50%);
+}
+.body-inside {
+  /* This will make it stack on top of the ::before */
+  position: relative;
 }
 
 a {
@@ -18,15 +35,6 @@ a {
   &:active {
     text-decoration: none;
   }
-}
-
-.filter_block {
-  position: absolute;
-  background-color: #00000078;
-  min-height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
 }
 
 .page-header {
@@ -53,7 +61,7 @@ div.jumbotron {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   width: 315px;
   font-family: "Nunito", sans-serif;
 }
@@ -96,7 +104,6 @@ div.jumbotron {
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: "Nunito", sans-serif;
-  margin-bottom: 0.2em;
 
   a {
     border: 2px solid $gray;
@@ -274,6 +281,10 @@ body.admin {
   background: none;
 }
 
+body:where(.admin)::before {
+  background: none;
+}
+
 .admin-container {
   padding-top: 100px;
 }
@@ -336,11 +347,9 @@ body.admin {
   .tab {
     display: none;
   }
-
-  .filter_block {
-    width: 100%;
+  .homepage_title {
+    margin-top: 50px;
   }
-
   div.jumbotron,
   div.container {
     max-width: 96%;
@@ -367,6 +376,7 @@ body.admin {
 
     a {
       padding: 10px;
+      margin-top: 0.5rem;
     }
   }
 
@@ -411,13 +421,12 @@ body.admin {
   .row_break {
     display: block;
   }
-
-  .donate-btn a {
-    padding: 10px;
-  }
 }
 
 @media screen and (max-width: $md) and (min-width: $xs) {
+  .homepage_title {
+    margin-top: 50px;
+  }
   .page-header {
     width: auto;
     margin-right: 16px;
@@ -426,5 +435,20 @@ body.admin {
   .calculation-results,
   .jumbotron {
     width: 96%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .donate-btn a {
+    margin-bottom: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  main p {
+    margin: 0 auto;
+  }
+  .main-btns {
+    margin: 0 auto;
   }
 }
