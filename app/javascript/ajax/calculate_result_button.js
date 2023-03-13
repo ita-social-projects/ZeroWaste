@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function() {
       success: function(data) {
         for (var i = data.result.length - 1; i >= 0; i--) {
           const oneItemFromArray = data.result[i]
-          $('[data-type="' + oneItemFromArray.name + '"]').text(oneItemFromArray.result);
+          $('[data-type="' + oneItemFromArray.name + '"]').text(Math.round(oneItemFromArray.result * 100) / 100);
         }
         $("#localized_uk_to_be_used_diapers_amount").text(data.word_form_to_be_used + " ви ще використаєте")
         $("#localized_uk_used_diapers_amount").text(data.word_form_used + " ви вже використали")

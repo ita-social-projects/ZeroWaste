@@ -6,7 +6,7 @@ body {
   padding-bottom: 32px;
 }
 
-body::before {
+body:not(.admin)::before {
   content: "";
   position: absolute;
   top: 0;
