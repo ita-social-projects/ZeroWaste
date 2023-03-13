@@ -1,0 +1,26 @@
+.container
+  - if @product.errors.any?
+    div
+      h2
+      = t('activerecord.form_errors', :count => @product.errors.count,
+                       :model => t('models.product').downcase)
+      ul
+        - @product.errors.full_messages.each do |error_message|
+          li= error_message
+few
+  = simple_form_for @product, url: { action: 'create' }, html: { data: {controller: "price-input" } } do |f|
+    .form-group.row
+      .col-12.has-float-label.my-auto
+        = f.input :title, class: 'form-control col-sm-11', required: true
+
+        = f.simple_fields_for :prices do |prices_form|
+
+          = f.collection_check_boxes :category_ids, @ordered_categories, :id, :name do |cb|
+            = cb.check_box(class: "checkbox-cat")
+            = cb.label
+            = prices_form.input :sum, as: :decimal
+
+    = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2'
+    = link_to account_categories_path, class: 'btn btn-danger' do
+      span.mr-1 =t('.cancel_button')
+      i.fa.fa-times-circle

@@ -1,6 +1,6 @@
 class Account::ProductsController < Account::BaseController
   def index
-    @products  = collection
+    @products = collection
   end
 
   def show
@@ -8,7 +8,11 @@ class Account::ProductsController < Account::BaseController
   end
 
   def new
+    @ordered_categories = Category.ordered_categories
+
     @product = Product.new
+
+    @product.prices.build
   end
 
   def edit
@@ -16,11 +20,21 @@ class Account::ProductsController < Account::BaseController
   end
 
   def create
+    params.dig(:product, :category_ids).shift
     @product = Product.new(products_params)
+    binding.pry
+    params.dig(:product, :category_ids).each do |id|
+      @product.prices.new(sum: params.dig(:product, :prices_attributes, :"0", :sum),
+                        category: Category.find(id))
+    binding.pry
+    end
 
     if @product.save
-      redirect_to account_products_path, notice: t("notifications.product_created")
+      binding.pry
+      redirect_to account_products_path,
+                  notice: t("notifications.product_created")
     else
+      binding.pry
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,7 +43,8 @@ class Account::ProductsController < Account::BaseController
     @product = resource
 
     if @product.update(products_params)
-      redirect_to account_products_path, notice: t("notifications.product_updated")
+      redirect_to account_products_path,
+                  notice: t("notifications.product_updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +54,8 @@ class Account::ProductsController < Account::BaseController
     @product = resource
     @product.destroy
 
-    redirect_to account_products_path, notice: t("notifications.product_deleted")
+    redirect_to account_products_path,
+                notice: t("notifications.product_deleted")
   end
 
   private

@@ -139,6 +139,17 @@ en:
       new:
         create_button: 'Create'
         cancel_button: 'Cancel'
+    products:
+      index:
+        add_product_button: 'Add product'
+        confirm_delete: 'Delete product?'
+        cancel_button: 'Cancel'
+      edit:
+        update_button: 'Update'
+        cancel_button: 'Cancel'
+      new:
+        create_button: 'Create'
+        cancel_button: 'Cancel'
     users:
       index:
         main_header: "Dashboard"

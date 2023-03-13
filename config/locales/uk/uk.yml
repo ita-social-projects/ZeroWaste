@@ -112,7 +112,18 @@ uk:
         update_button: 'Оновити'
         cancel_button: 'Скасувати'
       new:
-        create_button: 'Create'
+        create_button: 'Створити'
+        cancel_button: 'Скасувати'
+    products:
+      index:
+        add_product_button: 'Додати продукт'
+        confirm_delete: 'Видалити продукт?'
+        cancel_button: 'Скасувати'
+      edit:
+        update_button: 'Оновнити'
+        cancel_button: 'Скасувати'
+      new:
+        create_button: 'Створити'
         cancel_button: 'Скасувати'
     users:
       index:

@@ -1,0 +1,27 @@
+.container
+  = form_tag account_product_path(id: @products), method: :get, class: 'd-flex justify-content-end mb-5' do
+    .d-flex
+    = link_to new_account_product_path(id: @products), class: 'btn btn-success px-4 ml-1' do
+      i.fa.fa-plus.mr-2
+      span =t('.add_product_button')
+
+div class="container home"
+
+  table.table
+    thead
+      tr
+        th scope="col"  #
+        th scope="col"  =t('.table.title')
+        th scope="col"  =t('.table.actions')
+
+    tbody
+      - @products.each do |product|
+        tr
+          th scope="row"  = product.id
+          td = product.title
+          td.actions
+            = link_to edit_account_product_path(id: product) do
+              i.fa.fa-pen.mx-2
+            = link_to account_product_path(id: product), method: :delete,
+                    data: { confirm: t('.confirm_delete') } do
+              i.fa.fa-trash.mx-2
