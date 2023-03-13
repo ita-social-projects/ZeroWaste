@@ -210,6 +210,9 @@ GEM
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     i18n_data (0.11.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -403,6 +406,8 @@ GEM
     rubocop-rspec (2.15.0)
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     rugged (1.0.1)
@@ -544,6 +549,7 @@ DEPENDENCIES
   font-awesome-rails
   friendly_id (~> 5.4.0)
   fuubar
+  image_processing (~> 1.2)
   importmap-rails (~> 1.1)
   it
   jbuilder (~> 2.7)
