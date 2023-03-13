@@ -2,18 +2,19 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title ZeroWaste
+    title = SiteSetting.current.title
+    = favicon_link_tag(url_for(SiteSetting.current.favicon))
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   / body.wrapper
-  / .col-12.filter_block
-     = render 'layouts/flash_messages'
-     = render 'account/shared/navigation'
-     = yield
-     = any_login_here if defined?(AnyLogin)
+  / div.filter_block
+  /   = render 'layouts/flash_messages'
+  /   = render 'account/shared/navigation'
+  /   = yield
+  /   = any_login_here if defined?(AnyLogin)
   body
     .body-inside
       = render 'layouts/flash_messages'

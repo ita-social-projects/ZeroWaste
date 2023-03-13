@@ -28,7 +28,7 @@ gem "bigdecimal", "1.3.5"
 gem "rails-i18n", "~> 7.0.0"
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem "image_processing", "~> 1.2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
@@ -101,8 +101,19 @@ gem "paper_trail"
 gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
-gem "stimulus-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+<<<<<<< HEAD
 gem "toastr-rails"
 gem "importmap-rails", "~> 1.1"
 gem "requestjs-rails"
+=======
+
+# deploy
+gem "capistrano", "~> 3.11"
+gem "capistrano-rails", "~> 1.4"
+gem "capistrano-passenger", "~> 0.2.0"
+gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
+gem "capistrano-yarn"
+gem "capistrano-rails-tail-log"
+gem "ed25519"
+>>>>>>> master
