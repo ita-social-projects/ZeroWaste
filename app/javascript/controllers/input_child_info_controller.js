@@ -22,21 +22,29 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
-    //generate 6 options for month if chosen year = 2, else generate 11 options
-    let amount_options = e.target.value == 2 ? 5 : 11;
 
-    let previous_month_value = this.monthTarget.value;
+    // Clear old options from the month selection list
+    this.monthTarget.innerHTML = '';
 
-    this.monthTarget.innerHTML = "";
+    // Determining the number of options for months
+    const amountOptions = e.target.value == 2 ? 6 : 11;
 
-    if (previous_month_value == "")
-      this.monthTarget.appendChild(this.getNillOption(previous_month_value));
+    // Save the previous month value before updating
+    const previousMonthValue = this.monthTarget.value;
 
-    for (let i = 0; i <= amount_options; i++) {
-      this.monthTarget.appendChild(this.getBasicOption(i));
+    // If the month was not selected before the update, add an empty option to the top of the list
+    if (this.monthTarget && !previousMonthValue) {
+      this.monthTarget.appendChild(this.getNillOption(previousMonthValue));
+    }
 
-      if (i == previous_month_value && previous_month_value != "")
-        this.monthTarget.value = i;
+    // Adding new options to the month selection list
+    for (let monthIndex = 0; monthIndex <= amountOptions; monthIndex++) {
+      this.monthTarget.appendChild(this.getBasicOption(monthIndex));
+
+      // If the previous month value is saved, set it as the selected value
+      if (monthIndex == previousMonthValue && previousMonthValue) {
+        this.monthTarget.value = monthIndex;
+      }
     }
   }
 
