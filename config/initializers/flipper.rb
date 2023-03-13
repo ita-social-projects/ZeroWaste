@@ -6,6 +6,4 @@ Flipper.configure do |config|
   end
 end
 
-Flipper.register(:show_admin_menu) do |actor|
-  actor.admin?
-end
+Flipper[:access_admin_menu].enable
