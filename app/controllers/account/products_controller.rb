@@ -20,21 +20,14 @@ class Account::ProductsController < Account::BaseController
   end
 
   def create
-    params.dig(:product, :category_ids).shift
     @product = Product.new(products_params)
     binding.pry
-    params.dig(:product, :category_ids).each do |id|
-      @product.prices.new(sum: params.dig(:product, :prices_attributes, :"0", :sum),
-                        category: Category.find(id))
-    binding.pry
-    end
 
+    binding.pry
     if @product.save
-      binding.pry
       redirect_to account_products_path,
                   notice: t("notifications.product_created")
     else
-      binding.pry
       render :new, status: :unprocessable_entity
     end
   end
@@ -69,6 +62,7 @@ class Account::ProductsController < Account::BaseController
   end
 
   def products_params
-    params.require(:product).permit(:title)
+    params.require(:product).permit(:title,
+                                    prices_attributes: [:sum, :category_id])
   end
 end

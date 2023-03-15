@@ -12,15 +12,19 @@ few
     .form-group.row
       .col-12.has-float-label.my-auto
         = f.input :title, class: 'form-control col-sm-11', required: true
-
-        = f.simple_fields_for :prices do |prices_form|
-
-          = f.collection_check_boxes :category_ids, @ordered_categories, :id, :name do |cb|
-            = cb.check_box(class: "checkbox-cat")
-            = cb.label
-            = prices_form.input :sum, as: :decimal
+        - @ordered_categories.each do |category|
+          .checkbox-blocks
+            = f.simple_fields_for :prices do |prices_form|
+              = check_box_tag category.name, category.id, class: 'checkbox-cat'
+              = label_tag category.name
+              .hidden-sum
+              = prices_form.input :sum, as: :decimal
 
     = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2'
     = link_to account_categories_path, class: 'btn btn-danger' do
       span.mr-1 =t('.cancel_button')
       i.fa.fa-times-circle
+
+
+      / = check_box_tag category.name # id = cat.name, name = cat.name, val = category.id
+      /       = label_tag category.name # matches the id of the check_box
