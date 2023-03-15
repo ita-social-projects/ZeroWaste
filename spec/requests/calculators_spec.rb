@@ -60,23 +60,6 @@ RSpec.describe CalculatorsController, type: :request do
     end
   end
 
-  # describe "GET /calculators/:slug" do
-  #   context "when calculator exist" do
-  #     it "renders the show template" do
-  #       get calculators_path(calculator.slug)
-
-  #       expect(response).to have_http_status(200)
-  #       expect(response).to render_template(:show)
-  #     end
-  #   end
-
-  #   context "when calculator doesn't exist" do
-  #     it "railses a 404 error" do
-  #       expect { get "/calculators" }.to raise_error(ActiveRecord::RecordNotFound)
-  #     end
-  #   end
-  # end
-
   describe "GET /calculator" do
     it "renders the calculator template" do
       get calculator_path
