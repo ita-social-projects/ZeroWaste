@@ -88,7 +88,7 @@ RSpec.describe CalculatorsController, type: :request do
 
   describe "POST /receive_recomendations" do
     context "when user is authenticated" do
-      include_context :authorize_user
+      include_context :authorize_regular_user
 
       it "toggles the receive_recomendations flag for the current user" do
         expect do
