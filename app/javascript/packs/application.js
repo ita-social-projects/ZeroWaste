@@ -9,23 +9,13 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "@rails/request.js";
 
-require("jquery");
-require("@nathanvda/cocoon");
-
-// const jQuery = require('jquery');
-// global.$ = global.jQuery = jQuery;
-// window.$ = window.jQuery = jQuery;
-
 import "@fortawesome/fontawesome-free/js/all";
 
 // import 'ajax/result_button';
 import "ajax/checkbox";
-import "plugins/flatpickr";
 
 import "../js/calculators/edit";
 import "../controllers/stimulus_application";
-
-global.toastr = require("toastr");
 
 Rails.start();
 Turbolinks.start();
@@ -36,8 +26,8 @@ ActiveStorage.start();
 //   $('[data-toggle="popover"]').popover();
 // });
 
-$("document").ready(function () {
-  setTimeout(function () {
-    $(".alert").slideUp();
-  }, 10000);
-});
+// $("document").ready(function () {
+//   setTimeout(function () {
+//     $(".alert").slideUp();
+//   }, 10000);
+// });
