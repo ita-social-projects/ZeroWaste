@@ -11,7 +11,7 @@
     "@rails/request.js": "0.0.8",
     "@rails/ujs": "^7.0.4-3",
     "@rails/webpacker": "^6.0.0-rc.6",
-    "babel-loader": "^9.1.2",
+    "babel-loader": "8.2.3",
     "babel-plugin-macros": "^3.1.0",
     "compression-webpack-plugin": "^10.0.0",
     "stimulus": "^3.2.1",
