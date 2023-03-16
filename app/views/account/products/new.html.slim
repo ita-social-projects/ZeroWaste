@@ -15,7 +15,7 @@ few
         - @ordered_categories.each do |category|
           .checkbox-blocks
             = f.simple_fields_for :prices do |prices_form|
-              = check_box_tag category.name, category.id
+              = check_box_tag category.name
               = label_tag category.name
               .hidden-sum
                 = prices_form.input :sum, as: :decimal
