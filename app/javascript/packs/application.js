@@ -22,6 +22,8 @@ import "@fortawesome/fontawesome-free/js/all";
 import "ajax/checkbox";
 import "plugins/flatpickr";
 
+import "bootstrap";
+
 import "../js/calculators/edit";
 import "../controllers/stimulus_application";
 
