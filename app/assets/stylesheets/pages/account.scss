@@ -1,5 +1,83 @@
+$burger-size: 20px;
+
 .navbar-align-right{
   flex-grow: 0;
   margin-left: auto;
   margin-right: 0;
+}
+
+.nav-toggler {
+  width: $burger-size;
+  height: $burger-size;
+  position: relative;
+  transition: .5s ease-in-out;
+}
+
+.nav-toggler,
+.nav-toggler:focus,
+.nav-toggler:active {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.nav-toggler span {
+  margin: 0;
+  padding: 0;
+}
+
+.toggler-icon {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: greenyellow;
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s;
+}
+
+.middle-bar {
+  margin-top: 0;
+}
+
+.nav-toggler .top-bar {
+  margin-top: 0px;
+  transform: rotate(135deg);
+}
+
+.nav-toggler .middle-bar {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.nav-toggler .bottom-bar {
+  margin-top: 0px;
+  transform: rotate(-135deg);
+}
+
+// Lines radient
+
+.nav-toggler .toggler-icon {
+  background: rgb(134,255,125);
+  background: linear-gradient(90deg, rgba(134,255,125,1) 0%, rgba(88,227,255,1) 100%);
+}
+
+// When collapsed
+
+.nav-toggler.collapsed .top-bar {
+  margin-top: -20px;
+  transform: rotate(0deg);
+}
+
+.nav-toggler.collapsed .middle-bar {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.nav-toggler.collapsed .bottom-bar {
+  margin-top: 20px;
+  transform: rotate(0deg);
 }
