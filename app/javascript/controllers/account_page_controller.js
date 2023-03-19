@@ -7,6 +7,6 @@ export default class extends Controller {
   toggleBurger(){
     const navbarVisible = () => this.navbarNavTarget.classList.contains("show")
 
-    this.changeLangTarget.hidden = (!navbarVisible())
+    this.changeLangTarget.hidden = !navbarVisible()
   }
 }

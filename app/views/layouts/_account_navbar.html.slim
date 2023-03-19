@@ -2,7 +2,6 @@ div data-controller="account-page"
   nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom.border-success
     .container-fluid
       = link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste'
-      /button.navbar-toggler.nav-toggler.collapsed.ml-auto.d-flex.d-lg-none.flex-column.justify-content-around type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-action="click->account-page#toggleBurger"
       = button_tag("", class: "navbar-toggler nav-toggler collapsed ml-auto d-flex d-lg-none flex-column justify-content-around",
         type: "button", data: { toggle: "collapse", target: "#navbarNav", action: "click->account-page#toggleBurger" },
         aria: { controls: "navbarNav", expanded: "false", label: "Toggle navigation" })

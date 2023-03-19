@@ -56,7 +56,7 @@ $burger-size: 20px;
   }
 
   .middle-bar {
-    @include middleLineTransform;$burger-size: 20px;
+    @include middleLineTransform;
   }
 
   .bottom-bar {
