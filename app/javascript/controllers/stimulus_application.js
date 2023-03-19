@@ -6,6 +6,6 @@ const application = Application.start();
 application.debug = false;
 window.Stimulus = application;
 
-const context = require.context("../controllers", true, /_controller\.js$/);
+const context = require.context("./", true, /_controller\.js$/);
 
 application.load(definitionsFromContext(context));
