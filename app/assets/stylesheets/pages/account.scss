@@ -31,6 +31,35 @@ $burger-size: 20px;
   .toggler-icon {
     margin: 0;
     padding: 0;
+    background: $success;
+  }
+
+  .top-bar {
+    @include lineTransform(0px, 135deg);
+  }
+
+  .middle-bar {
+    @include middleLineTransform;
+  }
+
+  .bottom-bar {
+    @include lineTransform(0px, -135deg);
+  }
+
+  // When collapsed
+
+  &.collapsed {
+    .top-bar {
+      @include lineTransform(-20px, 0deg);
+    }
+  
+    .middle-bar {
+      @include middleLineTransform(100)
+    }
+    
+    .bottom-bar {
+      @include lineTransform(20px, 0deg);
+    }
   }
 }
 
@@ -49,39 +78,3 @@ $burger-size: 20px;
 .middle-bar {
   margin-top: 0;
 }
-
-.nav-toggler {
-  .top-bar {
-    @include lineTransform(0px, 135deg);
-  }
-
-  .middle-bar {
-    @include middleLineTransform;
-  }
-
-  .bottom-bar {
-    @include lineTransform(0px, -135deg);
-  }
-
-  // Lines radient
-  .toggler-icon {
-    background: rgb(134,255,125);
-    background: linear-gradient(90deg, rgba(134,255,125,1) 0%, rgba(88,227,255,1) 100%);
-  }
-
-  // When collapsed
-
-  &.collapsed {
-    .top-bar {
-      @include lineTransform(-20px, 0deg);
-    }
-  
-    .middle-bar {
-      @include middleLineTransform(100)
-    }
-    
-    .bottom-bar {
-      @include lineTransform(20px, 0deg);
-    }
-  }
-} 
