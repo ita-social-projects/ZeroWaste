@@ -1,21 +1,17 @@
 div.container.list-unstyled.text-success
-  h2.mb-4.text-center = link_to t(".sitemap"), sitemap_url, class: "text-success"
+  h2.mb-4.text-center = link_to t(".sitemap"), sitemap_url, class: "text-success text-decoration-none"
   hr.mt-4.mb-5
     .row
       .col-md-6
-        h3.mb-4 = link_to t('.homepage'), root_url, class: "text-success"
+        h3.mb-4 = link_to t('.homepage'), root_url, class: "text-success text-decoration-none"
         ul.list-unstyled.mb-4
           li.mb-2
             = link_to t('.about_us'), about_us_url, class: "text-white"
           li.mb-2
-            = link_to t('.visit_website'), t(".link_to_website"), class: "text-white"
-          li.mb-2
-            = link_to t('.support'), t('.link_to_support'), class: "text-white"
+            = link_to t('.messages'), new_message_url, rel: :nofollow, class: "text-white"
       .col-md-6
         h3.mb-4.text-success = t '.calculators'
         ul.list-unstyled.mb-4
           li.mb-2
             = link_to t('.calculator-diapers'), calculator_url, class: "text-white"
-            ul
-              li.ml-2.my-2
-                = link_to t('.less'), t(".link_less"), class: "text-success"
+ 

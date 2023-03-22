@@ -97,16 +97,11 @@ en:
   sitemap:
     index:
       sitemap: "Sitemap"
-      visit_website: "Website Zero Waste"
-      link_to_website: "https://zerowastelviv.org.ua/"
       homepage: "Home page"
-      support: "Support"
-      link_to_support: "https://zerowastelviv.org.ua/en/donate/"
       about_us: "About us"
       calculator-diapers: "Calculator diapers"
       calculators: "Calculators"
-      less: "How to use less"
-      link_less: "https://zerowastelviv.org.ua/zero-waste-nappies/"
+      message: "Write us a message"
   account:
     account:
       edit:

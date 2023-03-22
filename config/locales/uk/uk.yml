@@ -70,16 +70,11 @@ uk:
   sitemap:
     index:
       sitemap: "Мапа сайту"
-      visit_website: "Наш сайт"
-      link_to_website: "https://zerowastelviv.org.ua/"
       homepage: "Головна сторінка"
-      support: "Підтримати проект"
-      link_to_support: "https://zerowastelviv.org.ua/pidtrymaty/"
       about_us: "Про нас"
       calculator-diapers: "Калькулятор підгузків"
       calculators: "Калькулятори"
-      less: "Як зменшити використання"
-      link_less: "https://zerowastelviv.org.ua/zero-waste-nappies/"
+      message: "Напиши нам повідомлення"
   account:
     account:
       edit:
