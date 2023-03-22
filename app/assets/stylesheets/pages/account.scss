@@ -17,6 +17,7 @@ $burger-size: 20px;
 }
 
 .nav-toggler {
+  margin-top: 6px;
   width: $burger-size;
   height: $burger-size;
   position: relative;
@@ -66,6 +67,7 @@ $burger-size: 20px;
 .toggler-icon {
   display: block;
   position: absolute;
+  margin-top: 10px;
   height: 3px;
   width: 100%;
   border-radius: 1px;
@@ -73,8 +75,4 @@ $burger-size: 20px;
   left: 0;
   transform: rotate(0deg);
   transition: .25s;
-}
-
-.middle-bar {
-  margin-top: 0;
 }
