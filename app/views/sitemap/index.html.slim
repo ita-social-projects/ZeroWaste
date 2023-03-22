@@ -1,116 +1,21 @@
-div.container
+div.container.list-unstyled.text-success
   h2.mb-4.text-center = link_to t(".sitemap"), sitemap_url, class: "text-success"
   hr.mt-4.mb-5
-  div.container.d-flex.justify-content-center
     .row
-      .col-md-4
+      .col-md-6
         h3.mb-4 = link_to t('.homepage'), root_url, class: "text-success"
         ul.list-unstyled.mb-4
           li.mb-2
-            = link_to t('.about_zerowast'), root_url, class: "text-white"
+            = link_to t('.about_us'), about_us_url, class: "text-white"
+          li.mb-2
+            = link_to t('.visit_website'), t(".link_to_website"), class: "text-white"
           li.mb-2
             = link_to t('.support'), t('.link_to_support'), class: "text-white"
-        hr.mt-4.mb-5
-        h3.mb-4.text-success = t '.about_us'
+      .col-md-6
+        h3.mb-4.text-success = t '.calculators'
         ul.list-unstyled.mb-4
           li.mb-2
-            = link_to t('.history'), root_url, class: "text-white"
-          li.mb-2
-            = link_to t('.our_team'), root_url, class: "text-white"
-          li.mb-2
-            = link_to t('.our_partners'), root_url, class: "text-white"
-          li.mb-2
-            = link_to t('.documents'), root_url, class: "text-white"
-          li.mb-2
-            = link_to t('.contacts'), root_url, class: "text-white"
-            ul.list-unstyled
-              li.mb-2.ml-4.mt-2
-                = link_to t('.facebook'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.instagram'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.youtube'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.gmail'), root_url, class: "text-success"
-      .col-md-4
-        h3.mb-4.text-success = t '.zerowaste_activities'
-        ul.list-unstyled.mb-4
-          li.mb-2
-            = link_to t('.about_zerowast'), root_url, class: "text-white"
-            ul.list-unstyled
-              li.mb-2.ml-4.mt-2
-                = link_to t('.regulations'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.report2020'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.report2019'), root_url, class: "text-success"
-          li.mb-2
-            = link_to t('.rouse'), root_url, class: "text-white"
-            ul.list-unstyled
-              li.mb-2.ml-4.mt-2
-                = link_to t('.menstrual_cup'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.reusable_pads'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.menstrual_panties'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.menstrual_disk'), root_url, class: "text-success"
-          li.mb-2
-            = link_to t('.events'), root_url, class: "text-white"
-            ul.list-unstyled
-              li.mb-2.ml-4.mt-2
-                = link_to t('.fest2021'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.brand_audit2020'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.weekend2019'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.fest2019'), root_url, class: "text-success"
-          li.mb-2
-            = link_to t('.rot'), root_url, class: "text-white"
-            ul.list-unstyled
-              li.mb-2.ml-4.mt-2
-                = link_to t('.organic_waste'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.composting'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.waste_apartment'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.outdoor_composting'), root_url, class: "text-success"
-      .col-md-4
-        h3.mb-4.text-success = t '.our_work'
-        ul.list-unstyled.mb-4
-          li.mb-2 
-            = link_to t('.projects'), root_url, class: "text-white"
-            ul.list-unstyled
-              li.mb-2.ml-4.mt-2
-                = link_to t('.impact_covid19'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.calculator_diapers'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.eko_friendly'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.zero_cup'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.expered_medical_means'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.diapers_extra'), root_url, class: "text-success"
-          li.mb-2 
-            = link_to t('.compaigns'), root_url, class: "text-white"
-            ul.list-unstyled
-              li.mb-2.ml-4.mt-2
-                = link_to t('.we_choose_reuse'), root_url, class: "text-success"
-              li.mb-2.ml-4
-                = link_to t('.holiday_leftovers'), root_url, class: "text-success"
-        hr.mt-4.mb-5
-        h3.mb-4.text-success = t '.publications'
-        ul.list-unstyled.mb-4
-          li.mb-2 
-            = link_to t('.news'), root_url, class: "text-white"
-          li.mb-2 
-            = link_to t('.blog'), root_url, class: "text-white"
-          li.mb-2 
-            = link_to t('.official_statements'), root_url, class: "text-white"
-          li.mb-2 
-            = link_to t('.press_releases'), root_url, class: "text-white"
-            
+            = link_to t('.calculator-diapers'), calculator_url, class: "text-white"
+            ul
+              li.ml-2.my-2
+                = link_to t('.less'), t(".link_less"), class: "text-success"
