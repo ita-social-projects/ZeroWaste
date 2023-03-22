@@ -1,15 +1,11 @@
 .container
-  = form_tag account_product_path, method: :get, class: 'd-flex justify-content-end mb-5' do
-    .d-flex
-
-div class="container home"
 
   table.table
     thead
       tr
         th scope="col"  #
-        th scope="col"  =t('.table.title')
-        th scope="col"  =t('.table.actions')
+        th scope="col" =t('.table.title')
+        th scope="col" =t('.table.actions')
 
     tbody
         tr

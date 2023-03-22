@@ -7,25 +7,21 @@
       ul
         - @product.errors.full_messages.each do |error_message|
           li= error_message
-few
-  = simple_form_for @product, url: { action: 'create' }, html: { data: {controller: "price-input" } } do |f|
+
+  = simple_form_for @product, url: { action: 'create' }, data: {controller: "form" } do |f|
     .form-group.row
       .col-12.has-float-label.my-auto
-        = f.input :title, class: 'form-control col-sm-11', required: true
-        - @ordered_categories.each do |category|
+        = f.input :title, class: 'form-control col-sm-11'
+        - @ordered_by_name.each do |category|
           .checkbox-blocks
             = f.simple_fields_for :prices do |prices_form|
-              = check_box_tag category.name
+              = check_box_tag category.name, 1, false, data: { action: "click->form#togglePrice", form_target: 'checkbox' }, class: 'mr-1'
               = label_tag category.name
-              .hidden-sum
-                = prices_form.input :sum, as: :decimal
+              .hidden-sum data-form-target="price" name=category.name
+                = prices_form.input :sum, as: :decimal, label: false, input_html: {placeholder: 'Sum'}
                 = prices_form.hidden_field :category_id, value: category.id
 
-    = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2', id: 'submit'
+    = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2', id: 'submit', data: { action: "click->form#submit" }
     = link_to account_products_path, class: 'btn btn-danger' do
       span.mr-1 =t('.cancel_button')
       i.fa.fa-times-circle
-
-
-      / = check_box_tag category.name # id = cat.name, name = cat.name, val = category.id
-      /       = label_tag category.name # matches the id of the check_box
