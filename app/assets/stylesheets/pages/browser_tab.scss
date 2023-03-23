@@ -1,7 +1,7 @@
 .tab {
   &-browser {
     background: white;
-    width: 213px;
+    width: 212px;
     margin-left: 0px;
     overflow: hidden;
     height: 100%;
@@ -9,7 +9,6 @@
     border-radius: 3px;
     box-shadow: 2px -2px 2px -2px black, -2px -2px 2px -2px black;
     padding-left: 8px;
-    display: block;
   }
 
   &-content {
@@ -21,7 +20,7 @@
     vertical-align: middle;
     width: 16px;
     height: 16px;
-    margin-right: 7px;
+    margin-right: 8px;
   }
 
   &-text {
@@ -29,7 +28,7 @@
     vertical-align: middle;
     font-family: "Segoe UI", "Roboto", sans-serif;
     font-size: 12px;
-    max-width: 170px;
+    max-width: 172px;
     overflow: hidden;
   }
 }

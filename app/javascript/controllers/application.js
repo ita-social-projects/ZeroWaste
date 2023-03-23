@@ -7,7 +7,7 @@ import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 const application = Application.start();
 
 // Configure Stimulus development experience
-application.debug = false;
+application.debug = true;
 window.Stimulus = application;
 
 const context = require.context("../controllers", true, /_controller\.js$/);

@@ -6,4 +6,29 @@ Flipper.configure do |config|
   end
 end
 
-Flipper[:access_admin_menu].enable
+Flipper.features.each do |feature|
+  if Rails.env.development?
+    Flipper.enable(feature.key)
+  else
+    Flipper.disable(feature.key)
+  end
+end
+
+class Flipper::Feature
+  def description
+    feature_record.description
+  end
+
+  def description=(value)
+    feature_record.update(description: value)
+  end
+
+  private
+
+  def feature_record
+    Flipper::Adapters::ActiveRecord::Feature.find_or_create_by(key: key)
+  end
+end
+
+Flipper[:my_feature].description = "This is a description of my feature."
+Flipper[:access_admin_menu].description = "This feature flag is responsible for visibility of 'Admin Menu' button on main page"

@@ -1,8 +1,8 @@
 = simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } }  do |f|
   .form-group.row
     .col-12.has-float-label.my-auto
-      = f.input :title, class: 'form-control', data: { target: "handle-browser-tab.title" }
-      = f.input :favicon, class: 'form-control', data: { target: "handle-browser-tab.icon" }
+      = f.input :title, class: 'form-control', input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
+      = f.input :favicon, class: 'form-control', input_html: { data: {  action: "change->handle-browser-tab#setIcon" } }
       = render 'browser_tab', site_setting: @site_setting
 
   = f.submit value: t('.update_button'), class: 'btn btn-success mr-2'
@@ -14,6 +14,8 @@
       label
         = check_box_tag "#{feature.key}_enabled", 1, feature.enabled?
         = feature.key.to_s.titleize
-        .description-feature This feature flag is resposible for enable or disable button "Admin" on main page.
+        .description-feature
+          = feature.description
+
   div
     = submit_tag 'Save'
