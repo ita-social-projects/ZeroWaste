@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@1.6.0
-  node: circleci/node@4.7.0
+  node: circleci/node@5.0.2
   browser-tools: circleci/browser-tools@1.2.5
 
 jobs:
@@ -35,8 +35,8 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run: bin/circleci_db_setup
-      - run: bundle exec rake db:create db:schema:load
-
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
   test:
     parallelism: 5
     docker:
