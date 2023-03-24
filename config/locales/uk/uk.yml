@@ -122,8 +122,6 @@ uk:
         create_button: 'Create'
         cancel_button: 'Скасувати'
     site_settings:
-      validations:
-        size: 'надто великий'
       edit:
         update_button: 'Оновити'
     users:

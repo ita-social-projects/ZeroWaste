@@ -1,20 +1,36 @@
 require "rails_helper"
 
 RSpec.describe Account::UpdateFeatureFlagsService do
-  let(:feature1) { Flipper[:my_feature] }
-  let(:feature2) { Flipper[:access_admin_menu] }
+  let(:access_admin_menu_feature) { Flipper[:access_admin_menu] }
 
   describe '#call' do
-    it 'enables or disables feature flags based on the parameters passed in' do
-      expect(Flipper).to receive(:features).and_return([feature1, feature2])
+    context 'when access_admin_menu is enabled' do
+      it 'disables access_admin_menu feature' do
+        access_admin_menu_feature.enable
+        expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
 
-      params = { "#{feature1.key}_enabled" => "1", "#{feature2.key}_enabled" => "0" }
-      service = Account::UpdateFeatureFlagsService.new(params)
+        params = { "#{access_admin_menu_feature.key}_enabled" => "0" }
+        service = Account::UpdateFeatureFlagsService.new(params)
 
-      expect(feature1).to receive(:enable)
-      expect(feature2).to receive(:disable)
+        expect(access_admin_menu_feature).to receive(:disable)
 
-      service.call
+        service.call
+      end
+    end
+
+    context 'when access_admin_menu is disabled' do
+      it 'enables access_admin_menu feature' do
+        access_admin_menu_feature.disable
+
+        expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
+
+        params = { "#{access_admin_menu_feature.key}_enabled" => "1" }
+        service = Account::UpdateFeatureFlagsService.new(params)
+
+        expect(access_admin_menu_feature).to receive(:enable)
+
+        service.call
+      end
     end
   end
 end

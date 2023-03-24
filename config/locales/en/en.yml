@@ -146,8 +146,6 @@ en:
         create_button: 'Create'
         cancel_button: 'Cancel'
     site_settings:
-      validations:
-        size: 'is too large'
       edit:
         update_button: 'Update'
     users:

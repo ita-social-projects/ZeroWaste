@@ -9,8 +9,7 @@ include_context :authorize_admin
       feature.disable
 
       patch account_features_flags_path, params: {
-        access_admin_menu_enabled: 1,
-        my_feature_enabled: 0
+        access_admin_menu_enabled: 1
       }
 
       expect(feature.enabled?).to eq(true)

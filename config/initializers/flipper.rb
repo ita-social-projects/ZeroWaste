@@ -30,5 +30,5 @@ class Flipper::Feature
   end
 end
 
-Flipper[:my_feature].description = "This is a description of my feature."
+Flipper[:my_feature].remove
 Flipper[:access_admin_menu].description = "This feature flag is responsible for visibility of 'Admin Menu' button on main page"
