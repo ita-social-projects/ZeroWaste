@@ -1,5 +1,5 @@
 class SitemapController < ApplicationController
   def show
-    locale = params[:locale]
+    locale = request.path.split("/").second.to_sym
   end
 end
