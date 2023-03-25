@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     get "/calculator", to: "calculators#calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
     get "/about_us", to: redirect("/about_us.html")
-    get "uk/sitemap.xml", to: "sitemap#sitemap_uk", format: "xml", as: :sitemap_uk
-    get "en/sitemap.xml", to: "sitemap#sitemap_en", format: "xml", as: :sitemap_en
+    get '/en/sitemap.xml', to: 'sitemap#show', defaults: { format: 'xml', locale: 'en' }
+    get '/uk/sitemap.xml', to: 'sitemap#show', defaults: { format: 'xml', locale: 'uk' }
 
     resources :calculators, only: [:index, :show], param: :slug do
       member do
