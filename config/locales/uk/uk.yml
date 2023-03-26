@@ -116,6 +116,10 @@ uk:
         cancel_button: 'Скасувати'
     products:
       index:
+        table:
+          title: 'Назва'
+          prices: 'Ціни'
+          actions: 'Дії'
         add_product_button: 'Додати продукт'
         confirm_delete: 'Видалити продукт?'
         cancel_button: 'Скасувати'

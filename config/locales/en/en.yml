@@ -140,6 +140,10 @@ en:
         create_button: 'Create'
         cancel_button: 'Cancel'
     products:
+      table:
+        title: 'Title'
+        prices: 'Prices'
+        actions: 'Actions'
       index:
         add_product_button: 'Add product'
         confirm_delete: 'Delete product?'
