@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Account::ProductsController, type: :request do
-
   let!(:product) { create(:product, :diaper) }
 
   include_context :authorize_admin
@@ -43,7 +42,7 @@ RSpec.describe Account::ProductsController, type: :request do
     context "creates a product" do
       it "a product with price and category" do
         expect do
-          post account_products_path, params: {product: valid_product_attributes}
+          post account_products_path, params: { product: valid_product_attributes }
         end.to change(Product, :count).by(1)
 
         expect(response).to redirect_to(account_products_path)
@@ -54,7 +53,7 @@ RSpec.describe Account::ProductsController, type: :request do
     context "does not create a product" do
       it "a product without price and category" do
         expect do
-          post account_products_path, params: {product: invalid_product_attributes}
+          post account_products_path, params: { product: invalid_product_attributes }
         end.not_to change(Product, :count)
 
         expect(response).to be_unprocessable
@@ -69,7 +68,7 @@ RSpec.describe Account::ProductsController, type: :request do
 
     context "with valid params" do
       it "is successful" do
-        patch account_product_path(id: product), params: {product: updated_product_attributes}
+        patch account_product_path(id: product), params: { product: updated_product_attributes }
         product.reload
 
         expect(product.title).to eq("huggie")
@@ -82,7 +81,7 @@ RSpec.describe Account::ProductsController, type: :request do
     context "with invalid params" do
       it "is failing" do
         expect do
-          patch account_product_path(id: product), params: {product: invalid_product_attributes}
+          patch account_product_path(id: product), params: { product: invalid_product_attributes }
         end.not_to change { product.title }.from("diaper")
 
         expect(response).to be_unprocessable
