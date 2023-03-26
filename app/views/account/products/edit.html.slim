@@ -2,7 +2,7 @@
   = simple_form_for @product, url: { action: 'update' }, html: { data: {controller: "form" }} do |f|
     .form-group.row
       .col-12.has-float-label.my-auto
-        = f.input :title, class: 'form-control col-sm-11'
+        = f.input :title, label: t('.title'), class: 'form-control col-sm-11'
         = f.simple_fields_for :prices do |prices_form|
           .checkbox-blocks
             = check_box_tag prices_form.object.category.name, 1, false, data: { action: "click->form#togglePrice" }, class: 'mr-1'
@@ -10,7 +10,7 @@
             .hidden-sum data-form-target="price" name=prices_form.object.category.name
               = prices_form.input :sum, as: :decimal, label: false, input_html: {placeholder: 'Sum'}
 
-    = f.submit "", value: t('.update_button'), class: 'btn btn-success mr-2', id: 'submit', data: { action: "click->form#submit" }
+    = f.submit t('.update_button'), class: 'btn btn-success mr-2', id: 'submit', data: { action: "click->form#submit" }
     = link_to account_products_path, class: 'btn btn-danger' do
       span.mr-1 =t('.cancel_button')
       i.fa.fa-times-circle

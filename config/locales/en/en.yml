@@ -149,9 +149,11 @@ en:
         confirm_delete: 'Delete product?'
         cancel_button: 'Cancel'
       edit:
+        title: 'Title'
         update_button: 'Update'
         cancel_button: 'Cancel'
       new:
+        title: 'Title'
         create_button: 'Create'
         cancel_button: 'Cancel'
     users:

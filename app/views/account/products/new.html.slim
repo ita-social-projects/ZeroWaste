@@ -2,7 +2,7 @@
   = simple_form_for @product, url: { action: 'create' }, data: {controller: "form" } do |f|
     .form-group.row
       .col-12.has-float-label.my-auto
-        = f.input :title, class: 'form-control col-sm-11'
+        = f.input :title, label: t('.title'), class: 'form-control col-sm-11'
         - Category.ordered_by_name.each do |category|
           .checkbox-blocks
             = f.simple_fields_for :prices do |prices_form|

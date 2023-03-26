@@ -123,10 +123,17 @@ uk:
         add_product_button: 'Додати продукт'
         confirm_delete: 'Видалити продукт?'
         cancel_button: 'Скасувати'
+      show:
+        table:
+          title: 'Назва'
+          prices: 'Ціни'
+          actions: 'Дії'
       edit:
+        title: 'Назва'
         update_button: 'Оновнити'
         cancel_button: 'Скасувати'
       new:
+        title: 'Назва'
         create_button: 'Створити'
         cancel_button: 'Скасувати'
     users:
