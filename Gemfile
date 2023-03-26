@@ -63,6 +63,14 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
   gem "web-console", ">= 4.1.0"
+  # deploy
+  gem "capistrano", "~> 3.11"
+  gem "capistrano-rails", "~> 1.4"
+  gem "capistrano-passenger", "~> 0.2.0"
+  gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
+  gem "capistrano-yarn"
+  gem "capistrano-rails-tail-log"
+  gem "ed25519"
 end
 
 # group :ci do
@@ -98,12 +106,3 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "toastr-rails"
 gem "importmap-rails", "~> 1.1"
 gem "requestjs-rails"
-
-# deploy
-gem "capistrano", "~> 3.11"
-gem "capistrano-rails", "~> 1.4"
-gem "capistrano-passenger", "~> 0.2.0"
-gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
-gem "capistrano-yarn"
-gem "capistrano-rails-tail-log"
-gem "ed25519"

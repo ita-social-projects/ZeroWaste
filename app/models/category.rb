@@ -7,6 +7,8 @@ class Category < ApplicationRecord
   has_one :price, dependent: :destroy
 
   validates :name, presence: true
+  validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
-  scope :ordered_by_name, -> { order(:name) }
+  scope :ordered_by_name, -> { order(:name) 
+  scope :ordered_by_priority, -> { order(:priority) }
 end

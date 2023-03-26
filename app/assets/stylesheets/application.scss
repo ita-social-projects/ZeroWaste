@@ -1,0 +1,15 @@
+@import "components/**/*";
+
+@import "bootstrap/scss/bootstrap";
+@import "toastr";
+
+@import "pages/**/*";
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}

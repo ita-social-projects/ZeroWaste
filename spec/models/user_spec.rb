@@ -40,6 +40,10 @@ require "rails_helper"
 RSpec.describe User, type: :model do
   let!(:user) { build(:user) }
 
+  describe "associations" do
+    it { is_expected.to have_one_attached(:avatar) }
+  end
+
   describe "validations" do
     it {
       is_expected.to validate_presence_of(:email)

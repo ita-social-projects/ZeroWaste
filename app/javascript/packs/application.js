@@ -16,19 +16,17 @@ require("@nathanvda/cocoon");
 // global.$ = global.jQuery = jQuery;
 // window.$ = window.jQuery = jQuery;
 
-import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
-import "../stylesheets/application";
 
 // import 'ajax/result_button';
 import "ajax/checkbox";
 import "plugins/flatpickr";
-import "@fortawesome/fontawesome-free/css/all";
+
+import "bootstrap";
 
 import "../js/calculators/edit";
 import "../controllers/stimulus_application";
 
-const images = require.context("../images", true);
 global.toastr = require("toastr");
 
 Rails.start();

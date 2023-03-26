@@ -3,6 +3,12 @@
 require "rails_helper"
 
 RSpec.describe CategoryCategoryable, type: :model do
+  describe "associations" do
+    it { is_expected.to belong_to(:categoryable) }
+
+    it { is_expected.to belong_to(:category) }
+  end
+
   describe "validations" do
     let(:budgetary_category) { create(:category, :budgetary) }
     let(:medium_category) { create(:category, :medium) }
