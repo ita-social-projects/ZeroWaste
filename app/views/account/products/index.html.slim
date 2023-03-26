@@ -1,7 +1,7 @@
 .container
   = form_tag account_product_path(id: @products), method: :get, class: 'd-flex justify-content-end mb-5' do
     .d-flex
-    = link_to new_account_product_path(@products), class: 'btn btn-success px-4 ml-1' do
+    = link_to new_account_product_path(id: @products), class: 'btn btn-success px-4 ml-1' do
       i.fa.fa-plus.mr-2
       span =t('.add_product_button')
 
