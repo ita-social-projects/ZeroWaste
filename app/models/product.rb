@@ -19,12 +19,14 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  belongs_to :product_type
+  belongs_to :product_type, optional: true
   has_many :category_categoryables, as: :categoryable, dependent: :destroy
   has_many :categories, through: :category_categoryables
   has_many :prices, as: :priceable, dependent: :destroy
 
   validates :title, presence: true, length: { in: 2..50 }
+
+  accepts_nested_attributes_for :prices, reject_if: :blank_prices
 
   def self.diaper
     find_by(title: DIAPER)
@@ -32,5 +34,9 @@ class Product < ApplicationRecord
 
   def price_by_category(category)
     prices.where(category: category).first
+  end
+
+  def blank_prices(attributes)
+    attributes[:sum].blank?
   end
 end

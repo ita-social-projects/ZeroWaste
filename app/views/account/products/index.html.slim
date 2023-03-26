@@ -5,20 +5,24 @@
       i.fa.fa-plus.mr-2
       span =t('.add_product_button')
 
-div class="container home"
-
   table.table
     thead
       tr
         th scope="col" #
         th scope="col" =t('.table.title')
+        th scope="col" =t('.table.prices')
         th scope="col" =t('.table.actions')
 
     tbody
       - @products.each do |product|
         tr
-          th scope="row"  = product.id
+          td = product.id
           td = product.title
+          td
+            - product.prices.each do |price|
+              span = price.category.name + ': '
+              span = price.sum
+              br
           td.actions
             = link_to edit_account_product_path(id: product) do
               i.fa.fa-pen.mx-2

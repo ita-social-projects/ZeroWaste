@@ -1,13 +1,4 @@
 .container
-  - if @product.errors.any?
-    div
-      h2
-      = t('activerecord.form_errors', :count => @product.errors.count,
-                       :model => t('models.product').downcase)
-      ul
-        - @product.errors.full_messages.each do |error_message|
-          li= error_message
-
   = simple_form_for @product, url: { action: 'update' }, html: { data: {controller: "form" }} do |f|
     .form-group.row
       .col-12.has-float-label.my-auto

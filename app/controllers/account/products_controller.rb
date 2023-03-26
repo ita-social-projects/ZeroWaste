@@ -8,8 +8,6 @@ class Account::ProductsController < Account::BaseController
   end
 
   def new
-    @ordered_categories = Category.ordered_categories
-
     @product = Product.new
 
     @product.prices.build
@@ -21,9 +19,6 @@ class Account::ProductsController < Account::BaseController
 
   def create
     @product = Product.new(products_params)
-    binding.pry
-
-    binding.pry
     if @product.save
       redirect_to account_products_path,
                   notice: t("notifications.product_created")
@@ -34,7 +29,6 @@ class Account::ProductsController < Account::BaseController
 
   def update
     @product = resource
-
     if @product.update(products_params)
       redirect_to account_products_path,
                   notice: t("notifications.product_updated")
@@ -63,6 +57,6 @@ class Account::ProductsController < Account::BaseController
 
   def products_params
     params.require(:product).permit(:title,
-                                    prices_attributes: [:sum, :category_id])
+                                    prices_attributes: [:id, :sum, :category_id])
   end
 end

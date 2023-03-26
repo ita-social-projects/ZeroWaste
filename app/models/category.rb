@@ -6,7 +6,7 @@ class Category < ApplicationRecord
 
   has_one :price
 
-  scope :ordered_categories, -> { Category.order(:name) }
-
   validates :name, presence: true
+
+  scope :ordered_by_name, -> { order(:name) }
 end
