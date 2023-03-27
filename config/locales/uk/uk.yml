@@ -2,6 +2,7 @@ uk:
   en: English
   calculators:
     calculator:
+      back_button_label: "назад"
       diaper: "підгузок"
       form_description: "Вік дитини:"
       form_price: "Цінова категорія"

@@ -29,19 +29,35 @@
   font-weight: 400;
   color: #666666;
   position: relative;
-  top: 17px;
+  top: 16px;
   left: 0px;
   margin-bottom: 0px;
 }
 
-.calculator__cross__space {
+.back_button_link {
+  display: block;
+}
+
+.back_button {
   position: absolute;
-  top: 8px;
-  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 34px 18px 16px;
+}
+
+.calculator__back__label {
+  font-size: 14px;
+  font-weight: 300;
+  color: $success;
+}
+
+.back_button:hover .calculator__back__label {
+  text-decoration: underline;
 }
 
 .form {
-  padding-left: 15px;
+  padding-left: 16px;
 }
 
 .row-l {
@@ -152,7 +168,7 @@
 
 .logo-zerowaste img {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .description-btn {

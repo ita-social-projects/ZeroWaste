@@ -1,6 +1,9 @@
 .jumbotron.jumbotron-fluid.position-relative.rounded
-  a.rounded.calculator__cross__space href=root_path
-    = image_tag "close.svg", height: 40, class:"z-1"
+  a.back_button_link.rounded.calculator__cross__space href=root_path
+    .back_button
+      = image_tag "arrow_left.svg", height: 26, class:"z-1 position-relative"
+      .calculator__back__label
+        = t '.back_button_label'
   .d-flex.justify-content-around.flex-wrap.calculator_wrap
     = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
                                                data:{ controller: "input-child-info",
