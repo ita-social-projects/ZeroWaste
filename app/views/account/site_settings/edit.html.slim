@@ -8,14 +8,12 @@
   = f.submit value: t(".update_button"), title: "Update site settings", class: "btn btn-success mr-2"
     i.fa.fa-times-circle
 
-= form_tag account_features_flags_path, method: :patch do
+= simple_form_for :feature_flags, url: account_features_flags_path, method: :patch do |f|
   - Flipper.features.each do |feature|
     .feature-container
-      label
-        = check_box_tag "#{feature.name}_enabled", 1, feature.enabled?
-        = feature.name.to_s.titleize
-        .description-feature
-          = feature.description
+      = f.input "#{feature.name}_enabled", as: :boolean, label: feature.name.to_s.titleize, input_html: { checked: feature.enabled? }
+      .description-feature
+        = feature.description
 
   div
-    = submit_tag "Save"
+    = f.submit "Save"
