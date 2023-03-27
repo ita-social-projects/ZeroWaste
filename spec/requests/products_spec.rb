@@ -40,7 +40,6 @@ RSpec.describe Account::ProductsController, type: :request do
 
       expect(response).to be_successful
       expect(response).to render_template(:edit)
-
     end
   end
 
