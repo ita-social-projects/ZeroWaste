@@ -3,9 +3,9 @@ require "rails_helper"
 RSpec.describe Account::UpdateFeatureFlagsService do
   let(:access_admin_menu_feature) { Flipper[:access_admin_menu] }
 
-  describe '#call' do
-    context 'when access_admin_menu is enabled' do
-      it 'disables access_admin_menu feature' do
+  describe "#call" do
+    context "when access_admin_menu is enabled" do
+      it "disables access_admin_menu feature" do
         access_admin_menu_feature.enable
         expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
 
@@ -18,8 +18,8 @@ RSpec.describe Account::UpdateFeatureFlagsService do
       end
     end
 
-    context 'when access_admin_menu is disabled' do
-      it 'enables access_admin_menu feature' do
+    context "when access_admin_menu is disabled" do
+      it "enables access_admin_menu feature" do
         access_admin_menu_feature.disable
 
         expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])

@@ -15,19 +15,14 @@ Flipper.features.each do |feature|
 end
 
 class Flipper::Feature
-  def description
-    feature_record.description
-  end
-
-  def description=(value)
-    feature_record.update(description: value)
-  end
+  delegate :description, :description=, to: :feature_record
 
   private
 
   def feature_record
-    Flipper::Adapters::ActiveRecord::Feature.find_or_create_by(key: key)
+    @feature_record ||= Flipper::Adapters::ActiveRecord::Feature.find_or_create_by(key: key)
   end
 end
 
+Flipper[:access_admin_menu].enable
 Flipper[:access_admin_menu].description = "This feature flag is responsible for visibility of 'Admin Menu' button on main page"
