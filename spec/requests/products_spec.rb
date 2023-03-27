@@ -8,14 +8,19 @@ RSpec.describe Account::ProductsController, type: :request do
   describe "GET :index" do
     it "is successful" do
       get account_products_path
+
       expect(response).to be_successful
+      expect(response).to render_template(:index)
+      expect(response.body).to include(product.title)
     end
   end
 
   describe "GET :new" do
     it "is successful" do
       get new_account_product_path
+
       expect(response).to be_successful
+      expect(response).to render_template(:new)
     end
   end
 
@@ -24,6 +29,8 @@ RSpec.describe Account::ProductsController, type: :request do
       get account_product_path(product)
 
       expect(response).to be_successful
+      expect(response).to render_template(:show)
+      expect(response.body).to include(product.title)
     end
   end
 
@@ -32,6 +39,8 @@ RSpec.describe Account::ProductsController, type: :request do
       get edit_account_product_path(product)
 
       expect(response).to be_successful
+      expect(response).to render_template(:edit)
+
     end
   end
 

@@ -19,12 +19,14 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  belongs_to :product_type, optional: true
+  # belongs_to :product_type, optional: true
   has_many :category_categoryables, as: :categoryable, dependent: :destroy
   has_many :categories, through: :category_categoryables
   has_many :prices, as: :priceable, dependent: :destroy
 
   validates :title, presence: true, length: { in: 2..50 }
+
+  scope :ordered_by_title, -> { order(:title) }
 
   accepts_nested_attributes_for :prices, reject_if: :blank_prices
 
