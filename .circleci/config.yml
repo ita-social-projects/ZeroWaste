@@ -1,9 +1,28 @@
 version: 2.1
 
 orbs:
+  heroku: circleci/heroku@1.2.6
   ruby: circleci/ruby@1.6.0
   node: circleci/node@5.0.2
   browser-tools: circleci/browser-tools@1.2.5
+
+workflows:
+  heroku_deploy:
+    jobs:
+      - rubocop
+      - build:
+          requires:
+            - rubocop
+      - test:
+          requires:
+            - rubocop
+      - heroku/deploy-via-git:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
 
 jobs:
   rubocop:
@@ -48,7 +67,7 @@ jobs:
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
-      - image: cimg/node:14.21.3-browsers
+      - image: cimg/node:17.8.0-browsers
 
     environment:
       BUNDLE_JOBS: "3"
