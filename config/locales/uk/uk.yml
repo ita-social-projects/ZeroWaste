@@ -67,6 +67,14 @@ uk:
       message_hint: "Напишіть ваше повідомлення тут (мінімум 20 символів)"
       company_address: "Адреса компанії"
       about_us: "Про нас"
+  sitemap:
+    index:
+      sitemap: "Мапа сайту"
+      homepage: "Головна сторінка"
+      about_us: "Про нас"
+      calculator-diapers: "Калькулятор підгузків"
+      calculators: "Калькулятори"
+      message: "Напиши нам повідомлення"
   account:
     account:
       edit:
