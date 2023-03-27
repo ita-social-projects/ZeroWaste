@@ -9,7 +9,7 @@ RSpec.describe Account::UpdateFeatureFlagsService do
         access_admin_menu_feature.enable
         expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
 
-        params = { "#{access_admin_menu_feature.name}_enabled" => "0" }
+        params  = { "#{access_admin_menu_feature.name}_enabled" => "0" }
         service = Account::UpdateFeatureFlagsService.new(params)
 
         expect(access_admin_menu_feature).to receive(:disable)
@@ -24,7 +24,7 @@ RSpec.describe Account::UpdateFeatureFlagsService do
 
         expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
 
-        params = { "#{access_admin_menu_feature.name}_enabled" => "1" }
+        params  = { "#{access_admin_menu_feature.name}_enabled" => "1" }
         service = Account::UpdateFeatureFlagsService.new(params)
 
         expect(access_admin_menu_feature).to receive(:enable)
