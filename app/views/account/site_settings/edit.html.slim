@@ -12,8 +12,8 @@
   - Flipper.features.each do |feature|
     .feature-container
       label
-        = check_box_tag "#{feature.key}_enabled", 1, feature.enabled?
-        = feature.key.to_s.titleize
+        = check_box_tag "#{feature.name}_enabled", 1, feature.enabled?
+        = feature.name.to_s.titleize
         .description-feature
           = feature.description
 

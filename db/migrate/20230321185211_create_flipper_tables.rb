@@ -3,6 +3,7 @@ class CreateFlipperTables < ActiveRecord::Migration[6.1]
     create_table :flipper_features do |t|
       t.string :key, null: false
       t.timestamps null: false
+      t.text :description
     end
     add_index :flipper_features, :key, unique: true
 

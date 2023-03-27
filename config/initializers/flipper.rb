@@ -8,14 +8,15 @@ end
 
 Flipper.features.each do |feature|
   if Rails.env.development?
-    Flipper.enable(feature.key)
+    Flipper.enable(feature.name)
   else
-    Flipper.disable(feature.key)
+    Flipper.disable(feature.name)
   end
 end
 
 class Flipper::Feature
   delegate :description, :description=, to: :feature_record
+  alias_method :key, :name
 
   private
 

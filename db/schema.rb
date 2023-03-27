@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2023_03_21_185919) do
     t.string "key", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "description"
+    t.text "description"
     t.index ["key"], name: "index_flipper_features_on_key", unique: true
   end
 
