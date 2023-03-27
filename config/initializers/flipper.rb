@@ -15,6 +15,8 @@ Flipper.features.each do |feature|
 end
 
 class Flipper::Feature
+  alias_method :name, :key
+
   def description
     @description ||= feature_record.description
   end
