@@ -5,7 +5,7 @@ class Account::AppConfigsController < Account::BaseController
   load_and_authorize_resource
 
   def update
-    update_diapers_calculator
+    @app_config.update_diapers_calculator(params)
   end
 
   private
@@ -20,10 +20,5 @@ class Account::AppConfigsController < Account::BaseController
       :third_price, :fourth_amount, :fourth_price, :fifth_amount, :fifth_price,
       :sixth_amount, :sixth_price, :seventh_amount, :seventh_price
     ])
-  end
-
-  def update_diapers_calculator
-    @app_config.diapers_calculator = Calculators::DiapersService.product_attributes(params)
-    @app_config.save
   end
 end
