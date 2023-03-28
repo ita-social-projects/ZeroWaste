@@ -28,6 +28,39 @@ class Calculators::DiapersService
     self
   end
 
+  def self.diapers_calculator(params)
+    {
+      (1..3) => {
+        amount: params[:first_amount],
+        price: params[:first_price]
+      },
+      (4..6) => {
+        amount: params[:second_amount],
+        price: params[:second_price]
+      },
+      (7..9) => {
+        amount: params[:third_amount],
+        price: params[:third_price]
+      },
+      (10..12) => {
+        amount: params[:fourth_amount],
+        price: params[:fourth_price]
+      },
+      (13..18) => {
+        amount: params[:fifth_amount],
+        price: params[:fifth_price]
+      },
+      (19..24) => {
+        amount: params[:sixth_amount],
+        price: params[:sixth_price]
+      },
+      (25..30) => {
+        amount: params[:seventh_amount],
+        price: params[:seventh_price]
+      }
+    }
+  end
+
   private
 
   def change(period, coef)
