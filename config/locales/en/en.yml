@@ -94,6 +94,14 @@ en:
       message_hint: "Your message (min 20 characters)"
       company_address: "Company address"
       about_us: "About us"
+  sitemap:
+    index:
+      sitemap: "Sitemap"
+      homepage: "Home page"
+      about_us: "About us"
+      calculator-diapers: "Calculator diapers"
+      calculators: "Calculators"
+      message: "Write us a message"
   account:
     account:
       edit:

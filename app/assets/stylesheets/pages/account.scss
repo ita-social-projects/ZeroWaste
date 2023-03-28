@@ -1,0 +1,78 @@
+$burger-size: 20px;
+
+@mixin lineTransform($position, $rotation) {
+  margin-top: $position;
+  transform: rotate($rotation);
+}
+
+@mixin middleLineTransform($opacity: 0) {
+  opacity: $opacity/100;
+  filter: alpha(opacity=$opacity);
+}
+
+.navbar {
+  flex-grow: 0;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.nav-toggler {
+  margin-top: 6px;
+  width: $burger-size;
+  height: $burger-size;
+  position: relative;
+  transition: .5s ease-in-out;
+
+  &, &:focus, &:active{
+    outline: none;
+    box-shadow: none;
+    border: 0;
+  }
+
+  .toggler-icon {
+    margin: 0;
+    padding: 0;
+    background: $success;
+  }
+
+  .top-bar {
+    @include lineTransform(0px, 135deg);
+  }
+
+  .middle-bar {
+    @include middleLineTransform;
+  }
+
+  .bottom-bar {
+    @include lineTransform(0px, -135deg);
+  }
+
+  // When collapsed
+
+  &.collapsed {
+    .top-bar {
+      @include lineTransform(-20px, 0deg);
+    }
+  
+    .middle-bar {
+      @include middleLineTransform(100)
+    }
+    
+    .bottom-bar {
+      @include lineTransform(20px, 0deg);
+    }
+  }
+}
+
+.toggler-icon {
+  display: block;
+  position: absolute;
+  margin-top: 10px;
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s;
+}

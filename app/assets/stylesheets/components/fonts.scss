@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Comfortaa";
-  src: url("../fonts/Comfortaa-Regular.eot");
-  src: url("../fonts/Comfortaa-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/Comfortaa-Regular.woff2") format("woff2"),
-    url("../fonts/Comfortaa-Regular.woff") format("woff"),
-    url("../fonts/Comfortaa-Regular.ttf") format("truetype");
+  src: asset-url("Comfortaa-Regular.eot");
+  src: asset-url("Comfortaa-Regular.eot?#iefix") format("embedded-opentype"),
+    asset-url("Comfortaa-Regular.woff2") format("woff2"),
+    asset-url("Comfortaa-Regular.woff") format("woff"),
+    asset-url("Comfortaa-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
