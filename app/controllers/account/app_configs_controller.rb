@@ -23,7 +23,7 @@ class Account::AppConfigsController < Account::BaseController
   end
 
   def update_diapers_calculator
-    @app_config.diapers_calculator = Calculators::DiapersService.diapers_calculator(params)
+    @app_config.diapers_calculator = Calculators::DiapersService.product_attributes(params)
     @app_config.save
   end
 end

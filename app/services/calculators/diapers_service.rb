@@ -28,7 +28,7 @@ class Calculators::DiapersService
     self
   end
 
-  def self.diapers_calculator(params)
+  def self.product_attributes(params)
     {
       (1..3) => {
         amount: params[:first_amount],
