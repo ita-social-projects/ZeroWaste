@@ -7,11 +7,7 @@ Flipper.configure do |config|
 end
 
 Flipper.features.each do |feature|
-  if Rails.env.development?
-    Flipper.enable(feature.name)
-  else
-    Flipper.disable(feature.name)
-  end
+  Flipper.enable(feature.name) if Rails.env.development?
 end
 
 class Flipper::Feature
