@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe SitemapController, type: :request do
-  describe "GET /index" do
+  describe "GET #index" do
     it "is successful" do
       get sitemap_path
 
