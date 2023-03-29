@@ -5,7 +5,7 @@
         = f.input :title, label: t('.title'), class: 'form-control col-sm-11'
         = f.simple_fields_for :prices do |prices_form|
           .checkbox-blocks
-            = check_box_tag prices_form.object.category.name, 1, false, data: { action: "click->form#togglePrice" }, class: 'mr-1'
+            = check_box_tag prices_form.object.category.name, 1, true, data: { form_target: 'checkbox', action: 'click->form#removePrice'}, class: 'mr-1'
             = label_tag prices_form.object.category.name
             .hidden-sum data-form-target="price" name=prices_form.object.category.name
               = prices_form.input :sum, as: :decimal, label: false, input_html: {placeholder: 'Sum'}

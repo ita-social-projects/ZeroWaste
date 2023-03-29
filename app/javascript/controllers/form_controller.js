@@ -3,7 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "price", "checkbox" ]
   connect() {
-    this.priceTargets.forEach((el) => el.hidden = true)
+    if (!this.checkboxTarget.checked) {
+      this.priceTargets.forEach((el) => el.hidden = true)
+    }
   }
 
   togglePrice(event) {
@@ -14,9 +16,17 @@ export default class extends Controller {
     }
   }
 
+  removePrice(event) {
+    for (const target of this.priceTargets) {
+      if (event.target.attributes.name.value == target.attributes.name.value) {
+        target.querySelector('input').value = ''
+      }
+    }
+  }
+
   submit() {
     this.priceTargets.forEach((el) => {
-      if (el.hidden) {
+      if (el.hidden || el.querySelector('input').value == '') {
          el.remove()
       }
     })

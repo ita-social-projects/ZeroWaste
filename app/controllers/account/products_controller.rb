@@ -29,7 +29,8 @@ class Account::ProductsController < Account::BaseController
 
   def update
     @product = resource
-    if @product.update(products_params)
+    change_attributes
+    if @product.save
       redirect_to account_products_path,
                   notice: t("notifications.product_updated")
     else
@@ -53,6 +54,17 @@ class Account::ProductsController < Account::BaseController
 
   def collection
     Product.ordered_by_title
+  end
+
+  def change_attributes
+    @product.assign_attributes(products_params)
+    products_params[:prices_attributes].each do |key, value|
+      # k = 0
+      # v = {id: num, sum: sum_num}
+      if value[:sum].nil?
+        @product.prices.find(value[:id]).destroy
+      end
+    end
   end
 
   def products_params
