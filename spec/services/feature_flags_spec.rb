@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Account::UpdateFeatureFlagsService do
+RSpec.describe UpdateFeatureFlagsService do
   let(:access_admin_menu_feature) { Flipper[:access_admin_menu] }
 
   describe "#call" do
@@ -10,7 +10,7 @@ RSpec.describe Account::UpdateFeatureFlagsService do
         expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
 
         params  = { "#{access_admin_menu_feature.name}_enabled" => "0" }
-        service = Account::UpdateFeatureFlagsService.new(params)
+        service = UpdateFeatureFlagsService.new(params)
 
         expect(access_admin_menu_feature).to receive(:disable)
 
@@ -25,7 +25,7 @@ RSpec.describe Account::UpdateFeatureFlagsService do
         expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
 
         params  = { "#{access_admin_menu_feature.name}_enabled" => "1" }
-        service = Account::UpdateFeatureFlagsService.new(params)
+        service = UpdateFeatureFlagsService.new(params)
 
         expect(access_admin_menu_feature).to receive(:enable)
 
