@@ -29,6 +29,10 @@ import "../controllers/stimulus_application";
 
 global.toastr = require("toastr");
 
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
+
 // document.addEventListener('turbolinks:load', () => {
 //   $('[data-toggle="tooltip"]').tooltip();
 //   $('[data-toggle="popover"]').popover();

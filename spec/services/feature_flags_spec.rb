@@ -1,36 +1,16 @@
 require "rails_helper"
 
 RSpec.describe UpdateFeatureFlagsService do
-  let(:access_admin_menu_feature) { Flipper[:access_admin_menu] }
+  let(:params) { { "feature_1_enabled" => "1", "feature_2_enabled" => "0" } }
 
   describe "#call" do
-    context "when access_admin_menu is enabled" do
-      it "disables access_admin_menu feature" do
-        access_admin_menu_feature.enable
-        expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
+    it "updates feature flags based on params" do
+      allow(Flipper).to receive(:features).and_return([double(name: "feature_1"), double(name: "feature_2")])
 
-        params  = { "#{access_admin_menu_feature.name}_enabled" => "0" }
-        service = UpdateFeatureFlagsService.new(params)
+      expect(Flipper).to receive(:enable).with("feature_1")
+      expect(Flipper).to receive(:disable).with("feature_2")
 
-        expect(access_admin_menu_feature).to receive(:disable)
-
-        service.call
-      end
-    end
-
-    context "when access_admin_menu is disabled" do
-      it "enables access_admin_menu feature" do
-        access_admin_menu_feature.disable
-
-        expect(Flipper).to receive(:features).and_return([access_admin_menu_feature])
-
-        params  = { "#{access_admin_menu_feature.name}_enabled" => "1" }
-        service = UpdateFeatureFlagsService.new(params)
-
-        expect(access_admin_menu_feature).to receive(:enable)
-
-        service.call
-      end
+      UpdateFeatureFlagsService.new(params).call
     end
   end
 end

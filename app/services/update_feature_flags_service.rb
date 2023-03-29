@@ -5,13 +5,10 @@ class UpdateFeatureFlagsService
 
   def call
     Flipper.features.each do |feature|
-      is_enabled = @feature_params["#{feature.name}_enabled"] == "1"
+      feature_name = feature.name
+      is_enabled = @feature_params["#{feature_name}_enabled"].to_s == "1"
 
-      if is_enabled
-        Flipper.enable(feature.name)
-      else
-        Flipper.disable(feature.name)
-      end
+      Flipper.send("#{is_enabled ? 'enable' : 'disable'}", feature_name)
     end
   end
 end
