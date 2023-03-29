@@ -20,8 +20,7 @@ Rails.application.routes.draw do
                        skip: :omniauth_callbacks
 
     root "home#index"
-    get "/sitemap", to: "sitemap#index"
-    get "/sitemap.xml", to: "sitemap#show", as: :sitemap_xml
+    get "/sitemap", to: "sitemap#index", constraints: { format: /(html|xml)/ }
 
     get "/calculator", to: "calculators#calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
