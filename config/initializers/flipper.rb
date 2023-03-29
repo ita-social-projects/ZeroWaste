@@ -19,6 +19,7 @@ class Flipper::Feature
 
   def description=(value)
     feature_record.update(description: value)
+
     @description = value
   end
 
