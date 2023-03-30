@@ -28,7 +28,7 @@ gem "bigdecimal", "1.3.5"
 gem "rails-i18n", "~> 7.0.0"
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem "image_processing", "~> 1.2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
@@ -106,3 +106,5 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "toastr-rails"
 gem "importmap-rails", "~> 1.1"
 gem "requestjs-rails"
+gem "flipper"
+gem "flipper-active_record"

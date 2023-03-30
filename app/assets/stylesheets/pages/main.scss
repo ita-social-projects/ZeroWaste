@@ -276,6 +276,10 @@ body.admin {
   background-color: #fff;
 }
 
+body:where(.admin)::before {
+  background: none;
+}
+
 .admin-container {
   padding-top: 100px;
 }
