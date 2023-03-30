@@ -20,7 +20,7 @@ Rails.application.routes.draw do
                        skip: :omniauth_callbacks
 
     root "home#index"
-    get "/sitemap", to: "sitemap#index", changefreq: "weekly"
+    get "/sitemap", to: "sitemap#index"
 
     get "/calculator", to: "calculators#calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
