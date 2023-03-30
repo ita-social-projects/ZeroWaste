@@ -9,19 +9,19 @@ export default class extends Controller {
   }
 
   togglePrice(event) {
-    for (const target of this.priceTargets) {
+    this.priceTargets.forEach((target) => {
       if (event.target.attributes.name.value == target.attributes.name.value) {
         target.hidden = !target.hidden
       }
-    }
+    })
   }
 
   removePrice(event) {
-    for (const target of this.priceTargets) {
+    this.priceTargets,forEach((target) => {
       if (event.target.attributes.name.value == target.attributes.name.value) {
         target.querySelector('input').value = ''
       }
-    }
+    })
   }
 
   submit() {

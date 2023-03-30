@@ -19,12 +19,36 @@
 FactoryBot.define do
   factory :product do
 
+    # after(:create) do |product|
+    #   product.prices << FactoryBot.create(:price, priceable: product)
+    # end
+
     trait :diaper do
       title { "diaper" }
     end
 
     trait :napkin do
       title { "napkin" }
+    end
+
+    trait :huggie do
+      title { "huggie" }
+      prices_attributes do
+        {
+          "0":
+            {id: id, sum: sum}
+        }
+      end
+    end
+
+    trait :no_title do
+      title { '' }
+      prices_attributes do
+        {
+          "0":
+            {id: id, sum: 10.1}
+        }
+      end
     end
   end
 end

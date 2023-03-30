@@ -19,7 +19,6 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  # belongs_to :product_type, optional: true
   has_many :category_categoryables, as: :categoryable, dependent: :destroy
   has_many :categories, through: :category_categoryables
   has_many :prices, as: :priceable, dependent: :destroy

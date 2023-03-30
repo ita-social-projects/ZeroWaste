@@ -58,6 +58,7 @@ class Account::ProductsController < Account::BaseController
 
   def change_attributes
     @product.assign_attributes(products_params)
+    return unless @product.valid?
     products_params[:prices_attributes].each do |key, value|
       # k = 0
       # v = {id: num, sum: sum_num}

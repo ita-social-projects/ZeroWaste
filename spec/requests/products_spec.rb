@@ -71,15 +71,28 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "PATCH :update" do
-    let(:updated_product_attributes) { attributes_for(:product, title: "huggie") }
-    let(:invalid_product_attributes) { attributes_for(:product, title: "") }
+    let!(:price) {create(:price, :budgetary_price)}
+
+    let(:updated_product_attributes) { attributes_for(:product, :huggie, id: price.id, sum: 18.2) }
+    let(:invalid_product_attributes) { attributes_for(:product, :no_title, id: price.id) }
+    let(:removed_price_attributes) { attributes_for(:product, :huggie, id: price.id, sum: nil) }
 
     context "with valid params" do
       it "is successful" do
-        patch account_product_path(id: product), params: { product: updated_product_attributes }
-        product.reload
+        patch account_product_path(id: price.priceable), params: { product: updated_product_attributes }
+        price.reload
 
-        expect(product.title).to eq("huggie")
+        expect(price.priceable.title).to eq("huggie")
+        expect(price.sum).to eq(18.2)
+
+        expect(response).to redirect_to(account_products_path)
+        expect(flash[:notice]).to eq(I18n.t("notifications.product_updated"))
+      end
+
+      it 'removes prices' do
+        expect do
+          patch account_product_path(id: price.priceable), params: { product: removed_price_attributes }
+        end.to change(Price, :count).by(-1)
 
         expect(response).to redirect_to(account_products_path)
         expect(flash[:notice]).to eq(I18n.t("notifications.product_updated"))
@@ -89,8 +102,8 @@ RSpec.describe Account::ProductsController, type: :request do
     context "with invalid params" do
       it "is failing" do
         expect do
-          patch account_product_path(id: product), params: { product: invalid_product_attributes }
-        end.not_to change { product.title }.from("diaper")
+          patch account_product_path(id: price.priceable), params: { product: invalid_product_attributes }
+        end.not_to change { price.priceable.title }.from("diaper")
 
         expect(response).to be_unprocessable
         expect(response).to render_template(:edit)
