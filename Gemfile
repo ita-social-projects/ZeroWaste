@@ -106,6 +106,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "toastr-rails"
 gem "importmap-rails", "~> 1.1"
 gem "requestjs-rails"
+<<<<<<< HEAD
 =======
 
 # deploy
@@ -117,3 +118,7 @@ gem "capistrano-yarn"
 gem "capistrano-rails-tail-log"
 gem "ed25519"
 >>>>>>> master
+=======
+gem "flipper"
+gem "flipper-active_record"
+>>>>>>> 78e79693df7b33e06b0b1d0cb910a441d3bbd751

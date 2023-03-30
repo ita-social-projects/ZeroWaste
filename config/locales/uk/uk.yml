@@ -71,6 +71,14 @@ uk:
       message_hint: "Напишіть ваше повідомлення тут (мінімум 20 символів)"
       company_address: "Адреса компанії"
       about_us: "Про нас"
+  sitemap:
+    index:
+      sitemap: "Мапа сайту"
+      homepage: "Головна сторінка"
+      about_us: "Про нас"
+      calculator-diapers: "Калькулятор підгузків"
+      calculators: "Калькулятори"
+      message: "Напиши нам повідомлення"
   account:
     account:
       edit:
@@ -119,8 +127,6 @@ uk:
         create_button: 'Create'
         cancel_button: 'Скасувати'
     site_settings:
-      validations:
-        size: 'надто великий'
       edit:
         update_button: 'Оновити'
     users:
@@ -364,6 +370,7 @@ uk:
     category_created: "Категорію було успішно створено."
     category_updated: "Категорію було успішно оновлено."
     category_deleted: "Категорію було успішно видалено."
+    feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
   # time:
   #   formats:

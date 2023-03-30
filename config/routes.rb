@@ -20,6 +20,7 @@ Rails.application.routes.draw do
                        skip: :omniauth_callbacks
 
     root "home#index"
+    get "/sitemap", to: "sitemap#index"
 
     get "/calculator", to: "calculators#calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]
+      patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
       resource :site_setting, only: [:edit, :update]
 
       scope module: :calculators do

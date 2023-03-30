@@ -21,21 +21,24 @@ import "@fortawesome/fontawesome-free/js/all";
 import "ajax/checkbox";
 import "plugins/flatpickr";
 
-import "../js/calculators/edit"
-import "../controllers/application"
+import "bootstrap";
+
+import "../js/calculators/edit";
+import "../controllers/stimulus_application";
 
 global.toastr = require("toastr");
 
-const images = require.context('../images', true)
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
 // document.addEventListener('turbolinks:load', () => {
 //   $('[data-toggle="tooltip"]').tooltip();
 //   $('[data-toggle="popover"]').popover();
 // });
-$('document').ready(function() {
-    setTimeout(function() {
-        $('.alert').slideUp();
-    }, 10000);
+
+$("document").ready(function () {
+  setTimeout(function () {
+    $(".alert").slideUp();
+  }, 10000);
 });

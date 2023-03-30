@@ -1,24 +1,6 @@
 body {
-  margin: 0 auto;
-<<<<<<< HEAD:app/assets/stylesheets/pages/main.scss
-  background: asset-url("mother.jpeg") no-repeat center top;
-  background-size: cover;
-=======
->>>>>>> master:app/assets/stylesheets/main.css.scss
-  overflow-x: hidden;
   position: relative;
-  min-height: 100vh;
-  padding-bottom: 32px;
-}
-
-body:not(.admin)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../images/mother.jpeg");
+  margin: 0 auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

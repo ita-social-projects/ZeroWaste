@@ -48,7 +48,7 @@ RSpec.describe Account::SiteSettingsController, type: :request do
         patch account_site_setting_path, params: { site_setting: site_setting_params }
 
         expect(response).to render_template(:edit)
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to be_unprocessable
       end
     end
   end
