@@ -71,7 +71,7 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "PATCH :update" do
-    let!(:price) {create(:price, :budgetary_price)}
+    let!(:price) { create(:price, :budgetary_price) }
 
     let(:updated_product_attributes) { attributes_for(:product, :huggie, id: price.id, sum: 18.2) }
     let(:invalid_product_attributes) { attributes_for(:product, :no_title, id: price.id) }
@@ -89,7 +89,7 @@ RSpec.describe Account::ProductsController, type: :request do
         expect(flash[:notice]).to eq(I18n.t("notifications.product_updated"))
       end
 
-      it 'removes prices' do
+      it "removes prices" do
         expect do
           patch account_product_path(id: price.priceable), params: { product: removed_price_attributes }
         end.to change(Price, :count).by(-1)

@@ -36,17 +36,17 @@ FactoryBot.define do
       prices_attributes do
         {
           "0":
-            {id: id, sum: sum}
+            { id: id, sum: sum }
         }
       end
     end
 
     trait :no_title do
-      title { '' }
+      title { "" }
       prices_attributes do
         {
           "0":
-            {id: id, sum: 10.1}
+            { id: id, sum: 10.1 }
         }
       end
     end
