@@ -4,17 +4,17 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9", "xmlns:imag
     xml.url do
       xml.loc root_url
       xml.lastmod Time.now.iso8601
-      xml.changefreq "weekly"
+      xml.changefreq params[:changefreq]
     end
     xml.url do
       xml.loc calculator_url
       xml.lastmod Time.now.iso8601
-      xml.changefreq "weekly"
+      xml.changefreq params[:changefreq]
     end
     xml.url do
       xml.loc about_us_url
       xml.lastmod Time.now.iso8601
-      xml.changefreq "weekly"
+      xml.changefreq params[:changefreq]
     end
   end
 end
