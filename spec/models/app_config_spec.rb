@@ -54,7 +54,7 @@ RSpec.describe AppConfig, type: :model do
       AppConfig.instance.update_diapers_calculator(params)
     end
 
-    it 'receives product attributes' do
+    it "receives product attributes" do
       expect(Calculators::DiapersService).to have_received(:product_attributes).with(
         ActionController::Parameters.new(params)
       )

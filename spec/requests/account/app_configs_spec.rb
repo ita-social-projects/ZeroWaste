@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Account::AppConfigsController, type: :request do
   include_context :authorize_admin
@@ -43,7 +43,7 @@ RSpec.describe Account::AppConfigsController, type: :request do
         "25..30" => { "price" => "12.5", "amount" => "2" }
       }
     end
-    
+
     context "AppConfig instance is created" do
       it "assigns app_config instance" do
         expect do
