@@ -1,18 +1,17 @@
 # frozen_string_literal: true
-
 class Account::AppConfigsController < Account::BaseController
-  before_action :app_config
   load_and_authorize_resource
 
+  def edit
+    @app_config = AppConfig.instance
+  end
+
   def update
-    @app_config.update_diapers_calculator(params)
+    @app_config = AppConfig.instance
+    @app_config.update_diapers_calculator(diapers_calculator_params)
   end
 
   private
-
-  def app_config
-    @app_config = AppConfig.instance
-  end
 
   def diapers_calculator_params
     params.permit([
