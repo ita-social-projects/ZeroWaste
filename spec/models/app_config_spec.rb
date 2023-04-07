@@ -26,13 +26,6 @@ RSpec.describe AppConfig, type: :model do
     let(:diapers_calculator_params) { attributes_for(:diapers_calculator_params) }
     let(:updated_diapers_calculator) { attributes_for(:app_config, :updated) }
 
-    # before do
-    #   allow(Calculators::DiapersService).to receive(:product_attributes).with(
-    #     diapers_calculator_params
-    #   )
-    #   app_config_instance.update_diapers_calculator(diapers_calculator_params)
-    # end
-
     it "updates the AppConfig instances diapers calculator" do
       expect do
         app_config_instance.update_diapers_calculator(diapers_calculator_params)
