@@ -13,12 +13,12 @@ RSpec.describe Account::AppConfigsController, type: :request do
   end
 
   describe "PATCH #update" do
-    let!(:app_config_instance) { create(:app_config) }
+    let(:app_config_instance) { create(:app_config, :initial) }
     let(:diapers_calculator_params) { attributes_for(:diapers_calculator_params) }
     let(:updated_diapers_calculator) { attributes_for(:app_config, :updated) }
 
     context "passed vaild params" do
-      it "edits the AppConfig instance" do
+      it "updates the AppConfig instances diapers calculator" do
         expect do
           patch account_app_config_path, params: diapers_calculator_params
           app_config_instance.reload
