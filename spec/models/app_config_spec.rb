@@ -45,7 +45,7 @@ RSpec.describe AppConfig, type: :model do
         diapers_calculator_params
       )
       app_config_instance.update_diapers_calculator(diapers_calculator_params)
-      
+
       expect(Calculators::DiapersService).to have_received(:product_attributes).with(
         diapers_calculator_params
       )
