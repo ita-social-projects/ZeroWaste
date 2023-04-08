@@ -24,7 +24,7 @@ RSpec.describe AppConfig, type: :model do
   end
 
   context "calls a service method" do
-    let(:app_config_instance) { app_configs(:app_config) }
+    let(:app_config_instance) { app_configs(:initial_app_config) }
     let(:diapers_calculator_params) { attributes_for(:diapers_calculator_params) }
     let(:updated_diapers_calculator) { attributes_for(:app_config, :updated) }
 
