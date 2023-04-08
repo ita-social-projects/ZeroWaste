@@ -1,21 +1,5 @@
 FactoryBot.define do
   factory :app_config do
-    initialize_with { AppConfig.instance }
-
-    trait :initial do
-      diapers_calculator do
-        {
-          "1..3" => { "price" => "7.5", "amount" => "10" },
-          "4..6" => { "price" => "10", "amount" => "8" },
-          "7..9" => { "price" => "9", "amount" => "6" },
-          "10..12" => { "price" => "10.5", "amount" => "6" },
-          "13..18" => { "price" => "10.5", "amount" => "4" },
-          "19..24" => { "price" => "12.5", "amount" => "4" },
-          "25..30" => { "price" => "12.5", "amount" => "2" }
-        }
-      end
-    end
-
     trait :updated do
       diapers_calculator do
         {
