@@ -102,23 +102,8 @@ gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
 gem "toastr-rails"
 gem "importmap-rails", "~> 1.1"
 gem "requestjs-rails"
-<<<<<<< HEAD
-=======
-
-# deploy
-gem "capistrano", "~> 3.11"
-gem "capistrano-rails", "~> 1.4"
-gem "capistrano-passenger", "~> 0.2.0"
-gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
-gem "capistrano-yarn"
-gem "capistrano-rails-tail-log"
-gem "ed25519"
->>>>>>> master
-=======
 gem "flipper"
 gem "flipper-active_record"
->>>>>>> 78e79693df7b33e06b0b1d0cb910a441d3bbd751
