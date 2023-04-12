@@ -217,7 +217,6 @@ en:
       submit_button: "Save"
       access_admin_menu:
         name: "Access Admin Menu"
-        description: "This feature flag is responsible for visibility of 'Admin Menu' button on main page"
     sessions:
       new:
         log_in_header: "Log in"

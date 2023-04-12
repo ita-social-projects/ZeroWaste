@@ -196,7 +196,6 @@ uk:
       submit_button: "Зберегти"
       access_admin_menu:
         name: "Доступ до меню адміна"
-        description: "Цей прапорець відповідає за видимість кнопки 'Меню адміністратора' на головній сторінці"
     sessions:
       new:
         log_in_header: "Увійти"
