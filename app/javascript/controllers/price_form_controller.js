@@ -8,11 +8,8 @@ export default class extends Controller {
       let [checkbox, price] = Object.values(obj)
       if (!this.valueOfInput(price)) {
         checkbox.checked = false
+        price.hidden = true
       }
-    }
-
-    if (!this.checkbox.checked) {
-      this.prices.forEach((el) => el.hidden = true)
     }
   }
 
