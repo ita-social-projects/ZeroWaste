@@ -1,7 +1,7 @@
 .position-block
   .card
     .card-block.p-4
-      h2.text-center.p-2 
+      h2.text-center.p-2
         = t('.log_in')
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         - flash.each do |type, msg|
@@ -14,4 +14,3 @@
           = f.submit t('.log_in'), class: "btn btn-primary"
           .d-block
             = render "devise/shared/links"
-

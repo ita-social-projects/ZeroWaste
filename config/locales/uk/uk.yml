@@ -50,12 +50,19 @@ uk:
                               або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
     description_button:
       use_less: "%{use_less_link:ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ}"
-    admin_navbar:
+    homepage:
+      homepage_title: "Вас вітає калькулятор підгузків"
+      description: "Цей калькулятор дозволяє порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
+      calculate: "Почати"
+      visit_website: "Наш сайт"
+    account_navbar:
       calculators: "Калькулятори"
       histories: "Історія"
       users: "Користувачі"
       messages: "Повідомлення"
       app_config: "Налаштування"
+      site_settings: "Налаштування сайту"
+      categories: "Категорії"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -67,6 +74,14 @@ uk:
       message_hint: "Напишіть ваше повідомлення тут (мінімум 20 символів)"
       company_address: "Адреса компанії"
       about_us: "Про нас"
+  sitemap:
+    index:
+      sitemap: "Мапа сайту"
+      homepage: "Головна сторінка"
+      about_us: "Про нас"
+      calculator-diapers: "Калькулятор підгузків"
+      calculators: "Калькулятори"
+      message: "Напиши нам повідомлення"
   account:
     account:
       edit:
@@ -137,6 +152,9 @@ uk:
         title: 'Назва'
         create_button: 'Створити'
         cancel_button: 'Скасувати'
+    site_settings:
+      edit:
+        update_button: 'Оновити'
     users:
       index:
         main_header: "Адмінпанель"
@@ -381,6 +399,8 @@ uk:
     product_created: "Продукт був успішно створений."
     product_updated: "Продукт був успішно оновлений."
     product_deleted: "Продукт був успішно видалений."
+    feature_flags_updated: "Оновлено успішно"
+    site_setting_updated: "Налаштування було успішно оновлено"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

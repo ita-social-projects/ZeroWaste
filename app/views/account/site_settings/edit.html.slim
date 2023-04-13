@@ -1,0 +1,19 @@
+= simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } }  do |f|
+  .form-group.row
+    .col-12.has-float-label.my-auto
+      = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
+      = f.input :favicon, class: "form-control", input_html: { data: {  action: "change->handle-browser-tab#setIcon" } }
+      = render "browser_tab", site_setting: @site_setting
+
+  = f.submit value: t(".update_button"), title: "Update site settings", class: "btn btn-success mr-2"
+    i.fa.fa-times-circle
+
+= simple_form_for :feature_flags, url: account_features_flags_path, method: :patch do |f|
+  - Flipper.features.each do |feature|
+    .feature-container
+      = f.input "#{feature.name}_enabled", as: :boolean, label: feature.name.to_s.titleize, input_html: { checked: feature.enabled? }
+      .description-feature
+        = feature.description
+
+  div
+    = f.submit "Save"
