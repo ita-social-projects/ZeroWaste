@@ -2,23 +2,23 @@ class Flipper::Feature
   alias_method :name, :key
 
   def description
-    send("description_#{I18n.locale}") || description_en
+    public_send("#{I18n.locale}_description") || en_description
   end
 
-  def description_en
-    feature_record.description_en
+  def en_description
+    feature_record.en_description
   end
 
-  def description_en=(value)
-    feature_record.update(description_en: value)
+  def en_description=(value)
+    feature_record.update(en_description: value)
   end
 
-  def description_uk
-    feature_record.description_uk
+  def uk_description
+    feature_record.uk_description
   end
 
-  def description_uk=(value)
-    feature_record.update(description_uk: value)
+  def uk_description=(value)
+    feature_record.update(uk_description: value)
   end
 
   private
