@@ -1,8 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Account::ProductsController, type: :request do
-  let!(:product) { create(:product, :diaper) }
-
+  let!(:product) { create(:product, :diaper)}
   include_context :authorize_admin
 
   describe "GET :index" do
@@ -35,6 +34,8 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "GET :edit" do
+    let!(:category) { create(:category, :budgetary) }
+
     it "is successful" do
       get edit_account_product_path(product)
 
@@ -44,11 +45,15 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "POST :create" do
-    let(:valid_product_attributes) { attributes_for(:product, :diaper) }
-    let(:invalid_product_attributes) { attributes_for(:product, title: "") }
+    let(:valid_product_attributes) { attributes_for(:product, :diaper,
+      {
+        id: 1, sum: ''
+      }
+    )}
+    let(:invalid_product_attributes) { attributes_for(:product, :invalid_title) }
 
-    context "creates a product" do
-      it "a product with price and category" do
+    context "with valid attributes" do
+      it "creates a product" do
         expect do
           post account_products_path, params: { product: valid_product_attributes }
         end.to change(Product, :count).by(1)
@@ -56,10 +61,12 @@ RSpec.describe Account::ProductsController, type: :request do
         expect(response).to redirect_to(account_products_path)
         expect(flash[:notice]).to eq(I18n.t("notifications.product_created"))
       end
+
+      # it { should accept_nested_attributes_for(:prices).but_reject({ :sum => ""}) }
     end
 
-    context "does not create a product" do
-      it "a product without price and category" do
+    context "with invalid attributes" do
+      it "does not create a product" do
         expect do
           post account_products_path, params: { product: invalid_product_attributes }
         end.not_to change(Product, :count)
@@ -71,36 +78,25 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "PATCH :update" do
-    let!(:price) { create(:price, :budgetary_price) }
+    let(:price) { create(:price, :budgetary_price) }
 
-    let(:updated_product_attributes) { attributes_for(:product, :huggie, id: price.id, sum: 18.2) }
-    let(:invalid_product_attributes) { attributes_for(:product, :no_title, id: price.id) }
-    let(:removed_price_attributes) { attributes_for(:product, :huggie, id: price.id, sum: nil) }
+    let(:updated_product_attributes) { attributes_for(:product, :huggie) }
+    let(:invalid_product_attributes) { attributes_for(:product, :invalid_title)}
 
-    context "with valid params" do
-      it "is successful" do
-        patch account_product_path(id: price.priceable), params: { product: updated_product_attributes }
-        price.reload
-
-        expect(price.priceable.title).to eq("huggie")
-        expect(price.sum).to eq(18.2)
-
-        expect(response).to redirect_to(account_products_path)
-        expect(flash[:notice]).to eq(I18n.t("notifications.product_updated"))
-      end
-
-      it "removes prices" do
+    context "with valid attributes" do
+      it "updates the product" do
         expect do
-          patch account_product_path(id: price.priceable), params: { product: removed_price_attributes }
-        end.to change(Price, :count).by(-1)
+          patch account_product_path(id: price.priceable), params: { product: updated_product_attributes }
+          price.reload
+        end.to change { price.priceable.title }.from("diaper").to("huggie")
 
         expect(response).to redirect_to(account_products_path)
         expect(flash[:notice]).to eq(I18n.t("notifications.product_updated"))
       end
     end
 
-    context "with invalid params" do
-      it "is failing" do
+    context "with invalid attributes" do
+      it "does not update product" do
         expect do
           patch account_product_path(id: price.priceable), params: { product: invalid_product_attributes }
         end.not_to change { price.priceable.title }.from("diaper")

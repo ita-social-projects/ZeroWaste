@@ -148,6 +148,8 @@ en:
         add_product_button: 'Add product'
         confirm_delete: 'Delete product?'
         cancel_button: 'Cancel'
+      show:
+        confirm_delete: 'Delete product?'
       edit:
         title: 'Title'
         update_button: 'Update'

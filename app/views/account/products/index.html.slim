@@ -1,7 +1,6 @@
 .container
-  = form_tag account_product_path(id: @products), method: :get, class: 'd-flex justify-content-end mb-5' do
-    .d-flex
-    = link_to new_account_product_path(id: @products), class: 'btn btn-success px-4 ml-1' do
+  .d-flex.justify-content-end.mb-5
+    = link_to new_account_product_path, class: 'btn btn-success px-4 ml-1' do
       i.fa.fa-plus.mr-2
       span =t('.add_product_button')
 
@@ -19,13 +18,11 @@
           td = product.id
           td = product.title
           td
-            - product.prices.each do |price|
-              span = price.category.name + ': '
-              span = price.sum
+            - product.prices.map do |price|
+              span = "#{price.category.name}: #{price.sum}"
               br
           td.actions
             = link_to edit_account_product_path(id: product) do
               i.fa.fa-pen.mx-2
-            = link_to account_product_path(id: product), method: :delete,
-                    data: { confirm: t('.confirm_delete') } do
+            = link_to account_product_path(id: product), method: :delete, data: { confirm: t('.confirm_delete') } do
               i.fa.fa-trash.mx-2

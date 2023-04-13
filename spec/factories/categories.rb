@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :category do
+
     trait :budgetary do
       name { "budgetary" }
     end

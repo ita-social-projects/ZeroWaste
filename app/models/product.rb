@@ -27,7 +27,7 @@ class Product < ApplicationRecord
 
   scope :ordered_by_title, -> { order(:title) }
 
-  accepts_nested_attributes_for :prices, reject_if: :blank_prices
+  accepts_nested_attributes_for :prices, reject_if: :blank_prices, allow_destroy: true
 
   def self.diaper
     find_by(title: DIAPER)
@@ -36,6 +36,8 @@ class Product < ApplicationRecord
   def price_by_category(category)
     prices.where(category: category).first
   end
+
+  private
 
   def blank_prices(attributes)
     attributes[:sum].blank?

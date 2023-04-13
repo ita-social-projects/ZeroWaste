@@ -15,10 +15,15 @@ class Account::ProductsController < Account::BaseController
 
   def edit
     @product = resource
+
+    Category.ordered_by_name.each do |category|
+      @product.prices.build(category: category) unless @product.prices.find_by(category: category)
+    end
   end
 
   def create
     @product = Product.new(products_params)
+
     if @product.save
       redirect_to account_products_path,
                   notice: t("notifications.product_created")
@@ -29,7 +34,8 @@ class Account::ProductsController < Account::BaseController
 
   def update
     @product = resource
-    change_attributes
+    @product.assign_attributes(products_params)
+
     if @product.save
       redirect_to account_products_path,
                   notice: t("notifications.product_updated")
@@ -56,20 +62,8 @@ class Account::ProductsController < Account::BaseController
     Product.ordered_by_title
   end
 
-  def change_attributes
-    @product.assign_attributes(products_params)
-    return unless @product.valid?
-    products_params[:prices_attributes].each do |key, value|
-      # k = 0
-      # v = {id: num, sum: sum_num}
-      if value[:sum].nil?
-        @product.prices.find(value[:id]).destroy
-      end
-    end
-  end
-
   def products_params
-    params.require(:product).permit(:title,
-                                    prices_attributes: [:id, :sum, :category_id])
+    params.require(:product).permit(:title, prices_attributes: [:id,
+      :sum, :category_id, :_destroy])
   end
 end

@@ -1,5 +1,4 @@
 .container
-
   table.table
     thead
       tr
@@ -13,9 +12,8 @@
         td = @product.id
         td = @product.title
         td
-          - @product.prices.each do |price|
-            span = price.category.name + ': '
-            span = price.sum
+          - @product.prices.map do |price|
+            span = "#{price.category.name}: #{price.sum}"
             br
         td.actions
           = link_to edit_account_product_path(id: @product) do
