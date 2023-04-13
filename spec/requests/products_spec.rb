@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Account::ProductsController, type: :request do
-  let!(:product) { create(:product, :diaper)}
+  let!(:product) { create(:product, :diaper) }
+
   include_context :authorize_admin
 
   describe "GET :index" do
@@ -45,11 +46,7 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "POST :create" do
-    let(:valid_product_attributes) { attributes_for(:product, :diaper,
-      {
-        id: 1, sum: ''
-      }
-    )}
+    let(:valid_product_attributes) { attributes_for(:product, :diaper, { id: 1, sum: "" }) }
     let(:invalid_product_attributes) { attributes_for(:product, :invalid_title) }
 
     context "with valid attributes" do
@@ -61,8 +58,6 @@ RSpec.describe Account::ProductsController, type: :request do
         expect(response).to redirect_to(account_products_path)
         expect(flash[:notice]).to eq(I18n.t("notifications.product_created"))
       end
-
-      # it { should accept_nested_attributes_for(:prices).but_reject({ :sum => ""}) }
     end
 
     context "with invalid attributes" do
@@ -81,7 +76,7 @@ RSpec.describe Account::ProductsController, type: :request do
     let(:price) { create(:price, :budgetary_price) }
 
     let(:updated_product_attributes) { attributes_for(:product, :huggie) }
-    let(:invalid_product_attributes) { attributes_for(:product, :invalid_title)}
+    let(:invalid_product_attributes) { attributes_for(:product, :invalid_title) }
 
     context "with valid attributes" do
       it "updates the product" do
