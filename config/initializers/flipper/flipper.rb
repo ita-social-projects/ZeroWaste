@@ -1,5 +1,5 @@
 require "flipper/adapters/active_record"
-require_relative "flipper_feature.rb"
+require_relative "flipper_feature"
 
 Flipper.configure do |config|
   config.default do

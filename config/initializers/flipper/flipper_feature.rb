@@ -1,24 +1,11 @@
 class Flipper::Feature
+  delegate :en_description, :en_description=, to: :feature_record
+  delegate :uk_description, :uk_description=, to: :feature_record
+
   alias_method :name, :key
 
   def description
-    public_send("#{I18n.locale}_description") || en_description
-  end
-
-  def en_description
-    feature_record.en_description
-  end
-
-  def en_description=(value)
-    feature_record.update(en_description: value)
-  end
-
-  def uk_description
-    feature_record.uk_description
-  end
-
-  def uk_description=(value)
-    feature_record.update(uk_description: value)
+    public_send("#{I18n.locale}_description")
   end
 
   private
