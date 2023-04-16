@@ -473,6 +473,14 @@ GEM
       rubocop-performance (= 1.15.1)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.27)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.27-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.27-x64-mingw32)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.27-x86_64-linux)
+      railties (>= 6.0.0)
     temple (0.8.2)
     terminal-table (1.6.0)
     thor (1.1.0)
@@ -585,6 +593,7 @@ DEPENDENCIES
   spring
   standard (~> 1.0)
   stimulus-rails
+  tailwindcss-rails (~> 2.0)
   toastr-rails
   turbolinks (~> 5)
   tzinfo-data
