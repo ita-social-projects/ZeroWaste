@@ -213,6 +213,10 @@ en:
       new:
         create_calculator_button: "Create calculator"
         cancel_button: "Cancel"
+    feature_flags:
+      submit_button: "Save"
+      access_admin_menu:
+        name: "Access Admin Menu"
     sessions:
       new:
         log_in_header: "Log in"
