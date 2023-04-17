@@ -6,7 +6,7 @@ class CreateFlipperTables < ActiveRecord::Migration[6.1]
       t.text :en_description
       t.text :uk_description
     end
-  
+
     create_table :flipper_gates do |t|
       t.string :feature_key, null: false
       t.string :key, null: false
