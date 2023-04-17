@@ -11,7 +11,7 @@
 = simple_form_for :feature_flags, url: account_features_flags_path, method: :patch do |f|
   - Flipper.features.each do |feature|
     .feature-container
-      = f.input "#{feature.name}_enabled", as: :boolean, label: t("account.feature_flags.#{feature.name}.name"), input_html: { checked: feature.enabled? }
+      = f.input "#{feature.name}_enabled", as: :boolean, label: feature.name.to_s.titleize, input_html: { checked: feature.enabled? }
       .description-feature
         = feature.description
 

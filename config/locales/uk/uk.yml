@@ -192,10 +192,6 @@ uk:
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
-    feature_flags:
-      submit_button: "Зберегти"
-      access_admin_menu:
-        name: "Доступ до меню адміна"
     sessions:
       new:
         log_in_header: "Увійти"
