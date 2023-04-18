@@ -4,50 +4,20 @@ export default class extends Controller {
   static targets = [ "price", "checkbox", "hiddenField"]
 
   connect() {
-    for (const obj of this.checkboxesPrices) {
-      let [checkbox, price] = Object.values(obj)
-      if (!this.valueOfInput(price)) {
-        checkbox.checked = false
-        price.hidden = true
+    for(let i = 0; i < this.checkboxTargets.length; i++) {
+      if (!this.priceInputValue(this.priceTargets[i])) {
+        this.checkboxTargets[i].checked = false
+        this.priceTargets[i].hidden = true
       }
     }
   }
 
-  get prices() {
-    return this.priceTargets
-  }
-
-  valueOfInput(price) {
+  priceInputValue(price) {
     return price.querySelector('input').value
   }
 
-  get checkboxesPrices() {
-    const checkboxes = this.checkboxes
-    const prices = this.prices
-
-    const checkboxesPrices = []
-
-    checkboxes.forEach((checkbox, index) => {
-      checkboxesPrices.push({checkbox: checkbox, price: prices[index]})
-    })
-
-    return checkboxesPrices
-  }
-
-  get checkboxes() {
-    return this.checkboxTargets
-  }
-
-  get checkbox() {
-    return this.checkboxTarget
-  }
-
-  get hiddenFields() {
-    return this.hiddenFieldTargets
-  }
-
   togglePrice(event) {
-    this.prices.forEach((target) => {
+    this.priceTargets.forEach((target) => {
       if (event.target.attributes.name.value == target.attributes.name.value) {
         target.hidden = !target.hidden
       }
@@ -55,7 +25,7 @@ export default class extends Controller {
   }
 
   removePrice(event) {
-    this.prices.forEach((target) => {
+    this.priceTargets.forEach((target) => {
       if (event.target.attributes.name.value == target.attributes.name.value) {
         target.querySelector('input').value = ''
       }
@@ -63,8 +33,8 @@ export default class extends Controller {
   }
 
   submit() {
-    for(let i = 0; i < this.checkboxes.length; i++) {
-      this.hiddenFields[i].value = !this.checkboxes[i].checked
+    for(let i = 0; i < this.checkboxTargets.length; i++) {
+      this.hiddenFieldTargets[i].value = !this.checkboxTargets[i].checked
     }
   }
 }

@@ -16,17 +16,19 @@ class Account::ProductsController < Account::BaseController
   def edit
     @product = resource
 
+    categories = @product.prices.map(&:category)
+
     Category.ordered_by_name.each do |category|
-      @product.prices.build(category: category) unless @product.prices.find_by(category: category)
+      @product.prices.build(category: category) unless categories.include?(category)
     end
   end
 
   def create
-    @product = Product.new(products_params)
+    @product = Product.new(product_params)
 
     if @product.save
       redirect_to account_products_path,
-                  notice: t("notifications.product_created")
+                  notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,11 +36,10 @@ class Account::ProductsController < Account::BaseController
 
   def update
     @product = resource
-    @product.assign_attributes(products_params)
 
-    if @product.save
+    if @product.update(product_params)
       redirect_to account_products_path,
-                  notice: t("notifications.product_updated")
+                  notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -49,7 +50,7 @@ class Account::ProductsController < Account::BaseController
     @product.destroy
 
     redirect_to account_products_path,
-                notice: t("notifications.product_deleted")
+                notice: t(".deleted")
   end
 
   private
@@ -62,7 +63,7 @@ class Account::ProductsController < Account::BaseController
     Product.ordered_by_title
   end
 
-  def products_params
+  def product_params
     params.require(:product).permit(:title, prices_attributes: [:id,
       :sum, :category_id, :_destroy])
   end

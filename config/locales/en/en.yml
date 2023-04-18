@@ -172,6 +172,9 @@ en:
         title: 'Title'
         create_button: 'Create'
         cancel_button: 'Cancel'
+      created: "A product was successfully created."
+      updated: "A product was successfully updated."
+      deleted: "A product was successfully destroyed."
     site_settings:
       edit:
         update_button: 'Update'
@@ -442,9 +445,6 @@ en:
     category_created: "Category was successfully created."
     category_updated: "Category was successfully updated."
     category_deleted: "Category was successfully destroyed."
-    product_created: "A product was successfully created."
-    product_updated: "A product was successfully updated."
-    product_deleted: "A product was successfully destroyed."
     feature_flags_updated: "Features updated successfully"
     site_setting_updated: "Setting was successfully updated"
   # time:

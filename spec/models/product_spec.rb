@@ -21,7 +21,7 @@ require "rails_helper"
 LOCAL_PREFIX_PRODUCT = "activerecord.errors.models.product.attributes"
 
 RSpec.describe Product, type: :model do
-  subject(:product) { build(:product) }
+  subject { build(:product) }
 
   describe "associations" do
     it { is_expected.to have_many(:category_categoryables).dependent(:destroy) }

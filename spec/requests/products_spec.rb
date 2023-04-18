@@ -1,11 +1,12 @@
 require "rails_helper"
 
 RSpec.describe Account::ProductsController, type: :request do
-  let!(:product) { create(:product, :diaper) }
+  let(:product) { create(:product, :diaper) }
 
   include_context :authorize_admin
 
   describe "GET :index" do
+    let!(:product) { create(:product, :diaper) }
     it "is successful" do
       get account_products_path
 
@@ -47,7 +48,7 @@ RSpec.describe Account::ProductsController, type: :request do
 
   describe "POST :create" do
     let(:valid_product_attributes) { attributes_for(:product, :diaper, { id: 1, sum: "" }) }
-    let(:invalid_product_attributes) { attributes_for(:product, :invalid_title) }
+    let(:invalid_product_attributes) { attributes_for(:product, :invalid) }
 
     context "with valid attributes" do
       it "creates a product" do
@@ -76,7 +77,7 @@ RSpec.describe Account::ProductsController, type: :request do
     let(:price) { create(:price, :budgetary_price) }
 
     let(:updated_product_attributes) { attributes_for(:product, :huggie) }
-    let(:invalid_product_attributes) { attributes_for(:product, :invalid_title) }
+    let(:invalid_product_attributes) { attributes_for(:product, :invalid) }
 
     context "with valid attributes" do
       it "updates the product" do

@@ -31,7 +31,7 @@ FactoryBot.define do
       title { "huggie" }
     end
 
-    trait :invalid_title do
+    trait :invalid do
       title { "" }
     end
   end

@@ -152,6 +152,9 @@ uk:
         title: 'Назва'
         create_button: 'Створити'
         cancel_button: 'Скасувати'
+      created: "Продукт був успішно створений."
+      updated: "Продукт був успішно оновлений."
+      deleted: "Продукт був успішно видалений."
     site_settings:
       edit:
         update_button: 'Оновити'
@@ -396,9 +399,6 @@ uk:
     category_created: "Категорію було успішно створено."
     category_updated: "Категорію було успішно оновлено."
     category_deleted: "Категорію було успішно видалено."
-    product_created: "Продукт був успішно створений."
-    product_updated: "Продукт був успішно оновлений."
-    product_deleted: "Продукт був успішно видалений."
     feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
   # time:
