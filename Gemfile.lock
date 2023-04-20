@@ -461,6 +461,8 @@ GEM
       language_server-protocol (~> 3.17.0.2)
       rubocop (= 1.39.0)
       rubocop-performance (= 1.15.1)
+    stimulus-rails (1.2.1)
+      railties (>= 6.0.0)
     temple (0.8.2)
     terminal-table (1.6.0)
     thor (1.1.0)
@@ -566,6 +568,7 @@ DEPENDENCIES
   slim-rails
   spring
   standard (~> 1.0)
+  stimulus-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
