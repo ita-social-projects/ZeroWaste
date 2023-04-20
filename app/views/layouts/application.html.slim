@@ -9,6 +9,7 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = render "layouts/ga"
   / body.wrapper
   / div.filter_block
   /   = render 'layouts/flash_messages'
