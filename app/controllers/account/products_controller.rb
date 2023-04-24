@@ -16,19 +16,16 @@ class Account::ProductsController < Account::BaseController
   def edit
     @product = resource
 
-    categories = @product.prices.map(&:category)
+    non_existing_categories = Category.where.not(id: @product.categories_by_prices.select(:id))
 
-    Category.ordered_by_name.each do |category|
-      @product.prices.build(category: category) unless categories.include?(category)
-    end
+    @product.prices.build(non_existing_categories.map { |category| { category: category } })
   end
 
   def create
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to account_products_path,
-                  notice: t(".created")
+      redirect_to account_products_path, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,8 +35,7 @@ class Account::ProductsController < Account::BaseController
     @product = resource
 
     if @product.update(product_params)
-      redirect_to account_products_path,
-                  notice: t(".updated")
+      redirect_to account_products_path, notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -47,10 +43,12 @@ class Account::ProductsController < Account::BaseController
 
   def destroy
     @product = resource
-    @product.destroy
 
-    redirect_to account_products_path,
-                notice: t(".deleted")
+    if @product.destroy
+      redirect_to account_products_path, notice: t(".deleted")
+    else
+      redirect_to account_products_path, status: :unprocessable_entity
+    end
   end
 
   private

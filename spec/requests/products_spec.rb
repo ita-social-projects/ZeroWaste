@@ -47,7 +47,7 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "POST :create" do
-    let(:valid_product_attributes) { attributes_for(:product, :diaper, { id: 1, sum: "" }) }
+    let(:valid_product_attributes) { attributes_for(:product, :diaper, { id: 1, sum: 10.4 }) }
     let(:invalid_product_attributes) { attributes_for(:product, :invalid) }
 
     context "with valid attributes" do
@@ -57,7 +57,7 @@ RSpec.describe Account::ProductsController, type: :request do
         end.to change(Product, :count).by(1)
 
         expect(response).to redirect_to(account_products_path)
-        expect(flash[:notice]).to eq(I18n.t("notifications.product_created"))
+        expect(flash[:notice]).to eq(I18n.t("account.products.created"))
       end
     end
 
@@ -87,7 +87,7 @@ RSpec.describe Account::ProductsController, type: :request do
         end.to change { price.priceable.title }.from("diaper").to("huggie")
 
         expect(response).to redirect_to(account_products_path)
-        expect(flash[:notice]).to eq(I18n.t("notifications.product_updated"))
+        expect(flash[:notice]).to eq(I18n.t("account.products.updated"))
       end
     end
 
@@ -109,7 +109,7 @@ RSpec.describe Account::ProductsController, type: :request do
       expect { product.to change(Product, :count).by(-1) }
 
       expect(response).to redirect_to(account_products_path)
-      expect(flash[:notice]).to eq(I18n.t("notifications.product_deleted"))
+      expect(flash[:notice]).to eq(I18n.t("account.products.deleted"))
     end
   end
 end

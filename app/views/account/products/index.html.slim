@@ -13,12 +13,12 @@
         th scope="col" =t('.table.actions')
 
     tbody
-      - @products.each do |product|
+      - @products.includes(prices: :category).each do |product|
         tr
           td = product.id
           td = product.title
           td
-            - product.prices.map do |price|
+            - product.prices.includes(:category).map do |price|
               span = "#{price.category.name}: #{price.sum}"
               br
           td.actions

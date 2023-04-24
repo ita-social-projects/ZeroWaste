@@ -19,9 +19,11 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  has_many :category_categoryables, as: :categoryable, dependent: :destroy
-  has_many :categories, through: :category_categoryables
+  # has_many :category_categoryables, as: :categoryable, dependent: :destroy
+  # has_many :categories, through: :category_categoryables
   has_many :prices, as: :priceable, dependent: :destroy
+
+  has_many :categories_by_prices, through: :prices, source: :category
 
   validates :title, presence: true, length: { in: 2..50 }
 

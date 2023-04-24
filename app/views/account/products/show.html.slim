@@ -12,7 +12,7 @@
         td = @product.id
         td = @product.title
         td
-          - @product.prices.map do |price|
+          - @product.prices.includes(:category).map do |price|
             span = "#{price.category.name}: #{price.sum}"
             br
         td.actions
