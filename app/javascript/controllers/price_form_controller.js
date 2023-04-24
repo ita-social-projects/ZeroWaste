@@ -1,19 +1,15 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "price", "checkbox", "hiddenField"]
+  static targets = [ "priceInput", "price", "checkbox", "hiddenField" ]
 
   connect() {
     for(let i = 0; i < this.checkboxTargets.length; i++) {
-      if (!this.priceInputValue(this.priceTargets[i])) {
+      if (!this.priceInputTargets[i].value) {
         this.checkboxTargets[i].checked = false
         this.priceTargets[i].hidden = true
       }
     }
-  }
-
-  priceInputValue(price) {
-    return price.querySelector('input').value
   }
 
   togglePrice(event) {
@@ -25,11 +21,11 @@ export default class extends Controller {
   }
 
   removePrice(event) {
-    this.priceTargets.forEach((target) => {
-      if (event.target.attributes.name.value == target.attributes.name.value) {
-        target.querySelector('input').value = ''
+    for (let i = 0; i < this.priceTargets.length; i++) {
+      if (event.target.attributes.name.value == this.priceTargets[i].attributes.name.value) {
+        this.priceInputTargets[i].value = ''
       }
-    })
+    }
   }
 
   submit() {

@@ -9,7 +9,7 @@
               = check_box_tag prices_form.object.category.name, 1, true, data: { price_form_target: 'checkbox', action: "click->price-form#removePrice click->price-form#togglePrice" }, class: 'mr-1'
               = label_tag prices_form.object.category.name
               .hidden-sum data-price-form-target="price" name=prices_form.object.category.name
-                = prices_form.input :sum, label: false, input_html: { placeholder: 'Sum' }
+                = prices_form.input :sum, label: false, input_html: { placeholder: 'Sum', data: { price_form_target: 'priceInput' } }
                 = prices_form.hidden_field :category_id, value: prices_form.object.category.id
                 = prices_form.hidden_field :_destroy, data: { price_form_target: 'hiddenField' }
 
