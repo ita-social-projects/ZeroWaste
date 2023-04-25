@@ -36,7 +36,6 @@ class Product < ApplicationRecord
     prices.where(category: category).first
   end
 
-
   def build_not_existing_categories
     not_existing_categories = Category.not_existing_categories(self)
     prices.build(not_existing_categories.map { |category| { category: category } })
