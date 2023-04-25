@@ -19,10 +19,7 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  # has_many :category_categoryables, as: :categoryable, dependent: :destroy
-  # has_many :categories, through: :category_categoryables
   has_many :prices, as: :priceable, dependent: :destroy
-
   has_many :categories_by_prices, through: :prices, source: :category
 
   validates :title, presence: true, length: { in: 2..50 }
@@ -37,6 +34,12 @@ class Product < ApplicationRecord
 
   def price_by_category(category)
     prices.where(category: category).first
+  end
+
+
+  def build_not_existing_categories
+    not_existing_categories = Category.not_existing_categories(self)
+    prices.build(not_existing_categories.map { |category| { category: category } })
   end
 
   private

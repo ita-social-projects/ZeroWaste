@@ -16,9 +16,7 @@ class Account::ProductsController < Account::BaseController
   def edit
     @product = resource
 
-    non_existing_categories = Category.where.not(id: @product.categories_by_prices.select(:id))
-
-    @product.prices.build(non_existing_categories.map { |category| { category: category } })
+    @product.build_not_existing_categories
   end
 
   def create

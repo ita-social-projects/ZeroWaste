@@ -12,12 +12,12 @@
         td = @product.id
         td = @product.title
         td
-          - @product.prices.includes(:category).map do |price|
+          - @product.prices.includes(:category).each do |price|
             span = "#{price.category.name}: #{price.sum}"
             br
         td.actions
-          = link_to edit_account_product_path(I18n.locale, @product) do
+          = link_to edit_account_product_path(id: @product) do
             i.fa.fa-pen.mx-2
-          = link_to account_product_path(I18n.locale, @product), method: :delete,
+          = link_to account_product_path(id: @product), method: :delete,
                   data: { confirm: t('.confirm_delete') } do
             i.fa.fa-trash.mx-2

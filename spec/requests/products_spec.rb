@@ -7,6 +7,7 @@ RSpec.describe Account::ProductsController, type: :request do
 
   describe "GET :index" do
     let!(:product) { create(:product, :diaper) }
+
     it "is successful" do
       get account_products_path
 
