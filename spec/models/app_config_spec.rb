@@ -12,6 +12,8 @@
 require "rails_helper"
 
 RSpec.describe AppConfig, type: :model do
+  fixtures :app_configs
+
   context "is a singleton model" do
     it "should not allow using new method" do
       expect { AppConfig.new }.to raise_error NoMethodError
@@ -22,41 +24,25 @@ RSpec.describe AppConfig, type: :model do
   end
 
   context "calls a service method" do
-    # let(:diapers_service) { instance_double(Calculators::DiapersService) }
-    let(:params) do
-      {
-        "1..3"=>{"price"=>"7.5", "amount"=>"10"},
-        "4..6"=>{"price"=>"9.5", "amount"=>"8"},
-        "7..9"=>{"price"=>"9", "amount"=>"6"},
-        "10..12"=>{"price"=>"10.5", "amount"=>"6"},
-        "13..18"=>{"price"=>"10.5", "amount"=>"4"},
-        "19..24"=>{"price"=>"12.5", "amount"=>"4"},
-        "25..30"=>{"price"=>"12.5", "amount"=>"2"}
-      }
+    let(:app_config_instance) { app_configs(:initial_app_config) }
+    let(:diapers_calculator_params) { attributes_for(:diapers_calculator_params) }
+    let(:updated_diapers_calculator) { attributes_for(:app_config, :updated) }
+
+    it "updates the AppConfig instances diapers calculator" do
+      expect do
+        app_config_instance.update_diapers_calculator(diapers_calculator_params)
+        app_config_instance.reload
+      end.to change(app_config_instance, :diapers_calculator).to(updated_diapers_calculator[:diapers_calculator])
     end
 
-    let(:invalid_params) do
-      {
-        "1"=>{"price"=>"7.5", "amount"=>"10"},
-        "2"=>{"price"=>"9.5", "amount"=>"8"},
-        "3"=>{"price"=>"9", "amount"=>"6"},
-        "4"=>{"price"=>"10.5", "amount"=>"6"},
-        "5"=>{"price"=>"10.5", "amount"=>"4"},
-        "6"=>{"price"=>"12.5", "amount"=>"4"},
-        "7"=>{"price"=>"12.5", "amount"=>"2"}
-      }
-    end
-
-    before do
+    it "receives product attributes" do
       allow(Calculators::DiapersService).to receive(:product_attributes).with(
-        ActionController::Parameters.new(params)
+        diapers_calculator_params
       )
-      AppConfig.instance.update_diapers_calculator(params)
-    end
+      app_config_instance.update_diapers_calculator(diapers_calculator_params)
 
-    it 'receives product attributes' do
       expect(Calculators::DiapersService).to have_received(:product_attributes).with(
-        ActionController::Parameters.new(params)
+        diapers_calculator_params
       )
     end
   end

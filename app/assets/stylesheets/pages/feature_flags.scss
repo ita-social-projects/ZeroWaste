@@ -1,0 +1,57 @@
+.feature-container {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    display: inline-block;
+    font-weight: semibold;
+    margin-right: 10px;
+    margin-left: 10px;
+    vertical-align: middle;
+    line-height: 20px;
+    color: $dark_gray
+  }
+
+  .description-feature {
+    margin-top: 2px;
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    border: 2px solid $dark_gray;
+    border-radius: 4px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 2px;
+    width: 20px;
+
+    &:checked {
+      background-color: $success;
+      border-color: $dark_gray;
+    }
+  }
+
+  span {
+    display: inline-block;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+}
+
+input[type="submit"] {
+  background-color: $success;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+
+  &:hover {
+    background-color: $dark_green;
+  }
+}
