@@ -16,7 +16,7 @@ class Account::ProductsController < Account::BaseController
   def edit
     @product = resource
 
-    @product.build_not_existing_categories
+    @product.build_unsigned_categories
   end
 
   def create

@@ -9,7 +9,7 @@
               = check_box_tag category.name, 1, false, data: { action: "click->price-form#togglePrice", price_form_target: 'checkbox' }, class: 'mr-1'
               = label_tag category.name
               .hidden-sum data-price-form-target="price" name=category.name
-                = prices_form.input :sum, label: false, input_html: { placeholder: 'Sum', required: true }
+                = prices_form.input :sum, label: false, input_html: { placeholder: 'Sum', data: { price_form_target: 'priceInput' } }
                 = prices_form.hidden_field :category_id, value: category.id
 
     = f.submit t('.create_button'), class: 'btn btn-success mr-2', id: 'submit', data: { action: "click->price-form#submit" }

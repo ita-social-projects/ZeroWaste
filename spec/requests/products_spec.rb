@@ -96,7 +96,7 @@ RSpec.describe Account::ProductsController, type: :request do
       it "does not update product" do
         expect do
           patch account_product_path(id: price.priceable), params: { product: invalid_product_attributes }
-        end.not_to change { price.priceable.title }.from("diaper")
+        end.not_to change(price.priceable, :title)
 
         expect(response).to be_unprocessable
         expect(response).to render_template(:edit)
