@@ -48,7 +48,7 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "POST :create" do
-    let(:valid_product_attributes) { attributes_for(:product, :diaper, id: 1, sum: 10.4 ) }
+    let(:valid_product_attributes) { attributes_for(:product, :diaper, id: 1, sum: 10.4) }
     let(:invalid_product_attributes) { attributes_for(:product, :invalid) }
 
     context "with valid attributes" do
