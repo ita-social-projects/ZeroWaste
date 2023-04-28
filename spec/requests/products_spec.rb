@@ -48,7 +48,7 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "POST :create" do
-    let(:valid_product_attributes) { attributes_for(:product, :diaper, { id: 1, sum: 10.4 }) }
+    let(:valid_product_attributes) { attributes_for(:product, :diaper, id: 1, sum: 10.4 ) }
     let(:invalid_product_attributes) { attributes_for(:product, :invalid) }
 
     context "with valid attributes" do
@@ -84,8 +84,8 @@ RSpec.describe Account::ProductsController, type: :request do
       it "updates the product" do
         expect do
           patch account_product_path(id: price.priceable), params: { product: updated_product_attributes }
-          price.reload
-        end.to change { price.priceable.title }.from("diaper").to("huggie")
+          price.priceable.reload
+        end.to change(price.priceable, :title).from("diaper").to("huggie")
 
         expect(response).to redirect_to(account_products_path)
         expect(flash[:notice]).to eq(I18n.t("account.products.updated"))
@@ -105,9 +105,12 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "DELETE :destroy" do
+    let!(:product) { create(:product, :diaper) }
+
     it "deletes the product" do
-      delete account_product_path(id: product)
-      expect { product.to change(Product, :count).by(-1) }
+      expect do
+        delete account_product_path(id: product)
+      end.to change(Product, :count).by(-1)
 
       expect(response).to redirect_to(account_products_path)
       expect(flash[:notice]).to eq(I18n.t("account.products.deleted"))
