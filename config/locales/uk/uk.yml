@@ -196,6 +196,8 @@ uk:
       submit_button: "Зберегти"
       access_admin_menu:
         name: "Доступ до меню адміна"
+      old_calculator_design:
+        name: "Увімкнути старий дизайн калькулятора"
     sessions:
       new:
         log_in_header: "Увійти"
