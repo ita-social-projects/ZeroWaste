@@ -153,6 +153,28 @@ en:
       new:
         create_button: 'Create'
         cancel_button: 'Cancel'
+    products:
+      table:
+        title: 'Title'
+        prices: 'Prices'
+        actions: 'Actions'
+      index:
+        add_product_button: 'Add product'
+        confirm_delete: 'Delete product?'
+        cancel_button: 'Cancel'
+      show:
+        confirm_delete: 'Delete product?'
+      edit:
+        title: 'Title'
+        update_button: 'Update'
+        cancel_button: 'Cancel'
+      new:
+        title: 'Title'
+        create_button: 'Create'
+        cancel_button: 'Cancel'
+      created: "A product was successfully created."
+      updated: "A product was successfully updated."
+      deleted: "A product was successfully destroyed."
     site_settings:
       edit:
         update_button: 'Update'
