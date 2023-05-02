@@ -1,49 +1,33 @@
 - if Flipper[:old_calculator_design].enabled?
   .jumbotron
     .container-fluid
-      a.rounded.float-right.calculator__cross__space href=root_path
-        = image_tag "close.svg", width: 40, class:"z-1 position-relative"
+      = link_to root_path, class: "rounded float-right calculator__cross__space" do
+        = image_tag "close.svg", width: 40, class: "z-1 position-relative"
       p.form-p
         = t '.form_description'
       .form
         = form_with url: "#", id: "form", method: :get, data: { locale: I18n.locale } do |form|
           .flex-item
-            select.custom-select#childs_years [required]
-              option [disabled selected hidden value]
-                = t('.form.childs_years_label')
-              - (0..2).each do |year|
-                option value = year
-                  = "#{year} #{t('datetime.prompts.year').downcase.pluralize(count: year, locale: I18n.locale)}"
-            select.custom-select#childs_months
-              option [disabled selected hidden value]
-                =t('.form.childs_months_label')
-              - (0..11).each do |month|
-                option value = month
-                  = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
-            select.custom-select#two_years_childs_months
-              option [disabled selected hidden value]
-                =t('.form.childs_months_label')
-              - (0..6).each do |month|
-                option value = month
-                  = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
+            = select_tag 'childs_years', options_for_select([t('.form.childs_years_label'),
+              *(0..2).map{ |year| ["#{year} #{t('datetime.prompts.year').downcase.pluralize(count: year, locale: I18n.locale)}", year] }]),
+              { class: 'custom-select', required: true }
+            = select_tag 'childs_months', options_for_select([t('.form.childs_months_label'),
+              *(0..11).map{ |month| ["#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}", month] }]),
+              { class: 'custom-select' }
+            = select_tag 'two_years_childs_months', options_for_select([t('.form.childs_months_label'),
+              *(0..6).map{ |month| ["#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}", month] }]),
+              { class: 'custom-select' }
 
             - if FeatureFlag.get('feature_budget_category').active?
               p.form-a
                 = t '.form_price'
-                select.custom-select#product_category [required]
-                  option
-                    =t('calculators.calculator.form.budgetary')
-                  option selected=""
-                    =t('calculators.calculator.form.medium')
-                  option
-                    =t('calculators.calculator.form.premium')
+                = select_tag 'product_category',
+                  options_for_select([[t('calculators.calculator.form.budgetary'), nil],
+                    [t('calculators.calculator.form.medium'), 'medium'],
+                    [t('calculators.calculator.form.premium'), 'premium']],
+                  { selected: 'medium' }), { class: 'custom-select', required: true }
             = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
             = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
-          / div.flex-item.mt-4
-          /   = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
-          /                        wrapper_tag: "input")
-            / = simple_format(t("calculators.calculator.want_recomentation_label"),
-            /                  { for: "checkbox_submit" }, wrapper_tag: "label")
           button.calculate-btn.result-btn[type="submit" id="button_submit"]
             =<t('.calculate_result_button')
   .container.calculation-results
@@ -90,8 +74,8 @@
           = render 'layouts/description_button'
 - else
   .jumbotron.jumbotron-fluid.position-relative.rounded
-    a.rounded.calculator__cross__space href=root_path
-      = image_tag "close.svg", width: 40, class:"z-1"
+    = link_to root_path, class: "rounded calculator__cross__space" do
+      = image_tag "close.svg", width: 40, class: "z-1"
     .d-flex.justify-content-around.flex-wrap.calculator_wrap
       = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
                                                 data:{ controller: "input-child-info",
@@ -124,14 +108,6 @@
                                                         class: 'form_fild price_select rounded w-100',
                                                         data: { input_child_info_target: 'productCategory' }
 
-
-          / = form.text_field  :baby_weight, placeholder:t('.form.baby_weight_label')
-          / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
-          /.flex-item.mb-4
-            = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
-                                wrapper_tag: "input")
-            = simple_format(t("calculators.calculator.want_recomentation_label"),
-                            { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
           = form.submit t('.calculate_result_button'),
                       class:'calculate-btn result-btn',
                       data: { action:'input-child-info#submit' }
