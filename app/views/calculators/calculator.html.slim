@@ -28,8 +28,7 @@
                   { selected: 'medium' }), { class: 'custom-select', required: true }
             = form.text_field :baby_weight, placeholder:t('.form.baby_weight_label'), class:"form-input d-none"
             = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
-          button.calculate-btn.result-btn[type="submit" id="button_submit"]
-            =<t('.calculate_result_button')
+          = button_to t('.calculate_result_button'), { class: "calculate-btn result-btn", id: "button_submit" }
   .container.calculation-results
     .row.row-l
       .col-sm.result-card
@@ -147,6 +146,5 @@
       .col-xl-8.result-card
         = render 'layouts/description_block'
       .col-sm.result-card
-        button.calculate-btn.description-btn
+        = button_to "Calculate", { class: "calculate-btn description-btn" }
           = render 'layouts/description_button'
-
