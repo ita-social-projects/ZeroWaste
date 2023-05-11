@@ -217,8 +217,8 @@ en:
       submit_button: "Save"
       access_admin_menu:
         name: "Access Admin Menu"
-      old_calculator_design:
-        name: "Enable old calculator design"
+      new_calculator_design:
+        name: "Enable new calculator design"
     sessions:
       new:
         log_in_header: "Log in"

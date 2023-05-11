@@ -1,4 +1,4 @@
-- if Flipper[:old_calculator_design].enabled?
+- if !Flipper[:new_calculator_design].enabled?
   .jumbotron
     .container-fluid
       = link_to root_path, class: "rounded float-right calculator__cross__space" do
