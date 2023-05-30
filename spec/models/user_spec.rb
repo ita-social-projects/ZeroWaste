@@ -38,17 +38,30 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  let!(:user) { build(:user) }
-
   describe "validations" do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
     it { is_expected.to validate_length_of(:email).is_at_least(6) }
     it { is_expected.to validate_length_of(:email).is_at_most(100) }
+
+    it { is_expected.to validate_presence_of(:password) }
+    it { is_expected.to validate_length_of(:password).is_at_least(8) }
+    it { is_expected.to validate_length_of(:password).is_at_most(64) }
+
+    it { is_expected.to validate_presence_of(:first_name).on(:create) }
+    it { is_expected.to validate_presence_of(:first_name).on(:update) }
+    it { is_expected.to validate_length_of(:first_name).is_at_least(2).on(:create) }
+    it { is_expected.to validate_length_of(:first_name).is_at_least(2).on(:update) }
+
+    it { is_expected.to validate_presence_of(:last_name).on(:create) }
+    it { is_expected.to validate_presence_of(:last_name).on(:update) }
+    it { is_expected.to validate_length_of(:last_name).is_at_least(2).on(:create) }
+    it { is_expected.to validate_length_of(:last_name).is_at_least(2).on(:update) }
+
     it { is_expected.to allow_value("email@gmail.com").for(:email) }
     it { is_expected.not_to allow_value("email.factory-com").for(:email) }
     it { is_expected.to allow_value("ddc5+/8/555/dd").for(:password) }
+    it { is_expected.to allow_value("P@$$w0rd!-_%^&*()_+|~={}[]:\";'<>?,./").for(:password) }
     it { is_expected.not_to allow_value("/asd").for(:password) }
-    it { is_expected.to validate_length_of(:password).is_at_least(8) }
   end
 end
