@@ -32,7 +32,31 @@
 en:
   uk: "Українська"
   calculators:
-    calculator:
+    new_calculator:
+      diaper: "diaper"
+      form_description: "Child’s age:"
+      form_price: "Price category"
+      form:
+        childs_birthday_label: "Child's birthday"
+        childs_age_label: "Child`s age"
+        childs_years_label: "y/o."
+        childs_months_label: "mth."
+        baby_weight_label: "Baby weight"
+        budgetary: "budgetary"
+        medium: "medium"
+        premium: "premium"
+      year_and_month_error_msg: "Error: please, select years and months"
+      year_error_msg: "Error: please, select years"
+      month_error_msg: "Error: please, select month"
+      calculate_result_button: "Calculate"
+      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
+      bought_diapers: "already used"
+      will_buy_diapers: "to be used in the future"
+      money_spent: "UAH already spent on diapers"
+      money_will_be_spent: "UAH yet to be spent on diapers"
+      mililiters_of_naphtha: "Mililiters of Naphtha"
+      gram_of_plastic: "Gram of Plastic"
+    old_calculator:
       diaper: "diaper"
       form_description: "Child’s age:"
       form_price: "Price category"
