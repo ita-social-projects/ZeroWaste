@@ -9,11 +9,21 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+          cache-version: 1
+      - name: Run rubocop
+        run: |
+          bundle exec rubocop
+  rspec:
     runs-on: ubuntu-latest
 
-    # If you need DB like PostgreSQL, Redis then define service below.
-    # https://github.com/actions/example-services/tree/master/.github/workflows
     services:
       postgres:
         image: postgres:10.8
@@ -23,8 +33,6 @@ jobs:
           POSTGRES_DB: zero_waste_test
         ports:
           - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        # tmpfs makes DB faster by using RAM
         options: >-
           --mount type=tmpfs,destination=/var/lib/postgresql/data
           --health-cmd pg_isready
@@ -43,10 +51,13 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          # Not needed with a .ruby-version file
           ruby-version: 2.7.2
-          # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - uses: nanasess/setup-chromedriver@master
 
