@@ -4,6 +4,10 @@ class ChangeProducts < ActiveRecord::Migration[6.1]
   end
 
   def down
-    ProductType.find_by(title: "Diapers").products.destroy_all
+    begin
+      ProductType.find_by(title: "Diapers").products.destroy_all
+    rescue StandardError
+      ActiveRecord::Base.connection.execute 'ROLLBACK'
+    end
   end
 end

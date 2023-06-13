@@ -5,7 +5,11 @@ class ChangeProductTypes < ActiveRecord::Migration[6.1]
   end
 
   def down
-    ProductType.destroy_by(title: "Diapers")
-    ProductType.destroy_by(title: "Menstrual hygiene")
+    begin
+      ProductType.destroy_by(title: "Diapers")
+      ProductType.destroy_by(title: "Menstrual hygiene")
+    rescue StandardError
+      ActiveRecord::Base.connection.execute 'ROLLBACK'
+    end
   end
 end

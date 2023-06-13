@@ -15,6 +15,4 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
       @feature_record ||= Flipper::Adapters::ActiveRecord::Feature.find_or_create_by(key: key)
     end
   end
-else
-  raise ActiveRecord::PendingMigrationError
 end
