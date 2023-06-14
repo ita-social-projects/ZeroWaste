@@ -3,6 +3,7 @@
 require "faker"
 require "factory_bot_rails"
 
+# A regular user
 User.create(
   email: "user@zw.com",
   password: "password",
