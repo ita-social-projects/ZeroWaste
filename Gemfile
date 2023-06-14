@@ -37,11 +37,11 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "active_storage_validations"
 gem "font-awesome-rails"
 gem "mini_magick", ">= 4.9.5"
+gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
 group :development, :test do
   gem "annotate"
   gem "dotenv-rails", require: "dotenv/rails-now"
-  gem "factory_bot_rails"
   gem "pry-rails"
   gem "rails-controller-testing"
   gem "rspec-rails", "~> 5.0.0"
