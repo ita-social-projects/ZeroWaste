@@ -12,6 +12,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # A regular user
+require "faker"
+require "factory_bot_rails"
+
 User.create(
   email: "user@zw.com",
   password: "password",
