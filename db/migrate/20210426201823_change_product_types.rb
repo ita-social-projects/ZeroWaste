@@ -5,7 +5,13 @@ class ChangeProductTypes < ActiveRecord::Migration[6.1]
   end
 
   def down
+    create_table :prices do |t|
+      t.references :priceable, polymorphic: true
+    end
+
     ProductType.destroy_by(title: "Diapers")
     ProductType.destroy_by(title: "Menstrual hygiene")
+
+    drop_table :prices
   end
 end
