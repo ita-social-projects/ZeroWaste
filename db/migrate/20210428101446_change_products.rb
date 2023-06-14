@@ -4,10 +4,12 @@ class ChangeProducts < ActiveRecord::Migration[6.1]
   end
 
   def down
-    begin
-      ProductType.find_by(title: "Diapers").products.destroy_all
-    rescue StandardError
-      ActiveRecord::Base.connection.execute 'ROLLBACK'
+    create_table :prices do |t|
+      t.references :priceable, polymorphic: true
     end
+
+    ProductType.find_by(title: "Diapers").products.destroy_all
+
+    drop_table :prices
   end
 end
