@@ -18,4 +18,8 @@ module CalculatorsHelper
   def months_collection
     (-1..11).map{ |month| "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}" }
   end
+
+  def calculator_style
+    Flipper[:new_calculator_design].enabled? ? "calculators/new_calculator" : "calculators/old_calculator"
+  end  
 end
