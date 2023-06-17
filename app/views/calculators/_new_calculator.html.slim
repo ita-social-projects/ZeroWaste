@@ -1,0 +1,42 @@
+    = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
+                                               data:{ controller: "input-child-info",
+                                                      input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                      input_child_info_results_outlet: '.result' }}) do |form|
+      .flex-item.flex-column
+        .input_lable
+          = t('calculators.calculator.form_description')
+        .flex-item.flex-row.rounded.w-100.age_wrapper.form_fild
+          = form.input_field :years,
+                              collection: 0..2,
+                              prompt:'__',
+                              class:'select-age ml-2 rounded',
+                              data: { input_child_info_target: 'year', action:'input-child-info#yearChanged' }
+
+          = t('calculators.calculator.form.childs_years_label')
+
+          = form.input_field :months,
+                              collection: 0..11,
+                              prompt:'__',
+                              class:'select-age rounded',
+                              data: { input_child_info_target: 'month' }
+
+          = t('calculators.calculator.form.childs_months_label')
+        .input_lable
+          = t('calculators.calculator.form_price')
+        = form.input_field :product_category, collection: collection_product_category,
+                                                      selected: t('calculators.calculator.form.medium'),
+                                                      label: t('calculators.calculator.form_price'),
+                                                      class: 'form_fild price_select rounded w-100',
+                                                      data: { input_child_info_target: 'productCategory' }
+
+
+        / = form.text_field  :baby_weight, placeholder:t('calculators.calculator.form.baby_weight_label')
+        / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
+        /.flex-item.mb-4
+          = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
+                              wrapper_tag: "input")
+          = simple_format(t("calculators.calculator.want_recomentation_label"),
+                          { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
+        = form.submit t('calculators.calculator.calculate_result_button'),
+                    class:'calculate-btn result-btn',
+                    data: { action:'input-child-info#submit' }
