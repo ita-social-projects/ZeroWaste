@@ -1,5 +1,5 @@
 .calculate-btn {
-  width: 100%;
+  width: auto!important;
   height: 56px;
   margin-top: 40px;
   color: #fff;
@@ -38,6 +38,8 @@
   position: absolute;
   top: 8px;
   right: 16px;
+  height: 40px;
+  width:40px;
 }
 
 .form {
