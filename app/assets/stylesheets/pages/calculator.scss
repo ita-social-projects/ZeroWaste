@@ -187,6 +187,18 @@
   z-index: 1;
 }
 
+.inline-input {
+  display: inline-flex;
+}
+
+.calc-container {
+  width: 100%!important;
+}
+
+.calc-item {
+  width: 300px
+}
+
 @media screen and (max-width: 1199px) and (min-width: 400px) {
   .description-btn {
     margin: auto;

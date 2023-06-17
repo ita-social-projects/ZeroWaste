@@ -1,47 +1,38 @@
-p.form-p
-  = t 'calculators.calculator.form_description'
-.form
-  = form_with url: "#", id: "form", method: :get, data: { locale: I18n.locale } do |form|
-    .flex-item
-      select.custom-select#childs_years [required]
-        option [disabled selected hidden value]
-          = t('calculators.calculator.form.childs_years_label')
-        - (0..2).each do |year|
-          option value = year
-            = "#{year} #{t('datetime.prompts.year').downcase.pluralize(count: year, locale: I18n.locale)}"
+.calc-container.mx-5.mt-5
+  = t('calculators.calculator.form_description')
+= simple_form_for(:child, url: "#", html: { class: "simple_form_calculator calc-container",
+                                           data:{ controller: "input-child-info",
+                                                  input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                  input_child_info_results_outlet: '.result' }}) do |form|
+  .ml-5.inline.calc-item
+    = form.input_field :years,
+                        collection: years_collection,
+                        selected: years_collection[1],
+                        class: 'rounded custom-select',
+                        data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' }
 
-      select.custom-select#childs_months
-        option [disabled selected hidden value]
-          =t('calculators.calculator.form.childs_months_label')
-        - (0..11).each do |month|
-          option value = month
-            = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
+  .ml-5.inline.calc-item
+    = form.input_field :months,
+                        collection: months_collection,
+                        selected: months_collection[1],
+                        class: 'rounded custom-select',
+                        data: { input_child_info_target: 'month' }
 
-      select.custom-select#two_years_childs_months
-        option [disabled selected hidden value]
-          =t('calculators.calculator.form.childs_months_label')
-        - (0..6).each do |month|
-          option value = month
-            = "#{month} #{t('datetime.prompts.month').downcase.pluralize(count: month, locale: I18n.locale)}"
 
-      - if FeatureFlag.get('feature_budget_category').active?
-        p.form-a
-          = t '.form_price'
-          select.custom-select#product_category [required]
-            option
-              =t('calculators.calculator.form.budgetary')
-            option selected=""
-              =t('calculators.calculator.form.medium')
-            option
-              =t('calculators.calculator.form.premium')
+  = form.hidden_field :product_category, collection: collection_product_category,
+                                                selected: t('calculators.calculator.form.medium'),
+                                                data: { input_child_info_target: 'productCategory' }
 
-      = form.text_field :baby_weight, placeholder:t('calculators.calculator.form.baby_weight_label'), class:"form-input d-none"
-      = form.text_field :diapers_per_day, placeholder: "Diapers per day", class:"form-input d-none"
 
-    / div.flex-item.mt-4
-    /   = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
-    /                        wrapper_tag: "input")
-      / = simple_format(t("calculators.calculator.want_recomentation_label"),
-      /                  { for: "checkbox_submit" }, wrapper_tag: "label")
-    button.calculate-btn.result-btn[type="submit" id="button_submit"]
-      =<t('.calculate_result_button')
+  / = form.text_field  :baby_weight, placeholder:t('calculators.calculator.form.baby_weight_label')
+  / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
+  /.flex-item.mb-4
+    = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
+                        wrapper_tag: "input")
+    = simple_format(t("calculators.calculator.want_recomentation_label"),
+                    { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
+
+  .block.mx-5.mt-4.mb-3
+    = form.submit t('calculators.calculator.calculate_result_button'),
+                  class:'calculate-btn result-btn calc-item',
+                  data: { action:'input-child-info#submit' }

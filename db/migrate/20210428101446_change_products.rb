@@ -8,7 +8,8 @@ class ChangeProducts < ActiveRecord::Migration[6.1]
       t.references :priceable, polymorphic: true
     end
 
-    ProductType.find_by(title: "Diapers").products.destroy_all
+    products = ProductType.find_by(title: "Diapers")
+    products&.destroy_all
 
     drop_table :prices
   end
