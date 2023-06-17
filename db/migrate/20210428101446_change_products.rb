@@ -4,7 +4,7 @@ class ChangeProducts < ActiveRecord::Migration[6.1]
   end
 
   def down
-    create_table :prices do |t|
+    create_table :prices do |t| # rubocop:disable Rails/CreateTableWithTimestamps
       t.references :priceable, polymorphic: true
     end
 

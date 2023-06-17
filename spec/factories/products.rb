@@ -18,7 +18,6 @@
 #
 FactoryBot.define do
   factory :product do
-
     trait :diaper do
       title { "diaper" }
     end
