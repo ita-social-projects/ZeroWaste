@@ -4,8 +4,9 @@ class ChangeProducts < ActiveRecord::Migration[6.1]
   end
 
   def down
-    create_table :prices do |t| # rubocop:disable Rails/CreateTableWithTimestamps
+    create_table :prices do |t|
       t.references :priceable, polymorphic: true
+      t.timestamps
     end
 
     products = ProductType.find_by(title: "Diapers")
