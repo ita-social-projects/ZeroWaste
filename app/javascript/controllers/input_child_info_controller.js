@@ -26,12 +26,8 @@ export default class extends Controller {
     // Clear old options from the month selection list
     this.monthTarget.innerHTML = '';
 
-
-    console.log(e.target.value)
-
     // Determining the number of options for months
     const amountOptions = e.target.value.includes("2") ? 6 : 11;
-
 
     // Save the previous month value before updating
     const previousMonthValue = this.monthTarget.value;
