@@ -1,8 +1,10 @@
 .jumbotron.jumbotron-fluid.position-relative.rounded
-  a.rounded.calculator__cross__space href=root_path
+  a.rounded.calculator__cross__space.mt-2 href=root_path
     = image_tag "arrow-left.svg", class:"z-1 calculator__cross__space"
-  .d-flex.justify-content-around.flex-wrap.calculator_wrap.ml-3
-    == render partial: calculator_style
+
+  span.p-2 Back
+  .d-flex.justify-content-around.flex-wrap.calculator_wrap.ml-5
+    = render partial: calculator_style
 .container.calculation-results.result [data-controller='results']
   .row.row-l
     .col-sm.result-card

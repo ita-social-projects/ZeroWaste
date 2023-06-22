@@ -6,15 +6,15 @@
                                                   input_child_info_results_outlet: '.result' }}) do |form|
   .ml-5.inline.calc-item
     = form.input_field :years,
-                        collection: years_collection,
-                        selected: years_collection[1],
+                        collection: years_number,
+                        prompt: "Years",
                         class: 'rounded custom-select',
-                        data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' }
+                        data: { input_child_info_target: 'year', action:'input-child-info#yearChanged', type: 'old' }
 
   .ml-5.inline.calc-item
     = form.input_field :months,
-                        collection: months_collection,
-                        selected: months_collection[1],
+                        collection: month_number,
+                        prompt: "Months",
                         class: 'rounded custom-select',
                         data: { input_child_info_target: 'month' }
 

@@ -22,7 +22,6 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
-
     // Clear old options from the month selection list
     this.monthTarget.innerHTML = '';
 
@@ -39,8 +38,11 @@ export default class extends Controller {
 
     // Adding new options to the month selection list
     for (let monthIndex = 0; monthIndex <= amountOptions; monthIndex++) {
-      this.monthTarget.appendChild(this.getBasicOption((monthIndex === 1 ? `${monthIndex} month` : `${monthIndex} months`)));
-
+      if ( e.target.dataset.type === 'old') {
+        this.monthTarget.appendChild(this.getBasicOption((monthIndex === 1 ? `${monthIndex} month` : `${monthIndex} months`)));
+      } else {
+        this.monthTarget.appendChild(this.getBasicOption(monthIndex));
+      }
       // If the previous month value is saved, set it as the selected value
       if (monthIndex == previousMonthValue && previousMonthValue) {
         this.monthTarget.value = monthIndex;
