@@ -1,10 +1,13 @@
 .jumbotron.jumbotron-fluid.position-relative.rounded
   a.rounded.calculator__cross__space.mt-2 href=root_path
-    = image_tag "arrow-left.svg", class:"z-1 calculator__cross__space"
-
-  span.p-2 Back
+    = image_tag "arrow-left.svg", class:"z-1 calculator__cross__space mt-2"
+  .p-2
+    = t 'calculators.show.to_main'
   .d-flex.justify-content-around.flex-wrap.calculator_wrap.ml-5
-    = render partial: calculator_style
+    - if Flipper[:new_calculator_design].enabled?
+        = render "calculators/new_calculator"
+    - else
+        = render "calculators/old_calculator"
 .container.calculation-results.result [data-controller='results']
   .row.row-l
     .col-sm.result-card

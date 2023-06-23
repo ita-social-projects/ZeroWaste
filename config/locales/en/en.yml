@@ -58,6 +58,7 @@ en:
       gram_of_plastic: "Gram of Plastic"
     show:
       welcome_header: "Welcome to ZeroWaste"
+      to_main: "To main"
   layouts:
     navigation:
       admin: "Admin"
