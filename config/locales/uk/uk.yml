@@ -7,9 +7,11 @@ uk:
       form_price: "Цінова категорія"
       form:
         childs_birthday_label: "Дата народження дитини"
-        childs_age_label: "Вік дитини"
+        childs_age_label: "Скільки виповнилося дитині:"
         childs_years_label: "р."
         childs_months_label: "міс."
+        years_prompt: повних років
+        months_prompt: місяців
         baby_weight_label: "Baby weight"
         budgetary: "бюджетна"
         medium: "середня"

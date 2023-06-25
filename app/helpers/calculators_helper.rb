@@ -6,9 +6,9 @@ module CalculatorsHelper
   end
 
   def collection_product_category
-    [t(".form.budgetary"),
-      t(".form.medium"),
-      t(".form.premium")]
+    [t("calculators.calculator.form.budgetary"),
+      t("calculators.calculator.form.medium"),
+      t("calculators.calculator.form.premium")]
   end
 
   def years_number

@@ -1,5 +1,5 @@
 .calc-container.mx-5.mt-5
-  = t('calculators.calculator.form_description')
+  = t('calculators.calculator.form.childs_age_label')
 = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator calc-container",
                                            data:{ controller: "input-child-info",
                                                   input_child_info_url_value: api_v1_diaper_calculators_url,
@@ -8,14 +8,14 @@
   .ml-5.inline.calc-item
     = form.input_field :years,
                         collection: years_number,
-                        prompt: "Years",
+                        prompt: t('calculators.calculator.form.years_prompt'),
                         class: 'rounded custom-select',
                         data: { input_child_info_target: 'year', action:'input-child-info#yearChanged' }
 
   .ml-5.inline.calc-item
     = form.input_field :months,
                         collection: month_number("old"),
-                        prompt: "Months",
+                        prompt: t('calculators.calculator.form.months_prompt'),
                         class: 'rounded custom-select childs_months',
                         data: { input_child_info_target: 'month' }
 
@@ -24,16 +24,7 @@
                                                 selected: t('calculators.calculator.form.medium'),
                                                 data: { input_child_info_target: 'productCategory' }
 
-
-  / = form.text_field  :baby_weight, placeholder:t('calculators.calculator.form.baby_weight_label')
-  / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
-  /.flex-item.mb-4
-    = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
-                        wrapper_tag: "input")
-    = simple_format(t("calculators.calculator.want_recomentation_label"),
-                    { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
-
   .block.mx-5.mt-4.mb-3
     = form.submit t('calculators.calculator.calculate_result_button'),
-                  class:'calculate-btn result-btn calc-item',
+                  class:'calculate-btn result-btn calc-item old-btn',
                   data: { action:'input-child-info#submit' }

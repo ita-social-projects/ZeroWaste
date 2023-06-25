@@ -41,6 +41,8 @@ en:
         childs_age_label: "Child`s age"
         childs_years_label: "y/o."
         childs_months_label: "mth."
+        years_prompt: years
+        months_prompt: months
         baby_weight_label: "Baby weight"
         budgetary: "budgetary"
         medium: "medium"

@@ -30,14 +30,6 @@
                                                       class: 'form_fild price_select rounded w-100',
                                                       data: { input_child_info_target: 'productCategory' }
 
-
-        / = form.text_field  :baby_weight, placeholder:t('calculators.calculator.form.baby_weight_label')
-        / = form.text_field :diapers_per_day, placeholder: "Diapers per day"
-        /.flex-item.mb-4
-          = simple_format("", { type: "checkbox", name: "email_receiver", id: "checkbox_submit" },
-                              wrapper_tag: "input")
-          = simple_format(t("calculators.calculator.want_recomentation_label"),
-                          { for: "checkbox_submit", class:"check-label" }, wrapper_tag: "label")
         = form.submit t('calculators.calculator.calculate_result_button'),
                     class:'calculate-btn result-btn',
                     data: { action:'input-child-info#submit' }
