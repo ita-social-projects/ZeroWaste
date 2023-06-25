@@ -3,17 +3,18 @@
 = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator calc-container",
                                            data:{ controller: "input-child-info",
                                                   input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                  input_child_info_months_value: month_number("old"),
                                                   input_child_info_results_outlet: '.result' }}) do |form|
   .ml-5.inline.calc-item
     = form.input_field :years,
                         collection: years_number,
                         prompt: "Years",
                         class: 'rounded custom-select',
-                        data: { input_child_info_target: 'year', action:'input-child-info#yearChanged', collection: month_number }
+                        data: { input_child_info_target: 'year', action:'input-child-info#yearChanged' }
 
   .ml-5.inline.calc-item
     = form.input_field :months,
-                        collection: month_number,
+                        collection: month_number("old"),
                         prompt: "Months",
                         class: 'rounded custom-select childs_months',
                         data: { input_child_info_target: 'month' }

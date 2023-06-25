@@ -1,6 +1,7 @@
     = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
                                                data:{ controller: "input-child-info",
                                                       input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                      input_child_info_months_value: month_number("new"),
                                                       input_child_info_results_outlet: '.result' }}) do |form|
       .flex-item.flex-column
         .input_lable.pb-2
@@ -10,7 +11,7 @@
                               collection: 0..2,
                               prompt:'__',
                               class:'select-age ml-2 rounded',
-                              data: { input_child_info_target: 'year', action:'input-child-info#yearChanged', collection: (0..11).to_a.map(&:to_s) }
+                              data: { input_child_info_target: 'year', action:'input-child-info#yearChanged' }
 
           = t('calculators.calculator.form.childs_years_label')
 
