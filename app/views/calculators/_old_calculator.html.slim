@@ -9,13 +9,13 @@
                         collection: years_number,
                         prompt: "Years",
                         class: 'rounded custom-select',
-                        data: { input_child_info_target: 'year', action:'input-child-info#yearChanged', type: 'old' }
+                        data: { input_child_info_target: 'year', action:'input-child-info#yearChanged', collection: month_number }
 
   .ml-5.inline.calc-item
     = form.input_field :months,
                         collection: month_number,
                         prompt: "Months",
-                        class: 'rounded custom-select',
+                        class: 'rounded custom-select childs_months',
                         data: { input_child_info_target: 'month' }
 
 

@@ -25,8 +25,10 @@ export default class extends Controller {
     // Clear old options from the month selection list
     this.monthTarget.innerHTML = '';
 
+    const availableMonths = eval(e.target.dataset.collection)
+
     // Determining the number of options for months
-    const amountOptions = e.target.value.includes("2") ? 6 : 11;
+    const amountOptions = e.target.value.includes("2") ? availableMonths.slice(0, 7) : availableMonths;
 
     // Save the previous month value before updating
     const previousMonthValue = this.monthTarget.value;
@@ -37,12 +39,9 @@ export default class extends Controller {
     }
 
     // Adding new options to the month selection list
-    for (let monthIndex = 0; monthIndex <= amountOptions; monthIndex++) {
-      if ( e.target.dataset.type === 'old') {
-        this.monthTarget.appendChild(this.getBasicOption((monthIndex === 1 ? `${monthIndex} month` : `${monthIndex} months`)));
-      } else {
-        this.monthTarget.appendChild(this.getBasicOption(monthIndex));
-      }
+    for (let monthIndex = 0; monthIndex < amountOptions.length; monthIndex++) {
+      this.monthTarget.appendChild(this.getBasicOption(amountOptions[monthIndex]));
+
       // If the previous month value is saved, set it as the selected value
       if (monthIndex == previousMonthValue && previousMonthValue) {
         this.monthTarget.value = monthIndex;

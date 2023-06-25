@@ -10,7 +10,7 @@
                               collection: 0..2,
                               prompt:'__',
                               class:'select-age ml-2 rounded',
-                              data: { input_child_info_target: 'year', action:'input-child-info#yearChanged', type: 'new' }
+                              data: { input_child_info_target: 'year', action:'input-child-info#yearChanged', collection: (0..11).to_a.map(&:to_s) }
 
           = t('calculators.calculator.form.childs_years_label')
 
