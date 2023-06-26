@@ -15,9 +15,11 @@ module CalculatorsHelper
     (0..2).map { |year| "#{year} #{t("datetime.prompts.year").downcase.pluralize(count: year, locale: I18n.locale)}" }
   end
 
+  # TODO tap method
+
   def month_number(style)
-    collection = (0..155).map { |month| t("calculators.date.months", count: month) } if style == "old"
-    collection = (0..11).to_a.map(&:to_s) if style == "new"
+    collection = (0..11).map { |month| t("calculators.date.months", count: month) } if style == "old"
+    collection = (0..11).map(&:to_s) if style == "new"
 
     collection
   end

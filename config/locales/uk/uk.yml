@@ -34,13 +34,19 @@ uk:
       will_buy_diapers: "Кількість підгузків, які ще будуть використані"
       money_spent: "Вартість використаних підгузків"
       money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
+    buttons:  
       to_main: "На головну"
     date:
       months:
         one: "%{count} місяць"
-        few: "%{count} місяців"
-        many: "%{count} місяці"
+        few: "%{count} місяці"
+        many: "%{count} місяців"
         other: "%{count} місяців"
+      years:
+        one: "%{count} рік"
+        few: "%{count} роки"
+        many: "%{count} років"
+        other: "%{count} років"
   layouts:
     navigation:
       admin: "Адміністратор"

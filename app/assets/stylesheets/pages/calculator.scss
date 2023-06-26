@@ -34,11 +34,17 @@
   margin-bottom: 0px;
 }
 
-.calculator__cross__space {
+.back-link {
+  font-size: small;
   position: absolute;
-  top: 10px;
-  left: 10px;
-  height: 20px;
+  top: -10px;
+}
+
+.back-text {
+  color: black;
+}
+
+.calulator-arrow {
   width: 20px;
 }
 
@@ -202,6 +208,16 @@
 
 .calc-item {
   width: 300px
+}
+
+.back-link {
+  width: 120px;
+  position: absolute;
+  top: -10px;
+}
+
+.back-link:hover {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1199px) and (min-width: 400px) {

@@ -62,6 +62,17 @@ en:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
       to_main: "To main"
+    date:
+      months:
+        one: "%{count} month"
+        few: "%{count} months"
+        many: "%{count} months"
+        other: "%{count} months"
+      years:
+        one: "%{count} year"
+        few: "%{count} years"
+        many: "%{count} years"
+        other: "%{count} years"
   layouts:
     navigation:
       admin: "Admin"
