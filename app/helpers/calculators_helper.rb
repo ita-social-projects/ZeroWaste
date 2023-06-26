@@ -16,7 +16,7 @@ module CalculatorsHelper
   end
 
   def month_number(style)
-    collection = (0..11).map { |month| "#{month} #{t("datetime.prompts.month").downcase.pluralize(count: month, locale: I18n.locale)}" } if style == "old"
+    collection = (0..155).map { |month| t("calculators.date.months", count: month) } if style == "old"
     collection = (0..11).to_a.map(&:to_s) if style == "new"
 
     collection

@@ -35,6 +35,12 @@ uk:
       money_spent: "Вартість використаних підгузків"
       money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
       to_main: "На головну"
+    date:
+      months:
+        one: "%{count} місяць"
+        few: "%{count} місяців"
+        many: "%{count} місяці"
+        other: "%{count} місяців"
   layouts:
     navigation:
       admin: "Адміністратор"
@@ -537,6 +543,7 @@ uk:
       day: День
       month: Місяць
       year: Рік
+
   errors:
     format: "%{attribute} %{message}"
     messages:
