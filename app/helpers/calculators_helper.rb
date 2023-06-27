@@ -18,9 +18,11 @@ module CalculatorsHelper
   # TODO tap method
 
   def month_number(style)
-    collection = (0..11).map { |month| t("calculators.date.months", count: month) } if style == "old"
-    collection = (0..11).map(&:to_s) if style == "new"
+    case style
 
-    collection
+    when "old" then (0..11).map { |month| t("calculators.date.months", count: month) }
+    when "new" then (0..11).map(&:to_s)
+
+    end
   end
 end
