@@ -15,8 +15,6 @@ module CalculatorsHelper
     (0..2).map { |year| t("calculators.date.years", count: year) }
   end
 
-  # TODO tap method
-
   def month_number(style)
     case style
 
