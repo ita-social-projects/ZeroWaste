@@ -12,7 +12,7 @@ module CalculatorsHelper
   end
 
   def years_number
-    (0..2).map { |year| "#{year} #{t("datetime.prompts.year").downcase.pluralize(count: year, locale: I18n.locale)}" }
+    (0..2).map { |year| t("calculators.date.years", count: year) }
   end
 
   # TODO tap method
