@@ -104,6 +104,7 @@ en:
       app_config: "App Config"
       site_settings: "Site Settings"
       categories: 'Categories'
+      products: "Products"
   messages:
     new:
       contact_us_header: "Contact us"
