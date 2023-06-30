@@ -4,6 +4,6 @@ class ChangeCategoryFromIntegerToString < ActiveRecord::Migration[6.1]
   end
 
   def down
-    change_column :product_prices, :category, 'integer USING CAST(category AS integer)'
+    change_column :product_prices, :category, "integer USING CAST(category AS integer)"
   end
 end

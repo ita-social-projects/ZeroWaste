@@ -41,6 +41,8 @@ en:
         childs_age_label: "Child`s age"
         childs_years_label: "y/o."
         childs_months_label: "mth."
+        years_prompt: years
+        months_prompt: months
         baby_weight_label: "Baby weight"
         budgetary: "budgetary"
         medium: "medium"
@@ -58,6 +60,19 @@ en:
       gram_of_plastic: "Gram of Plastic"
     show:
       welcome_header: "Welcome to ZeroWaste"
+    buttons:
+      to_main: "To main"
+    date:
+      months:
+        one: "%{count} month"
+        few: "%{count} months"
+        many: "%{count} months"
+        other: "%{count} months"
+      years:
+        one: "%{count} year"
+        few: "%{count} years"
+        many: "%{count} years"
+        other: "%{count} years"
   layouts:
     navigation:
       admin: "Admin"
@@ -239,6 +254,8 @@ en:
       submit_button: "Save"
       access_admin_menu:
         name: "Access Admin Menu"
+      new_calculator_design:
+        name: "Enable new calculator design"
     sessions:
       new:
         log_in_header: "Log in"

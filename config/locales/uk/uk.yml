@@ -7,9 +7,11 @@ uk:
       form_price: "Цінова категорія"
       form:
         childs_birthday_label: "Дата народження дитини"
-        childs_age_label: "Вік дитини"
+        childs_age_label: "Скільки виповнилося дитині:"
         childs_years_label: "р."
         childs_months_label: "міс."
+        years_prompt: повних років
+        months_prompt: місяців
         baby_weight_label: "Baby weight"
         budgetary: "бюджетна"
         medium: "середня"
@@ -32,6 +34,19 @@ uk:
       will_buy_diapers: "Кількість підгузків, які ще будуть використані"
       money_spent: "Вартість використаних підгузків"
       money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
+    buttons:  
+      to_main: "На головну"
+    date:
+      months:
+        one: "%{count} місяць"
+        few: "%{count} місяці"
+        many: "%{count} місяців"
+        other: "%{count} місяців"
+      years:
+        one: "%{count} рік"
+        few: "%{count} роки"
+        many: "%{count} років"
+        other: "%{count} років"
   layouts:
     navigation:
       admin: "Адміністратор"
@@ -222,6 +237,8 @@ uk:
       submit_button: "Зберегти"
       access_admin_menu:
         name: "Доступ до меню адміна"
+      new_calculator_design:
+        name: "Увімкнути новий дизайн калькулятора"
     sessions:
       new:
         log_in_header: "Увійти"
@@ -532,6 +549,7 @@ uk:
       day: День
       month: Місяць
       year: Рік
+
   errors:
     format: "%{attribute} %{message}"
     messages:

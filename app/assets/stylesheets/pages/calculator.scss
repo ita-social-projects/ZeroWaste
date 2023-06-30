@@ -1,5 +1,5 @@
 .calculate-btn {
-  width: 100%;
+  width: auto !important;
   height: 56px;
   margin-top: 40px;
   color: #fff;
@@ -34,10 +34,18 @@
   margin-bottom: 0px;
 }
 
-.calculator__cross__space {
+.back-link {
+  font-size: small;
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: -10px;
+}
+
+.back-text {
+  color: black;
+}
+
+.calulator-arrow {
+  width: 20px;
 }
 
 .form {
@@ -73,8 +81,9 @@
     align-items: center;
     .select-age {
       background-color: $light_gray;
-      width: 20px;
-      margin-left: 4px;
+      background-image: none;
+      width: 10%;
+      margin-left: 40px;
       text-align: center;
       border: none;
       outline: none;
@@ -181,8 +190,34 @@
   }
 }
 
+.old-btn {
+  width: 300px !important;
+}
+
 .z-1 {
   z-index: 1;
+}
+
+.inline-input {
+  display: inline-flex;
+}
+
+.calc-container {
+  width: 100% !important;
+}
+
+.calc-item {
+  width: 300px
+}
+
+.back-link {
+  width: 120px;
+  position: absolute;
+  top: -10px;
+}
+
+.back-link:hover {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1199px) and (min-width: 400px) {

@@ -1,0 +1,30 @@
+.calc-container.mx-5.mt-5
+  = t('calculators.calculator.form.childs_age_label')
+= simple_form_for(:child, url: "#", html: { class: "simple_form_calculator calc-container",
+                                           data: { controller: "input-child-info",
+                                                  input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                  input_child_info_months_value: month_number("old"),
+                                                  input_child_info_results_outlet: '.result' }}) do |form|
+  .ml-5.inline.calc-item
+    = form.input_field :years,
+                        collection: years_number,
+                        prompt: t('calculators.calculator.form.years_prompt'),
+                        class: 'rounded custom-select',
+                        data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' }
+
+  .ml-5.inline.calc-item
+    = form.input_field :months,
+                        collection: month_number("old"),
+                        prompt: t('calculators.calculator.form.months_prompt'),
+                        class: 'rounded custom-select childs_months',
+                        data: { input_child_info_target: 'month' }
+
+
+  = form.hidden_field :product_category, collection: collection_product_category,
+                                                selected: t('calculators.calculator.form.medium'),
+                                                data: { input_child_info_target: 'productCategory' }
+
+  .block.mx-5.mt-4.mb-3
+    = form.submit t('calculators.calculator.calculate_result_button'),
+                  class: 'calculate-btn result-btn calc-item old-btn',
+                  data: { action: 'input-child-info#submit' }

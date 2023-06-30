@@ -6,9 +6,11 @@ class ChangeProducts < ActiveRecord::Migration[6.1]
   def down
     create_table :prices do |t|
       t.references :priceable, polymorphic: true
+      t.timestamps
     end
 
-    ProductType.find_by(title: "Diapers").products.destroy_all
+    products = ProductType.find_by(title: "Diapers")
+    products&.destroy_all
 
     drop_table :prices
   end
