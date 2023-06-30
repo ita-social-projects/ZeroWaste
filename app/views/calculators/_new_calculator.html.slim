@@ -16,7 +16,7 @@
           = t('calculators.calculator.form.childs_years_label')
 
           = form.input_field :months,
-                              collection: 0..11,
+                              collection: month_number("new"),
                               prompt: '__',
                               class: 'select-age rounded',
                               data: { input_child_info_target: 'month' }

@@ -18,7 +18,7 @@ module CalculatorsHelper
   def month_number(style)
     case style
     when "old" then (0..11).map { |month| t("calculators.date.months", count: month) }
-    when "new" then (0..11).map(&:to_s)
+    when "new" then (0..11).to_a
     end
   end
 end
