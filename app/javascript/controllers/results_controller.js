@@ -20,5 +20,12 @@ export default class extends Controller {
 
     this.usedDiapersAmountTarget.innerHTML = data.text_products_used;
     this.toBeUsedDiapersAmountTarget.innerHTML = data.text_products_to_be_used;
+
+    console.log(result.money_spent)
+    console.log(result.money_will_be_spent)
+    console.log(result.used_diapers_amount)
+    console.log(result.to_be_used_diapers_amount)
+    console.log(data.text_products_used)
+    console.log(data.text_products_to_be_used)
   }
 }

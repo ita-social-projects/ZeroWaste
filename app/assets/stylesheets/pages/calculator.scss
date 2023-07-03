@@ -243,6 +243,150 @@
     max-width: 400px;
   }
 }
+// =======================
+.result-container-first,
+.result-container-second {
+  display: flex;
+  flex-flow: row wrap;
+  line-height: 1.0;
+  justify-content: center;
+  margin: 0;
+  div {
+    color: $success;
+    width: 350px;
+    margin: 20px 10px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    p {
+      margin:0;
+    }
+  }
+  .vector-width {
+    width: 100px;
+    .vector {
+      padding-top: 85px;
+    }
+    .vector-mobile {
+      display: none;
+    }
+  }
+}
+
+.diapers-font {
+  font-size: 24px;
+  font-weight: bold;
+  }
+
+.diapers-font-text {
+  font-size: 16px;
+  font-weight: normal;
+  color:#515151;
+}
+
+.img-margin-money {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.img-margin {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 991px) and (min-width: 880px) {
+  .jumbotron {
+    width: auto;
+  }
+  div.container {
+    padding: 0;
+    width: auto;
+  }
+  .result-container-first,
+  .result-container-second {
+    div {
+      width: 280px;
+      p {
+        width: 280px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 879px) {
+  div.jumbotron {
+    margin: 0;
+    padding: 0;
+  }
+  .result-container-first {
+    background-color: #ECECEC;
+  }
+  .result-container-second {
+    background-color: #fff;
+  }
+
+  .container {
+    padding: 0;
+    margin: 0;
+    max-width: 879px;
+  }
+
+  .result-container-first,
+  .result-container-second {
+    div {
+      margin: 20px 50px;
+    }
+  }
+
+  .main-result-container {
+    display: flex;
+    flex-flow: column wrap;
+    line-height: 1.0;
+    align-items: center;
+    max-width: 879px;
+
+    .vector-width {
+      width: 350px;
+      .vector {
+        display: none;
+        padding-top: 25px;
+      }
+      .vector-mobile {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .jumbotron {
+    width: auto;
+  }
+  .container {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: $xs) {
+  .jumbotron {
+    margin: 0;
+  }
+  .result-container-first,
+  .result-container-second {
+    div {
+      margin: 20px 0;
+      width: 300px;
+    }
+    p {
+      width: 300px;
+    }
+    .vector-width {
+      width: 300px;
+    }
+  }
+}
+
+// =======================
 
 @media screen and (max-width: $xs) {
   .simple_form_calculator {
