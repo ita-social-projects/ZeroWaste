@@ -243,7 +243,7 @@
     max-width: 400px;
   }
 }
-// =======================
+
 .result-container-first,
 .result-container-second {
   display: flex;
@@ -282,12 +282,8 @@
   font-size: 16px;
   font-weight: normal;
   color:#515151;
-}
+}Math.ceil
 
-.img-margin-money {
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
 .img-margin {
   margin-left: 40px;
   margin-bottom: 10px;
@@ -385,8 +381,6 @@
     }
   }
 }
-
-// =======================
 
 @media screen and (max-width: $xs) {
   .simple_form_calculator {

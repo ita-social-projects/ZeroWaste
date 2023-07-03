@@ -58,6 +58,8 @@ en:
       money_will_be_spent: "UAH yet to be spent on diapers"
       mililiters_of_naphtha: "Mililiters of Naphtha"
       gram_of_plastic: "Gram of Plastic"
+      pieces: pcs.
+      hryvnia: uah
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
