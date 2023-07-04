@@ -61,6 +61,12 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "GET /calculator" do
+    it "shouldn`t create any instance" do
+      get calculator_path
+
+      expect(response).not_to be_a_new(Calculator)
+    end
+
     it "renders the calculator template" do
       get calculator_path
 
@@ -87,6 +93,24 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "POST /receive_recomendations" do
+    let!(:user) { create(:user) }
+
+    before do
+      controller.stub(:current_user) { user }
+    end
+
+    it "takes user with receive_recomendations:false" do
+      expect(user.receive_recomendations).to eq false
+    end
+
+    it "doesn`t change user attribute unless user signed in" do
+      expect do
+        post receive_recomendations_path
+
+        user.reload
+      end.not_to change { user.receive_recomendations }
+    end
+
     context "when user is authenticated" do
       include_context :authorize_regular_user
 
