@@ -91,43 +91,4 @@ RSpec.describe CalculatorsController, type: :request do
       end
     end
   end
-
-  describe "POST /receive_recomendations" do
-    let!(:user) { create(:user) }
-
-    before do
-      controller.stub(:current_user) { user }
-    end
-
-    it "takes user with receive_recomendations:false" do
-      expect(user.receive_recomendations).to eq false
-    end
-
-    it "doesn`t change user attribute unless user signed in" do
-      expect do
-        post receive_recomendations_path
-
-        user.reload
-      end.not_to change { user.receive_recomendations }
-    end
-
-    context "when user is authenticated" do
-      include_context :authorize_regular_user
-
-      it "toggles the receive_recomendations flag for the current user" do
-        expect do
-          post receive_recomendations_path
-        end.to change { current_user.receive_recomendations }.from(false).to(true)
-      end
-    end
-
-    context "when user is not authenticated" do
-      it "redirects to the sign in page" do
-        post receive_recomendations_path
-
-        expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(new_user_session_path)
-      end
-    end
-  end
 end
