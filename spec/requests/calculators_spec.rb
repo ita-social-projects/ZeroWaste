@@ -37,7 +37,7 @@ RSpec.describe CalculatorsController, type: :request do
     end
 
     it "returns JSON" do
-      expect(response).to have_http_status(200)
+      expect(response).to be_successful
       expect(response.content_type).to eq("application/json; charset=utf-8")
 
       expect(json_response).to include("result")
@@ -61,16 +61,16 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "GET /calculator" do
-    it "shouldn`t create any instance" do
+    before do
       get calculator_path
+    end
 
+    it "shouldn`t create any instance" do
       expect(response).not_to be_a_new(Calculator)
     end
 
     it "renders the calculator template" do
-      get calculator_path
-
-      expect(response).to have_http_status(200)
+      expect(response).to be_successful
       expect(response).to render_template(:calculator)
     end
   end
@@ -80,7 +80,7 @@ RSpec.describe CalculatorsController, type: :request do
       it "renders the calculate template" do
         post calculate_calculator_path(calculator.slug)
 
-        expect(response).to have_http_status(200)
+        expect(response).to be_successful
         expect(response).to render_template(:calculate)
       end
     end
