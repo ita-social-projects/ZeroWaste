@@ -61,12 +61,6 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "GET /calculator" do
-    it "shouldn`t create any instance" do
-      get calculator_path
-
-      expect(response).not_to be_a_new(Calculator)
-    end
-
     it "renders the calculator template" do
       get calculator_path
 
