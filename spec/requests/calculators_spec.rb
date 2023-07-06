@@ -107,7 +107,7 @@ RSpec.describe CalculatorsController, type: :request do
     end
   end
 
-  describe "POST /account/calculators" do
+  describe "POST #create" do
     include_context :authorize_admin
 
     let(:valid_attributes) { { name: "калькулятор", slug: "test" } }
