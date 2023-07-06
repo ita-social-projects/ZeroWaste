@@ -21,4 +21,13 @@ module CalculatorsHelper
     when "new" then (0..11).to_a
     end
   end
+
+  def old_results_data
+    [
+      { image: "diapers_to_buy.png", data_target: "diapersToBeUsed", locale: I18n.t("calculators.calculator.will_buy_diapers")},
+      { image: "diapers_bought.png", data_target: "diapersUsed", locale: I18n.t("calculators.calculator.bought_diapers")},
+      { image: "money_to_spent.png", data_target: "moneyWillBeSpent", locale: I18n.t("calculators.calculator.money_will_be_spent")},
+      { image: "money_spent.png", data_target: "moneySpent", locale: I18n.t("calculators.calculator.money_spent")},
+    ]
+  end
 end

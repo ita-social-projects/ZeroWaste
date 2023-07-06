@@ -36,33 +36,13 @@
                       data: { action: 'input-child-info#submit' }
 .container.calculation-results.result [data-controller='results']
   .row.row-l
-    .col-sm.result-card
-      .img-border
-        = image_tag "diapers_to_buy.png", class: "rounded"
-      span
-        p [data-results-target="diapersToBeUsed"] 0
-        .[data-results-target="ToBeUsedDiapersAmount"]
-          ="#{t("calculators.calculator.diaper").pluralize(count: 0, locale: I18n.locale)} #{t('calculators.calculator.will_buy_diapers')}"
-    .w-100.row_break
-    .col-sm.result-card
-      .img-border
-        = image_tag "diapers_bought.png", class: "rounded"
-      span
-        p [data-results-target="diapersUsed"] 0
-        .[data-results-target="UsedDiapersAmount"]
-          = "#{t("calculators.calculator.diaper").pluralize(count: 0, locale: I18n.locale)} #{t('calculators.calculator.bought_diapers')}"
-    .col-sm.result-card
-      .img-border
-        = image_tag "money_to_spent.png", class: "rounded"
-      span
-        p [data-results-target="moneyWillBeSpent"] 0
-        = t 'calculators.calculator.money_will_be_spent'
-    .col-sm.result-card
-      .img-border
-        = image_tag "money_spent.png", class:"rounded"
-      span
-        p [data-results-target="moneySpent"] 0
-        = t 'calculators.calculator.money_spent'
+    - old_results_data.each do |item|
+      .col-sm.result-card
+        .img-border
+          = image_tag item[:image], class: "rounded"
+        span
+          p [data-results-target=item[:data_target]] 0
+          = item[:locale]
 
 .container.calculation-results
   .row

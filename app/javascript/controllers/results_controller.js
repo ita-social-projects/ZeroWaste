@@ -6,8 +6,6 @@ export default class extends Controller {
     "diapersToBeUsed",
     "moneySpent",
     "moneyWillBeSpent",
-    "toBeUsedDiapersAmount",
-    "usedDiapersAmount",
   ];
 
   showResults(data) {
@@ -17,8 +15,5 @@ export default class extends Controller {
     this.moneyWillBeSpentTarget.innerHTML = Math.ceil(result.money_will_be_spent);
     this.diapersUsedTarget.innerHTML = Math.ceil(result.used_diapers_amount);
     this.diapersToBeUsedTarget.innerHTML = Math.ceil(result.to_be_used_diapers_amount);
-
-    this.usedDiapersAmountTarget.innerHTML = data.text_products_used;
-    this.toBeUsedDiapersAmountTarget.innerHTML = data.text_products_to_be_used;
   }
 }
