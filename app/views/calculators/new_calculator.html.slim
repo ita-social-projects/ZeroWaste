@@ -43,43 +43,21 @@
 
 .container.calculation-results.result [data-controller='results']
   .main-result-container
-    .result-container-first
-      div
-        = image_tag "diapers_bought_2.png", class: "img-margin"
-        p [data-results-target="diapersUsed"] 000
-        p.diapers-font
-          = t 'calculators.calculator.pieces'
-        p.diapers-font-text
-          = t 'calculators.calculator.bought_diapers'
-      .vector-width
-        = image_tag "vector_5.png", class: "vector"
-        = image_tag "vector_2.png", class: "vector-mobile"
-      div
-        = image_tag "diapers_to_buy_2.png", class: "img-margin"
-        p [data-results-target="diapersToBeUsed"] 000
-        p.diapers-font
-          = t 'calculators.calculator.pieces'
-        p.diapers-font-text.diapers-font-width
-          = t 'calculators.calculator.will_buy_diapers'
-    .result-container-second
-      div
-        = image_tag "money_spent_2.png", class: "img-margin"
-        p [data-results-target="moneySpent"] 000
-        p.diapers-font
-          = t 'calculators.calculator.hryvnia'
-        p.diapers-font-text
-          = t 'calculators.calculator.money_spent'
-      .vector-width
-        = image_tag "vector_5.png", class: "vector"
-        = image_tag "vector_2.png", class: "vector-mobile"
-      div
-        = image_tag "money_to_spent_2.png", class: "img-margin"
-        p [data-results-target="moneyWillBeSpent"] 000
-        p.diapers-font
-          = t 'calculators.calculator.hryvnia'
-        p.diapers-font-text
-          = t 'calculators.calculator.money_will_be_spent'
+    .result-container
+      - new_results_data.each do |item|
+        - if item=="arrow"
+          .vector-width
+            = image_tag "vector_5.png", class: "vector"
+            = image_tag "vector_2.png", class: "vector-mobile"
 
+        - else
+          div
+            = image_tag item[:image], class: "img-margin"
+            p [data-results-target=item[:data_target]] 000
+            p.diapers-font
+              = item[:unit]
+            p.diapers-font-text
+              = item[:text]
 
 .container.calculation-results
   .row

@@ -34,6 +34,7 @@
         = form.submit t('calculators.calculator.calculate_result_button'),
                       class: 'calculate-btn result-btn calc-item old-btn',
                       data: { action: 'input-child-info#submit' }
+
 .container.calculation-results.result [data-controller='results']
   .row.row-l
     - old_results_data.each do |item|
@@ -42,7 +43,7 @@
           = image_tag item[:image], class: "rounded"
         span
           p [data-results-target=item[:data_target]] 0
-          = item[:locale]
+          = item[:text]
 
 .container.calculation-results
   .row

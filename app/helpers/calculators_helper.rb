@@ -24,10 +24,21 @@ module CalculatorsHelper
 
   def old_results_data
     [
-      { image: "diapers_to_buy.png", data_target: "diapersToBeUsed", locale: I18n.t("calculators.calculator.will_buy_diapers")},
-      { image: "diapers_bought.png", data_target: "diapersUsed", locale: I18n.t("calculators.calculator.bought_diapers")},
-      { image: "money_to_spent.png", data_target: "moneyWillBeSpent", locale: I18n.t("calculators.calculator.money_will_be_spent")},
-      { image: "money_spent.png", data_target: "moneySpent", locale: I18n.t("calculators.calculator.money_spent")},
+      { image: "diapers_to_buy.png", data_target: "diapersToBeUsed", text: I18n.t("calculators.calculator.will_buy_diapers")},
+      { image: "diapers_bought.png", data_target: "diapersUsed", text: I18n.t("calculators.calculator.bought_diapers")},
+      { image: "money_to_spent.png", data_target: "moneyWillBeSpent", text: I18n.t("calculators.calculator.money_will_be_spent")},
+      { image: "money_spent.png", data_target: "moneySpent", text: I18n.t("calculators.calculator.money_spent")}
+    ]
+  end
+
+  def new_results_data
+    [
+      { image: "diapers_bought_2.png", data_target: "diapersUsed", unit: I18n.t("calculators.calculator.pieces"), text: I18n.t("calculators.calculator.bought_diapers")},
+      "arrow",
+      { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: I18n.t("calculators.calculator.pieces"), text: I18n.t("calculators.calculator.will_buy_diapers")},
+      { image: "money_spent_2.png", data_target: "moneySpent", unit: I18n.t("calculators.calculator.hryvnia"), text: I18n.t("calculators.calculator.money_spent")},
+      "arrow",
+      { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: I18n.t("calculators.calculator.hryvnia"), text: I18n.t("calculators.calculator.money_will_be_spent")}
     ]
   end
 end
