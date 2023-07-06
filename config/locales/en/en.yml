@@ -32,38 +32,39 @@
 en:
   uk: "Українська"
   calculators:
-    calculator:
-      diaper: "diaper"
-      form_description: "Child’s age:"
-      form_price: "Price category"
+    new_calculator:
       form:
-        childs_birthday_label: "Child's birthday"
-        childs_age_label: "Child`s age"
+        description: "Child’s age:"
+        price: "Price category"
         childs_years_label: "y/o."
         childs_months_label: "mth."
-        years_prompt: years
-        months_prompt: months
-        baby_weight_label: "Baby weight"
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
+      bought_diapers: "diapers already used"
+      will_buy_diapers: "diapers to be used in the future"
+      money_spent: "already spent on diapers"
+      money_will_be_spent: "yet to be spent on diapers"
+      pieces: pcs.
+      hryvnia: uah
+    old_calculator:
+      form:
+        description: "Child’s age:"
+        years_prompt: years
+        months_prompt: months
+      bought_diapers: "diapers already used"
+      money_spent: "UAH already spent on diapers"
+      will_buy_diapers: "diapers to be used in the future"
+      money_will_be_spent: "UAH yet to be spent on diapers"
+    errors:
       year_and_month_error_msg: "Error: please, select years and months"
       year_error_msg: "Error: please, select years"
       month_error_msg: "Error: please, select month"
-      calculate_result_button: "Calculate"
-      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
-      bought_diapers: "diapers already used"
-      will_buy_diapers: "diapers to be used in the future"
-      money_spent: "UAH already spent on diapers"
-      money_will_be_spent: "UAH yet to be spent on diapers"
-      mililiters_of_naphtha: "Mililiters of Naphtha"
-      gram_of_plastic: "Gram of Plastic"
-      pieces: pcs.
-      hryvnia: uah
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
       to_main: "To main"
+      calculate: "Calculate"
     date:
       months:
         one: "%{count} month"

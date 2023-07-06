@@ -11,7 +11,7 @@
                                                   input_child_info_results_outlet: '.result' }}) do |form|
       .flex-item.flex-column
         .input_lable.pb-2
-          = t('calculators.calculator.form_description')
+          = t('.form.description')
         .flex-item.flex-row.rounded.w-100.age_wrapper.form_fild
           = form.input_field :years,
                               collection: 0..2,
@@ -19,7 +19,7 @@
                               class: 'select-age ml-2 rounded',
                               data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' }
 
-          = t('calculators.calculator.form.childs_years_label')
+          = t('.form.childs_years_label')
 
           = form.input_field :months,
                               collection: month_number("new"),
@@ -27,16 +27,16 @@
                               class: 'select-age rounded',
                               data: { input_child_info_target: 'month' }
 
-          = t('calculators.calculator.form.childs_months_label')
+          = t('.form.childs_months_label')
         .input_lable.pb-2
-          = t('calculators.calculator.form_price')
+          = t('.form.price')
         = form.input_field :product_category, collection: collection_product_category,
-                                                      selected: t('calculators.calculator.form.medium'),
-                                                      label: t('calculators.calculator.form_price'),
+                                                      selected: t('.form.medium'),
+                                                      label: t('.form_price'),
                                                       class: 'form_fild price_select rounded w-100',
                                                       data: { input_child_info_target: 'productCategory' }
 
-        = form.submit t('calculators.calculator.calculate_result_button'),
+        = form.submit t('calculators.buttons.calculate'),
                     class: 'calculate-btn result-btn',
                     data: { action: 'input-child-info#submit' }
     = image_tag "scales.png", class: "scales_img"
@@ -44,12 +44,12 @@
 .container.calculation-results.result [data-controller='results']
   .main-result-container
     .result-container
-      - [{ image: "diapers_bought_2.png", data_target: "diapersUsed", unit: I18n.t("calculators.calculator.pieces"), text: I18n.t("calculators.calculator.bought_diapers") },
+      - [{ image: "diapers_bought_2.png", data_target: "diapersUsed", unit: t(".pieces"), text: t(".bought_diapers") },
         "arrow",
-        { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: I18n.t("calculators.calculator.pieces"), text: I18n.t("calculators.calculator.will_buy_diapers") },
-        { image: "money_spent_2.png", data_target: "moneySpent", unit: I18n.t("calculators.calculator.hryvnia"), text: I18n.t("calculators.calculator.money_spent") },
+        { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: t(".pieces"), text: t(".will_buy_diapers") },
+        { image: "money_spent_2.png", data_target: "moneySpent", unit: t(".hryvnia"), text: t(".money_spent") },
         "arrow",
-        { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: I18n.t("calculators.calculator.hryvnia"), text: I18n.t("calculators.calculator.money_will_be_spent") }].each do |item|
+        { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".hryvnia"), text: t(".money_will_be_spent") }].each do |item|
         - if item=="arrow"
           .vector-width
             = image_tag "vector_5.png", class: "vector"
