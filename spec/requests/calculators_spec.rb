@@ -66,7 +66,7 @@ RSpec.describe CalculatorsController, type: :request do
 
       expect(response).to be_successful
       expect(response).to render_template(:calculator)
-      expect(response.body).to include('results')
+      expect(response.body).to include("results")
     end
   end
 
