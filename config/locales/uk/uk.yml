@@ -34,7 +34,7 @@ uk:
       will_buy_diapers: "Кількість підгузків, які ще будуть використані"
       money_spent: "Вартість використаних підгузків"
       money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
-    buttons:  
+    buttons:
       to_main: "На головну"
     date:
       months:
@@ -176,12 +176,22 @@ uk:
     users:
       index:
         main_header: "Адмінпанель"
+        add_user_button: "Створити нового користувача"
         table:
           email_col: "Електронна адреса"
           last_visit_col: "Час останнього візиту"
           view_info_col: "Показати"
           edit: "Відредагувати"
           ban: "Заблокувати"
+          delete: "Видалити"
+      new:
+        table:
+          create_new_user: "Створіть користувача"
+        form:
+          first_name_label: "Ім'я"
+          last_name_label: "Прізвище"
+          password_hint: "Мінімум 8 символів"
+          create_user_button: "Створити нового користувача"
       edit:
         avatar: "Фото профілю користувача"
         table:
@@ -372,6 +382,7 @@ uk:
         first_name: "Ім'я"
         last_name: "Прізвище"
         country: "Країна"
+        role: "Роль"
         remember_me: "Запам'ятати мене"
         successful_update: "Інформацію про користувача було успішно оновлено!"
       admin:
@@ -416,6 +427,8 @@ uk:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"
     calculator_deleted: "Калькулятор було успішно видалено"
+    user_created: "Користувача було успішно створено"
+    user_updated: "Користувача було успішно оновлено"
     message_sent: "Повідомлення було надіслано"
     category_created: "Категорію було успішно створено."
     category_updated: "Категорію було успішно оновлено."

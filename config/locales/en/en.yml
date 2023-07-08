@@ -196,12 +196,22 @@ en:
     users:
       index:
         main_header: "Dashboard"
+        add_user_button: "Add user"
         table:
           email_col: "Email"
           last_visit_col: "Last visit"
           view_info_col: "Show"
           edit: "Edit"
           ban: "Ban"
+          delete: "Delete"
+      new:
+        table:
+          create_new_user: "Create new user"
+        form:
+          first_name_label: "First Name"
+          last_name_label: "Last Name"
+          password_hint: "Minimum 8 characters"
+          create_user_button: "Create user"
       edit:
         avatar: "User profile photo"
         table:
@@ -462,6 +472,8 @@ en:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"
     calculator_deleted: "Calculator has been successfully deleted"
+    user_created: "User has been successfully created"
+    user_updated: "User has been successfully updated"
     message_sent: "Message has been sent"
     category_created: "Category was successfully created."
     category_updated: "Category was successfully updated."
