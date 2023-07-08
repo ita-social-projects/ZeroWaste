@@ -385,7 +385,7 @@ uk:
         calculator:
           attributes:
             name:
-              name_format_validation: Only letters and numbers allowed
+              name_format_validation: допускаються тільки літери та цифри
         user:
           attributes:
             avatar:
