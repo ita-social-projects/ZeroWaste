@@ -6,9 +6,9 @@ class Account::UsersController < Account::BaseController
   layout "account"
 
   before_action :set_paper_trail_whodunnit
-  before_action :user, except: [:index]
+  before_action :user, except: [:index, :new, :create]
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:new, :create]
 
   def index
     @users = User.all
@@ -22,27 +22,45 @@ class Account::UsersController < Account::BaseController
     end
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      redirect_to account_users_path(id: @user), notice: t("notifications.user_created")
+    else
+      render "new"
+    end
+  end
+
   def update
-    if user.update(user_params)
-      redirect_to account_user_path(id: user)
+    update_user_params = user_params
+    if update_user_params[:password].blank? || update_user_params[:password_confirmation].blank?
+      update_user_params = update_user_params.merge(skip_password_validation: true)
+    end
+
+    if user.update(update_user_params)
+      redirect_to account_user_path(id: user), notice: t("notifications.user_updated")
     else
       render "edit"
     end
+  end
+
+  def destroy
+    user.destroy
+    redirect_to account_users_path
   end
 
   private
 
   def user_params
     prms = params.require(:user).permit(
-      :first_name, :last_name, :country, :password, :password_confirmation,
+      :email, :first_name, :last_name, :country, :role, :password, :password_confirmation,
       :blocked, :avatar
     )
-
-    if prms[:password].blank? || prms[:password_confirmation].blank?
-      prms = prms.merge(skip_password_validation: true)
-    end
-
-    prms
   end
 
   def user
