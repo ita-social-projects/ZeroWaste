@@ -46,7 +46,7 @@ en:
       money_spent: "already spent on diapers"
       money_will_be_spent: "yet to be spent on diapers"
       pieces: pcs.
-      hryvnia: uah
+      unit: uah
     old_calculator:
       form:
         description: "Child’s age:"

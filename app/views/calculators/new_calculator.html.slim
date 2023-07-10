@@ -47,10 +47,10 @@
       - [{ image: "diapers_bought_2.png", data_target: "diapersUsed", unit: t(".pieces"), text: t(".bought_diapers") },
         "arrow",
         { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: t(".pieces"), text: t(".will_buy_diapers") },
-        { image: "money_spent_2.png", data_target: "moneySpent", unit: t(".hryvnia"), text: t(".money_spent") },
+        { image: "money_spent_2.png", data_target: "moneySpent", unit: t(".unit"), text: t(".money_spent") },
         "arrow",
-        { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".hryvnia"), text: t(".money_will_be_spent") }].each do |item|
-        - if item=="arrow"
+        { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".unit"), text: t(".money_will_be_spent") }].each do |item|
+        - if item == "arrow"
           .vector-width
             = image_tag "vector_5.png", class: "vector"
             = image_tag "vector_2.png", class: "vector-mobile"
