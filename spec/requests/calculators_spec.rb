@@ -44,18 +44,18 @@ RSpec.describe CalculatorsController, type: :request do
       expect(json_response["result"][0]).to include("name", "result")
     end
 
-    it "JSON response contains result in the root" do
+    it "JSON response contains 'result' in the root" do
       expect(json_response["result"]).to be_truthy
     end
 
-    it "JSON response contains name and result attributes" do
+    it "JSON response contains 'name' and 'result' attributes" do
       expect(json_response["result"][0].keys).to contain_exactly(
         "name",
         "result"
       )
     end
 
-    it "JSON response contains field name in snake case format" do
+    it "JSON response contains field 'name' in snake case format" do
       expect(json_response["result"][0]["name"]).to eq("first_result")
     end
   end
