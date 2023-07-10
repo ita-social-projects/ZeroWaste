@@ -86,4 +86,33 @@ RSpec.describe CalculatorsController, type: :request do
       end
     end
   end
+
+  describe "POST #create" do
+    include_context :authorize_admin
+
+    let(:valid_attributes) { { name: "калькулятор", slug: "test" } }
+    let(:invalid_attributes) { { name: "$калькулятор", slug: "test" } }
+
+    context "with valid attributes" do
+      it "creates a calculator" do
+        expect do
+          post account_calculators_path, params: { calculator: valid_attributes }
+        end.to change(Calculator, :count).by(1)
+
+        expect(response).to redirect_to(account_calculators_path)
+        expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
+      end
+    end
+
+    context "with invalid attributes" do
+      it "does not create a calculator" do
+        expect do
+          post account_calculators_path, params: { calculator: invalid_attributes }
+        end.not_to change(Calculator, :count)
+
+        expect(response.body).to include(I18n.t("activerecord.errors.models.calculator.attributes.name.name_format_validation"))
+        expect(response).to render_template(:new)
+      end
+    end
+  end
 end
