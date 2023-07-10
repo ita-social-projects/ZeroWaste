@@ -81,6 +81,7 @@ uk:
       app_config: "Налаштування"
       site_settings: "Налаштування сайту"
       categories: "Категорії"
+      products: "Продукти"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
