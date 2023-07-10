@@ -1,30 +1,34 @@
 uk:
   en: English
   calculators:
-    calculator:
-      diaper: "підгузок"
-      form_description: "Вік дитини:"
-      form_price: "Цінова категорія"
+    new_calculator:
       form:
-        childs_birthday_label: "Дата народження дитини"
-        childs_age_label: "Вік дитини"
+        description: "Вік дитини:"
+        price: "Цінова категорія"
         childs_years_label: "р."
         childs_months_label: "міс."
-        baby_weight_label: "Baby weight"
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
+      bought_diapers: "підгузків ви вже використали"
+      money_spent: "грн ви вже витратили"
+      will_buy_diapers: "підгузків ви ще використаєте"
+      money_will_be_spent: "грн ви ще витратите"
+      pieces: шт.
+      unit: грн.
+    old_calculator:
+      form:
+        description: "Вік дитини:"
+        years_prompt: повних років
+        months_prompt: місяців
+      bought_diapers: "підгузків ви вже використали"
+      money_spent: "грн ви вже витратили"
+      will_buy_diapers: "підгузків ви ще використаєте"
+      money_will_be_spent: "грн ви ще витратите"
+    errors:
       year_and_month_error_msg: "Помилка: будь ласка, виберіть скільки років та місяців дитині"
       year_error_msg: "Помилка: будь ласка, виберіть скільки років дитині"
       month_error_msg: "Помилка: будь ласка, виберіть скільки місяців дитині"
-      calculate_result_button: "Розрахувати"
-      want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
-      bought_diapers: "ви вже використали"
-      money_spent: "грн ви вже витратили"
-      will_buy_diapers: "ви ще використаєте"
-      money_will_be_spent: "грн ви ще витратите"
-      mililiters_of_naphtha: "Мілілітрів нафти"
-      gram_of_plastic: "Грамів пластику"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
@@ -32,6 +36,20 @@ uk:
       will_buy_diapers: "Кількість підгузків, які ще будуть використані"
       money_spent: "Вартість використаних підгузків"
       money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
+    buttons:
+      to_main: "На головну"
+      calculate: "Розрахувати"
+    date:
+      months:
+        one: "%{count} місяць"
+        few: "%{count} місяці"
+        many: "%{count} місяців"
+        other: "%{count} місяців"
+      years:
+        one: "%{count} рік"
+        few: "%{count} роки"
+        many: "%{count} років"
+        other: "%{count} років"
   layouts:
     navigation:
       admin: "Адміністратор"
@@ -63,6 +81,7 @@ uk:
       app_config: "Налаштування"
       site_settings: "Налаштування сайту"
       categories: "Категорії"
+      products: "Продукти"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -127,8 +146,34 @@ uk:
         update_button: 'Оновити'
         cancel_button: 'Скасувати'
       new:
-        create_button: 'Create'
+        create_button: 'Створити'
         cancel_button: 'Скасувати'
+    products:
+      index:
+        table:
+          title: 'Назва'
+          prices: 'Ціни'
+          actions: 'Дії'
+        add_product_button: 'Додати продукт'
+        confirm_delete: 'Видалити продукт?'
+        cancel_button: 'Скасувати'
+      show:
+        table:
+          title: 'Назва'
+          prices: 'Ціни'
+          actions: 'Дії'
+        confirm_delete: 'Видалити продукт?'
+      edit:
+        title: 'Назва'
+        update_button: 'Оновнити'
+        cancel_button: 'Скасувати'
+      new:
+        title: 'Назва'
+        create_button: 'Створити'
+        cancel_button: 'Скасувати'
+      created: "Продукт був успішно створений."
+      updated: "Продукт був успішно оновлений."
+      deleted: "Продукт був успішно видалений."
     site_settings:
       edit:
         update_button: 'Оновити'
@@ -196,6 +241,8 @@ uk:
       submit_button: "Зберегти"
       access_admin_menu:
         name: "Доступ до меню адміна"
+      new_calculator_design:
+        name: "Увімкнути новий дизайн калькулятора"
     sessions:
       new:
         log_in_header: "Увійти"
@@ -342,7 +389,7 @@ uk:
         calculator:
           attributes:
             name:
-              name_format_validation: Only letters and numbers allowed
+              name_format_validation: допускаються тільки літери та цифри
         user:
           attributes:
             avatar:
@@ -506,6 +553,7 @@ uk:
       day: День
       month: Місяць
       year: Рік
+
   errors:
     format: "%{attribute} %{message}"
     messages:

@@ -1,16 +1,18 @@
-class Flipper::Feature
-  delegate :en_description, :en_description=, to: :feature_record
-  delegate :uk_description, :uk_description=, to: :feature_record
+if Flipper::Adapters::ActiveRecord::Feature.table_exists?
+  class Flipper::Feature
+    delegate :en_description, :en_description=, to: :feature_record
+    delegate :uk_description, :uk_description=, to: :feature_record
 
-  alias_method :name, :key
+    alias_method :name, :key
 
-  def description
-    public_send("#{I18n.locale}_description")
-  end
+    def description
+      public_send("#{I18n.locale}_description")
+    end
 
-  private
+    private
 
-  def feature_record
-    @feature_record ||= Flipper::Adapters::ActiveRecord::Feature.find_or_create_by(key: key)
+    def feature_record
+      @feature_record ||= Flipper::Adapters::ActiveRecord::Feature.find_or_create_by(key: key)
+    end
   end
 end

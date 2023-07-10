@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_23_111415) do
+ActiveRecord::Schema.define(version: 2023_06_08_072323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2023_04_23_111415) do
   end
 
   create_table "site_settings", force: :cascade do |t|
-    t.string "title", default: "ZeroWaste", null: false
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

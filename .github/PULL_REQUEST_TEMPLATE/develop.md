@@ -6,11 +6,11 @@ dev
 
 ## Code reviewers
 
-- [ ] @github_username
+- [ ] @AndriyAndriyovuch
 
 ### Second Level Review
 
-- [ ] @github_username
+- [ ] @loqimean
 
 ## Summary of issue
 

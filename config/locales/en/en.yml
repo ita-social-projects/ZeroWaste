@@ -32,32 +32,50 @@
 en:
   uk: "Українська"
   calculators:
-    calculator:
-      diaper: "diaper"
-      form_description: "Child’s age:"
-      form_price: "Price category"
+    new_calculator:
       form:
-        childs_birthday_label: "Child's birthday"
-        childs_age_label: "Child`s age"
+        description: "Child’s age:"
+        price: "Price category"
         childs_years_label: "y/o."
         childs_months_label: "mth."
-        baby_weight_label: "Baby weight"
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
+      bought_diapers: "diapers already used"
+      will_buy_diapers: "diapers to be used in the future"
+      money_spent: "already spent on diapers"
+      money_will_be_spent: "yet to be spent on diapers"
+      pieces: pcs.
+      unit: uah
+    old_calculator:
+      form:
+        description: "Child’s age:"
+        years_prompt: years
+        months_prompt: months
+      bought_diapers: "diapers already used"
+      money_spent: "UAH already spent on diapers"
+      will_buy_diapers: "diapers to be used in the future"
+      money_will_be_spent: "UAH yet to be spent on diapers"
+    errors:
       year_and_month_error_msg: "Error: please, select years and months"
       year_error_msg: "Error: please, select years"
       month_error_msg: "Error: please, select month"
-      calculate_result_button: "Calculate"
-      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
-      bought_diapers: "already used"
-      will_buy_diapers: "to be used in the future"
-      money_spent: "UAH already spent on diapers"
-      money_will_be_spent: "UAH yet to be spent on diapers"
-      mililiters_of_naphtha: "Mililiters of Naphtha"
-      gram_of_plastic: "Gram of Plastic"
     show:
       welcome_header: "Welcome to ZeroWaste"
+    buttons:
+      to_main: "To main"
+      calculate: "Calculate"
+    date:
+      months:
+        one: "%{count} month"
+        few: "%{count} months"
+        many: "%{count} months"
+        other: "%{count} months"
+      years:
+        one: "%{count} year"
+        few: "%{count} years"
+        many: "%{count} years"
+        other: "%{count} years"
   layouts:
     navigation:
       admin: "Admin"
@@ -89,6 +107,7 @@ en:
       app_config: "App Config"
       site_settings: "Site Settings"
       categories: 'Categories'
+      products: "Products"
   messages:
     new:
       contact_us_header: "Contact us"
@@ -153,6 +172,28 @@ en:
       new:
         create_button: 'Create'
         cancel_button: 'Cancel'
+    products:
+      table:
+        title: 'Title'
+        prices: 'Prices'
+        actions: 'Actions'
+      index:
+        add_product_button: 'Add product'
+        confirm_delete: 'Delete product?'
+        cancel_button: 'Cancel'
+      show:
+        confirm_delete: 'Delete product?'
+      edit:
+        title: 'Title'
+        update_button: 'Update'
+        cancel_button: 'Cancel'
+      new:
+        title: 'Title'
+        create_button: 'Create'
+        cancel_button: 'Cancel'
+      created: "A product was successfully created."
+      updated: "A product was successfully updated."
+      deleted: "A product was successfully destroyed."
     site_settings:
       edit:
         update_button: 'Update'
@@ -217,6 +258,8 @@ en:
       submit_button: "Save"
       access_admin_menu:
         name: "Access Admin Menu"
+      new_calculator_design:
+        name: "Enable new calculator design"
     sessions:
       new:
         log_in_header: "Log in"

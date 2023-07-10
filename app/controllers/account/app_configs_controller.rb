@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Account::AppConfigsController < Account::BaseController
   load_and_authorize_resource
 

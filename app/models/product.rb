@@ -19,12 +19,14 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  belongs_to :product_type
-  has_many :category_categoryables, as: :categoryable, dependent: :destroy
-  has_many :categories, through: :category_categoryables
   has_many :prices, as: :priceable, dependent: :destroy
+  has_many :categories_by_prices, through: :prices, source: :category
 
   validates :title, presence: true, length: { in: 2..50 }
+
+  scope :ordered_by_title, -> { order(:title) }
+
+  accepts_nested_attributes_for :prices, reject_if: :blank_prices, allow_destroy: true
 
   def self.diaper
     find_by(title: DIAPER)
@@ -32,5 +34,17 @@ class Product < ApplicationRecord
 
   def price_by_category(category)
     prices.where(category: category).first
+  end
+
+  def build_unsigned_categories
+    unsigned_categories = Category.unsigned_categories(self)
+
+    prices.build(unsigned_categories.map { |category| { category: category } })
+  end
+
+  private
+
+  def blank_prices(attributes)
+    attributes[:sum].blank?
   end
 end
