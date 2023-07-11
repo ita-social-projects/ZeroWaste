@@ -9,14 +9,14 @@ RSpec.describe CategoryCategoryable, type: :model do
     it { is_expected.to belong_to(:category) }
   end
 
-  describe "validations" do
+  xdescribe "validations" do
     let(:budgetary_category) { create(:category, :budgetary) }
     let(:medium_category) { create(:category, :medium) }
     let(:product_diaper) { build(:product, :diaper) }
     let(:product_napkin) { build(:product, :napkin) }
     let(:resource) { build(:resource) }
 
-    context "when a product(diaper) has one category", skip: true do
+    context "when a product(diaper) has one category" do
       it "returns valid product" do
         product_diaper.categories = [budgetary_category]
 
@@ -24,7 +24,7 @@ RSpec.describe CategoryCategoryable, type: :model do
       end
     end
 
-    context "when a product(diaper) can have many different categories", skip: true do
+    context "when a product(diaper) can have many different categories" do
       it "returns valid product" do
         product_diaper.categories = [budgetary_category, medium_category]
 
@@ -32,7 +32,7 @@ RSpec.describe CategoryCategoryable, type: :model do
       end
     end
 
-    context "when a product(napkin) can have the same categories as a product(diaper)", skip: true do
+    context "when a product(napkin) can have the same categories as a product(diaper)" do
       it "returns valid product" do
         product_diaper.categories = [budgetary_category, medium_category]
         product_napkin.categories = [budgetary_category, medium_category]
@@ -43,7 +43,7 @@ RSpec.describe CategoryCategoryable, type: :model do
     end
 
     skip "is skipped" do
-      context "when a resource model can have the same categories as a product model", skip: true do
+      context "when a resource model can have the same categories as a product model" do
         it "returns valid product" do
           product_diaper.categories = [budgetary_category, medium_category]
           resource.categories       = [budgetary_category, medium_category]
@@ -54,7 +54,7 @@ RSpec.describe CategoryCategoryable, type: :model do
       end
     end
 
-    context "when a product(diaper) cannot have two identical categories", skip: true do
+    context "when a product(diaper) cannot have two identical categories" do
       it "returns invalid product" do
         product_diaper.categories = [budgetary_category, budgetary_category]
 

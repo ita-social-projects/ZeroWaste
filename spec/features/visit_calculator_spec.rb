@@ -6,7 +6,7 @@ describe "visit Calculator page", js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
 
-  it "visits calculator page", skip: true do
+  xit "visits calculator page" do
     visit "/calculators/#{calculator.slug}"
 
     expect(page).to have_content "Child’s age"

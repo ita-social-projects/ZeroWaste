@@ -66,7 +66,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       end
     end
 
-    context "when get awaited values", skip: true do
+    xcontext "when get awaited values" do
       include_context :app_config_load
 
       it "got the expected result" do

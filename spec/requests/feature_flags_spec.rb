@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Account::FeatureFlagsController, type: :request do
   include_context :authorize_admin
 
-  describe "PATCH /account/feature_flags", skip: true do
+  xdescribe "PATCH /account/feature_flags" do
     it "updates feature flags and redirects to edit_account_site_setting_path" do
       feature = Flipper[:access_admin_menu]
       feature.disable
