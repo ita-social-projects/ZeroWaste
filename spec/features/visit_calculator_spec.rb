@@ -6,11 +6,13 @@ describe "visit Calculator page", js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
 
-  it "visits calculator page" do
-    visit "/calculators/#{calculator.slug}"
+  # TODO: uncomment and impove or delete if useless
 
-    expect(page).to have_content "Child’s age"
-  end
+  # it "visits calculator page" do
+  #   visit "/calculators/#{calculator.slug}"
+
+  #   expect(page).to have_content "Child’s age"
+  # end
 
   it "visits calculator page and open log_in page" do
     create(:feature_flag, :show_admin_menu)

@@ -96,6 +96,7 @@ RSpec.describe CalculatorsController, type: :request do
         expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
       end
     end
+
     context "with invalid attributes" do
       it "does not create a calculator" do
         expect do
