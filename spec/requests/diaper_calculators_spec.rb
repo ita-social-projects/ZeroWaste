@@ -66,18 +66,16 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       end
     end
 
-    # TODO: uncomment and impove or delete if useless
+    context "when get awaited values", skip: true do
+      include_context :app_config_load
 
-    # context "when get awaited values" do
-    #   include_context :app_config_load
+      it "got the expected result" do
+        post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-    #   it "got the expected result" do
-    #     post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
-
-    #     expect(response).to be_successful
-    #     expect(response.body).to eq(expected_result.to_json)
-    #   end
-    # end
+        expect(response).to be_successful
+        expect(response.body).to eq(expected_result.to_json)
+      end
+    end
 
     context "when get unawaited values" do
       include_context :app_config_load

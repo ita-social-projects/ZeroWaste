@@ -9,28 +9,24 @@ describe "navigator", js: true do
     expect(page.body).to have_css(".tabs")
   end
 
-  # TODO: uncomment and impove or delete if useless
+  context "when feature show_admin_menu does not exist", skip: true do
+    it "should not consist tabs" do
+      visit root_path
+      expect(page).not_to have_content("SIGN UP")
+      expect(page).not_to have_content("LOG IN")
+      expect(page).not_to have_content("CONTACT US")
+    end
+  end
 
-  # context "when feature show_admin_menu does not exist" do
-  #   it "should not consist tabs" do
-  #     visit root_path
-  #     expect(page).not_to have_content("SIGN UP")
-  #     expect(page).not_to have_content("LOG IN")
-  #     expect(page).not_to have_content("CONTACT US")
-  #   end
-  # end
-
-  # TODO: uncomment and impove or delete if useless
-
-  # context "when feature show_admin_menu is disabled" do
-  #   it "should not consist tabs" do
-  #     create(:feature_flag, :hide_admin_menu)
-  #     visit root_path
-  #     expect(page).not_to have_content("SIGN UP")
-  #     expect(page).not_to have_content("LOG IN")
-  #     expect(page).not_to have_content("CONTACT US")
-  #   end
-  # end
+  context "when feature show_admin_menu is disabled", skip: true do
+    it "should not consist tabs" do
+      create(:feature_flag, :hide_admin_menu)
+      visit root_path
+      expect(page).not_to have_content("SIGN UP")
+      expect(page).not_to have_content("LOG IN")
+      expect(page).not_to have_content("CONTACT US")
+    end
+  end
 
   context "when feature show_admin_menu is enabled" do
     it "should consist tabs" do
