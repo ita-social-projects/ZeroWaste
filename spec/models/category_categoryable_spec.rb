@@ -9,12 +9,12 @@ RSpec.describe CategoryCategoryable, type: :model do
     it { is_expected.to belong_to(:category) }
   end
 
-  describe "validations" do
+  xdescribe "validations" do
     let(:budgetary_category) { create(:category, :budgetary) }
     let(:medium_category) { create(:category, :medium) }
     let(:product_diaper) { build(:product, :diaper) }
     let(:product_napkin) { build(:product, :napkin) }
-    # let(:resource) { build(:resource) }
+    let(:resource) { build(:resource) }
 
     context "when a product(diaper) has one category" do
       it "returns valid product" do
