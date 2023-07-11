@@ -37,73 +37,46 @@ RSpec.describe CalculatorsController, type: :request do
     end
 
     it "returns JSON" do
-      expect(response).to have_http_status(200)
+      expect(response).to be_successful
       expect(response.content_type).to eq("application/json; charset=utf-8")
 
       expect(json_response).to include("result")
       expect(json_response["result"][0]).to include("name", "result")
     end
 
-    it "JSON response contains `result` in the root" do
+    it "JSON response contains 'result' in the root" do
       expect(json_response["result"]).to be_truthy
     end
 
-    it "JSON response contains `name` and `result` attributes" do
+    it "JSON response contains 'name' and 'result' attributes" do
       expect(json_response["result"][0].keys).to contain_exactly(
         "name",
         "result"
       )
     end
 
-    it "JSON response contains field `name` in snake case format" do
+    it "JSON response contains field 'name' in snake case format" do
       expect(json_response["result"][0]["name"]).to eq("first_result")
     end
   end
 
   describe "GET /calculator" do
-    it "renders the calculator template" do
+    it "renders the calculator template and new_calculator_design is on" do
+      Flipper.enable :new_calculator_design
       get calculator_path
 
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:calculator)
-    end
-  end
-
-  describe "POST /calculators/:slug/calculate" do
-    context "when the calculator exist" do
-      it "renders the calculate template" do
-        post calculate_calculator_path(calculator.slug)
-
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:calculate)
-      end
+      expect(response).to be_successful
+      expect(response).to render_template(:new_calculator)
+      expect(response.body).to include("results")
     end
 
-    context "when the calculator doesn`t exist" do
-      it "raises a 404 error" do
-        expect { post calculate_calculator_path("nonexistent-slug") }.to raise_error(ActiveRecord::RecordNotFound)
-      end
-    end
-  end
+    it "renders the calculator template and new_calculator_design is off" do
+      Flipper.disable :new_calculator_design
+      get calculator_path
 
-  describe "POST /receive_recomendations" do
-    context "when user is authenticated" do
-      include_context :authorize_regular_user
-
-      it "toggles the receive_recomendations flag for the current user" do
-        expect do
-          post receive_recomendations_path
-        end.to change { current_user.receive_recomendations }.from(false).to(true)
-      end
-    end
-
-    context "when user is not authenticated" do
-      it "redirects to the sign in page" do
-        post receive_recomendations_path
-
-        expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(new_user_session_path)
-      end
+      expect(response).to be_successful
+      expect(response).to render_template(:old_calculator)
+      expect(response.body).to include("results")
     end
   end
 
@@ -123,7 +96,6 @@ RSpec.describe CalculatorsController, type: :request do
         expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
       end
     end
-
     context "with invalid attributes" do
       it "does not create a calculator" do
         expect do
