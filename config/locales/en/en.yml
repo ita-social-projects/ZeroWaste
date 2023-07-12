@@ -441,9 +441,9 @@ en:
         product:
           attributes:
             title:
-              # blank: "The field 'Title' can't be blank"
-              # too_long: "The field 'Title' is too long"
-              # too_short: "The field 'Title' is too short."
+              blank: "The field 'Title' can't be blank"
+              too_long: "The field 'Title' is too long"
+              too_short: "The field 'Title' is too short."
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
