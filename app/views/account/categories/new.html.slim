@@ -13,7 +13,8 @@ few
       .col-12.has-float-label.my-auto
         = f.input :name, class: 'form-control col-sm-11', required: true
         = f.input :priority, class: 'form-control col-sm-11', input_html: { min: 0 }
-    = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2'
-    = link_to account_categories_path, class: 'btn btn-danger' do
-      span.mr-1 =t('.cancel_button')
-      i.fa.fa-times-circle
+    .div.d-flex
+        = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2 height w-auto'
+        = link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center justify-content-center height w-auto' do
+          span.mr-1 =t('.cancel_button')
+          i.fa.fa-times-circle
