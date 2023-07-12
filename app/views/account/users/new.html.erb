@@ -3,14 +3,14 @@
     <h2 class="text-center"><%= t('.table.create_new_user') %></h2>
     <%= simple_form_for(@user, url: account_users_path, wrapper: :horizontal_form) do |f| %>
       <%= f.input :email, placeholder: 'example@example.com' %>
-      <%= f.input :first_name, placeholder: t('.form.first_name_label') %>
-      <%= f.input :last_name, placeholder: t('.form.last_name_label') %>
+      <%= f.input :first_name, placeholder: t('.form.first_name_label'), required: true %>
+      <%= f.input :last_name, placeholder: t('.form.last_name_label'), required: true %>
       <%= f.input :country %>
       <%= f.input :role, collection: ['user', 'admin'] %>
-      <%= f.input :password, hint: t('.form.password_hint') %>
-      <%= f.input :password_confirmation %>
+      <%= f.input :password, hint: t('.form.password_hint'), required: true %>
+      <%= f.input :password_confirmation, required: true %>
       <%= f.input :send_credentials_email, as: :boolean, label: t('.form.send_credentials_email'), input_html: { checked: true } %>
-      <%= f.submit t('.form.create_user_button'), class: 'btn btn-primary' %>
+      <%= f.submit t('.form.create_user_button'), class: 'btn btn-primary w-auto' %>
     <% end %>
   </div>
 </div>

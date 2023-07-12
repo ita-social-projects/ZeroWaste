@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
 
   def welcome_email
     @user = params[:user]
-    @url  = 'https://zerowastelviv.org.ua'
-    mail(to: @user.email, subject: 'Welcome to ZeroWaste')
+    @url  = "https://zerowastelviv.org.ua"
+    mail(to: @user.email, subject: I18n.t("mailer.welcome_mail.subject"))
   end
 end

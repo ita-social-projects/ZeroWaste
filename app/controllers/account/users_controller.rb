@@ -6,7 +6,6 @@ class Account::UsersController < Account::BaseController
   layout "account"
 
   before_action :set_paper_trail_whodunnit
-  before_action :user, except: [:index, :new, :create]
 
   load_and_authorize_resource
 
@@ -33,7 +32,7 @@ class Account::UsersController < Account::BaseController
       UserMailer.with(user: @user).welcome_email.deliver_now if user_params[:send_credentials_email]
       redirect_to account_user_path(id: @user), notice: t("notifications.user_created")
     else
-      render "new"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -44,15 +43,15 @@ class Account::UsersController < Account::BaseController
       update_user_params = update_user_params.merge(skip_password_validation: true)
     end
 
-    if user.update(update_user_params)
-      redirect_to account_user_path(id: user), notice: t("notifications.user_updated")
+    if resource.update(update_user_params)
+      redirect_to account_user_path(id: resource), notice: t("notifications.user_updated")
     else
-      render "edit"
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    user.destroy
+    resource.destroy
     redirect_to account_users_path
   end
 
@@ -65,7 +64,7 @@ class Account::UsersController < Account::BaseController
     )
   end
 
-  def user
+  def resource
     @user ||= User.find(params[:id])
   end
 

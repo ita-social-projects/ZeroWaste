@@ -82,6 +82,9 @@ uk:
       site_settings: "Налаштування сайту"
       categories: "Категорії"
       products: "Продукти"
+  mailer:
+    welcome_mail:
+      subject: "Ласкаво просимо до ZeroWaste!"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -181,6 +184,7 @@ uk:
       index:
         main_header: "Адмінпанель"
         add_user_button: "Створити нового користувача"
+        confirm_delete: "Ви справді хочете видалити цього користувача?"
         table:
           email_col: "Електронна адреса"
           last_visit_col: "Час останнього візиту"

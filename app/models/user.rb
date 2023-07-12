@@ -40,7 +40,6 @@
 class User < ApplicationRecord
   attr_accessor :current_password, :skip_password_validation, :send_credentials_email
 
-
   has_paper_trail ignore: [
     :current_sign_in_at, :last_sign_in_at, :confirmation_token,
     :encrypted_password

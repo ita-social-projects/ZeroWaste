@@ -108,6 +108,9 @@ en:
       site_settings: "Site Settings"
       categories: 'Categories'
       products: "Products"
+  mailer:
+    welcome_mail:
+      subject: "Welcome to ZeroWaste!"
   messages:
     new:
       contact_us_header: "Contact us"
@@ -201,6 +204,7 @@ en:
       index:
         main_header: "Dashboard"
         add_user_button: "Add user"
+        confirm_delete: "Are you sure you want to delete this user?"
         table:
           email_col: "Email"
           last_visit_col: "Last visit"
