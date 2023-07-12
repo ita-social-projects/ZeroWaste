@@ -8,7 +8,7 @@ class Account::UsersController < Account::BaseController
   before_action :set_paper_trail_whodunnit
   before_action :user, except: [:index, :new, :create]
 
-  load_and_authorize_resource except: [:new, :create]
+  load_and_authorize_resource
 
   def index
     @users = User.all
@@ -27,10 +27,10 @@ class Account::UsersController < Account::BaseController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge(confirmed_at: DateTime.current))
 
     if @user.save
-      redirect_to account_users_path(id: @user), notice: t("notifications.user_created")
+      redirect_to account_user_path(id: @user), notice: t("notifications.user_created")
     else
       render "new"
     end
@@ -38,6 +38,7 @@ class Account::UsersController < Account::BaseController
 
   def update
     update_user_params = user_params
+
     if update_user_params[:password].blank? || update_user_params[:password_confirmation].blank?
       update_user_params = update_user_params.merge(skip_password_validation: true)
     end
@@ -57,7 +58,7 @@ class Account::UsersController < Account::BaseController
   private
 
   def user_params
-    prms = params.require(:user).permit(
+    params.require(:user).permit(
       :email, :first_name, :last_name, :country, :role, :password, :password_confirmation,
       :blocked, :avatar
     )
