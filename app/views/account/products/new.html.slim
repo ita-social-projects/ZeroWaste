@@ -1,5 +1,5 @@
 .container
-  = simple_form_for @product, method: :create, url: account_products_path, data: { controller: "price-form" } do |f|
+  = simple_form_for @product, url: { action: 'create'}, data: { controller: "price-form" } do |f|    
     .form-group.row
       .col-12.has-float-label.my-auto
         = f.input :title, label: t('.title'), class: 'form-control col-sm-11'
@@ -12,7 +12,7 @@
                 = prices_form.input :sum, label: false, input_html: { placeholder: 'Sum', data: { price_form_target: 'priceInput' } }
                 = prices_form.hidden_field :category_id, value: category.id
 
-    = f.submit t('.create_button'), class: 'btn btn-success mr-2', id: 'submit', data: { action: "click->price-form#submit" }
+    = f.submit "", value: t('.create_button'), class: 'btn btn-success mr-2', id: 'submit', data: { action: "click->price-form#submit" }
     = link_to account_products_path, class: 'btn btn-danger' do
       span.mr-1 =t('.cancel_button')
       i.fa.fa-times-circle
