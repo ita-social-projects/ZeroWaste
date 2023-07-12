@@ -1,32 +1,34 @@
 uk:
   en: English
   calculators:
-    calculator:
-      diaper: "підгузок"
-      form_description: "Вік дитини:"
-      form_price: "Цінова категорія"
+    new_calculator:
       form:
-        childs_birthday_label: "Дата народження дитини"
-        childs_age_label: "Скільки виповнилося дитині:"
+        description: "Вік дитини:"
+        price: "Цінова категорія"
         childs_years_label: "р."
         childs_months_label: "міс."
-        years_prompt: повних років
-        months_prompt: місяців
-        baby_weight_label: "Baby weight"
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
+      bought_diapers: "підгузків ви вже використали"
+      money_spent: "грн ви вже витратили"
+      will_buy_diapers: "підгузків ви ще використаєте"
+      money_will_be_spent: "грн ви ще витратите"
+      pieces: шт.
+      unit: грн.
+    old_calculator:
+      form:
+        description: "Вік дитини:"
+        years_prompt: повних років
+        months_prompt: місяців
+      bought_diapers: "підгузків ви вже використали"
+      money_spent: "грн ви вже витратили"
+      will_buy_diapers: "підгузків ви ще використаєте"
+      money_will_be_spent: "грн ви ще витратите"
+    errors:
       year_and_month_error_msg: "Помилка: будь ласка, виберіть скільки років та місяців дитині"
       year_error_msg: "Помилка: будь ласка, виберіть скільки років дитині"
       month_error_msg: "Помилка: будь ласка, виберіть скільки місяців дитині"
-      calculate_result_button: "Розрахувати"
-      want_recomentation_label: "Так, я хочу отримувати листи з рекомендаціями"
-      bought_diapers: "ви вже використали"
-      money_spent: "грн ви вже витратили"
-      will_buy_diapers: "ви ще використаєте"
-      money_will_be_spent: "грн ви ще витратите"
-      mililiters_of_naphtha: "Мілілітрів нафти"
-      gram_of_plastic: "Грамів пластику"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
@@ -36,6 +38,7 @@ uk:
       money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
     buttons:
       to_main: "На головну"
+      calculate: "Розрахувати"
     date:
       months:
         one: "%{count} місяць"
@@ -78,6 +81,7 @@ uk:
       app_config: "Налаштування"
       site_settings: "Налаштування сайту"
       categories: "Категорії"
+      products: "Продукти"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -396,7 +400,7 @@ uk:
         calculator:
           attributes:
             name:
-              name_format_validation: Only letters and numbers allowed
+              name_format_validation: допускаються тільки літери та цифри
         user:
           attributes:
             avatar:

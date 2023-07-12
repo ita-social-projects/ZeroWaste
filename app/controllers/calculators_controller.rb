@@ -16,7 +16,11 @@ class CalculatorsController < ApplicationController
   end
 
   def calculator
-    # renders calculator.html.slim
+    if Flipper[:new_calculator_design].enabled?
+      render "calculators/new_calculator"
+    else
+      render "calculators/old_calculator"
+    end
   end
 
   def receive_recomendations
