@@ -17,7 +17,7 @@
     "@rails/webpacker": "5.4.3",
     "@webpack-cli/serve": "^1.6",
     "babel-loader": "^8.2.3",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.0",
     "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
