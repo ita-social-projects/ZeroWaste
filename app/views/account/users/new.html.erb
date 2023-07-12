@@ -9,6 +9,7 @@
       <%= f.input :role, collection: ['user', 'admin'] %>
       <%= f.input :password, hint: t('.form.password_hint') %>
       <%= f.input :password_confirmation %>
+      <%= f.input :send_credentials_email, as: :boolean, label: t('.form.send_credentials_email'), input_html: { checked: true } %>
       <%= f.submit t('.form.create_user_button'), class: 'btn btn-primary' %>
     <% end %>
   </div>

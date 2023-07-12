@@ -196,6 +196,7 @@ uk:
           last_name_label: "Прізвище"
           password_hint: "Мінімум 8 символів"
           create_user_button: "Створити нового користувача"
+          send_credentials_email: "Надіслати електронного листа з даними користувача"
       edit:
         avatar: "Фото профілю користувача"
         table:

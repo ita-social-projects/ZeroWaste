@@ -216,6 +216,7 @@ en:
           last_name_label: "Last Name"
           password_hint: "Minimum 8 characters"
           create_user_button: "Create user"
+          send_credentials_email: "Send email with credentials"
       edit:
         avatar: "User profile photo"
         table:

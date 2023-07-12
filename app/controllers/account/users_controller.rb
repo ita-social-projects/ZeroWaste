@@ -30,6 +30,7 @@ class Account::UsersController < Account::BaseController
     @user = User.new(user_params.merge(confirmed_at: DateTime.current))
 
     if @user.save
+      UserMailer.with(user: @user).welcome_email.deliver_now if user_params[:send_credentials_email]
       redirect_to account_user_path(id: @user), notice: t("notifications.user_created")
     else
       render "new"
@@ -60,7 +61,7 @@ class Account::UsersController < Account::BaseController
   def user_params
     params.require(:user).permit(
       :email, :first_name, :last_name, :country, :role, :password, :password_confirmation,
-      :blocked, :avatar
+      :blocked, :avatar, :send_credentials_email
     )
   end
 
