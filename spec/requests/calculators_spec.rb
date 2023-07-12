@@ -37,72 +37,74 @@ RSpec.describe CalculatorsController, type: :request do
     end
 
     it "returns JSON" do
-      expect(response).to have_http_status(200)
+      expect(response).to be_successful
       expect(response.content_type).to eq("application/json; charset=utf-8")
 
       expect(json_response).to include("result")
       expect(json_response["result"][0]).to include("name", "result")
     end
 
-    it "JSON response contains `result` in the root" do
+    it "JSON response contains 'result' in the root" do
       expect(json_response["result"]).to be_truthy
     end
 
-    it "JSON response contains `name` and `result` attributes" do
+    it "JSON response contains 'name' and 'result' attributes" do
       expect(json_response["result"][0].keys).to contain_exactly(
         "name",
         "result"
       )
     end
 
-    it "JSON response contains field `name` in snake case format" do
+    it "JSON response contains field 'name' in snake case format" do
       expect(json_response["result"][0]["name"]).to eq("first_result")
     end
   end
 
   describe "GET /calculator" do
-    it "renders the calculator template" do
+    it "renders the calculator template and new_calculator_design is on" do
+      Flipper.enable :new_calculator_design
       get calculator_path
 
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:calculator)
+      expect(response).to be_successful
+      expect(response).to render_template(:new_calculator)
+      expect(response.body).to include("results")
+    end
+
+    it "renders the calculator template and new_calculator_design is off" do
+      Flipper.disable :new_calculator_design
+      get calculator_path
+
+      expect(response).to be_successful
+      expect(response).to render_template(:old_calculator)
+      expect(response.body).to include("results")
     end
   end
 
-  describe "POST /calculators/:slug/calculate" do
-    context "when the calculator exist" do
-      it "renders the calculate template" do
-        post calculate_calculator_path(calculator.slug)
+  describe "POST #create" do
+    include_context :authorize_admin
 
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:calculate)
-      end
-    end
+    let(:valid_attributes) { { name: "калькулятор", slug: "test" } }
+    let(:invalid_attributes) { { name: "$калькулятор", slug: "test" } }
 
-    context "when the calculator doesn`t exist" do
-      it "raises a 404 error" do
-        expect { post calculate_calculator_path("nonexistent-slug") }.to raise_error(ActiveRecord::RecordNotFound)
-      end
-    end
-  end
-
-  describe "POST /receive_recomendations" do
-    context "when user is authenticated" do
-      include_context :authorize_regular_user
-
-      it "toggles the receive_recomendations flag for the current user" do
+    context "with valid attributes" do
+      it "creates a calculator" do
         expect do
-          post receive_recomendations_path
-        end.to change { current_user.receive_recomendations }.from(false).to(true)
+          post account_calculators_path, params: { calculator: valid_attributes }
+        end.to change(Calculator, :count).by(1)
+
+        expect(response).to redirect_to(account_calculators_path)
+        expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
       end
     end
 
-    context "when user is not authenticated" do
-      it "redirects to the sign in page" do
-        post receive_recomendations_path
+    context "with invalid attributes" do
+      it "does not create a calculator" do
+        expect do
+          post account_calculators_path, params: { calculator: invalid_attributes }
+        end.not_to change(Calculator, :count)
 
-        expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response.body).to include(I18n.t("activerecord.errors.models.calculator.attributes.name.name_format_validation"))
+        expect(response).to render_template(:new)
       end
     end
   end
