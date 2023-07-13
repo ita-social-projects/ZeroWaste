@@ -384,6 +384,8 @@ uk:
         name: "Назва"
         slug: "Шлях"
         preferable: "Бажаний"
+      product:
+        title: "Назва"
     errors:
       models:
         calculator:
