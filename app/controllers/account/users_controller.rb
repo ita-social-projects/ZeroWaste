@@ -26,10 +26,13 @@ class Account::UsersController < Account::BaseController
   end
 
   def create
-    @user = User.new(user_params.merge(confirmed_at: DateTime.current))
+    @user = User.new(user_params)
+
+    @user.skip_confirmation!
 
     if @user.save
-      UserMailer.with(user: @user).welcome_email.deliver_now if user_params[:send_credentials_email]
+      UserMailer.welcome_email(@user).deliver_now if user_params[:send_credentials_email]
+
       redirect_to account_user_path(id: @user), notice: t("notifications.user_created")
     else
       render :new, status: :unprocessable_entity
@@ -37,14 +40,10 @@ class Account::UsersController < Account::BaseController
   end
 
   def update
-    update_user_params = user_params
+    user = resource
 
-    if update_user_params[:password].blank? || update_user_params[:password_confirmation].blank?
-      update_user_params = update_user_params.merge(skip_password_validation: true)
-    end
-
-    if resource.update(update_user_params)
-      redirect_to account_user_path(id: resource), notice: t("notifications.user_updated")
+    if user.update(user_params)
+      redirect_to account_user_path(id: user), notice: t("notifications.user_updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -52,20 +51,27 @@ class Account::UsersController < Account::BaseController
 
   def destroy
     resource.destroy
+
     redirect_to account_users_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(
+    prms = params.require(:user).permit(
       :email, :first_name, :last_name, :country, :role, :password, :password_confirmation,
       :blocked, :avatar, :send_credentials_email
     )
+
+    if action_name == "update" && (prms[:password].blank? || prms[:password_confirmation].blank?)
+      prms = prms.merge(skip_password_validation: true)
+    end
+
+    prms
   end
 
   def resource
-    @user ||= User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def render404
