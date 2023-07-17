@@ -12,6 +12,8 @@ body
       = link_to t('.contact_us'), new_message_path, class: 'tab'
     .func-btns
       .donate-btn
-        = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank'
+        = link_to "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank' do
+          span = t('.donate')
+          i.fas.fa-external-link-alt
 
       = link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm'

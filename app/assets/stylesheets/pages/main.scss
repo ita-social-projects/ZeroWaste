@@ -107,6 +107,13 @@ a {
     color: $color;
     text-align: center;
     min-width: 187px;
+    display: flex;
+    column-gap: 0.25rem;
+    justify-content: center;
+
+    svg {
+      font-size: 14px;
+    }
 
     &:hover {
       color: $success;

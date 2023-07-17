@@ -10,4 +10,18 @@ module CalculatorsHelper
       t(".form.medium"),
       t(".form.premium")]
   end
+
+  def link_to_with_icon(url, link_text = nil)
+    link_to(url, target: "_blank") do
+      "#{link_text ? link_text : ''} <i class='fas fa-external-link-alt'></i>".html_safe
+    end
+  end
+
+  def zero_waste_url(locale = nil, href)
+    if locale
+      "https://zerowastelviv.org.ua/#{locale.to_s}/#{href}"
+    else
+      "https://zerowastelviv.org.ua/#{href}"
+    end
+  end
 end

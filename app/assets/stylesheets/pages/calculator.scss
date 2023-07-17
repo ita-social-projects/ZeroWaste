@@ -161,6 +161,10 @@
     color: $color;
     background-color: transparent;
     text-decoration: none;
+
+    svg {
+      margin-left: 3px;
+    }
   }
 }
 
