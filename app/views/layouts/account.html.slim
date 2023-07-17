@@ -7,9 +7,9 @@ html
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload'
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_importmap_tags 
   body.admin
     = render 'layouts/flash_messages'
     = render 'layouts/account_navbar'

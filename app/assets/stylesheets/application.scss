@@ -1,10 +1,11 @@
 @import "components/**/*";
 
-@import "bootstrap/scss/bootstrap";
+@import "bootstrap";
 @import "toastr";
 
 @import "pages/**/*";
 
+@import "jquery-ui.css";
 *,
 :after,
 :before {
