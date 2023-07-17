@@ -161,9 +161,12 @@
     color: $color;
     background-color: transparent;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    column-gap: 0.25rem;
 
-    svg {
-      margin-left: 3px;
+    .fa-external-link-alt {
+      font-size: 16px;
     }
   }
 }

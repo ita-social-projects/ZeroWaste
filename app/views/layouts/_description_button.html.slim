@@ -1,3 +1,2 @@
-= link_to "#{I18n.locale == :en ? 'https://zerowastelviv.org.ua/en/zero-waste-nappies-en/' : 'https://zerowastelviv.org.ua/zero-waste-nappies/'}", target: '_blank' do
-  span = t('.use_less')
-  i.fas.fa-external-link-alt
+= link_to_external "#{I18n.locale == :en ? 'https://zerowastelviv.org.ua/en/zero-waste-nappies-en/' : 'https://zerowastelviv.org.ua/zero-waste-nappies/'}",
+                    t('.use_less')
