@@ -12,7 +12,7 @@ RSpec.describe "Account::UsersController", type: :request do
 
       expect(response).to be_successful
       expect(response).to render_template(:index)
-      expect(response.body). to include(I18n.t("account.users.index.main_header"))
+      expect(response.body).to include(I18n.t("account.users.index.main_header"))
     end
   end
 
@@ -35,7 +35,7 @@ RSpec.describe "Account::UsersController", type: :request do
           post account_users_path, params: { user: valid_params }
         end.to change(User, :count).by(1)
 
-        expect(response).to redirect_to(account_user_path(User.last()))
+        expect(response).to redirect_to(account_user_path(User.last))
         expect(flash[:notice]).to eq(I18n.t("notifications.user_created"))
       end
     end
@@ -43,7 +43,7 @@ RSpec.describe "Account::UsersController", type: :request do
     context "with invalid parameters" do
       it "does not create a new user" do
         expect do
-          post account_users_path, params: { user: { email: "" } }
+          post account_users_path, params: { user: { email: "" }}
         end.not_to change(User, :count)
 
         expect(response).to be_unprocessable
@@ -58,7 +58,7 @@ RSpec.describe "Account::UsersController", type: :request do
     context "with valid parameters" do
       it "updates the user" do
         expect do
-          patch account_user_path(user), params: { user: { email: "new@example.com" } }
+          patch account_user_path(user), params: { user: { email: "new@example.com" }}
           user.reload
         end.to change { user.email }.to("new@example.com")
 
@@ -72,7 +72,7 @@ RSpec.describe "Account::UsersController", type: :request do
 
       it "does not update the user" do
         expect do
-          patch account_user_path(user), params: { user: { email: "" } }
+          patch account_user_path(user), params: { user: { email: "" }}
           user.reload
         end.not_to change { user }
 
