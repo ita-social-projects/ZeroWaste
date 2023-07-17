@@ -85,6 +85,14 @@ uk:
   mailer:
     welcome_mail:
       subject: "Ласкаво просимо до ZeroWaste!"
+  user_mailer:
+    welcome_email:
+      greeting: Ласкаво просимо до ZeroWaste, %{name}
+      login_info: Ви успішно зареєструвалися на zerowaste.com, ваші дані для входу
+      email: "Електронна пошта: %{email}"
+      password: "Пароль: %{password}"
+      to_login: Щоб увійти на сайт, просто перейдіть за цим посиланням
+      thanks: Дякуємо за приєднання та гарного дня!
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"

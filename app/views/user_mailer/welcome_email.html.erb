@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Welcome to <%= @url %>, <%= @user.first_name %></h1>
-    <p>
-      You have successfully signed up to zerowaste.com,
-      your login info is: email:<%= @user.email %>.<br>
-      password:<%= @user.password%>
-    </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
-  </body>
-</html>
+<h1> <%= t('.greeting', name: @user.first_name) %></h1>
+<p> <%= t('.login_info') %>:
+      <br> <%= t('.email', email: @user.email) %>.
+      <br> <%= t('.password', password: @user.password) %>
+</p>
+<p>
+<%= t('.to_login') %>: <%= link_to "ZeroWaste", @url %>.
+</p>
+<p><%= t('.thanks') %></p>

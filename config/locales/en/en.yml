@@ -111,6 +111,14 @@ en:
   mailer:
     welcome_mail:
       subject: "Welcome to ZeroWaste!"
+  user_mailer:
+    welcome_email:
+      greeting: Welcome to ZeroWaste, %{name}
+      login_info: You have successfully signed up to zerowaste.com, your login info is
+      email: "email: %{email}"
+      password: "password: %{password}"
+      to_login: To login to the site, just follow this link
+      thanks: Thanks for joining and have a great day!
   messages:
     new:
       contact_us_header: "Contact us"
