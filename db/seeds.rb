@@ -4,7 +4,7 @@ require "faker"
 require "factory_bot_rails"
 
 # A regular user
-User.create(
+User.find_or_create_by(
   email: "user@zw.com",
   password: "password",
   password_confirmation: "password",
@@ -15,7 +15,7 @@ User.create(
 )
 
 # An admin
-User.create(
+User.find_or_create_by(
   email: "admin@zw.com",
   password: "ChangeMe1",
   password_confirmation: "ChangeMe1",
@@ -28,12 +28,12 @@ User.create(
 FactoryBot.create(:product_type, :hygiene)
 FactoryBot.create(:product, :diaper)
 
-FeatureFlag.create!(
+FeatureFlag.find_or_create_by!(
   name: "feature_budget_category",
   enabled: false
 )
 
-FeatureFlag.create!(
+FeatureFlag.find_or_create_by!(
   name: "show_admin_menu",
   enabled: false
 )
