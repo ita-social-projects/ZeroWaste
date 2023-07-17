@@ -1,5 +1,5 @@
 .container
-  = simple_form_for @product, url: { action: 'create'}, data: { controller: "price-form" } do |f|
+  = simple_form_for @product, url: account_products_path, data: { controller: "price-form" } do |f|
     .form-group.row
       .col-12.has-float-label.my-auto
         = f.input :title, label: t('.title'), class: 'form-control col-sm-11'
@@ -13,6 +13,6 @@
                 = prices_form.hidden_field :category_id, value: category.id
     .div.d-flex
         = f.submit t('.create_button'), class: 'btn btn-success mr-2 w-auto'
-        = link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center' do
+        = link_to account_products_path, class: 'btn btn-danger d-flex align-items-center' do
           span.mr-1 =t('.cancel_button')
           i.fa.fa-times-circle
