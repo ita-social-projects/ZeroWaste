@@ -105,7 +105,7 @@ gem "slim-rails"
 gem "stimulus-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "toastr-rails"
-gem "importmap-rails", "~> 1.1"
+# gem "importmap-rails", "~> 1.1"
 gem "requestjs-rails"
 gem "flipper"
 gem "flipper-active_record"
