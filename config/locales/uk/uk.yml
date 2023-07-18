@@ -384,12 +384,28 @@ uk:
         name: "Назва"
         slug: "Шлях"
         preferable: "Бажаний"
+      product:
+        title: "Назва"
     errors:
       models:
         calculator:
           attributes:
             name:
               name_format_validation: допускаються тільки літери та цифри
+        product:
+          attributes:
+            title:
+              blank: не може бути пустою
+              too_long:
+                one: занадто довга (максимум %{count} знак)
+                few: занадто довга (максимум %{count} знаки)
+                many: занадто довга (максимум %{count} знаків)
+                other: занадто довга (максимум %{count} знаку)
+              too_short:
+                one: занадто коротка (мінімум %{count} знак)
+                few: занадто коротка (мінімум %{count} знаки)
+                many: занадто коротка (мінімум %{count} знаків)
+                other: занадто коротка (мінімум %{count} знаку)
         user:
           attributes:
             avatar:
