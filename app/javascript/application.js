@@ -7,6 +7,7 @@ import "jquery_ujs"
 import "./jquery_ui"
 import "@fortawesome/fontawesome-free"
 
+
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
@@ -23,8 +24,6 @@ require("@nathanvda/cocoon");
 // const jQuery = require('jquery');
 // global.$ = global.jQuery = jQuery;
 // window.$ = window.jQuery = jQuery;
-
-import "@fortawesome/fontawesome-free/js/all";
 
 // import 'ajax/result_button';
 import "ajax/checkbox";
