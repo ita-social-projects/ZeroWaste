@@ -30,8 +30,8 @@ RSpec.describe SiteSetting, type: :model do
       expect(site_setting).not_to be_valid
     end
 
-    it "is not valid with a title longer than 20 characters" do
-      site_setting.title = "a" * 21
+    it "is not valid with a title longer than 30 characters" do
+      site_setting.title = "a" * 31
       expect(site_setting).not_to be_valid
     end
 

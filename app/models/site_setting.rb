@@ -12,7 +12,7 @@ class SiteSetting < ApplicationRecord
 
   has_one_attached :favicon, dependent: :destroy
 
-  validates :title, presence: true, length: { minimum: 3, maximum: 20 }
+  validates :title, presence: true, length: { minimum: 3, maximum: 30 }
   validates :favicon, attached: true,
                       content_type: [:png, :jpg, :jpeg, :ico],
                       size: { less_than: 500.kilobytes,
