@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe "Account::UsersController", type: :request do
   include_context :authorize_admin
+
   let!(:user) { create(:user) }
 
   describe "GET #index" do
@@ -53,8 +54,6 @@ RSpec.describe "Account::UsersController", type: :request do
   end
 
   describe "PATCH #update" do
-    let(:user) { create(:user) }
-
     context "with valid parameters" do
       it "updates the user" do
         expect do

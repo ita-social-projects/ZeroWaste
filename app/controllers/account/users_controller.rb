@@ -31,7 +31,7 @@ class Account::UsersController < Account::BaseController
     @user.skip_confirmation!
 
     if @user.save
-      UserMailer.welcome_email(@user).deliver_now if user_params[:send_credentials_email]
+      UserMailer.welcome_email(@user).deliver_now if user_params[:send_credentials_email] == "1"
 
       redirect_to account_user_path(id: @user), notice: t("notifications.user_created")
     else

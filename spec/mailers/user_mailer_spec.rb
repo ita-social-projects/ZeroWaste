@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe UserMailer, type: :mailer do
   describe "welcome_email" do
-    let!(:user) { create(:user) }
-    let!(:mail) { UserMailer.welcome_email(user) }
+    let(:user) { create(:user) }
+    let(:mail) { UserMailer.welcome_email(user) }
 
     it "renders the headers" do
       expect(mail.subject).to eq(I18n.t("mailer.welcome_mail.subject"))
