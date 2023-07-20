@@ -197,6 +197,7 @@ en:
     site_settings:
       edit:
         update_button: 'Update'
+        save_button: 'Save'
     users:
       index:
         main_header: "Dashboard"

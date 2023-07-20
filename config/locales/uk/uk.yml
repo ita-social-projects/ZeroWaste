@@ -177,6 +177,7 @@ uk:
     site_settings:
       edit:
         update_button: 'Оновити'
+        save_button: 'Зберегти'
     users:
       index:
         main_header: "Адмінпанель"
