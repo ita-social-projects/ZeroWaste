@@ -210,6 +210,10 @@
   width: 300px
 }
 
+select.custom-select {
+  background-image: url("selector-arrow.svg");  
+}
+
 .back-link {
   width: 120px;
   position: absolute;
