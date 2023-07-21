@@ -438,6 +438,12 @@ en:
               too_short: " is too short"
               invalid: " is invalid"
               name_format_validation: must contain only letters or numbers
+        product:
+          attributes:
+            title:
+              blank: can't be blank
+              too_short: is too short
+              too_long: is too long
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
