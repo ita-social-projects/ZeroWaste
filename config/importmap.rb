@@ -18,7 +18,7 @@ pin "toastr", to: "https://ga.jspm.io/npm:toastr@2.1.4/toastr.js"
 pin "@nathanvda/cocoon", to: "https://ga.jspm.io/npm:@nathanvda/cocoon@1.2.14/cocoon.js"
 pin "@oddcamp/cocoon-vanilla-js", to: "https://ga.jspm.io/npm:@oddcamp/cocoon-vanilla-js@1.1.3/index.js"
 pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
-pin "bootstrap", to: 'bootstrap.min.js', preload: true
+pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "jquery", to: "jquery.min.js", preload: true
 pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 pin "jquery-ui", to: "jquery-ui.min.js", preload: true
