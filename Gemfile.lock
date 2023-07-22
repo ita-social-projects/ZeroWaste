@@ -198,8 +198,8 @@ GEM
     flipper-active_record (0.26.0)
       activerecord (>= 4.2, < 8)
       flipper (~> 0.26.0)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
+    font-awesome-sass (6.4.0)
+      sassc (~> 2.0)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     fuubar (2.5.1)
@@ -562,7 +562,7 @@ DEPENDENCIES
   faker
   flipper
   flipper-active_record
-  font-awesome-rails
+  font-awesome-sass (~> 6.4)
   friendly_id (~> 5.4.0)
   fuubar
   image_processing (~> 1.2)

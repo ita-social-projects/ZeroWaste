@@ -5,8 +5,13 @@ import "@hotwired/turbo-rails"
 import "jquery"
 import "jquery_ujs"
 import "./jquery_ui"
-import "@fortawesome/fontawesome-free"
 
+import {far} from "@fortawesome/free-regular-svg-icons"
+import {fas} from "@fortawesome/free-solid-svg-icons"
+import {fab} from "@fortawesome/free-brands-svg-icons"
+import {library} from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-free"
+library.add(far, fas, fab)
 
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
@@ -15,7 +20,7 @@ import "@fortawesome/fontawesome-free"
 
 import Rails from "@rails/ujs";
 import * as ActiveStorage from "@rails/activestorage";
-import "channels";
+import "../channels";
 import "@rails/request.js";
 
 require("jquery");
@@ -26,7 +31,7 @@ require("@nathanvda/cocoon");
 // window.$ = window.jQuery = jQuery;
 
 // import 'ajax/result_button';
-import "ajax/checkbox";
+import "../ajax/checkbox";
 import "plugins/flatpickr";
 
 import "bootstrap";

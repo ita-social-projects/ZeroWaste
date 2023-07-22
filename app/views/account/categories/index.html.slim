@@ -24,6 +24,5 @@ div class="container home"
           td.actions
             = link_to edit_account_category_path(id: category) do
               i.fa.fa-pen.mx-2
-            = button_to account_category_path(id: category), method: :delete,
-                    data: { confirm: t('.confirm_delete') } do
+            = button_to account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') } do
               i.fa.fa-trash.mx-2

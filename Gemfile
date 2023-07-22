@@ -38,7 +38,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "active_storage_validations"
-gem "font-awesome-rails"
+gem "font-awesome-sass", "~> 6.4"
 gem "mini_magick", ">= 4.9.5"
 gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
