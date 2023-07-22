@@ -3,8 +3,6 @@ import "controllers"
 import "@hotwired/turbo-rails"
 
 import "jquery"
-import "jquery_ujs"
-import "./jquery_ui"
 
 import "@fortawesome/fontawesome-free"
 
