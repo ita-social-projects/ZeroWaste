@@ -89,8 +89,6 @@ describe "navigator", js: true do
       enable_admin
       log_as_admin
 
-      # page.refresh
-
       expect(page).to have_content("LOG OUT")
       expect(page).to have_content("CONTACT US")
       expect(page).to have_content("ADMIN")

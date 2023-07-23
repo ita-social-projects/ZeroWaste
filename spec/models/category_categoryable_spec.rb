@@ -42,15 +42,13 @@ RSpec.describe CategoryCategoryable, type: :model do
       end
     end
 
-    skip "is skipped" do
-      context "when a resource model can have the same categories as a product model" do
-        it "returns valid product" do
-          product_diaper.categories = [budgetary_category, medium_category]
-          resource.categories       = [budgetary_category, medium_category]
+    context "when a resource model can have the same categories as a product model" do
+      it "returns valid product" do
+        product_diaper.categories = [budgetary_category, medium_category]
+        resource.categories       = [budgetary_category, medium_category]
 
-          expect(product_diaper.save).to eq true
-          expect(resource.save).to eq true
-        end
+        expect(product_diaper.save).to eq true
+        expect(resource.save).to eq true
       end
     end
 

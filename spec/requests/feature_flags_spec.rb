@@ -8,7 +8,7 @@ RSpec.describe Account::FeatureFlagsController, type: :request do
       feature = Flipper[:access_admin_menu]
       feature.disable
 
-      patch account_features_flags_path, params: { 
+      patch account_features_flags_path, params: {
         feature_flags: {
           access_admin_menu_enabled: 1
         }
@@ -23,7 +23,7 @@ RSpec.describe Account::FeatureFlagsController, type: :request do
       feature = Flipper[:new_calculator_design]
       feature.disable
 
-      patch account_features_flags_path, params: { 
+      patch account_features_flags_path, params: {
         feature_flags: {
           new_calculator_design_enabled: 1
         }
