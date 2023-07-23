@@ -37,12 +37,13 @@ RSpec.describe Product, type: :model do
         .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.blank"))
     }
     it {
-      is_expected.to validate_length_of(:title).is_at_least(2).with_message(I18n
-        .t("#{LOCAL_PREFIX_PRODUCT}.title.too_short"))
+      is_expected.to validate_length_of(:title).is_at_least(2)
+                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_short", count: 2))
     }
+
     it {
-      is_expected.to validate_length_of(:title).is_at_most(50).with_message(I18n
-        .t("#{LOCAL_PREFIX_PRODUCT}.title.too_long"))
+      is_expected.to validate_length_of(:title).is_at_most(50)
+                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_long", count: 50))
     }
   end
 end
