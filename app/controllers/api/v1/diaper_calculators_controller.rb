@@ -8,7 +8,7 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
 
       result = Calculators::DiapersService.new(params[:childs_years], params[:childs_months]).calculate!
 
-      calculator_decorator = CalculatorDecorator.new(result)
+      calculator_decorator = CalculatorDecorator.new(result) 
 
       render json: calculator_decorator.to_json, status: :ok
     else

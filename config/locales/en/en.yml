@@ -41,8 +41,8 @@ en:
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
-      bought_diapers: "diapers already used"
-      will_buy_diapers: "diapers to be used in the future"
+      bought_diapers: "already used"
+      will_buy_diapers: "to be used in the future"
       money_spent: "already spent on diapers"
       money_will_be_spent: "yet to be spent on diapers"
       pieces: pcs.
