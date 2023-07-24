@@ -140,6 +140,7 @@ uk:
         table:
           title: 'Назва'
           actions: 'Дії'
+          priority: 'Пріоритет'
         add_category_button: 'Додати категорію'
         confirm_delete: 'Видалити категорію?'
       edit:
@@ -384,6 +385,9 @@ uk:
         name: "Назва"
         slug: "Шлях"
         preferable: "Бажаний"
+      category:
+        name: "Назва"
+        priority: "Пріоритет"
       product:
         title: "Назва"
     errors:
@@ -392,6 +396,20 @@ uk:
           attributes:
             name:
               name_format_validation: допускаються тільки літери та цифри
+        category:
+          attributes:
+            name:
+              blank: не може бути пустою
+              too_long:
+                one: занадто довга (максимум %{count} знак)
+                few: занадто довга (максимум %{count} знаки)
+                many: занадто довга (максимум %{count} знаків)
+                other: занадто довга (максимум %{count} знаку)
+              too_short:
+                one: занадто коротка (мінімум %{count} знак)
+                few: занадто коротка (мінімум %{count} знаки)
+                many: занадто коротка (мінімум %{count} знаків)
+                other: занадто коротка (мінімум %{count} знаку)
         product:
           attributes:
             title:
