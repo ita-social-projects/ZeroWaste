@@ -1,9 +1,11 @@
 <h1> <%= t('.greeting', name: @user.first_name) %></h1>
 <p> <%= t('.login_info') %>:
-      <br> <%= t('.email', email: @user.email) %>.
-      <br> <%= t('.password', password: @user.password) %>
+  <br> <%= t('.email', email: @user.email) %>
+  <br> <%= t('.password', password: @user.password) %>
 </p>
 <p>
-<%= t('.to_login') %>: <%= link_to "ZeroWaste", @url %>.
+  <%= t('.to_login') %>: <%= link_to "ZeroWaste", @url %>.
 </p>
-<p><%= t('.thanks') %></p>
+<p>
+  <%= t('.thanks') %>
+</p>

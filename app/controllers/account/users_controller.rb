@@ -71,7 +71,7 @@ class Account::UsersController < Account::BaseController
   end
 
   def resource
-    @user = User.find(params[:id])
+    User.find(params[:id])
   end
 
   def render404

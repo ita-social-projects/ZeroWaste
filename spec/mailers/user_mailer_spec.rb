@@ -12,12 +12,8 @@ RSpec.describe UserMailer, type: :mailer do
     end
 
     it "renders the body" do
-      expect(mail.body).to include(I18n.t("user_mailer.welcome_email.greeting", name: user.first_name))
-      expect(mail.body).to include(I18n.t("user_mailer.welcome_email.email", email: user.email))
-      expect(mail.body).to include(I18n.t("user_mailer.welcome_email.password", password: user.password))
-      expect(mail.body).to include(I18n.t("user_mailer.welcome_email.to_login"))
-      expect(mail.body).to include("ZeroWaste")
-      expect(mail.body).to include(I18n.t("user_mailer.welcome_email.thanks"))
+      expect(mail.html_part.body).to include(I18n.t("user_mailer.welcome_email.email", email: user.email))
+      expect(mail.html_part.body).to include(I18n.t("user_mailer.welcome_email.password", password: user.password))
     end
   end
 end

@@ -39,6 +39,18 @@ RSpec.describe "Account::UsersController", type: :request do
         expect(response).to redirect_to(account_user_path(User.last))
         expect(flash[:notice]).to eq(I18n.t("notifications.user_created"))
       end
+
+      it "creates a new user and sends an email" do
+        expect do
+          post account_users_path, params: { user: valid_params.merge(send_credentials_email: "1") }
+        end.to change { ActionMailer::Base.deliveries.count }.by(1)
+      end
+
+      it "creates a new user and doesn`t send an email" do
+        expect do
+          post account_users_path, params: { user: valid_params.merge(send_credentials_email: "0") }
+        end.not_to change { ActionMailer::Base.deliveries.count }
+      end
     end
 
     context "with invalid parameters" do
