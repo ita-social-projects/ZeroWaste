@@ -31,6 +31,11 @@
 
 en:
   uk: "Українська"
+  buttons:
+    save: 'Save'
+    update: 'Update'
+    create: 'Create'
+    cancel: 'Cancel'
   calculators:
     new_calculator:
       form:

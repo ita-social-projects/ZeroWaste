@@ -1,5 +1,10 @@
 uk:
   en: English
+  buttons:
+    save: 'Зберегти'
+    update: 'Оновити'
+    create: 'Створити'
+    cancel: 'Скасувати'
   calculators:
     new_calculator:
       form:
@@ -165,7 +170,7 @@ uk:
         confirm_delete: 'Видалити продукт?'
       edit:
         title: 'Назва'
-        update_button: 'Оновнити'
+        update_button: 'Оновити'
         cancel_button: 'Скасувати'
       new:
         title: 'Назва'
