@@ -256,8 +256,6 @@ en:
         cancel_button: "Cancel"
     feature_flags:
       submit_button: "Save"
-      access_admin_menu:
-        name: "Access Admin Menu"
       new_calculator_design:
         name: "Enable new calculator design"
     sessions:

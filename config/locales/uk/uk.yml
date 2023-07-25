@@ -239,8 +239,6 @@ uk:
         error: "помилки"
     feature_flags:
       submit_button: "Зберегти"
-      access_admin_menu:
-        name: "Доступ до меню адміна"
       new_calculator_design:
         name: "Увімкнути новий дизайн калькулятора"
     sessions:
