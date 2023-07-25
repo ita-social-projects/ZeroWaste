@@ -381,6 +381,7 @@ en:
       timeout: "Your session expired. Please sign in again to continue"
   models:
     calculator: "Calculator"
+    category: "Category"
   activerecord:
     errors:
       models:

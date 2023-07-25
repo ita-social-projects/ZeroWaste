@@ -365,6 +365,7 @@ uk:
       timeout: "Час вашої сесії закінчено. Будь ласка, увійдіть у систему знову"
   models:
     calculator: "Калькулятор"
+    category: "Категорію"
   activerecord:
     form_errors:
       one: "Одна помилка перешкоджає зберегти %{model}"
