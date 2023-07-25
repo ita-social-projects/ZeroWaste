@@ -1,13 +1,13 @@
-- en_link_to_main_site  = zero_waste_url(:en, "diaper-calculator-method-en/")
-- ua_link_to_main_site  = zero_waste_url("diaper-calculator-method/")
+- en_link_to_main_site  = zero_waste_url(locale: :en, href: "diaper-calculator-method-en/")
+- ua_link_to_main_site  = zero_waste_url(href: "diaper-calculator-method/")
 
 span
   p data-type="description_block_html"
   - if I18n.locale == :en
     = t(".description_block_html",
           calculate_link: link_to_external(en_link_to_main_site, t(".calculate_link")),
-          contact_link: link_to_external(zero_waste_url(:en, "contacts/"), t(".contact_us_link")))
+          contact_link: link_to_external(zero_waste_url(locale: :en, href: "contacts/"), t(".contact_us_link")))
   - else
     = t(".description_block_html",
           calculate_link: link_to_external(ua_link_to_main_site, t(".calculate_link")),
-          contact_link: link_to_external(zero_waste_url("kontakty/"), t(".contact_us_link")))
+          contact_link: link_to_external(zero_waste_url(href: "kontakty/"), t(".contact_us_link")))

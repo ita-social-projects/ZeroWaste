@@ -17,7 +17,7 @@ module CalculatorsHelper
     end
   end
 
-  def zero_waste_url(locale = nil, href)
+  def zero_waste_url(locale: nil, href:)
     if locale.present?
       "https://zerowastelviv.org.ua/#{locale.to_s}/#{href}"
     else
