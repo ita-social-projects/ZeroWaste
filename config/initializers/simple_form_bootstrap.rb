@@ -337,7 +337,7 @@ SimpleForm.setup do |config|
 
   # inline input for boolean
   config.wrappers :inline_boolean, tag: "span",
-                                   class: "form-check mb-2 mr-sm-2",
+                                   class: "form-check mb-2 me-sm-2",
                                    error_class: FORM_GROUP_INVALID,
                                    valid_class: FORM_GROUP_VALID do |b|
     b.use :html5

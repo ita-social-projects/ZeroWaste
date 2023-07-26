@@ -2,16 +2,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom.border-success
   .container-fluid
     = link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste'
     .d-flex.order-lg-1
-      .mr-3.align-middle id="lang-btn"
+      .me-3.align-middle id="lang-btn"
         = link_to t(".#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm'
-      = button_tag("", class: "navbar-toggler nav-toggler collapsed ml-auto d-flex d-lg-none flex-column justify-content-around align-bottom",
+      = button_tag("", class: "navbar-toggler nav-toggler collapsed ms-auto d-flex d-lg-none flex-column justify-content-around align-bottom",
         id: "burger-btn", type: "button", data: { toggle: "collapse", target: "#navbarNav"},
         aria: { controls: "navbarNav", expanded: "false", label: "Toggle navigation" })
         span.toggler-icon.top-bar
         span.toggler-icon.middle-bar
         span.toggler-icon.bottom-bar
     .collapse.navbar-collapse.row.navbar.order-lg-0 id="navbarNav"
-        ul.navbar-nav.mr-0
+        ul.navbar-nav.me-0
           li.nav-item.mx-3
             = link_to t('.calculators'), account_calculators_path, class: 'navbar-brand text-success h3'
           li.nav-item.mx-3
