@@ -15,11 +15,10 @@ describe "navigator", js: true do
   end
 
   context "as an admin user" do
-
     include_context :authorize_admin
     include_context :disable_admin_menu
 
-    before { visit root_path}
+    before { visit root_path }
 
     it "should consist tabs when feature show_admin_menu is disabled" do
       expect(page).to have_content("LOG OUT")
@@ -41,7 +40,7 @@ describe "navigator", js: true do
     include_context :authorize_regular_user
     include_context :disable_admin_menu
 
-    before { visit root_path}
+    before { visit root_path }
 
     it "should consist tabs when feature show_admin_menu is disabled" do
       expect(page).to have_content("LOG OUT")

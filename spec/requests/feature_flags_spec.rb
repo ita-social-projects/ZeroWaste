@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Account::FeatureFlagsController, type: :request, :include_shared => true do
+RSpec.describe Account::FeatureFlagsController, type: :request, include_shared: true do
   context "PATCH /account/feature_flags" do
     include_context :authorize_admin
     include_context :disable_admin_menu
@@ -8,9 +8,9 @@ RSpec.describe Account::FeatureFlagsController, type: :request, :include_shared 
 
     before do
       patch account_features_flags_path, params: {
-        "feature_flags": {
-          "new_calculator_design_enabled": "1",
-          "access_admin_menu_enabled": "1"
+        feature_flags: {
+          new_calculator_design_enabled: "1",
+          access_admin_menu_enabled: "1"
         }
       }
     end
