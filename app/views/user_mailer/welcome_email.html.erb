@@ -1,8 +1,9 @@
 <h1> <%= t('.greeting', name: @user.first_name) %></h1>
-<p> <%= t('.login_info') %>:
-  <br> <%= t('.email', email: @user.email) %>
-  <br> <%= t('.password', password: @user.password) %>
-</p>
+<div>
+  <p><%= t('.login_info') %>:</p>
+  <p><%= t('.email', email: @user.email) %></p>
+  <p><%= t('.password', password: @user.password) %></p>
+</div>
 <p>
   <%= t('.to_login') %>: <%= link_to "ZeroWaste", @url %>.
 </p>

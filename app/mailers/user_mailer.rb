@@ -6,6 +6,7 @@ class UserMailer < ApplicationMailer
   def welcome_email(user)
     @user = user
     @url  = root_url
+
     mail(to: @user.email, subject: I18n.t("mailer.welcome_mail.subject"))
   end
 end
