@@ -7,10 +7,10 @@
       ul
         - @calculator.errors.full_messages.each do |error_message|
           li= error_message
-  = simple_form_for @calculator, url: { action: 'create' } do |f|
+  = simple_form_for @calculator, url: account_calculators_path do |f|
     .form-group.row
       .col-12.has-float-label.my-auto
-        = f.input :name, class: 'form-control', required: true
+        = f.input :name, class: 'form-control'
     .div.d-flex
       = f.button :submit, t('.create_calculator_button'), class: 'btn btn-success mr-2 height-auto w-auto'
       = link_to account_calculators_path, class: 'btn btn-danger d-flex align-items-center justify-content-center height-auto w-auto' do

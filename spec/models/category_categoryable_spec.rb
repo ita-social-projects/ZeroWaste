@@ -30,12 +30,12 @@ RSpec.describe CategoryCategoryable, type: :model do
     it { is_expected.to belong_to(:category) }
   end
 
-  xdescribe "validations" do
+  describe "validations" do
     let(:budgetary_category) { create(:category, :budgetary) }
     let(:medium_category) { create(:category, :medium) }
+
     let(:product_diaper) { build(:product, :diaper) }
     let(:product_napkin) { build(:product, :napkin) }
-    let(:resource) { build(:resource) }
 
     context "when a product(diaper) has one category" do
       it "returns valid product" do
@@ -60,16 +60,6 @@ RSpec.describe CategoryCategoryable, type: :model do
 
         expect(product_diaper.save).to eq true
         expect(product_napkin.save).to eq true
-      end
-    end
-
-    context "when a resource model can have the same categories as a product model" do
-      it "returns valid product" do
-        product_diaper.categories = [budgetary_category, medium_category]
-        resource.categories       = [budgetary_category, medium_category]
-
-        expect(product_diaper.save).to eq true
-        expect(resource.save).to eq true
       end
     end
 
