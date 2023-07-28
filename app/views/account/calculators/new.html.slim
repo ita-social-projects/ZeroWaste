@@ -7,16 +7,12 @@
       ul
         - @calculator.errors.full_messages.each do |error_message|
           li= error_message
-  = form_for @calculator, url: { action: 'create' } do |f|
-    .admin-table
-      .admin-table-body.row.justify-content-center
-        .col-1.font-weight-bold= f.label :name
-        .col-1= f.text_field :name
-        .col-2.d-flex.justify-content-end
-        = f.association :company, as: :radio_buttons, collection: @products
-        = f.submit "", value: t('.create_calculator_button'), class: 'btn btn-success mr-2'
-        = link_to account_calculators_path, class: 'btn btn-danger' do
-          span.mr-1 =t('buttons.cancel')
-          i.fa.fa-times-circle
-  - @products.each do |product|
-    = product.title
+  = simple_form_for @calculator, url: account_calculators_path do |f|
+    .form-group.row
+      .col-12.has-float-label.my-auto
+        = f.input :name, class: 'form-control'
+    .div.d-flex
+      = f.button :submit, t('.create_calculator_button'), class: 'btn btn-success mr-2 height-auto w-auto'
+      = link_to account_calculators_path, class: 'btn btn-danger d-flex align-items-center justify-content-center height-auto w-auto' do
+        span.mr-1 = t('.cancel_button')
+        i.fa.fa-times-circle

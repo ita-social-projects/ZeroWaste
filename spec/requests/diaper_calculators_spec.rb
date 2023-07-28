@@ -15,8 +15,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     {
       result: values,
       date: 12,
-      text_products_to_be_used: "1830.0 diapers to be used in the future",
-      text_products_used: "2745.0 diapers already used"
+      text_products_to_be_used: "#{values[:to_be_used_diapers_amount]} diapers to be used in the future",
+      text_products_used: "#{values[:used_diapers_amount]} diapers already used"
     }
   end
 
