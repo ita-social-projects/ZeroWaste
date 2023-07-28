@@ -63,7 +63,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def calculator_params
     params.require(:calculator).permit(
-      :name, :id, :slug, :preferable,
+      :name, :id, :slug, :preferable, :product_id,
       fields_attributes: [
         :id, :selector, :label, :name, :value, :unit, :from, :to, :type, :kind,
         :_destroy
@@ -79,6 +79,6 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def products_collection
-    @products = Product.where(calculator: nil)
+    @products = Product.where(calculator_id: nil)
   end
 end
