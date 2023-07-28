@@ -46,8 +46,8 @@ en:
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
-      bought_diapers: "diapers already used"
-      will_buy_diapers: "diapers to be used in the future"
+      bought_diapers: "already used"
+      will_buy_diapers: "to be used in the future"
       money_spent: "already spent on diapers"
       money_will_be_spent: "yet to be spent on diapers"
       pieces: pcs.
@@ -426,6 +426,12 @@ en:
               too_short: " is too short"
               invalid: " is invalid"
               name_format_validation: must contain only letters or numbers
+        product:
+          attributes:
+            title:
+              blank: can't be blank
+              too_long: too long (maximum %{count} symbols)
+              too_short: too short (minimum %{count} symbols)
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
