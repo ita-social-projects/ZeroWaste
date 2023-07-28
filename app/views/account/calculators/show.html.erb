@@ -11,26 +11,17 @@
                                                   input_child_info_results_outlet: '.result' }}) do |form| %>
       <div class="flex-item flex-column">
 
-        <div class="input_lable pb-2">
-          <%= t('.form.description') %>
-        </div>
+        Items
+        <%= form.input_field :items,
+                              data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' } %>
 
-        <div class="flex-item flex-row rounded age_wrapper form_fild">
-          <%= form.input_field :years,
-                                data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' } %>
-        </div>
+        Period
+        <%= form.input_field :period,
+                              collection: use_period,
+                              prompt: '__',
+                              data: { input_child_info_target: 'month' } %>
 
-        <div class="flex-item flex-row rounded age_wrapper form_fild">
-          <%= form.input_field :months,
-                                collection: use_period,
-                                prompt: '__',
-                                data: { input_child_info_target: 'month' } %>
-        </div>
-
-        <div class="input_lable pb-2">
-          <%= t('.form.price') %>
-        </div>
-
+        Price
         <%= form.input_field :product_category, collection: @prices,
                                                       selected: t('.form.medium'),
                                                       label: t('.form_price'),
