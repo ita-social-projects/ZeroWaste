@@ -8,6 +8,10 @@ class Account::CalculatorsController < Account::BaseController
     # TODO: fill it
   end
 
+  def new
+    products_collection
+  end
+
   def edit
     collect_fields_for_form
   end
@@ -72,5 +76,9 @@ class Account::CalculatorsController < Account::BaseController
       ::Calculators::PreferableService.new(calculator_params).perform!
       @calculator.update(calculator_params)
     end
+  end
+
+  def products_collection
+    @products = Product.where(calculator: nil)
   end
 end

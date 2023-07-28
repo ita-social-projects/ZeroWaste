@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_10_212500) do
+ActiveRecord::Schema.define(version: 2023_07_28_151759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2023_07_10_212500) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.boolean "preferable", default: false
+    t.integer "product_id"
     t.index ["name"], name: "index_calculators_on_name", unique: true
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
@@ -158,6 +159,7 @@ ActiveRecord::Schema.define(version: 2023_07_10_212500) do
     t.bigint "product_type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "calculator_id"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
   end

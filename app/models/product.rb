@@ -19,6 +19,8 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
+  belongs_to :calculator, required: false
+
   has_many :prices, as: :priceable, dependent: :destroy
   has_many :categories_by_prices, through: :prices, source: :category
 
