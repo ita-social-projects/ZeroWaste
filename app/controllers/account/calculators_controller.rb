@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :calculator, only: [:edit, :update, :destroy]
+  before_action :calculator, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   def show
-    # TODO: fill it
+    @prices = product_prices(@calculator.product)
+    puts @calculator
   end
 
   def new
@@ -20,6 +21,7 @@ class Account::CalculatorsController < Account::BaseController
     @calculator = Calculator.new(calculator_params)
 
     if @calculator.save
+      Product.find(calculator_params[:product_id]).update(calculator_id: @calculator.id)
       redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
       render action: "new"
@@ -80,5 +82,9 @@ class Account::CalculatorsController < Account::BaseController
 
   def products_collection
     @products = Product.where(calculator_id: nil)
+  end
+
+  def product_prices(product)
+    product.categories_by_prices
   end
 end

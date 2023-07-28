@@ -21,4 +21,8 @@ module CalculatorsHelper
     when "new" then (0..11).to_a
     end
   end
+
+  def use_period
+    ["day", "week", "month", "year"]
+  end
 end
