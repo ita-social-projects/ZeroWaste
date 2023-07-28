@@ -19,11 +19,6 @@ import "@rails/request.js";
 require("jquery");
 require("@nathanvda/cocoon");
 
-// const jQuery = require('jquery');
-// global.$ = global.jQuery = jQuery;
-// window.$ = window.jQuery = jQuery;
-
-// import 'ajax/result_button';
 import "../ajax/checkbox";
 import "plugins/flatpickr";
 
@@ -38,11 +33,6 @@ global.toastr = require("toastr");
 Rails.start();
 Turbo.start();
 ActiveStorage.start();
-
-// document.addEventListener('turbolinks:load', () => {
-//   $('[data-toggle="tooltip"]').tooltip();
-//   $('[data-toggle="popover"]').popover();
-// });
 
 $("document").ready(function () {
   setTimeout(function () {

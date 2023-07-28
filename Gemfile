@@ -13,10 +13,10 @@ gem "rails", "~> 6.1.3", ">= 6.1.3.1"
 gem "redis", "~> 4.0"
 gem "sass-rails", ">= 6"
 gem "turbo-rails", "~> 1.4"
+gem "hotwire-rails"
 gem "importmap-rails", "~> 1.1"
 gem "bootstrap", "~> 4.6.0"
 gem "jquery-rails"
-gem "jquery-ui-rails"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "acts_as_singleton"
