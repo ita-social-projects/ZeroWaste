@@ -1,17 +1,20 @@
 # == Schema Information
 #
-# Table name: price
-#  sum                    :decimal
-#  priceable_type         :string
-#  priceable_id           :bigint
-#  category_id            :integer
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+# Table name: prices
+#
+#  id             :bigint           not null, primary key
+#  priceable_type :string
+#  sum            :decimal(8, 2)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  category_id    :integer
+#  priceable_id   :bigint
 #
 # Indexes
 #
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_prices_on_category_id                                      (category_id)
+#  index_prices_on_category_id_and_priceable_id_and_priceable_type  (category_id,priceable_id,priceable_type) UNIQUE
+#  index_prices_on_priceable                                        (priceable_type,priceable_id)
 #
 require "rails_helper"
 

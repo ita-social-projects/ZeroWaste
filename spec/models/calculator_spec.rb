@@ -14,6 +14,7 @@
 #
 # Indexes
 #
+#  index_calculators_on_name  (name) UNIQUE
 #  index_calculators_on_slug  (slug) UNIQUE
 #  index_calculators_on_uuid  (uuid) UNIQUE
 #
