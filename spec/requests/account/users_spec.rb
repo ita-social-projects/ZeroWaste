@@ -70,6 +70,7 @@ RSpec.describe "Account::UsersController", type: :request do
       it "updates the user" do
         expect do
           patch account_user_path(user), params: { user: { email: "new@example.com" }}
+
           user.reload
         end.to change { user.email }.to("new@example.com")
 
@@ -79,11 +80,10 @@ RSpec.describe "Account::UsersController", type: :request do
     end
 
     context "with invalid parameters" do
-      let(:original_email) { user.email }
-
       it "does not update the user" do
         expect do
           patch account_user_path(user), params: { user: { email: "" }}
+
           user.reload
         end.not_to change { user }
 
