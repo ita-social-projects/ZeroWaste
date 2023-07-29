@@ -1,15 +1,12 @@
 # == Schema Information
 #
 # Table name: categories
-#  name                   :string
-#  priority               :integer          not null      default 0
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
 #
-# Indexes
-#
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  id         :bigint           not null, primary key
+#  name       :string
+#  priority   :integer          default(0), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 require "rails_helper"
 
@@ -22,7 +19,7 @@ RSpec.describe Category, type: :model do
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
-
+    it { is_expected.to validate_length_of(:name).is_at_least(3).is_at_most(30) }
     it { is_expected.to validate_numericality_of(:priority).is_greater_than_or_equal_to(0) }
   end
 end

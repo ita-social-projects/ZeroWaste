@@ -1,5 +1,10 @@
 uk:
   en: English
+  buttons:
+    save: 'Зберегти'
+    update: 'Оновити'
+    create: 'Створити'
+    cancel: 'Скасувати'
   calculators:
     new_calculator:
       form:
@@ -151,14 +156,9 @@ uk:
         table:
           title: 'Назва'
           actions: 'Дії'
+          priority: 'Пріоритет'
         add_category_button: 'Додати категорію'
         confirm_delete: 'Видалити категорію?'
-      edit:
-        update_button: 'Оновити'
-        cancel_button: 'Скасувати'
-      new:
-        create_button: 'Створити'
-        cancel_button: 'Скасувати'
     products:
       index:
         table:
@@ -167,7 +167,6 @@ uk:
           actions: 'Дії'
         add_product_button: 'Додати продукт'
         confirm_delete: 'Видалити продукт?'
-        cancel_button: 'Скасувати'
       show:
         table:
           title: 'Назва'
@@ -176,18 +175,11 @@ uk:
         confirm_delete: 'Видалити продукт?'
       edit:
         title: 'Назва'
-        update_button: 'Оновнити'
-        cancel_button: 'Скасувати'
       new:
         title: 'Назва'
-        create_button: 'Створити'
-        cancel_button: 'Скасувати'
       created: "Продукт був успішно створений."
       updated: "Продукт був успішно оновлений."
       deleted: "Продукт був успішно видалений."
-    site_settings:
-      edit:
-        update_button: 'Оновити'
     users:
       index:
         main_header: "Адмінпанель"
@@ -247,16 +239,13 @@ uk:
         form:
           select_field_kind_label: "Оберіть поле"
           select_field_type_label: "Оберіть тип поля"
-          create_button: "Створити"
           form_label: "Форма"
           parameters_label: "Параметри"
           results_label: "Результати"
           no_fields_yet_label: "Полів поки нема"
           update_calculator_button: "Оновити калькулятор"
-          cancel_button: "Скасувати"
       new:
         create_calculator_button: "Створити калькулятор"
-        cancel_button: "Скасувати"
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
@@ -387,6 +376,7 @@ uk:
       timeout: "Час вашої сесії закінчено. Будь ласка, увійдіть у систему знову"
   models:
     calculator: "Калькулятор"
+    category: "Категорію"
   activerecord:
     form_errors:
       one: "Одна помилка перешкоджає зберегти %{model}"
@@ -408,12 +398,45 @@ uk:
         name: "Назва"
         slug: "Шлях"
         preferable: "Бажаний"
+      category:
+        name: "Назва"
+        priority: "Пріоритет"
+      product:
+        title: "Назва"
     errors:
       models:
         calculator:
           attributes:
             name:
               name_format_validation: допускаються тільки літери та цифри
+        category:
+          attributes:
+            name:
+              blank: не може бути пустою
+              too_long:
+                one: занадто довга (максимум %{count} знак)
+                few: занадто довга (максимум %{count} знаки)
+                many: занадто довга (максимум %{count} знаків)
+                other: занадто довга (максимум %{count} знаку)
+              too_short:
+                one: занадто коротка (мінімум %{count} знак)
+                few: занадто коротка (мінімум %{count} знаки)
+                many: занадто коротка (мінімум %{count} знаків)
+                other: занадто коротка (мінімум %{count} знаку)
+        product:
+          attributes:
+            title:
+              blank: не може бути пустою
+              too_long:
+                one: занадто довга (максимум %{count} знак)
+                few: занадто довга (максимум %{count} знаки)
+                many: занадто довга (максимум %{count} знаків)
+                other: занадто довга (максимум %{count} знаку)
+              too_short:
+                one: занадто коротка (мінімум %{count} знак)
+                few: занадто коротка (мінімум %{count} знаки)
+                many: занадто коротка (мінімум %{count} знаків)
+                other: занадто коротка (мінімум %{count} знаку)
         user:
           attributes:
             avatar:
