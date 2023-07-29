@@ -13,7 +13,10 @@ module CalculatorsHelper
 
   def link_to_external(url, link_text)
     link_to(url, target: "_blank") do
-      "#{link_text} <i class='fas fa-external-link-alt'></i>".html_safe
+      concat(
+        content_tag(:span, link_text, class: 'link-text') +
+        content_tag(:i, nil, class: 'fas fa-external-link-alt')
+      )
     end
   end
 
@@ -22,6 +25,14 @@ module CalculatorsHelper
       "https://zerowastelviv.org.ua/#{locale.to_s}/#{href}"
     else
       "https://zerowastelviv.org.ua/#{href}"
+    end
+  end
+
+  def url_due_to_locale
+    if I18n.locale == :en
+     'https://zerowastelviv.org.ua/en/zero-waste-nappies-en/'
+    else
+      'https://zerowastelviv.org.ua/zero-waste-nappies/'
     end
   end
 end

@@ -91,6 +91,15 @@ a {
   }
 }
 
+.description-btn a, .donate-btn a, .result-card a {
+  display: inline-flex;
+  column-gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: inherit;
+}
+
 .donate-btn,
 .main-btns {
   background-color: transparent;
@@ -107,12 +116,10 @@ a {
     color: $color;
     text-align: center;
     min-width: 187px;
-    display: flex;
-    column-gap: 0.25rem;
-    justify-content: center;
 
     .fa-external-link-alt {
       font-size: 14px;
+      align-self: normal;
     }
 
     &:hover {
