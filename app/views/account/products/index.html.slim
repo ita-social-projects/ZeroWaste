@@ -9,6 +9,7 @@
       tr
         th scope="col" #
         th scope="col" =t('.table.title')
+        th scope="col" ="Default usage"
         th scope="col" =t('.table.prices')
         th scope="col" =t('.table.actions')
 
@@ -17,6 +18,7 @@
         tr
           td = product.id
           td = product.title
+          td = product.default_usage_per_day
           td
             - product.prices.includes(:category).each do |price|
               span = "#{price.category.name}: #{price.sum}"
