@@ -2,8 +2,8 @@ span
   p data-type="description_block_html"
   - if I18n.locale == :en
     = t(".description_block_html",
-          calculate_link: link_to_external(zero_waste_url(locale: :en, href: "diaper-calculator-method-en/"), t(".calculate_link")),
-          contact_link: link_to_external(zero_waste_url(locale: :en, href: "contacts/"), t(".contact_us_link")))
+          calculate_link: link_to_external(zero_waste_url(href: "diaper-calculator-method-en/", locale: :en), t(".calculate_link")),
+          contact_link: link_to_external(zero_waste_url(href: "contacts/", locale: :en), t(".contact_us_link")))
   - else
     = t(".description_block_html",
           calculate_link: link_to_external(zero_waste_url(href: "diaper-calculator-method/"), t(".calculate_link")),

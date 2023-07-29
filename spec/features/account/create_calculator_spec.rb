@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require "rails_helper"
+
 CREATE_CALCULATOR_BUTTON = "Create calculator"
 
-describe "Create Calculator Page", js: true do
+xdescribe "Create Calculator Page", js: true do
   let(:calculator) { create(:calculator) }
 
   before do

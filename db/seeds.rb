@@ -12,7 +12,7 @@ User.create(
   last_name: "User",
   confirmed_at: DateTime.current,
   role: "user"
-)
+) unless User.exists?(email: "user@zw.com")
 
 # An admin
 User.create(
@@ -23,17 +23,17 @@ User.create(
   last_name: "Admin",
   confirmed_at: DateTime.current,
   role: "admin"
-)
+) unless User.exists?(email: "admin@zw.com")
 
 FactoryBot.create(:product_type, :hygiene)
 FactoryBot.create(:product, :diaper)
 
-FeatureFlag.create!(
+FeatureFlag.find_or_create_by!(
   name: "feature_budget_category",
   enabled: false
 )
 
-FeatureFlag.create!(
+FeatureFlag.find_or_create_by!(
   name: "show_admin_menu",
   enabled: false
 )

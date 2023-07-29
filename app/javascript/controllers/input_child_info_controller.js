@@ -9,6 +9,7 @@ export default class extends Controller {
       type: String,
       default: "en/api/v1/diaper_calculators",
     },
+    months: Array
   };
 
   connect() {
@@ -22,30 +23,25 @@ export default class extends Controller {
   }
 
   yearChanged(e) {
+    // Determining the number of options for months
+    const amountOptions = e.target.value.includes("2") ? this.monthsValue.slice(0, 7) : this.monthsValue;
+
+    // Save the previous month value before updating
+    const previousMonthValue = this.monthTarget.value;
+    console.log(`VALUE = ${previousMonthValue}`)
 
     // Clear old options from the month selection list
     this.monthTarget.innerHTML = '';
 
-    // Determining the number of options for months
-    const amountOptions = e.target.value == 2 ? 6 : 11;
-
-    // Save the previous month value before updating
-    const previousMonthValue = this.monthTarget.value;
-
-    // If the month was not selected before the update, add an empty option to the top of the list
-    if (this.monthTarget && !previousMonthValue) {
-      this.monthTarget.appendChild(this.getNillOption(previousMonthValue));
-    }
-
     // Adding new options to the month selection list
-    for (let monthIndex = 0; monthIndex <= amountOptions; monthIndex++) {
-      this.monthTarget.appendChild(this.getBasicOption(monthIndex));
+    amountOptions.forEach((option) => {
+      this.monthTarget.appendChild(this.getBasicOption(option));
 
       // If the previous month value is saved, set it as the selected value
-      if (monthIndex == previousMonthValue && previousMonthValue) {
-        this.monthTarget.value = monthIndex;
+      if (option == previousMonthValue) {
+        this.monthTarget.value = previousMonthValue;
       }
-    }
+    });
   }
 
   submit(e) {
