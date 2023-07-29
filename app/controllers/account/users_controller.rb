@@ -40,10 +40,10 @@ class Account::UsersController < Account::BaseController
   end
 
   def update
-    user = resource
+    @user = resource
 
-    if user.update(user_params)
-      redirect_to account_user_path(id: user), notice: t("notifications.user_updated")
+    if @user.update(user_params)
+      redirect_to account_user_path(id: @user), notice: t("notifications.user_updated")
     else
       render :edit, status: :unprocessable_entity
     end
