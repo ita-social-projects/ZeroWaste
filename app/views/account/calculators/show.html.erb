@@ -4,11 +4,10 @@
     <%= image_tag "arrow-left.svg", class: "z-1" %>
   </a>
   <div class="d-flex justify-content-around flex-wrap calculator_wrap ml-5">
-    <%= simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
-                                          data: { controller: "input-child-info",
-                                                  input_child_info_url_value: api_v1_diaper_calculators_url,
-                                                  input_child_info_months_value: month_number("new"),
-                                                  input_child_info_results_outlet: '.result' }}) do |form| %>
+    <%= simple_form_for(api_v1_calculate_path, html: { class: "simple_form_calculator",
+                                          data: { controller: "calculate",
+                                                  calculate_url_value: api_v1_calculate_path,
+                                                  calculate_calculationresults_outlet: '.result' }}) do |form| %>
       <div class="flex-item flex-column">
         <%= "#{@calculator.product.title} calculator" %><br>
 
@@ -16,31 +15,33 @@
         <%= form.input_field :period,
                               collection: use_period,
                               prompt: '__',
-                              data: { input_child_info_target: 'month' } %>
+                              class: 'form_fild price_select rounded w-100',
+                              data: { calculate_target: 'period' } %>
 
         Price
-        <%= form.input_field :product_category, collection: @prices,
-                                                      selected: t('.form.medium'),
-                                                      label: t('.form_price'),
-                                                      class: 'form_fild price_select rounded w-100',
-                                                      data: { input_child_info_target: 'productCategory' } %>
+        <%= form.input_field :product_category, 
+                              collection: @prices,
+                              prompt: '__',
+                              label: t('.form_price'),
+                              class: 'form_fild price_select rounded w-100',
+                              data: { calculate_target: 'priceCategory' } %>
 
         <%= form.submit t('calculators.buttons.calculate'),
                       class: 'calculate-btn result-btn',
-                      data: { action: 'input-child-info#submit' } %>
+                      data: { action: 'calculate#submit' } %>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="container calculation-results result" data-controller="results">
+<div class="container calculation-results result" data-controller="calculationresults">
   <div class="main-result-container">
     <div class="result-container">
-      <% [{ image: "money_spent_2.png", data_target: "moneySpent", unit: t(".unit"), text: t(".money_spent") },
-        { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".unit"), text: t(".money_will_be_spent") }].each do |item| %>
+      <% [{ image: "money_spent_2.png", data_target: "moneySpentResult", unit: t(".unit"), text: "moneySpent" },
+        { image: "money_to_spent_2.png", data_target: "itemsUsedResult", unit: t(".unit"), text: "itemsUsed" }].each do |item| %>
         <div>
           <%= image_tag item[:image], class: "img-margin" %>
-          <p data-results-target="<%= item[:data_target] %>">000</p>
+          <p data-calculationresults-target="<%= item[:data_target] %>">000</p>
           <p class="diapers-font"><%= item[:unit] %></p>
           <p class="diapers-font-text"><%= item[:text] %></p>
         </div>
