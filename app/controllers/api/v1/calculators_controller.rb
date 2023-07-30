@@ -2,23 +2,19 @@
 
 class Api::V1::CalculatorsController < ApplicationController
   def calculate
-    # @validation = CalculatorValidator.new(params)
+    @validation = CalculatorValidator.new(params)
 
-    # if @validation.valid?
-    # puts('=' * 30)
-    # puts params
-    # puts('=' * 30)
+    if @validation.valid?
+      result = Calculators::CalculateService.new(resource.product, calculator_params).calculate
 
-    result = Calculators::CalculateService.new(resource.product, calculator_params).calculate
-
-    render json: result.to_json, status: :ok
-    # else
-    #   render(
-    #     json: {
-    #       error: @validation.error
-    #     }, status: :unprocessable_entity
-    #   )
-    # end
+      render json: result.to_json, status: :ok
+    else
+      render(
+        json: {
+          error: @validation.error
+        }, status: :unprocessable_entity
+      )
+    end
   end
 
   private

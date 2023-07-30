@@ -7,7 +7,7 @@ export default class extends Controller {
   static values = {
     url: {
       type: String,
-      default: "en/api/v1/diaper_calculators",
+      default: "en/api/v1/calculators",
     },
   };
 
@@ -34,9 +34,6 @@ export default class extends Controller {
     const result = await response.json;
 
     if (response.ok) {
-      console.log("RESULTS")
-      console.log(result)
-      console.log("RESULTS")
       this.calculationresultsOutlet.showResults(result);
     } else if (response.statusCode == 422) {
       toastr.error(result.error);

@@ -7,11 +7,6 @@ export default class extends Controller {
   ];
 
   showResults(data) {
-    console.log(data)
-
-    console.log(data.moneySpent)
-    console.log(data.itemsUsed)
-
     this.moneySpentResultTarget.innerHTML = data.moneySpent;
     this.itemsUsedResultTarget.innerHTML = data.itemsUsed;
   }

@@ -6,7 +6,7 @@ class Calculators::CalculateService
   DAYS = {
     "day" => 1,
     "week" => 7,
-    "month" => 30,
+    "month" => 30.5,
     "year" => 365
   }.freeze
 
@@ -19,8 +19,8 @@ class Calculators::CalculateService
   end
 
   def calculate
-    money_spent = selected_price * period
-    items_used = product.default_usage_per_day * period
+    money_spent = (selected_price * period).to_i
+    items_used = (product.default_usage_per_day * period).to_i
 
     {
       "moneySpent": money_spent,
