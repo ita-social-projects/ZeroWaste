@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ["title", "icon"]
+  static targets = ["title", "icon", "favicon"]
 
 
   setTitle(event) {
@@ -18,5 +18,9 @@ export default class extends Controller {
 
       reader.readAsDataURL(event.target.files[0]);
     }
+  }
+
+  setFavicon(event) {
+    this.faviconTarget.style.width = "100%"
   }
 }
