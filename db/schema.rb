@@ -159,7 +159,6 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.bigint "product_type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "calculator_id"
     t.integer "default_usage_per_day", default: 1, null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["uuid"], name: "index_products_on_uuid", unique: true

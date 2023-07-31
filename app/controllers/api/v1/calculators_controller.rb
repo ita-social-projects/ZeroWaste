@@ -5,7 +5,7 @@ class Api::V1::CalculatorsController < ApplicationController
     @validation = CalculatorValidator.new(params)
 
     if @validation.valid?
-      result = Calculators::CalculateService.new(resource.product, calculator_params).calculate
+      result = Calculators::CalculateService.new(product_resource, calculator_params).calculate
 
       render json: result.to_json, status: :ok
     else
@@ -29,5 +29,9 @@ class Api::V1::CalculatorsController < ApplicationController
 
   def calculator_params
     params.permit(:period, :price_id)
+  end
+
+  def product_resource
+    Product.find(resource.product_id)
   end
 end
