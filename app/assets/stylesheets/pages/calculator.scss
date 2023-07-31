@@ -203,6 +203,10 @@
   width: 300px !important;
 }
 
+.old-btn {
+  width: 300px !important;
+}
+
 .z-1 {
   z-index: 1;
 }
@@ -256,7 +260,7 @@
 .result-container {
   display: flex;
   flex-flow: row wrap;
-  line-height: 1;
+  line-height: 1.0;
   justify-content: center;
   margin: 0;
   div {
@@ -341,7 +345,7 @@
   .main-result-container {
     display: flex;
     flex-flow: column wrap;
-    line-height: 1;
+    line-height: 1.0;
     align-items: center;
     max-width: 879px;
 

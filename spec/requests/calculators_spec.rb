@@ -61,22 +61,37 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "GET /calculator" do
-    it "renders the calculator template and new_calculator_design is on" do
-      Flipper.enable :new_calculator_design
-      get calculator_path
+    context "new version" do
+      include_context :new_calculator_design
 
-      expect(response).to be_successful
-      expect(response).to render_template(:new_calculator)
-      expect(response.body).to include("results")
+      it "renders the calculator template and new_calculator_design is on" do
+        get calculator_path
+
+      expect(response).to have_http_status(200)
+      expect(response).to render_template(:calculator)
+    end
+  end
+
+  describe "POST /calculators/:slug/calculate" do
+    context "when the calculator exist" do
+      it "renders the calculate template" do
+        post calculate_calculator_path(calculator.slug)
+
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:calculate)
+      end
     end
 
-    it "renders the calculator template and new_calculator_design is off" do
-      Flipper.disable :new_calculator_design
-      get calculator_path
+    context "old version" do
+      include_context :old_calculator_design
 
-      expect(response).to be_successful
-      expect(response).to render_template(:old_calculator)
-      expect(response.body).to include("results")
+      it "renders the calculator template and new_calculator_design is off" do
+        get calculator_path
+
+        expect(response).to be_successful
+        expect(response).to render_template(:old_calculator)
+        expect(response.body).to include("results")
+      end
     end
   end
 
