@@ -13,7 +13,7 @@ h2.text-center = t '.diapers_calculator_config'
         = f.number_field :first_amount, step: 0.5, min: 0, class: 'form-input-number',
                           value: @app_config.diapers_calculator.dig('1..3', 'amount')
       .col
-        = f.label :first_amount, t('.price')
+        = f.label :first_price, t('.price')
         = f.number_field :first_price, step: 0.5, min: 0, class: 'form-input-number',
                           value: @app_config.diapers_calculator.dig('1..3', 'price')
       .col

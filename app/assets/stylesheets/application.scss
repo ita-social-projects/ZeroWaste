@@ -32,3 +32,7 @@ html {
   background-color: #799D32;
   /* Replace with the desired green color value */
 }
+
+label[for$="_price"]{
+  width: 90px;
+}
