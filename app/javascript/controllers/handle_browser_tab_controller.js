@@ -23,4 +23,8 @@ export default class extends Controller {
   setFavicon(event) {
     this.faviconTarget.style.width = "100%"
   }
+  
+  connect() {
+    this.faviconTarget.style.width = "90px"
+  }
 }
