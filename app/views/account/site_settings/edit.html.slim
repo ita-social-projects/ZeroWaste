@@ -2,9 +2,10 @@
   .form-group.row
     .col-12.has-float-label.my-auto
       = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
-      = f.input :favicon, class: "form-control", input_html: { data: {  action: "change->handle-browser-tab#setIcon", action: "change->handle-browser-tab#setFavicon", handle_browser_tab_target: "favicon"} }
+      = f.input :favicon, class: "form-control", input_html: {style: "display: none;", data: {  action: "change->handle-browser-tab#setIcon" } }
+      = f.label "Choose favicon", for: :site_setting_favicon, class: "btn btn-success me-2 mb-4", style: "color: #FFF;"
       = render "browser_tab", site_setting: @site_setting
-
+      
   = f.submit value: t(".update_button"), title: "Update site settings", class: "btn btn-success me-2"
     i.fa.fa-times-circle
 
