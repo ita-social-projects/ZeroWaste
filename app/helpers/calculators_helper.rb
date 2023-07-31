@@ -23,6 +23,11 @@ module CalculatorsHelper
   end
 
   def use_period
-    ["day", "week", "month", "year"]
+    [
+      [I18n.t("calculators.date.day"), "day"],
+      [I18n.t("calculators.date.week"), "week"],
+      [I18n.t("calculators.date.month"), "month"],
+      [I18n.t("calculators.date.year"), "year"]
+    ]
   end
 end

@@ -34,6 +34,17 @@ uk:
       year_and_month_error_msg: "Помилка: будь ласка, виберіть скільки років та місяців дитині"
       year_error_msg: "Помилка: будь ласка, виберіть скільки років дитині"
       month_error_msg: "Помилка: будь ласка, виберіть скільки місяців дитині"
+      period_and_price_error_msg: "Помилка: будь ласка, виберіть звітний період та цінову категорію"
+      period_error_msg: "Помилка: будь ласка, виберіть звітний період"
+      price_error_msg: "Помилка: будь ласка, виберіть цінову категорію"
+    form:
+      period: Звітний період
+      price: Цінова категорія
+    results:
+      unit: шт
+      money: грн
+      used: буде використано
+      spent: буде витрачено
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
@@ -45,6 +56,10 @@ uk:
       to_main: "На головну"
       calculate: "Розрахувати"
     date:
+      day: день
+      week: тиждень
+      month: місяць
+      year: рік
       months:
         one: "%{count} місяць"
         few: "%{count} місяці"
@@ -149,11 +164,14 @@ uk:
         add_category_button: 'Додати категорію'
         confirm_delete: 'Видалити категорію?'
     products:
+      attributes:
+        default_usage_per_day: Використання в день за замовчуванням
       index:
         table:
           title: 'Назва'
           prices: 'Ціни'
           actions: 'Дії'
+          default_usage_per_day: Використання в день за замовчуванням
         add_product_button: 'Додати продукт'
         confirm_delete: 'Видалити продукт?'
       show:
@@ -164,8 +182,10 @@ uk:
         confirm_delete: 'Видалити продукт?'
       edit:
         title: 'Назва'
+        default_usage_per_day: Використання в день за замовчуванням
       new:
         title: 'Назва'
+        default_usage_per_day: Використання в день за замовчуванням
       created: "Продукт був успішно створений."
       updated: "Продукт був успішно оновлений."
       deleted: "Продукт був успішно видалений."
@@ -379,6 +399,7 @@ uk:
         priority: "Пріоритет"
       product:
         title: "Назва"
+        default_usage_per_day: Використання в день за замовчуванням
     errors:
       models:
         calculator:

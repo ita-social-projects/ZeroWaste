@@ -3,7 +3,7 @@
     .form-group.row
       .col-12.has-float-label.my-auto
         = f.input :title, label: t('.title'), class: 'form-control col-sm-11'
-        = f.input :default_usage_per_day, label: 'Default usage per day', class: 'form-control col-sm-11'
+        = f.input :default_usage_per_day, label: t('.default_usage_per_day'), class: 'form-control col-sm-11'
         - Category.ordered_by_name.each do |category|
           .checkbox-blocks
             = f.simple_fields_for :prices do |prices_form|

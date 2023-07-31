@@ -6,7 +6,6 @@ class Account::CalculatorsController < Account::BaseController
 
   def show
     @prices = product_prices(@calculator.product)
-    puts @calculator
   end
 
   def new
@@ -19,6 +18,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def create
     @calculator = Calculator.new(calculator_params)
+    # TODO render new if product empty (now calculator is saved)
 
     if @calculator.save
       Product.find(calculator_params[:product_id]).update(calculator_id: @calculator.id)

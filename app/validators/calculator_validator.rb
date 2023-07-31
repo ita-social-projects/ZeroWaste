@@ -12,13 +12,13 @@ class CalculatorValidator
     price_id = params.fetch(:price_id, nil)
 
     if period.blank? && price_id.blank?
-      @error = I18n.t("calculators.errors.year_and_month_error_msg")
+      @error = I18n.t("calculators.errors.period_and_price_error_msg")
       false
     elsif period.blank?
-      @error = I18n.t("calculators.errors.year_error_msg")
+      @error = I18n.t("calculators.errors.period_error_msg")
       false
     elsif price_id.blank?
-      @error = I18n.t("calculators.errors.month_error_msg")
+      @error = I18n.t("calculators.errors.price_error_msg")
       false
     else
       true

@@ -9,17 +9,20 @@
                                                   calculate_url_value: api_v1_calculate_path,
                                                   calculate_calculationresults_outlet: '.result' }}) do |form| %>
       <div class="flex-item flex-column">
-        <%= "#{@calculator.product.title} calculator" %><br>
 
-        Period
+        <div class="mb-3">
+          <%= "#{@calculator.product.title} calculator" %>
+        </div>
+
+        <%= t("calculators.form.period") %>
         <%= form.input_field :period,
                               collection: use_period,
                               prompt: '__',
                               class: 'form_fild price_select rounded w-100',
                               data: { calculate_target: 'period' } %>
 
-        Price
-        <%= form.input_field :product_category, 
+        <%= t("calculators.form.price") %>
+        <%= form.input_field :product_category,
                               collection: @prices,
                               prompt: '__',
                               label: t('.form_price'),
@@ -37,8 +40,8 @@
 <div class="container calculation-results result" data-controller="calculationresults">
   <div class="main-result-container">
     <div class="result-container">
-      <% [{ image: "money_spent_2.png", data_target: "moneySpentResult", unit: t(".unit"), text: "moneySpent" },
-        { image: "money_to_spent_2.png", data_target: "itemsUsedResult", unit: t(".unit"), text: "itemsUsed" }].each do |item| %>
+      <% [{ image: "money_spent_2.png", data_target: "moneySpentResult", unit: t("calculators.results.money"), text: t("calculators.results.spent") },
+        { image: "money_to_spent_2.png", data_target: "itemsUsedResult", unit: t("calculators.results.unit"), text: t("calculators.results.used") }].each do |item| %>
         <div>
           <%= image_tag item[:image], class: "img-margin" %>
           <p data-calculationresults-target="<%= item[:data_target] %>">000</p>
