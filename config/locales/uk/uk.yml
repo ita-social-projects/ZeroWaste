@@ -177,6 +177,7 @@ uk:
     site_settings:
       edit:
         update_button: 'Оновити'
+        file_select:  'Обери файл'
     users:
       index:
         main_header: "Адмінпанель"

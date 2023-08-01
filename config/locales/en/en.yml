@@ -197,6 +197,7 @@ en:
     site_settings:
       edit:
         update_button: 'Update'
+        file_select:  'Choose file'
     users:
       index:
         main_header: "Dashboard"
