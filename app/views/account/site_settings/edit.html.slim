@@ -7,8 +7,7 @@
       div[data-handle-browser-tab-target="faviconFile"]
         = ""       
       = render "browser_tab", site_setting: @site_setting
-      
-  = f.submit value: t(".update_button"), title: "Update site settings", class: "btn btn-success me-2"
+  = f.submit t("buttons.update")
     i.fa.fa-times-circle
 
 = simple_form_for :feature_flags, url: account_features_flags_path, method: :patch do |f|
@@ -19,4 +18,4 @@
         = feature.description
 
   div
-    = f.submit "Save"
+    = f.submit t("buttons.save")

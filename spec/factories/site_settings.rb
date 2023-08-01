@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: site_settings
+#
+#  id         :bigint           not null, primary key
+#  title      :string           default("ZeroWaste"), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 FactoryBot.define do
   factory :site_setting do
     trait :with_valid_site_setting do
