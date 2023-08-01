@@ -2,8 +2,8 @@
 #
 # Table name: site_settings
 #
-#  id         :integer          not null, primary key
-#  title      :string           default("ZeroWaste")
+#  id         :bigint           not null, primary key
+#  title      :string           default("ZeroWaste"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
