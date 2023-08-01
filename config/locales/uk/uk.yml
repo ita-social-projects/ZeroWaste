@@ -370,6 +370,8 @@ uk:
         successful_update: "Інформацію про користувача було успішно оновлено!"
       admin:
         remember_me: "Запам'ятати мене"
+      site_setting:
+        title: "Назва"
       calculator:
         name: "Назва"
         slug: "Шлях"
@@ -388,6 +390,20 @@ uk:
         category:
           attributes:
             name:
+              blank: не може бути пустою
+              too_long:
+                one: занадто довга (максимум %{count} знак)
+                few: занадто довга (максимум %{count} знаки)
+                many: занадто довга (максимум %{count} знаків)
+                other: занадто довга (максимум %{count} знаку)
+              too_short:
+                one: занадто коротка (мінімум %{count} знак)
+                few: занадто коротка (мінімум %{count} знаки)
+                many: занадто коротка (мінімум %{count} знаків)
+                other: занадто коротка (мінімум %{count} знаку)
+        site_setting:
+          attributes:
+            title:
               blank: не може бути пустою
               too_long:
                 one: занадто довга (максимум %{count} знак)
