@@ -2,8 +2,8 @@
   .form-group.row
     .col-12.has-float-label.my-auto
       = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
-      = f.input :favicon, class: "form-control", input_html: {style: "display: none;", data: {  action: "change->handle-browser-tab#setIcon"} }
-      = f.label t(".file_select"), for: :site_setting_favicon, class: "btn btn-success me-2 mb-4", style: "color: #FFF;"
+      = f.input :favicon, class: "form-control", input_html: {data: {  action: "change->handle-browser-tab#setIcon"} }
+      = f.label t(".file_select"), for: :site_setting_favicon, class: "btn btn-success me-2 mb-4"
       div[data-handle-browser-tab-target="faviconFile"]
         = ""       
       = render "browser_tab", site_setting: @site_setting
