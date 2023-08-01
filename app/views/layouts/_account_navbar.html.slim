@@ -4,21 +4,21 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom.border-success
     .collapse.navbar-collapse.row.navbar.order-lg-0 id="navbarNav"
         ul.navbar-nav.mr-0
           li.nav-item.mx-3
-            = link_to t('.calculators'), account_calculators_path, class: 'navbar-brand text-success h3'
+            = link_to t('.calculators'), account_calculators_path, class: "navbar-brand text-success h3 #{underscored?(account_calculators_path)}"
           li.nav-item.mx-3
-            = link_to t('.histories'), account_histories_path, class: 'navbar-brand text-success h3'
+            = link_to t('.histories'), account_histories_path, class: "navbar-brand text-success h3 #{underscored?(account_histories_path)}"
           li.nav-item.mx-3
-            = link_to t('.users'), account_users_path, class: 'navbar-brand text-success h3'
+            = link_to t('.users'), account_users_path, class: "navbar-brand text-success h3 #{underscored?(account_users_path)}"
           li.nav-item.mx-3
-            = link_to t('.messages'), account_messages_path, class: 'navbar-brand text-success h3'
+            = link_to t('.messages'), account_messages_path, class: "navbar-brand text-success h3 #{underscored?(account_messages_path)}"
           li.nav-item.mx-3
-            = link_to t('.app_config'), edit_account_app_config_path, class: 'navbar-brand text-success h3'
+            = link_to t('.app_config'), edit_account_app_config_path, class: "navbar-brand text-success h3 #{underscored?(edit_account_app_config_path)}"
           li.nav-item.mx-3
-            = link_to t('.products'), account_products_path, class: 'navbar-brand text-success h3'
+            = link_to t('.products'), account_products_path, class: "navbar-brand text-success h3 #{underscored?(account_products_path)}"
           li.nav-item.mx-3
-            = link_to t('.categories'), account_categories_path, class: 'navbar-brand text-success h3'
+            = link_to t('.categories'), account_categories_path, class: "navbar-brand text-success h3 #{underscored?(account_categories_path)}"
           li.nav-item.mx-3
-            = link_to t('.site_settings'), edit_account_site_setting_path, class: 'navbar-brand text-success h3'
+            = link_to t('.site_settings'), edit_account_site_setting_path, class: "navbar-brand text-success h3 #{underscored?(edit_account_site_setting_path)}"
     .d-flex.order-lg-1
       .mr-3.align-middle id="lang-btn"
         = link_to t(".#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm'
