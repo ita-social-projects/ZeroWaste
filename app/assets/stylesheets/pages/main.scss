@@ -339,6 +339,17 @@ body:where(.admin)::before {
   }
 }
 
+.bordered {
+  border: solid darkgray;
+  padding: 20px;
+  margin-bottom: 50px
+}
+
+.admin-legend {
+  width: auto;
+  padding: 20px;
+}
+
 @media screen and (max-width: $xs) {
   .tab {
     display: none;
