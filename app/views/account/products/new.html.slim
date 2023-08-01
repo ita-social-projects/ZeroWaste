@@ -12,7 +12,7 @@
                 = prices_form.input :sum, label: false, input_html: { placeholder: 'Sum', data: { price_form_target: 'priceInput' } }
                 = prices_form.hidden_field :category_id, value: category.id
     .div.d-flex
-        = f.submit t('.create_button'), class: 'btn btn-success mr-2 w-auto'
+        = f.submit t('buttons.create'), class: 'btn btn-success mr-2 w-auto'
         = link_to account_products_path, class: 'btn btn-danger d-flex align-items-center' do
-          span.mr-1 =t('.cancel_button')
+          span.mr-1 =t('buttons.cancel')
           i.fa.fa-times-circle

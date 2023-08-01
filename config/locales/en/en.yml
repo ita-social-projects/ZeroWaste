@@ -31,6 +31,11 @@
 
 en:
   uk: "Українська"
+  buttons:
+    save: 'Save'
+    update: 'Update'
+    create: 'Create'
+    cancel: 'Cancel'
   calculators:
     new_calculator:
       form:
@@ -41,8 +46,8 @@ en:
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
-      bought_diapers: "diapers already used"
-      will_buy_diapers: "diapers to be used in the future"
+      bought_diapers: "already used"
+      will_buy_diapers: "to be used in the future"
       money_spent: "already spent on diapers"
       money_will_be_spent: "yet to be spent on diapers"
       pieces: pcs.
@@ -165,13 +170,6 @@ en:
       index:
         add_category_button: 'Add category'
         confirm_delete: 'Delete category?'
-        cancel_button: 'Cancel'
-      edit:
-        update_button: 'Update'
-        cancel_button: 'Cancel'
-      new:
-        create_button: 'Create'
-        cancel_button: 'Cancel'
     products:
       table:
         title: 'Title'
@@ -180,23 +178,15 @@ en:
       index:
         add_product_button: 'Add product'
         confirm_delete: 'Delete product?'
-        cancel_button: 'Cancel'
       show:
         confirm_delete: 'Delete product?'
       edit:
         title: 'Title'
-        update_button: 'Update'
-        cancel_button: 'Cancel'
       new:
         title: 'Title'
-        create_button: 'Create'
-        cancel_button: 'Cancel'
       created: "A product was successfully created."
       updated: "A product was successfully updated."
       deleted: "A product was successfully destroyed."
-    site_settings:
-      edit:
-        update_button: 'Update'
     users:
       index:
         main_header: "Dashboard"
@@ -244,16 +234,13 @@ en:
         form:
           select_field_kind_label: "Select field kind"
           select_field_type_label: "Select field type"
-          create_button: "Create"
           form_label: "Form"
           parameters_label: "Parameters"
           results_label: "Results"
           no_fields_yet_label: "No fields yet"
           update_calculator_button: "Update calculator"
-          cancel_button: "Cancel"
       new:
         create_calculator_button: "Create calculator"
-        cancel_button: "Cancel"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:
@@ -379,6 +366,7 @@ en:
       timeout: "Your session expired. Please sign in again to continue"
   models:
     calculator: "Calculator"
+    category: "Category"
   activerecord:
     errors:
       models:
@@ -436,6 +424,12 @@ en:
               too_short: " is too short"
               invalid: " is invalid"
               name_format_validation: must contain only letters or numbers
+        product:
+          attributes:
+            title:
+              blank: can't be blank
+              too_long: too long (maximum %{count} symbols)
+              too_short: too short (minimum %{count} symbols)
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"

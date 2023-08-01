@@ -4,7 +4,7 @@ require "rails_helper"
 
 CREATE_CALCULATOR_BUTTON = "Create calculator"
 
-xdescribe "Create Calculator Page", js: true do
+describe "Create Calculator Page", js: true do
   let(:calculator) { create(:calculator) }
 
   before do
