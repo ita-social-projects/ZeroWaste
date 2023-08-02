@@ -3,10 +3,10 @@
 class UserMailer < ApplicationMailer
   default from: "zerowastemailer@gmail.com"
 
-  def test_email(email, message = nil)
-    @email   = email
-    @message = message
+  def welcome_email(user)
+    @user = user
+    @url  = root_url
 
-    mail(to: @email, subject: I18n.t("mailer.test_mail.subject"))
+    mail(to: @user.email, subject: I18n.t("mailer.welcome_mail.subject"))
   end
 end
