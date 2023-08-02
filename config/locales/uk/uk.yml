@@ -171,7 +171,7 @@ uk:
       deleted: "Продукт був успішно видалений."
     site_settings:
       edit:
-        update_button: 'Оновити'
+        apply_button: 'Застосувати'
         file_select:  'Обери файл'
     users:
       index:

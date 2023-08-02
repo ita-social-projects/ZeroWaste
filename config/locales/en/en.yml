@@ -189,7 +189,7 @@ en:
       deleted: "A product was successfully destroyed."
     site_settings:
       edit:
-        update_button: 'Update'
+        apply_button: 'Apply'
         file_select:  'Choose file'
     users:
       index:
