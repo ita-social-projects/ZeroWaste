@@ -26,8 +26,4 @@ module ApplicationHelper
   def switch_locale_to
     (I18n.locale == :en) ? :uk : :en
   end
-
-  def underscored?(path)
-    "underscored" if current_page?(path)
-  end
 end
