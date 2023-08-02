@@ -19,5 +19,5 @@ export default class extends Controller {
       this.faviconFileTarget.textContent = event.target.files[0].name;    
       reader.readAsDataURL(event.target.files[0]);
     }
-  }  
+  }
 }
