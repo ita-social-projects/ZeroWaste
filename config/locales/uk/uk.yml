@@ -226,6 +226,10 @@ uk:
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
+    site_settings:
+      edit:
+        site_settings: Налаштування сайту
+        site_features: Особливості сайту
     feature_flags:
       submit_button: "Зберегти"
       access_admin_menu:

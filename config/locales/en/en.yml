@@ -219,6 +219,10 @@ en:
           ban_col: "Status"
           blocked_label: "Blocked"
           unblocked_label: "Unblocked"
+    site_settings:
+      edit:
+        site_settings: Site settings
+        site_features: Site features
     calculators:
       index:
         search_placeholder: "Search"
