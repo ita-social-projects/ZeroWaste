@@ -13,7 +13,7 @@ export default class extends Controller {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        this.iconTarget.setAttribute('src', e.target.result);       
+        this.iconTarget.setAttribute('src', e.target.result);
       };
       
       this.faviconFileTarget.textContent = event.target.files[0].name;    
