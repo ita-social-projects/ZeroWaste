@@ -1,20 +1,16 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :calculator, only: [:show, :edit, :update, :destroy]
+  before_action :products_collection, only: [:new, :edit]
+  after_action :products_collection, only: [:new, :edit]
   load_and_authorize_resource
 
   def show
-    @product = product_resource
-    @prices = product_resource.categories_by_prices
-  end
-
-  def new
-    @products = products_collection
+    @calculator = resourse
   end
 
   def edit
-    @products = products_collection
+    @calculator = resourse
   end
 
   def create
@@ -23,19 +19,22 @@ class Account::CalculatorsController < Account::BaseController
     if @calculator.save
       redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
-      render action: "new"
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
+    @calculator = resourse
+
     if updater
       redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
     else
-      render action: "edit"
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    @calculator = resourse
     @calculator.destroy!
 
     redirect_to account_calculators_path, notice: t("notifications.calculator_deleted")
@@ -43,18 +42,12 @@ class Account::CalculatorsController < Account::BaseController
 
   private
 
-  def calculator
-    @calculator = Calculator.friendly.find(params[:slug])
+  def resourse
+    Calculator.friendly.find(params[:slug])
   end
 
   def calculator_params
-    params.require(:calculator).permit(
-      :name, :id, :slug, :preferable, :product_id,
-      fields_attributes: [
-        :id, :selector, :label, :name, :value, :unit, :from, :to, :type, :kind,
-        :_destroy
-      ]
-    )
+    params.require(:calculator).permit(:name, :slug, :product_id)
   end
 
   def updater
@@ -66,14 +59,6 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def products_collection
-    Product.all
-  end
-
-  def product_prices(product)
-    product.categories_by_prices
-  end
-
-  def product_resource
-    Product.find(@calculator.product_id)
+    @products = Product.ordered
   end
 end

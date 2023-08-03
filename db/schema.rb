@@ -57,8 +57,9 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.boolean "preferable", default: false
-    t.integer "product_id"
+    t.bigint "product_id"
     t.index ["name"], name: "index_calculators_on_name", unique: true
+    t.index ["product_id"], name: "index_calculators_on_product_id"
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
   end

@@ -11,7 +11,7 @@
       <div class="flex-item flex-column">
 
         <div class="mb-3">
-          <%= "#{@product.title} calculator" %>
+          <%= "#{@calculator.product.title} calculator" %>
         </div>
 
         <%= t("calculators.form.period") %>
@@ -23,7 +23,7 @@
 
         <%= t("calculators.form.price") %>
         <%= form.input_field :product_category,
-                              collection: @prices,
+                              collection: @calculator.product.categories_by_prices,
                               prompt: '__',
                               label: t('.form_price'),
                               class: 'form_fild price_select rounded w-100',
