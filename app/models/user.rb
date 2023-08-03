@@ -38,7 +38,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  attr_accessor :current_password, :skip_password_validation
+  attr_accessor :current_password, :skip_password_validation, :send_credentials_email
 
   has_paper_trail ignore: [
     :current_sign_in_at, :last_sign_in_at, :confirmation_token,
@@ -56,10 +56,6 @@ class User < ApplicationRecord
     User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }.sort
   end
 
-  # validate :correct_image_type
-
-  # Include default devise modules. Others available are:
-  #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :validatable, :confirmable, :lockable, :timeoutable, :trackable, :async,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
@@ -72,7 +68,6 @@ class User < ApplicationRecord
             length: { in: 8..64 },
             format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
             unless: :skip_password_validation
-  # validates :password_confirmation, presence: true
   validates :first_name, :last_name,
             presence: true,
             length: { minimum: 2 },
@@ -81,12 +76,6 @@ class User < ApplicationRecord
 
   validates :avatar, content_type: ["image/png", "image/jpeg", "image/jpg"],
                      size: { less_than: 2.megabytes }
-  # validates :avatar, attached: true, content_type: {
-  #                                      in: [:png, :jpg, :jpeg]
-  #                                    },
-  #  size: {
-  #    less_than: 2.megabytes
-  #  }
 
   def self.from_omniauth(access_token)
     data       = access_token.info

@@ -12,48 +12,69 @@ RSpec.describe SiteSetting, type: :model do
   end
 
   context "validates properly" do
-    before { site_setting.update(site_setting_params) }
+    subject { described_class.current }
 
-    let!(:site_setting) { SiteSetting.current }
+    before { subject.update(site_setting_params) }
+
     let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
 
     it "has a valid factory" do
-      expect(site_setting).to be_valid
+      is_expected.to be_valid
     end
 
     it "is valid with valid attributes" do
-      expect(site_setting).to be_valid
+      is_expected.to be_valid
     end
 
     it "is not valid without a title" do
-      site_setting.title = nil
-      expect(site_setting).not_to be_valid
+      is_expected.to validate_presence_of(:title)
     end
 
-    it "is not valid with a title longer than 20 characters" do
-      site_setting.title = "a" * 21
-      expect(site_setting).not_to be_valid
+    it "is not valid with a title longer than 30 characters" do
+      is_expected.to validate_length_of(:title).is_at_least(3).is_at_most(30)
     end
 
     it "is not valid without a favicon" do
-      site_setting.favicon.purge
-      expect(site_setting).not_to be_valid
+      subject.favicon.purge
+
+      is_expected.not_to be_valid
     end
 
-    it "is not valid with a favicon of invalid type" do
-      site_setting.favicon.content_type = "application/pdf"
-      expect(site_setting).not_to be_valid
+    context "with an invalid favicon type" do
+      let(:invalid_favicon_format) { "application/pdf" }
+
+      before do
+        subject.favicon.content_type = invalid_favicon_format
+      end
+
+      it "is not valid" do
+        is_expected.not_to be_valid
+      end
     end
 
-    it "is valid with a favicon of valid type" do
-      site_setting.favicon.content_type = "image/png"
-      expect(site_setting).to be_valid
+    context "with a valid favicon type" do
+      let(:valid_favicon_format) { "image/png" }
+
+      before do
+        subject.favicon.content_type = valid_favicon_format
+      end
+
+      it "is valid" do
+        is_expected.to be_valid
+      end
     end
 
-    it "is not valid with a favicon larger than 500 KB" do
-      site_setting.favicon.byte_size = 600.kilobytes
-      expect(site_setting).not_to be_valid
-      expect(site_setting.errors.messages[:favicon]).to include(I18n.t("account.site_settings.validations.size"))
+    context "with a favicon larger than 500 KB" do
+      let(:invalid_favicon_size) { 600.kilobytes }
+
+      before do
+        subject.favicon.byte_size = invalid_favicon_size
+      end
+
+      it "is not valid" do
+        is_expected.not_to be_valid
+        expect(subject.errors.messages[:favicon]).to include(I18n.t("account.site_settings.validations.size"))
+      end
     end
   end
 end
