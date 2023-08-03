@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create]
     namespace :account do
       root "dashboard#index"
-      resources :users, only: [:index, :show, :edit, :update]
+      resources :users
       resources :calculators, param: :slug
       resources :categories
       resources :products

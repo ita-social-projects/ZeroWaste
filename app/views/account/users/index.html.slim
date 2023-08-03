@@ -2,6 +2,8 @@ div class="container home"
   .row
     .col
       h1 = t '.main_header'
+      = link_to new_account_user_path, class: 'btn btn-success px-4 m-4' do
+        span = t('.add_user_button')
       h3 = link_to fa_icon('download'), account_users_path(format: "csv")
       table.table
         thead
@@ -11,6 +13,7 @@ div class="container home"
             td = t '.table.view_info_col'
             td = t '.table.edit'
             td = t '.table.ban'
+            td = t '.table.delete'
         - @users.each do |user|
           tr id="user-info-#{user.id}"
             td = user.email
@@ -20,3 +23,6 @@ div class="container home"
             td = link_to fa_icon(user.blocked? ? 'lock' : 'lock-open'),
               account_user_path(id: user, user: {blocked: user.blocked? ? false : true}),
               onclick: "alert('Are you sure?')", method: :patch
+            td = link_to account_user_path(id: user), method: :delete,
+                    data: { confirm: t('.confirm_delete') } do
+              i.fa.fa-trash.mx-2

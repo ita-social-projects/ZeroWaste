@@ -24,9 +24,9 @@ RSpec.describe Product, type: :model do
   subject { build(:product) }
 
   describe "associations" do
-    xit { is_expected.to have_many(:category_categoryables).dependent(:destroy) }
+    it { is_expected.to have_many(:prices).dependent(:destroy) }
 
-    xit { is_expected.to have_many(:categories).through(:category_categoryables) }
+    it { is_expected.to have_many(:categories_by_prices).through(:prices).source(:category) }
 
     it { is_expected.to have_many(:prices).dependent(:destroy) }
   end
@@ -37,12 +37,13 @@ RSpec.describe Product, type: :model do
         .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.blank"))
     }
     it {
-      is_expected.to validate_length_of(:title).is_at_least(2).with_message(I18n
-        .t("#{LOCAL_PREFIX_PRODUCT}.title.too_short"))
+      is_expected.to validate_length_of(:title).is_at_least(2)
+                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_short", count: 2))
     }
+
     it {
-      is_expected.to validate_length_of(:title).is_at_most(50).with_message(I18n
-        .t("#{LOCAL_PREFIX_PRODUCT}.title.too_long"))
+      is_expected.to validate_length_of(:title).is_at_most(50)
+                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_long", count: 50))
     }
   end
 end

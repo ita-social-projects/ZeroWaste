@@ -15,8 +15,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     {
       result: values,
       date: 12,
-      text_products_to_be_used: "diapers to be used in the future",
-      text_products_used: "diapers already used"
+      text_products_to_be_used: "#{values[:to_be_used_diapers_amount]} diapers to be used in the future",
+      text_products_used: "#{values[:used_diapers_amount]} diapers already used"
     }
   end
 
@@ -66,13 +66,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       end
     end
 
-    xcontext "when get awaited values" do
+    context "when get awaited values" do
       include_context :app_config_load
 
       it "got the expected result" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-        expect(response).to be_successful
         expect(response.body).to eq(expected_result.to_json)
       end
     end
