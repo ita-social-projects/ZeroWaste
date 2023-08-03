@@ -208,8 +208,9 @@ h3.container {
   padding: 20px;
 }
 
-.underscored {
-  border-bottom: solid #8fba3b 3px;
+.tab-active {
+  color: darkgreen!important;
+  border-bottom: solid darkgreen 3px;
 }
 
 .calculation-results {
