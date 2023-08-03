@@ -24,7 +24,7 @@ describe "visit admin page", js: true do
     it "redirects to user info page" do
       visit account_users_path
       within(:css, "#user-info-#{another_user.id}") do
-        click_link(href: account_user_path(id: another_user.id))
+        find(".fa-eye", visible: :all).click
         sleep 3
       end
       expect(page).to have_current_path(account_user_path(id: another_user.id))

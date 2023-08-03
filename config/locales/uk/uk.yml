@@ -102,6 +102,17 @@ uk:
       site_settings: "Налаштування сайту"
       categories: "Категорії"
       products: "Продукти"
+  mailer:
+    welcome_mail:
+      subject: "Ласкаво просимо до ZeroWaste!"
+  user_mailer:
+    welcome_email:
+      greeting: Ласкаво просимо до ZeroWaste, %{name}
+      login_info: Ви успішно зареєструвалися на zerowaste.com, ваші дані для входу
+      email: "Електронна пошта: %{email}"
+      password: "Пароль: %{password}"
+      to_login: Щоб увійти на сайт, просто перейдіть за цим посиланням
+      thanks: Дякуємо за приєднання та гарного дня!
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -192,12 +203,24 @@ uk:
     users:
       index:
         main_header: "Адмінпанель"
+        add_user_button: "Створити нового користувача"
+        confirm_delete: "Ви справді хочете видалити цього користувача?"
         table:
           email_col: "Електронна адреса"
           last_visit_col: "Час останнього візиту"
           view_info_col: "Показати"
           edit: "Відредагувати"
           ban: "Заблокувати"
+          delete: "Видалити"
+      new:
+        table:
+          create_new_user: "Створіть користувача"
+        form:
+          first_name_label: "Ім'я"
+          last_name_label: "Прізвище"
+          password_hint: "Мінімум 8 символів"
+          create_user_button: "Створити нового користувача"
+          send_credentials_email: "Надіслати електронного листа з даними користувача"
       edit:
         avatar: "Фото профілю користувача"
         table:
@@ -246,6 +269,10 @@ uk:
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
+    site_settings:
+      edit:
+        site_settings: Налаштування сайту
+        site_features: Особливості сайту
     feature_flags:
       submit_button: "Зберегти"
       access_admin_menu:
@@ -386,10 +413,13 @@ uk:
         first_name: "Ім'я"
         last_name: "Прізвище"
         country: "Країна"
+        role: "Роль"
         remember_me: "Запам'ятати мене"
         successful_update: "Інформацію про користувача було успішно оновлено!"
       admin:
         remember_me: "Запам'ятати мене"
+      site_setting:
+        title: "Назва"
       calculator:
         name: "Назва"
         slug: "Шлях"
@@ -409,6 +439,20 @@ uk:
         category:
           attributes:
             name:
+              blank: не може бути пустою
+              too_long:
+                one: занадто довга (максимум %{count} знак)
+                few: занадто довга (максимум %{count} знаки)
+                many: занадто довга (максимум %{count} знаків)
+                other: занадто довга (максимум %{count} знаку)
+              too_short:
+                one: занадто коротка (мінімум %{count} знак)
+                few: занадто коротка (мінімум %{count} знаки)
+                many: занадто коротка (мінімум %{count} знаків)
+                other: занадто коротка (мінімум %{count} знаку)
+        site_setting:
+          attributes:
+            title:
               blank: не може бути пустою
               too_long:
                 one: занадто довга (максимум %{count} знак)
@@ -464,6 +508,8 @@ uk:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"
     calculator_deleted: "Калькулятор було успішно видалено"
+    user_created: "Користувача було успішно створено"
+    user_updated: "Користувача було успішно оновлено"
     message_sent: "Повідомлення було надіслано"
     category_created: "Категорію було успішно створено."
     category_updated: "Категорію було успішно оновлено."
