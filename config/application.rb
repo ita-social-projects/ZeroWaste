@@ -1,9 +1,6 @@
-# frozen_string_literal: true
-
 require_relative "boot"
 
 require "rails/all"
-require "csv"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -14,7 +11,6 @@ module ZeroWaste
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    config.active_job.queue_adapter = :sidekiq
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -22,11 +18,5 @@ module ZeroWaste
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.i18n.available_locales   = [:en, :uk]
-    config.i18n.default_locale      = :en
-
-    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
-
-    config.assets.css_compressor = nil
   end
 end
