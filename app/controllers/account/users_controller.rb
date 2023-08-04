@@ -6,7 +6,6 @@ class Account::UsersController < Account::BaseController
   layout "account"
 
   before_action :set_paper_trail_whodunnit
-  before_action :user, except: [:index]
 
   load_and_authorize_resource
 
@@ -22,31 +21,57 @@ class Account::UsersController < Account::BaseController
     end
   end
 
-  def update
-    if user.update(user_params)
-      redirect_to account_user_path(id: user)
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    @user.skip_confirmation!
+
+    if @user.save
+      UserMailer.welcome_email(@user).deliver_now if user_params[:send_credentials_email] == "1"
+
+      redirect_to account_user_path(id: @user), notice: t("notifications.user_created")
     else
-      render "edit"
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @user = resource
+
+    if @user.update(user_params)
+      redirect_to account_user_path(id: @user), notice: t("notifications.user_updated")
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    resource.destroy
+
+    redirect_to account_users_path
   end
 
   private
 
   def user_params
     prms = params.require(:user).permit(
-      :first_name, :last_name, :country, :password, :password_confirmation,
-      :blocked, :avatar
+      :email, :first_name, :last_name, :country, :role, :password, :password_confirmation,
+      :blocked, :avatar, :send_credentials_email
     )
 
-    if prms[:password].blank? || prms[:password_confirmation].blank?
+    if action_name == "update" && (prms[:password].blank? || prms[:password_confirmation].blank?)
       prms = prms.merge(skip_password_validation: true)
     end
 
     prms
   end
 
-  def user
-    @user ||= User.find(params[:id])
+  def resource
+    User.find(params[:id])
   end
 
   def render404
