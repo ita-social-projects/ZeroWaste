@@ -180,10 +180,6 @@ uk:
       created: "Продукт був успішно створений."
       updated: "Продукт був успішно оновлений."
       deleted: "Продукт був успішно видалений."
-    site_settings:
-      edit:
-        apply_button: 'Застосувати'
-        file_select:  'Обери файл'
     users:
       index:
         main_header: "Адмінпанель"
@@ -257,6 +253,8 @@ uk:
       edit:
         site_settings: Налаштування сайту
         site_features: Особливості сайту
+        apply_button: 'Застосувати'
+        file_select:  'Обери файл'
     feature_flags:
       submit_button: "Зберегти"
       access_admin_menu:

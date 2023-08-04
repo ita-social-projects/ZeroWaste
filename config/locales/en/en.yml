@@ -198,10 +198,6 @@ en:
       created: "A product was successfully created."
       updated: "A product was successfully updated."
       deleted: "A product was successfully destroyed."
-    site_settings:
-      edit:
-        apply_button: 'Apply'
-        file_select:  'Choose file'
     users:
       index:
         main_header: "Dashboard"
@@ -250,6 +246,8 @@ en:
       edit:
         site_settings: Site settings
         site_features: Site features
+        apply_button: 'Apply'
+        file_select:  'Choose file'
     calculators:
       index:
         search_placeholder: "Search"
