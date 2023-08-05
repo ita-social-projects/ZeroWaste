@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CalculationResolver, type: :lib do
+RSpec.describe CalculationResolver do
   subject { described_class }
 
   describe "#result" do

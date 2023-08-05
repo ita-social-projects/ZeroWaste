@@ -11,7 +11,7 @@
 #
 require "rails_helper"
 
-RSpec.describe AppConfig, type: :lib do
+RSpec.describe AppConfig, type: :model do
   fixtures :app_configs
 
   context "is a singleton model" do
