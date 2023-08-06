@@ -22,6 +22,7 @@ class Account::CalculatorsController < Account::BaseController
     if @calculator.save
       redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
+      @products = products_collection
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,6 +33,7 @@ class Account::CalculatorsController < Account::BaseController
     if updater
       redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
     else
+      @products = products_collection
       render :edit, status: :unprocessable_entity
     end
   end
