@@ -37,9 +37,22 @@ class Account::CategoriesController < Account::BaseController
 
   def destroy
     @category = resource
-    @category.destroy
 
-    redirect_to account_categories_path, notice: t("notifications.category_deleted")
+    prices = Price.where(category_id: @category.id)
+
+    if prices.any?
+      products = []
+
+      prices.each do |price|
+        products << Product.where(id: price.priceable_id).pluck(:title)
+      end
+
+      redirect_to account_categories_path, alert: "Please remove prices with this category in next products: #{products.join(', ')}"
+    else
+      @category.destroy
+
+      redirect_to account_categories_path, notice: t("notifications.category_deleted")
+    end
   end
 
   private
