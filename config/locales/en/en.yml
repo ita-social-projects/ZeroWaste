@@ -196,6 +196,8 @@ en:
       index:
         add_category_button: 'Add category'
         confirm_delete: 'Delete category?'
+      destroy:
+        relation_error: 'Please remove prices with this category in next products: '
     products:
       table:
         title: 'Title'

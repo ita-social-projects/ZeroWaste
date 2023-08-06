@@ -47,7 +47,7 @@ class Account::CategoriesController < Account::BaseController
         products << Product.where(id: price.priceable_id).pluck(:title)
       end
 
-      redirect_to account_categories_path, alert: "Please remove prices with this category in next products: #{products.join(', ')}"
+      redirect_to account_categories_path, alert: "#{t('.relation_error')} #{products.join(', ')}"
     else
       @category.destroy
 
