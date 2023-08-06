@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "2.7.8"
 
 gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
