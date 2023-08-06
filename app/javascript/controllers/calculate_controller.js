@@ -11,8 +11,6 @@ export default class extends Controller {
     },
   };
 
-  connect() {}
-
   submit(e) {
     e.preventDefault();
 

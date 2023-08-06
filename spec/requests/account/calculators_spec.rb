@@ -29,7 +29,7 @@ RSpec.describe Account::CalculatorsController, type: :request do
   include_context :authorize_admin
 
   context "GET #index" do
-    it "returns http success" do
+    it "returns http success and shows all calculators" do
       get account_calculators_path
 
       expect(response).to be_successful
@@ -37,7 +37,7 @@ RSpec.describe Account::CalculatorsController, type: :request do
   end
 
   context "GET #show" do
-    it "returns http success" do
+    it "returns http success and shows a calculator" do
       get account_calculator_path(calculator)
 
       expect(response).to be_successful
@@ -45,14 +45,14 @@ RSpec.describe Account::CalculatorsController, type: :request do
   end
 
   context "GET #new" do
-    it "returns http success" do
+    it "returns http success and shows a form for new calculator" do
       get new_account_calculator_path
       expect(response).to be_successful
     end
   end
 
   context "GET #edit" do
-    it "returns http success" do
+    it "returns http success and shows a form for edit calculator" do
       get edit_account_calculator_path(calculator)
 
       expect(response).to be_successful
