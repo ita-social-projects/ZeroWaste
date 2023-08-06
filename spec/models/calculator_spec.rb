@@ -23,7 +23,7 @@ require "rails_helper"
 LOCAL_PREFIX_CALCULATOR = "activerecord.errors.models.calculator.attributes"
 
 RSpec.describe Calculator, type: :model do
-  subject { build(:calculator) }
+  subject { build(:calculator, :diaper_calculator) }
 
   describe "validations" do
     it {
@@ -48,8 +48,8 @@ RSpec.describe Calculator, type: :model do
 
   describe "scope" do
     context "finds instances by slug and name" do
-      let!(:calc) { create(:calculator, slug: "calc") }
-      let!(:calc2) { create(:calculator, slug: "diapers", name: "Calculator") }
+      let!(:calc) { create(:calculator, :diaper_calculator, slug: "calc") }
+      let!(:calc2) { create(:calculator, :diaper_calculator, slug: "diapers", name: "Calculator") }
 
       it "finds two instances by slug or name" do
         expect(Calculator.by_name_or_slug("calc").to_a).to include(calc, calc2)

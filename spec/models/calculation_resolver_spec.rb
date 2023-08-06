@@ -8,7 +8,7 @@ RSpec.describe CalculationResolver, type: :model do
   describe "#result" do
     let(:value) { "P1 + 2" }
     let(:parameters) { { p1: 2 } }
-    let(:calculator) { create(:calculator) }
+    let(:calculator) { create(:calculator, :diaper_calculator) }
     let(:calculation) do
       create(:calculation, value: value, calculator: calculator)
     end

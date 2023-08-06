@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "product category dropdown list in new design", js: true do
-  let(:calculator) { create(:calculator) }
+  let(:calculator) { create(:calculator, :diaper_calculator) }
 
   include_context :new_calculator_design
 

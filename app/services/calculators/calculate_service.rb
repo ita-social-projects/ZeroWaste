@@ -20,11 +20,11 @@ class Calculators::CalculateService
 
   def calculate
     money_spent = (selected_price * period).to_i
-    items_used = (product.default_usage_per_day * period).to_i
+    items_used  = (product.default_usage_per_day * period).to_i
 
     {
-      "moneySpent": money_spent,
-      "itemsUsed": items_used
+      moneySpent: money_spent,
+      itemsUsed: items_used
     }
   end
 

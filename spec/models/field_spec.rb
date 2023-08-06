@@ -58,7 +58,7 @@ RSpec.describe Field, type: :model do
   end
 
   describe "#set_selector" do
-    let(:calculator) { create(:calculator) }
+    let(:calculator) { create(:calculator, :diaper_calculator) }
     let(:field) { build(:field, label: "new", kind: 0, calculator: calculator) }
 
     context "when there is no form fields in a database" do

@@ -3,17 +3,17 @@
 class Account::CalculatorsController < Account::BaseController
   load_and_authorize_resource
 
-  def new
-    @products = products_collection
-  end
-
   def show
     @calculator = resourse
   end
 
+  def new
+    @products = products_collection
+  end
+
   def edit
     @calculator = resourse
-    @products = products_collection
+    @products   = products_collection
   end
 
   def create

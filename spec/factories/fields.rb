@@ -26,9 +26,10 @@
 #
 FactoryBot.define do
   factory :field do
+    association :calculator, :diaper_calculator
+
     type { "Calculation" }
     label { "Label" }
     kind { "form" }
-    calculator
   end
 end

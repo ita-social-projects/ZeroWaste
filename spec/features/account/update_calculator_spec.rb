@@ -4,7 +4,9 @@ require "rails_helper"
 UPDATE_CALCULATOR_BUTTON = "Update calculator"
 
 describe "Update Calculator Page", js: true do
-  let(:calculator) { create(:calculator) }
+  let!(:product_diaper) { create(:product, :diaper) }
+  let!(:product_napkin) { create(:product, :napkin) }
+  let(:calculator) { create(:calculator, :diaper_calculator) }
 
   before do
     @admin = create(:user, :admin)
@@ -15,6 +17,15 @@ describe "Update Calculator Page", js: true do
   context "when user clicks button Update calculator" do
     it "shows message that calculator has been successfully updated" do
       fill_in "Name", with: "Calculator2"
+      click_button UPDATE_CALCULATOR_BUTTON
+      expect(page).to have_content("Calculator has been successfully updated")
+    end
+  end
+
+  context "when user clicks button Update calculator with changing product" do
+    it "shows message that calculator has been successfully updated" do
+      fill_in "Name", with: "Calculator2"
+      select product_napkin.title, from: "calculator_product_id"
       click_button UPDATE_CALCULATOR_BUTTON
       expect(page).to have_content("Calculator has been successfully updated")
     end

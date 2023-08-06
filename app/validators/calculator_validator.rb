@@ -8,7 +8,7 @@ class CalculatorValidator
   end
 
   def valid?
-    period  = params.fetch(:period, nil)
+    period   = params.fetch(:period, nil)
     price_id = params.fetch(:price_id, nil)
 
     if period.blank? && price_id.blank?
