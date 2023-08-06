@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :products_collection, only: [:new, :edit]
-  after_action :products_collection, only: [:new, :edit]
   load_and_authorize_resource
+
+  def new
+    @products = products_collection
+  end
 
   def show
     @calculator = resourse
@@ -11,6 +13,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def edit
     @calculator = resourse
+    @products = products_collection
   end
 
   def create
@@ -54,7 +57,6 @@ class Account::CalculatorsController < Account::BaseController
     Calculator.transaction do
       ::Calculators::PreferableService.new(calculator_params).perform!
       @calculator.update(calculator_params)
-
     end
   end
 
