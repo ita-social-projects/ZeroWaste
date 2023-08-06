@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-success">
   <div class="container-fluid">
     <%= link_to root_path, class: 'logo-zerowaste' do %>
-      <%= image_tag('logo_zerowaste.png') %>
+      <%= image_tag('logo_zerowaste.png', alt: "ZeroWaste_logo")%>
     <% end %>
-    
-    <div class="collapse navbar-collapse row navbar order-lg-0" id="navbarNav">
+
+    <div id="navbarNav" class="collapse navbar-collapse row navbar order-lg-0">
       <ul class="navbar-nav mr-0">
         <li class="nav-item mx-3">
           <%= link_to_unless_current t('.calculators'), account_calculators_path, class: "navbar-brand text-success h3" do %>
@@ -13,7 +13,7 @@
             </span>
           <% end %>
         </li>
-        
+
         <li class="nav-item mx-3">
           <%= link_to_unless_current t('.histories'), account_histories_path, class: "navbar-brand text-success h3" do %>
             <span class="navbar-brand h3 tab-active">
@@ -21,7 +21,7 @@
             </span>
           <% end %>
         </li>
-        
+
         <li class="nav-item mx-3">
           <%= link_to_unless_current t('.users'), account_users_path, class: "navbar-brand text-success h3" do %>
             <span class="navbar-brand h3 tab-active">
@@ -29,7 +29,7 @@
             </span>
           <% end %>
         </li>
-        
+
         <li class="nav-item mx-3">
           <%= link_to_unless_current t('.messages'), account_messages_path, class: "navbar-brand text-success h3" do %>
             <span class="navbar-brand h3 tab-active">
@@ -37,7 +37,7 @@
             </span>
           <% end %>
         </li>
-        
+
         <li class="nav-item mx-3">
           <%= link_to_unless_current t('.app_config'), edit_account_app_config_path, class: "navbar-brand text-success h3" do %>
             <span class="navbar-brand h3 tab-active">
@@ -45,7 +45,7 @@
             </span>
           <% end %>
         </li>
-        
+
         <li class="nav-item mx-3">
           <%= link_to_unless_current t('.products'), account_products_path, class: "navbar-brand text-success h3" do %>
             <span class="navbar-brand h3 tab-active">
@@ -61,7 +61,7 @@
             </span>
           <% end %>
         </li>
-        
+
         <li class="nav-item mx-3">
           <%= link_to_unless_current t('.site_settings'), edit_account_site_setting_path, class: "navbar-brand text-success h3" do %>
             <span class="navbar-brand h3 tab-active">
@@ -73,14 +73,14 @@
     </div>
 
     <div class="d-flex order-lg-1">
-      <div class="mr-3 align-middle" id="lang-btn">
+      <div id="lang-btn" class="mr-3 align-middle">
         <%= link_to url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm' do %>
           <%= t(".#{switch_locale_to}") %>
         <% end %>
       </div>
 
-      <button class="navbar-toggler nav-toggler collapsed ml-auto d-flex d-lg-none flex-column justify-content-around align-bottom"
-        id="burger-btn" type="button" data-toggle="collapse" data-target="#navbarNav"
+      <button id="burger-btn" class="navbar-toggler nav-toggler collapsed ml-auto d-flex d-lg-none flex-column justify-content-around align-bottom"
+        type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="toggler-icon top-bar"></span>
         <span class="toggler-icon middle-bar"></span>
