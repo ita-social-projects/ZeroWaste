@@ -31,6 +31,6 @@ class Calculators::CalculateService
   private
 
   def selected_price
-    product.prices.find_by(category_id: params[:price_id]).sum
+    product.prices.find(params[:price_id]).sum
   end
 end

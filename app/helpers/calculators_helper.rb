@@ -30,4 +30,8 @@ module CalculatorsHelper
       [I18n.t("calculators.date.year"), "year"]
     ]
   end
+
+  def product_prices(calculator)
+    calculator.product.prices.map { |price| [price.category.name, price.id] }
+  end
 end

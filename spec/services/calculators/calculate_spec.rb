@@ -19,11 +19,8 @@ RSpec.describe Calculators::CalculateService do
   let(:items_used) { product.default_usage_per_day * DAYS[valid_params[:period]] }
 
   it "calculates correctly" do
-    calculate_service = Calculators::CalculateService.new(product, valid_params)
+    result = Calculators::CalculateService.new(product, valid_params).calculate
 
-    result = calculate_service.calculate
-
-    # Your expectations here
     expect(result[:moneySpent]).to eq(money_spent)
     expect(result[:itemsUsed]).to eq(items_used)
   end

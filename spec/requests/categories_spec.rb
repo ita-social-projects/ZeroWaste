@@ -2,9 +2,13 @@ require "rails_helper"
 
 RSpec.describe Account::CategoriesController, type: :request do
   let!(:category) { create(:category, :budgetary) }
+  let!(:category_with_prices) { create(:category, :budgetary) }
   let(:valid_attributes) { { category: { name: "medium" }} }
   let(:invalid_attributes) { { category: { name: "" }} }
   let(:new_attributes) { { category: { name: "premium" }} }
+
+  let(:product) { create(:product, :diaper) }
+  let!(:price) { create(:price, :budgetary_price, priceable: product, category: category_with_prices) }
 
   include_context :authorize_admin
 
@@ -79,13 +83,18 @@ RSpec.describe Account::CategoriesController, type: :request do
   end
 
   describe "DELETE :destroy" do
-    it "destroys the requested category" do
-      expect do
-        delete account_category_path(id: category)
-      end.to change(Category, :count).by(-1)
+    it "destroys the requested category which doesn't have prices" do
+      expect { delete account_category_path(category) }.to change(Category, :count).by(-1)
 
       expect(response).to redirect_to(account_categories_path)
       expect(flash[:notice]).to eq("Category was successfully destroyed.")
+    end
+
+    it "doesn't destroys the requested category which has prices" do
+      expect { delete account_category_path(category_with_prices) }.to change(Category, :count).by(0)
+
+      expect(response).to redirect_to(account_categories_path)
+      expect(flash[:alert]).to eq("#{I18n.t("account.categories.destroy.relation_error")} #{product.title}")
     end
   end
 end

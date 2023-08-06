@@ -175,7 +175,7 @@ uk:
         add_category_button: 'Додати категорію'
         confirm_delete: 'Видалити категорію?'
       destroy:
-        relation_error: 'Будь ласка видаліть ціни з цією категорією з наступних продуктів: '
+        relation_error: 'Будь ласка видаліть ціни з цією категорією з наступних продуктів:'
     products:
       attributes:
         default_usage_per_day: Використання в день за замовчуванням
