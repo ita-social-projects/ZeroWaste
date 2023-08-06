@@ -607,7 +607,6 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails (~> 2.0)
   toastr-rails
-  turbo-rails (~> 1.4)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
