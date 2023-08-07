@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CalculatorResolver, type: :model do
+RSpec.describe CalculatorResolver do
   subject { described_class }
 
   let(:calculator) { build(:calculator) }

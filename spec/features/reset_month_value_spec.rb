@@ -7,7 +7,7 @@ RSpec.describe "Year changed", type: :feature do
   let(:month_select) { find("#child_months") }
 
   it "resets month value when year changes" do
-    visit calculator_path
+    visit "#{I18n.locale}/calculator"
 
     year_select.select("0")
     expect(month_select.value).to eq("")
