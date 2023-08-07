@@ -35,7 +35,7 @@ mid_category = Category.find_or_create_by(name: "medium")
 
 product = Product.find_or_create_by(title: "Napkin")
 
-bud_price = Price.find_or_create_by(priceable: product, category: bud_category, sum: 7)
-mid_price = Price.find_or_create_by(priceable: product, category: mid_category, sum: 15)
+Price.find_or_create_by(priceable: product, category: bud_category, sum: 7)
+Price.find_or_create_by(priceable: product, category: mid_category, sum: 15)
 
-calculator = Calculator.find_or_create_by(name: "Napkins Calculator", product: product)
+Calculator.find_or_create_by(name: "Napkins Calculator", product: product)
