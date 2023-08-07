@@ -11,3 +11,5 @@ pin "toastr", to: "https://ga.jspm.io/npm:toastr@2.1.4/toastr.js"
 pin "@nathanvda/cocoon", to: "https://ga.jspm.io/npm:@nathanvda/cocoon@1.2.14/cocoon.js"
 pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
 pin "@fortawesome/fontawesome-free", to: "https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.4.0/js/all.js"
+pin "tailwindcss-flip", to: "https://ga.jspm.io/npm:tailwindcss-flip@1.0.0/lib/index.js"
+pin "lodash.flatmap", to: "https://ga.jspm.io/npm:lodash.flatmap@4.5.0/index.js"
