@@ -15,4 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 # folder are already added.
 Rails.application.config.assets.precompile += ["bootstrap.min.js", "popper.js"]
 
-Rails.application.config.assets.precompile += ["jquery.min.js", "jquery_ujs.js", "jquery-ui.min.js"]
+Rails.application.config.assets.precompile += ["jquery.min.js", "jquery_ujs.js"]
