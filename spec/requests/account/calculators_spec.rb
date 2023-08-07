@@ -81,6 +81,7 @@ RSpec.describe Account::CalculatorsController, type: :request do
       calculator.reload
 
       expect(calculator.name).to eq("Updated Calculator")
+      expect(response).to redirect_to(account_calculators_path)
       expect(flash[:notice]).to eq(I18n.t("notifications.calculator_updated"))
     end
 
