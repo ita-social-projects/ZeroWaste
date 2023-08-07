@@ -2,22 +2,29 @@ require "rails_helper"
 
 RSpec.describe "Feature Flags", type: :feature do
   include_context :authorize_admin
+  let(:feature) { Flipper[:access_admin_menu] }
 
-  it "displays the admin tab when the access_admin_menu feature flag is enabled" do
-    feature = Flipper[:access_admin_menu]
-    feature.enable
+  context "when feature is enable" do
+    before do
+      feature.enable
+    end
 
-    visit root_path
+    it "displays the admin tab when the access_admin_menu feature flag is enabled" do
+      visit root_path
 
-    expect(page).to have_content("Admin")
+      expect(page).to have_content("Admin")
+    end
   end
 
-  it "does not display the admin tab when the access_admin_menu feature flag is disabled" do
-    feature = Flipper[:access_admin_menu]
-    feature.disable
+  context "when feature is disable" do
+    before do
+      feature.disable
+    end
 
-    visit root_path
+    it "does not display the admin tab when the access_admin_menu feature flag is disabled" do
+      visit root_path
 
-    expect(page).not_to have_content("Admin")
+      expect(page).not_to have_content("Admin")
+    end
   end
 end
