@@ -15,14 +15,14 @@
         = form.input_field :years,
                             collection: years_number,
                             prompt: t('.form.years_prompt'),
-                            class: 'rounded custom-select calc-item',
+                            class: 'rounded custom-select',
                             data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' }
 
       .ms-5.inline.calc-item
         = form.input_field :months,
                             collection: month_number("old"),
                             prompt: t('.form.months_prompt'),
-                            class: 'rounded custom-select childs_months calc-item',
+                            class: 'rounded custom-select childs_months',
                             data: { input_child_info_target: 'month' }
 
 

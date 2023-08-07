@@ -248,6 +248,7 @@ en:
         site_features: Site features
         apply_button: 'Apply'
         file_select:  'Choose file'
+        file_not_select:  'File is not chosen'
     calculators:
       index:
         search_placeholder: "Search"

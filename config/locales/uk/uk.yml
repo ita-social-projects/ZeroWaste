@@ -254,7 +254,8 @@ uk:
         site_settings: Налаштування сайту
         site_features: Особливості сайту
         apply_button: 'Застосувати'
-        file_select:  'Обери файл'
+        file_select:  'Оберіть файл'
+        file_not_select: 'Файл не вибрано'
     feature_flags:
       submit_button: "Зберегти"
       access_admin_menu:
