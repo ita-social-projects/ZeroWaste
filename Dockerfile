@@ -1,4 +1,4 @@
-FROM ruby:2.7.8
+FROM ruby:3.0.6
 
 ENV BUNDLER_VERSION=2.2.8
 
