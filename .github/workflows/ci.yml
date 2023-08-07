@@ -49,6 +49,7 @@ jobs:
         with:
           ruby-version: 3.0.6
           bundler-cache: false
+      - run: bundle install
 
       - uses: actions/setup-node@v1
         with:
