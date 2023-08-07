@@ -58,3 +58,7 @@ Style/BlockDelimiters:
 
 Lint/Env:
   Enabled: false
+
+Rails/ThreeStateBooleanColumn:
+  Enabled: false
+  
