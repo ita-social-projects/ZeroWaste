@@ -99,3 +99,6 @@ class ActionView::TestCase::TestController
     { locale: I18n.default_locale }
   end
 end
+
+
+ActiveJob::Base.queue_adapter = :test
