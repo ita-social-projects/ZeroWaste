@@ -28,6 +28,7 @@ RSpec.describe Price, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:sum) }
 
+    subject { FactoryBot.build(:price) }
     it { is_expected.to validate_uniqueness_of(:category_id).scoped_to([:priceable_id, :priceable_type]) }
   end
 end
