@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "3.0.6"
 
 gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
@@ -26,7 +26,7 @@ gem "it"
 
 gem "country_select", "~> 4.0"
 
-gem "bigdecimal", "1.3.5"
+gem "bigdecimal", "3.0.2"
 gem "rails-i18n", "~> 7.0.0"
 
 # Use Active Storage variant
