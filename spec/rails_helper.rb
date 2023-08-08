@@ -100,5 +100,4 @@ class ActionView::TestCase::TestController
   end
 end
 
-
 ActiveJob::Base.queue_adapter = :test
