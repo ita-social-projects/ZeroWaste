@@ -19,9 +19,9 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  scope :ordered, -> { order(title: :asc) }
+  scope :ordered, -> { order(:title) }
 
-  has_one :calculator, required: false, dependent: :destroy
+  has_one :calculator, dependent: :destroy
 
   has_many :prices, as: :priceable, dependent: :destroy
   has_many :categories_by_prices, through: :prices, source: :category

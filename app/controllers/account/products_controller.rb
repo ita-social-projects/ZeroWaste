@@ -26,6 +26,7 @@ class Account::ProductsController < Account::BaseController
       redirect_to account_products_path, notice: t(".created")
     else
       @product.prices.build
+
       render :new, status: :unprocessable_entity
     end
   end
@@ -37,6 +38,7 @@ class Account::ProductsController < Account::BaseController
       redirect_to account_products_path, notice: t(".updated")
     else
       @product.prices.build
+
       render :edit, status: :unprocessable_entity
     end
   end
