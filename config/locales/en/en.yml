@@ -105,6 +105,7 @@ en:
       calculate: "Let's go"
       visit_website: "Visit WebSite"
     account_navbar:
+      homepage: "Home page"
       calculators: "Calculators"
       histories: "History"
       users: "Users"

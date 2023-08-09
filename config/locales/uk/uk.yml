@@ -79,6 +79,7 @@ uk:
       calculate: "Почати"
       visit_website: "Наш сайт"
     account_navbar:
+      homepage: "Головна сторінка"
       calculators: "Калькулятори"
       histories: "Історія"
       users: "Користувачі"
