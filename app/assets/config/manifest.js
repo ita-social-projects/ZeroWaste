@@ -3,3 +3,4 @@
 //= require bootstrap
 //= link_tree ../builds
 //= link_tree ../../javascript .js
+//= link tailwind.css

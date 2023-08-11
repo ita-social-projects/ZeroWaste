@@ -2,9 +2,13 @@
 
 pin "application", preload: true
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.7.0/dist/jquery.js"
+pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin_all_from "app/javascript/js/calculators/edit", under: "js/calculators/edit"
+pin_all_from "app/javascript/ajax/checkbox", under: "ajax/checkbox"
+pin_all_from "app/javascript/channels", under: "channels"
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.3.0/dist/js/bootstrap.esm.js"
 pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/lib/index.js"
 pin "toastr", to: "https://ga.jspm.io/npm:toastr@2.1.4/toastr.js"
