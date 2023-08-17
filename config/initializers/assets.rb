@@ -13,4 +13,5 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += ["bootstrap.min.js", "popper.js", "jquery.min.js", "jquery_ujs.js"]
+Rails.application.config.assets.precompile += ["jquery.min.js" ,"jquery_ujs.js" ,"bootstrap.min.js", "popper.js"]
+Rails.application.config.assets.precompile += [ "application.scss" ]

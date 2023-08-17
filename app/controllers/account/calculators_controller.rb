@@ -18,7 +18,7 @@ class Account::CalculatorsController < Account::BaseController
     if @calculator.save
       redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
-      render action: "new"
+      render :new
     end
   end
 
@@ -28,7 +28,7 @@ class Account::CalculatorsController < Account::BaseController
     else
       collect_fields_for_form
 
-      render action: "edit"
+      render :edit
     end
   end
 
