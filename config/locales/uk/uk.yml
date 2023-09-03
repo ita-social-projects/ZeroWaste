@@ -88,6 +88,7 @@ uk:
       site_settings: "Налаштування сайту"
       categories: "Категорії"
       products: "Продукти"
+      zerowaste_logo: "логотип ZeroWaste"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"

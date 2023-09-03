@@ -114,6 +114,7 @@ en:
       site_settings: "Site Settings"
       categories: 'Categories'
       products: "Products"
+      zerowaste_logo: "ZeroWaste logo"
   messages:
     new:
       contact_us_header: "Contact us"
