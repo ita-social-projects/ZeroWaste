@@ -332,7 +332,7 @@ body:where(.admin)::before {
 
 .flash-message {
   color: $color;
-  padding: 20px;
+  padding: 15px;
   border-radius: 3px;
 
   &.notice {
@@ -342,6 +342,17 @@ body:where(.admin)::before {
   &.alert {
     background: $error;
   }
+}
+
+.bordered {
+  border: solid darkgray 3px;
+  padding: 20px;
+  margin-bottom: 50px
+}
+
+.admin-legend {
+  width: auto;
+  padding: 20px;
 }
 
 @media screen and (max-width: $xs) {
