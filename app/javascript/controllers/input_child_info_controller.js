@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
 import { FetchRequest } from "@rails/request.js";
-import toastr from "toastr";
 
 export default class extends Controller {
   static targets = ["month", "year", "productCategory"];
