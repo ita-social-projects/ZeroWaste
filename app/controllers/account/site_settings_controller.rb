@@ -17,6 +17,18 @@ class Account::SiteSettingsController < Account::BaseController
     end
   end
 
+  def revert
+    @site_setting = resource
+
+    @site_setting.update(title: "Zero Waste", favicon: {
+      io: File.open("app/assets/images/logo_zerowaste.png"),
+      filename: "logo_zerowaste.png",
+      content_type: "image/png"
+    })
+
+    redirect_to edit_account_site_setting_path, notice: t("notifications.site_setting_reverted")
+  end
+
   private
 
   def resource

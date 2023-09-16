@@ -11,6 +11,8 @@ fieldset.bordered
     = f.submit t("buttons.update")
       i.fa.fa-times-circle
 
+  = button_to t("buttons.revert"), account_site_settings_revert_path, method: :get, class: "btn-revert mt-2"
+
 fieldset.bordered
   legend.admin-legend
     = t(".site_features")

@@ -5,6 +5,7 @@ uk:
     update: 'Оновити'
     create: 'Створити'
     cancel: 'Скасувати'
+    revert: 'Скинути'
   calculators:
     new_calculator:
       form:
@@ -493,6 +494,7 @@ uk:
     category_deleted: "Категорію було успішно видалено."
     feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
+    site_setting_reverted: "Налаштування було успішно скинуто"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
