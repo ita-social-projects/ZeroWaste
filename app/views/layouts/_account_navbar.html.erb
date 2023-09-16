@@ -5,8 +5,8 @@
     <% end %>
 
     <div id="navbarNav" class="collapse navbar-collapse row navbar order-lg-0">
-      <ul class="navbar-nav mr-0">
-        <li class="nav-item mx-3">
+      <ul class="navbar-nav mt-1">
+        <li class="mx-3">
           <%= link_to_unless_current t('.calculators'), account_calculators_path, title: t('.calculators'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.calculators') %>
@@ -14,7 +14,7 @@
           <% end %>
         </li>
 
-        <li class="nav-item mx-3">
+        <li class="mx-3">
           <%= link_to_unless_current t('.histories'), account_histories_path, title: t('.histories'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.histories') %>
@@ -22,7 +22,7 @@
           <% end %>
         </li>
 
-        <li class="nav-item mx-3">
+        <li class="mx-3">
           <%= link_to_unless_current t('.users'), account_users_path, title: t('.users'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.users') %>
@@ -30,7 +30,7 @@
           <% end %>
         </li>
 
-        <li class="nav-item mx-3">
+        <li class="mx-3">
           <%= link_to_unless_current t('.messages'), account_messages_path, title: t('.messages'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.messages') %>
@@ -38,7 +38,7 @@
           <% end %>
         </li>
 
-        <li class="nav-item mx-3">
+        <li class="mx-3">
           <%= link_to_unless_current t('.app_config'), edit_account_app_config_path, title: t('.app_config'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.app_config') %>
@@ -46,7 +46,7 @@
           <% end %>
         </li>
 
-        <li class="nav-item mx-3">
+        <li class="mx-3">
           <%= link_to_unless_current t('.products'), account_products_path, title: t('.products'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.products') %>
@@ -54,7 +54,7 @@
           <% end %>
         </li>
 
-        <li class="nav-item mx-3">
+        <li class="mx-3">
           <%= link_to_unless_current t('.categories'), account_categories_path, title: t('.categories'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.categories') %>
@@ -62,7 +62,7 @@
           <% end %>
         </li>
 
-        <li class="nav-item mx-3">
+        <li class="mx-3">
           <%= link_to_unless_current t('.site_settings'), edit_account_site_setting_path, title: t('.site_settings'), class: "navbar-brand text-success" do %>
             <p class="navbar-brand tab-active">
               <%= t('.site_settings') %>
@@ -74,8 +74,8 @@
 
     <div class="d-flex order-lg-1">
       <div id="lang-btn" class="mr-3 align-middle">
-        <%= link_to url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm' do %>
-          <%= t(".#{switch_locale_to}") %>
+        <%= link_to url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm px-2 mt-0' do %>
+          <%= t("#{switch_locale_to}") %>
         <% end %>
       </div>
 
