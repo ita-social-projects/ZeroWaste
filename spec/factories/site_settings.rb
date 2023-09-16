@@ -22,5 +22,10 @@ FactoryBot.define do
       title { "Test title" }
       favicon { Rack::Test::UploadedFile.new("app/assets/images/logo_zerowaste.png", "image/png") }
     end
+
+    trait :custom_setting do
+      title { "Custom Waste" }
+      favicon { Rack::Test::UploadedFile.new("app/assets/images/user.png", "image/png") }
+    end
   end
 end

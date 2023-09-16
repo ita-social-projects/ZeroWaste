@@ -20,7 +20,7 @@ class Account::SiteSettingsController < Account::BaseController
   def revert
     @site_setting = resource
 
-    @site_setting.update(title: "Zero Waste", favicon: {
+    @site_setting.update(title: "ZeroWaste", favicon: {
       io: File.open("app/assets/images/logo_zerowaste.png"),
       filename: "logo_zerowaste.png",
       content_type: "image/png"
