@@ -457,6 +457,7 @@ en:
               blank: can't be blank
               too_long: too long (maximum %{count} symbols)
               too_short: too short (minimum %{count} symbols)
+              taken: "has already been taken, please choose another one"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"

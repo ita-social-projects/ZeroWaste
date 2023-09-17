@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_10_212500) do
+ActiveRecord::Schema.define(version: 2023_09_17_082603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 2023_07_10_212500) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
+    t.index ["title"], name: "index_products_on_title", unique: true
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
   end
 
@@ -200,7 +201,8 @@ ActiveRecord::Schema.define(version: 2023_07_10_212500) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.string "item_type", null: false
+    t.string "item_type"
+    t.string "{:null=>false}"
     t.bigint "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
