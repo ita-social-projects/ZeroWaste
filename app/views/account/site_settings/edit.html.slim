@@ -1,17 +1,17 @@
 fieldset.bordered
   legend.admin-legend
     = t(".site_settings")
-  = simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } }  do |f|
-    .form-group.row
-      .col-12.has-float-label.my-auto
-        = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
-        = f.input :favicon, class: "form-control", input_html: { data: {  action: "change->handle-browser-tab#setIcon" } }
-        = render "browser_tab", site_setting: @site_setting
+  div.position-relative
+    = simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } }  do |f|
+      .form-group.row
+        .col-12.has-float-label.my-auto
+          = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
+          = f.input :favicon, class: "form-control", input_html: { data: {  action: "change->handle-browser-tab#setIcon" } }
+          = render "browser_tab", site_setting: @site_setting
 
-    = f.submit t("buttons.update")
-      i.fa.fa-times-circle
+      = f.submit t("buttons.update"), class: "inline"
 
-  = button_to t("buttons.revert"), account_site_settings_revert_path, method: :get, class: "btn-revert mt-2"
+    = button_to t("buttons.revert"), account_site_settings_revert_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom"
 
 fieldset.bordered
   legend.admin-legend

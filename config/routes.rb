@@ -43,7 +43,7 @@ Rails.application.routes.draw do
       resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
       resource :site_setting, only: [:edit, :update]
-      get "site_settings/revert", to: "site_settings#revert"
+      post "site_settings/revert", to: "site_settings#revert"
 
       scope module: :calculators do
         resources :calculators, only: [], param: :slug do

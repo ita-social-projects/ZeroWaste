@@ -254,6 +254,7 @@ uk:
       edit:
         site_settings: Налаштування сайту
         site_features: Особливості сайту
+        confirm_default: Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та значка сайту?
     feature_flags:
       submit_button: "Зберегти"
       new_calculator_design:
