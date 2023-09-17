@@ -488,7 +488,7 @@ en:
     category_deleted: "Category was successfully destroyed."
     feature_flags_updated: "Features updated successfully"
     site_setting_updated: "Setting was successfully updated"
-    site_setting_reverted: "Setting was successfully reverted"
+    site_setting_reverted: "The title and favicon have been successfully reverted to default"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
