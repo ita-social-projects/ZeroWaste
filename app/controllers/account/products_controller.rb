@@ -1,6 +1,6 @@
 class Account::ProductsController < Account::BaseController
   def index
-    @products = collection
+    @products = Sort.new(collection, params).sort
   end
 
   def show
@@ -56,7 +56,7 @@ class Account::ProductsController < Account::BaseController
   end
 
   def collection
-    Product.ordered_by_title
+    Product.all
   end
 
   def product_params

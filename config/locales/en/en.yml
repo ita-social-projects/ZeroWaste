@@ -699,3 +699,9 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  sort:
+    sort_by: Sort by
+    id_asc: ID, ascending
+    id_desc: ID, descending
+    title_asc: Title, ascending
+    title_desc: Title, descending

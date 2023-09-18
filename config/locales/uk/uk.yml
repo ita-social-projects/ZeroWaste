@@ -755,3 +755,9 @@ uk:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: по полудні
+  sort:
+    sort_by: Сортувати за
+    id_asc: ID, за зростанням
+    id_desc: ID, за спаданням
+    title_asc: Назва, за зростанням
+    title_desc: Назва, за спаданням
