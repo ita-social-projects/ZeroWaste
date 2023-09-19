@@ -1,13 +1,7 @@
 div class="container home"
-
-
   .row
     .col
-      p.d-inline.mr-3
-        = t('sort.sort_by')
-      div.d-inline-block
-        = form_with method: :get do |form|
-          = form.select :sort, users_criterias, { selected: params[:sort], include_blank: true }, class: 'form-control mr-5', onchange: 'this.form.submit()'
+      = render 'account/shared/sort_selector', criterias: users_criterias
 
       h3.d-inline.float-right.mt-3
         = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")

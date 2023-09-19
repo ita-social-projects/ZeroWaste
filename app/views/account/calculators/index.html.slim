@@ -9,11 +9,7 @@
       i.fa.fa-plus.mr-2
       span =t('.add_calculator_button')
 
-  p.d-inline.mr-3
-    = t('sort.sort_by')
-  div.d-inline-block
-    = form_with method: :get do |form|
-      = form.select :sort, calculators_criterias, { selected: params[:sort], include_blank: true }, class: 'form-control mr-5', onchange: 'this.form.submit()'
+  = render 'account/shared/sort_selector', criterias: calculators_criterias
 
   table.table.admin-table
     thead
