@@ -1,4 +1,4 @@
-class Sort
+class SortService
   attr_accessor :collection, :params
 
   def initialize(collection, params)
@@ -6,7 +6,7 @@ class Sort
     @params     = params
   end
 
-  def sort
+  def call
     collection.order(sorting_params)
   end
 

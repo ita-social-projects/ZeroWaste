@@ -4,6 +4,10 @@ class Account::CalculatorsController < Account::BaseController
   before_action :calculator, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
+  def index
+    @calculators = SortService.new(collection, params).call
+  end
+
   def show
     # TODO: fill it
   end
@@ -39,6 +43,10 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   private
+
+  def collection
+    Calculator.all
+  end
 
   def calculator
     @calculator = Calculator.friendly.find(params[:slug])

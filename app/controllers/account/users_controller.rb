@@ -10,7 +10,7 @@ class Account::UsersController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    @users = SortService.new(collection, params).call
 
     respond_to do |format|
       format.html
@@ -68,6 +68,10 @@ class Account::UsersController < Account::BaseController
     end
 
     prms
+  end
+
+  def collection
+    User.all
   end
 
   def resource

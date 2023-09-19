@@ -1,6 +1,6 @@
 class Account::ProductsController < Account::BaseController
   def index
-    @products = Sort.new(collection, params).sort
+    @products = SortService.new(collection, params).call
   end
 
   def show

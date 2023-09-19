@@ -1,9 +1,18 @@
 div class="container home"
+
+
   .row
     .col
-      h1 = t '.main_header'
-      h3 = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")
-      table.table
+      p.d-inline.mr-3
+        = t('sort.sort_by')
+      div.d-inline-block
+        = form_with method: :get do |form|
+          = form.select :sort, users_criterias, { selected: params[:sort], include_blank: true }, class: 'form-control mr-5', onchange: 'this.form.submit()'
+
+      h3.d-inline.float-right.mt-3
+        = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")
+
+      table.table.mt-2
         thead
           tr
             td = t '.table.email_col'

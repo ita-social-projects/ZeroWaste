@@ -705,3 +705,11 @@ en:
     id_desc: ID, descending
     title_asc: Title, ascending
     title_desc: Title, descending
+    name_asc: Name, ascending
+    name_desc: Name, descending
+    slug_asc: Slug, ascending
+    slug_desc: Slug, descending
+    email_asc: Email, ascending
+    email_desc: Email, descending
+    last_sign_in_at_asc: Last sign in, ascending
+    last_sign_in_at_desc: Last sign in, descending

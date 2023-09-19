@@ -8,8 +8,7 @@
     = t('sort.sort_by')
   div.d-inline-block
     = form_with method: :get do |form|
-
-      = form.select :sort, collection, { selected: params[:sort], include_blank: true }, class: 'form-control mr-5', onchange: 'this.form.submit()'
+      = form.select :sort, products_criterias, { selected: params[:sort], include_blank: true }, class: 'form-control mr-5', onchange: 'this.form.submit()'
 
   table.table
     thead
