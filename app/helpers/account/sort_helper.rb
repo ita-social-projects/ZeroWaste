@@ -29,4 +29,15 @@ module Account::SortHelper
       [I18n.t("sort.last_sign_in_at_desc"), "last_sign_in_at desc"]
     ]
   end
+
+  def categories_criterias
+    [
+      [I18n.t("sort.id_asc"), "id asc"],
+      [I18n.t("sort.id_desc"), "id desc"],
+      [I18n.t("sort.name_asc"), "name asc"],
+      [I18n.t("sort.name_desc"), "name desc"],
+      [I18n.t("sort.priority_asc"), "priority asc"],
+      [I18n.t("sort.priority_desc"), "priority desc"]
+    ]
+  end
 end

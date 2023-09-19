@@ -713,3 +713,6 @@ en:
     email_desc: Email, descending
     last_sign_in_at_asc: Last sign in, ascending
     last_sign_in_at_desc: Last sign in, descending
+    priority_asc: Priority, ascending
+    priority_desc: Priority, descending
+    sort_error: Sorting by this parameter is not available

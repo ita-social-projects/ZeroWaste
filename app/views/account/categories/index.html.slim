@@ -6,8 +6,9 @@
       span =t('.add_category_button')
 
 div class="container home"
+  = render 'account/shared/sort_selector', criterias: categories_criterias
 
-  table.table
+  table.table.mt-2
     thead
       tr
         th scope="col"  #
