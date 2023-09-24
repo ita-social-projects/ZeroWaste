@@ -15,15 +15,16 @@ div class="container home"
             td = t '.table.edit'
             td = t '.table.ban'
             td = t '.table.delete'
-        - @users.each do |user|
-          tr id="user-info-#{user.id}"
-            td = user.email
-            td = user.last_sign_in_at
-            td = link_to icon('fa-solid', 'eye'), account_user_path(id: user.id)
-            td = link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id)
-            td = link_to (icon('fa-solid', user.blocked? ? 'lock' : 'lock-open')),
-              account_user_path(id: user, user: {blocked: user.blocked? ? false : true}),
-              onclick: "alert('Are you sure?')", method: :patch
-            td = link_to account_user_path(id: user), method: :delete,
-                    data: { confirm: t('.confirm_delete') } do
-              i.fa.fa-trash.mx-2
+        tbody id="users"
+          - @users.each do |user|
+            tr id="user-info-#{user.id}"
+              td = user.email
+              td = user.last_sign_in_at
+              td = link_to icon('fa-solid', 'eye'), account_user_path(id: user.id)
+              td = link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id)
+              td = link_to (icon('fa-solid', user.blocked? ? 'lock' : 'lock-open')),
+                account_user_path(id: user, user: {blocked: user.blocked? ? false : true}),
+                onclick: "alert('Are you sure?')", method: :patch
+              td = link_to account_user_path(id: user), method: :delete,
+                      data: { confirm: t('.confirm_delete') } do
+                i.fa.fa-trash.mx-2
