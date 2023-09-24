@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe Account::CategoriesController, type: :request do
   let!(:category) { create(:category, :budgetary) }
+  let!(:category) { create(:category, :medium) }
   let(:valid_attributes) { { category: { name: "medium" }} }
   let(:invalid_attributes) { { category: { name: "" }} }
   let(:new_attributes) { { category: { name: "premium" }} }
@@ -13,6 +14,29 @@ RSpec.describe Account::CategoriesController, type: :request do
       get account_categories_path
 
       expect(response).to be_successful
+    end
+  end
+
+  describe "GET :index with sorting" do
+    it "by id asc" do
+      get account_categories_path(sort: "id asc")
+
+      expect(response).to be_successful
+      expect(assigns(:categories).first).to eq(Category.first)
+    end
+
+    it "by id desc" do
+      get account_categories_path(sort: "id desc")
+
+      expect(response).to be_successful
+      expect(assigns(:categories).first).to eq(Category.last)
+    end
+
+    it "by non existing parameter" do
+      get account_categories_path(sort: "nonexistingparameter asc")
+
+      expect(response).not_to be_successful
+      expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
     end
   end
 

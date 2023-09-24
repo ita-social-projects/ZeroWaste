@@ -16,6 +16,29 @@ RSpec.describe "Account::UsersController", type: :request do
     end
   end
 
+  describe "GET :index with sorting" do
+    it "by id asc" do
+      get account_users_path(sort: "id asc")
+
+      expect(response).to be_successful
+      expect(assigns(:users).first).to eq(User.first)
+    end
+
+    it "by id desc" do
+      get account_users_path(sort: "id desc")
+
+      expect(response).to be_successful
+      expect(assigns(:users).first).to eq(User.last)
+    end
+
+    it "by non existing parameter" do
+      get account_users_path(sort: "nonexistingparameter asc")
+
+      expect(response).not_to be_successful
+      expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
+    end
+  end
+
   describe "GET #new" do
     it "returns a successful response" do
       get new_account_user_path

@@ -31,6 +31,12 @@ describe "visit admin page", js: true do
       expect(page.find("#users > :first-child > :first-child")).to have_content User.last.email
       expect(page.find("#users > :last-child > :first-child")).to have_content User.first.email
     end
+
+    it "by non existing parameter" do
+      visit account_users_path(sort: "nonexistingparameter asc")
+
+      expect(page).to have_content I18n.t("sort.sort_error")
+    end
   end
 
   context "when user clicks show icon" do
