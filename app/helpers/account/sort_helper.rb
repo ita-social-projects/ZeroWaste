@@ -1,17 +1,20 @@
 module Account::SortHelper
-  def products_criterias
+  def base_criterias
     [
       [I18n.t("sort.id_asc"), "id asc"],
-      [I18n.t("sort.id_desc"), "id desc"],
+      [I18n.t("sort.id_desc"), "id desc"]
+    ]
+  end
+
+  def products_criterias
+    base_criterias | [
       [I18n.t("sort.title_asc"), "title asc"],
       [I18n.t("sort.title_desc"), "title desc"]
     ]
   end
 
   def calculators_criterias
-    [
-      [I18n.t("sort.id_asc"), "id asc"],
-      [I18n.t("sort.id_desc"), "id desc"],
+    base_criterias | [
       [I18n.t("sort.name_asc"), "name asc"],
       [I18n.t("sort.name_desc"), "name desc"],
       [I18n.t("sort.slug_asc"), "slug asc"],
@@ -20,9 +23,7 @@ module Account::SortHelper
   end
 
   def users_criterias
-    [
-      [I18n.t("sort.id_asc"), "id asc"],
-      [I18n.t("sort.id_desc"), "id desc"],
+    base_criterias | [
       [I18n.t("sort.email_asc"), "email asc"],
       [I18n.t("sort.email_desc"), "email desc"],
       [I18n.t("sort.last_sign_in_at_asc"), "last_sign_in_at asc"],
@@ -31,9 +32,7 @@ module Account::SortHelper
   end
 
   def categories_criterias
-    [
-      [I18n.t("sort.id_asc"), "id asc"],
-      [I18n.t("sort.id_desc"), "id desc"],
+    base_criterias | [
       [I18n.t("sort.name_asc"), "name asc"],
       [I18n.t("sort.name_desc"), "name desc"],
       [I18n.t("sort.priority_asc"), "priority asc"],
