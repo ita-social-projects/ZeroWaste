@@ -16,7 +16,7 @@ div class="container home"
         th scope="col"  =t('.table.priority')
         th scope="col"  =t('.table.actions')
 
-    tbody
+    tbody id="categories"
       - @categories.each do |category|
         tr
           th scope="row"  = category.id

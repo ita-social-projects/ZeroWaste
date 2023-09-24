@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe Account::ProductsController, type: :request do
   let(:product) { create(:product, :diaper) }
+  let(:product) { create(:product, :napkin) }
 
   include_context :authorize_admin
 

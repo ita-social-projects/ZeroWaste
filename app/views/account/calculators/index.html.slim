@@ -18,7 +18,7 @@
         th[scope="col"] =t('.table.calculator_slug')
         th[scope="col"] =t('.table.calculator_name')
         th[scope="col"] =t('.table.calculator_actions')
-    tbody.admin-table-links
+    tbody.admin-table-links id="calculators"
       - @calculators.each do |calculator|
         tr class=(calculator.preferable ? 'table-success' : 'table-light')
           td= calculator.id

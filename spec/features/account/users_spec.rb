@@ -19,23 +19,19 @@ describe "visit admin page", js: true do
 
   context "with sorting" do
     it "by id asc" do
-      visit account_users_path(sort: "id asc")
+      visit account_users_path
+      select(I18n.t("sort.id_asc"), from: "sort-selector")
 
       expect(page.find("#users > :first-child > :first-child")).to have_content User.first.email
       expect(page.find("#users > :last-child > :first-child")).to have_content User.last.email
     end
 
     it "by id desc" do
-      visit account_users_path(sort: "id desc")
+      visit account_users_path
+      select(I18n.t("sort.id_desc"), from: "sort-selector")
 
       expect(page.find("#users > :first-child > :first-child")).to have_content User.last.email
       expect(page.find("#users > :last-child > :first-child")).to have_content User.first.email
-    end
-
-    it "by non existing parameter" do
-      visit account_users_path(sort: "nonexistingparameter asc")
-
-      expect(page).to have_content I18n.t("sort.sort_error")
     end
   end
 

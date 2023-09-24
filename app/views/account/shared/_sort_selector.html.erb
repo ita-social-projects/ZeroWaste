@@ -4,6 +4,6 @@
 
 <div class="d-inline-block">
   <%= form_with method: :get do |form| %>
-    <%= form.select :sort, criterias, { selected: params[:sort], include_blank: true }, class: 'form-control mr-5', onchange: 'this.form.submit()' %>
+    <%= form.select :sort, criterias, { selected: params[:sort], include_blank: true }, id: "sort-selector", class: 'form-control mr-5', onchange: 'this.form.submit()' %>
   <% end %>
 </div>

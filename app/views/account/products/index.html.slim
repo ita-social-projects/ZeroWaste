@@ -14,7 +14,7 @@
         th scope="col" =t('.table.prices')
         th scope="col" =t('.table.actions')
 
-    tbody
+    tbody id="products"
       - @products.includes(prices: :category).each do |product|
         tr
           td = product.id
