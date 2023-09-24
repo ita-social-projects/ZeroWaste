@@ -81,8 +81,6 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :helper
   config.include Devise::Test::ControllerHelpers, type: :controller
 
-  config.include Capybara::DSL, type: :request
-
   config.add_formatter "Fuubar"
   config.fuubar_output_pending_results = false
 end

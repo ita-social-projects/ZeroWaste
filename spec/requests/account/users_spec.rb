@@ -37,6 +37,13 @@ RSpec.describe "Account::UsersController", type: :request do
       expect(response).not_to be_successful
       expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
     end
+
+    it "by non existing order" do
+      get account_users_path(sort: "id byascending")
+
+      expect(response).not_to be_successful
+      expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
+    end
   end
 
   describe "GET #new" do

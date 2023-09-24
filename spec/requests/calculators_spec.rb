@@ -109,6 +109,13 @@ RSpec.describe CalculatorsController, type: :request do
       expect(response).not_to be_successful
       expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
     end
+
+    it "by non existing order" do
+      get account_calculators_path(sort: "id byascending")
+
+      expect(response).not_to be_successful
+      expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
+    end
   end
 
   describe "POST #create" do
