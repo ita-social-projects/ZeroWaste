@@ -42,8 +42,27 @@ RSpec.describe Product, type: :model do
     }
 
     it {
-      is_expected.to validate_length_of(:title).is_at_most(50)
-                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_long", count: 50))
+      is_expected.to validate_uniqueness_of(:title)
+        .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.taken"))
     }
+
+    context 'validates the title format' do
+      let(:product) { build(:product) }
+
+      it 'with valid title' do
+        product.title = "Hedgehog і єнот з\'їли 2 аґруси"
+
+        expect(product).to be_valid
+      end
+
+      it 'with invalid title' do
+        ["#", "!", "@", "$", "%", "^", "&", "*", "(", ")", "?", "\"", "_"].each do |sym|
+          product.title = "Invalid Title #{sym}"
+
+          expect(product).to_not be_valid
+          expect(product.errors.messages[:title]).to include(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.invalid"))
+        end
+      end
+    end
   end
 end
