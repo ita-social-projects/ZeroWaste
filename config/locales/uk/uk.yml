@@ -79,6 +79,7 @@ uk:
       calculate: "Почати"
       visit_website: "Наш сайт"
     account_navbar:
+      homepage: "Головна сторінка"
       calculators: "Калькулятори"
       histories: "Історія"
       users: "Користувачі"
@@ -87,6 +88,7 @@ uk:
       site_settings: "Налаштування сайту"
       categories: "Категорії"
       products: "Продукти"
+      zerowaste_logo: "логотип ZeroWaste"
   mailer:
     welcome_mail:
       subject: "Ласкаво просимо до ZeroWaste!"

@@ -28,7 +28,6 @@ export default class extends Controller {
 
     // Save the previous month value before updating
     const previousMonthValue = this.monthTarget.value;
-    console.log(`VALUE = ${previousMonthValue}`)
 
     // Clear old options from the month selection list
     this.monthTarget.innerHTML = '';

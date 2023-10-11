@@ -87,7 +87,7 @@ group :test do
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "shoulda-matchers", "~> 4.0"
-  gem "webdrivers"
+  gem "webdrivers", "~> 5.3.1"
   gem "fuubar"
 end
 
