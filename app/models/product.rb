@@ -22,8 +22,12 @@ class Product < ApplicationRecord
   has_many :prices, as: :priceable, dependent: :destroy
   has_many :categories_by_prices, through: :prices, source: :category
 
-  validates :title, presence: true, uniqueness: true, format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9-\s]+\z/ }
-  validates :title, length: { in: 2..30 }, if: -> { title.present? }
+  validates :title, presence: true
+  validates :title,
+            length: { in: 2..30 }, 
+            uniqueness: true, 
+            format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9-\s]+\z/ },
+            if: -> { title.present? }
 
   scope :ordered_by_title, -> { order(:title) }
 
