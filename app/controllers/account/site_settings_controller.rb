@@ -28,7 +28,7 @@ class Account::SiteSettingsController < Account::BaseController
       })
 
       flash[:notice] = t("notifications.site_setting_reverted")
-    rescue Errno::ENOENT
+    rescue
       flash[:alert] = t("notifications.site_setting_not_reverted")
     end
 

@@ -60,6 +60,8 @@ RSpec.describe Account::SiteSettingsController, type: :request do
       let(:site_setting) { SiteSetting.current }
       let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :custom_setting) }
       let(:site_setting_default_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
+      let(:old_file_name) { "app/assets/images/logo_zerowaste.png" }
+      let(:new_file_name) { "app/assets/images/new_logo_zerowaste.png" }
 
       before { site_setting.update(site_setting_params) }
 
@@ -74,6 +76,17 @@ RSpec.describe Account::SiteSettingsController, type: :request do
 
         expect(SiteSetting.current.title).to eq(site_setting_default_params[:title])
         expect(SiteSetting.current.favicon.filename).to eq(site_setting_default_params[:favicon].original_filename)
+      end
+
+      it "doesn't reverts site setting if file not exist" do
+        File.rename(old_file_name, new_file_name)
+
+        post revert_account_site_setting_path
+
+        expect(response).to redirect_to(edit_account_site_setting_path)
+        expect(flash[:alert]).to eq(I18n.t("notifications.site_setting_not_reverted"))
+
+        File.rename(new_file_name, old_file_name)
       end
     end
   end
