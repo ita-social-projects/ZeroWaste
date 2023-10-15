@@ -83,8 +83,6 @@ RSpec.configure do |config|
 
   config.add_formatter "Fuubar"
   config.fuubar_output_pending_results = false
-
-  Webdrivers::Chromedriver.required_version = "114.0.5735.90"
 end
 
 Shoulda::Matchers.configure do |config|

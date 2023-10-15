@@ -208,6 +208,11 @@ h3.container {
   padding: 20px;
 }
 
+.tab-active {
+  color: darkgreen !important;
+  border-bottom: solid darkgreen 3px;
+}
+
 .calculation-results {
   padding: 10px;
   margin-top: 20px;
