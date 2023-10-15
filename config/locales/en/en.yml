@@ -490,6 +490,7 @@ en:
     feature_flags_updated: "Features updated successfully"
     site_setting_updated: "Setting was successfully updated"
     site_setting_reverted: "The title and favicon have been successfully reverted to default"
+    site_setting_not_reverted: "Unable to revert title and favicon"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

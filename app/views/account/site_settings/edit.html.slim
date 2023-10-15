@@ -11,7 +11,7 @@ fieldset.bordered
 
       = f.submit t("buttons.update"), class: "inline"
 
-    = button_to t("buttons.revert"), account_site_settings_revert_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom"
+    = button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom"
 
 fieldset.bordered
   legend.admin-legend

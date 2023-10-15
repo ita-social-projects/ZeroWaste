@@ -53,7 +53,7 @@ RSpec.describe Account::SiteSettingsController, type: :request do
     end
   end
 
-  describe "GET revert" do
+  describe "GET #revert" do
     include_context :authorize_admin
 
     context "with valid params" do
@@ -64,7 +64,7 @@ RSpec.describe Account::SiteSettingsController, type: :request do
       before { site_setting.update(site_setting_params) }
 
       it "reverts site setting" do
-        get account_site_settings_revert_path
+        post revert_account_site_setting_path
 
         expect(response).to redirect_to(edit_account_site_setting_path)
         expect(flash[:notice]).to eq(I18n.t("notifications.site_setting_reverted"))
