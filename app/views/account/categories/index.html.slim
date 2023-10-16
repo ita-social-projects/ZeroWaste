@@ -6,7 +6,7 @@
       span =t('.add_category_button')
 
 div class="container home"
-  table.table.mt-2
+  table.table
     thead
       tr
         th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
@@ -14,7 +14,7 @@ div class="container home"
         th scope="col" = sort_link(@q, :priority, t('.table.priority'), default_order: :desc)
         th scope="col" = t('.table.actions')
 
-    tbody id="categories"
+    tbody
       - @categories.each do |category|
         tr
           th scope="row"  = category.id

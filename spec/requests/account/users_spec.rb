@@ -13,6 +13,7 @@ RSpec.describe "Account::UsersController", type: :request do
 
       expect(response).to be_successful
       expect(response).to render_template(:index)
+      expect(response.body).to include(I18n.t("account.users.index.main_header"))
     end
   end
 

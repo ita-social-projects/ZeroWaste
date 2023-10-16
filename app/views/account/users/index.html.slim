@@ -1,10 +1,12 @@
 div class="container home"
   .row
     .col
-      h3.d-inline.float-right.mt-3
-        = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")
+      .mb-2
+        h1.text-body.d-inline = t '.main_header'
+        h3.float-right.d-inline
+          = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")
 
-      table.table.mt-2
+      table.table
         thead
           tr
             td = sort_link(@q, :email, t('.table.email_col'), default_order: :desc)
@@ -13,7 +15,7 @@ div class="container home"
             td = t '.table.edit'
             td = t '.table.ban'
             td = t '.table.delete'
-        tbody id="users"
+        tbody
           - @users.each do |user|
             tr id="user-info-#{user.id}"
               td = user.email
