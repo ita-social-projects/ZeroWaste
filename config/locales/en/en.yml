@@ -701,20 +701,3 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  sort:
-    sort_by: Sort by
-    id_asc: ID, ascending
-    id_desc: ID, descending
-    title_asc: Title, ascending
-    title_desc: Title, descending
-    name_asc: Name, ascending
-    name_desc: Name, descending
-    slug_asc: Slug, ascending
-    slug_desc: Slug, descending
-    email_asc: Email, ascending
-    email_desc: Email, descending
-    last_sign_in_at_asc: Last sign in, ascending
-    last_sign_in_at_desc: Last sign in, descending
-    priority_asc: Priority, ascending
-    priority_desc: Priority, descending
-    sort_error: Sorting by this parameter is not available

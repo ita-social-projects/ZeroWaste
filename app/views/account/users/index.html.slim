@@ -1,16 +1,14 @@
 div class="container home"
   .row
     .col
-      = render 'account/shared/sort_selector', criterias: users_criterias
-
       h3.d-inline.float-right.mt-3
         = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")
 
       table.table.mt-2
         thead
           tr
-            td = t '.table.email_col'
-            td = t '.table.last_visit_col'
+            td = sort_link(@q, :email, t('.table.email_col'), default_order: :desc)
+            td = sort_link(@q, :updated_at, t('.table.last_visit_col'), default_order: :desc)
             td = t '.table.view_info_col'
             td = t '.table.edit'
             td = t '.table.ban'

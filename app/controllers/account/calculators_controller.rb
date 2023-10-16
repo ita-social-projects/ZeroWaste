@@ -5,7 +5,8 @@ class Account::CalculatorsController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @calculators = SortService.new(collection, params).call
+    @q           = collection.ransack(params[:q])
+    @calculators = @q.result(distinct: true)
   end
 
   def show

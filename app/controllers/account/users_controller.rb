@@ -10,7 +10,8 @@ class Account::UsersController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @users = SortService.new(collection, params).call
+    @q     = collection.ransack(params[:q])
+    @users = @q.result(distinct: true)
 
     respond_to do |format|
       format.html

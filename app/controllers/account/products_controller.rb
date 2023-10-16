@@ -1,6 +1,7 @@
 class Account::ProductsController < Account::BaseController
   def index
-    @products = SortService.new(collection, params).call
+    @q        = collection.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
   def show

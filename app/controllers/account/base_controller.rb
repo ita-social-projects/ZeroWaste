@@ -10,8 +10,4 @@ class Account::BaseController < ApplicationController
       format.html { redirect_to root_path, alert: exception.message }
     end
   end
-
-  rescue_from ActiveRecord::StatementInvalid, ActiveRecord::UnknownAttributeReference do |exception|
-    redirect_back(fallback_location: root_path, alert: I18n.t("sort.sort_error"))
-  end
 end

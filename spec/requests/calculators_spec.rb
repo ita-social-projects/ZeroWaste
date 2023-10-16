@@ -86,38 +86,6 @@ RSpec.describe CalculatorsController, type: :request do
     end
   end
 
-  describe "GET /calculator with sorting" do
-    include_context :authorize_admin
-
-    it "by id asc" do
-      get account_calculators_path(sort: "id asc")
-
-      expect(response).to be_successful
-      expect(assigns(:calculators).first).to eq(Calculator.first)
-    end
-
-    it "by id desc" do
-      get account_calculators_path(sort: "id desc")
-
-      expect(response).to be_successful
-      expect(assigns(:calculators).first).to eq(Calculator.last)
-    end
-
-    it "by non existing parameter" do
-      get account_calculators_path(sort: "nonexistingparameter asc")
-
-      expect(response).not_to be_successful
-      expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
-    end
-
-    it "by non existing order" do
-      get account_calculators_path(sort: "id byascending")
-
-      expect(response).not_to be_successful
-      expect(flash[:alert]).to eq(I18n.t("sort.sort_error"))
-    end
-  end
-
   describe "POST #create" do
     include_context :authorize_admin
 

@@ -6,15 +6,13 @@
       span =t('.add_category_button')
 
 div class="container home"
-  = render 'account/shared/sort_selector', criterias: categories_criterias
-
   table.table.mt-2
     thead
       tr
-        th scope="col"  #
-        th scope="col"  =t('.table.title')
-        th scope="col"  =t('.table.priority')
-        th scope="col"  =t('.table.actions')
+        th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
+        th scope="col" = sort_link(@q, :name, t('.table.title'), default_order: :desc)
+        th scope="col" = sort_link(@q, :priority, t('.table.priority'), default_order: :desc)
+        th scope="col" = t('.table.actions')
 
     tbody id="categories"
       - @categories.each do |category|

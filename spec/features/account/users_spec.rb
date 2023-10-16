@@ -17,24 +17,6 @@ describe "visit admin page", js: true do
     expect(page).to have_content time_login
   end
 
-  context "with sorting" do
-    it "by id asc" do
-      visit account_users_path
-      select(I18n.t("sort.id_asc"), from: "sort-selector")
-
-      expect(page.find("#users > :first-child > :first-child")).to have_content User.first.email
-      expect(page.find("#users > :last-child > :first-child")).to have_content User.last.email
-    end
-
-    it "by id desc" do
-      visit account_users_path
-      select(I18n.t("sort.id_desc"), from: "sort-selector")
-
-      expect(page.find("#users > :first-child > :first-child")).to have_content User.last.email
-      expect(page.find("#users > :last-child > :first-child")).to have_content User.first.email
-    end
-  end
-
   context "when user clicks show icon" do
     it "redirects to user info page" do
       visit account_users_path

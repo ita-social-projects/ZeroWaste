@@ -4,7 +4,8 @@ class Account::CategoriesController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @categories = SortService.new(collection, params).call
+    @q          = collection.ransack(params[:q])
+    @categories = @q.result(distinct: true)
   end
 
   def new

@@ -4,15 +4,13 @@
       i.fa.fa-plus.mr-2
       span =t('.add_product_button')
 
-  = render 'account/shared/sort_selector', criterias: products_criterias
-
   table.table.mt-2
     thead
       tr
-        th scope="col" #
-        th scope="col" =t('.table.title')
-        th scope="col" =t('.table.prices')
-        th scope="col" =t('.table.actions')
+        th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
+        th scope="col" = sort_link(@q, :title, t('.table.title'), default_order: :desc)
+        th scope="col" = t('.table.prices')
+        th scope="col" = t('.table.actions')
 
     tbody id="products"
       - @products.includes(prices: :category).each do |product|
