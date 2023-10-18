@@ -6,7 +6,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def index
     @q           = collection.ransack(params[:q])
-    @calculators = @q.result(distinct: true)
+    @calculators = @q.result
   end
 
   def show

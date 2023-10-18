@@ -11,7 +11,7 @@ class Account::UsersController < Account::BaseController
 
   def index
     @q     = collection.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result
 
     respond_to do |format|
       format.html
