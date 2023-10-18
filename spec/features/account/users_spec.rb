@@ -6,10 +6,7 @@ describe "visit admin page", js: true do
   let(:time_login) { Time.new(2020, 0o1, 0o1).utc }
   let!(:users) { create_list(:user, 5, last_sign_in_at: time_login) }
 
-  before do
-    @admin = create(:user, :admin)
-    sign_in @admin
-  end
+  include_context :authorize_admin
 
   it "visits admin page" do
     visit account_users_path
@@ -84,11 +81,6 @@ describe "visit admin page", js: true do
   end
 
   describe "user info page" do
-    before do
-      @admin = create(:user, :admin)
-      sign_in @admin
-    end
-
     context "viewing non-existing user" do
       it "renders the 404 page" do
         visit account_user_path(id: 1355)

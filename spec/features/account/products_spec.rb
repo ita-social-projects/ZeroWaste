@@ -6,10 +6,7 @@ describe "visit admin page", js: true do
   let!(:diaper) { create(:product, :diaper) }
   let!(:napkin) { create(:product, :napkin) }
 
-  before do
-    @admin = create(:user, :admin)
-    sign_in @admin
-  end
+  include_context :authorize_admin
 
   it "visits admin page" do
     visit account_products_path

@@ -57,7 +57,7 @@ class Account::ProductsController < Account::BaseController
   end
 
   def collection
-    Product.all
+    Product.ordered_by_title
   end
 
   def product_params

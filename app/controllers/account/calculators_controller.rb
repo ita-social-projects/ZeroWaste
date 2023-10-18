@@ -46,7 +46,7 @@ class Account::CalculatorsController < Account::BaseController
   private
 
   def collection
-    Calculator.all
+    Calculator.ordered_by_name
   end
 
   def calculator

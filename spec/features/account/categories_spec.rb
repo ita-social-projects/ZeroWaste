@@ -6,10 +6,7 @@ describe "visit admin page", js: true do
   let!(:budgetary) { create(:category, :budgetary) }
   let!(:medium) { create(:category, :medium) }
 
-  before do
-    @admin = create(:user, :admin)
-    sign_in @admin
-  end
+  include_context :authorize_admin
 
   it "visits admin page" do
     visit account_categories_path

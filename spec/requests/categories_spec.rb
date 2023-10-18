@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.describe Account::CategoriesController, type: :request do
   let!(:category) { create(:category, :budgetary) }
-  let!(:category) { create(:category, :medium) }
   let(:valid_attributes) { { category: { name: "medium" }} }
   let(:invalid_attributes) { { category: { name: "" }} }
   let(:new_attributes) { { category: { name: "premium" }} }

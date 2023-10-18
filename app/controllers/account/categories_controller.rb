@@ -46,7 +46,7 @@ class Account::CategoriesController < Account::BaseController
   private
 
   def collection
-    Category.ordered_by_priority
+    Category.ordered_by_name
   end
 
   def resource

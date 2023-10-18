@@ -72,7 +72,7 @@ class Account::UsersController < Account::BaseController
   end
 
   def collection
-    User.all
+    User.ordered_by_email
   end
 
   def resource
