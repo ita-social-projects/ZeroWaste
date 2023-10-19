@@ -207,6 +207,8 @@ en:
         confirm_delete: "Are you sure you want to delete this user?"
         table:
           email_col: "Email"
+          first_name: "First name"
+          last_name: "Last name"
           last_visit_col: "Last visit"
           view_info_col: "Show"
           edit: "Edit"

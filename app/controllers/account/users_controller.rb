@@ -17,7 +17,7 @@ class Account::UsersController < Account::BaseController
       format.html
       format.csv do
         UserReportJob.perform_later
-        send_data UsersCsvGenerator.call(@users, fields: ["email", "last_sign_in_at"])
+        send_data UsersCsvGenerator.call(@users, fields: ["email", "first_name", "last_name", "last_sign_in_at"])
       end
     end
   end
