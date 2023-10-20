@@ -10,10 +10,10 @@ div class="container home"
   table.table
     thead
       tr
-        th scope="col"  #
-        th scope="col"  =t('.table.title')
-        th scope="col"  =t('.table.priority')
-        th scope="col"  =t('.table.actions')
+        th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
+        th scope="col" = sort_link(@q, :name, t('.table.title'), default_order: :desc)
+        th scope="col" = sort_link(@q, :priority, t('.table.priority'), default_order: :desc)
+        th scope="col" = t('.table.actions')
 
     tbody
       - @categories.each do |category|

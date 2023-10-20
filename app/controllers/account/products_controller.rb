@@ -1,6 +1,7 @@
 class Account::ProductsController < Account::BaseController
   def index
-    @products = collection
+    @q        = collection.ransack(params[:q])
+    @products = @q.result
   end
 
   def show
