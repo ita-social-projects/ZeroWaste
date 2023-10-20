@@ -10,7 +10,8 @@ class Account::UsersController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    @q     = collection.ransack(params[:q])
+    @users = @q.result
 
     respond_to do |format|
       format.html
@@ -68,6 +69,10 @@ class Account::UsersController < Account::BaseController
     end
 
     prms
+  end
+
+  def collection
+    User.ordered_by_email
   end
 
   def resource

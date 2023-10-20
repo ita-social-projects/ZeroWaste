@@ -1,26 +1,30 @@
 div class="container home"
   .row
     .col
-      h1 = t '.main_header'
-      h3 = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")
+      .mb-2
+        h1.text-body.d-inline = t '.main_header'
+        h3.float-right.d-inline
+          = link_to icon('fa-solid', 'download'), account_users_path(format: "csv")
+
       table.table
         thead
           tr
-            td = t '.table.email_col'
-            td = t '.table.last_visit_col'
+            td = sort_link(@q, :email, t('.table.email_col'), default_order: :desc)
+            td = sort_link(@q, :updated_at, t('.table.last_visit_col'), default_order: :desc)
             td = t '.table.view_info_col'
             td = t '.table.edit'
             td = t '.table.ban'
             td = t '.table.delete'
-        - @users.each do |user|
-          tr id="user-info-#{user.id}"
-            td = user.email
-            td = user.last_sign_in_at
-            td = link_to icon('fa-solid', 'eye'), account_user_path(id: user.id)
-            td = link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id)
-            td = link_to (icon('fa-solid', user.blocked? ? 'lock' : 'lock-open')),
-              account_user_path(id: user, user: {blocked: user.blocked? ? false : true}),
-              onclick: "alert('Are you sure?')", method: :patch
-            td = link_to account_user_path(id: user), method: :delete,
-                    data: { confirm: t('.confirm_delete') } do
-              i.fa.fa-trash.mx-2
+        tbody
+          - @users.each do |user|
+            tr id="user-info-#{user.id}"
+              td = user.email
+              td = user.last_sign_in_at
+              td = link_to icon('fa-solid', 'eye'), account_user_path(id: user.id)
+              td = link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id)
+              td = link_to (icon('fa-solid', user.blocked? ? 'lock' : 'lock-open')),
+                account_user_path(id: user, user: {blocked: user.blocked? ? false : true}),
+                onclick: "alert('Are you sure?')", method: :patch
+              td = link_to account_user_path(id: user), method: :delete,
+                      data: { confirm: t('.confirm_delete') } do
+                i.fa.fa-trash.mx-2
