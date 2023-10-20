@@ -498,7 +498,6 @@ uk:
     feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
     site_setting_reverted: "Заголовок і піктограму сайту успішно відновлено до стандартних"
-    site_setting_not_reverted: "Неможливо відновити заголовок і піктограму сайту"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
