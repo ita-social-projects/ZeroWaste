@@ -73,45 +73,43 @@ a {
   }
 }
 
-.main-btns {
+.main-btn {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 420px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: $color;
+  border: 1px solid;
+  border-radius: 4px;
   margin: 20px auto;
+  padding: 15px 36px;
 
-  &> :last-of-type {
-    & img {
-      margin-right: 10px;
-    }
+  min-width: 187px;
+  max-width: 420px;
+}
 
-    &:hover {
-      color: $color;
-    }
+.btn-gray {
+  border-color: $gray;
+  color: $color;
+
+  &:hover {
+    color: $success;
+    border-color: $success;
   }
 }
 
-.donate-btn,
-.main-btns {
-  background-color: transparent;
-  border: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 0.2em;
+.btn-green {
+  border-color: $success;
+  color: $success;
 
-  a {
-    border: 2px solid $gray;
-    border-radius: 4px;
-    padding: 17px 36px;
-    font-size: 12px;
-    color: $color;
-    text-align: center;
-    min-width: 187px;
-
-    &:hover {
-      color: $success;
-      border-color: $success;
-    }
+  &:hover {
+    background-color: $success;
+    color: white;
+    border-color: $success;
   }
 }
 
