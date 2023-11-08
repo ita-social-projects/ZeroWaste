@@ -190,6 +190,8 @@ uk:
         confirm_delete: "Ви справді хочете видалити цього користувача?"
         table:
           email_col: "Електронна адреса"
+          first_name: "Ім'я"
+          last_name: "Прізвище"
           last_visit_col: "Час останнього візиту"
           view_info_col: "Показати"
           edit: "Відредагувати"
