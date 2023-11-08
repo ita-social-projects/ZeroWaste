@@ -36,6 +36,7 @@ en:
     update: 'Update'
     create: 'Create'
     cancel: 'Cancel'
+    revert: 'Revert'
   calculators:
     new_calculator:
       form:
@@ -248,6 +249,7 @@ en:
       edit:
         site_settings: Site settings
         site_features: Site features
+        confirm_default: Are you sure you want to revert the title and favicon to their default settings?
     calculators:
       index:
         search_placeholder: "Search"
@@ -489,6 +491,7 @@ en:
     category_deleted: "Category was successfully destroyed."
     feature_flags_updated: "Features updated successfully"
     site_setting_updated: "Settings were successfully updated"
+    site_setting_reverted: "The title and favicon have been successfully reverted to default"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
