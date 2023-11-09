@@ -28,7 +28,7 @@ class Product < ApplicationRecord
   validates :title,
             length: { in: 2..30 },
             uniqueness: true,
-            format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9-\s]+\z/ },
+            format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\-\s]+\z/ },
             if: -> { title.present? }
 
   accepts_nested_attributes_for :prices, reject_if: :blank_prices, allow_destroy: true

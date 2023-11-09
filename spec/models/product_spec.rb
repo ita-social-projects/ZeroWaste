@@ -32,25 +32,23 @@ RSpec.describe Product, type: :model do
   end
 
   describe "validations" do
-    it {
+    it "validates the title and message " do
       is_expected.to validate_presence_of(:title)
         .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.blank"))
-    }
+    end
 
-    it {
+    it "validates the title's length and message" do
       is_expected.to validate_length_of(:title).is_at_least(2)
                                                .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_short", count: 2))
-    }
 
-    it {
       is_expected.to validate_length_of(:title).is_at_most(30)
                                                .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_long", count: 30))
-    }
+    end
 
-    it {
+    it "validates the title's uniqueness and message " do
       is_expected.to validate_uniqueness_of(:title)
         .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.taken"))
-    }
+    end
 
     context "validates the title format" do
       let(:product) { build(:product) }
