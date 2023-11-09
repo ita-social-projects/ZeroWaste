@@ -10,10 +10,10 @@ div class="container home"
   table.table
     thead
       tr
-        th scope="col"  #
-        th scope="col"  =t('.table.title')
-        th scope="col"  =t('.table.priority')
-        th scope="col"  =t('.table.actions')
+        th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
+        th scope="col" = sort_link(@q, :name, t('.table.title'), default_order: :desc)
+        th scope="col" = sort_link(@q, :priority, t('.table.priority'), default_order: :desc)
+        th scope="col" = t('.table.actions')
 
     tbody
       - @categories.each do |category|
@@ -22,8 +22,8 @@ div class="container home"
           td = category.name
           td = category.priority
           td.actions
-            = link_to edit_account_category_path(id: category) do
-              i.fa.fa-pen.mx-2
-            = link_to account_category_path(id: category), method: :delete,
-                    data: { confirm: t('.confirm_delete') } do
-              i.fa.fa-trash.mx-2
+            div.d-flex
+              = link_to edit_account_category_path(id: category) do
+                i.fa.fa-pen.mx-2
+              = button_to account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') } do
+                i.fa.fa-trash.mx-2

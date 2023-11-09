@@ -25,7 +25,7 @@ RSpec.describe FeatureFlag, type: :model do
   end
 
   describe "#feature_exist?" do
-    it "reaturn true if feature is added to table" do
+    it "return true if feature is added to table" do
       expect(subject.create.feature_exist?).to be_truthy
     end
   end

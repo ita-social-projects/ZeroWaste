@@ -4,6 +4,11 @@ class Account::CalculatorsController < Account::BaseController
   before_action :calculator, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
+  def index
+    @q           = collection.ransack(params[:q])
+    @calculators = @q.result
+  end
+
   def show
     # TODO: fill it
   end
@@ -18,7 +23,7 @@ class Account::CalculatorsController < Account::BaseController
     if @calculator.save
       redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
-      render action: "new"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +33,7 @@ class Account::CalculatorsController < Account::BaseController
     else
       collect_fields_for_form
 
-      render action: "edit"
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -39,6 +44,10 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   private
+
+  def collection
+    Calculator.ordered_by_name
+  end
 
   def calculator
     @calculator = Calculator.friendly.find(params[:slug])
