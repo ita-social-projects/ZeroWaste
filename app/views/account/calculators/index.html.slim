@@ -12,10 +12,11 @@
   table.table.admin-table
     thead
       tr
-        th[scope="col"] ID
-        th[scope="col"] =t('.table.calculator_slug')
-        th[scope="col"] =t('.table.calculator_name')
-        th[scope="col"] =t('.table.calculator_actions')
+        th[scope="col"] = sort_link(@q, :id, "#", default_order: :desc)
+        th[scope="col"] = sort_link(@q, :slug, t('.table.calculator_slug'), default_order: :desc)
+        th[scope="col"] = sort_link(@q, :name, t('.table.calculator_name'), default_order: :desc)
+        th[scope="col"] = t('.table.calculator_actions')
+
     tbody.admin-table-links
       - @calculators.each do |calculator|
         tr class=(calculator.preferable ? 'table-success' : 'table-light')

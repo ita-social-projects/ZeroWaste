@@ -19,6 +19,8 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
+  scope :ordered_by_title, -> { order(:title) }
+
   has_many :prices, as: :priceable, dependent: :destroy
   has_many :categories_by_prices, through: :prices, source: :category
 
@@ -28,8 +30,6 @@ class Product < ApplicationRecord
             uniqueness: true,
             format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9-\s]+\z/ },
             if: -> { title.present? }
-
-  scope :ordered_by_title, -> { order(:title) }
 
   accepts_nested_attributes_for :prices, reject_if: :blank_prices, allow_destroy: true
 
