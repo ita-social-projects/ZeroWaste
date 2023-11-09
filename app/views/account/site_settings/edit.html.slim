@@ -6,10 +6,8 @@ fieldset.bordered
       .form-group.row
         .col-12.has-float-label.my-auto
           = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
-          = f.input :favicon, class: "form-control", input_html: { data: {  action: "change->handle-browser-tab#setIcon" } }
-          .d-inline-flex.align-items-baseline
-            = f.label t(".file_select"), for: :site_setting_favicon, class: "btn btn-success me-2 mb-4"
-            = f.label  t(".file_not_select"), data: { handle_browser_tab_target: "faviconFile" }
+          = f.input :favicon, class: "form-control", input_html: { data: { action: "change->handle-browser-tab#setIcon" } }
+
           = render "browser_tab", site_setting: @site_setting
 
       = f.submit t(".apply_button")
