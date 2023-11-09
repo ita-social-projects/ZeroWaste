@@ -258,9 +258,7 @@ uk:
       edit:
         site_settings: Налаштування сайту
         site_features: Особливості сайту
-        apply_button: 'Застосувати' # booth
-        file_select:  'Оберіть файл'
-        file_not_select: 'Файл не вибрано'
+        apply_button: 'Застосувати'
         confirm_default: Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та значка сайту?
     feature_flags:
       submit_button: "Зберегти"

@@ -251,9 +251,7 @@ en:
       edit:
         site_settings: Site settings
         site_features: Site features
-        apply_button: 'Apply' #both
-        file_select:  'Choose file'
-        file_not_select:  'File is not chosen'
+        apply_button: 'Apply'
         confirm_default: Are you sure you want to revert the title and favicon to their default settings?
     calculators:
       index:
