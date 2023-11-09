@@ -29,15 +29,4 @@ unless User.exists?(email: "admin@zw.com")
   )
 end
 
-FactoryBot.create(:product_type, :hygiene)
-FactoryBot.create(:product, :diaper)
-
-FeatureFlag.find_or_create_by!(
-  name: "feature_budget_category",
-  enabled: false
-)
-
-FeatureFlag.find_or_create_by!(
-  name: "show_admin_menu",
-  enabled: false
-)
+FactoryBot.create(:product, :diaper) unless Product.exists?(title: "diaper")

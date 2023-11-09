@@ -10,13 +10,14 @@ class Account::UsersController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    @q     = collection.ransack(params[:q])
+    @users = @q.result
 
     respond_to do |format|
       format.html
       format.csv do
         UserReportJob.perform_later
-        send_data UsersCsvGenerator.call(@users, fields: ["email", "last_sign_in_at"])
+        send_data UsersCsvGenerator.call(@users, fields: ["email", "first_name", "last_name", "last_sign_in_at"])
       end
     end
   end
@@ -68,6 +69,10 @@ class Account::UsersController < Account::BaseController
     end
 
     prms
+  end
+
+  def collection
+    User.ordered_by_email
   end
 
   def resource

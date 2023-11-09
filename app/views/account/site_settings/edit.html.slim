@@ -1,17 +1,21 @@
 fieldset.bordered
   legend.admin-legend
     = t(".site_settings")
-  = simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } }  do |f|
-    .form-group.row
-      .col-12.has-float-label.my-auto
-        = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
-        = f.input :favicon, class: "form-control", input_html: {id: "site_setting_favicon", data: {  action: "change->handle-browser-tab#setIcon"} }
-        .d-inline-flex.align-items-baseline
-          = f.label t(".file_select"), for: :site_setting_favicon, class: "btn btn-success me-2 mb-4"
-          = f.label  t(".file_not_select"), data: { handle_browser_tab_target: "faviconFile" }
-        = render "browser_tab", site_setting: @site_setting
-    = f.submit t(".apply_button")
+  div.position-relative
+    = simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } }  do |f|
+      .form-group.row
+        .col-12.has-float-label.my-auto
+          = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
+          = f.input :favicon, class: "form-control", input_html: { data: {  action: "change->handle-browser-tab#setIcon" } }
+          .d-inline-flex.align-items-baseline
+            = f.label t(".file_select"), for: :site_setting_favicon, class: "btn btn-success me-2 mb-4"
+            = f.label  t(".file_not_select"), data: { handle_browser_tab_target: "faviconFile" }
+          = render "browser_tab", site_setting: @site_setting
+
+      = f.submit t(".apply_button")
       i.fa.fa-times-circle
+
+      = button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom"
 
 fieldset.bordered
   legend.admin-legend

@@ -5,6 +5,7 @@ uk:
     update: 'Оновити'
     create: 'Створити'
     cancel: 'Скасувати'
+    revert: 'Скинути'
   calculators:
     new_calculator:
       form:
@@ -79,6 +80,7 @@ uk:
       calculate: "Почати"
       visit_website: "Наш сайт"
     account_navbar:
+      homepage: "Головна сторінка"
       calculators: "Калькулятори"
       histories: "Історія"
       users: "Користувачі"
@@ -87,6 +89,7 @@ uk:
       site_settings: "Налаштування сайту"
       categories: "Категорії"
       products: "Продукти"
+      zerowaste_logo: "логотип ZeroWaste"
   mailer:
     welcome_mail:
       subject: "Ласкаво просимо до ZeroWaste!"
@@ -187,6 +190,8 @@ uk:
         confirm_delete: "Ви справді хочете видалити цього користувача?"
         table:
           email_col: "Електронна адреса"
+          first_name: "Ім'я"
+          last_name: "Прізвище"
           last_visit_col: "Час останнього візиту"
           view_info_col: "Показати"
           edit: "Відредагувати"
@@ -253,13 +258,12 @@ uk:
       edit:
         site_settings: Налаштування сайту
         site_features: Особливості сайту
-        apply_button: 'Застосувати'
+        apply_button: 'Застосувати' # booth
         file_select:  'Оберіть файл'
         file_not_select: 'Файл не вибрано'
+        confirm_default: Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та значка сайту?
     feature_flags:
       submit_button: "Зберегти"
-      access_admin_menu:
-        name: "Доступ до меню адміна"
       new_calculator_design:
         name: "Увімкнути новий дизайн калькулятора"
     sessions:
@@ -498,6 +502,7 @@ uk:
     category_deleted: "Категорію було успішно видалено."
     feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
+    site_setting_reverted: "Заголовок і піктограму сайту успішно відновлено до стандартних"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

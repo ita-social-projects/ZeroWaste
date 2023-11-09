@@ -7,10 +7,10 @@
   table.table
     thead
       tr
-        th scope="col" #
-        th scope="col" =t('.table.title')
-        th scope="col" =t('.table.prices')
-        th scope="col" =t('.table.actions')
+        th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
+        th scope="col" = sort_link(@q, :title, t('.table.title'), default_order: :desc)
+        th scope="col" = t('.table.prices')
+        th scope="col" = t('.table.actions')
 
     tbody
       - @products.includes(prices: :category).each do |product|

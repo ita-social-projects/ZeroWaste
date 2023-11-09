@@ -52,4 +52,31 @@ RSpec.describe Account::SiteSettingsController, type: :request do
       end
     end
   end
+
+  describe "GET #revert" do
+    include_context :authorize_admin
+
+    context "with valid params" do
+      let(:site_setting) { SiteSetting.current }
+      let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :custom_setting) }
+      let(:site_setting_default_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
+      let(:old_file_name) { "app/assets/images/logo_zerowaste.png" }
+      let(:new_file_name) { "app/assets/images/new_logo_zerowaste.png" }
+
+      before { site_setting.update(site_setting_params) }
+
+      it "reverts site setting" do
+        post revert_account_site_setting_path
+
+        expect(response).to redirect_to(edit_account_site_setting_path)
+        expect(flash[:notice]).to eq(I18n.t("notifications.site_setting_reverted"))
+
+        expect(SiteSetting.current).to be_valid
+        expect(SiteSetting.current.favicon.attached?).to be_truthy
+
+        expect(SiteSetting.current.title).to eq(site_setting_default_params[:title])
+        expect(SiteSetting.current.favicon.filename).to eq(site_setting_default_params[:favicon].original_filename)
+      end
+    end
+  end
 end

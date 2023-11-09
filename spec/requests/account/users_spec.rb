@@ -5,15 +5,27 @@ require "rails_helper"
 RSpec.describe "Account::UsersController", type: :request do
   include_context :authorize_admin
 
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, last_sign_in_at: Time.current) }
 
   describe "GET #index" do
-    it "returns a successful response" do
+    it "returns a successful html response" do
       get account_users_path
 
       expect(response).to be_successful
       expect(response).to render_template(:index)
       expect(response.body).to include(I18n.t("account.users.index.main_header"))
+    end
+
+    it "returns a successful csv response" do
+      get account_users_path(format: "csv")
+
+      csv_content = response.instance_variable_get(:@stream).instance_variable_get(:@buf).join
+
+      expect(response.header["Content-Type"]).to include "application/octet-stream"
+      expect(csv_content).to match(user.email)
+      expect(csv_content).to match(user.first_name)
+      expect(csv_content).to match(user.last_name)
+      expect(csv_content).to match(user.last_sign_in_at.to_s)
     end
   end
 
