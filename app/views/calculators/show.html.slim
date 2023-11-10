@@ -7,19 +7,19 @@ h1.display-4.text-center.mt-5.mb-5
   .jumbotron
     .container
       .row.main-container
-        .rounded.float-left
+        .rounded.float-start
           = image_tag "search.png", height: 70
         .form-container
-          h3.container.ml-2= t 'calculators.calculator.form_description'
+          h3.container.ms-2= t 'calculators.calculator.form_description'
           form#form.container.mt-3 action=""
             .container.input-group.d-flex.justify-content-between
               label.text-center for=""
                 input#birth.col.datepick placeholder=("#{t 'calculators.calculator.form.childs_birthday_label'}") type="text" /
-            / .container.ml-3.mt-4.form-check
+            / .container.ms-3.mt-4.form-check
             /   input#flexCheckChecked.form-check-input checked="checked" type="checkbox" value="" /
             /   label.form-check-label for="flexCheckChecked"
             /     = t 'calculators.calculator.want_recomentation_label'
-            button.btn.btn-success.ml-3.mt-4 type="submit"
+            button.btn.btn-success.ms-3.mt-4 type="submit"
               = image_tag "calculator.png", height: 25
               = t 'calculators.calculator.calculate_result_button'
 .container.calculation-results

@@ -14,7 +14,7 @@ gem "redis", "~> 4.0"
 gem "sass-rails", ">= 6"
 gem "hotwire-rails"
 gem "importmap-rails", "~> 1.1"
-gem "bootstrap", "~> 4.6.0"
+gem "bootstrap"
 gem "jquery-rails"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -2,8 +2,8 @@
   a.rounded.back-link.mt-3.px-2 href=root_path
     .p.back-text
       = t 'calculators.buttons.to_main'
-    = image_tag "arrow-left.svg", class: "z-1"
-  .d-flex.justify-content-around.flex-wrap.calculator_wrap.ml-5
+    = image_tag "icons/arrow-left.svg", class: "z-1"
+  .d-flex.justify-content-around.flex-wrap.calculator_wrap.ms-5
     = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
                                             data: { controller: "input-child-info",
                                                   input_child_info_url_value: api_v1_diaper_calculators_url,
@@ -16,7 +16,7 @@
           = form.input_field :years,
                               collection: 0..2,
                               prompt: '__',
-                              class: 'select-age ml-2 rounded',
+                              class: 'select-age ms-2 rounded',
                               data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' }
 
           = t('.form.childs_years_label')
@@ -52,8 +52,8 @@
         { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".unit"), text: t(".money_will_be_spent") }].each do |item|
         - if item == "arrow"
           .vector-width
-            = image_tag "vector_5.png", class: "vector"
-            = image_tag "vector_2.png", class: "vector-mobile"
+            = image_tag "icons/vector_5.png", class: "vector"
+            = image_tag "icons/vector_2.png", class: "vector-mobile"
 
         - else
           div

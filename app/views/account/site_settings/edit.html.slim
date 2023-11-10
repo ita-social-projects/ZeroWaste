@@ -6,12 +6,14 @@ fieldset.bordered
       .form-group.row
         .col-12.has-float-label.my-auto
           = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
-          = f.input :favicon, class: "form-control", input_html: { data: {  action: "change->handle-browser-tab#setIcon" } }
-          = render "browser_tab", site_setting: @site_setting
+          = f.input :favicon, class: "form-control", input_html: { data: { action: "change->handle-browser-tab#setIcon" } }
 
-      = f.submit t("buttons.update"), class: "inline"
+          .mb-2
+            = render "browser_tab", site_setting: @site_setting
 
-    = button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom"
+      = f.submit t(".apply_button")
+
+      = button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom"
 
 fieldset.bordered
   legend.admin-legend

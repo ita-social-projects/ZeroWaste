@@ -1,12 +1,12 @@
 .container
   = form_tag account_calculators_path, method: :get, class: 'd-flex justify-content-end mb-5' do
     .d-flex
-      = text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: t('.search_placeholder')
+      = text_field_tag :search, params[:search], class: 'form-control me-sm-2', placeholder: t('.search_placeholder')
       = button_tag type: :submit, name: nil, class: 'btn btn-primary px-4 d-flex align-items-center' do
-        i.fa.fa-search.mr-2
+        i.fa.fa-search.me-2
         span =t('.search_button')
-    = link_to new_account_calculator_path, class: 'btn btn-success px-4 ml-1' do
-      i.fa.fa-plus.mr-2
+    = link_to new_account_calculator_path, class: 'btn btn-success px-4 ms-1' do
+      i.fa.fa-plus.me-2
       span =t('.add_calculator_button')
 
   table.table.admin-table
