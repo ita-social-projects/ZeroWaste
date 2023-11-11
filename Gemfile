@@ -28,7 +28,7 @@ gem "rugged", "1.6.3"
 
 gem "net-smtp"
 
-gem "country_select", "~> 4.0"
+gem "country_select"
 
 gem "bigdecimal", "3.0.2"
 gem "rails-i18n", "~> 7.0.0"
@@ -90,7 +90,7 @@ group :test do
   gem "database_cleaner-active_record"
   gem "selenium-webdriver"
   gem "simplecov", require: false
-  gem "shoulda-matchers", "~> 4.0"
+  gem "shoulda-matchers"
   gem "webdrivers", "~> 5.3.1"
   gem "fuubar"
 end
