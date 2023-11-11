@@ -9,7 +9,7 @@ gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem 'rails', '~> 7.1', '>= 7.1.2'
+gem "rails", "~> 7.1", ">= 7.1.2"
 gem "redis", "~> 4.0"
 gem "sass-rails", ">= 6"
 gem "hotwire-rails"

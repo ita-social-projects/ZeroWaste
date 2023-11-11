@@ -19,7 +19,7 @@
 require "rails_helper"
 
 RSpec.describe Price, type: :model do
-  subject {create(:price, :budgetary_price)}
+  subject { create(:price, :budgetary_price) }
 
   describe "associations" do
     it { is_expected.to belong_to(:priceable) }
