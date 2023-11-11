@@ -48,7 +48,7 @@ few
           = f.fields_for :fields, @form_fields do |ff|
             = render 'account/calculators/fields/form', f: ff
         - else
-          p.ml-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
+          p.ms-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
 
       h4.mb-2 =t('.form.parameters_label')
       .form-group.row data-kind='parameter' data-selector-letter=('parameter'[0].upcase) data-last-selector=(extract_max_selector(@parameter_fields))
@@ -56,7 +56,7 @@ few
           = f.fields_for :fields, @parameter_fields do |ff|
             = render 'account/calculators/fields/form', f: ff
         - else
-          p.ml-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
+          p.ms-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
 
       h4.mb-2 =t('.form.results_label')
       .form-group.row data-kind='result' data-selector-letter=('result'[0].upcase) data-last-selector=(extract_max_selector(@result_fields))
@@ -64,11 +64,11 @@ few
           = f.fields_for :fields, @result_fields do |ff|
             = render 'account/calculators/fields/form', f: ff
         - else
-          p.ml-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
+          p.ms-3.my-3.text-black-50 data-empty-text=true =t('.form.no_fields_yet_label')
 
       .row.my-4
         .col-12.d-flex.justify-content-end
-          = f.button :submit, t('.form.update_calculator_button'), class: 'btn btn-success mr-2'
+          = f.button :submit, t('.form.update_calculator_button'), class: 'btn btn-success me-2'
           = link_to account_calculator_path, class: 'btn btn-danger' do
-            span.mr-1 =t('buttons.cancel')
+            span.me-1 =t('buttons.cancel')
             i.fa.fa-times-circle

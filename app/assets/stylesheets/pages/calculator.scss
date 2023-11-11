@@ -223,6 +223,11 @@
   width: 300px;
 }
 
+select.custom-select {
+  background-image: url("icons/selector-arrow.svg");
+  width: 100%;
+}
+
 .back-link {
   width: 120px;
   position: absolute;

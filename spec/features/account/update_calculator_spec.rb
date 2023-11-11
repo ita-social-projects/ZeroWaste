@@ -6,9 +6,9 @@ UPDATE_CALCULATOR_BUTTON = "Update calculator"
 describe "Update Calculator Page", js: true do
   let(:calculator) { create(:calculator) }
 
+  include_context :authorize_admin
+
   before do
-    @admin = create(:user, :admin)
-    sign_in @admin
     visit edit_account_calculator_path(slug: calculator.id)
   end
 

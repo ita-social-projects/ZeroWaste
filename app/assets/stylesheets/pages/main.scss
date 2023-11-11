@@ -73,59 +73,43 @@ a {
   }
 }
 
-.main-btns {
+.main-btn {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 420px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: $color;
+  border: 1px solid;
+  border-radius: 4px;
   margin: 20px auto;
+  padding: 15px 36px;
 
-  &> :last-of-type {
-    & img {
-      margin-right: 10px;
-    }
+  min-width: 187px;
+  max-width: 420px;
+}
 
-    &:hover {
-      color: $color;
-    }
+.btn-gray {
+  border-color: $gray;
+  color: $color;
+
+  &:hover {
+    color: $success;
+    border-color: $success;
   }
 }
 
-.description-btn a, .donate-btn a, .result-card a {
-  display: inline-flex;
-  column-gap: 0.25rem;
-  justify-content: center;
-  align-items: center;
-  height: inherit;
-  width: inherit;
-}
+.btn-green {
+  border-color: $success;
+  color: $success;
 
-.donate-btn,
-.main-btns {
-  background-color: transparent;
-  border: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 0.2em;
-
-  a {
-    border: 2px solid $gray;
-    border-radius: 4px;
-    padding: 17px 36px;
-    font-size: 12px;
-    color: $color;
-    text-align: center;
-    min-width: 187px;
-
-    .fa-external-link-alt {
-      font-size: 14px;
-      align-self: normal;
-    }
-
-    &:hover {
-      color: $success;
-      border-color: $success;
-    }
+  &:hover {
+    background-color: $success;
+    color: white;
+    border-color: $success;
   }
 }
 
@@ -220,6 +204,11 @@ h1.display-4 {
 h3.container {
   font-size: 22px;
   padding: 20px;
+}
+
+.tab-active {
+  color: darkgreen !important;
+  border-bottom: solid darkgreen 3px;
 }
 
 .calculation-results {
@@ -341,7 +330,7 @@ body:where(.admin)::before {
 
 .flash-message {
   color: $color;
-  padding: 20px;
+  padding: 15px;
   border-radius: 3px;
 
   &.notice {
@@ -351,6 +340,18 @@ body:where(.admin)::before {
   &.alert {
     background: $error;
   }
+}
+
+.bordered {
+  border: solid darkgray 3px;
+  padding: 20px;
+  margin-bottom: 50px
+}
+
+.admin-legend {
+  float: none;
+  width: auto;
+  padding: 20px;
 }
 
 @media screen and (max-width: $xs) {

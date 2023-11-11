@@ -38,7 +38,11 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  attr_accessor :current_password, :skip_password_validation
+  attr_accessor :current_password, :skip_password_validation, :send_credentials_email
+
+  scope :ordered_by_email, -> { order(:email) }
+  scope :ordered_by_first_name, -> { order(:first_name) }
+  scope :ordered_by_last_name, -> { order(:last_name) }
 
   has_paper_trail ignore: [
     :current_sign_in_at, :last_sign_in_at, :confirmation_token,

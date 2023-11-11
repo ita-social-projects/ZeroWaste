@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create]
     namespace :account do
       root "dashboard#index"
-      resources :users, only: [:index, :show, :edit, :update]
+      resources :users
       resources :calculators, param: :slug
       resources :categories
       resources :products
@@ -42,7 +42,10 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
-      resource :site_setting, only: [:edit, :update]
+
+      resource :site_setting, only: [:edit, :update] do
+        post :revert
+      end
 
       scope module: :calculators do
         resources :calculators, only: [], param: :slug do

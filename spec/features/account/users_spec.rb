@@ -9,10 +9,7 @@ describe "visit admin page", js: true do
                   last_sign_in_at: time_login)
   end
 
-  before do
-    @admin = create(:user, :admin)
-    sign_in @admin
-  end
+  include_context :authorize_admin
 
   it "visits admin page" do
     visit account_users_path
@@ -24,7 +21,7 @@ describe "visit admin page", js: true do
     it "redirects to user info page" do
       visit account_users_path
       within(:css, "#user-info-#{another_user.id}") do
-        click_link(href: account_user_path(id: another_user.id))
+        find(".fa-eye", visible: :all).click
         sleep 3
       end
       expect(page).to have_current_path(account_user_path(id: another_user.id))
@@ -87,11 +84,6 @@ describe "visit admin page", js: true do
   end
 
   describe "user info page" do
-    before do
-      @admin = create(:user, :admin)
-      sign_in @admin
-    end
-
     context "viewing non-existing user" do
       it "renders the 404 page" do
         visit account_user_path(id: 1355)

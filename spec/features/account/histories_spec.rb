@@ -4,9 +4,9 @@ require "rails_helper"
 
 describe "visit admin page", js: true do
   context "signed in admin visit page" do
+    include_context :authorize_admin
+
     before do
-      @admin = create(:user, :admin)
-      sign_in @admin
       visit account_histories_path
     end
 

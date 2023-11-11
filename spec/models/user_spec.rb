@@ -38,7 +38,7 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  let!(:user) { build(:user) }
+  subject { build(:user) }
 
   describe "associations" do
     it { is_expected.to have_one_attached(:avatar) }

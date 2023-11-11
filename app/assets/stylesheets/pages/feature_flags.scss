@@ -1,5 +1,4 @@
 .feature-container {
-  margin-top: 100px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
@@ -49,9 +48,22 @@ input[type="submit"] {
   cursor: pointer;
   font-size: 16px;
   padding: 10px;
-  min-width: 100px;
+  min-width: 110px;
 
   &:hover {
     background-color: $dark_green;
   }
+}
+
+.btn-revert {
+  background-color: rgb(255, 65, 65) !important;
+
+  &:hover {
+    background-color: darkred !important;
+  }
+}
+
+.right-bottom {
+  right: 0;
+  bottom: 0;
 }

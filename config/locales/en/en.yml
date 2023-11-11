@@ -36,6 +36,7 @@ en:
     update: 'Update'
     create: 'Create'
     cancel: 'Cancel'
+    revert: 'Revert'
   calculators:
     new_calculator:
       form:
@@ -107,6 +108,7 @@ en:
       calculate: "Let's go"
       visit_website: "Visit WebSite"
     account_navbar:
+      homepage: "Home page"
       calculators: "Calculators"
       histories: "History"
       users: "Users"
@@ -115,6 +117,18 @@ en:
       site_settings: "Site Settings"
       categories: 'Categories'
       products: "Products"
+      zerowaste_logo: "ZeroWaste logo"
+  mailer:
+    welcome_mail:
+      subject: "Welcome to ZeroWaste!"
+  user_mailer:
+    welcome_email:
+      greeting: Welcome to ZeroWaste, %{name}
+      login_info: You have successfully signed up to zerowaste.com, your login info is
+      email: "Email: %{email}"
+      password: "Password: %{password}"
+      to_login: To login to the site, just follow this link
+      thanks: Thanks for joining and have a great day!
   messages:
     new:
       contact_us_header: "Contact us"
@@ -192,12 +206,26 @@ en:
     users:
       index:
         main_header: "Dashboard"
+        add_user_button: "Add user"
+        confirm_delete: "Are you sure you want to delete this user?"
         table:
           email_col: "Email"
+          first_name: "First name"
+          last_name: "Last name"
           last_visit_col: "Last visit"
           view_info_col: "Show"
           edit: "Edit"
           ban: "Ban"
+          delete: "Delete"
+      new:
+        table:
+          create_new_user: "Create new user"
+        form:
+          first_name_label: "First Name"
+          last_name_label: "Last Name"
+          password_hint: "Minimum 8 characters"
+          create_user_button: "Create user"
+          send_credentials_email: "Send email with credentials"
       edit:
         avatar: "User profile photo"
         table:
@@ -221,6 +249,12 @@ en:
           ban_col: "Status"
           blocked_label: "Blocked"
           unblocked_label: "Unblocked"
+    site_settings:
+      edit:
+        site_settings: Site settings
+        site_features: Site features
+        apply_button: 'Apply'
+        confirm_default: Are you sure you want to revert the title and favicon to their default settings?
     calculators:
       index:
         search_placeholder: "Search"
@@ -245,8 +279,6 @@ en:
         create_calculator_button: "Create calculator"
     feature_flags:
       submit_button: "Save"
-      access_admin_menu:
-        name: "Access Admin Menu"
       new_calculator_design:
         name: "Enable new calculator design"
     sessions:
@@ -456,12 +488,15 @@ en:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"
     calculator_deleted: "Calculator has been successfully deleted"
+    user_created: "User has been successfully created"
+    user_updated: "User has been successfully updated"
     message_sent: "Message has been sent"
     category_created: "Category was successfully created."
     category_updated: "Category was successfully updated."
     category_deleted: "Category was successfully destroyed."
     feature_flags_updated: "Features updated successfully"
-    site_setting_updated: "Setting was successfully updated"
+    site_setting_updated: "Settings were successfully updated"
+    site_setting_reverted: "The title and favicon have been successfully reverted to default"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
