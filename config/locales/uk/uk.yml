@@ -6,6 +6,13 @@ uk:
     create: 'Створити'
     cancel: 'Скасувати'
     revert: 'Скинути'
+  home:
+    index:
+      homepage_title: "Вас вітає калькулятор підгузків"
+      description: "Цей калькулятор дозволяє порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
+      calculate: "Почати"
+      visit_website: "Наш сайт"
+      link: 'https://zerowastelviv.org.ua/'
   calculators:
     new_calculator:
       form:
@@ -75,6 +82,9 @@ uk:
       calculate_link: "як ми розраховуємо"
       contact_us_link: "написати нам"
       use_less: "ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ"
+      method_link: https://zerowastelviv.org.ua/diaper-calculator-method/
+      contact_link: https://zerowastelviv.org.ua/kontakty/
+      use_less_link: https://zerowastelviv.org.ua/zero-waste-nappies/
     homepage:
       homepage_title: "Вас вітає калькулятор підгузків"
       description: "Цей калькулятор дозволяє порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
@@ -273,6 +283,8 @@ uk:
           email: "Пошта"
           password: "Пароль"
     shared:
+      navigation:
+        donate: "Підтримати"
       links:
         forgot_your_password: "Забули пароль?"
         log_in: "Увійти"

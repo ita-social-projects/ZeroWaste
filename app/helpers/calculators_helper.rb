@@ -22,28 +22,12 @@ module CalculatorsHelper
     end
   end
 
-  def link_to_external(url, link_text)
+  def link_to_external(link_text, url)
     link_to(url, target: "_blank", rel: "noopener") do
       concat(
         content_tag(:span, link_text, class: "ms-0") +
         content_tag(:i, nil, class: "fas fa-external-link-alt ms-1")
       )
-    end
-  end
-
-  def zero_waste_url(href:, locale: nil)
-    if locale.present?
-      "https://zerowastelviv.org.ua/#{locale}/#{href}"
-    else
-      "https://zerowastelviv.org.ua/#{href}"
-    end
-  end
-
-  def url_due_to_locale
-    if I18n.locale == :en
-      "https://zerowastelviv.org.ua/en/zero-waste-nappies-en/"
-    else
-      "https://zerowastelviv.org.ua/zero-waste-nappies/"
     end
   end
 end

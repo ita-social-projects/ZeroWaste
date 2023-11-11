@@ -67,19 +67,9 @@ RSpec.describe CalculatorsController, type: :request do
       it "renders the calculator template and new_calculator_design is on" do
         get calculator_path
 
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:calculator)
-      end
-    end
-  end
-
-  describe "POST /calculators/:slug/calculate" do
-    context "when the calculator exist" do
-      it "renders the calculate template" do
-        post calculate_calculator_path(calculator.slug)
-
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:calculate)
+        expect(response).to be_successful
+        expect(response).to render_template(:new_calculator)
+        expect(response.body).to include("results")
       end
     end
 

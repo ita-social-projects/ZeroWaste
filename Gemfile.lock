@@ -225,8 +225,6 @@ GEM
     importmap-rails (1.1.6)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    it (2.0.0)
-      actionpack (>= 3.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -575,7 +573,6 @@ DEPENDENCIES
   hotwire-rails
   image_processing (~> 1.2)
   importmap-rails (~> 1.1)
-  it
   jbuilder (~> 2.7)
   jquery-rails
   letter_opener
