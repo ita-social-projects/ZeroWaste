@@ -100,7 +100,6 @@ en:
                               or %{contact_link} with any other questions you may have."
       calculate_link: "how we calculate"
       contact_us_link: "contact us"
-    description_button:
       use_less: "HOW TO USE LESS"
     homepage:
       homepage_title: "Welcome to the diaper calculator"

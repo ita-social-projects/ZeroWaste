@@ -170,15 +170,15 @@
     color: $color;
     background-color: transparent;
     text-decoration: none;
-    padding: 0 15px;
 
     .fa-external-link-alt {
+      margin-left: 5px;
       font-size: 16px;
     }
   }
 }
 
-.col-xl-8.result-card {
+.col-9.result-card {
   span {
     text-align: left;
     margin-left: 30px;
@@ -193,14 +193,6 @@
       text-decoration: none;
     }
   }
-
-  .link-text {
-    margin-left: 0;
-  }
-}
-
-.old-btn {
-  width: 300px !important;
 }
 
 .old-btn {

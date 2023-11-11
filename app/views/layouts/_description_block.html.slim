@@ -1,10 +1,17 @@
-span
-  p data-type="description_block_html"
-  - if I18n.locale == :en
-    = t(".description_block_html",
-          calculate_link: link_to_external(zero_waste_url(href: "diaper-calculator-method-en/", locale: :en), t(".calculate_link")),
-          contact_link: link_to_external(zero_waste_url(href: "contacts/", locale: :en), t(".contact_us_link")))
-  - else
-    = t(".description_block_html",
-          calculate_link: link_to_external(zero_waste_url(href: "diaper-calculator-method/"), t(".calculate_link")),
-          contact_link: link_to_external(zero_waste_url(href: "kontakty/"), t(".contact_us_link")))
+.container.calculation-results
+  .row
+    .col-9.result-card
+      span
+        p data-type="description_block_html"
+        - if I18n.locale == :en
+          = t(".description_block_html",
+                calculate_link: link_to_external(zero_waste_url(href: "diaper-calculator-method-en/", locale: :en), t(".calculate_link")),
+                contact_link: link_to_external(zero_waste_url(href: "contacts/", locale: :en), t(".contact_us_link")))
+        - else
+          = t(".description_block_html",
+                calculate_link: link_to_external(zero_waste_url(href: "diaper-calculator-method/"), t(".calculate_link")),
+                contact_link: link_to_external(zero_waste_url(href: "kontakty/"), t(".contact_us_link")))
+    .col-3.result-card
+      button.calculate-btn.description-btn
+        .mx-3
+          = link_to_external url_due_to_locale, t('.use_less')

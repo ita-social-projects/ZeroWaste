@@ -67,8 +67,9 @@ RSpec.describe CalculatorsController, type: :request do
       it "renders the calculator template and new_calculator_design is on" do
         get calculator_path
 
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:calculator)
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:calculator)
+      end
     end
   end
 

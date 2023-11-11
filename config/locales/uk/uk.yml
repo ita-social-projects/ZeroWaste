@@ -74,7 +74,6 @@ uk:
                               або %{contact_link}, якщо маєте інші запитання."
       calculate_link: "як ми розраховуємо"
       contact_us_link: "написати нам"
-    description_button:
       use_less: "ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ"
     homepage:
       homepage_title: "Вас вітає калькулятор підгузків"
