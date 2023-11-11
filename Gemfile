@@ -50,7 +50,7 @@ group :development, :test do
   gem "dotenv-rails", require: "dotenv/rails-now"
   gem "pry-rails"
   gem "rails-controller-testing"
-  gem "rspec-rails", "~> 5.0.0"
+  gem "rspec-rails"
 end
 
 group :development, :test, :ci do
