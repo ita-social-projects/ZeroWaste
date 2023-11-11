@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.6"
+ruby "3.2.2"
 
 gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
@@ -23,6 +23,8 @@ gem "friendly_id", "~> 5.4.0"
 
 gem "dentaku", "~> 3.1"
 gem "it"
+
+gem 'rugged', "1.6.3"
 
 gem "country_select", "~> 4.0"
 
