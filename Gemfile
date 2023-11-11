@@ -26,6 +26,8 @@ gem "it"
 
 gem 'rugged', "1.6.3"
 
+gem 'net-smtp'
+
 gem "country_select", "~> 4.0"
 
 gem "bigdecimal", "3.0.2"
