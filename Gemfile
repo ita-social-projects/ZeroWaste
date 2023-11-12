@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
 gem "pg", "~> 1.1"
