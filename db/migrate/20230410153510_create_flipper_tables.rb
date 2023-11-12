@@ -1,4 +1,4 @@
-class CreateFlipperTables < ActiveRecord::Migration[6.1]
+class CreateFlipperTables < ActiveRecord::Migration[7.1]
   def self.up
     create_table :flipper_features do |t|
       t.string :key, null: false, index: { unique: true }

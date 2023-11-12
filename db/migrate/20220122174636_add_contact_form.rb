@@ -1,4 +1,4 @@
-class AddContactForm < ActiveRecord::Migration[6.1]
+class AddContactForm < ActiveRecord::Migration[7.1]
   def change
     create_table :messages do |t|
       t.string :title, null: false
