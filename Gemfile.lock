@@ -288,7 +288,7 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    mutex_m (0.2.0)
+    mutex_m (0.1.2)
     net-imap (0.4.4)
       date
       net-protocol
@@ -620,7 +620,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.3)
   mini_magick (>= 4.9.5)
-  mutex_m (= 0.2.0)
+  mutex_m (= 0.1.2)
   net-smtp
   omniauth (~> 1.9.1)
   omniauth-facebook
