@@ -12,8 +12,6 @@
 class AppConfig < ApplicationRecord
   acts_as_singleton
 
-  public_class_method :find_by!, :all
-
   def update_diapers_calculator(params)
     self.diapers_calculator = Calculators::DiapersService.product_attributes(params)
     save
