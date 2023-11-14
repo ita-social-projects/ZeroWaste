@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeUuidDefaultInFields < ActiveRecord::Migration[6.1]
+class ChangeUuidDefaultInFields < ActiveRecord::Migration[7.1]
   enable_extension "pgcrypto" unless extension_enabled?("pgcrypto")
 
   def up

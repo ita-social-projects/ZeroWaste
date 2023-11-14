@@ -1,4 +1,4 @@
-class ChangeCategoryFromIntegerToString < ActiveRecord::Migration[6.1]
+class ChangeCategoryFromIntegerToString < ActiveRecord::Migration[7.1]
   def up
     change_column :product_prices, :category, :string
   end

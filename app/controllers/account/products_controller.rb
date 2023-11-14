@@ -1,6 +1,7 @@
 class Account::ProductsController < Account::BaseController
   def index
-    @products = collection
+    @q        = collection.ransack(params[:q])
+    @products = @q.result
   end
 
   def show
@@ -37,8 +38,7 @@ class Account::ProductsController < Account::BaseController
     if @product.update(product_params)
       redirect_to account_products_path, notice: t(".updated")
     else
-      @product.prices.build
-
+      @product.build_unsigned_categories
       render :edit, status: :unprocessable_entity
     end
   end

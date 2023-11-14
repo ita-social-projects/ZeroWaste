@@ -4,7 +4,8 @@ class Account::CategoriesController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @categories = collection
+    @q          = collection.ransack(params[:q])
+    @categories = @q.result
   end
 
   def new
@@ -58,7 +59,7 @@ class Account::CategoriesController < Account::BaseController
   private
 
   def collection
-    Category.ordered_by_priority
+    Category.ordered_by_name
   end
 
   def resource

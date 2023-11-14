@@ -19,15 +19,11 @@
 class Product < ApplicationRecord
   DIAPER = "diaper"
 
-  scope :ordered, -> { order(:title) }
-
   has_one :calculator, dependent: :destroy
-
   has_many :prices, as: :priceable, dependent: :destroy
   has_many :categories_by_prices, through: :prices, source: :category
 
   validates :title, presence: true, length: { in: 2..50 }
-
   validates :default_usage_per_day, numericality: { greater_than: 0 }
 
   scope :ordered_by_title, -> { order(:title) }

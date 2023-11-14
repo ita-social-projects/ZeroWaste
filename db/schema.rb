@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_29_140507) do
-
+ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -21,7 +20,7 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -34,7 +33,7 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -46,15 +45,15 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
 
   create_table "app_configs", force: :cascade do |t|
     t.jsonb "diapers_calculator", default: {}
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "calculators", force: :cascade do |t|
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.boolean "preferable", default: false
     t.bigint "product_id"
@@ -66,8 +65,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "priority", default: 0, null: false
   end
 
@@ -75,8 +74,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.bigint "category_id"
     t.string "categoryable_type"
     t.bigint "categoryable_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_category_categoryables_on_category_id"
     t.index ["categoryable_type", "categoryable_id", "category_id"], name: "unique_of_category_categoryables_index", unique: true
     t.index ["categoryable_type", "categoryable_id"], name: "index_category_categoryables_on_categoryable"
@@ -85,8 +84,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
   create_table "feature_flags", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "enabled", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_feature_flags_on_name", unique: true
   end
 
@@ -101,8 +100,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.integer "from"
     t.integer "to"
     t.integer "kind", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "unit", default: 0
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
     t.index ["uuid"], name: "index_fields_on_uuid", unique: true
@@ -110,8 +109,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
 
   create_table "flipper_features", force: :cascade do |t|
     t.string "key", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "en_description"
     t.text "uk_description"
     t.index ["key"], name: "index_flipper_features_on_key", unique: true
@@ -121,8 +120,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.string "feature_key", null: false
     t.string "key", null: false
     t.string "value"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
   end
 
@@ -130,8 +129,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.string "title", null: false
     t.string "message", null: false
     t.string "email", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prices", force: :cascade do |t|
@@ -139,9 +138,9 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.string "priceable_type"
     t.bigint "priceable_id"
     t.integer "category_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id", "priceable_id", "priceable_type"], name: "index_prices_on_category_id_and_priceable_id_and_priceable_type", unique: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id", "priceable_id", "priceable_type"], name: "idx_on_category_id_priceable_id_priceable_type_1fa9ce7f24", unique: true
     t.index ["category_id"], name: "index_prices_on_category_id"
     t.index ["priceable_type", "priceable_id"], name: "index_prices_on_priceable"
   end
@@ -149,8 +148,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
   create_table "product_types", force: :cascade do |t|
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["uuid"], name: "index_product_types_on_uuid", unique: true
   end
 
@@ -158,8 +157,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "title"
     t.bigint "product_type_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "default_usage_per_day", default: 1, null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
@@ -167,8 +166,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
 
   create_table "site_settings", force: :cascade do |t|
     t.string "title", default: "ZeroWaste", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -183,10 +182,10 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "country"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
@@ -203,7 +202,8 @@ ActiveRecord::Schema.define(version: 2023_07_29_140507) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.string "item_type", null: false
+    t.string "item_type"
+    t.string "{:null=>false}"
     t.bigint "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"

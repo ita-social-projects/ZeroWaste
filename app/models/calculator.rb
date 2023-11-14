@@ -35,6 +35,7 @@ class Calculator < ApplicationRecord
                    format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\s]+\z/, message: :name_format_validation },
                    uniqueness: true
 
+  scope :ordered_by_name, -> { order(:name) }
   scope :by_name_or_slug, lambda { |search|
                             where(
                               "name ILIKE ? OR slug ILIKE ?",

@@ -9,9 +9,9 @@ describe "Create Calculator Page", js: true do
   let(:calculator) { create(:calculator, :diaper_calculator) }
   let(:category) { create(:category) }
 
+  include_context :authorize_admin
+
   before do
-    @admin = create(:user, :admin)
-    sign_in @admin
     visit new_account_calculator_path
   end
 

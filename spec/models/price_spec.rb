@@ -19,6 +19,8 @@
 require "rails_helper"
 
 RSpec.describe Price, type: :model do
+  subject { create(:price, :budgetary_price) }
+
   describe "associations" do
     it { is_expected.to belong_to(:priceable) }
 
@@ -28,6 +30,6 @@ RSpec.describe Price, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:sum) }
 
-    it { is_expected.to validate_uniqueness_of(:category_id).scoped_to([:priceable_id, :priceable_type]) }
+    it { is_expected.to validate_uniqueness_of(:category_id).scoped_to(:priceable_id, :priceable_type) }
   end
 end

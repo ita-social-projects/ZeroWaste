@@ -20,14 +20,14 @@ In order to attract attention to financial and ecological consequences of dispos
   - [Git-hook pre-commit](#Git-hook-pre-commit)
 
 ## Deployed Apps and Environments
-The latest version from the 'develop' branch is automatically deployed to stage environment in Heroku, [staging link](https://zerowaste-staging.herokuapp.com/).
-The latest version from the release branch 'master' is automatically deployed to Production environment, [production link](https://zero-waste-project.herokuapp.com/).
+The latest version from the 'develop' branch is automatically deployed to stage environment in Render, [staging link](https://zero-waste-staging.onrender.com/).
+The latest version from the release branch 'master' is automatically deployed to Production environment, [production link](http://calc.zerowastelviv.org.ua/).
 
 ## Installation
 * Start the project locally
 # Required to install
-- Ruby 2.7.2
-- Ruby on Rails 6.1.3
+- Ruby 3.2.2
+- Ruby on Rails 7.1.2
 - PostgreSQL 12
 - Puma as a web server
 - Yarn

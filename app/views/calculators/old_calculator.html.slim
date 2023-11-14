@@ -2,8 +2,8 @@
   a.rounded.back-link.mt-3.px-2 href=root_path
     .p.back-text
       = t 'calculators.buttons.to_main'
-    = image_tag "arrow-left.svg", class: "z-1"
-  .d-flex.justify-content-around.flex-wrap.calculator_wrap.ml-5
+    = image_tag "icons/arrow-left.svg", class: "z-1"
+  .d-flex.justify-content-around.flex-wrap.calculator_wrap.ms-5
     .calc-container.mx-5.mt-5
       = t('.form.description')
     = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator calc-container",
@@ -11,14 +11,14 @@
                                                       input_child_info_url_value: api_v1_diaper_calculators_url,
                                                       input_child_info_months_value: month_number("old"),
                                                       input_child_info_results_outlet: '.result' }}) do |form|
-      .ml-5.inline.calc-item
+      .ms-5.inline.calc-item
         = form.input_field :years,
                             collection: years_number,
                             prompt: t('.form.years_prompt'),
                             class: 'rounded custom-select',
                             data: { input_child_info_target: 'year', action: 'input-child-info#yearChanged' }
 
-      .ml-5.inline.calc-item
+      .ms-5.inline.calc-item
         = form.input_field :months,
                             collection: month_number("old"),
                             prompt: t('.form.months_prompt'),

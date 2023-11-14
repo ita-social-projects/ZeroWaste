@@ -3,6 +3,11 @@
 class Account::CalculatorsController < Account::BaseController
   load_and_authorize_resource
 
+  def index
+    @q           = collection.ransack(params[:q])
+    @calculators = @q.result
+  end
+
   def show
     @calculator = resourse
   end
@@ -53,6 +58,14 @@ class Account::CalculatorsController < Account::BaseController
     Calculator.friendly.find(params[:slug])
   end
 
+  def collection
+    Calculator.ordered_by_name
+  end
+
+  def calculator
+    @calculator = Calculator.friendly.find(params[:slug])
+  end
+
   def calculator_params
     params.require(:calculator).permit(:name, :slug, :product_id)
   end
@@ -65,6 +78,6 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def products_collection
-    @products = Product.ordered
+    @products = Product.ordered_by_title
   end
 end

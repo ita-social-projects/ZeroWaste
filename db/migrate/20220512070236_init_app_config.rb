@@ -1,4 +1,4 @@
-class InitAppConfig < ActiveRecord::Migration[6.1]
+class InitAppConfig < ActiveRecord::Migration[7.1]
   def up
     config                    = AppConfig.instance
     config.diapers_calculator = {

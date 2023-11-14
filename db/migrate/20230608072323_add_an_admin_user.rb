@@ -1,4 +1,4 @@
-class AddAnAdminUser < ActiveRecord::Migration[6.1]
+class AddAnAdminUser < ActiveRecord::Migration[7.1]
   def change
     User.create(
       email: "admin@zw.com",

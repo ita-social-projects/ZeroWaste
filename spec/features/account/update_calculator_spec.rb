@@ -8,9 +8,9 @@ describe "Update Calculator Page", js: true do
   let!(:product_napkin) { create(:product, :napkin) }
   let(:calculator) { create(:calculator, :diaper_calculator) }
 
+  include_context :authorize_admin
+
   before do
-    @admin = create(:user, :admin)
-    sign_in @admin
     visit edit_account_calculator_path(slug: calculator.id)
   end
 

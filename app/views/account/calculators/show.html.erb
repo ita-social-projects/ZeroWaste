@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid position-relative rounded">
   <a class="rounded back-link mt-3 px-2" href="<%= root_path %>">
     <p class="back-text"><%= t 'calculators.buttons.to_main' %></p>
-    <%= image_tag "arrow-left.svg", class: "z-1" %>
+    <%= image_tag "icons/arrow-left.svg", class: "z-1" %>
   </a>
   <div class="d-flex justify-content-around flex-wrap calculator_wrap ml-5">
     <%= simple_form_for(api_v1_calculate_path, html: { class: "simple_form_calculator",
