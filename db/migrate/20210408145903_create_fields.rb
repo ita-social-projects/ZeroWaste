@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateFields < ActiveRecord::Migration[6.1]
+class CreateFields < ActiveRecord::Migration[7.1]
   def change
     create_table :fields do |t|
       t.uuid :uuid, null: false

@@ -1,4 +1,4 @@
-class ChangeUserAttributesNull < ActiveRecord::Migration[6.1]
+class ChangeUserAttributesNull < ActiveRecord::Migration[7.1]
   def up
     User.where(first_name: nil).each do |user|
       user.update(first_name: "Firstname")

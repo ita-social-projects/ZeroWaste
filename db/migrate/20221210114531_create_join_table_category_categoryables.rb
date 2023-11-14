@@ -1,4 +1,4 @@
-class CreateJoinTableCategoryCategoryables < ActiveRecord::Migration[6.1]
+class CreateJoinTableCategoryCategoryables < ActiveRecord::Migration[7.1]
   def change
     create_table :category_categoryables do |t|
       t.references :category, index: true, foreign_key: true

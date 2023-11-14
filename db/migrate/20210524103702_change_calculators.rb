@@ -1,2 +1,2 @@
-class ChangeCalculators < ActiveRecord::Migration[6.1]
+class ChangeCalculators < ActiveRecord::Migration[7.1]
 end
