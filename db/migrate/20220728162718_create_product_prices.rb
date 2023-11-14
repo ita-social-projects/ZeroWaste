@@ -1,4 +1,4 @@
-class CreateProductPrices < ActiveRecord::Migration[6.1]
+class CreateProductPrices < ActiveRecord::Migration[7.1]
   def change
     create_table :product_prices do |t|
       t.uuid :uuid, default: -> { "gen_random_uuid()" }, null: false

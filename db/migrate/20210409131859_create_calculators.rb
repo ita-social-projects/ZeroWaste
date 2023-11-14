@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateCalculators < ActiveRecord::Migration[6.1]
+class CreateCalculators < ActiveRecord::Migration[7.1]
   def change
     create_table :calculators do |t|
       t.uuid :uuid, null: false

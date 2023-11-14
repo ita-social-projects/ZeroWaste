@@ -26,8 +26,8 @@ The latest version from the release branch 'master' is automatically deployed to
 ## Installation
 * Start the project locally
 # Required to install
-- Ruby 2.7.2
-- Ruby on Rails 6.1.3
+- Ruby 3.2.2
+- Ruby on Rails 7.1.2
 - PostgreSQL 12
 - Puma as a web server
 - Yarn

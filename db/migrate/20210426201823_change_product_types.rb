@@ -1,4 +1,4 @@
-class ChangeProductTypes < ActiveRecord::Migration[6.1]
+class ChangeProductTypes < ActiveRecord::Migration[7.1]
   def up
     ProductType.create(title: "Diapers")
     ProductType.create(title: "Menstrual hygiene")
