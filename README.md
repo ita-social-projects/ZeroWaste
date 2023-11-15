@@ -68,6 +68,7 @@ $ `sudo apt-get install libpq-dev`
 then
 $ `gem install pg`
 
+
 <b>Database configure</b>
 
 For correct operation of the migration, you need to rename the migration file `20220123171144_create_versions.rb` so that it is processed first.
