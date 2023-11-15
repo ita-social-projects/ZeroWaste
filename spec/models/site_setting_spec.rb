@@ -73,7 +73,10 @@ RSpec.describe SiteSetting, type: :model do
 
       it "is not valid" do
         is_expected.not_to be_valid
-        expect(subject.errors.messages[:favicon]).to include(I18n.t("account.site_settings.validations.size"))
+        expect(subject.errors.messages[:favicon]).to include(
+          I18n.t("errors.messages.file_size_out_of_range", 
+            file_size: "#{(invalid_favicon_size / 1024)} KB")
+        )
       end
     end
   end
