@@ -16,8 +16,7 @@ class SiteSetting < ApplicationRecord
   validates :title, length: { minimum: 3, maximum: 30 }, if: -> { title.present? }
   validates :favicon, attached: true,
                       content_type: [:png, :jpg, :jpeg, :ico],
-                      size: { less_than: 500.kilobytes,
-                              message: I18n.t("account.site_settings.validations.size") }
+                      size: { less_than: 500.kilobytes }
 
   after_initialize :set_default_favicon
 
