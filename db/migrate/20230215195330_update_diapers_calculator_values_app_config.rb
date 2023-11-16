@@ -1,4 +1,4 @@
-class UpdateDiapersCalculatorValuesAppConfig < ActiveRecord::Migration[6.1]
+class UpdateDiapersCalculatorValuesAppConfig < ActiveRecord::Migration[7.1]
   def up
     AppConfig.instance.tap do |ac|
       ac.diapers_calculator = {

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateProductTypes < ActiveRecord::Migration[6.1]
+class CreateProductTypes < ActiveRecord::Migration[7.1]
   def change
     create_table :product_types do |t|
       t.uuid :uuid, null: false

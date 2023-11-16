@@ -3,13 +3,14 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.6"
+ruby "3.2.2"
 
+gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "rails", "~> 6.1.3", ">= 6.1.3.1"
+gem "rails", "~> 7.1", ">= 7.1.2"
 gem "redis", "~> 4.0"
 gem "sass-rails", ">= 6"
 gem "hotwire-rails"
@@ -23,7 +24,11 @@ gem "friendly_id", "~> 5.4.0"
 
 gem "dentaku", "~> 3.1"
 
-gem "country_select", "~> 4.0"
+gem "rugged", "1.6.3"
+
+gem "net-smtp"
+
+gem "country_select"
 
 gem "bigdecimal", "3.0.2"
 gem "rails-i18n", "~> 7.0.0"
@@ -45,7 +50,7 @@ group :development, :test do
   gem "dotenv-rails", require: "dotenv/rails-now"
   gem "pry-rails"
   gem "rails-controller-testing"
-  gem "rspec-rails", "~> 5.0.0"
+  gem "rspec-rails"
 end
 
 group :development, :test, :ci do
@@ -85,7 +90,7 @@ group :test do
   gem "database_cleaner-active_record"
   gem "selenium-webdriver"
   gem "simplecov", require: false
-  gem "shoulda-matchers", "~> 4.0"
+  gem "shoulda-matchers"
   gem "webdrivers", "~> 5.3.1"
   gem "fuubar"
 end

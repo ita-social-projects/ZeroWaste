@@ -1,4 +1,4 @@
-class DropAdmin < ActiveRecord::Migration[6.1]
+class DropAdmin < ActiveRecord::Migration[7.1]
   def change
     drop_table :admins do |t|
       t.string "email", default: "", null: false

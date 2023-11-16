@@ -1,4 +1,4 @@
-class FixCalculatorCreation < ActiveRecord::Migration[6.1]
+class FixCalculatorCreation < ActiveRecord::Migration[7.1]
   def up
     Calculator.create(name: "Diapers Calculator")
   end
