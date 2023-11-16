@@ -32,18 +32,41 @@ RSpec.describe Product, type: :model do
   end
 
   describe "validations" do
-    it {
+    it "validates the title and message " do
       is_expected.to validate_presence_of(:title)
         .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.blank"))
-    }
-    it {
+    end
+
+    it "validates the title's length and message" do
       is_expected.to validate_length_of(:title).is_at_least(2)
                                                .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_short", count: 2))
-    }
 
-    it {
-      is_expected.to validate_length_of(:title).is_at_most(50)
-                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_long", count: 50))
-    }
+      is_expected.to validate_length_of(:title).is_at_most(30)
+                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_long", count: 30))
+    end
+
+    it "validates the title's uniqueness and message " do
+      is_expected.to validate_uniqueness_of(:title)
+        .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.taken"))
+    end
+
+    context "validates the title format" do
+      let(:product) { build(:product) }
+
+      it "with valid title" do
+        product.title = "Hedgehog і єнот з'їли 2 аґруси"
+
+        expect(product).to be_valid
+      end
+
+      it "with invalid title" do
+        ["#", "!", "@", "$", "%", "^", "&", "*", "(", ")", "?", "\"", "_"].each do |sym|
+          product.title = "Invalid Title #{sym}"
+
+          expect(product).to_not be_valid
+          expect(product.errors.messages[:title]).to include(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.invalid"))
+        end
+      end
+    end
   end
 end

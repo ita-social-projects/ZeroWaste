@@ -1,13 +1,11 @@
 require "rails_helper"
 
 RSpec.describe Account::ProductsController, type: :request do
-  let!(:product) { create(:product, :diaper) }
+  let!(:product) { create(:product, title: "Huggies") }
 
   include_context :authorize_admin
 
   describe "GET :index" do
-    let!(:product) { create(:product, :diaper) }
-
     it "is successful" do
       get account_products_path
 
@@ -48,7 +46,7 @@ RSpec.describe Account::ProductsController, type: :request do
   end
 
   describe "POST :create" do
-    let(:valid_product_attributes) { attributes_for(:product, :diaper, id: 1, sum: 10.4) }
+    let(:valid_product_attributes) { attributes_for(:product, title: "Libero") }
     let(:invalid_product_attributes) { attributes_for(:product, :invalid) }
 
     context "with valid attributes" do
@@ -59,6 +57,20 @@ RSpec.describe Account::ProductsController, type: :request do
 
         expect(response).to redirect_to(account_products_path)
         expect(flash[:notice]).to eq(I18n.t("account.products.created"))
+      end
+    end
+
+    context "with duplicated attributes" do
+      before { create(:product, valid_product_attributes) }
+
+      it "doesn't create a duplicated product" do
+        expect do
+          post account_products_path, params: { product: valid_product_attributes }
+        end.not_to change(Product, :count)
+
+        expect(response).to be_unprocessable
+        expect(response).to render_template(:new)
+        expect(response.body).to include(I18n.t("activerecord.errors.models.product.attributes.title.taken"))
       end
     end
 
