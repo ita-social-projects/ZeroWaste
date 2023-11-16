@@ -164,20 +164,6 @@
   border-radius: 5px;
 }
 
-.description-btn {
-  margin: auto;
-  a {
-    color: $color;
-    background-color: transparent;
-    text-decoration: none;
-
-    .fa-external-link-alt {
-      margin-left: 5px;
-      font-size: 16px;
-    }
-  }
-}
-
 .col-9.result-card {
   span {
     text-align: left;
@@ -228,12 +214,6 @@ select.custom-select {
 
 .back-link:hover {
   text-decoration: none;
-}
-
-@media screen and (max-width: 1199px) and (min-width: 400px) {
-  .description-btn {
-    margin: auto;
-  }
 }
 
 @media screen and (max-width: $sm) {
@@ -366,6 +346,10 @@ select.custom-select {
   }
   .container {
     width: auto;
+  }
+
+  .result-card {
+    width: 100%;
   }
 }
 
