@@ -6,7 +6,7 @@ fieldset.bordered
       .form-group.row
         .col-12.has-float-label.my-auto
           = f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } }
-          = f.input :favicon, class: "form-control", input_html: { data: { action: "change->handle-browser-tab#setIcon" } }
+          = f.input :favicon, wrapper: :custom_vertical_file, input_html: { data: { action: "change->handle-browser-tab#setIcon" } }
 
           .mb-2
             = render "browser_tab", site_setting: @site_setting
