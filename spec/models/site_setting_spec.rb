@@ -16,7 +16,7 @@ RSpec.describe SiteSetting, type: :model do
 
     before { subject.update(site_setting_params) }
 
-    let(:site_setting_params) { FactoryBot.attributes_for(:site_setting, :with_valid_site_setting) }
+    let(:site_setting_params) { attributes_for(:site_setting, :with_valid_site_setting) }
 
     it "has a valid factory" do
       is_expected.to be_valid
@@ -76,6 +76,17 @@ RSpec.describe SiteSetting, type: :model do
         expect(subject.errors.messages[:favicon]).to include(
           I18n.t("errors.messages.file_size_out_of_range",
                  file_size: "#{invalid_favicon_size / 1024} KB")
+        )
+      end
+    end
+
+    context "with a favicon larger than 180x180 pixels" do
+      let(:site_setting_params) { attributes_for(:site_setting, :invalid_favicon) }
+
+      it "is not valid" do
+        is_expected.not_to be_valid
+        expect(subject.errors.messages[:favicon]).to include(
+          I18n.t("errors.messages.dimension_width_less_than_or_equal_to", length: 180)
         )
       end
     end
