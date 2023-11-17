@@ -64,8 +64,8 @@ RSpec.describe SiteSetting, type: :model do
       end
     end
 
-    context "with a favicon larger than 500 KB" do
-      let(:invalid_favicon_size) { 600.kilobytes }
+    context "with a favicon larger than 1 KB" do
+      let(:invalid_favicon_size) { 2.kilobytes }
 
       before do
         subject.favicon.byte_size = invalid_favicon_size
