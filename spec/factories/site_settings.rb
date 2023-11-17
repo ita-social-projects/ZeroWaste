@@ -27,7 +27,7 @@ FactoryBot.define do
 
     trait :invalid_favicon do
       title { "ZeroWaste" }
-      favicon { Rack::Test::UploadedFile.new("spec/fixtures/icons/favicon-181x181.png", IMAGE_TYPE) }
+      favicon { Rack::Test::UploadedFile.new("spec/fixtures/icons/favicon-181x182.png", IMAGE_TYPE) }
     end
 
     trait :custom_setting do
