@@ -233,7 +233,7 @@ h3.container {
   display: inline-flex;
 
   .img-border {
-    display: inline-block;
+    flex-shrink: 0;
     height: 70px;
     width: 70px;
     border: 2px solid #f5f5f5;
