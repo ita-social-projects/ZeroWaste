@@ -46,8 +46,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def destroy
-    @calculator = resourse
-    @calculator.destroy!
+    # @calculator = resourse
+    # @calculator.destroy!
 
     redirect_to account_calculators_path, notice: t("notifications.calculator_deleted")
   end

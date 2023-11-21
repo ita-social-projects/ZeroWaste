@@ -57,6 +57,14 @@ input[type="submit"] {
 
 .btn-revert {
   background-color: rgb(255, 65, 65) !important;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  min-width: 110px;
+
 
   &:hover {
     background-color: darkred !important;

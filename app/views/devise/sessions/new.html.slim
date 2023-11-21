@@ -3,7 +3,7 @@
     .card-block.p-4
       h2.text-center.p-2
         = t('.log_in')
-      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), turbo: true) do |f|
         - flash.each do |type, msg|
           .alert.alert-danger
             = msg
