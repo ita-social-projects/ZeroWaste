@@ -39,20 +39,14 @@ class Account::CategoriesController < Account::BaseController
   def destroy
     @category = resource
 
-    prices = Price.where(category_id: @category.id)
+    validator = CategoryValidator.new(@category)
 
-    if prices.any?
-      products = []
-
-      prices.each do |price|
-        products << Product.where(id: price.priceable_id).pluck(:title)
-      end
-
-      redirect_to account_categories_path, alert: "#{t(".relation_error")} #{products.join(", ")}"
-    else
+    if validator.valid?
       @category.destroy
 
       redirect_to account_categories_path, notice: t("notifications.category_deleted")
+    else
+      redirect_to account_categories_path, alert: "#{t(".relation_error")} #{validator.references}"
     end
   end
 
