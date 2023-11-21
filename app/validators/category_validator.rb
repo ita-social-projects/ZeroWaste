@@ -3,7 +3,7 @@ class CategoryValidator
 
   def initialize(category)
     @category = category
-    @prices = Price.where(category_id: category.id)
+    @prices   = Price.where(category_id: category.id)
   end
 
   def valid?
