@@ -23,12 +23,7 @@ module CalculatorsHelper
   end
 
   def use_period
-    [
-      [I18n.t("calculators.date.day"), "day"],
-      [I18n.t("calculators.date.week"), "week"],
-      [I18n.t("calculators.date.month"), "month"],
-      [I18n.t("calculators.date.year"), "year"]
-    ]
+    ["day", "week", "month", "year"].map { |period| [I18n.t("calculators.date.#{period}"), period] }
   end
 
   def product_prices(calculator)

@@ -1,6 +1,6 @@
 - flash_messages.each do |message_type, message|
   .alert.alert-dismissible.fade.show.position-absolute.container-fluid.d-flex.fixed-top class=(message_class_by_name(message_type))
     = message
-    = button_to('', { type: 'button', 'data-dismiss': 'alert', 'aria-label': 'Close' }, method: :delete, class: 'close ms-2') do
+    = button_to({'data-dismiss': 'alert', 'aria-label': 'Close' }, method: :delete, class: 'close ms-2') do
       span aria-hidden="true" class="ms-2"
         | ×

@@ -3,7 +3,7 @@
     .card-block.p-4
       h2.text-center.p-2
         = t('.log_in')
-      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), turbo: true) do |f|
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         = f.input :email, class: 'form-control', autofocus: true, autocomplete: "email"
         = f.input :password, class: 'form-control', autocomplete: "current-password"
         = f.input :remember_me, as: :boolean, inline_label: true if devise_mapping.rememberable?

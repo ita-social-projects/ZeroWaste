@@ -9,7 +9,7 @@
       tr
         th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
         th scope="col" = sort_link(@q, :title, t('.table.title'), default_order: :desc)
-        th scope="col" =t('.table.default_usage_per_day')
+        th scope="col" = t('.table.default_usage_per_day')
         th scope="col" = t('.table.prices')
         th scope="col" = t('.table.actions')
 

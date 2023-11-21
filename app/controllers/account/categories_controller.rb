@@ -46,7 +46,7 @@ class Account::CategoriesController < Account::BaseController
 
       redirect_to account_categories_path, notice: t("notifications.category_deleted")
     else
-      redirect_to account_categories_path, alert: "#{t(".relation_error")} #{validator.references}"
+      redirect_to account_categories_path, alert: "#{t(".relation_error")} #{validator.references}", status: :unprocessable_entity
     end
   end
 

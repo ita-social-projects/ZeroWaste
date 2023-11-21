@@ -93,7 +93,7 @@ RSpec.describe Account::CategoriesController, type: :request do
     it "doesn't destroys the requested category which has prices" do
       expect { delete account_category_path(category_with_prices) }.to change(Category, :count).by(0)
 
-      expect(response).to redirect_to(account_categories_path)
+      expect(response).to be_unprocessable
       expect(flash[:alert]).to eq("#{I18n.t("account.categories.destroy.relation_error")} #{product.title}")
     end
   end
