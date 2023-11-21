@@ -4,9 +4,6 @@
       h2.text-center.p-2
         = t('.log_in')
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name), turbo: true) do |f|
-        - flash.each do |type, msg|
-          .alert.alert-danger
-            = msg
         = f.input :email, class: 'form-control', autofocus: true, autocomplete: "email"
         = f.input :password, class: 'form-control', autocomplete: "current-password"
         = f.input :remember_me, as: :boolean, inline_label: true if devise_mapping.rememberable?

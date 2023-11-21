@@ -63,8 +63,8 @@ RSpec.feature "AdminLogins", type: :feature do
         it "redirect to admin page" do
           visit new_user_session_path
           click_on LANG_BUTTON_TEXT
-          fill_in "user_email", with: user.email
-          fill_in "user_password", with: user.password
+          fill_in "Електронна пошта", with: user.email
+          fill_in "Пароль", with: user.password
           sleep 0.5
           click_button "Увійти"
           sleep 0.5

@@ -97,7 +97,7 @@ RSpec.describe Account::ProductsController, type: :request do
         expect do
           patch account_product_path(id: price.priceable), params: { product: updated_product_attributes }
           price.priceable.reload
-        end.to change(price.priceable, :title).from("diaper").to("huggie")
+        end.to change(price.priceable, :title).to(updated_product_attributes[:title])
 
         expect(response).to redirect_to(account_products_path)
         expect(flash[:notice]).to eq(I18n.t("account.products.updated"))
