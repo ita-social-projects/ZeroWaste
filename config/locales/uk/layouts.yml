@@ -6,7 +6,3 @@ uk:
       calculate: "Почати"
       visit_website: "Наш сайт"
       link: 'https://zerowastelviv.org.ua/'
-  account:
-    shared:
-      navigation:
-        donate: "Підтримати"

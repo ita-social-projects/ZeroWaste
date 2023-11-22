@@ -6,7 +6,3 @@ en:
       calculate: "Let's go"
       visit_website: "Visit WebSite"
       link: 'https://zerowastelviv.org.ua/en'
-  account:
-    shared:
-      navigation:
-        donate: "DONATE"

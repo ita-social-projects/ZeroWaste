@@ -23,7 +23,6 @@ gem "acts_as_singleton"
 gem "friendly_id", "~> 5.4.0"
 
 gem "dentaku", "~> 3.1"
-gem "it"
 
 gem "rugged", "1.6.3"
 
