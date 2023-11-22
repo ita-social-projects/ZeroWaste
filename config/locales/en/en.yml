@@ -66,12 +66,27 @@ en:
       year_and_month_error_msg: "Error: please, select years and months"
       year_error_msg: "Error: please, select years"
       month_error_msg: "Error: please, select month"
+      period_and_price_error_msg: "Error: please select reporting period and price category"
+      period_error_msg: "Error: please select reporting period"
+      price_error_msg: "Error: please select price category"
+    form:
+      period: Reporting period
+      price: Price category
+    results:
+      unit: pcs
+      money: uah
+      used: will be used
+      spent: will be spent
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
       to_main: "To main"
       calculate: "Calculate"
     date:
+      day: day
+      week: week
+      month: month
+      year: year
       months:
         one: "%{count} month"
         few: "%{count} months"
@@ -184,11 +199,14 @@ en:
       index:
         add_category_button: 'Add category'
         confirm_delete: 'Delete category?'
+      destroy:
+        relation_error: 'Please remove prices with this category in next products:'
     products:
       table:
         title: 'Title'
         prices: 'Prices'
         actions: 'Actions'
+        default_usage_per_day: Default usage per day
       index:
         add_product_button: 'Add product'
         confirm_delete: 'Delete product?'
@@ -196,8 +214,10 @@ en:
         confirm_delete: 'Delete product?'
       edit:
         title: 'Title'
+        default_usage_per_day: Default usage per day
       new:
         title: 'Title'
+        default_usage_per_day: Default usage per day
       created: "A product was successfully created."
       updated: "A product was successfully updated."
       deleted: "A product was successfully destroyed."
@@ -466,6 +486,7 @@ en:
               too_short: too short (minimum %{count} symbols)
               taken: has already been taken, please choose another one
               invalid: contains invalid characters
+            default_usage_per_day: Default usage per day
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"

@@ -27,6 +27,8 @@ class Calculator < ApplicationRecord
 
   has_many :fields, dependent: :destroy
 
+  belongs_to :product
+
   accepts_nested_attributes_for :fields, allow_destroy: true
 
   validates :name, length: { minimum: 2 },

@@ -9,6 +9,7 @@
       tr
         th scope="col" = sort_link(@q, :id, "#", default_order: :desc)
         th scope="col" = sort_link(@q, :title, t('.table.title'), default_order: :desc)
+        th scope="col" = t('.table.default_usage_per_day')
         th scope="col" = t('.table.prices')
         th scope="col" = t('.table.actions')
 
@@ -17,6 +18,7 @@
         tr
           td = product.id
           td = product.title
+          td = product.default_usage_per_day
           td
             - product.prices.includes(:category).each do |price|
               span = "#{price.category.name}: #{price.sum}"
@@ -24,5 +26,5 @@
           td.actions
             = link_to edit_account_product_path(id: product) do
               i.fa.fa-pen.mx-2
-            = link_to account_product_path(id: product), method: :delete, data: { confirm: t('.confirm_delete') } do
+            = link_to account_product_path(id: product), data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } do
               i.fa.fa-trash.mx-2

@@ -21,4 +21,12 @@ module CalculatorsHelper
     when "new" then (0..11).to_a
     end
   end
+
+  def use_period
+    ["day", "week", "month", "year"].map { |period| [I18n.t("calculators.date.#{period}"), period] }
+  end
+
+  def product_prices(calculator)
+    calculator.product.prices.map { |price| [price.category.name, price.id] }
+  end
 end

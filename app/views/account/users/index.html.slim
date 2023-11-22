@@ -29,6 +29,5 @@ div class="container home"
               td = link_to (icon('fa-solid', user.blocked? ? 'lock' : 'lock-open')),
                 account_user_path(id: user, user: {blocked: user.blocked? ? false : true}),
                 onclick: "alert('Are you sure?')", method: :patch
-              td = link_to account_user_path(id: user), method: :delete,
-                      data: { confirm: t('.confirm_delete') } do
+              td = link_to account_user_path(id: user), data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } do
                 i.fa.fa-trash.mx-2

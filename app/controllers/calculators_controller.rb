@@ -3,10 +3,6 @@
 class CalculatorsController < ApplicationController
   before_action :authenticate_user!, only: :receive_recomendations
 
-  # def index
-  #   @calculators = collection
-  # end
-
   def show
     @calculator = resource
   end

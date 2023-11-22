@@ -1,8 +1,7 @@
 .container
-  = form_tag account_category_path(id: @categories), method: :get, class: 'd-flex justify-content-end mb-5' do
-    .d-flex
-    = link_to new_account_category_path(id: @categories), class: 'btn btn-success px-4 ms-1' do
-      i.fa.fa-plus.me-2
+  .d-flex.flex-row-reverse
+    = link_to new_account_category_path, class: 'btn btn-success px-4 ml-1 mb-2' do
+      i.fa.fa-plus.mr-2
       span =t('.add_category_button')
 
 div class="container home"
@@ -25,5 +24,5 @@ div class="container home"
             div.d-flex
               = link_to edit_account_category_path(id: category) do
                 i.fa.fa-pen.mx-2
-              = button_to account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') } do
+              = link_to account_category_path(id: category), data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } do
                 i.fa.fa-trash.mx-2

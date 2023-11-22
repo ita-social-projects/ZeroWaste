@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "visit Calculator page", js: true do
   let(:user) { create(:user) }
-  let(:calculator) { create(:calculator) }
+  let(:calculator) { create(:calculator, :diaper_calculator) }
 
   it "visits calculator page" do
     visit "#{I18n.locale}/calculator"
