@@ -279,6 +279,8 @@ en:
       submit_button: "Save"
       new_calculator_design:
         name: "Enable new calculator design"
+      show_calculators_list:
+        name: "Show calculators on the public side"
     sessions:
       new:
         log_in_header: "Log in"
