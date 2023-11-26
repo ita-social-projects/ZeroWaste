@@ -60,11 +60,11 @@ RSpec.describe CalculatorsController, type: :request do
     end
   end
 
-   describe 'GET #index' do
-    context 'when show_calculators_list feature is enabled' do
+  describe "GET #index" do
+    context "when show_calculators_list feature is enabled" do
       include_context :show_calculators_list
 
-      it 'renders the calculators index when show_calculators_list is on' do
+      it "renders the calculators index when show_calculators_list is o" do
         get calculators_path
 
         expect(response).to be_successful
@@ -73,12 +73,12 @@ RSpec.describe CalculatorsController, type: :request do
       end
     end
 
-    context 'when show_calculators_list feature is disabled' do
+    context "when show_calculators_list feature is disabled" do
       before do
         allow(Flipper).to receive(:enabled?).with(:show_calculators_list).and_return(false)
       end
 
-      it 'redirects to root path' do
+      it "redirects to root path" do
         get calculators_path
         expect(response).to redirect_to(root_path)
       end
