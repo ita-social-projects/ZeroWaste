@@ -18,3 +18,10 @@ RSpec.shared_context :show_calculators_list do
     Flipper.enable(:show_calculators_list)
   end
 end
+
+RSpec.shared_context :hide_calculators_list do
+  before do
+    FeatureFlag.find_or_create_by!(name: "show_calculators_list")
+    Flipper.disable(:show_calculators_list)
+  end
+end

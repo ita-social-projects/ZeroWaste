@@ -74,9 +74,7 @@ RSpec.describe CalculatorsController, type: :request do
     end
 
     context "when show_calculators_list feature is disabled" do
-      before do
-        allow(Flipper).to receive(:enabled?).with(:show_calculators_list).and_return(false)
-      end
+      include_context :hide_calculators_list
 
       it "redirects to root path" do
         get calculators_path
