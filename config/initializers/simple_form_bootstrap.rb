@@ -8,7 +8,6 @@ COL_FORM_LABEL             = "col-form-label pt-0"
 COL_FORM_LABEL_SM          = "col-sm-3 col-form-label"
 COL_FORM_LABEL_SM_PT       = "col-sm-3 col-form-label pt-0"
 COL_SM                     = "col-sm-9"
-COL_AUTO                   = "col-auto"
 IS_VALID                   = "is-valid"
 IS_INVALID                 = "is-invalid"
 FORM_CHECK_LABEL           = "form-check-label"
@@ -23,7 +22,6 @@ FORM_TEXT                  = "form-text"
 FLEX                       = "d-flex flex-row justify-content-between align-items-center"
 INVALID_FEEDBACK           = "invalid-feedback"
 INVALID_FEEDBACK_BLOCK     = "invalid-feedback d-block"
-COL_INVALID_FEEDBACK_BLOCK = "col invalid-feedback d-block"
 MB                         = "mb-3"
 ROW_MB                     = "row mb-3"
 
@@ -370,17 +368,15 @@ SimpleForm.setup do |config|
   end
 
   # custom vertical file input
-  config.wrappers :custom_vertical_file, class: ROW_MB do |b|
+  config.wrappers :custom_vertical_file, class: MB do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
     b.optional :minlength
     b.optional :readonly
-    b.wrapper tag: :div, class: COL_AUTO do |ba|
-      ba.use :label, class: FORM_LABEL_BLOCK
-      ba.use :input, error_class: IS_INVALID, valid_class: IS_VALID
-    end
-    b.use :full_error, wrap_with: { class: COL_INVALID_FEEDBACK_BLOCK }
+    b.use :label, class: FORM_LABEL_BLOCK
+    b.use :input, error_class: IS_INVALID, valid_class: IS_VALID
+    b.use :full_error, wrap_with: { class: INVALID_FEEDBACK }
     b.use :hint, wrap_with: { class: FORM_TEXT }
   end
 
