@@ -4,7 +4,6 @@
 # https://github.com/heartcombo/simple_form-bootstrap
 # Please submit feedback, changes and tests only there.
 ALERT_DANGER           = "alert alert-danger"
-ALERT_DANGER           = "alert alert-danger"
 COL_FORM_LABEL         = "col-form-label pt-0"
 COL_FORM_LABEL_SM      = "col-sm-3 col-form-label"
 COL_FORM_LABEL_SM_PT   = "col-sm-3 col-form-label pt-0"
