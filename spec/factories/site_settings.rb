@@ -13,7 +13,7 @@ FactoryBot.define do
   factory :site_setting do
     trait :with_valid_site_setting do
       title { "ZeroWaste" }
-      favicon { Rack::Test::UploadedFile.new("app/assets/images/logo_zerowaste.png", IMAGE_TYPE) }
+      favicon { Rack::Test::UploadedFile.new("app/assets/images/icons/favicon-48x48.png", IMAGE_TYPE) }
     end
 
     trait :invalid_site_setting do
@@ -22,7 +22,12 @@ FactoryBot.define do
 
     trait :new_title do
       title { "Test title" }
-      favicon { Rack::Test::UploadedFile.new("app/assets/images/logo_zerowaste.png", IMAGE_TYPE) }
+      favicon { Rack::Test::UploadedFile.new("app/assets/images/icons/favicon-48x48.png", IMAGE_TYPE) }
+    end
+
+    trait :invalid_favicon do
+      title { "ZeroWaste" }
+      favicon { Rack::Test::UploadedFile.new("spec/fixtures/icons/favicon-181x182.png", IMAGE_TYPE) }
     end
 
     trait :custom_setting do
