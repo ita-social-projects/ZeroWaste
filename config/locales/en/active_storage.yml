@@ -1,8 +1,8 @@
 en:
   errors:
     messages:
-      content_type_invalid: "has not allowed to upload %{content_type} files, allowed types: %{authorized_types}"
-      file_size_out_of_range: "has size %{file_size} that is not between required range"
+      content_type_invalid: "Only .PNG and .ICO file formats are allowed"
+      file_size_out_of_range: "file is too big, please upload file up to 1KB"
       limit_out_of_range: "total number is out of range"
       image_metadata_missing: "is not a valid image"
       dimension_min_inclusion: "must be greater than or equal to %{width} x %{height} pixel."
@@ -15,7 +15,7 @@ en:
       dimension_height_less_than_or_equal_to: "height must be less than or equal to %{length} pixel."
       dimension_width_equal_to: "width must be equal to %{length} pixel."
       dimension_height_equal_to: "height must be equal to %{length} pixel."
-      aspect_ratio_not_square: "must be a square image"
+      aspect_ratio_not_square: "resolution must be a multiple of square (for example: 16x16px)"
       aspect_ratio_not_portrait: "must be a portrait image"
       aspect_ratio_not_landscape: "must be a landscape image"
       aspect_ratio_is_not: "must have an aspect ratio of %{aspect_ratio}"

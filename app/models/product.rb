@@ -24,7 +24,12 @@ class Product < ApplicationRecord
   has_many :prices, as: :priceable, dependent: :destroy
   has_many :categories_by_prices, through: :prices, source: :category
 
-  validates :title, presence: true, length: { in: 2..50 }
+  validates :title, presence: true
+  validates :title,
+            length: { in: 2..30 },
+            uniqueness: true,
+            format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\-\s]+\z/ },
+            if: -> { title.present? }
 
   accepts_nested_attributes_for :prices, reject_if: :blank_prices, allow_destroy: true
 

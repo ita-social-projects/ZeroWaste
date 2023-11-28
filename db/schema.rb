@@ -158,6 +158,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
+    t.index ["title"], name: "index_products_on_title", unique: true
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
   end
 

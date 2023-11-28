@@ -233,7 +233,7 @@ h3.container {
   display: inline-flex;
 
   .img-border {
-    display: inline-block;
+    flex-shrink: 0;
     height: 70px;
     width: 70px;
     border: 2px solid #f5f5f5;
@@ -308,12 +308,17 @@ body:where(.admin)::before {
   }
 
   .admin-table-links {
-    a {
+    a, form {
       color: $success;
 
       &:hover {
         color: #3d5217;
       }
+    }
+    
+    form {
+      display: inline-block;
+      transition: all 0.5s ease-in-out;
     }
 
     .admin-table-body {
