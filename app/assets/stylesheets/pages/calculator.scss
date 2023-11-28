@@ -171,6 +171,9 @@
     background-color: transparent;
     text-decoration: none;
   }
+  &:hover {
+    background-color: $dark_green;
+  }
 }
 
 .col-xl-8.result-card {
