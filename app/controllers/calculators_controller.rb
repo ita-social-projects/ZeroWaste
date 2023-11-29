@@ -7,7 +7,7 @@ class CalculatorsController < ApplicationController
     if Flipper[:show_calculators_list].enabled?
       @calculators = collection
     else
-      redirect_to root_path
+      head :not_found
     end
   end
 
