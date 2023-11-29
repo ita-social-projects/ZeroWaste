@@ -64,7 +64,7 @@ RSpec.describe CalculatorsController, type: :request do
     context "when show_calculators_list feature is enabled" do
       include_context :show_calculators_list
 
-      it "renders the calculators index when show_calculators_list is o" do
+      it "renders the calculators index when show_calculators_list is enabled" do
         get calculators_path
 
         expect(response).to be_successful
@@ -76,9 +76,10 @@ RSpec.describe CalculatorsController, type: :request do
     context "when show_calculators_list feature is disabled" do
       include_context :hide_calculators_list
 
-      it "redirects to root path" do
+      it "returns a not found status" do
         get calculators_path
-        expect(response).to redirect_to(root_path)
+        expect(response).to have_http_status(:not_found)
+        expect(response.body).to be_blank
       end
     end
   end
