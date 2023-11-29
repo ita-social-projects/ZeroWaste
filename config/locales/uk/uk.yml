@@ -45,6 +45,11 @@ uk:
     buttons:
       to_main: "На головну"
       calculate: "Розрахувати"
+    index:
+      id_column: "№"
+      calculator_name: "Назва"
+      calculator_actions: "Дії"
+
     date:
       months:
         one: "%{count} місяць"
@@ -264,6 +269,8 @@ uk:
       submit_button: "Зберегти"
       new_calculator_design:
         name: "Увімкнути новий дизайн калькулятора"
+      show_calculators_list:
+        name: "Показати калькулятори користувачам"
     sessions:
       new:
         log_in_header: "Увійти"
