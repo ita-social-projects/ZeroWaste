@@ -126,7 +126,7 @@ a {
 .tab {
   text-transform: uppercase;
   font-size: 14px;
-  padding: 33px 25px;
+  padding: 33px 15px;
   color: $color;
   border-bottom: 3px solid transparent;
   @include transition(all 0.5s ease-in-out);
@@ -315,7 +315,7 @@ body:where(.admin)::before {
         color: #3d5217;
       }
     }
-    
+
     form {
       display: inline-block;
       transition: all 0.5s ease-in-out;
