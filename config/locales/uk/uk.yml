@@ -63,7 +63,9 @@ uk:
         other: "%{count} років"
   layouts:
     navigation:
+      about_us: "Про нас"
       admin: "Адміністратор"
+      calculate: "Калькулятор підгузків"
       log_out: "Вийти"
       sign_up: "Зареєструватися"
       log_in: "Увійти"
