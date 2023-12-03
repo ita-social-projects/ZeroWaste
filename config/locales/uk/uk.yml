@@ -271,6 +271,8 @@ uk:
         name: "Увімкнути новий дизайн калькулятора"
       show_calculators_list:
         name: "Показати калькулятори користувачам"
+      sandbox_mode:
+        name: "Увімкнути режим пісочниці"
     sessions:
       new:
         log_in_header: "Увійти"
