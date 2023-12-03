@@ -12,5 +12,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
   Flipper.features.each do |feature|
     Flipper.enable(feature.name) if Rails.env.development? # || Rails.env.staging?
   end
+
   Flipper.disable(:sandbox_mode) if Flipper.enabled?(:sandbox_mode)
+  Flipper.remove(:sandbox_mode) if Rails.env.production?
 end
