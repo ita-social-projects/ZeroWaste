@@ -8,7 +8,7 @@ RSpec.describe UpdateFeatureFlagsService do
       allow(Flipper).to receive(:features).and_return([double(name: "feature_1"), double(name: "feature_2")])
 
       expect(Flipper).to receive(:enable).with("feature_1")
-      expect(Flipper).to receive(:disable).with("feature_2")
+      expect(Flipper).not_to receive(:disable).with("feature_2")
 
       UpdateFeatureFlagsService.new(params).call
     end

@@ -5,14 +5,12 @@ class UpdateFeatureFlagsService
 
   def call
     Flipper.features.each do |feature|
-      feature_name       = feature.name
-      is_enabled_new     = @feature_params["#{feature_name}_enabled"].to_s == "1"
-      is_enabled_current = Flipper.enabled?(feature_name)
+      feature_name = feature.name
+      is_enabled   = @feature_params["#{feature_name}_enabled"].to_s == "1"
 
-      if is_enabled_new != is_enabled_current
-        SandBoxService.enable(is_enabled_new) if feature_name == "sandbox_mode"
-        Flipper.public_send((is_enabled_new ? "enable" : "disable").to_s, feature_name)
-      end
+      next if Flipper.enabled?(feature_name) == is_enabled
+      SandBoxService.enable(is_enabled) if feature_name == "sandbox_mode"
+      Flipper.public_send((is_enabled ? "enable" : "disable").to_s, feature_name)
     end
   end
 end
