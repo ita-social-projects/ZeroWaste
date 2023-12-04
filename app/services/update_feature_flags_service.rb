@@ -15,8 +15,4 @@ class UpdateFeatureFlagsService
       end
     end
   end
-
-  def feature_enabled?(feature_name)
-    Flipper.enabled?(feature_name)
-  end
 end
