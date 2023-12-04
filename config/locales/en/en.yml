@@ -84,7 +84,9 @@ en:
         other: "%{count} years"
   layouts:
     navigation:
+      about_us: "About us"
       admin: "Admin"
+      calculate: "Diaper calculator"
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
