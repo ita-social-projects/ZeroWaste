@@ -22,7 +22,7 @@ RSpec.describe String do
 
       it "properly pluralizes all months" do
         months.each do |count, expected|
-          expect("місяць".pluralize(count: count, locale: :uk)).to eq(expected)
+          expect("місяць".pluralize(count,:uk)).to eq(expected)
         end
       end
     end
@@ -38,7 +38,7 @@ RSpec.describe String do
 
       it "properly pluralizes all years" do
         years.each do |count, expected|
-          expect("рік".pluralize(count: count, locale: :uk)).to eq(expected)
+          expect("рік".pluralize(count, :uk)).to eq(expected)
         end
       end
     end
@@ -58,7 +58,7 @@ RSpec.describe String do
 
       it "properly pluralizes all diapers" do
         diapers.each do |count, expected|
-          expect("підгузок".pluralize(count: count, locale: :uk)).to eq(expected)
+          expect("підгузок".pluralize(count, :uk)).to eq(expected)
         end
       end
     end
@@ -74,29 +74,29 @@ RSpec.describe String do
         end
 
         it "pluralizes properly with count parameter" do
-          expect("dog".pluralize(count: 10)).to eq("dogs")
-          expect("cat".pluralize(count: 1)).to eq("cat")
-          expect("alias".pluralize(count: 123)).to eq("aliases")
-          expect("buffalo".pluralize(count: 1, locale: :en)).to eq("buffalo")
-          expect("bus".pluralize(count: 0)).to eq("buses")
+          expect("dog".pluralize(10)).to eq("dogs")
+          expect("cat".pluralize(1)).to eq("cat")
+          expect("alias".pluralize(123)).to eq("aliases")
+          expect("buffalo".pluralize(1, :en)).to eq("buffalo")
+          expect("bus".pluralize(0)).to eq("buses")
         end
 
         it "pluralizes irregular words properly" do
-          expect("person".pluralize(count: 10)).to eq("people")
-          expect("man".pluralize(count: 1)).to eq("man")
-          expect("child".pluralize(count: 0)).to eq("children")
+          expect("person".pluralize(10)).to eq("people")
+          expect("man".pluralize(1)).to eq("man")
+          expect("child".pluralize(0)).to eq("children")
           expect("zombie".pluralize).to eq("zombies")
-          expect("sex".pluralize(count: 666)).to eq("sexes")
+          expect("sex".pluralize(666)).to eq("sexes")
         end
       end
 
       context "with words that cannot be plural" do
         it "does not pluralize uncountable words" do
-          expect("equipment".pluralize(count: 10)).to eq("equipment")
+          expect("equipment".pluralize(10)).to eq("equipment")
           expect("information".pluralize).to eq("information")
-          expect("rice".pluralize(count: 0)).to eq("rice")
-          expect("money".pluralize(count: 1)).to eq("money")
-          expect("fish".pluralize(count: 666)).to eq("fish")
+          expect("rice".pluralize(0)).to eq("rice")
+          expect("money".pluralize(1)).to eq("money")
+          expect("fish".pluralize(666)).to eq("fish")
         end
       end
     end
