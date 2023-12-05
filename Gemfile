@@ -79,6 +79,7 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rails-tail-log"
   gem "ed25519"
+  gem "rails_db", "~> 2.4"
 end
 
 # group :ci do
