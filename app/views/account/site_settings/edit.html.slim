@@ -27,3 +27,10 @@ fieldset.bordered
 
     div
       = f.submit t("buttons.save")
+
+- if Rails.env.development?
+  fieldset.bordered
+    legend.admin-legend
+      | Development features
+    = link_to "Rails DB", rails_db_path, class: "btn btn-secondary"
+    | &nbsp; access to database (read only)
