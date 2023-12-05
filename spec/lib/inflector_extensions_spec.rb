@@ -22,7 +22,7 @@ RSpec.describe String do
 
       it "properly pluralizes all months" do
         months.each do |count, expected|
-          expect("місяць".pluralize(count,:uk)).to eq(expected)
+          expect("місяць".pluralize(count, :uk)).to eq(expected)
         end
       end
     end

@@ -1,4 +1,4 @@
-if Object.const_defined?('RailsDb')
+if Object.const_defined?(:RailsDb)
   RailsDb.setup do |config|
     # # enabled or not
     # config.enabled = Rails.env.development?
