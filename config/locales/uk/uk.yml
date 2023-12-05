@@ -265,6 +265,8 @@ uk:
       edit:
         site_settings: Налаштування сайту
         site_features: Особливості сайту
+        rails_db_description: Доступ до бази даних (лише перегляд)
+        dev_features: Для розробників
         apply_button: 'Застосувати'
         confirm_default: Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та значка сайту?
     feature_flags:

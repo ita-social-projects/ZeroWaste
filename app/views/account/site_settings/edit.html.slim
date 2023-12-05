@@ -31,6 +31,7 @@ fieldset.bordered
 - if Rails.env.development?
   fieldset.bordered
     legend.admin-legend
-      | Development features
-    = link_to "Rails DB", rails_db_path, class: "btn btn-secondary"
-    | &nbsp; access to database (read only)
+      = t(".dev_features")
+    p.mb-3
+      = t(".rails_db_description")
+    = link_to "Rails DB", rails_db_path, class: "btn btn-secondary mr-2"
