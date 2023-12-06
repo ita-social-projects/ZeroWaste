@@ -1,0 +1,33 @@
+html
+  head
+    title
+      | About us
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    link[rel="stylesheet" href="about_us.scss"]
+  body
+    main
+      section
+        h1.page-about
+          | About us
+        p
+          | We work in many directions for the sake of a clean future and sustainable development of our city and country. Zero Waste encourages us to use resources rationally and consciously.
+        p
+          | The main goal of zero waste is to move to a circular economy, where there is no garbage as such, and what is called garbage becomes a valuable resource.
+        p
+          | Instead of taking new resources for a one-time use, zero waste aims to create a system where all resources are reused and returned to the ecosystem.
+      section
+        h1.page-about
+          | Our team
+        p
+          | We work in many directions for the sake of a clean future and sustainable development of our city and country. Zero Waste encourages us to use resources rationally and consciously.
+        p
+          | Zero Waste Lviv and SoftServe present a calculator - an online tool for calculating the number of disposable and reusable items used. The calculator was developed as part of the charity crowdsourcing platform Open Tech. The technical development is carried out by students of SoftServe Academy.
+      .about-logo
+        = image_tag 'logo_zerowaste.png', class: "logo-zerowaste"
+        = image_tag 'softserve_academy_logo.png', class: "logo-zerowaste"
+
+    footer.footer-about
+      p
+        |  Official website:
+        a[href="https://zerowastelviv.org.ua/"]
+          | https://zerowastelviv.org.ua
