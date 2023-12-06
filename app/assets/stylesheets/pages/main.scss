@@ -454,3 +454,8 @@ body:where(.admin)::before {
     margin-left: 16px;
   }
 }
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 0;
+}
