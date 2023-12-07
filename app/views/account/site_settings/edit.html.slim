@@ -11,7 +11,7 @@ fieldset.bordered
           .mb-2
             = render "browser_tab", site_setting: @site_setting
 
-      = f.submit t(".apply_button")
+      = f.submit t("buttons.save")
 
     = button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom"
 
