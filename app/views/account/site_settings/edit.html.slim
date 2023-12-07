@@ -25,7 +25,7 @@ fieldset.bordered
         .description-feature
           = feature.description
 
-    div[data-controller="button"]
+    div data-controller="button"
       = f.submit t("buttons.save"), data: { action: "click->button#press_button" }
-      .mask [data-button-target="loader_mask"] 
+      .mask data-button-target="loader_mask"
         .loader
