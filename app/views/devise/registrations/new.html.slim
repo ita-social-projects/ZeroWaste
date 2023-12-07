@@ -8,7 +8,7 @@
         div.password-wrapper-hint data-controller="password-visibility"
          = f.input :password, hint: t('.form.password_hint'), input_html: { data: { 'password-visibility-target': 'password' } }
          = render 'shared/password_icon'
-        div.password-wrapper data-controller="password-visibility"
+        div.password-wrapper class=("password-wrapper-hint" if I18n.locale == :uk) data-controller="password-visibility"
          = f.input :password_confirmation, input_html: { data: { 'password-visibility-target': 'password' } }
          = render 'shared/password_icon'
         = f.input :first_name
