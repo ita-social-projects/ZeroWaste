@@ -5,8 +5,12 @@
         = t('.sign_up_header')
       = simple_form_for resource, as: resource_name, url: registration_path(resource_name), wrapper: :horizontal_form do |f|
         = f.input :email, placeholder: 'example@example.com', autofocus: true
-        = f.input :password, hint: t('.form.password_hint')
-        = f.input :password_confirmation
+        div.password-wrapper-hint data-controller="password-visibility"
+         = f.input :password, hint: t('.form.password_hint'), input_html: { data: { 'password-visibility-target': 'password' } }
+         = render 'shared/password_icon'
+        div.password-wrapper data-controller="password-visibility"
+         = f.input :password_confirmation, input_html: { data: { 'password-visibility-target': 'password' } }
+         = render 'shared/password_icon'
         = f.input :first_name
         = f.input :last_name
         = f.input :country, include_blank: false
