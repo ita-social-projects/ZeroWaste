@@ -7,11 +7,14 @@ export default class extends Controller {
     const icon = this.iconTarget
     const passwordField = this.passwordTarget
 
-    if (passwordField && passwordField.type === 'password') {
-      passwordField.type = 'text';
+    const TEXT_INPUT = 'text';
+    const PASSWORD_INPUT = 'password';
+
+    if (passwordField && passwordField.type === PASSWORD_INPUT) {
+      passwordField.type = TEXT_INPUT;
       icon.classList.replace('fa-eye-slash', 'fa-eye');
     } else if (passwordField) {
-      passwordField.type = 'password';
+      passwordField.type = PASSWORD_INPUT;
       icon.classList.replace('fa-eye', 'fa-eye-slash');
     }
   }
