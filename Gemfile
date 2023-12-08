@@ -54,7 +54,7 @@ group :development, :test do
   gem "rspec-rails"
 end
 
-group :development, :staging do
+group :development, :staging, :production do
   gem "rails_db", "~> 2.4"
 end
 

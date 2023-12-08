@@ -1,9 +1,4 @@
-puts "=" * 100
-puts Rails.env
-puts Object.const_defined?(:RailsDb)
-puts "=" * 100
-
-if !Rails.env.production? && Object.const_defined?(:RailsDb)
+if (!Rails.env.production? || Rails.env.staging?) && Object.const_defined?(:RailsDb)
   RailsDb.setup do |config|
     # # enabled or not
     # config.enabled = Rails.env.development?
