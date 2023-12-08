@@ -4,7 +4,7 @@ RSpec.describe DatabaseService do
   let(:command_enable) { "rake 'db:dump[zero_waste_sandbox.dump]'" }
   let(:command_disable) { "rake 'db:restore[zero_waste_sandbox.dump]'" }
   let(:backup_file) { described_class.backup_full_path(described_class::BACKUP_SANDBOX_NAME) }
-  
+
   describe ".sandbox_enable" do
     context "when dump_flag is true" do
       it "runs dump command and returns true" do
