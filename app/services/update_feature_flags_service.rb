@@ -9,7 +9,7 @@ class UpdateFeatureFlagsService
       is_enabled   = @feature_params["#{feature_name}_enabled"].to_s == "1"
 
       next if Flipper.enabled?(feature_name) == is_enabled
-      SandBoxService.enable(is_enabled) if feature_name == "sandbox_mode"
+      is_enabled = DatabaseService.sandbox_enable(is_enabled) if feature_name == "sandbox_mode"
       Flipper.public_send((is_enabled ? "enable" : "disable").to_s, feature_name)
     end
   end

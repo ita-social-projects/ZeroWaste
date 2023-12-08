@@ -2,6 +2,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
   require "flipper/adapters/active_record"
 
   require_relative "flipper_feature"
+  require_relative "../../../app/services/database_service"
 
   Flipper.configure do |config|
     config.default do
@@ -9,10 +10,17 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
     end
   end
 
-  Flipper.features.each do |feature|
-    Flipper.enable(feature.name) if Rails.env.development? # || Rails.env.staging?
+  if Rails.env.production?
+    Flipper.remove(:sandbox_mode)
+  else 
+    Flipper.features.each do |feature|
+      if feature.name == "sandbox_mode" && !DatabaseService.sandbox_enabled?
+        Flipper.disable(feature.name)
+      else
+        Flipper.enable(feature.name)
+      end
+    end
   end
 
-  Flipper.disable(:sandbox_mode) if Flipper.enabled?(:sandbox_mode)
   Flipper.remove(:sandbox_mode) if Rails.env.production?
 end
