@@ -41,7 +41,7 @@
 
 </fieldset>
 
-<% if !Rails.env.production? %>
+<% if Rails.env.development? || Rails.env.staging? %>
   <fieldset class="bordered">
     <legend class="admin-legend">
       <%= t(".dev_features") %>
