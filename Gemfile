@@ -54,6 +54,10 @@ group :development, :test do
   gem "rspec-rails"
 end
 
+group :development, :staging do
+  gem "rails_db", "~> 2.4"
+end
+
 group :development, :test, :ci do
   # Code linters
   gem "rubocop", "~> 1.39", require: false
@@ -79,7 +83,6 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rails-tail-log"
   gem "ed25519"
-  gem "rails_db", "~> 2.4"
 end
 
 # group :ci do
