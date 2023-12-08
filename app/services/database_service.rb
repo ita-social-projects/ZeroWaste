@@ -51,7 +51,7 @@ class DatabaseService
   end
 
   def self.prune_old_backups
-    files = Dir.entries(BACKUP_ARCHIVE_DIR).select { |f| File.file?(File.join(BACKUP_ARCHIVE_DIR, f)) }
+    files       = Dir.entries(BACKUP_ARCHIVE_DIR).select { |f| File.file?(File.join(BACKUP_ARCHIVE_DIR, f)) }
     oldest_file = files.min_by { |f| File.mtime(File.join(BACKUP_ARCHIVE_DIR, f)) }
     FileUtils.rm(File.join(BACKUP_ARCHIVE_DIR, oldest_file))
   end

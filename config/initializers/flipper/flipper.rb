@@ -12,7 +12,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
 
   if Rails.env.production?
     Flipper.remove(:sandbox_mode)
-  else 
+  else
     Flipper.features.each do |feature|
       if feature.name == "sandbox_mode" && !DatabaseService.sandbox_enabled?
         Flipper.disable(feature.name)
