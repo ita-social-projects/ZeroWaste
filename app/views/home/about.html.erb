@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= t('about_us.title') %></title>
+</head>
+<body>
+  <main>
+    <section>
+      <h1 class="page-about"><%= t('about_us.title') %></h1>
+      <p><%= t('about_us.description.first_paragraph') %></p>
+      <p><%= t('about_us.description.second_paragraph') %></p>
+      <p><%= t('about_us.description.third_paragraph') %></p>
+    </section>
+    <section>
+      <h1 class="page-about"><%= t('our_team.title') %></h1>
+      <p><%= t('our_team.description') %></p>
+    </section>
+    <div class="about-logo">
+      <%= image_tag "logo_zerowaste.png", class: "logo-zerowaste" %>
+      <%= image_tag "softserve_academy_logo.png", class: "logo-zerowaste" %>
+    </div>
+  </main>
+  <footer class="footer-about">
+    <p><%= t('footer_about') %> <a href="https://zerowastelviv.org.ua/"> https://zerowastelviv.org.ua</a></p>
+  </footer>
+</body>
+</html>
