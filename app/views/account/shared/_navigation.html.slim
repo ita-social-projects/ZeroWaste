@@ -6,7 +6,7 @@ body
         = link_to t('.calculators'), calculators_path, class: 'tab'
       - else
         = link_to t('layouts.navigation.calculate'), calculator_path, class: 'tab'
-      = link_to t('layouts.navigation.about_us'), about_us_path, class: 'tab'
+      = link_to t('layouts.navigation.about_us'), about_path, class: 'tab'
       = link_to t('layouts.navigation.contact_us'), new_message_path, class: 'tab'
       - if user_signed_in?
         - if current_user.admin?
