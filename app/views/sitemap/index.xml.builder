@@ -14,7 +14,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9", "xmlns:imag
     end
 
     xml.url do
-      xml.loc about_us_url
+      xml.loc about_path
       xml.lastmod Time.now.iso8601
       xml.changefreq "yearly"
     end
