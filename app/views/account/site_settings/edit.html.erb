@@ -41,14 +41,13 @@
 
 </fieldset>
 
-<% if Rails.env.development? || Rails.env.staging? %>
-  <fieldset class="bordered">
-    <legend class="admin-legend">
-      <%= t(".dev_features") %>
-    </legend>
-    <p class="mb-3">
-      <%= t(".rails_db_description") %>
-    </p>
-    <%= link_to "Rails DB", rails_db_path, class: "btn btn-secondary mr-2" %>
-  </fieldset>
-<% end %>
+
+<fieldset class="bordered">
+  <legend class="admin-legend">
+    <%= t(".dev_features") %>
+  </legend>
+  <p class="mb-3">
+    <%= t(".rails_db_description") %>
+  </p>
+  <%= link_to "Rails DB", rails_db_path, class: "btn btn-secondary mr-2" %>
+</fieldset>

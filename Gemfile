@@ -54,10 +54,6 @@ group :development, :test do
   gem "rspec-rails"
 end
 
-group :development, :staging, :production do
-  gem "rails_db", "~> 2.4"
-end
-
 group :development, :test, :ci do
   # Code linters
   gem "rubocop", "~> 1.39", require: false
@@ -119,3 +115,4 @@ gem "requestjs-rails"
 gem "flipper"
 gem "flipper-active_record"
 gem "ransack"
+gem "rails_db", "~> 2.4"
