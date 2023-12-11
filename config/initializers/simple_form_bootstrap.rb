@@ -16,6 +16,7 @@ FORM_CHECK_INPUT       = "form-check-input"
 FORM_CONTROL           = "form-control"
 FORM_GROUP             = "form-group"
 FORM_LABEL             = "form-label"
+FORM_LABEL_BLOCK       = "form-label d-block"
 FORM_SELECT            = "form-select"
 FORM_TEXT              = "form-text"
 FLEX                   = "d-flex flex-row justify-content-between align-items-center"
@@ -364,6 +365,15 @@ SimpleForm.setup do |config|
     b.use :label
     b.use :full_error, wrap_with: { class: INVALID_FEEDBACK }
     b.use :hint, wrap_with: { class: FORM_TEXT }
+  end
+
+  # custom vertical select 
+  config.wrappers :custom_vertical_select, class: MB do |b|
+    b.use :html5
+    b.optional :readonly    
+    b.use :label, class: FORM_LABEL_BLOCK
+    b.use :input
+    b.use :full_error, wrap_with: { class: INVALID_FEEDBACK_BLOCK }    
   end
 
   # The default wrapper to be used by the FormBuilder.
