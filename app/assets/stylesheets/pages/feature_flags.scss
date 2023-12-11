@@ -55,7 +55,7 @@ input[type="submit"] {
   }
 }
 
-button.btn-revert {
+button.btn-grey, a.btn-grey {
   background-color: $grey;
   border: none;
   border-radius: 4px;
@@ -64,11 +64,15 @@ button.btn-revert {
   font-size: 16px;
   padding: 10px;
   min-width: 110px;
-  margin-left: 20px;
+  text-align: center;
 
   &:hover {
     background-color: $dark_gray;
   }
+}
+
+button.btn-grey {
+  margin-left: 20px;
 }
 
 .right-bottom {
