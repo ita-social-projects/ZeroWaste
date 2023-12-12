@@ -21,7 +21,11 @@ class CalculatorDecorator
       money_spent: result.used_diapers_price.round(1),
       money_will_be_spent: result.to_be_used_diapers_price.round(1),
       used_diapers_amount: result.used_diapers_amount,
-      to_be_used_diapers_amount: result.to_be_used_diapers_amount
+      to_be_used_diapers_amount: result.to_be_used_diapers_amount,
+      used_diapers_amount_pluralize: I18n.t("calculators.#{calculator_type}_calculator.bought_diapers",
+                                            count: result.used_diapers_amount.ceil),
+      to_be_diapers_amount_pluralize: I18n.t("calculators.#{calculator_type}_calculator.will_buy_diapers",
+                                             count: result.to_be_used_diapers_amount.ceil)
     }
   end
 
