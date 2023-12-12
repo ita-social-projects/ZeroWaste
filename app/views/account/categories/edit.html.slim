@@ -12,7 +12,7 @@ few
     .form-group.row
       .col-12.has-float-label.my-auto
         = f.input :name, class: 'form-control col-sm-11', required: true
-        = f.input :priority, class: 'form-control col-sm-11', input_html: { min: 0 }
+        = f.input :priority, collection: Category::PRIORITY_RANGE, selected: @category.priority, wrapper: :custom_vertical_select
     .div.d-flex
         = f.submit t('buttons.update'), class: 'btn btn-success me-2 height w-auto'
         = link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center justify-content-center height-auto w-auto' do
