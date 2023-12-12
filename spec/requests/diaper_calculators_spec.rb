@@ -105,7 +105,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       it "translates used and to-be-used diapers amounts" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-        expected_used_diapers = I18n.t("calculators.old_calculator.bought_diapers", count: values[:used_diapers_amount])
+        expected_used_diapers       = I18n.t("calculators.old_calculator.bought_diapers", count: values[:used_diapers_amount])
         expected_to_be_used_diapers = I18n.t("calculators.old_calculator.will_buy_diapers", count: values[:to_be_used_diapers_amount])
 
         expect(JSON.parse(response.body)["result"]["used_diapers_amount_pluralize"]).to eq(expected_used_diapers)
