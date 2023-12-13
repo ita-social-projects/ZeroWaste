@@ -2,30 +2,37 @@ class DatabaseService
   BACKUP_SANDBOX_NAME = "zero_waste_sandbox.dump".freeze
   BACKUP_DIR          = Rails.root.join("db", "backups").freeze
   BACKUP_ARCHIVE_DIR  = Rails.root.join(BACKUP_DIR, "archive").freeze
+  MAX_NUMBER_BACKUP   = 10
 
   def self.sandbox_enable(dump_flag)
-    operation = dump_flag ? "dump" : "restore"
-    command   = "rake 'db:#{operation}[#{BACKUP_SANDBOX_NAME}]'"
+    dump_flag.tap do
+      return dump_flag if sandbox_enabled? == dump_flag
 
-    return !dump_flag unless system(command)
+      operation = dump_flag ? "dump" : "restore"
+      command   = "rake 'db:#{operation}[#{BACKUP_SANDBOX_NAME}]'"
 
-    copy_to_archive(backup_full_path(BACKUP_SANDBOX_NAME)) unless dump_flag
-    dump_flag
+      return !dump_flag unless system(command)
+
+      copy_to_archive(backup_full_path(BACKUP_SANDBOX_NAME)) unless dump_flag
+    end
   end
 
   def self.sandbox_enabled?
-    backup_file = File.join(backup_directory, BACKUP_SANDBOX_NAME)
+    backup_file = File.join(BACKUP_DIR, BACKUP_SANDBOX_NAME)
+
     File.exist?(backup_file)
   end
 
-  def self.backup_directory
-    FileUtils.mkdir_p(BACKUP_DIR)
+  def self.init_backup_directory
+    ensure_directory_exists(BACKUP_DIR)
+
     BACKUP_DIR
   end
 
   def self.backup_full_path(file_name = "")
     file_name = generate_backup_filename if file_name.blank?
-    File.join(backup_directory, file_name)
+
+    File.join(init_backup_directory, file_name)
   end
 
   def self.database_name
@@ -33,8 +40,9 @@ class DatabaseService
   end
 
   def self.copy_to_archive(backup_file)
-    FileUtils.mkdir_p(BACKUP_ARCHIVE_DIR)
-    prune_old_backups if Dir.entries(BACKUP_ARCHIVE_DIR).count > 10
+    ensure_directory_exists(BACKUP_ARCHIVE_DIR)
+
+    prune_old_backups if Dir.entries(BACKUP_ARCHIVE_DIR).count > MAX_NUMBER_BACKUP
 
     timestamp     = Time.current.strftime("%Y%m%d%H%M%S")
     new_file_name = "#{timestamp}_#{File.basename(backup_file)}"
@@ -46,6 +54,10 @@ class DatabaseService
 
   private_class_method
 
+  def self.ensure_directory_exists(directory)
+    FileUtils.mkdir_p(directory)
+  end
+
   def self.generate_backup_filename
     "#{Time.current.strftime("%Y%m%d%H%M%S")}_#{database_name}.dump"
   end
@@ -53,6 +65,7 @@ class DatabaseService
   def self.prune_old_backups
     files       = Dir.entries(BACKUP_ARCHIVE_DIR).select { |f| File.file?(File.join(BACKUP_ARCHIVE_DIR, f)) }
     oldest_file = files.min_by { |f| File.mtime(File.join(BACKUP_ARCHIVE_DIR, f)) }
+
     FileUtils.rm(File.join(BACKUP_ARCHIVE_DIR, oldest_file))
   end
 end

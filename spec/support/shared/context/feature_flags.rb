@@ -26,16 +26,14 @@ RSpec.shared_context :hide_calculators_list do
   end
 end
 
-RSpec.shared_context :sandbox_mode_enable do
-  before do
-    FeatureFlag.find_or_create_by!(name: "sandbox_mode")
-    Flipper.enable :sandbox_mode
+def sandbox_mode_context(mode)
+  RSpec.shared_context :"sandbox_mode_#{mode}" do
+    before do
+      FeatureFlag.find_or_create_by!(name: "sandbox_mode")
+      Flipper.send(mode, :sandbox_mode)
+    end
   end
 end
 
-RSpec.shared_context :sandbox_mode_disable do
-  before do
-    FeatureFlag.find_or_create_by!(name: "sandbox_mode")
-    Flipper.disable :sandbox_mode
-  end
-end
+sandbox_mode_context(:enable)
+sandbox_mode_context(:disable)

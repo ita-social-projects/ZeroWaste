@@ -34,11 +34,8 @@
       </div>
     <% end %>
 
-    <div data-controller="button">
-      <%= f.submit t("buttons.save"), data: { action: "click->button#press_button" } %>
-      <div class="mask" data-button-target="loader_mask">
-        <div class="loader"></div>
-      </div>
+    <div data-controller="loader">
+      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" } %>
     </div>
   <% end %>
 </fieldset>
