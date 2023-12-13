@@ -3,13 +3,13 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
 
   connect() {
-    console.log ("createLoaderMask")
     this.createLoaderMask();
   }
 
   createLoaderMask() {
     const maskDiv = document.createElement('div');
     maskDiv.classList.add('mask');
+
     maskDiv.setAttribute('data-loader-target', 'loader_mask');
 
     const loaderDiv = document.createElement('div');
