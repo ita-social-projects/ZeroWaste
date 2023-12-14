@@ -430,7 +430,8 @@ uk:
         calculator:
           attributes:
             name:
-              name_format_validation: допускаються тільки літери та цифри
+              too_long: " занадто довга (максимум %{count} знаків)"
+              name_format_validation: " допускаються тільки літери та цифри"
         category:
           attributes:
             name:
