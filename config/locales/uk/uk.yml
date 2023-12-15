@@ -258,6 +258,7 @@ uk:
           update_calculator_button: "Оновити калькулятор"
       new:
         create_calculator_button: "Створити калькулятор"
+        cancel_button: "Скасувати"
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
