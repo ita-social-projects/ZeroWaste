@@ -1,91 +1,97 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-success">
-  <div class="container-fluid">
-    <%= link_to root_path, title: t('.homepage'), class: 'logo-zerowaste' do %>
-      <%= image_tag('logo_zerowaste.png', alt: t(".zerowaste_logo")) %>
-    <% end %>
+<nav class="text-xl bg-slate-50 h-24">
+  <div class="flex">
+    <%= link_to root_path, title: t('.homepage'), class: "flex" do %>
+      <%= image_tag('logo_zerowaste.png', alt: t(".zerowaste_logo"), class: "w-36 h-autogit") %>
+    <% end %>  
 
-    <div id="navbarNav" class="collapse navbar-collapse row navbar order-lg-0">
-      <ul class="navbar-nav mt-1">
-        <li class="mx-3">
-          <%= link_to_unless_current t('.calculators'), account_calculators_path, title: t('.calculators'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+    <div id="navbarNav" class="flex items-center ml-auto h-full mt-3">
+      <ul class="admin-menu-list">
+        <li class="mx-4">
+          <%= link_to_unless_current t('.calculators'), account_calculators_path, title: t('.calculators'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.calculators') %>
             </p>
           <% end %>
         </li>
 
-        <li class="mx-3">
-          <%= link_to_unless_current t('.histories'), account_histories_path, title: t('.histories'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+        <li class="mx-4">
+          <%= link_to_unless_current t('.histories'), account_histories_path, title: t('.histories'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.histories') %>
             </p>
           <% end %>
         </li>
 
-        <li class="mx-3">
-          <%= link_to_unless_current t('.users'), account_users_path, title: t('.users'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+        <li class="mx-4">
+          <%= link_to_unless_current t('.users'), account_users_path, title: t('.users'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.users') %>
             </p>
           <% end %>
         </li>
 
-        <li class="mx-3">
-          <%= link_to_unless_current t('.messages'), account_messages_path, title: t('.messages'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+        <li class="mx-4">
+          <%= link_to_unless_current t('.messages'), account_messages_path, title: t('.messages'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.messages') %>
             </p>
           <% end %>
         </li>
 
-        <li class="mx-3">
-          <%= link_to_unless_current t('.app_config'), edit_account_app_config_path, title: t('.app_config'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+        <li class="mx-4">
+          <%= link_to_unless_current t('.app_config'), edit_account_app_config_path, title: t('.app_config'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.app_config') %>
             </p>
           <% end %>
         </li>
 
-        <li class="mx-3">
-          <%= link_to_unless_current t('.products'), account_products_path, title: t('.products'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+        <li class="mx-4">
+          <%= link_to_unless_current t('.products'), account_products_path, title: t('.products'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.products') %>
             </p>
           <% end %>
-        </li>
+        </li>   
 
-        <li class="mx-3">
-          <%= link_to_unless_current t('.categories'), account_categories_path, title: t('.categories'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+        <li class="mx-4">
+          <%= link_to_unless_current t('.categories'), account_categories_path, title: t('.categories'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.categories') %>
             </p>
           <% end %>
-        </li>
+        </li> 
 
-        <li class="mx-3">
-          <%= link_to_unless_current t('.site_settings'), edit_account_site_setting_path, title: t('.site_settings'), class: "navbar-brand text-success" do %>
-            <p class="navbar-brand tab-active">
+         <li class="mx-4">
+          <%= link_to_unless_current t('.site_settings'), edit_account_site_setting_path, title: t('.site_settings'), class: "admin-menu-item" do %>
+            <p class="tab-active"> 
               <%= t('.site_settings') %>
             </p>
           <% end %>
-        </li>
+        </li> 
       </ul>
-    </div>
 
-    <div class="d-flex order-lg-1">
-      <div id="lang-btn" class="me-3 align-middle">
-        <%= link_to url_for(locale: switch_locale_to), class: 'btn btn-outline-success btn-sm px-2 mt-0' do %>
-          <%= t("#{switch_locale_to}") %>
-        <% end %>
+      <div class="flex">  
+        <div id="lang-btn" class="mt-3 mr-6 ml-4">
+          <%= link_to url_for(locale: switch_locale_to), class: 'locale-button' do %>
+            <%= t("#{switch_locale_to}") %>
+          <% end %>
+        </div>
       </div>
+   
+      <button id="burger-btn" class="admin-menu-burger-button"
+              type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+              onclick="document.getElementById('navbarNav').classList.toggle('hidden');">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0zM0 9h20v2H0zM0 15h20v2H0z"/></svg>
+      </button>  
 
-      <button id="burger-btn" class="navbar-toggler nav-toggler collapsed ms-auto d-flex d-lg-none flex-column justify-content-around align-bottom"
-        type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="burger-btn" class="ml-auto flex flex-col justify-around items-end lg:hidden"
+              type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="toggler-icon top-bar"></span>
         <span class="toggler-icon middle-bar"></span>
         <span class="toggler-icon bottom-bar"></span>
       </button>
+    
     </div>
   </div>
-</nav>
+</nav>  

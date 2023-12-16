@@ -5,10 +5,17 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb}'
+    './app/views/**/*.erb'
   ],
   theme: {
     extend: {
+      colors: {
+        'green': {
+          light: '#8fba3b',
+          dark: '#256d36',
+        },
+      },
+
       fontFamily: {
         sans: ['Comfortaa', ...defaultTheme.fontFamily.sans],
       },

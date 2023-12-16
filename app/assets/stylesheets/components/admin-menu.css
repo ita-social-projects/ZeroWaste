@@ -1,0 +1,21 @@
+@layer base {
+  .admin-menu-item {
+    @apply text-green-light hover:text-green-dark whitespace-nowrap
+  }
+  
+  .admin-menu-burger-button {
+    @apply lg:hidden text-green-light hover:text-green-dark focus:outline-none focus:text-green-dark
+  }
+
+  .locale-button {
+    @apply inline-block border border-green-light text-green-light hover:bg-green-light hover:text-green-dark text-sm px-2 py-1 rounded
+  }
+
+  .admin-menu-list {
+    @apply flex flex-col  lg:flex-row mt-4 lg:mx-2 space-y-4 lg:space-y-0
+  }
+}
+
+.border-left-green {
+  border-left-color: green; 
+}
