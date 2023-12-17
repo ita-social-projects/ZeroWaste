@@ -449,38 +449,3 @@ body:where(.admin)::before {
     margin-left: 16px;
   }
 }
-
-// Password eye-icon
-.password-wrapper,
-.password-wrapper-hint {
-  position: relative;
-}
-
-.password-field {
-  padding-right: 40px;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  transform: translateY(-188%);
-  z-index: 1000;
-  cursor: pointer;
-}
-
-.password-wrapper-hint .toggle-password {
-  top: 50%;
-  transform: translateY(-98%);
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-.input-group-addon.toggle-password {
-  cursor: pointer;
-  background-color: #fff;
-  border: none;
-}
-
-.input-group-addon.toggle-password i {
-  color: #8fba3b;
-}

@@ -10,12 +10,12 @@
       <%= f.input :country %>
       <%= f.input :role, collection: ['user', 'admin'] %>
 
-      <div class="password-wrapper-hint" data-controller="password-visibility">
+      <div class="password-wrapper" data-controller="password-visibility">
         <%= f.input :password, input_html: { data: { 'password-visibility-target': 'password' } }, hint: t('.form.password_hint'), required: true %>
         <%= render 'shared/password_icon' %>
       </div>
 
-      <div class="password-wrapper-hint" data-controller="password-visibility">
+      <div class="password-wrapper" data-controller="password-visibility">
         <%= f.input :password_confirmation, input_html: { data: { 'password-visibility-target': 'password' } }, required: true %>
         <%= render 'shared/password_icon' %>
       </div>
