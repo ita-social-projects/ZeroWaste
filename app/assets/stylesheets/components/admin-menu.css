@@ -1,21 +1,22 @@
 @layer base {
+  .admin-menu-navbar {
+    @apply items-center lg:ml-auto h-full 
+  }
+  
   .admin-menu-item {
     @apply text-green-light hover:text-green-dark whitespace-nowrap
   }
   
   .admin-menu-burger-button {
-    @apply lg:hidden text-green-light hover:text-green-dark focus:outline-none focus:text-green-dark
+    @apply lg:hidden flex items-center text-green-light pt-8 pr-4 ml-auto
   }
 
   .locale-button {
-    @apply inline-block border border-green-light text-green-light hover:bg-green-light hover:text-green-dark text-sm px-2 py-1 rounded
+    @apply inline-block border border-green-light text-green-light hover:bg-green-light hover:text-green-dark text-sm px-2 py-1 rounded ml-auto mt-7 mr-6 ml-4
   }
 
   .admin-menu-list {
-    @apply flex flex-col  lg:flex-row mt-4 lg:mx-2 space-y-4 lg:space-y-0
+    @apply flex flex-col lg:flex-row mt-8 lg:mx-2 space-y-6 lg:space-y-0
   }
 }
 
-.border-left-green {
-  border-left-color: green; 
-}
