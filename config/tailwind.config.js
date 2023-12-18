@@ -10,10 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'green': {
-          light: '#8fba3b',
-          dark: '#256d36',
-        },
+        success: '#8fba3b',
+        dark_green: '#256d36',
       },
 
       fontFamily: {

@@ -4,15 +4,15 @@
   }
   
   .admin-menu-item {
-    @apply text-green-light hover:text-green-dark whitespace-nowrap
+    @apply text-success hover:text-dark_green whitespace-nowrap
   }
   
   .admin-menu-burger-button {
-    @apply lg:hidden flex items-center text-green-light pt-8 pr-4 ml-auto
+    @apply lg:hidden flex items-center text-success pt-8 pr-4 ml-auto
   }
 
   .locale-button {
-    @apply inline-block border border-green-light text-green-light hover:bg-green-light hover:text-green-dark text-sm px-2 py-1 rounded ml-auto mt-7 mr-6 ml-4
+    @apply inline-block border border-success text-success hover:bg-success hover:text-dark_green text-sm px-2 py-1 rounded ml-auto mt-7 mr-6 ml-4
   }
 
   .admin-menu-list {
