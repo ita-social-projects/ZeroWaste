@@ -110,7 +110,6 @@ gem "simple_form"
 gem "slim-rails"
 gem "stimulus-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "toastr-rails"
 gem "requestjs-rails"
 gem "flipper"
 gem "flipper-active_record"
