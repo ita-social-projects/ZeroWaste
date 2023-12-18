@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <title><%= SiteSetting.current.title %></title>
+  <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) %>
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "https://ga.jspm.io/npm:toastify-js@1.12.0/src/toastify.css", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+<body class="admin">
+  <%= render 'layouts/flash_messages' %>
+  <%= render 'layouts/account_navbar' %>
+  <div class="container admin-container">
+    <%= yield %>
+  </div>
+</body>
+</html>
