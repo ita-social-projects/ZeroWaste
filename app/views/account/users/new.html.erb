@@ -11,12 +11,12 @@
       <%= f.input :role, collection: ['user', 'admin'] %>
 
       <div class="password-wrapper" data-controller="password-visibility">
-        <%= f.input :password, input_html: { data: { 'password-visibility-target': 'password' } }, hint: t('.form.password_hint'), required: true %>
+        <%= f.input :password, input_html: { data: { password_visibility_target: 'password' } }, hint: t('.form.password_hint'), required: true %>
         <%= render 'shared/password_icon' %>
       </div>
 
       <div class="password-wrapper" data-controller="password-visibility">
-        <%= f.input :password_confirmation, input_html: { data: { 'password-visibility-target': 'password' } }, required: true %>
+        <%= f.input :password_confirmation, input_html: { data: { password_visibility_target: 'password' } }, required: true %>
         <%= render 'shared/password_icon' %>
       </div>
 

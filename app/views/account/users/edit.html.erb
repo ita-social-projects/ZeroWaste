@@ -9,12 +9,12 @@
       <%= f.input :country, autofocus: true %>
 
       <div class="password-wrapper" data-controller="password-visibility">
-        <%= f.input :password, autocomplete: 'new-password', hint: t('.form.password_hint'), input_html: { data: { 'password-visibility-target': 'password' } }, required: false %>
+        <%= f.input :password, autocomplete: 'new-password', hint: t('.form.password_hint'), input_html: { data: { password_visibility_target: 'password' } }, required: false %>
         <%= render 'shared/password_icon' %>
       </div>
 
       <div class="password-wrapper" data-controller="password-visibility">
-        <%= f.input :password_confirmation, autocomplete: 'new-password', input_html: { data: { 'password-visibility-target': 'password' } }, required: false %>
+        <%= f.input :password_confirmation, autocomplete: 'new-password', input_html: { data: { password_visibility_target: 'password' } }, required: false %>
         <%= render 'shared/password_icon' %>
       </div>
 
