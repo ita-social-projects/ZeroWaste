@@ -3,7 +3,7 @@ import Toastify from "toastify-js";
 export function showToast(message, background) {
   Toastify({
     text: message,
-    duration: 7777,
+    duration: 20000,
     destination: "",
     close: true,
     gravity: "top",
