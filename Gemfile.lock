@@ -257,6 +257,18 @@ GEM
     json (2.6.3)
     jsonapi-renderer (0.2.2)
     jwt (2.3.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     language_server-protocol (3.17.0.2)
     launchy (2.5.0)
       addressable (~> 2.7)
@@ -392,6 +404,13 @@ GEM
     rails-i18n (7.0.3)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
+    rails_db (2.4.2)
+      activerecord
+      kaminari
+      rails (>= 5.0.0)
+      ransack (>= 2.3.2)
+      simple_form (>= 5.0.1)
+      terminal-table
     railties (7.1.2)
       actionpack (= 7.1.2)
       activesupport (= 7.1.2)
@@ -402,9 +421,9 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.0.0)
     rake (13.1.0)
-    ransack (3.1.0)
-      activerecord (>= 6.0.4)
-      activesupport (>= 6.0.4)
+    ransack (4.1.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
       i18n
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -632,6 +651,7 @@ DEPENDENCIES
   rails (~> 7.1, >= 7.1.2)
   rails-controller-testing
   rails-i18n (~> 7.0.0)
+  rails_db (~> 2.4)
   ransack
   redis (~> 4.0)
   requestjs-rails

@@ -1,11 +1,11 @@
 uk:
   en: English
   buttons:
-    save: 'Зберегти'
-    update: 'Оновити'
-    create: 'Створити'
-    cancel: 'Скасувати'
-    revert: 'Скинути'
+    save: "Зберегти"
+    update: "Оновити"
+    create: "Створити"
+    cancel: "Скасувати"
+    revert: "Скинути"
   calculators:
     new_calculator:
       form:
@@ -20,28 +20,28 @@ uk:
       money_spent: "грн ви вже витратили"
       will_buy_diapers: "підгузків ви ще використаєте"
       money_will_be_spent: "грн ви ще витратите"
-      pieces: шт.
-      unit: грн.
+      pieces: "шт."
+      unit: "грн"
     old_calculator:
       form:
         description: "Вік дитини:"
-        years_prompt: повних років
-        months_prompt: місяців
+        years_prompt: "повних років"
+        months_prompt: "місяців"
       bought_diapers: "підгузків ви вже використали"
       money_spent: "грн ви вже витратили"
       will_buy_diapers: "підгузків ви ще використаєте"
       money_will_be_spent: "грн ви ще витратите"
     errors:
-      year_and_month_error_msg: "Помилка: будь ласка, виберіть скільки років та місяців дитині"
-      year_error_msg: "Помилка: будь ласка, виберіть скільки років дитині"
-      month_error_msg: "Помилка: будь ласка, виберіть скільки місяців дитині"
+      year_and_month_error_msg: "Помилка: будь ласка, виберіть, скільки років та місяців дитині"
+      year_error_msg: "Помилка: будь ласка, виберіть, скільки років дитині"
+      month_error_msg: "Помилка: будь ласка, виберіть, скільки місяців дитині"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
-      bought_diapers: "Кількості підгузків, що вже були використані"
-      will_buy_diapers: "Кількість підгузків, які ще будуть використані"
+      bought_diapers: "Кількість використаних підгузків"
+      will_buy_diapers: "Кількість підгузків, які ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
       money_spent: "Вартість використаних підгузків"
-      money_will_be_spent: "вартість підгузків, які ви ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
+      money_will_be_spent: "Вартість підгузків, які ще будуть використані до моменту, коли дитина перейде на звичайну білизну"
     buttons:
       to_main: "На головну"
       calculate: "Розрахувати"
@@ -77,13 +77,13 @@ uk:
                               та залежать від ваших щоденних звичок та обраної марки підгузків. На будь-якому етапі користування підгузками
                               є можливість зменшити рівень їхнього використання. Запрошуємо вас дізнатися більше про методи, як це можна
                               зробити, та про доступні багаторазові альтернативи одноразовим дитячим підгузкам. А ще ви можете почитати
-                              детальніше про те, %{calculate_link_one:як ми розраховуємо} кількість та вартість підгузків,
+                              докладніше про те, %{calculate_link_one:як ми розраховуємо} кількість та вартість підгузків,
                               або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
     description_button:
       use_less: "%{use_less_link:ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ}"
     homepage:
       homepage_title: "Вас вітає калькулятор підгузків"
-      description: "Цей калькулятор дозволяє порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
+      description: "Цей калькулятор дає змогу порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
       calculate: "Почати"
       visit_website: "Наш сайт"
     account_navbar:
@@ -102,12 +102,12 @@ uk:
       subject: "Ласкаво просимо до ZeroWaste!"
   user_mailer:
     welcome_email:
-      greeting: Ласкаво просимо до ZeroWaste, %{name}
-      login_info: Ви успішно зареєструвалися на zerowaste.com, ваші дані для входу
+      greeting: "Ласкаво просимо до ZeroWaste, %{name}"
+      login_info: "Ви успішно зареєструвалися на zerowaste.com, ваші дані для входу"
       email: "Електронна пошта: %{email}"
       password: "Пароль: %{password}"
-      to_login: Щоб увійти на сайт, просто перейдіть за цим посиланням
-      thanks: Дякуємо за приєднання та гарного дня!
+      to_login: "Щоб увійти на сайт, просто перейдіть за цим посиланням"
+      thanks: "Дякуємо за приєднання та бажаємо гарного дня!"
   messages:
     new:
       contact_us_header: "Зв'яжіться з нами"
@@ -126,7 +126,7 @@ uk:
       about_us: "Про нас"
       calculator-diapers: "Калькулятор підгузків"
       calculators: "Калькулятори"
-      message: "Напиши нам повідомлення"
+      message: "Напишіть нам повідомлення"
   account:
     account:
       edit:
@@ -136,7 +136,7 @@ uk:
         change_password_button: "Змінити пароль"
     app_configs:
       edit:
-        diapers_calculator_config: "Налаштування калькулятора памперсів"
+        diapers_calculator_config: "Налаштування калькулятора підгузків"
         first_period: "Перший період"
         second_period: "Другий період"
         third_period: "Третій період"
@@ -153,7 +153,7 @@ uk:
           title: "Заголовок"
           email: "Електронна пошта"
           message: "Повідомлення"
-          show_more: "Детальніше"
+          show_more: "Докладніше"
       show:
         header: "Інформація"
         table:
@@ -164,29 +164,29 @@ uk:
     categories:
       index:
         table:
-          title: 'Назва'
-          actions: 'Дії'
-          priority: 'Пріоритет'
-        add_category_button: 'Додати категорію'
-        confirm_delete: 'Видалити категорію?'
+          title: "Назва"
+          actions: "Дії"
+          priority: "Пріоритет"
+        add_category_button: "Додати категорію"
+        confirm_delete: "Видалити категорію?"
     products:
       index:
         table:
-          title: 'Назва'
-          prices: 'Ціни'
-          actions: 'Дії'
-        add_product_button: 'Додати продукт'
-        confirm_delete: 'Видалити продукт?'
+          title: "Назва"
+          prices: "Ціни"
+          actions: "Дії"
+        add_product_button: "Додати продукт"
+        confirm_delete: "Видалити продукт?"
       show:
         table:
-          title: 'Назва'
-          prices: 'Ціни'
-          actions: 'Дії'
-        confirm_delete: 'Видалити продукт?'
+          title: "Назва"
+          prices: "Ціни"
+          actions: "Дії"
+        confirm_delete: "Видалити продукт?"
       edit:
-        title: 'Назва'
+        title: "Назва"
       new:
-        title: 'Назва'
+        title: "Назва"
       created: "Продукт був успішно створений."
       updated: "Продукт був успішно оновлений."
       deleted: "Продукт був успішно видалений."
@@ -196,7 +196,7 @@ uk:
         add_user_button: "Створити нового користувача"
         confirm_delete: "Ви справді хочете видалити цього користувача?"
         table:
-          email_col: "Електронна адреса"
+          email_col: "Електронна пошта"
           first_name: "Ім'я"
           last_name: "Прізвище"
           last_visit_col: "Час останнього візиту"
@@ -221,7 +221,7 @@ uk:
           name_label: "Ім'я"
           surname_label: "Прізвище"
           password_hint: "Залиште порожнім, якщо не хочете змінювати"
-          avatar_hint: "Розмір зображення не має перевищувати 2 Мб. Дозволені типи файлів: PNG,JPG та JPEG"
+          avatar_hint: "Розмір зображення не має перевищувати 2 Мб. Дозволені типи файлів: PNG, JPG та JPEG"
           update_user_button: "Оновити інформацію"
       show:
         header: "Інформація про користувача"
@@ -258,15 +258,18 @@ uk:
           update_calculator_button: "Оновити калькулятор"
       new:
         create_calculator_button: "Створити калькулятор"
+        cancel_button: "Скасувати"
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
     site_settings:
       edit:
-        site_settings: Налаштування сайту
-        site_features: Особливості сайту
-        apply_button: 'Застосувати'
-        confirm_default: Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та значка сайту?
+        site_settings: "Налаштування сайту"
+        site_features: "Особливості сайту"
+        rails_db_description: "Доступ до бази даних (лише перегляд)"
+        dev_features: "Для розробників"
+        apply_button: "Застосувати"
+        confirm_default: "Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та іконки сайту?"
     feature_flags:
       submit_button: "Зберегти"
       new_calculator_design:
@@ -290,31 +293,31 @@ uk:
         resend_confirmation_instructions_button: "Повторно надіслати інструкцію з підтвердженням"
     mailer:
       confirmation_instructions:
-        greetings_to_user: Ласкаво просимо, %{recipient}!
+        greetings_to_user: "Ласкаво просимо, %{recipient}!"
         confirmation_email_through_link: "Ви можете підтвердити свій акаунт за посиланням нижче:"
         confirmation_account_link: "Підтвердити мій акаунт"
       email_changed:
         greeting: Привіт, %{recipient}!
-        message_confirmed: Ми пишемо, щоб повідомити про зміну Вашої електронної пошти на %{email}.
-        message_unconfirmed: Ми пишемо, щоб повідомити, що Вашу електронну пошту змінено на %{email}.
+        message_confirmed: "Ми пишемо, щоб повідомити, що вашу електронну пошту було змінено на %{email}."
+        message_unconfirmed: "Ми пишемо, щоб повідомити, що вашу електронну пошту буде змінено на %{email}."
       password_change:
-        greeting: Привіт, %{recipient}!
-        successful_change: "Ми пишемо, щоб повідомити про зміну Вашого пароля"
+        greeting: "Привіт, %{recipient}!"
+        successful_change: "Ми пишемо, щоб повідомити про зміну вашого пароля"
       reset_password_instructions:
-        greeting: Привіт %{recipient}!
+        greeting: "Привіт, %{recipient}!"
         change_password_link: "Змінити мій пароль"
-        request_change_password: "Хтось надіслав запит на зміну Вашого пароля. Ви можете зробити це за посиланням нижче"
+        request_change_password: "Хтось надіслав запит на зміну вашого пароля. Ви можете зробити це за посиланням нижче:"
         ignore_email: "Якщо ви не надсилали запит, будь ласка, проігноруйте цей лист."
-        access_to_changing: "Ваш пароль не буде змінено, доки Ви не перейдете за посиланням вище та не зміните його."
+        access_to_changing: "Ваш пароль не буде змінено, доки ви не перейдете за посиланням вище та не зміните його."
       unlock_instructions:
-        greeting: Привіт, %{recipient}!
+        greeting: "Привіт, %{recipient}!"
         locked_message: "Ваш акаунт було заблоковано через надто велику кількість неуспішних спроб увійти."
-        unlock_your_account: "Натисніть на посилання нижче, аби розблокувати Ваш акаунт:"
+        unlock_your_account: "Натисніть на посилання нижче, щоб розблокувати ваш акаунт:"
         unlock_link: "Розблокувати мій акаунт"
     unlocks:
       new:
-        resend_unlock_instructions_header: "Повторно надіслати інструкцію розблокування"
-        resend_unlock_instructions_button: "Повторно надіслати інструкцію розблокування"
+        resend_unlock_instructions_header: "Повторно надіслати інструкцію з розблокування"
+        resend_unlock_instructions_button: "Повторно надіслати інструкцію з розблокування"
     passwords:
       password:
         blank: "Новий пароль не може бути порожнім"
@@ -369,10 +372,10 @@ uk:
       new:
         sign_up_header: "Зареєструватися"
         form:
-          email_label: "Поштова Скринька"
+          email_label: "Електронна пошта"
           password_label: "Пароль"
-          password_characters_minimum_label: "Мінімум Символів"
-          password_confirmation_label: "Підтвердження Паролю"
+          password_characters_minimum_label: "Мінімум символів"
+          password_confirmation_label: "Підтвердження паролю"
           first_name_label: "Ім'я"
           last_name_label: "Прізвище"
           sign_up_button: "Зареєструватися"
@@ -391,14 +394,14 @@ uk:
         resend_confirmation_button: "Надіслати запит на підтвердження знову"
         resend_confirmation_instructions_header: "Надіслати запит на підтвердження знову"
     failure:
-      timeout: "Час вашої сесії закінчено. Будь ласка, увійдіть у систему знову"
+      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову."
   models:
     calculator: "Калькулятор"
     category: "Категорію"
   activerecord:
     form_errors:
-      one: "Одна помилка перешкоджає зберегти %{model}"
-      few: "%{count} помилки перешкоджають зберегти %{model}"
+      one: "Одна помилка перешкоджає зберегти %{model}:"
+      few: "%{count} помилки перешкоджають зберегти %{model}:"
     attributes:
       user:
         email: "Електронна пошта"
@@ -428,51 +431,51 @@ uk:
         calculator:
           attributes:
             name:
-              name_format_validation: допускаються тільки літери та цифри
+              name_format_validation: "допускаються тільки літери та цифри"
         category:
           attributes:
             name:
-              blank: не може бути пустою
+              blank: "не може бути пустою"
               too_long:
-                one: занадто довга (максимум %{count} знак)
-                few: занадто довга (максимум %{count} знаки)
-                many: занадто довга (максимум %{count} знаків)
-                other: занадто довга (максимум %{count} знаку)
+                one: "занадто довга (максимум %{count} знак)"
+                few: "занадто довга (максимум %{count} знаки)"
+                many: "занадто довга (максимум %{count} знаків)"
+                other: "занадто довга (максимум %{count} знаків)"
               too_short:
-                one: занадто коротка (мінімум %{count} знак)
-                few: занадто коротка (мінімум %{count} знаки)
-                many: занадто коротка (мінімум %{count} знаків)
-                other: занадто коротка (мінімум %{count} знаку)
+                one: "занадто коротка (мінімум %{count} знак)"
+                few: "занадто коротка (мінімум %{count} знаки)"
+                many: "занадто коротка (мінімум %{count} знаків)"
+                other: "занадто коротка (мінімум %{count} знаків)"
         site_setting:
           attributes:
             title:
-              blank: не може бути пустою
+              blank: "не може бути пустою"
               too_long:
-                one: занадто довга (максимум %{count} знак)
-                few: занадто довга (максимум %{count} знаки)
-                many: занадто довга (максимум %{count} знаків)
-                other: занадто довга (максимум %{count} знаку)
+                one: "занадто довга (максимум %{count} знак)"
+                few: "занадто довга (максимум %{count} знаки)"
+                many: "занадто довга (максимум %{count} знаків)"
+                other: "занадто довга (максимум %{count} знаків)"
               too_short:
-                one: занадто коротка (мінімум %{count} знак)
-                few: занадто коротка (мінімум %{count} знаки)
-                many: занадто коротка (мінімум %{count} знаків)
-                other: занадто коротка (мінімум %{count} знаку)
+                one: "занадто коротка (мінімум %{count} знак)"
+                few: "занадто коротка (мінімум %{count} знаки)"
+                many: "занадто коротка (мінімум %{count} знаків)"
+                other: "занадто коротка (мінімум %{count} знаків)"
         product:
           attributes:
             title:
-              blank: не може бути пустою
+              blank: "не може бути пустою"
               too_long:
-                one: занадто довга (максимум %{count} знак)
-                few: занадто довга (максимум %{count} знаки)
-                many: занадто довга (максимум %{count} знаків)
-                other: занадто довга (максимум %{count} знаку)
+                one: "занадто довга (максимум %{count} знак)"
+                few: "занадто довга (максимум %{count} знаки)"
+                many: "занадто довга (максимум %{count} знаків)"
+                other: "занадто довга (максимум %{count} знаків)"
               too_short:
-                one: занадто коротка (мінімум %{count} знак)
-                few: занадто коротка (мінімум %{count} знаки)
-                many: занадто коротка (мінімум %{count} знаків)
-                other: занадто коротка (мінімум %{count} знаку)
-              taken: вже викориcтовується, будь ласка оберіть іншу
-              invalid: містить неприпустимі символи
+                one: "занадто коротка (мінімум %{count} знак)"
+                few: "занадто коротка (мінімум %{count} знаки)"
+                many: "занадто коротка (мінімум %{count} знаків)"
+                other: "занадто коротка (мінімум %{count} знаків)"
+              taken: "вже викориcтовується, будь ласка, оберіть іншу"
+              invalid: "містить неприпустимі символи"
         user:
           attributes:
             avatar:
@@ -495,10 +498,10 @@ uk:
               #     max_size_error: "Розмір файлу має бути менше %{max_size}"
               #     mini_magick_processing_error: "Не вдалося опрацювати з MiniMagick, можливо, це не зображення?"
       messages:
-        record_invalid: 'Виникли помилки: %{errors}'
+        record_invalid: "Виникли помилки: %{errors}"
         restrict_dependent_destroy:
-          has_one: 'Неможливо видалити запис, так як існує залежність: %{record}'
-          has_many: 'Неможливо видалити запис, так як існують залежності: %{record}'
+          has_one: "Неможливо видалити запис, оскільки існує залежність: %{record}"
+          has_many: "Неможливо видалити запис, оскільки існують залежності: %{record}"
   notifications:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"
@@ -506,12 +509,12 @@ uk:
     user_created: "Користувача було успішно створено"
     user_updated: "Користувача було успішно оновлено"
     message_sent: "Повідомлення було надіслано"
-    category_created: "Категорію було успішно створено."
-    category_updated: "Категорію було успішно оновлено."
-    category_deleted: "Категорію було успішно видалено."
+    category_created: "Категорію було успішно створено"
+    category_updated: "Категорію було успішно оновлено"
+    category_deleted: "Категорію було успішно видалено"
     feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
-    site_setting_reverted: "Заголовок і піктограму сайту успішно відновлено до стандартних"
+    site_setting_reverted: "Заголовок та іконку сайту успішно відновлено до стандартних"
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
@@ -572,127 +575,127 @@ uk:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: близько %{count} години
-        few: близько %{count} годин
-        many: близько %{count} годин
-        other: близько %{count} години
+        one: "близько %{count} години"
+        few: "близько %{count} годин"
+        many: "близько %{count} годин"
+        other: "близько %{count} годин"
       about_x_months:
-        one: близько %{count} місяця
-        few: близько %{count} місяців
-        many: близько %{count} місяців
-        other: близько %{count} місяця
+        one: "близько %{count} місяця"
+        few: "близько %{count} місяців"
+        many: "близько %{count} місяців"
+        other: "близько %{count} місяців"
       about_x_years:
-        one: близько %{count} року
-        few: близько %{count} років
-        many: близько %{count} років
-        other: близько %{count} року
+        one: "близько %{count} року"
+        few: "близько %{count} років"
+        many: "близько %{count} років"
+        other: "близько %{count} років"
       almost_x_years:
-        one: майже %{count} рік
-        few: майже %{count} роки
-        many: майже %{count} років
-        other: майже %{count} років
-      half_a_minute: пів хвилини
+        one: "майже %{count} рік"
+        few: "майже %{count} роки"
+        many: "майже %{count} років"
+        other: "майже %{count} років"
+      half_a_minute: "пів хвилини"
       less_than_x_seconds:
-        one: менше %{count} секунди
-        few: менше %{count} секунд
-        many: менше %{count} секунд
-        other: менше %{count} секунди
+        one: "менше %{count} секунди"
+        few: "менше %{count} секунд"
+        many: "менше %{count} секунд"
+        other: "менше %{count} секунд"
       less_than_x_minutes:
-        one: менше %{count} хвилини
-        few: менше %{count} хвилин
-        many: менше %{count} хвилин
-        other: менше %{count} хвилини
+        one: "менше %{count} хвилини"
+        few: "менше %{count} хвилин"
+        many: "менше %{count} хвилин"
+        other: "менше %{count} хвилин"
       over_x_years:
-        one: більше %{count} року
-        few: більше %{count} років
-        many: більше %{count} років
-        other: більше %{count} року
+        one: "понад %{count} року"
+        few: "понад %{count} років"
+        many: "понад %{count} років"
+        other: "понад %{count} років"
       x_seconds:
         one: "%{count} секунда"
         few: "%{count} секунди"
         many: "%{count} секунд"
-        other: "%{count} секунди"
+        other: "%{count} секунд"
       x_minutes:
         one: "%{count} хвилина"
         few: "%{count} хвилини"
         many: "%{count} хвилин"
-        other: "%{count} хвилини"
+        other: "%{count} хвилин"
       x_days:
         one: "%{count} день"
         few: "%{count} дні"
         many: "%{count} днів"
-        other: "%{count} дня"
+        other: "%{count} днів"
       x_months:
         one: "%{count} місяць"
         few: "%{count} місяці"
         many: "%{count} місяців"
-        other: "%{count} місяця"
+        other: "%{count} місяців"
       x_years:
         one: "%{count} рік"
         few: "%{count} роки"
         many: "%{count} років"
-        other: "%{count} року"
+        other: "%{count} років"
     prompts:
-      second: Секунда
-      minute: Хвилина
-      hour: Година
-      day: День
-      month: Місяць
-      year: Рік
+      second: "Секунда"
+      minute: "Хвилина"
+      hour: "Година"
+      day: "День"
+      month: "Місяць"
+      year: "Рік"
 
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: має бути прийнятий
-      blank: не може бути пустим
-      confirmation: не збігається з підтвердженням
-      empty: не може бути порожнім
-      equal_to: має дорівнювати %{count}
-      even: має бути парним
-      exclusion: зарезервовано
-      greater_than: має бути більше ніж %{count}
-      greater_than_or_equal_to: має бути більше ніж або дорівнювати %{count}
-      inclusion: не включено до переліку
-      invalid: недійсний
-      less_than: має бути менше ніж %{count}
-      less_than_or_equal_to: має бути менше ніж або дорівнювати %{count}
-      model_invalid: 'Виникли помилки: %{errors}'
-      not_a_number: не число
-      not_an_integer: не є цілим числом
-      odd: має бути непарним
-      other_than: має відрізнятись від %{count}
-      present: має бути пустим
-      required: не може бути порожнім
-      taken: вже зайнятий
+      accepted: "може бути прийнятим"
+      blank: "не може бути пустим"
+      confirmation: "не збігається з підтвердженням"
+      empty: "не може бути порожнім"
+      equal_to: "мусить дорівнювати %{count}"
+      even: "мусить бути парним"
+      exclusion: "є зарезервованим"
+      greater_than: "мусить бути більше ніж %{count}"
+      greater_than_or_equal_to: "мусить бути більше ніж або дорівнювати %{count}"
+      inclusion: "не є включеним до переліку"
+      invalid: "не є дійсним"
+      less_than: "мусить бути менше ніж %{count}"
+      less_than_or_equal_to: "мусить бути менше ніж або дорівнювати %{count}"
+      model_invalid: "Виникли помилки: %{errors}"
+      not_a_number: "не є числом"
+      not_an_integer: "не є цілим числом"
+      odd: "мусить бути непарним"
+      other_than: "мусить відрізнятись від %{count}"
+      present: "мусить бути пустим"
+      required: "не може бути порожнім"
+      taken: "вже є зайнятим"
       too_long:
-        one: занадто довгий (максимум %{count} знак)
-        few: занадто довгий (максимум %{count} знаки)
-        many: занадто довгий (максимум %{count} знаків)
-        other: занадто довгий (максимум %{count} знаку)
+        one: "є занадто довгим (максимум %{count} знак)"
+        few: "є занадто довгим (максимум %{count} знаки)"
+        many: "є занадто довгим (максимум %{count} знаків)"
+        other: "є занадто довгим (максимум %{count} знаків)"
       too_short:
-        one: занадто короткий (мінімум %{count} знак)
-        few: занадто короткий (мінімум %{count} знаки)
-        many: занадто короткий (мінімум %{count} знаків)
-        other: занадто короткий (мінімум %{count} знаку)
+        one: "є занадто коротким (мінімум %{count} знак)"
+        few: "є занадто коротким (мінімум %{count} знаки)"
+        many: "є занадто коротким (мінімум %{count} знаків)"
+        other: "є занадто коротким (мінімум %{count} знаків)"
       wrong_length:
-        one: неправильна довжина (має бути %{count} знак)
-        few: неправильна довжина (має бути %{count} знаки)
-        many: неправильна довжина (має бути %{count} знаків)
-        other: неправильна довжина (має бути %{count} знаку)
+        one: "неправильна довжина (має бути %{count} знак)"
+        few: "неправильна довжина (має бути %{count} знаки)"
+        many: "неправильна довжина (має бути %{count} знаків)"
+        other: "неправильна довжина (має бути %{count} знаків)"
     template:
-      body: 'Помилки виявлено в таких полях:'
+      body: "Помилки виявлено в таких полях:"
       header:
         one: "%{model} не збережено через %{count} помилку"
         few: "%{model} не збережено через %{count} помилки"
         many: "%{model} не збережено через %{count} помилок"
-        other: "%{model} не збережено через %{count} помилки"
+        other: "%{model} не збережено через %{count} помилок"
   helpers:
     select:
-      prompt: 'Оберіть: '
+      prompt: "Оберіть: "
     submit:
-      create: Створити %{model}
-      submit: Зберегти %{model}
-      update: Зберегти %{model}
+      create: "Створити %{model}"
+      submit: "Зберегти %{model}"
+      update: "Зберегти %{model}"
   number:
     currency:
       format:
@@ -702,7 +705,7 @@ uk:
         separator: ","
         significant: false
         strip_insignificant_zeros: false
-        unit: грн.
+        unit: "грн"
     format:
       delimiter: " "
       precision: 3
@@ -714,33 +717,33 @@ uk:
         format: "%n %u"
         units:
           billion:
-            one: Мільярд
-            few: Мільярдів
-            many: Мільярдів
-            other: Мільярдів
+            one: "Мільярд"
+            few: "Мільярдів"
+            many: "Мільярдів"
+            other: "Мільярдів"
           million:
-            one: Мільйон
-            few: Мільйонів
-            many: Мільйонів
-            other: Мільйонів
+            one: "Мільйон"
+            few: "Мільйонів"
+            many: "Мільйонів"
+            other: "Мільйонів"
           quadrillion:
-            one: Квадрильйон
-            few: Квадрильйонів
-            many: Квадрильйонів
-            other: Квадрильйонів
+            one: "Квадрильйон"
+            few: "Квадрильйонів"
+            many: "Квадрильйонів"
+            other: "Квадрильйонів"
           thousand:
-            one: Тисяча
-            few: Тисяч
-            many: Тисяч
-            other: Тисяч
+            one: "Тисяча"
+            few: "Тисяч"
+            many: "Тисяч"
+            other: "Тисяч"
           trillion:
-            one: Трильйон
-            few: Трильйонів
-            many: Трильйонів
-            other: Трильйонів
-          unit: ''
+            one: "Трильйон"
+            few: "Трильйонів"
+            many: "Трильйонів"
+            other: "Трильйонів"
+          unit: ""
       format:
-        delimiter: ''
+        delimiter: ""
         precision: 1
         significant: false
         strip_insignificant_zeros: false
@@ -748,29 +751,29 @@ uk:
         format: "%n %u"
         units:
           byte:
-            one: байт
-            few: байти
-            many: байтів
-            other: байту
-          gb: ГБ
-          kb: кБ
-          mb: МБ
-          tb: ТБ
+            one: "байт"
+            few: "байти"
+            many: "байтів"
+            other: "байтів"
+          gb: "ГБ"
+          kb: "кБ"
+          mb: "МБ"
+          tb: "ТБ"
     percentage:
       format:
-        delimiter: ''
+        delimiter: ""
     precision:
       format:
-        delimiter: ''
+        delimiter: ""
   support:
     array:
       last_word_connector: " та "
       two_words_connector: " і "
       words_connector: ", "
   time:
-    am: до полудня
+    am: "до полудня"
     formats:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
-    pm: по полудні
+    pm: "пополудні"
