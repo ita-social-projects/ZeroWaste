@@ -8,7 +8,7 @@
   }
   
   .admin-menu-burger-button {
-    @apply lg:hidden flex items-center text-success pt-8 pr-4 ml-auto
+    @apply lg:hidden flex items-center text-success pt-7 pr-4 ml-auto
   }
 
   .locale-button {
