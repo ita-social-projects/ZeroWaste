@@ -7,7 +7,7 @@
   }
 
   .toggle-password {
-    @apply absolute top-0 right-0 flex items-center pr-2.5 pt-3.5 cursor-pointer bg-transparent;
+    @apply absolute text-success top-0 right-0 flex items-center pr-2.5 pt-3 cursor-pointer bg-transparent;
   }
 
   .input-group-addon.toggle-password i {

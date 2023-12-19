@@ -9,18 +9,18 @@
         <%= f.input :email, placeholder: 'example@example.com', autofocus: true %>
 
         <div class="password-wrapper" data-controller="password-visibility">
-          <%= f.input :password, hint: t('.form.password_hint'), input_html: { data: { password_visibility_target: 'password' } } %>
+          <%= f.input :password, hint: t('.form.password_hint'), input_html: { data: { password_visibility_target: 'password' } }, required: true %>
           <%= render 'shared/password_icon' %>
         </div>
 
         <div class="password-wrapper" data-controller="password-visibility">
-          <%= f.input :password_confirmation, input_html: { data: { password_visibility_target: 'password' } } %>
+          <%= f.input :password_confirmation, input_html: { data: { password_visibility_target: 'password' } }, required: true %>
           <%= render 'shared/password_icon' %>
         </div>
 
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :country, include_blank: false %>
+        <%= f.input :first_name, required: true %>
+        <%= f.input :last_name, required: true %>
+        <%= f.input :country,selected: 'UA', include_blank: false %>
 
         <div class="d-flex justify-content-between flex-wrap flex-row-reverse">
           <%= f.submit t('.form.sign_up_button'), class: 'btn btn-primary' %>
