@@ -1,0 +1,44 @@
+<div class="container">
+  <%= search_form_for(@q, url: [:account, :calculators], method: :get, class: "d-flex justify-content-end mb-5") do |f| %>
+    <div class="flex">
+      <%= f.search_field :name_cont, placeholder: "Search", class: "form-input me-2" %>
+      <%= f.submit "Search", class: "bg-success px-4 lex items-center rounded" %>
+    </div>
+    <%= link_to new_account_calculator_path, class: "bg-success px-4 py-2 rounded" do %>
+      <i class="fas fa-plus me-2"></i>
+      <span><%= t(".add_calculator_button") %></span>
+    <% end %>
+  <% end %>
+
+  <table aria-label="calculators table" class="table admin-table">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :slug, t(".table.calculator_slug"), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :name, t(".table.calculator_name"), default_order: :desc) %></th>
+        <th scope="col"><%= t(".table.calculator_actions") %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% @calculators.each do |calculator| %>
+        <tr class="<%= calculator.preferable ? "table-success" : "table-light" %>">
+          <td><%= calculator.id %></td>
+          <td><%= calculator.slug %></td>
+          <td><%= calculator.name %></td>
+          <td class="actions">
+            <%= link_to account_calculator_path(slug: calculator) do %>
+              <i class="mx-2 fa fa-eye"></i>
+            <% end %>
+            <%= link_to edit_account_calculator_path(slug: calculator) do %>
+              <i class="mx-2 fa fa-pen"></i>
+            <% end %>
+            <%= button_to account_calculator_path(slug: calculator), method: :delete,
+                          data: { turbo_confirm: t(".confirm_delete") } do %>
+              <i class="mx-2 fa fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

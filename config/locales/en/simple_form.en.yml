@@ -1,0 +1,8 @@
+en:
+  simple_form:
+    labels:
+      defaults:
+        required: "%{text} %{mark}"
+    required:
+      text: "Required"
+      mark: "*"
