@@ -1,4 +1,4 @@
-import { showToast } from "../helpers/toastify-helper";
+import { showToast } from "../helpers/toast-helper";
 
 window.Turbo.StreamActions.toast = function() {
   const message = this.getAttribute("message")

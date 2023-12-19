@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { FetchRequest } from "@rails/request.js";
-import { showToast } from "../helpers/toastify-helper";
+import { showToast } from "../helpers/toast-helper";
 
 export default class extends Controller {
   static targets = ["month", "year", "productCategory"];

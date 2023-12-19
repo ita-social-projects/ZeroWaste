@@ -1,6 +1,6 @@
 import { Application } from "@hotwired/stimulus"
 import { Turbo } from "@hotwired/turbo-rails";
-import "./toastify"
+import "../turbo_streams/toast"
 
 const application = Application.start()
 Turbo.start();
