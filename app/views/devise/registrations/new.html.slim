@@ -9,7 +9,7 @@
         = f.input :password_confirmation
         = f.input :first_name
         = f.input :last_name
-        = f.input :country, include_blank: false
+        = f.input :country, selected: 'UA', include_blank: false
         .d-flex.justify-content-between.flex-wrap.flex-row-reverse
           = f.submit t('.form.sign_up_button'), class: 'btn btn-primary'
           .d-block
