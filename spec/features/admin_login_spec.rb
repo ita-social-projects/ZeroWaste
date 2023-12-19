@@ -68,7 +68,7 @@ RSpec.feature "AdminLogins", type: :feature do
           sleep 0.5
           click_button "Увійти"
           sleep 0.5
-          expect(page).to have_content "Ви увійшли в систему."
+          expect(page).to have_content "Ви увійшли до системи."
         end
       end
 
