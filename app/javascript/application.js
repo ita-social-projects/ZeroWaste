@@ -6,4 +6,5 @@ import "@hotwired/turbo-rails";
 import "bootstrap";
 import "@fortawesome/fontawesome-free";
 import "@rails/request.js";
-import "@rails/actioncable"
+import "@rails/actioncable";
+import "toastify-js";
