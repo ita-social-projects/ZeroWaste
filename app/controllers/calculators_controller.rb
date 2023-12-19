@@ -3,9 +3,13 @@
 class CalculatorsController < ApplicationController
   before_action :authenticate_user!, only: :receive_recomendations
 
-  # def index
-  #   @calculators = collection
-  # end
+  def index
+    if Flipper[:show_calculators_list].enabled?
+      @calculators = collection
+    else
+      head :not_found
+    end
+  end
 
   def show
     @calculator = resource

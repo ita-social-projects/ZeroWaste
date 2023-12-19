@@ -21,8 +21,8 @@ class Account::SiteSettingsController < Account::BaseController
     @site_setting = resource
 
     @site_setting.update(title: "ZeroWaste", favicon: {
-      io: File.open("app/assets/images/logo_zerowaste.png"),
-      filename: "logo_zerowaste.png",
+      io: File.open("app/assets/images/icons/favicon-48x48.png"),
+      filename: "favicon-48x48.png",
       content_type: "image/png"
     })
 

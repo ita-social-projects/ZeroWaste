@@ -16,8 +16,12 @@ Rails.application.routes.draw do
   get "/", to: "application#redirection", as: :root_redirection
 
   scope "/(:locale)", locale: /uk|en/ do
-    devise_for :users, controllers: { registrations: "users/registrations" },
-                       skip: :omniauth_callbacks
+    devise_for :users, skip: [:omniauth_callbacks, :registration]
+
+    as :user do
+      get :sign_up, to: "users/registrations#new", as: :new_user_registration
+      post :sign_up, to: "users/registrations#create", as: :user_registration
+    end
 
     root "home#index"
     get "/sitemap", to: "sitemap#index"
@@ -42,6 +46,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
+      get "/site_setting", to: "site_settings#edit", as: "site_setting"
 
       resource :site_setting, only: [:edit, :update] do
         post :revert

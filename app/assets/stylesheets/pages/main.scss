@@ -126,7 +126,7 @@ a {
 .tab {
   text-transform: uppercase;
   font-size: 14px;
-  padding: 33px 25px;
+  padding: 33px 15px;
   color: $color;
   border-bottom: 3px solid transparent;
   @include transition(all 0.5s ease-in-out);
@@ -233,7 +233,7 @@ h3.container {
   display: inline-flex;
 
   .img-border {
-    display: inline-block;
+    flex-shrink: 0;
     height: 70px;
     width: 70px;
     border: 2px solid #f5f5f5;
@@ -307,13 +307,25 @@ body:where(.admin)::before {
     }
   }
 
+  td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .admin-table-links {
-    a {
+    a, form {
       color: $success;
 
       &:hover {
         color: #3d5217;
       }
+    }
+
+    form {
+      display: inline-block;
+      transition: all 0.5s ease-in-out;
     }
 
     .admin-table-body {
@@ -448,4 +460,9 @@ body:where(.admin)::before {
     margin-right: 16px;
     margin-left: 16px;
   }
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 0;
 }

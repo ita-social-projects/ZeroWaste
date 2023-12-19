@@ -5,5 +5,5 @@ import "jquery"
 import "@hotwired/turbo-rails";
 import "bootstrap";
 import "@fortawesome/fontawesome-free";
-import "@nathanvda/cocoon";
 import "@rails/request.js";
+import "@rails/actioncable"
