@@ -307,6 +307,13 @@ body:where(.admin)::before {
     }
   }
 
+  td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .admin-table-links {
     a, form {
       color: $success;
