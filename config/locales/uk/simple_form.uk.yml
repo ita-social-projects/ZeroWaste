@@ -1,0 +1,8 @@
+uk:
+  simple_form:
+    labels:
+      defaults:
+        required: "%{text} %{mark}"
+    required:
+      text: "Обовʼязкове поле"
+      mark: "*"

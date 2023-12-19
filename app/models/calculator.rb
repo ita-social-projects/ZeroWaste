@@ -41,4 +41,8 @@ class Calculator < ApplicationRecord
                               "%#{search&.strip}%"
                             )
                           }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
+  end
 end
