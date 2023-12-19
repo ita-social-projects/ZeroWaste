@@ -11,7 +11,7 @@
   }
 
   .input-group-addon.toggle-password i {
-    @apply text-green-300 bg-white;
+    @apply text-success bg-white;
   }
 
   .password-wrapper-login .toggle-password {
