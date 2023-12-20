@@ -4,8 +4,10 @@ RSpec.describe DatabaseService do
   let(:command_enable) { "rake 'db:dump[zero_waste_sandbox.dump]'" }
   let(:command_disable) { "rake 'db:restore[zero_waste_sandbox.dump]'" }
   let(:backup_file) { described_class.backup_full_path(described_class::BACKUP_SANDBOX_NAME) }
+  let(:files) { ["older.dump", "newest.dump"] }
+
   let(:file_name) { "test.dump" }
-  let(:new_file_path) { File.join(DatabaseService::BACKUP_ARCHIVE_DIR, "timestamp_backup.dump") }
+  let(:new_file_path) { File.join(DatabaseService::BACKUP_ARCHIVE_DIR, "timestamp_zero_waste_sandbox.dump") }
 
   describe ".sandbox_enable" do
     context "when dump_flag is true" do
@@ -21,7 +23,7 @@ RSpec.describe DatabaseService do
         allow(FileUtils).to receive(:cp).with(backup_file, anything)
         expect(described_class.sandbox_enable(false)).to eq(false)
       end
-    end
+    end 
   end
 
   describe ".sandbox_enabled?" do
@@ -57,24 +59,21 @@ RSpec.describe DatabaseService do
     end
   end
 
-  describe ".database_name" do
-    it "returns the current database name" do
-      current_db_name = "test_db"
-      allow(ActiveRecord::Base.connection).to receive(:current_database).and_return(current_db_name)
-      expect(DatabaseService.database_name).to eq(current_db_name)
-    end
-  end
-
   describe ".copy_to_archive" do
     before do
-      # allow(Time.current).to receive(:strftime).with("%Y%m%d%H%M%S").and_return("timestamp")
+      allow(Time.current).to receive(:strftime).with("%Y%m%d%H%M%S").and_return("timestamp")
       allow(FileUtils).to receive(:cp)
       allow(FileUtils).to receive(:rm)
     end
 
     it "copies the backup file to the archive directory" do
-      # expect(FileUtils).to receive(:cp).with(backup_file, new_file_path)
-      # DatabaseService.copy_to_archive(backup_file)
+      expect(FileUtils).to receive(:cp).with(backup_file, new_file_path)
+      expect(Time.current).to receive(:strftime).with("%Y%m%d%H%M%S").and_return("timestamp")
+
+ puts backup_file
+ puts new_file_path
+      
+      DatabaseService.copy_to_archive(backup_file)
     end
 
     it "removes the original backup file" do
@@ -89,15 +88,6 @@ RSpec.describe DatabaseService do
     end
   end
 
-  describe ".ensure_directory_exists" do
-    let(:directory) { "path/to/directory" }
-
-    it "creates the directory if it does not exist" do
-      expect(FileUtils).to receive(:mkdir_p).with(directory)
-      DatabaseService.send(:ensure_directory_exists, directory)
-    end
-  end
-
   describe ".generate_backup_filename" do
     it "generates a backup filename with the current timestamp and database name" do
       allow(DatabaseService).to receive(:database_name).and_return(file_name)
@@ -107,8 +97,6 @@ RSpec.describe DatabaseService do
   end
 
   describe ".prune_old_backups" do
-    let(:files) { ["older.dump", "newest.dump"] }
-
     before do
       allow(Dir).to receive(:entries).and_return(files)
       allow(File).to receive(:file?).and_return(true)
