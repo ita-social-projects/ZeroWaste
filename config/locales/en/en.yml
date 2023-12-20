@@ -496,6 +496,7 @@ en:
     calculator_deleted: "Calculator has been successfully deleted"
     user_created: "User has been successfully created"
     user_updated: "User has been successfully updated"
+    user_deleted: "User has been successfully deleted"
     message_sent: "Message has been sent"
     category_created: "Category was successfully created."
     category_updated: "Category was successfully updated."
