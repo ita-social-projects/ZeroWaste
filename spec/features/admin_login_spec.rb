@@ -16,7 +16,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "Password", with: user.password
           sleep 0.5
           click_button "Log in"
-          sleep 0.5
+          sleep 3
           expect(page).to have_content "Signed in successfully."
         end
       end
@@ -67,7 +67,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "user_password", with: user.password
           sleep 0.5
           click_button "Увійти"
-          sleep 0.5
+          sleep 3
           expect(page).to have_content "Ви увійшли в систему."
         end
       end

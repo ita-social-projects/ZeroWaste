@@ -17,6 +17,7 @@ describe "visit Login page", js: true do
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button "Log in"
+    sleep 3
     expect(page).to have_content("Signed in successfully")
     expect(page).to have_content("LOG OUT")
   end
