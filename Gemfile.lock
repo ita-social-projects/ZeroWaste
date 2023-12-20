@@ -670,6 +670,7 @@ DEPENDENCIES
   standard (~> 1.0)
   stimulus-rails
   tailwindcss-rails (~> 2.0)
+  turbo-rails
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers (~> 5.3.1)
