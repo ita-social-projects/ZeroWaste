@@ -56,13 +56,13 @@ RSpec.describe User, type: :model do
 
     it { is_expected.to validate_presence_of(:first_name).on(:create) }
     it { is_expected.to validate_presence_of(:first_name).on(:update) }
-    it { is_expected.to validate_length_of(:first_name).is_at_least(2).on(:create) }
-    it { is_expected.to validate_length_of(:first_name).is_at_least(2).on(:update) }
+    it { is_expected.to validate_length_of(:first_name).is_at_least(2).is_at_most(50).on(:create) }
+    it { is_expected.to validate_length_of(:first_name).is_at_least(2).is_at_most(50).on(:update) }
 
     it { is_expected.to validate_presence_of(:last_name).on(:create) }
     it { is_expected.to validate_presence_of(:last_name).on(:update) }
-    it { is_expected.to validate_length_of(:last_name).is_at_least(2).on(:create) }
-    it { is_expected.to validate_length_of(:last_name).is_at_least(2).on(:update) }
+    it { is_expected.to validate_length_of(:last_name).is_at_least(2).is_at_most(50).on(:create) }
+    it { is_expected.to validate_length_of(:last_name).is_at_least(2).is_at_most(50).on(:update) }
 
     it { is_expected.to allow_value("email@gmail.com").for(:email) }
     it { is_expected.not_to allow_value("email.factory-com").for(:email) }
