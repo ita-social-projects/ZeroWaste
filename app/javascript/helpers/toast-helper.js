@@ -9,7 +9,7 @@ function getColorByMessageType(messageType) {
     case "alert":
         return "#FF6A00";
     default:
-      return "#0094FF";
+      return "#DC3545";
   }
 }
 
