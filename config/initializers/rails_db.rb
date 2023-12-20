@@ -32,4 +32,4 @@ if Object.const_defined?(:RailsDb)
       controller.current_user ? controller.current_user.admin? : false
     end
   end
-end
+end 
