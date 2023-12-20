@@ -26,6 +26,7 @@ namespace :db do
   desc "Show the existing database backups"
   task dumps: :environment do
     backup_dir = DatabaseService.init_backup_directory
+
     puts backup_dir.to_s
     system "/bin/ls -ltR #{backup_dir}"
   end
