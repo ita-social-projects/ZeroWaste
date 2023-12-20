@@ -63,18 +63,27 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :validatable, :confirmable, :lockable, :timeoutable, :trackable, :async,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
-  validates :email, presence: true, uniqueness: { case_sensitive: false },
-                    length: { minimum: 6, maximum: 100 },
-                    format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :email, allow_blank: true, length: { minimum: 6, maximum: 100 }
+  validates :email, allow_blank: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, presence: true, unless: :skip_password_validation
   validates :password,
-            presence: true,
+            allow_blank: true,
             confirmation: true,
             length: { in: 8..64 },
+            unless: :skip_password_validation
+  validates :password,
+            allow_blank: true,
+            confirmation: true,
             format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
             unless: :skip_password_validation
+  validates :first_name, :last_name, presence: true, on: [:create, :update]
   validates :first_name, :last_name,
-            presence: true,
-            length: { minimum: 2 },
+            allow_blank: true,
+            on: [:create, :update],
+            length: { in: 2..50 }
+  validates :first_name, :last_name,
+            allow_blank: true,
             on: [:create, :update],
             format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 
