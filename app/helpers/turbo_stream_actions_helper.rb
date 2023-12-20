@@ -1,5 +1,5 @@
 module TurboStreamActionsHelper
-  def toast(message, background: "#DC3545")
+  def toast(message, background: "#0094FF")
     turbo_stream_action_tag(:toast, message: message, background: background)
   end
 end

@@ -1,6 +1,21 @@
 import Toastify from "toastify-js";
 
-export function showToast(message, background) {
+function getColorByMessageType(messageType) {
+  switch (messageType) {
+    case "error":
+      return "#DC3545";
+    case "notice":
+      return "#8FBA3B";
+    case "alert":
+        return "#FF6A00";
+    default:
+      return "#0094FF";
+  }
+}
+
+export function showToast(message, messageType) {
+  const backgroundColor = getColorByMessageType(messageType);
+
   Toastify({
     text: message,
     duration: 20000,
@@ -10,7 +25,7 @@ export function showToast(message, background) {
     position: "right",
     stopOnFocus: true,
     style: {
-      background: background == "notice" ? "#8FBA3B" : "#DC3545",
+      background: backgroundColor,
     }
   }).showToast()
 }
