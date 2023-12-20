@@ -7,16 +7,15 @@
       <div class="form-group row">
         <div class="my-auto col-12 has-float-label">
           <%= f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } } %>
-          <%= f.input :favicon, class: "form-control", input_html: { data: { action: "change->handle-browser-tab#setIcon" } } %>
+          <%= f.input :favicon, wrapper: :custom_vertical_file, input_html: { data: { action: "change->handle-browser-tab#setIcon" } } %>
           <div class="mb-2">
             <%= render "browser_tab", site_setting: @site_setting %>
           </div>
         </div>
       </div>
-      <%= f.submit t(".apply_button") %>
+      <%= f.submit t(".buttons.save") %>
+      <%= button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-grey" %>
     <% end %>
-
-    <%= button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-revert position-absolute right-bottom" %>
   </div>
 </fieldset>
 
@@ -38,9 +37,7 @@
       <%= f.submit t("buttons.save") %>
     </div>
   <% end %>
-
 </fieldset>
-
 
 <fieldset class="bordered">
   <legend class="admin-legend">
@@ -49,5 +46,5 @@
   <p class="mb-3">
     <%= t(".rails_db_description") %>
   </p>
-  <%= link_to "Rails DB", rails_db_path, class: "btn btn-secondary mr-2" %>
+  <%= link_to "Rails DB", rails_db_path, class: "btn-grey" %>
 </fieldset>

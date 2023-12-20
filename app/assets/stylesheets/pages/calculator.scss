@@ -42,6 +42,10 @@
 
 .back-text {
   color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .calulator-arrow {

@@ -29,7 +29,7 @@ class Calculator < ApplicationRecord
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 
-  validates :name, length: { minimum: 2 },
+  validates :name, length: { minimum: 2, maximum: 30 },
                    format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\s]+\z/, message: :name_format_validation },
                    uniqueness: true
 
@@ -41,4 +41,8 @@ class Calculator < ApplicationRecord
                               "%#{search&.strip}%"
                             )
                           }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
+  end
 end
