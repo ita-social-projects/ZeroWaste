@@ -8,12 +8,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def edit
   end
 
-  def create
-    super do |resource|
-      handle_blank_fields(resource) if resource.errors.any?
-    end
-  end
-
   def update
     update_method_name, usr_params = user_params
 
@@ -46,15 +40,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       [:without_password, prms.merge(skip_password_validation: true)]
     else
       [:with_password, prms]
-    end
-  end
-
-  def handle_blank_fields(resource)
-    resource.errors.messages.keys.each do |field|
-      if sign_up_params[field].blank?
-        resource.errors.delete(field)
-        resource.errors.add(field, :blank)
-      end
     end
   end
 end
