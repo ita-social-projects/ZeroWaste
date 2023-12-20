@@ -78,7 +78,7 @@ describe "visit admin page", js: true do
       find_button("commit").click
       expect(page).to have_content "First name is too short (minimum is 2 characters)"
       expect(page).to have_content "Last name is too short (minimum is 2 characters)"
-      expect(page).to have_content "Password is too short (minimum is 6 characters)"
+      expect(page).to have_content "Password is too short (minimum is 8 characters)"
       expect(page).to have_content "Re-password doesn't match Password"
     end
   end
