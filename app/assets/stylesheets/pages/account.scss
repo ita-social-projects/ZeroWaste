@@ -76,3 +76,18 @@ $burger-size: 20px;
   transform: rotate(0deg);
   transition: .25s;
 }
+
+.button-group {
+  .btn {
+    min-width: 120px;
+  }
+
+  .btn-danger {
+    border: none;
+    padding: 10px;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

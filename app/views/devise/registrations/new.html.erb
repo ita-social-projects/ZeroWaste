@@ -2,19 +2,30 @@
   <div class="card">
     <div class="p-4 card-block">
       <h2 class="p-2 text-center">
-        <%= t(".sign_up_header") %>
+        <%= t('.sign_up_header') %>
       </h2>
+
       <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name), wrapper: :horizontal_form do |f| %>
-        <%= f.input :email, placeholder: "example@example.com", autofocus: true %>
-        <%= f.input :password, hint: t(".form.password_hint") %>
-        <%= f.input :password_confirmation %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :country, include_blank: false, selected: "UA" %>
+        <%= f.input :email, placeholder: 'example@example.com', autofocus: true %>
+
+        <div class="password-wrapper" data-controller="password-visibility">
+          <%= f.input :password, hint: t('.form.password_hint'), input_html: { data: { password_visibility_target: 'password' } }, required: true %>
+          <%= render 'shared/password_icon' %>
+        </div>
+
+        <div class="password-wrapper" data-controller="password-visibility">
+          <%= f.input :password_confirmation, input_html: { data: { password_visibility_target: 'password' } }, required: true %>
+          <%= render 'shared/password_icon' %>
+        </div>
+
+        <%= f.input :first_name, required: true %>
+        <%= f.input :last_name, required: true %>
+        <%= f.input :country,selected: 'UA', include_blank: false %>
+
         <div class="flex-row-reverse flex-wrap d-flex justify-content-between">
-          <%= f.submit t(".form.sign_up_button"), class: "btn btn-primary" %>
-          <div class="d-block">
-            <%= render "devise/shared/links" %>
+          <%= f.submit t('.form.sign_up_button'), class: 'btn btn-primary' %>
+          <div class="block">
+            <%= render 'devise/shared/links' %>
           </div>
         </div>
       <% end %>
