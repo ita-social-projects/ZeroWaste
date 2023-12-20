@@ -16,7 +16,6 @@ describe "Update Calculator Page", js: true do
     it "shows message that calculator has been successfully updated" do
       fill_in "Name", with: "Calculator2"
       click_button UPDATE_CALCULATOR_BUTTON
-      sleep 3
       expect(page).to have_content("Calculator has been successfully updated")
     end
   end
