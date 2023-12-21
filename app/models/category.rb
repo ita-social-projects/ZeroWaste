@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Category < ApplicationRecord
+  PRIORITY_RANGE = 0..10
+
   has_one :price, dependent: :destroy
 
   has_many :category_categoryables, dependent: :restrict_with_exception
@@ -21,7 +23,5 @@ class Category < ApplicationRecord
 
   scope :ordered_by_name, -> { order(:name) }
   scope :ordered_by_priority, -> { order(:priority) }
-  scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
-
-  PRIORITY_RANGE = 0..10
+  scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }  
 end
