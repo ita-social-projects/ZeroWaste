@@ -1,0 +1,52 @@
+<div class="container home">
+  <div class="flex justify-between items-center mb-2">
+    <h1 class="text-body inline-block"><%= t '.main_header' %></h1>
+    <h3 class="float-right inline-block">
+      <%= link_to icon('fa-solid', 'download'), account_users_path(format: "csv") %>
+    </h3>
+  </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <td><%= sort_link(@q, :email, t('.table.email_col'), default_order: :desc) %></td>
+            <td><%= sort_link(@q, :first_name, t('.table.first_name'), default_order: :desc) %></td>
+            <td><%= sort_link(@q, :last_name, t('.table.last_name'), default_order: :desc) %></td>
+            <td><%= sort_link(@q, :updated_at, t('.table.last_visit_col'), default_order: :desc) %></td>
+            <td><%= t '.table.view_info_col' %></td>
+            <td><%= t '.table.edit' %></td>
+            <td><%= t '.table.ban' %></td>
+            <td><%= t '.table.delete' %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr id="user-info-<%= user.id %>">
+              <td><%= user.email %></td>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.last_sign_in_at %></td>
+              <td><%= link_to icon('fa-solid', 'eye'), account_user_path(id: user.id) %></td>
+              <td><%= link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id) %></td>
+              <td>
+                <%= button_to update_block_status_account_user_path(id: user.id), method: :put do %>
+                  <% if user.blocked? %>
+                    <i class="fa fa-lock text-error"></i>
+                  <% else %>
+                    <i class="fa fa-unlock text-success"></i>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to account_user_path(id: user), method: :delete,
+                            data: { confirm: t('.confirm_delete') }, class: "inline-block" do %>
+                  <i class="fa fa-trash mx-2"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
