@@ -38,7 +38,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create]
     namespace :account do
       root "dashboard#index"
-      resources :users
+      resources :users do
+        member do
+          put 'update_block_status', to: 'users#update_block_status', as: :update_block_status
+        end
+      end
       resources :calculators, param: :slug
       resources :categories
       resources :products

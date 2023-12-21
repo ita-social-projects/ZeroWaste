@@ -50,6 +50,17 @@ class Account::UsersController < Account::BaseController
     end
   end
 
+  def update_block_status
+    @user = resource
+
+    if @user.update(blocked: !@user.blocked, skip_password_validation: true)
+      redirect_to account_user_path(id: @user), notice: @user.blocked ? t("notifications.user_blocked") : t("notifications.user_unblocked")
+    else
+      flash[:alert] = t("notifications.status_update_alert")
+      redirect_to account_users_path(id: @user)
+    end
+  end
+
   def destroy
     resource.destroy
 
