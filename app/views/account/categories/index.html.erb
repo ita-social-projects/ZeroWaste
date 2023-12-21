@@ -1,0 +1,42 @@
+<div class="container">
+  <%= form_tag(account_category_path(id: @categories), method: :get, class: 'd-flex justify-content-end mb-5') do %>
+    <div class="d-flex">
+      <%= link_to(new_account_category_path, class: 'btn btn-green px-4 ms-1') do %>
+        <i class="fa fa-plus me-2"></i>
+        <span><%= t('.add_category_button') %></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="container home">
+  <table class="table admin-table">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :name, t('.table.title'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :priority, t('.table.priority'), default_order: :desc) %></th>
+        <th scope="col"><%= t('.table.actions') %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% @categories.each do |category| %>
+        <tr>
+          <th scope="row"><%= category.id %></th>
+          <td><%= category.name %></td>
+          <td><%= category.priority %></td>
+          <td class="actions">
+            <div class="d-flex">
+              <%= link_to(edit_account_category_path(id: category)) do %>
+                <i class="mx-2 fa fa-pen"></i>
+              <% end %>
+              <%= button_to(account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') }) do %>
+                <i class="mx-2 fa fa-trash"></i>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

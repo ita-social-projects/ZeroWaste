@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="mb-5 d-flex justify-content-end">
+    <%= link_to new_account_product_path, class: 'btn btn-green px-4 ms-1' do %>
+      <i class="fa fa-plus me-2"></i>
+      <span><%= t('.add_product_button') %></span>
+    <% end %>
+  </div>
+
+  <table class="table admin-table">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :title, t('.table.title'), default_order: :desc) %></th>
+        <th scope="col"><%= t('.table.prices') %></th>
+        <th scope="col"><%= t('.table.actions') %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% @products.includes(prices: :category).each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= product.title %></td>
+          <td>
+            <% product.prices.includes(:category).each do |price| %>
+              <span><%= "#{price.category.name}: #{price.sum}" %></span>
+              <br>
+            <% end %>
+          </td>
+          <td class="actions">
+            <%= link_to edit_account_product_path(id: product) do %>
+              <i class="mx-2 fa fa-pen"></i>
+            <% end %>
+            <%= button_to account_product_path(id: product), method: :delete, data: { confirm: t('.confirm_delete') } do %>
+              <i class="mx-2 fa fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
