@@ -7,16 +7,17 @@
   </div>
 
       <table class="table">
+        <caption class="caption-top text-success text-center text-xl font-bold mb-4">Users table</caption>
         <thead>
           <tr>
-            <td><%= sort_link(@q, :email, t('.table.email_col'), default_order: :desc) %></td>
-            <td><%= sort_link(@q, :first_name, t('.table.first_name'), default_order: :desc) %></td>
-            <td><%= sort_link(@q, :last_name, t('.table.last_name'), default_order: :desc) %></td>
-            <td><%= sort_link(@q, :updated_at, t('.table.last_visit_col'), default_order: :desc) %></td>
-            <td><%= t '.table.view_info_col' %></td>
-            <td><%= t '.table.edit' %></td>
-            <td><%= t '.table.ban' %></td>
-            <td><%= t '.table.delete' %></td>
+            <th><%= sort_link(@q, :email, t('.table.email_col'), default_order: :desc) %></th>
+            <th><%= sort_link(@q, :first_name, t('.table.first_name'), default_order: :desc) %></th>
+            <th><%= sort_link(@q, :last_name, t('.table.last_name'), default_order: :desc) %></th>
+            <th><%= sort_link(@q, :updated_at, t('.table.last_visit_col'), default_order: :desc) %></th>
+            <th><%= t '.table.view_info_col' %></th>
+            <th><%= t '.table.edit' %></th>
+            <th><%= t '.table.ban' %></th>
+            <th><%= t '.table.delete' %></th>
           </tr>
         </thead>
         <tbody>
