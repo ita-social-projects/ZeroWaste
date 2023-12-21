@@ -53,11 +53,11 @@ $burger-size: 20px;
     .top-bar {
       @include lineTransform(-20px, 0deg);
     }
-  
+
     .middle-bar {
       @include middleLineTransform(100)
     }
-    
+
     .bottom-bar {
       @include lineTransform(20px, 0deg);
     }
@@ -87,7 +87,7 @@ $burger-size: 20px;
     padding: 10px;
 
     &:hover {
-      color: black;
+      color: white;
     }
   }
 }
