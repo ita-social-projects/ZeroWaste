@@ -17,6 +17,11 @@ module.exports = {
       fontFamily: {
         sans: ['Comfortaa', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        success: '#8fba3b',
+        dark_green: '#256d36',
+
+      },
     },
   },
   plugins: [
