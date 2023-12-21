@@ -23,5 +23,5 @@ class Category < ApplicationRecord
 
   scope :ordered_by_name, -> { order(:name) }
   scope :ordered_by_priority, -> { order(:priority) }
-  scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }  
+  scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
 end
