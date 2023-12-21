@@ -74,7 +74,7 @@ class User < ApplicationRecord
             unless: :skip_password_validation
   validates :first_name, :last_name,
             presence: true,
-            length: { minimum: 2 },
+            length: { in: 2..50 },
             on: [:create, :update],
             format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
 

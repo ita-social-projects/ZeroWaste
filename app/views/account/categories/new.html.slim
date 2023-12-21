@@ -1,20 +1,10 @@
-.container
-  - if @category.errors.any?
-    div
-      h2
-      = t('activerecord.form_errors', :count => @category.errors.count,
-                       :model => t('models.category').downcase)
-      ul
-        - @category.errors.full_messages.each do |error_message|
-          li= error_message
 few
   = simple_form_for @category, url: { action: 'create' }, html: { novalidate: false } do |f|
     .form-group.row
       .col-12.has-float-label.my-auto
-        = f.input :name, class: 'form-control col-sm-11', required: true
+        = f.input :name, class: 'form-control col-sm-11'
         = f.input :priority, collection: Category::PRIORITY_RANGE, wrapper: :custom_vertical_select
-    .div.d-flex
-        = f.submit t('buttons.create'), class: 'btn btn-success me-2 height-auto w-auto'
-        = link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center justify-content-center height-auto w-auto' do
-          span.me-1 =t('buttons.cancel')
-          i.fa.fa-times-circle
+    .div.button-group.d-flex
+        = f.submit t('buttons.create'), class: 'btn btn-success me-2'
+        = link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do
+          span = t('buttons.cancel')
