@@ -15,4 +15,5 @@ div class="container home"
           td = message.title
           td = message.email
           td = message.message.first(40)
-          td.text-center = link_to fa_icon('eye'), account_message_path(message)
+          td.text-center = link_to account_message_path(id: message, locale: I18n.locale) do
+            i.fa.fa-eye
