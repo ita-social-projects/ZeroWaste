@@ -105,6 +105,28 @@ RSpec.describe "Account::UsersController", type: :request do
     end
   end
 
+   describe 'PUT #update_block_status' do
+    context 'when user is successfully updated' do
+      it 'redirects to the user path with a notice' do
+        put :update_block_status, params: { id: user.id }
+        expect(response).to redirect_to(account_user_path(user))
+        expect(flash[:notice]).to eq(I18n.t('notifications.user_blocked'))
+      end
+    end
+
+    context 'when user update fails' do
+      before do
+        allow_any_instance_of(User).to receive(:update).and_return(false)
+      end
+
+      it 'redirects to users path with an alert' do
+        put :update_block_status, params: { id: user.id }
+        expect(response).to redirect_to(account_users_path)
+        expect(flash[:alert]).to eq(I18n.t('notifications.status_update_alert'))
+      end
+    end
+  end
+
   describe "DELETE #destroy" do
     it "destroys the user and redirects to index page" do
       expect do

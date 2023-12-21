@@ -15,7 +15,7 @@ module.exports = {
       colors: {
         success: '#8fba3b',
         dark_green: '#256d36',
-
+        error: '#dc3545',
       },
     },
   },
