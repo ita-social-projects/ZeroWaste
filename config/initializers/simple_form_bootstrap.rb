@@ -367,7 +367,6 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { class: FORM_TEXT }
   end
 
-
   # custom vertical select
   config.wrappers :custom_vertical_select, class: MB do |b|
     b.use :html5
@@ -375,6 +374,7 @@ SimpleForm.setup do |config|
     b.use :label, class: FORM_LABEL_BLOCK
     b.use :input
     b.use :full_error, wrap_with: { class: INVALID_FEEDBACK_BLOCK }
+  end
 
   # custom vertical file input
   config.wrappers :custom_vertical_file, class: MB do |b|
