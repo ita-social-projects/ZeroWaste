@@ -14,8 +14,17 @@ module.exports = {
       },
       colors: {
         success: '#8fba3b',
+        color: '#fff',
+        error: '#9e1503',
+        gray: '#8d8d8d',
+        matte_lime_green: '#73952f',
+        light_gray: '#ececec',
+        grey: '#999999',
+        dark_gray: '#515151',
         dark_green: '#256d36',
-
+        white: '#ffffff',
+        blue: '#007bff',
+        dark_blue: '#0069d9',
       },
     },
   },

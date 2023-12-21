@@ -2,12 +2,14 @@
   <%= search_form_for(@q, url: [:account, :calculators], method: :get, class: "d-flex justify-content-end mb-5") do |f| %>
     <div class="flex">
       <%= f.search_field :name_cont, placeholder: "Search", class: "form-input me-2" %>
-      <%= f.submit "Search", class: "bg-success px-4 lex items-center rounded" %>
+      <%= f.button "Search", class: "btn btn-blue px-4 items-center rounded" %>
+
+      <span class="mx-2"></span> <!-- Add this span for spacing -->
+      <%= link_to new_account_calculator_path, class: "btn btn-green px-4 py-2 rounded" do %>
+        <i class="fas fa-plus me-2"></i>
+        <span><%= t(".add_calculator_button") %></span>
+      <% end %>
     </div>
-    <%= link_to new_account_calculator_path, class: "bg-success px-4 py-2 rounded" do %>
-      <i class="fas fa-plus me-2"></i>
-      <span><%= t(".add_calculator_button") %></span>
-    <% end %>
   <% end %>
 
   <table aria-label="calculators table" class="table admin-table">
