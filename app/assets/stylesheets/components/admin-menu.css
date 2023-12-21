@@ -1,6 +1,6 @@
 @layer base {
   .admin-menu-navbar {
-    @apply items-center lg:ml-auto h-full 
+    @apply items-center xl:ml-auto h-full 
   }
   
   .admin-menu-item {
@@ -8,7 +8,7 @@
   }
   
   .admin-menu-burger-button {
-    @apply lg:hidden flex items-center text-success pt-7 pr-4 ml-auto
+    @apply xl:hidden flex items-center text-success pt-7 pr-4 ml-auto
   }
 
   .locale-button {
@@ -16,7 +16,7 @@
   }
 
   .admin-menu-list {
-    @apply flex flex-col lg:flex-row mt-8 lg:mx-2 space-y-6 lg:space-y-0
+    @apply flex flex-col xl:flex-row mt-8 xl:mx-2 space-y-6 xl:space-y-0
   }
 }
 
