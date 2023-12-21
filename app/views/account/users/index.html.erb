@@ -8,7 +8,7 @@
         </h3>
       </div>
 
-      <table class="table admin-table">
+      <table aria-label="users table" class="table admin-table">
         <thead>
           <tr>
             <td><%= sort_link(@q, :email, t('.table.email_col'), default_order: :desc) %></td>
