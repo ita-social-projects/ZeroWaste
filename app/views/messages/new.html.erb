@@ -1,0 +1,41 @@
+<div class="position-block">
+  <div class="card">
+    <div class="card-block p-4">
+      <h2 class="text-center p-2">
+        <%= t('.contact_us_header') %>
+      </h2>
+      <div class="contact-form">
+        <%= form_with model: @message do |form| %>
+          <div class="title">
+            <div class="text">
+              <%= t('.title') %>
+            </div>
+            <%= form.text_field :title, class:'form-control', placeholder:t('.title_hint'), minlength:"5", required: true %>
+          </div>
+          <div class="email">
+            <div class="text">
+              <%= t('.email') %>
+            </div>
+            <%= form.email_field :email, class:'form-control', placeholder:'example@example.com', required: true %>
+          </div>
+          <div class="msg">
+            <div class="text">
+              <%= t('.message') %>
+            </div>
+            <%= form.text_area :message, class:'form-control', placeholder:(t('.message_hint')), size:"25x2", minlength:"20", required: true %>
+          </div>
+          <div class="d-flex justify-content-between flex-wrap flex-row-reverse">
+            <%= form.submit t('.send'), class:"btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="contact-info card-block p-3 m-auto">
+    <div class="adress">
+      <span class="fas fa-globe"></span>
+      <span class="text">
+        <%= link_to 'zerowastelviv.org.ua', 'http://zerowastelviv.org.ua', target: '_blank' %>
+    </div>
+</div>
