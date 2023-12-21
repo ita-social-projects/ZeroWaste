@@ -12,7 +12,7 @@
   }
 
   .locale-button {
-    @apply inline-block border border-success text-success hover:bg-success hover:text-dark_green text-sm px-2 py-1 rounded ml-auto mt-7 mr-6 ml-4
+    @apply inline-block border border-success text-success hover:bg-success hover:text-dark_green text-sm px-2 py-1 rounded ml-auto mt-7 mr-6
   }
 
   .admin-menu-list {
