@@ -7,4 +7,4 @@ import "bootstrap";
 import "@fortawesome/fontawesome-free";
 import "@rails/request.js";
 import "@rails/actioncable";
-import "toastify-js";
+import "turbo_streams/toast";
