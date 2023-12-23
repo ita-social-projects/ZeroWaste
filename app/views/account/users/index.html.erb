@@ -1,12 +1,14 @@
 <div class="container home">
   <div class="row">
-    <div class="col mb-2">
-      <h1 class="text-body d-inline"><%= t(".main_header") %></h1>
-      <h3 class="float-right d-inline">
-        <%= link_to icon("fa-solid", "download"), account_users_path(format: "csv") %>
-      </h3>
+    <div class="col">
+      <div class="mb-2">
+        <h1 class="text-body d-inline"><%= t(".main_header") %></h1>
+        <h3 class="float-right d-inline">
+          <%= link_to icon("fa-solid", "download"), account_users_path(format: "csv") %>
+        </h3>
+      </div>
 
-      <table class="table">
+      <table aria-label="users table" class="table admin-table">
         <thead>
           <tr>
             <th><%= sort_link(@q, :email, t(".table.email_col"), default_order: :desc) %></th>
@@ -19,7 +21,7 @@
             <th><%= t(".table.delete") %></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="admin-table-links">
           <% @users.each do |user| %>
             <tr id="user-info-<%= user.id %>">
               <td><%= user.email %></td>
