@@ -208,6 +208,7 @@ en:
         main_header: "Dashboard"
         add_user_button: "Add user"
         confirm_delete: "Are you sure you want to delete this user?"
+        confirm_ban: "Are you sure you want to block this user?"
         table:
           email_col: "Email"
           first_name: "First name"
@@ -500,6 +501,7 @@ en:
     message_sent: "Message has been sent"
     category_created: "Category was successfully created."
     category_updated: "Category was successfully updated."
+    admin_blocked: "You cannot block an admin user."
     user_blocked: "User has been blocked."
     user_unblocked: "User has been unblocked."
     status_update_alert: "Failed to update user."

@@ -30,7 +30,7 @@
               <td><%= link_to icon('fa-solid', 'eye'), account_user_path(id: user.id) %></td>
               <td><%= link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id) %></td>
               <td>
-                <%= button_to update_block_status_account_user_path(user, locale: I18n.locale), method: :patch do %>
+                <%= button_to update_block_status_account_user_path(user, locale: I18n.locale), method: :patch, data: { turbo_confirm: user.blocked? ? nil : t('.confirm_ban') } do %>
                   <% if user.blocked? %>
                     <i class="fa fa-lock text-error"></i>
                   <% else %>
