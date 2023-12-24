@@ -1,0 +1,20 @@
+@layer components {
+
+  /* Password eye-icon */
+  .password-wrapper,
+  .password-wrapper-login {
+    @apply relative;
+  }
+
+  .toggle-password {
+    @apply absolute text-success top-0 right-0 flex items-center pr-2.5 pt-3 cursor-pointer bg-transparent;
+  }
+
+  .input-group-addon.toggle-password i {
+    @apply text-success bg-white;
+  }
+
+  .password-wrapper-login .toggle-password {
+    @apply pt-11;
+  }
+}

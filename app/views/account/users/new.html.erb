@@ -1,14 +1,25 @@
 <div class="container d-flex justify-content-between">
   <div>
-    <h2 class="text-center"><%= t('.table.create_new_user') %></h2>
+    <h2 class="text-center">
+      <%= t('.table.create_new_user') %>
+    </h2>
     <%= simple_form_for(@user, url: account_users_path, wrapper: :horizontal_form) do |f| %>
       <%= f.input :email, placeholder: 'example@example.com' %>
       <%= f.input :first_name, placeholder: t('.form.first_name_label'), required: true %>
       <%= f.input :last_name, placeholder: t('.form.last_name_label'), required: true %>
       <%= f.input :country %>
       <%= f.input :role, collection: ['user', 'admin'] %>
-      <%= f.input :password, hint: t('.form.password_hint'), required: true %>
-      <%= f.input :password_confirmation, required: true %>
+
+      <div class="password-wrapper" data-controller="password-visibility">
+        <%= f.input :password, input_html: { data: { password_visibility_target: 'password' } }, hint: t('.form.password_hint'), required: true %>
+        <%= render 'shared/password_icon' %>
+      </div>
+
+      <div class="password-wrapper" data-controller="password-visibility">
+        <%= f.input :password_confirmation, input_html: { data: { password_visibility_target: 'password' } }, required: true %>
+        <%= render 'shared/password_icon' %>
+      </div>
+
       <%= f.input :send_credentials_email, as: :boolean, label: t('.form.send_credentials_email'), input_html: { checked: true } %>
       <%= f.submit t('.form.create_user_button'), class: 'btn btn-primary w-auto' %>
     <% end %>
