@@ -131,14 +131,14 @@ RSpec.describe "Account::UsersController", type: :request do
     end
 
     context "when user update fails" do
-    it "redirects to account_users_path with an alert message" do
-      allow_any_instance_of(User).to receive(:update).and_return(false)
-      put update_block_status_account_user_path(user.id)
+      it "redirects to account_users_path with an alert message" do
+        allow_any_instance_of(User).to receive(:update).and_return(false)
+        put update_block_status_account_user_path(user.id)
 
-      expect(flash[:alert]).to eq(I18n.t("notifications.status_update_alert"))
-      expect(response).to redirect_to(account_users_path(id: user))
+        expect(flash[:alert]).to eq(I18n.t("notifications.status_update_alert"))
+        expect(response).to redirect_to(account_users_path(id: user))
+      end
     end
-  end
   end
 
   describe "DELETE #destroy" do
