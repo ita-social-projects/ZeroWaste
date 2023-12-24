@@ -4,7 +4,7 @@
   }
   
   .loader {
-    @apply m-auto border-8 border-green-500 border-left-green rounded-full w-20 h-20 animate-spin
+    @apply m-auto border-8 border-success border-left-green rounded-full w-20 h-20 animate-spin
   }
 }
 
