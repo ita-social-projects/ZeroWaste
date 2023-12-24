@@ -9,5 +9,5 @@
 }
 
 .border-left-green {
-  border-left-color: green; 
+  border-left-color: theme("colors.dark_green");
 }

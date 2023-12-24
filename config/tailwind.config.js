@@ -9,18 +9,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        success: '#8fba3b',
-        dark_green: '#256d36',
-      },
-
       fontFamily: {
         sans: ['Comfortaa', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         success: '#8fba3b',
         dark_green: '#256d36',
-
       },
     },
   },
