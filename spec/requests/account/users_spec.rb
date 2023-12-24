@@ -105,6 +105,32 @@ RSpec.describe "Account::UsersController", type: :request do
     end
   end
 
+  describe "PUT #update_block_status" do
+    context "when user is blocked" do
+      it "unblocks the user" do
+        user.update(blocked: true)
+        put update_block_status_account_user_path(user.id)
+
+        user.reload
+        expect(user.blocked).to be_falsey
+        expect(flash[:notice]).to eq(I18n.t("notifications.user_unblocked"))
+        expect(response).to redirect_to(account_user_path(user))
+      end
+    end
+
+    context "when user is unblocked" do
+      it "blocks the user" do
+        user.update(blocked: false)
+        put update_block_status_account_user_path(user.id)
+
+        user.reload
+        expect(user.blocked).to be_truthy
+        expect(flash[:notice]).to eq(I18n.t("notifications.user_blocked"))
+        expect(response).to redirect_to(account_user_path(user))
+      end
+    end
+  end
+
   describe "DELETE #destroy" do
     it "destroys the user and redirects to index page" do
       expect do
