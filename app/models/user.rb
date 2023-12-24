@@ -64,28 +64,24 @@ class User < ApplicationRecord
          :validatable, :confirmable, :lockable, :timeoutable, :trackable, :async,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
   validates :email, presence: true, uniqueness: { case_sensitive: false }
-  validates :email, allow_blank: true, length: { minimum: 6, maximum: 100 }
-  validates :email, allow_blank: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, length: { minimum: 6, maximum: 100 }, allow_blank: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
   validates :password, presence: true, unless: :skip_password_validation
   validates :password,
-            allow_blank: true,
             confirmation: true,
             length: { in: 8..64 },
-            unless: :skip_password_validation
+            unless: :skip_password_validation,
+            allow_blank: true
   validates :password,
-            allow_blank: true,
             confirmation: true,
             format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
-            unless: :skip_password_validation
-  validates :first_name, :last_name, presence: true, on: [:create, :update]
+            unless: :skip_password_validation,
+            allow_blank: true
+  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, length: { in: 2..50 }, allow_blank: true
   validates :first_name, :last_name,
-            allow_blank: true,
-            on: [:create, :update],
-            length: { in: 2..50 }
-  validates :first_name, :last_name,
-            allow_blank: true,
-            on: [:create, :update],
-            format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
+            format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ },
+            allow_blank: true
 
   validates :avatar, content_type: ["image/png", "image/jpeg", "image/jpg"],
                      size: { less_than: 2.megabytes }
