@@ -14,10 +14,10 @@
             <th><%= sort_link(@q, :first_name, t('.table.first_name'), default_order: :desc) %></th>
             <th><%= sort_link(@q, :last_name, t('.table.last_name'), default_order: :desc) %></th>
             <th><%= sort_link(@q, :updated_at, t('.table.last_visit_col'), default_order: :desc) %></th>
-            <th><%= t '.table.view_info_col' %></th>
-            <th><%= t '.table.edit' %></th>
-            <th><%= t '.table.ban' %></th>
-            <th><%= t '.table.delete' %></th>
+            <th><%= t ('.table.view_info_col') %></th>
+            <th><%= t ('.table.edit') %></th>
+            <th><%= t ('.table.ban') %></th>
+            <th><%= t ('.table.delete') %></th>
           </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
               <td><%= link_to icon('fa-solid', 'eye'), account_user_path(id: user.id) %></td>
               <td><%= link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id) %></td>
               <td>
-                <%= button_to update_block_status_account_user_path(id: user.id), method: :put do %>
+                <%= button_to update_block_status_account_user_path(user, locale: I18n.locale), method: :patch do %>
                   <% if user.blocked? %>
                     <i class="fa fa-lock text-error"></i>
                   <% else %>

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       root "dashboard#index"
       resources :users do
         member do
-          put "update_block_status", to: "users#update_block_status", as: :update_block_status
+          patch "update_block_status", to: "users#update_block_status", as: :update_block_status
         end
       end
       resources :calculators, param: :slug

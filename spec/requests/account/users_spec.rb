@@ -105,11 +105,11 @@ RSpec.describe "Account::UsersController", type: :request do
     end
   end
 
-  describe "PUT #update_block_status" do
+  describe "PATCH #update_block_status" do
     context "when user is blocked" do
       it "unblocks the user" do
         user.update(blocked: true)
-        put update_block_status_account_user_path(user.id)
+        patch update_block_status_account_user_path(user)
 
         user.reload
         expect(user.blocked).to be_falsey
@@ -121,7 +121,7 @@ RSpec.describe "Account::UsersController", type: :request do
     context "when user is unblocked" do
       it "blocks the user" do
         user.update(blocked: false)
-        put update_block_status_account_user_path(user.id)
+        patch update_block_status_account_user_path(user)
 
         user.reload
         expect(user.blocked).to be_truthy
@@ -133,7 +133,7 @@ RSpec.describe "Account::UsersController", type: :request do
     context "when user update fails" do
       it "redirects to account_users_path with an alert message" do
         allow_any_instance_of(User).to receive(:update).and_return(false)
-        put update_block_status_account_user_path(user.id)
+        patch update_block_status_account_user_path(user)
 
         expect(flash[:alert]).to eq(I18n.t("notifications.status_update_alert"))
         expect(response).to redirect_to(account_users_path(id: user))
