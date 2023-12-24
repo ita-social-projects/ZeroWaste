@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
+  static targets = ["loaderMask"];
 
   connect() {
     this.createLoaderMask();
@@ -10,7 +11,7 @@ export default class extends Controller {
     const maskDiv = document.createElement('div');
     maskDiv.classList.add('mask');
 
-    maskDiv.setAttribute('data-loader-target', 'loader_mask');
+    maskDiv.setAttribute('data-loader-target', 'loaderMask');
 
     const loaderDiv = document.createElement('div');
     loaderDiv.classList.add('loader');
@@ -19,10 +20,9 @@ export default class extends Controller {
     this.element.appendChild(maskDiv);
   }
 
-  static targets = ["loader_mask"];
 
   show_loader(event) {
-    const loaderMask = this.loader_maskTarget;
+    const loaderMask = this.loaderMaskTarget;
     loaderMask.style.opacity = 0.7;
     loaderMask.style.zIndex = 100;
   }

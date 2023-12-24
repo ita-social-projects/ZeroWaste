@@ -8,6 +8,7 @@ RSpec.describe DatabaseService do
   let(:new_file_path_regex) { Regexp.new("#{Regexp.escape(DatabaseService::BACKUP_ARCHIVE_DIR.to_s)}/\\d{14}_zero_waste_sandbox\\.dump") }
   let(:files) { ["older.dump", "newest.dump"] }
   let(:file_name) { "test.dump" }
+  let(:db_name) { ActiveRecord::Base.connection.current_database }
 
   describe ".sandbox_enable" do
     context "when dump_flag is true" do
@@ -32,6 +33,12 @@ RSpec.describe DatabaseService do
     it "checks if the backup file exists" do
       expect(File).to receive(:exist?).with(described_class.backup_full_path(described_class::BACKUP_SANDBOX_NAME)).and_return(true)
       expect(described_class.sandbox_enabled?).to be_truthy
+    end
+  end
+
+  describe ".database_name" do
+    it "returns the name of the current database" do
+      expect(DatabaseService.database_name).to eq(db_name)
     end
   end
 
