@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   private
 
   def site_settings
-    @site_settings ||= SiteSetting.current.first
+    @site_settings ||= SiteSetting.current
   end
 
   def storable_location?
