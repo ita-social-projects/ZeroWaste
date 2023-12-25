@@ -1,0 +1,9 @@
+@layer base {
+  .page-header {
+    @apply max-w-7xl mx-auto mb-10 flex justify-between items-center border-b-2 border-gray;
+  }
+
+  .func-btns {
+    @apply flex justify-between items-center;
+  }
+}

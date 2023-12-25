@@ -30,17 +30,6 @@ a {
   left: 0;
 }
 
-.page-header {
-  max-width: $max_width_content;
-  margin: auto;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  border-bottom: 2px solid $gray;
-}
-
 .jumbotron {
   background-color: $color;
   max-width: $max_width_content;
@@ -50,14 +39,6 @@ a {
 .jumbotron-fluid {
   padding-top: 0;
   padding-bottom: 0;
-}
-
-.func-btns {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 315px;
 }
 
 .mn-vd {
@@ -315,7 +296,9 @@ body:where(.admin)::before {
   }
 
   .admin-table-links {
-    a, form {
+
+    a,
+    form {
       color: $success;
 
       &:hover {
@@ -366,7 +349,7 @@ body:where(.admin)::before {
   padding: 20px;
 }
 
-@media screen and (max-width: $xs) {
+@media screen and (max-width: $md) {
   .tab {
     display: none;
   }
@@ -409,7 +392,6 @@ body:where(.admin)::before {
 
   .func-btns {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     padding-top: initial;
