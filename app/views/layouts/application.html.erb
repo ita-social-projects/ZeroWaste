@@ -2,8 +2,8 @@
 <html lang="EN" xml:lang="en">
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-    <title><%= site_settings.title %></title>
-    <%= favicon_link_tag(url_for(site_settings.favicon)) %>
+    <title><%= site_settings.first.title %></title>
+    <%= favicon_link_tag(url_for(site_settings.first.favicon)) %>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
