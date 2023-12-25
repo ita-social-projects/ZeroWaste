@@ -6,7 +6,7 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    # return unless user.admin?
+    return unless user.admin?
 
     can :manage, Calculator
     can :manage, User
