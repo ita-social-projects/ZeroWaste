@@ -111,7 +111,7 @@ RSpec.describe "Account::UsersController", type: :request do
       it "does not block admin user" do
         sign_in admin_user
 
-        patch account_user_path(admin_user), params: { user: { blocked: false } }
+        patch account_user_path(admin_user), params: { user: { blocked: false }}
 
         expect(admin_user.reload.blocked).to be_falsey
         expect(response).to redirect_to(account_user_path(admin_user))
