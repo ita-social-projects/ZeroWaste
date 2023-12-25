@@ -6,6 +6,7 @@ RSpec.describe "Account::UsersController", type: :request do
   include_context :authorize_admin
 
   let!(:user) { create(:user, last_sign_in_at: Time.current) }
+  let!(:admin_user) { create(:user, :admin) }
 
   describe "GET #index" do
     it "returns a successful html response" do
@@ -106,6 +107,18 @@ RSpec.describe "Account::UsersController", type: :request do
   end
 
   describe "PATCH #update_block_status" do
+    context "when user is an admin" do
+      it "does not block admin user" do
+        sign_in admin_user
+
+        patch account_user_path(admin_user), params: { user: { blocked: false } }
+
+        expect(admin_user.reload.blocked).to be_falsey
+        expect(response).to redirect_to(account_user_path(admin_user))
+        expect(flash[:alert]).not_to eq(I18n.t("notifications.admin_blocked"))
+      end
+    end
+
     context "when user is blocked" do
       it "unblocks the user" do
         user.update(blocked: true)
@@ -136,7 +149,7 @@ RSpec.describe "Account::UsersController", type: :request do
         patch update_block_status_account_user_path(user)
 
         expect(flash[:alert]).to eq(I18n.t("notifications.status_update_alert"))
-        expect(response).to redirect_to(account_users_path(id: user))
+        expect(response).to redirect_to(account_users_path)
       end
     end
   end

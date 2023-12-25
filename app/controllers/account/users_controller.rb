@@ -53,15 +53,13 @@ class Account::UsersController < Account::BaseController
   def update_block_status
     @user = resource
 
-    unless @user.admin?
-      if @user.update(blocked: !@user.blocked, skip_password_validation: true)
-        redirect_to account_user_path(id: @user), notice: @user.blocked ? t("notifications.user_blocked") : t("notifications.user_unblocked")
-      else
-        flash[:alert] = t("notifications.status_update_alert")
-        redirect_to account_users_path
-      end
-    else
+    if @user.admin?
       flash[:alert] = t("notifications.admin_blocked")
+      redirect_to account_users_path
+    elsif @user.update(blocked: !@user.blocked, skip_password_validation: true)
+      redirect_to account_user_path(id: @user), notice: @user.blocked ? t("notifications.user_blocked") : t("notifications.user_unblocked")
+    else
+      flash[:alert] = t("notifications.status_update_alert")
       redirect_to account_users_path
     end
   end
