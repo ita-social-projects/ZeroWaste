@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   prepend_before_action :set_i18n_locale_from_params
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :fetch_site_settings
+  helper_method :site_settings
 
   def redirection
     redirect_to root_url
@@ -15,7 +15,11 @@ class ApplicationController < ActionController::Base
   private
 
   def fetch_site_settings
-    @site_settings = SiteSetting.current
+    @site_settings ||= SiteSetting.current
+  end
+
+  def site_settings
+    fetch_site_settings
   end
 
   def storable_location?
