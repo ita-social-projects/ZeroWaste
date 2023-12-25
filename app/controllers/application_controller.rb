@@ -14,12 +14,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def fetch_site_settings
-    @site_settings ||= SiteSetting.current
-  end
-
   def site_settings
-    fetch_site_settings
+    @site_settings ||= SiteSetting.current
   end
 
   def storable_location?
