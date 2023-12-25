@@ -1,8 +1,8 @@
 <div class="tab-browser">
   <div class="tab-content">
-    <%= image_tag @site_settings.favicon, class: 'tab-icon', alt: 'Tab Browser Image', data: { handle_browser_tab_target: "icon" } %>
+    <%= image_tag site_settings.favicon, class: 'tab-icon', alt: 'Tab Browser Image', data: { handle_browser_tab_target: "icon" } %>
     <span class="tab-text" data-handle-browser-tab-target="title">
-      <%= @site_settings.title %>
+      <%= site_settings.title %>
     </span>
   </div>
 </div>
