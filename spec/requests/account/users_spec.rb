@@ -110,8 +110,7 @@ RSpec.describe "Account::UsersController", type: :request do
     context "when user is an admin" do
       it "does not block admin user" do
         sign_in admin_user
-
-       patch update_block_status_account_user_path(admin_user)
+        patch update_block_status_account_user_path(admin_user)
 
         expect(admin_user.reload.blocked).to be_falsey
         expect(flash[:alert]).to eq(I18n.t("notifications.admin_blocked"))
