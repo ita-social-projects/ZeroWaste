@@ -1,15 +1,4 @@
 <div id="calculators-edit" class="container">
-  <% if @calculator.errors.any? %>
-    <div>
-      <h2><%= t('activerecord.form_errors', count: @calculator.errors.count, model: t('models.calculator').downcase) %></h2>
-      <ul>
-        <% @calculator.errors.full_messages.each do |error_message| %>
-          <li><%= error_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <%= simple_form_for @calculator, url: { action: 'update' }, wrapper: :horizontal_form, html: { novalidate: false } do |f| %>
     <div class="form-group row">
       <div class="my-auto col-4 has-float-label">
