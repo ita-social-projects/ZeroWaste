@@ -263,6 +263,8 @@ en:
       edit:
         site_settings: Site settings
         site_features: Site features
+        dev_features: Development features
+        rails_db_description: Access to database (read only)
         apply_button: 'Apply'
         confirm_default: Are you sure you want to revert the title and favicon to their default settings?
     calculators:
@@ -470,8 +472,9 @@ en:
             name:
               blank: " can't be blank"
               too_short: " is too short"
+              too_long: " is too long (maximum is %{count} characters)"
               invalid: " is invalid"
-              name_format_validation: must contain only letters or numbers
+              name_format_validation: " must contain only letters or numbers"
         product:
           attributes:
             title:

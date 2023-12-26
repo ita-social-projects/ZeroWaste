@@ -293,8 +293,8 @@ body:where(.admin)::before {
 
 .admin-table {
 
-  .admin-table-header > *,
-  .admin-table-body > * {
+  .admin-table-header>*,
+  .admin-table-body>* {
     display: flex;
   }
 
@@ -305,6 +305,13 @@ body:where(.admin)::before {
     .actions {
       justify-content: center;
     }
+  }
+
+  td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .admin-table-links {
@@ -453,4 +460,9 @@ body:where(.admin)::before {
     margin-right: 16px;
     margin-left: 16px;
   }
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 0;
 }
