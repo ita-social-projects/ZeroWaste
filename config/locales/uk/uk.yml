@@ -479,6 +479,18 @@ uk:
               invalid: "містить неприпустимі символи"
         user:
           attributes:
+            email:
+              invalid: "недійсна"
+              blank: "не може бути пустою"
+              taken: "вже зайнята, вкажіть іншу"
+            first_name:
+              invalid: недійсне
+              too_long: занадто довге (максимум %{count} знаків)
+              too_short: занадто коротке (мінімум %{count} знаки)
+            last_name:
+              invalid: недійсне
+              too_long: занадто довге (максимум %{count} знаків)
+              too_short: занадто коротке (мінімум %{count} знаки)
             avatar:
             content_type: "%{extension}"
               # extension_allowlist_error: "Вам заборонено завантажувати %{extension} файли, дозволені типи: %{allowed_types}"
