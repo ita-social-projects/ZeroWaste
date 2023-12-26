@@ -31,9 +31,11 @@
               <td><%= link_to icon("fa-solid", "eye"), account_user_path(id: user.id) %></td>
               <td><%= link_to icon("fa-solid", "edit"), edit_account_user_path(id: user.id) %></td>
               <td>
-                <%= link_to(icon("fa-solid", user.blocked? ? "lock" : "lock-open"),
-                            account_user_path(id: user, user: { blocked: user.blocked? ? false : true }),
-                            onclick: "alert('Are you sure?')", method: :patch) %>
+                <%= button_to account_user_path(id: user, user: toggle_block_param(user)),
+                              method: :patch,
+                              data: { turbo_confirm: toggle_confirm(user) } do %>
+                  <%= icon("fa-solid", toggle_class(user)) %>
+                <% end %>
               </td>
               <td>
                 <%= button_to account_user_path(id: user), method: :delete,
