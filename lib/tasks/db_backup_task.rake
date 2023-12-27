@@ -8,7 +8,7 @@ namespace :db do
       # -f FILENAME - output file or directory name
       cmd = "pg_dump -F c -d #{DatabaseBackupService.database_name} -f #{DatabaseBackupService.backup_full_path(args[:filename])}"
 
-      puts system(cmd) ? "Created dump database #{DatabaseBackupService.database_name}" : "Error to create database dump!!!"
+      puts system(cmd) ? "Database dump was created successfully" : "Error to create database dump!!!"
     end
 
     desc "Restores the database dump"
@@ -22,7 +22,7 @@ namespace :db do
       # -d DBNAME   - database name to dump
       cmd              = "pg_restore -c -F c -d #{DatabaseBackupService.database_name} #{backup_file_name}"
 
-      puts system(cmd) ? "Database restored from #{backup_file_name}" : "Error to restore database from  #{backup_file_name}!!!"
+      puts system(cmd) ? "Database dump was restored successfully" : "Error to restore database from  #{backup_file_name}!!!"
     end
 
     desc "Show the existing database backups"
