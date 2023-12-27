@@ -2,7 +2,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
   require "flipper/adapters/active_record"
 
   require_relative "flipper_feature"
-  require "./app/services/database_service"
+  require "./app/services/database_backup_service"
 
   Flipper.configure do |config|
     config.default do
@@ -11,7 +11,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
   end
 
   Flipper.features.each do |feature|
-    if feature.name == "sandbox_mode" && !DatabaseService.sandbox_enabled?
+    if feature.name == "sandbox_mode" && !DatabaseBackupService.sandbox_enabled?
       Flipper.disable(feature.name)
     else
       Flipper.enable(feature.name)

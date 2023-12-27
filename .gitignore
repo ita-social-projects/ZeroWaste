@@ -20,6 +20,10 @@
 
 # Ignore backups files
 /db/backups/*
+/db/backups/archive/*
+!/db/backups/.keep
+!/db/backups/archive/.keep
+
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
