@@ -4,7 +4,7 @@ class Account::MessagesController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @q          = collection.ransack(params[:q])
+    @q        = collection.ransack(params[:q])
     @messages = @q.result
   end
 
