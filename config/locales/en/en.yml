@@ -37,6 +37,7 @@ en:
     create: 'Create'
     cancel: 'Cancel'
     revert: 'Revert'
+    back: 'Back'
   calculators:
     new_calculator:
       form:
@@ -249,6 +250,7 @@ en:
           ban_col: "Status"
           blocked_label: "Blocked"
           unblocked_label: "Unblocked"
+        button: "Back"
     site_settings:
       edit:
         site_settings: Site settings

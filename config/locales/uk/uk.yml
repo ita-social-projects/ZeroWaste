@@ -6,6 +6,7 @@ uk:
     create: "Створити"
     cancel: "Скасувати"
     revert: "Скинути"
+    back: "Назад"
   calculators:
     new_calculator:
       form:
