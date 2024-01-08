@@ -17,7 +17,7 @@ class Category < ApplicationRecord
   has_many :categoryables, through: :category_categoryables
 
   validates :name, presence: true, length: { minimum: 3, maximum: 30 },
-            format: { with: /\A[\p{L}0-9\s'-]+\z/i }
+                   format: { with: /\A[\p{L}0-9\s'-]+\z/i }
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
   scope :ordered_by_name, -> { order(:name) }

@@ -36,7 +36,7 @@ RSpec.describe Category, type: :model do
 
     it "with invalid name" do
       ["#", "!", "@", "$", "%", "^", "&", "*", "(", ")", "?", "\"", "_"].each do |sym|
-      category.name = "Invalid Name #{sym}"
+        category.name = "Invalid Name #{sym}"
 
         expect(category).to_not be_valid
         expect(category.errors.messages[:name]).to include(I18n.t("#{LOCAL_PREFIX_CATEGORY}.name.invalid"))
