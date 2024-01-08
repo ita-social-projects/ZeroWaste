@@ -73,4 +73,13 @@ RSpec.describe Calculator, type: :model do
       end
     end
   end
+
+  describe "versioning", versioning: true do
+    let!(:calculator) { create(:calculator, name: "Calculator 1") }
+
+    it "adds a version when the calculator is updated" do
+      calculator.update!(name: "Calculator 2")
+      expect(calculator.versions.count).to eq(2)
+    end
+  end
 end
