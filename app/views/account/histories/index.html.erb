@@ -1,6 +1,6 @@
 <div class="container p-3 bg-light">
   <h2 class="p-3 text-center"><%= t('.history_title') %></h2>
-  <table class="table table-striped table-bordered">
+  <table aria-label="history table" class="table table-striped table-bordered">
     <thead>
       <tr class="text-center table-secondary">
         <th class="align-baseline"><%= t '.table.version_created_at' %></th>
@@ -19,10 +19,10 @@
           <td><%= version.item_id %></td>
           <td><%= version.event %></td>
           <td>
-            <table class="table-borderless">
+            <table aria-label="changes table" class="table-borderless">
               <% version.changeset.each do |key, val| %>
                 <tr>
-                  <td><%= key %></td>
+                  <th><%= key %></th>
                   <td><%= val.join(' => ') %></td>
                 </tr>
               <% end %>
