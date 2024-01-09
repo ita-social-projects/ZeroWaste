@@ -9,11 +9,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      minWidth: {
+        '187': '187px',
+        '1230': '1230px',
+      },
+      maxWidth: {
+        '420': '420px',
+      },
+      padding: {
+        '15px': '15px',
+      },
+      borderWidth: {
+        '3': '3px',
+      },
       colors: {
         success: '#8fba3b',
         dark_green: '#256d36',
       },
-
       fontFamily: {
         sans: ['Comfortaa', ...defaultTheme.fontFamily.sans],
       },
