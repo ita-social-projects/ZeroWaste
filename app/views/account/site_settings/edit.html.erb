@@ -33,8 +33,8 @@
       </div>
     <% end %>
 
-    <div>
-      <%= f.submit t("buttons.save") %>
+    <div data-controller="loader">
+      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" } %>
     </div>
   <% end %>
 </fieldset>

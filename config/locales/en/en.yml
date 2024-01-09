@@ -285,6 +285,8 @@ en:
         name: "Enable new calculator design"
       show_calculators_list:
         name: "Show calculators on the public side"
+      sandbox_mode:
+        name: "Enable sandbox mode"  
     sessions:
       new:
         log_in_header: "Log in"
