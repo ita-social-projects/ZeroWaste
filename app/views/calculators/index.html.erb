@@ -1,0 +1,24 @@
+<div class="container">
+  <table aria-label="public calculators table" class="table admin-table">
+    <thead>
+      <tr>
+        <th scope="col"><%= t('.id_column') %></th>
+        <th scope="col"><%= t('.calculator_name') %></th>
+        <th scope="col"><%= t('.calculator_actions') %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% @calculators.each do |calculator| %>
+        <tr class="<%= calculator.preferable ? 'table-success' : 'table-light' %>">
+          <td><%= calculator.id %></td>
+          <td><%= calculator.name %></td>
+          <td class="actions">
+            <%= link_to '#', class: 'disabled-link', onclick: 'return false;' do %>
+              <i class="mx-2 fa fa-eye"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

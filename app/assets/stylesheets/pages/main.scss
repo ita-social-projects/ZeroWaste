@@ -92,7 +92,7 @@ a {
   max-width: 420px;
 }
 
-.btn-gray {
+.btn-outline-gray {
   border-color: $gray;
   color: $color;
 
@@ -102,7 +102,7 @@ a {
   }
 }
 
-.btn-green {
+.btn-outline-green {
   border-color: $success;
   color: $success;
 
@@ -319,7 +319,7 @@ body:where(.admin)::before {
       color: $success;
 
       &:hover {
-        color: #3d5217;
+        color: $matte_lime_green;
       }
     }
 

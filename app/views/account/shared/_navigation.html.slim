@@ -16,5 +16,5 @@ body
         = link_to t('layouts.navigation.sign_up'), new_user_registration_path, class: 'tab'
         = link_to t('layouts.navigation.log_in'), new_user_session_path, class: 'tab', id: 'log_in'
     .func-btns.d-inline
-      = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank', class: "d-inline main-btn btn-green me-2"
-      = link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'd-inline main-btn btn-gray'
+      = link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank', class: "d-inline main-btn btn-outline-green me-2"
+      = link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'd-inline main-btn btn-outline-gray'

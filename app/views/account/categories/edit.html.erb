@@ -1,0 +1,16 @@
+<div class="container">
+  <%= simple_form_for @category, url: { action: 'update' }, html: { novalidate: false } do |f| %>
+    <div class="form-group row">
+      <div class="my-auto col-12 has-float-label">
+        <%= f.input :name, class: 'form-control col-sm-11', required: true %>
+        <%= f.input :priority, class: 'form-control col-sm-11', input_html: { min: 0 } %>
+      </div>
+    </div>
+    <div class="button-group d-flex">
+      <%= f.submit t('buttons.update'), class: 'btn btn-green me-2 height w-auto' %>
+      <%= link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
+        <span class="me-1"><%= t('buttons.cancel') %></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
