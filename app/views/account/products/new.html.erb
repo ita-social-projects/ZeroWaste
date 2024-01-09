@@ -9,7 +9,7 @@
             <%= label_tag category.name %>
             <div class="hidden-sum" data-price-form-target="price" name="<%= category.name %>">
               <%= f.simple_fields_for :prices do |prices_form| %>
-                <%= prices_form.input :sum, label: false, input_html: { placeholder: 'Sum', data: { price_form_target: 'priceInput' } } %>
+                <%= prices_form.input :sum, label: false, input_html: { placeholder: t('.form.sum'), data: { price_form_target: 'priceInput' } } %>
                 <%= prices_form.hidden_field :category_id, value: category.id %>
               <% end %>
             </div>
