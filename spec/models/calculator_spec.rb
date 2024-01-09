@@ -79,6 +79,7 @@ RSpec.describe Calculator, type: :model do
 
     it "adds a version when the calculator is updated" do
       calculator.update!(name: "Calculator 2")
+
       expect(calculator.versions.count).to eq(2)
     end
   end

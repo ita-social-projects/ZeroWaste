@@ -76,6 +76,7 @@ RSpec.describe User, type: :model do
 
     it "adds a version when the user is updated" do
       user.update!(first_name: "Jane", last_name: "Doe")
+
       expect(user.versions.count).to eq(2)
     end
   end
