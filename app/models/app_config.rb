@@ -13,7 +13,15 @@ class AppConfig < ApplicationRecord
   acts_as_singleton
 
   def update_diapers_calculator(params)
-    self.diapers_calculator = Calculators::DiapersService.product_attributes(params)
-    save
+    price_id = "1"
+
+    if price_id.present?
+      self.diapers_calculator[price_id] = Calculators::DiapersService.product_attributes(params)
+      save
+    else
+      puts "=" * 100
+      puts "price_id is not present"
+      false
+    end
   end
 end
