@@ -2,15 +2,16 @@
 
 class Calculators::DiapersService
   attr_accessor :age, :used_diapers_amount, :to_be_used_diapers_amount,
-                :used_diapers_price, :to_be_used_diapers_price, :config
+                :used_diapers_price, :to_be_used_diapers_price, :config, :price_id
 
-  def initialize(years, month)
+  def initialize(years, month, price_id)
     @age                       = years.to_i * 12 + month.to_i
+    @price_id                  = price_id || 1
     @used_diapers_amount       = 0
     @to_be_used_diapers_amount = 0
     @used_diapers_price        = 0
     @to_be_used_diapers_price  = 0
-    @config                    = AppConfig.instance.diapers_calculator
+    @config                    = AppConfig.instance.diapers_calculator[@price_id.to_s]
     total
   end
 
