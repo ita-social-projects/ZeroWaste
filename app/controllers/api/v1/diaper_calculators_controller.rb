@@ -6,7 +6,7 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
 
     if @validation.valid?
 
-      result = Calculators::DiapersService.new(params[:childs_years], params[:childs_months]).calculate!
+      result = Calculators::DiapersService.new(params[:childs_years], params[:childs_months], params[:price_id]).calculate!
 
       calculator_decorator = CalculatorDecorator.new(result)
 
