@@ -198,8 +198,12 @@ en:
         confirm_delete: 'Delete product?'
       edit:
         title: 'Title'
+        form:
+          sum: "Sum"
       new:
         title: 'Title'
+        form:
+          sum: "Sum"
       created: "A product was successfully created."
       updated: "A product was successfully updated."
       deleted: "A product was successfully destroyed."
@@ -493,6 +497,8 @@ en:
         name: "Name"
         slug: "Slug"
         preferable: "Preferable"
+      product:
+        sum: "Sum"
   notifications:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"
