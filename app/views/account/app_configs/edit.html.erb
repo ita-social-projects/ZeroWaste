@@ -5,7 +5,7 @@
       <%= f.label :product_category, t('calculators.new_calculator.form.price') , class: 'h3' %>    
       <%= f.select :price_id, 
              collection_product_category.each_with_index.map { |item, index| [item, index] }, 
-             { selected: collection_product_category.index(t('.form.medium')) }, 
+             { selected: params[:price_id] }, 
              { class: 'form_fild price_select w-20', 
                data: { 
                  controller: 'price-selector', 

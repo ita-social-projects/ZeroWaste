@@ -6,7 +6,7 @@ class Calculators::DiapersService
 
   def initialize(years, month, price_id)
     @age                       = years.to_i * 12 + month.to_i
-    @price_id                  = price_id || 1
+    @price_id                  = price_id || 0
     @used_diapers_amount       = 0
     @to_be_used_diapers_amount = 0
     @used_diapers_price        = 0
