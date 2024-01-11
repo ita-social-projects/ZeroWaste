@@ -1,24 +1,24 @@
 <div class="container">
-  <h2 class="text-center"><%= t '.diapers_calculator_config' %></h2>
+  <h2 class="text-center h2"><%= t '.diapers_calculator_config' %></h2>
   <div class="container mt-5 text-center">
-    <%= form_with url: account_app_config_path, method: :patch, id: 'form-diapers', data: { controller: "input-child-info" } do |f| %>
-      <%= f.label :product_category, t('calculators.new_calculator.form.price') , class: 'h3' %>    
-      <%= f.select :price_id, 
-             collection_product_category.each_with_index.map { |item, index| [item, index] }, 
-             { selected: params[:price_id] }, 
-             { class: 'form_fild price_select w-20', 
-               data: { 
-                 controller: 'price-selector', 
-                 action: 'change->price-selector#change' 
-               } 
+    <%= form_with url: account_app_config_path, method: :patch, id: 'form-diapers' do |f| %>
+      <%= f.label :product_category, t('calculators.new_calculator.form.price') , class: 'h4' %>
+      <%= f.select :price_id,
+             collection_product_category.each_with_index.map { |item, index| [item, index] },
+             { selected: params[:price_id] },
+             { class: 'form_fild price_select w-40',
+               data: {
+                 controller: 'price-selector',
+                 action: 'change->price-selector#change'
+               }
              } %>
 
       <div class="my-3 row">
         <div class="col">
-          <%= f.label t('.first_period'), class: 'h3' %>
+          <%= f.label t('.first_period'), class: 'h4' %>
         </div>
         <div class="col">
-          <%= f.label t('.second_period'), class: 'h3' %>
+          <%= f.label t('.second_period'), class: 'h4' %>
         </div>
       </div>
 
@@ -43,10 +43,10 @@
 
       <div class="my-3 row">
         <div class="col">
-          <%= f.label t('.third_period'), class: 'h3' %>
+          <%= f.label t('.third_period'), class: 'h4' %>
         </div>
         <div class="col">
-          <%= f.label t('.fourth_period'), class: 'h3' %>
+          <%= f.label t('.fourth_period'), class: 'h4' %>
         </div>
       </div>
 
@@ -71,10 +71,10 @@
 
       <div class="my-3 row">
         <div class="col">
-          <%= f.label t('.fifth_period'), class: 'h3' %>
+          <%= f.label t('.fifth_period'), class: 'h4' %>
         </div>
         <div class="col">
-          <%= f.label t('.sixth_period'), class: 'h3' %>
+          <%= f.label t('.sixth_period'), class: 'h4' %>
         </div>
       </div>
 
@@ -99,7 +99,7 @@
 
       <div class="my-3 row">
         <div class="col">
-          <%= f.label t('.seventh_period'), class: 'h3' %>
+          <%= f.label t('.seventh_period'), class: 'h4' %>
         </div>
         <div class="col">
         </div>
