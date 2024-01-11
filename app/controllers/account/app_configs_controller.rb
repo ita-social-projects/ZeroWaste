@@ -10,9 +10,7 @@ class Account::AppConfigsController < Account::BaseController
   end
 
   def update
-    puts "=" * 100
-    puts "params: #{params}"
-
+    @price_id = params[:price_id] || "1"
     @app_config = AppConfig.instance
     @app_config.update_diapers_calculator(diapers_calculator_params)
   end
@@ -23,7 +21,8 @@ class Account::AppConfigsController < Account::BaseController
     params.permit([
       :first_amount, :first_price, :second_amount, :second_price, :third_amount,
       :third_price, :fourth_amount, :fourth_price, :fifth_amount, :fifth_price,
-      :sixth_amount, :sixth_price, :seventh_amount, :seventh_price
+      :sixth_amount, :sixth_price, :seventh_amount, :seventh_price,
+      :price_id
     ])
   end
 end
