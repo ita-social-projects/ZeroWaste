@@ -29,7 +29,7 @@
         </div>
         <div class="col">
           <%= f.label :first_price, t('.price') %>
-          <%= f.number_field :first_price, step: 0.5, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('1..3', 'price') %>
+          <%= f.number_field :first_price, step: 0.01, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('1..3', 'price') %>
         </div>
         <div class="col">
           <%= f.label :second_amount, t('.amount') %>
@@ -37,7 +37,7 @@
         </div>
         <div class="col">
           <%= f.label :second_price, t('.price') %>
-          <%= f.number_field :second_price, step: 0.5, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('4..6', 'price') %>
+          <%= f.number_field :second_price, step: 0.01, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('4..6', 'price') %>
         </div>
       </div>
 
@@ -57,7 +57,7 @@
         </div>
         <div class="col">
           <%= f.label :third_price, t('.price') %>
-          <%= f.number_field :third_price, step: 0.5, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('7..9', 'price') %>
+          <%= f.number_field :third_price, step: 0.01, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('7..9', 'price') %>
         </div>
         <div class="col">
           <%= f.label :fourth_amount, t('.amount') %>
@@ -65,7 +65,7 @@
         </div>
         <div class="col">
           <%= f.label :fourth_price, t('.price') %>
-          <%= f.number_field :fourth_price, step: 0.5, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('10..12', 'price') %>
+          <%= f.number_field :fourth_price, step: 0.01, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('10..12', 'price') %>
         </div>
       </div>
 
@@ -85,7 +85,7 @@
         </div>
         <div class="col">
           <%= f.label :fifth_price, t('.price') %>
-          <%= f.number_field :fifth_price, step: 0.5, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('13..18', 'price') %>
+          <%= f.number_field :fifth_price, step: 0.01, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('13..18', 'price') %>
         </div>
         <div class="col">
           <%= f.label :sixth_amount, t('.amount') %>
@@ -93,7 +93,7 @@
         </div>
         <div class="col">
           <%= f.label :sixth_price, t('.price') %>
-          <%= f.number_field :sixth_price, step: 0.5, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('19..24', 'price') %>
+          <%= f.number_field :sixth_price, step: 0.01, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('19..24', 'price') %>
         </div>
       </div>
 
@@ -112,7 +112,7 @@
         </div>
         <div class="col-3">
           <%= f.label :seventh_price, t('.price') %>
-          <%= f.number_field :seventh_price, step: 0.5, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('25..30', 'price') %>
+          <%= f.number_field :seventh_price, step: 0.01, min: 0, class: 'form-input-number w-100', value: @price_id_hash.dig('25..30', 'price') %>
         </div>
       </div>
       <br>
