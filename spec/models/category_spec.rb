@@ -23,7 +23,7 @@ RSpec.describe Category, type: :model do
     it { is_expected.to validate_numericality_of(:priority).is_greater_than_or_equal_to(0) }
   end
 
-  context "checking the amount of errors" do
+  context "checking the number of errors" do
     let(:category) { build(:category, name: "") }
 
     it "returns only one error message when field is blank" do
