@@ -1,7 +1,7 @@
 import Toastify from "toastify-js";
 
-function getColorByMessageType(messageType) {
-  switch (messageType) {
+function getColorBackground(background) {
+  switch (background) {
     case "error":
       return "#DC3545";
     case "notice":
@@ -13,8 +13,8 @@ function getColorByMessageType(messageType) {
   }
 }
 
-export function showToast(message, messageType) {
-  const backgroundColor = getColorByMessageType(messageType);
+export function showToast(message, background) {
+  const backgroundColor = getColorBackground(background);
 
   Toastify({
     text: message,
