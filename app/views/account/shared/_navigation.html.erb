@@ -1,0 +1,50 @@
+<body>
+  <header data-controller="burger" class="page-header">
+    <%= link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste' %>
+    <div data-burger-target="navbarNav" class="hidden xl:flex">
+      <ul class="admin-menu-list">
+        <li>
+          <% if Flipper[:show_calculators_list].enabled? %>
+            <%= link_to t('.calculators'), calculators_path, class: 'tab' %>
+          <% else %>
+            <%= link_to t('layouts.navigation.calculate'), calculator_path, class: 'tab' %>
+          <% end %>  
+        </li>
+        <li>   
+          <%= link_to t('layouts.navigation.about_us'), about_us_path, class: 'tab' %>
+        </li>
+          <li>   
+          <%= link_to t('layouts.navigation.contact_us'), new_message_path, class: 'tab' %>
+        </li>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <li>
+                <%= link_to t('layouts.navigation.admin'), account_calculators_path, class: 'tab' %>
+              </li>
+            <% end %>
+            <li>
+              <%= link_to t('layouts.navigation.log_out'), destroy_user_session_path, class: 'tab' %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t('layouts.navigation.sign_up'), new_user_registration_path, class: 'tab' %>
+            </li> 
+            <li>
+              <%= link_to t('layouts.navigation.log_in'), new_user_session_path, class: 'tab', id: 'log_in' %>
+            </li>
+          <% end %>
+      </ul> 
+    </div>
+    <div class="flex">
+      <%= link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank', class: "d-inline main-btn btn-outline-green me-2" %>
+      <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'd-inline main-btn btn-outline-gray' %>
+      
+      <div>
+        <button data-action="click->burger#toggle" class="admin-menu-burger-button">
+          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
+          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
+        </button>
+      </div>  
+    </div>
+  </header>
+</body>
