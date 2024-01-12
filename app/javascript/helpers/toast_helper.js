@@ -13,7 +13,7 @@ function getColorBackground(background) {
   }
 }
 
-export function showToast(message, background) {
+function showToast(message, background) {
   const backgroundColor = getColorBackground(background);
 
   Toastify({
@@ -29,3 +29,7 @@ export function showToast(message, background) {
     }
   }).showToast()
 }
+
+export const toastUtils = {
+  showToast,
+};

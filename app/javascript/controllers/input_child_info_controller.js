@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { FetchRequest } from "@rails/request.js";
-import { showToast } from "helpers/toast_helper";
+import { toastUtils } from "helpers/toast_helper";
 
 export default class extends Controller {
   static targets = ["month", "year", "productCategory"];
@@ -69,7 +69,7 @@ export default class extends Controller {
     if (response.ok) {
       this.resultsOutlet.showResults(result);
     } else if (response.statusCode == 422) {
-      showToast(result.error, "error");
+      toastUtils.showToast(result.error, "error");
     }
   }
 
