@@ -186,6 +186,12 @@ en:
       index:
         add_category_button: 'Add category'
         confirm_delete: 'Delete category?'
+      edit:
+        form:
+          update_category_button: "Update category"
+      new:
+        form:
+          create_category_button: "Create category"
     products:
       table:
         title: 'Title'
@@ -200,10 +206,12 @@ en:
         title: 'Title'
         form:
           sum: "Sum"
+          update_product_button: "Update product"
       new:
         title: 'Title'
         form:
           sum: "Sum"
+          create_product_button: "Create product"
       created: "A product was successfully created."
       updated: "A product was successfully updated."
       deleted: "A product was successfully destroyed."
@@ -290,7 +298,7 @@ en:
       show_calculators_list:
         name: "Show calculators on the public side"
       sandbox_mode:
-        name: "Enable sandbox mode"  
+        name: "Enable sandbox mode"
     sessions:
       new:
         log_in_header: "Log in"
