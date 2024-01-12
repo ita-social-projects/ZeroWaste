@@ -660,7 +660,7 @@ uk:
     format: "%{attribute} %{message}"
     messages:
       accepted: "може бути прийнятим"
-      blank: "не може бути пустим"
+      blank: "не може бути порожнім"
       confirmation: "не збігається з підтвердженням"
       empty: "не може бути порожнім"
       equal_to: "мусить дорівнювати %{count}"
