@@ -1,3 +1,9 @@
+<div class="button-group d-flex">
+  <%= link_to account_users_path, class: 'btn btn-green d-flex align-items-center justify-content-center' do %>
+    <span class="me-1"><%= t('buttons.back') %></span>
+  <% end %>
+</div>
+</br>
 <div class="container d-flex justify-content-between">
   <div class="flex-child">
     <h2><%= t('.header') %></h2>
@@ -26,12 +32,6 @@
       <dt><%= t('.table.ban_col') %></dt>
       <dd><%= t(".table.#{ @user.blocked? ? 'blocked' : 'unblocked' }_label") %></dd>
     </dl>
-    </br>
-    <div class="button-group d-flex">
-      <%= link_to account_users_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
-        <span class="me-1"><%= t('buttons.back') %></span>
-      <% end %>
-    </div>
   </div>
 
   <div class="flex-child">
