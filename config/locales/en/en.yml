@@ -471,6 +471,10 @@ en:
               too_long: " is too long (maximum is %{count} characters)"
               invalid: " is invalid"
               name_format_validation: " must contain only letters or numbers"
+        category:
+          attributes:
+            name:
+              invalid: contains invalid characters
         product:
           attributes:
             title:
