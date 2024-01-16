@@ -458,7 +458,7 @@ uk:
         category:
           attributes:
             name:
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
               too_long:
                 one: "занадто довга (максимум %{count} знак)"
                 few: "занадто довга (максимум %{count} знаки)"
@@ -487,7 +487,7 @@ uk:
         product:
           attributes:
             title:
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
               too_long:
                 one: "занадто довга (максимум %{count} знак)"
                 few: "занадто довга (максимум %{count} знаки)"
@@ -504,7 +504,7 @@ uk:
           attributes:
             email:
               invalid: "недійсна"
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
               taken: "вже зайнята, вкажіть іншу"
             first_name:
               invalid: недійсне
@@ -683,7 +683,7 @@ uk:
     format: "%{attribute} %{message}"
     messages:
       accepted: "може бути прийнятим"
-      blank: "не може бути пустим"
+      blank: "не може бути порожнім"
       confirmation: "не збігається з підтвердженням"
       empty: "не може бути порожнім"
       equal_to: "мусить дорівнювати %{count}"

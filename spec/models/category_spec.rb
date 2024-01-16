@@ -25,22 +25,13 @@ RSpec.describe Category, type: :model do
     it { is_expected.to validate_numericality_of(:priority).is_greater_than_or_equal_to(0) }
   end
 
-  context "validates the name format" do
-    let(:category) { build(:category) }
+  context "checking the number of errors" do
+    let(:category) { build(:category, name: "") }
 
-    it "with valid name" do
-      category.name = "Hedgehog і єнот з'їли 2 аґруси"
-
-      expect(category).to be_valid
-    end
-
-    it "with invalid name" do
-      ["#", "!", "@", "$", "%", "^", "&", "*", "(", ")", "?", "\"", "_"].each do |sym|
-        category.name = "Invalid Name #{sym}"
-
-        expect(category).to_not be_valid
-        expect(category.errors.messages[:name]).to include(I18n.t("#{LOCAL_PREFIX_CATEGORY}.name.invalid"))
-      end
+    it "returns only one error message when field is blank" do
+      category.valid?
+      expect(category.errors.full_messages_for(:name).length).to eq 1
+      expect(category.errors.full_messages_for(:name)).to include("Name can't be blank")
     end
   end
 end
