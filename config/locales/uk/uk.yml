@@ -177,6 +177,12 @@ uk:
           priority: "Пріоритет"
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
+      edit:
+        form:
+          update_category_button: "Оновити категорію"
+      new:
+        form:
+          create_category_button: "Створити категорію"
     products:
       index:
         table:
@@ -195,10 +201,12 @@ uk:
         title: "Назва"
         form:
           sum: "Сума"
+          update_product_button: "Оновити продукт"
       new:
         title: "Назва"
         form:
           sum: "Сума"
+          create_product_button: "Створити продукт"
       created: "Продукт був успішно створений."
       updated: "Продукт був успішно оновлений."
       deleted: "Продукт був успішно видалений."
