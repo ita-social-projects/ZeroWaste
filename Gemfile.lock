@@ -551,6 +551,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.27-x64-mingw32)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.27-x86_64-darwin)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.27-x86_64-linux)
       railties (>= 6.0.0)
     temple (0.8.2)
@@ -594,6 +596,7 @@ PLATFORMS
   arm64-darwin-21
   ruby
   x64-mingw32
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES

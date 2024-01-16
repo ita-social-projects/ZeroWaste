@@ -1,0 +1,50 @@
+<div class="container home">
+  <div class="row">
+    <div class="col">
+      <div class="mb-2">
+        <h1 class="text-body d-inline"><%= t('.main_header') %></h1>
+        <h3 class="d-inline">
+          <%= link_to icon('fa-solid', 'download'), account_users_path(format: "csv") %>
+        </h3>
+      </div>
+
+      <table aria-label="users table" class="table admin-table">
+        <thead>
+          <tr>
+            <th scope="col"><%= sort_link(@q, :email, t('.table.email_col'), default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :first_name, t('.table.first_name'), default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :last_name, t('.table.last_name'), default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :updated_at, t('.table.last_visit_col'), default_order: :desc) %></th>
+            <th scope="col"><%= t('.table.view_info_col') %></th>
+            <th scope="col"><%= t('.table.edit') %></th>
+            <th scope="col"><%= t('.table.ban') %></th>
+            <th scope="col"><%= t('.table.delete') %></th>
+          </tr>
+        </thead>
+        <tbody class="admin-table-links">
+          <% @users.each do |user| %>
+            <tr id="user-info-<%= user.id %>">
+              <td><%= user.email %></td>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.last_sign_in_at %></td>
+              <td><%= link_to icon('fa-solid', 'eye'), account_user_path(id: user.id) %></td>
+              <td><%= link_to icon('fa-solid', 'edit'), edit_account_user_path(id: user.id) %></td>
+              <td>
+                <%= link_to icon('fa-solid', user.blocked? ? 'lock' : 'lock-open'),
+                            account_user_path(id: user, user: { blocked: user.blocked? ? false : true }),
+                            onclick: "alert('Are you sure?')", method: :patch %>
+              </td>
+              <td>
+                <%= link_to account_user_path(id: user), method: :delete,
+                            data: { confirm: t('.confirm_delete') } do %>
+                  <i class="mx-2 fa fa-trash"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
