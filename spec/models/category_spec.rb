@@ -10,6 +10,8 @@
 #
 require "rails_helper"
 
+LOCAL_PREFIX_CATEGORY = "activerecord.errors.models.category.attributes"
+
 RSpec.describe Category, type: :model do
   subject { build(:category) }
 

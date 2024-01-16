@@ -70,4 +70,14 @@ RSpec.describe User, type: :model do
     it { is_expected.to allow_value("P@$$w0rd!-_%^&*()_+|~={}[]:\";'<>?,./").for(:password) }
     it { is_expected.not_to allow_value("/asd").for(:password) }
   end
+
+  describe "versioning", versioning: true do
+    let!(:user) { create(:user, first_name: "John", last_name: "Doe") }
+
+    it "adds a version when the user is updated" do
+      user.update!(first_name: "Jane", last_name: "Doe")
+
+      expect(user.versions.count).to eq(2)
+    end
+  end
 end

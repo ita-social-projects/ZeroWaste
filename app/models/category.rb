@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Category < ApplicationRecord
+  PRIORITY_RANGE = 0..10
+
   has_one :price, dependent: :destroy
 
   has_many :category_categoryables, dependent: :restrict_with_exception
