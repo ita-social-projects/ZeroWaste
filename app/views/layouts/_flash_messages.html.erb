@@ -1,0 +1,3 @@
+<% flash.each do |message_type, message| %>
+  <%= turbo_stream.toast(message, background: message_type) %>
+<% end %>
