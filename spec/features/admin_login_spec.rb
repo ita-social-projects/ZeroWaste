@@ -62,6 +62,7 @@ RSpec.feature "AdminLogins", type: :feature do
       context "when sign in with correct login and password" do
         it "redirect to admin page" do
           visit new_user_session_path
+          page.driver.browser.manage.window.resize_to(1280, 720)
           click_on LANG_BUTTON_TEXT
           fill_in "user_email", with: user.email
           fill_in "user_password", with: user.password
