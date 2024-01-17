@@ -1,17 +1,16 @@
+<% content_for :title, "About us" %>
+<% content_for :description, "Information about ZeroWaste organization and team" %>
 <section>
-  <h1 class="text-center text-2xl text-success"><%= t('about_us.title') %></h1>
+  <h2 class="text-center text-2xl text-success"><%= t('about_us.title') %></h2>
   <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.first_paragraph') %></p>
   <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.second_paragraph') %></p>
   <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.third_paragraph') %></p>
 </section>
 <section>
-  <h1 class="text-center text-2xl text-success"><%= t('our_team.title') %></h1>
+  <h2 class="text-center text-2xl text-success"><%= t('our_team.title') %></h2>
   <p class="text-center text-2l text-white mx-4 mb-4"><%= t('our_team.description') %></p>
 </section>
 <div class="flex justify-evenly items-center">
-  <%= image_tag "logo_zerowaste.png", class: "logo-zerowaste" %>
-  <%= image_tag "softserve_academy_logo.png", class: "logo-zerowaste" %>
+  <%= link_to image_tag("logo_zerowaste.png", class: "logo-zerowaste"), "https://zerowastelviv.org.ua/", target: "_blank" %>
+  <%= link_to image_tag("softserve_academy_logo.png", class: "logo-zerowaste"), "https://career.softserveinc.com/uk-ua/softserve-academy",target: "_blank" %>
 </div>
-<footer class="text-center text-success mt-4">
-  <p><%= t('footer_about') %> <a href="https://zerowastelviv.org.ua/"> https://zerowastelviv.org.ua</a></p>
-</footer>
