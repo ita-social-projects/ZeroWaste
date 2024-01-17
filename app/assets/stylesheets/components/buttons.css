@@ -12,7 +12,7 @@
   }
 
   .main-btn {
-    @apply flex justify-around flex-wrap text-center tracking-widest uppercase text-xs text-white border border-solid rounded my-5 mx-auto py-15px px-9 min-w-187 max-w-420;
+    @apply flex justify-around flex-wrap text-center tracking-widest uppercase text-xs text-white border border-solid rounded my-5 mx-auto py-3.5 px-9 max-w-md;
   }
 
   .btn-outline-gray {
