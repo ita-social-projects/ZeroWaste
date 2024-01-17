@@ -14,7 +14,7 @@
         </div>
       </div>
       <%= f.submit t("buttons.save") %>
-      <%= button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "btn-grey" %>
+      <%= button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "px-4 py-2.5 my-4 btn-grey w-min" %>
     <% end %>
   </div>
 </fieldset>
@@ -33,8 +33,8 @@
       </div>
     <% end %>
 
-    <div>
-      <%= f.submit t("buttons.save") %>
+    <div data-controller="loader">
+      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" } %>
     </div>
   <% end %>
 </fieldset>
@@ -46,5 +46,5 @@
   <p class="mb-3">
     <%= t(".rails_db_description") %>
   </p>
-  <%= link_to "Rails DB", rails_db_path, class: "btn-grey" %>
+  <%= link_to "Rails DB", rails_db_path, class: "px-4 py-2.5 btn-grey w-fit mt-4 mb-0" %>
 </fieldset>
