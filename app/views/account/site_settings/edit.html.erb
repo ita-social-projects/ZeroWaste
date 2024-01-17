@@ -23,6 +23,14 @@
   <legend class="admin-legend">
     <%= t(".site_features") %>
   </legend>
+
+
+</fieldset>
+
+<fieldset class="bordered">
+  <legend class="admin-legend">
+    <%= t(".site_features") %>
+  </legend>
   <%= simple_form_for :feature_flags, url: account_features_flags_path, method: :patch do |f| %>
     <% Flipper.features.each do |feature| %>
       <div class="feature-container">
