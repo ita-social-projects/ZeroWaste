@@ -13,6 +13,12 @@ RSpec.describe Account::ProductsController, type: :request do
       expect(response).to render_template(:index)
       expect(response.body).to include(product.title)
     end
+
+    it "returns the expected attributes" do
+      get account_products_path
+
+      expect(Product.ransackable_attributes).to eq(["created_at", "id", "product_type_id", "title", "updated_at", "uuid"])
+    end
   end
 
   describe "GET :new" do

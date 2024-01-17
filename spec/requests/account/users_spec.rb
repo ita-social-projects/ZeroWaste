@@ -27,6 +27,11 @@ RSpec.describe "Account::UsersController", type: :request do
       expect(csv_content).to match(user.last_name)
       expect(csv_content).to match(user.last_sign_in_at.to_s)
     end
+
+    it "returns the expected attributes" do
+      get account_users_path
+      expect(User.ransackable_attributes).to eq(["created_at", "id", "blocked", "country", "email", "first_name", "last_name", "updated_at"])
+    end
   end
 
   describe "GET #new" do

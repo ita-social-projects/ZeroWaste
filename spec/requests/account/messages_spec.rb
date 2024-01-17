@@ -13,6 +13,12 @@ RSpec.describe Account::ProductsController, type: :request do
       expect(response).to render_template(:index)
       expect(response.body).to include(message.title)
     end
+
+    it "returns the expected attributes" do
+      get account_messages_path
+
+      expect(Message.ransackable_attributes).to eq(["created_at", "email", "id", "message", "title", "updated_at"])
+    end
   end
 
   describe "GET :show" do
