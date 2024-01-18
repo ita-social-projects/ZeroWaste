@@ -446,6 +446,8 @@ uk:
       category:
         name: "Назва"
         priority: "Пріоритет"
+      price:
+        sum: "Сума"
       product:
         title: "Назва"
     errors:
