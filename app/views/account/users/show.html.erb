@@ -1,0 +1,47 @@
+<div class="button-group d-flex">
+  <%= link_to account_users_path, class: 'btn btn-green d-flex align-items-center justify-content-center' do %>
+    <span class="me-1"><%= t('buttons.back') %></span>
+  <% end %>
+</div>
+</br>
+<div class="container d-flex justify-content-between">
+  <div class="flex-child">
+    <h2><%= t('.header') %></h2>
+    <dl>
+      <dt><%= t('.table.email_col') %></dt>
+      <dd><%= @user.email %></dd>
+
+      <dt><%= t('.table.first_name_col') %></dt>
+      <dd><%= @user.first_name %></dd>
+
+      <dt><%= t('.table.last_name_col') %></dt>
+      <dd><%= @user.last_name %></dd>
+
+      <dt><%= t('.table.country_col') %></dt>
+      <dd><%= @user.country %></dd>
+
+      <dt><%= t('.table.last_sign_in_col') %></dt>
+      <dd><%= @user.last_sign_in_at %></dd>
+
+      <dt><%= t('.table.current_IP_col') %></dt>
+      <dd><%= @user.current_sign_in_ip %></dd>
+
+      <dt><%= t('.table.last_IP_col') %></dt>
+      <dd><%= @user.last_sign_in_ip %></dd>
+
+      <dt><%= t('.table.ban_col') %></dt>
+      <dd><%= t(".table.#{ @user.blocked? ? 'blocked' : 'unblocked' }_label") %></dd>
+    </dl>
+  </div>
+
+  <div class="flex-child">
+    <h2 class="text-center"><%= t('.avatar') %></h2>
+    <dd>
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, class: "w-75 d-block my-0 mx-auto" %>
+      <% else %>
+        <%= image_tag 'user.png', class: "w-75 d-block my-0 mx-auto" %>
+      <% end %>
+    </dd>
+  </div>
+</div>
