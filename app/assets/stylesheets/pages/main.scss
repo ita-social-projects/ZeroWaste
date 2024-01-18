@@ -315,12 +315,6 @@ body:where(.admin)::before {
     width: 410px;
   }
 
-  .page-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-
   .donate-btn a {
     font-size: 12px;
   }
@@ -378,22 +372,6 @@ body:where(.admin)::before {
   .donate-btn a {
     padding: 10px;
   }
-}
-
-@media screen and (max-width: $md) and (min-width: $xs) {
-  .page-header {
-    width: auto;
-    margin-right: 16px;
-    margin-left: 16px;
-  }
-
-  .func-btns {
-    flex-wrap: wrap;
-  }
-
-  // .tab {
-  //   display: none;
-  // }
 }
 
 abbr[title] {
