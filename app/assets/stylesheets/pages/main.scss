@@ -387,9 +387,13 @@ body:where(.admin)::before {
     margin-left: 16px;
   }
 
-  .tab {
-    display: none;
+  .func-btns {
+    flex-wrap: wrap;
   }
+
+  // .tab {
+  //   display: none;
+  // }
 }
 
 abbr[title] {
