@@ -296,9 +296,6 @@ body:where(.admin)::before {
 }
 
 @media screen and (max-width: $xs) {
-  .tab {
-    display: none;
-  }
 
   .body-inside {
     width: 100%;
@@ -388,6 +385,10 @@ body:where(.admin)::before {
     width: auto;
     margin-right: 16px;
     margin-left: 16px;
+  }
+
+  .tab {
+    display: none;
   }
 }
 
