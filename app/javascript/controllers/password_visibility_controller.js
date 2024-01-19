@@ -4,14 +4,14 @@ export default class extends Controller {
   static targets = ['password', 'icon']
 
   toggle() {
-    const TEXT_INPUT = 'text';
-    const PASSWORD_INPUT = 'password';
+    const TEXT_INPUT_TYPE = 'text';
+    const PASSWORD_INPUT_TYPE = 'password';
 
-    if (this.passwordTarget && this.passwordTarget.type === PASSWORD_INPUT) {
-      this.passwordTarget.type = TEXT_INPUT;
+    if (this.passwordTarget && this.passwordTarget.type === PASSWORD_INPUT_TYPE) {
+      this.passwordTarget.type = TEXT_INPUT_TYPE;
       this.iconTarget.classList.replace('fa-eye-slash', 'fa-eye');
     } else if (this.passwordTarget) {
-      this.passwordTarget.type = PASSWORD_INPUT;
+      this.passwordTarget.type = PASSWORD_INPUT_TYPE;
       this.iconTarget.classList.replace('fa-eye', 'fa-eye-slash');
     }
   }
