@@ -19,7 +19,12 @@
       </div>
 
       <%= f.input :avatar, as: :file, direct_upload: true, class: 'm-3', label: t('.avatar'), hint: t('.form.avatar_hint'), wrapper: :horizontal_form %>
-      <%= f.submit t('.form.update_user_button'), class: 'btn btn-primary' %>
+      <div class="button-group d-flex">
+        <%= f.submit t('.form.update_user_button'), class: 'btn btn-green me-2 height w-auto' %>
+        <%= link_to account_users_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
+          <span class="me-1"><%= t('buttons.cancel') %></span>
+        <% end %>
+      </div>
     <% end %>
   </div>
 

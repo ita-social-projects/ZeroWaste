@@ -37,6 +37,7 @@ en:
     create: 'Create'
     cancel: 'Cancel'
     revert: 'Revert'
+    back: 'Back'
   calculators:
     new_calculator:
       form:
@@ -186,6 +187,12 @@ en:
       index:
         add_category_button: 'Add category'
         confirm_delete: 'Delete category?'
+      edit:
+        form:
+          update_category_button: "Update category"
+      new:
+        form:
+          create_category_button: "Create category"
     products:
       table:
         title: 'Title'
@@ -200,10 +207,12 @@ en:
         title: 'Title'
         form:
           sum: "Sum"
+          update_product_button: "Update product"
       new:
         title: 'Title'
         form:
           sum: "Sum"
+          create_product_button: "Create product"
       created: "A product was successfully created."
       updated: "A product was successfully updated."
       deleted: "A product was successfully destroyed."
@@ -253,6 +262,7 @@ en:
           ban_col: "Status"
           blocked_label: "Blocked"
           unblocked_label: "Unblocked"
+        button: "Back"
     site_settings:
       edit:
         site_settings: Site settings
@@ -290,7 +300,7 @@ en:
       show_calculators_list:
         name: "Show calculators on the public side"
       sandbox_mode:
-        name: "Enable sandbox mode"  
+        name: "Enable sandbox mode"
     sessions:
       new:
         log_in_header: "Log in"
@@ -471,6 +481,10 @@ en:
               too_long: " is too long (maximum is %{count} characters)"
               invalid: " is invalid"
               name_format_validation: " must contain only letters or numbers"
+        category:
+          attributes:
+            name:
+              invalid: contains invalid characters
         product:
           attributes:
             title:
