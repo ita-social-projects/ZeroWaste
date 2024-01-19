@@ -2,12 +2,17 @@
 <html lang="EN" xml:lang="en">
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-    <title><%= content_for?(:title) ? yield(:title) : (SiteSetting.current.title) %></title>
-    <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) %>
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Website for calculating the number of disposable and reusable items" %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) %>
+    <%= display_meta_tags(
+      site: SiteSetting.current.title,
+      title: '',
+      description: '',
+      keywords: '',
+      viewport: 'width=device-width, initial-scale=1.0',
+      reverse: true
+    ) %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
