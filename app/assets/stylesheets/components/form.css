@@ -17,4 +17,8 @@
   .password-wrapper-login .toggle-password {
     @apply pt-11;
   }
+
+  .auth-login-links {
+    @apply flex justify-center items-center gap-4 text-center text-gray border-t border-solid border-light_gray;
+  }
 }
