@@ -205,6 +205,7 @@ en:
       deleted: "A product was successfully destroyed."
     users:
       index:
+        title: "Users"
         main_header: "Dashboard"
         add_user_button: "Add user"
         confirm_block: "Are you sure you want to block this user?"

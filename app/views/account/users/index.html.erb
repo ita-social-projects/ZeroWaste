@@ -1,8 +1,10 @@
 <div class="container home">
+  <h1 class="text-body text-center text-xl font-bold"><%= t(".title") %></h1>
+
   <div class="row">
     <div class="col">
       <div class="mb-2">
-        <h1 class="text-body d-inline"><%= t(".main_header") %></h1>
+        <h2 class="text-body d-inline"><%= t(".main_header") %></h2>
         <h3 class="float-right d-inline">
           <%= link_to icon("fa-solid", "download"), account_users_path(format: "csv") %>
         </h3>
