@@ -37,6 +37,11 @@ RSpec.describe Calculator, type: :model do
       )
     }
     it {
+      is_expected.to validate_length_of(:name).is_at_most(30).with_message(
+        I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.too_long", count: 30)
+      )
+    }
+    it {
       is_expected.not_to allow_value("Hh@").for(:name).with_message(
         I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.name_format_validation")
       )
@@ -66,6 +71,16 @@ RSpec.describe Calculator, type: :model do
       it "does not find any instances" do
         expect(Calculator.by_name_or_slug("qwerty").to_a).to eq []
       end
+    end
+  end
+
+  describe "versioning", versioning: true do
+    let!(:calculator) { create(:calculator, name: "Calculator 1") }
+
+    it "adds a version when the calculator is updated" do
+      calculator.update!(name: "Calculator 2")
+
+      expect(calculator.versions.count).to eq(2)
     end
   end
 end

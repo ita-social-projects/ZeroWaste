@@ -1,8 +1,8 @@
 .jumbotron.jumbotron-fluid.position-relative.rounded
   a.rounded.back-link.mt-3.px-2 href=root_path
     .p.back-text
+      = image_tag "icons/arrow-left.svg", class: "z-1"
       = t 'calculators.buttons.to_main'
-    = image_tag "icons/arrow-left.svg", class: "z-1"
   .d-flex.justify-content-around.flex-wrap.calculator_wrap.ms-5
     = simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
                                             data: { controller: "input-child-info",

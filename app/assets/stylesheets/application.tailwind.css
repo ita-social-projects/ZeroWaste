@@ -1,4 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/utilities";
 @import "tailwindcss/components";
+@import "/components/header";
 @import "/components/buttons";
+@import "/components/loader";
+@import "/components/admin-menu";
+@import "./components/form.css";

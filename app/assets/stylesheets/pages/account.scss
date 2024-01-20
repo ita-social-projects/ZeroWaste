@@ -53,11 +53,11 @@ $burger-size: 20px;
     .top-bar {
       @include lineTransform(-20px, 0deg);
     }
-  
+
     .middle-bar {
       @include middleLineTransform(100)
     }
-    
+
     .bottom-bar {
       @include lineTransform(20px, 0deg);
     }
@@ -75,4 +75,20 @@ $burger-size: 20px;
   left: 0;
   transform: rotate(0deg);
   transition: .25s;
+}
+
+.button-group {
+  .btn {
+    min-width: 120px;
+  }
+
+  .btn-danger {
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+
+    &:hover {
+      color: white;
+    }
+  }
 }

@@ -5,7 +5,7 @@
     <div class="col">
       <div class="mb-2">
         <h2 class="text-body d-inline"><%= t(".main_header") %></h2>
-        <h3 class="float-right d-inline">
+        <h3 class="d-inline">
           <%= link_to icon("fa-solid", "download"), account_users_path(format: "csv") %>
         </h3>
       </div>
@@ -13,14 +13,14 @@
       <table aria-label="users table" class="table admin-table">
         <thead>
           <tr>
-            <th><%= sort_link(@q, :email, t(".table.email_col"), default_order: :desc) %></th>
-            <th><%= sort_link(@q, :first_name, t(".table.first_name"), default_order: :desc) %></th>
-            <th><%= sort_link(@q, :last_name, t(".table.last_name"), default_order: :desc) %></th>
-            <th><%= sort_link(@q, :updated_at, t(".table.last_visit_col"), default_order: :desc) %></th>
-            <th><%= t(".table.view_info_col") %></th>
-            <th><%= t(".table.edit") %></th>
-            <th><%= t(".table.ban") %></th>
-            <th><%= t(".table.delete") %></th>
+            <th scope="col"><%= sort_link(@q, :email, t(".table.email_col"), default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :first_name, t(".table.first_name"), default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :last_name, t(".table.last_name"), default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :updated_at, t(".table.last_visit_col"), default_order: :desc) %></th>
+            <th scope="col"><%= t(".table.view_info_col") %></th>
+            <th scope="col"><%= t(".table.edit") %></th>
+            <th scope="col"><%= t(".table.ban") %></th>
+            <th scope="col"><%= t(".table.delete") %></th>
           </tr>
         </thead>
         <tbody class="admin-table-links">

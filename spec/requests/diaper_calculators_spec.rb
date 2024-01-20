@@ -8,7 +8,9 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       money_spent: 12_718.5,
       money_will_be_spent: 10_614.0,
       used_diapers_amount: 2745.0,
-      to_be_used_diapers_amount: 1830.0
+      to_be_used_diapers_amount: 1830.0,
+      used_diapers_amount_pluralize: I18n.t("calculators.old_calculator.bought_diapers", count: 2745),
+      to_be_diapers_amount_pluralize: I18n.t("calculators.old_calculator.will_buy_diapers", count: 1830)
     }
   end
   let(:expected_result) do
@@ -94,6 +96,34 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
 
         expect(response).to be_successful
         expect(response.body).not_to eq(expected_result.to_json)
+      end
+    end
+
+    context "when get awaited values" do
+      include_context :app_config_load
+
+      let(:used_diapers_count) { values[:used_diapers_amount] }
+      let(:to_be_used_diapers_count) { values[:to_be_used_diapers_amount] }
+
+      let(:expected_used_diapers) do
+        I18n.t("calculators.old_calculator.bought_diapers", count: used_diapers_count)
+      end
+
+      let(:expected_to_be_used_diapers) do
+        I18n.t("calculators.old_calculator.will_buy_diapers", count: to_be_used_diapers_count)
+      end
+
+      let(:response_body) do
+        JSON.parse(response.body)["result"]
+      end
+
+      before do
+        post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
+      end
+
+      it "translates used and to-be-used diapers amounts" do
+        expect(response_body["used_diapers_amount_pluralize"]).to eq(expected_used_diapers)
+        expect(response_body["to_be_diapers_amount_pluralize"]).to eq(expected_to_be_used_diapers)
       end
     end
   end

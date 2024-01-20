@@ -42,6 +42,10 @@
 
 .back-text {
   color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .calulator-arrow {
@@ -172,7 +176,7 @@
     text-decoration: none;
   }
   &:hover {
-    background-color: $dark_green;
+    background-color: $matte_lime_green;
   }
 }
 
@@ -186,7 +190,7 @@
       text-decoration: none;
     }
     a:hover {
-      color: $dark_green;
+      color: $matte_lime_green;
       background-color: transparent;
       text-decoration: none;
     }
