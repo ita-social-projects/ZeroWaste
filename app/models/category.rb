@@ -12,6 +12,7 @@
 #
 class Category < ApplicationRecord
   has_one :price, dependent: :destroy
+  has_one :diapers_period, dependent: :destroy
 
   has_many :category_categoryables, dependent: :restrict_with_exception
   has_many :categoryables, through: :category_categoryables
