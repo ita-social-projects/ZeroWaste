@@ -15,26 +15,19 @@ class Calculators::DiaperUsageService
     used_diapers_amount_all_periods = 0
     used_diapers_price_all_periods  = 0
 
-    life_periods = LifePeriod.all.includes(:diaper_usages)
-    prices       = Price.where(priceable_type: "DiaperUsage", category_id: @category_id)
+    diapers_periods = DiapersPeriod.where(category_id: @category_id)
 
-    life_periods.each do |life_period|
-      diaper_usage = life_period.diaper_usages.first
-      next unless diaper_usage
-
-      price = prices.find { |p| p.priceable_id == diaper_usage.id }
-      next unless price
-
-      quantity_in_period = diaper_usage.quantity_per_day * 30.5 * life_period.month_range.size
-      cost_in_period     = quantity_in_period * price.sum
+    diapers_periods.each do |diapers_period|
+      quantity_in_period = diapers_period.usage_amount * 30.5 * (diapers_period.period_end - diapers_period.period_start + 1)
+      cost_in_period     = quantity_in_period * diapers_period.price
 
       used_diapers_amount_all_periods += quantity_in_period
       used_diapers_price_all_periods  += cost_in_period
 
-      if life_period.month_range.first <= age
-        months_in_period   = [age, life_period.month_range.last].min - life_period.month_range.first + 1
-        quantity_in_period = diaper_usage.quantity_per_day * 30.5 * months_in_period
-        cost_in_period     = quantity_in_period * price.sum
+      if diapers_period.period_start <= @age
+        months_in_period   = [age, diapers_period.period_end].min - diapers_period.period_start + 1
+        quantity_in_period = diapers_period.usage_amount * 30.5 * months_in_period
+        cost_in_period     = quantity_in_period * diapers_period.price
 
         @used_diapers_amount += quantity_in_period
         @used_diapers_price  += cost_in_period
