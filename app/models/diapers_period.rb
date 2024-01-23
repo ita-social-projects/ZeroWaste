@@ -12,19 +12,7 @@ class DiapersPeriod < ApplicationRecord
   private
 
   def period_does_not_overlap
-    return unless category.diapers_periods.where.not(id: id).overlaps(period_start, period_end).exists?
-
-    errors.add(:period_end, :overlaps)
+    overlapping_period = DiapersPeriod.where("period_start <= ? AND period_end >= ?", period_start, period_start).exists?
+    errors.add(:period_start, "overlaps with an existing period") if overlapping_period
   end
-
-  # def period_does_not_overlap
-  #   overlapping_period = DiapersPeriod.where("period_start <= ? AND period_end >= ?", period_start, period_start).exists?
-  #   errors.add(:period_start, 'overlaps with an existing period') if overlapping_period
-  # end
-
-  # def period_does_not_overlap
-  #   if category && category.diapers_periods.exists?(['(period_start <= ? AND period_end >= ?) OR (period_start >= ? AND period_end <= ?)', period_end, period_start, period_start, period_end])
-  #     errors.add(:base, 'Period overlaps with existing periods')
-  #   end
-  # end
 end
