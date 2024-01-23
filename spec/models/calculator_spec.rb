@@ -33,10 +33,10 @@ RSpec.describe Calculator, type: :model do
 
     it "validates the name's length and message" do
       is_expected.to validate_length_of(:name).is_at_least(2)
-        .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.too_short", count: 2))
+                                              .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.too_short", count: 2))
 
       is_expected.to validate_length_of(:name).is_at_most(30)
-        .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.too_long", count: 30))
+                                              .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.too_long", count: 30))
     end
 
     it "validates the name's uniqueness and message" do
@@ -55,7 +55,7 @@ RSpec.describe Calculator, type: :model do
 
       it "with invalid name" do
         ["#", "!", "@", "$", "%", "^", "&", "*", "(", ")", "?", "\"", "_"].each do |sym|
-        calculator.name = "Invalid Name #{sym}"
+          calculator.name = "Invalid Name #{sym}"
 
           expect(calculator).to_not be_valid
           expect(calculator.errors.messages[:name]).to include(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.invalid"))
