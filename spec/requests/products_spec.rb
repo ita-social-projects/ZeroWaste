@@ -15,9 +15,13 @@ RSpec.describe Account::ProductsController, type: :request do
     end
 
     it "returns the expected attributes" do
-      get account_products_path
+      Product.ransackable_attributes.each do |attribute|
+        get account_products_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
 
-      expect(Product.ransackable_attributes).to eq(["created_at", "id", "product_type_id", "title", "updated_at", "uuid"])
+        get account_products_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
     end
   end
 

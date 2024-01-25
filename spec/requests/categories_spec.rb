@@ -16,9 +16,13 @@ RSpec.describe Account::CategoriesController, type: :request do
     end
 
     it "returns the expected attributes" do
-      get account_categories_path
+      Category.ransackable_attributes.each do |attribute|
+        get account_categories_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
 
-      expect(Category.ransackable_attributes).to eq(["created_at", "id", "name", "priority", "updated_at"])
+        get account_categories_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
     end
   end
 

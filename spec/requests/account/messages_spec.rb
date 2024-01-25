@@ -15,9 +15,13 @@ RSpec.describe Account::ProductsController, type: :request do
     end
 
     it "returns the expected attributes" do
-      get account_messages_path
+      Message.ransackable_attributes.each do |attribute|
+        get account_messages_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
 
-      expect(Message.ransackable_attributes).to eq(["created_at", "email", "id", "message", "title", "updated_at"])
+        get account_messages_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
     end
   end
 

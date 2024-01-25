@@ -29,8 +29,13 @@ RSpec.describe "Account::UsersController", type: :request do
     end
 
     it "returns the expected attributes" do
-      get account_users_path
-      expect(User.ransackable_attributes).to eq(["created_at", "id", "blocked", "country", "email", "first_name", "last_name", "updated_at"])
+      User.ransackable_attributes.each do |attribute|
+        get account_users_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
+
+        get account_users_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
     end
   end
 
