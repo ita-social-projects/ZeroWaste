@@ -8,7 +8,7 @@
             <%= check_box_tag category.name, 1, false, data: { action: "click->price-form#togglePrice", price_form_target: 'checkbox' }, class: 'me-1' %>
             <%= label_tag category.name %>
             <div class="hidden-sum" data-price-form-target="price" name="<%= category.name %>">
-              <%= f.simple_fields_for :prices do |prices_form| %>
+              <%= f.simple_fields_for :prices, f.object.prices.find { |price| price.category == category } || f.object.prices.build(category: category) do |prices_form| %>
                 <%= prices_form.input :sum, label: false, input_html: { placeholder: t('.form.sum'), data: { price_form_target: 'priceInput' } } %>
                 <%= prices_form.hidden_field :category_id, value: category.id %>
               <% end %>
