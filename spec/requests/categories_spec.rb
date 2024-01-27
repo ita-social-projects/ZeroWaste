@@ -40,7 +40,7 @@ RSpec.describe Account::CategoriesController, type: :request do
         end.to change(Category, :count).by(1)
 
         expect(response).to redirect_to(account_categories_path)
-        expect(flash[:notice]).to eq("Category was successfully created.")
+        expect(flash[:notice]).to eq("Category was successfully created")
       end
     end
 
@@ -63,7 +63,7 @@ RSpec.describe Account::CategoriesController, type: :request do
 
         expect(category.name).to eq("premium")
         expect(response).to redirect_to(account_categories_path)
-        expect(flash[:notice]).to eq("Category was successfully updated.")
+        expect(flash[:notice]).to eq("Category was successfully updated")
       end
     end
 
@@ -85,7 +85,7 @@ RSpec.describe Account::CategoriesController, type: :request do
       end.to change(Category, :count).by(-1)
 
       expect(response).to redirect_to(account_categories_path)
-      expect(flash[:notice]).to eq("Category was successfully destroyed.")
+      expect(flash[:notice]).to eq("Category was successfully destroyed")
     end
   end
 end
