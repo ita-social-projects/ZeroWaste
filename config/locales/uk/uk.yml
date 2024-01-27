@@ -208,9 +208,9 @@ uk:
         form:
           sum: "Сума"
           create_product_button: "Створити продукт"
-      created: "Продукт був успішно створений."
-      updated: "Продукт був успішно оновлений."
-      deleted: "Продукт був успішно видалений."
+      created: "Продукт був успішно створений"
+      updated: "Продукт був успішно оновлений"
+      deleted: "Продукт був успішно видалений"
     users:
       index:
         main_header: "Адмінпанель"
@@ -417,7 +417,7 @@ uk:
         resend_confirmation_button: "Надіслати запит на підтвердження знову"
         resend_confirmation_instructions_header: "Надіслати запит на підтвердження знову"
     failure:
-      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову."
+      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову"
   models:
     calculator: "Калькулятор"
     category: "Категорію"
@@ -456,8 +456,8 @@ uk:
         calculator:
           attributes:
             name:
-              too_long: " занадто довга (максимум %{count} знаків)"
-              name_format_validation: " допускаються тільки літери та цифри"
+              too_long: "занадто довга (максимум %{count} знаків)"
+              name_format_validation: "допускаються тільки літери та цифри"
         category:
           attributes:
             name:

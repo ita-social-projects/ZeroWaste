@@ -32,12 +32,12 @@
 en:
   uk: "Українська"
   buttons:
-    save: 'Save'
-    update: 'Update'
-    create: 'Create'
-    cancel: 'Cancel'
-    revert: 'Revert'
-    back: 'Back'
+    save: "Save"
+    update: "Update"
+    create: "Create"
+    cancel: "Cancel"
+    revert: "Revert"
+    back: "Back"
   calculators:
     new_calculator:
       form:
@@ -52,13 +52,13 @@ en:
       will_buy_diapers: "to be used in the future"
       money_spent: "already spent on diapers"
       money_will_be_spent: "yet to be spent on diapers"
-      pieces: pcs.
-      unit: uah
+      pieces: "pcs."
+      unit: "uah"
     old_calculator:
       form:
         description: "Child’s age:"
-        years_prompt: years
-        months_prompt: months
+        years_prompt: "years"
+        months_prompt: "months"
       bought_diapers: "diapers already used"
       money_spent: "UAH already spent on diapers"
       will_buy_diapers: "diapers to be used in the future"
@@ -91,7 +91,7 @@ en:
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
-      сontact_us: "Contact us"
+      contact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
       local_lang: "Українська"
     description_block:
@@ -107,7 +107,7 @@ en:
       homepage_title: "Welcome to the diaper calculator"
       description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
       calculate: "Let's go"
-      visit_website: "Visit WebSite"
+      visit_website: "Visit website"
     account_navbar:
       homepage: "Home page"
       calculators: "Calculators"
@@ -116,7 +116,7 @@ en:
       messages: "Messages"
       app_config: "App Config"
       site_settings: "Site Settings"
-      categories: 'Categories'
+      categories: "Categories"
       products: "Products"
       zerowaste_logo: "ZeroWaste logo"
   mailer:
@@ -124,12 +124,12 @@ en:
       subject: "Welcome to ZeroWaste!"
   user_mailer:
     welcome_email:
-      greeting: Welcome to ZeroWaste, %{name}
-      login_info: You have successfully signed up to zerowaste.com, your login info is
+      greeting: "Welcome to ZeroWaste, %{name}"
+      login_info: "You have successfully signed up to zerowaste.com, your login info is"
       email: "Email: %{email}"
       password: "Password: %{password}"
-      to_login: To login to the site, just follow this link
-      thanks: Thanks for joining and have a great day!
+      to_login: "To login to the site, just follow this link"
+      thanks: "Thanks for joining and have a great day!"
   messages:
     new:
       contact_us_header: "Contact us"
@@ -185,8 +185,8 @@ en:
           time_col: "Date"
     categories:
       index:
-        add_category_button: 'Add category'
-        confirm_delete: 'Delete category?'
+        add_category_button: "Add category"
+        confirm_delete: "Delete category?"
       edit:
         form:
           update_category_button: "Update category"
@@ -195,27 +195,27 @@ en:
           create_category_button: "Create category"
     products:
       table:
-        title: 'Title'
-        prices: 'Prices'
-        actions: 'Actions'
+        title: "Title"
+        prices: "Prices"
+        actions: "Actions"
       index:
-        add_product_button: 'Add product'
-        confirm_delete: 'Delete product?'
+        add_product_button: "Add product"
+        confirm_delete: "Delete product?"
       show:
-        confirm_delete: 'Delete product?'
+        confirm_delete: "Delete product?"
       edit:
-        title: 'Title'
+        title: "Title"
         form:
           sum: "Sum"
           update_product_button: "Update product"
       new:
-        title: 'Title'
+        title: "Title"
         form:
           sum: "Sum"
           create_product_button: "Create product"
-      created: "A product was successfully created."
-      updated: "A product was successfully updated."
-      deleted: "A product was successfully destroyed."
+      created: "A product was successfully created"
+      updated: "A product was successfully updated"
+      deleted: "A product was successfully destroyed"
     users:
       index:
         main_header: "Dashboard"
@@ -234,8 +234,8 @@ en:
         table:
           create_new_user: "Create new user"
         form:
-          first_name_label: "First Name"
-          last_name_label: "Last Name"
+          first_name_label: "First name"
+          last_name_label: "Last name"
           password_hint: "Minimum 8 characters"
           create_user_button: "Create user"
           send_credentials_email: "Send email with credentials"
@@ -247,7 +247,7 @@ en:
           name_label: "Name"
           surname_label: "Surname"
           password_hint: "Leave blank if you don't want to change it"
-          avatar_hint: "Avatar must be less than 2 MB. Allowed file types: PNG,JPG and JPEG"
+          avatar_hint: "Avatar must be less than 2 MB. Allowed file types: PNG, JPG and JPEG"
           update_user_button: "Update user"
       show:
         header: "User information"
@@ -265,12 +265,12 @@ en:
         button: "Back"
     site_settings:
       edit:
-        site_settings: Site settings
-        site_features: Site features
-        dev_features: Development features
-        rails_db_description: Access to database (read only)
-        apply_button: 'Apply'
-        confirm_default: Are you sure you want to revert the title and favicon to their default settings?
+        site_settings: "Site settings"
+        site_features: "Site features"
+        dev_features: "Development features"
+        rails_db_description: "Access to database (read-only)"
+        apply_button: "Apply"
+        confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
     calculators:
       index:
         search_placeholder: "Search"
@@ -318,24 +318,24 @@ en:
         resend_confirmation_instructions_button: "Resend confirmation instructions"
     mailer:
       confirmation_instructions:
-        greetings_to_user: Welcome, %{recipient}!
+        greetings_to_user: "Welcome, %{recipient}!"
         confirmation_email_through_link: "You can confirm your account email through the link below:"
         confirmation_account_link: "Confirm my account"
       email_changed:
-        greeting: Hello %{recipient}!
-        message_confirmed: We're contacting you to notify you that your email has been changed to %{email}.
-        message_unconfirmed: We're contacting you to notify you that your email is being changed to %{email}.
+        greeting: "Hello, %{recipient}!"
+        message_confirmed: "We're contacting you to notify you that your email has been changed to %{email}."
+        message_unconfirmed: "We're contacting you to notify you that your email is being changed to %{email}."
       password_change:
-        greeting: Hello %{recipient}!
+        greeting: "Hello, %{recipient}!"
         successful_change: "We're contacting you to notify you that your password has been changed."
       reset_password_instructions:
-        greeting: Hello %{recipient}!
+        greeting: "Hello, %{recipient}!"
         change_password_link: "Change my password"
         request_change_password: "Someone has requested a link to change your password. You can do this through the link below."
         ignore_email: "If you didn't request this, please ignore this email."
         access_to_changing: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
-        greeting: Hello %{recipient}!
+        greeting: "Hello, %{recipient}!"
         locked_message: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
         unlock_your_account: "Click the link below to unlock your account:"
         unlock_link: "Unlock my account"
@@ -399,17 +399,17 @@ en:
         form:
           email_label: "Email"
           password_label: "Password"
-          password_characters_minimum_label: "Characters Minimum"
-          password_confirmation_label: "Password Confirmation"
-          first_name_label: "First Name"
-          last_name_label: "Last Name"
+          password_characters_minimum_label: "Characters minimum"
+          password_confirmation_label: "Password confirmation"
+          first_name_label: "First name"
+          last_name_label: "Last name"
           sign_up_button: "Sign Up"
           password_hint: "Minimum 8 characters"
       edit:
         update_user_button: "Update information"
         current_password_label: "Current password:"
         confirm_password_label: "Confirm new password:"
-        change_password_button: "Змінити пароль"
+        change_password_button: "Change my password"
         delete_account_label: "Delete my profile"
         are_user_satisfied_question: "Unhappy?"
         delete_account_button: "Delete profile"
@@ -429,70 +429,70 @@ en:
         field:
           attributes:
             type:
-              blank: " can't be blank"
+              blank: "can't be blank"
             label:
-              blank: " can't be blank"
+              blank: "can't be blank"
             kind:
-              blank: " can't be blank"
+              blank: "can't be blank"
         named_value:
           attributes:
             name:
-              too_short: " is too short"
+              too_short: "is too short"
             from:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
             to:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
         range_field:
           attributes:
             from:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
             to:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
             value:
-              too_short: " is too short"
+              too_short: "is too short"
         calculation:
           attributes:
             value:
-              too_short: " is too short"
+              too_short: "is too short"
         select:
           attributes:
             value:
-              too_short: " is too short"
+              too_short: "is too short"
         value:
           attributes:
             value:
-              too_short: " is too short"
-              invalid: " is invalid"
+              too_short: "is too short"
+              invalid: "is invalid"
         product_type:
           attributes:
             title:
-              blank: "The field 'Title' can't be blank."
-              too_short: "The field 'Title' is too short."
+              blank: "The field 'Title' can't be blank"
+              too_short: "The field 'Title' is too short"
               invalid: "Invalid value for the field 'Title'"
         calculator:
           attributes:
             name:
-              blank: " can't be blank"
-              too_short: " is too short"
-              too_long: " is too long (maximum is %{count} characters)"
-              invalid: " is invalid"
-              name_format_validation: " must contain only letters or numbers"
+              blank: "can't be blank"
+              too_short: "is too short"
+              too_long: "is too long (maximum is %{count} characters)"
+              invalid: "is invalid"
+              name_format_validation: "must contain only letters or numbers"
         category:
           attributes:
             name:
-              invalid: contains invalid characters
+              invalid: "contains invalid characters"
         product:
           attributes:
             title:
-              blank: can't be blank
-              too_long: too long (maximum %{count} symbols)
-              too_short: too short (minimum %{count} symbols)
-              taken: has already been taken, please choose another one
-              invalid: contains invalid characters
+              blank: "can't be blank"
+              too_long: "too long (maximum %{count} symbols)"
+              too_short: "too short (minimum %{count} symbols)"
+              taken: "has already been taken, please choose another one"
+              invalid: "contains invalid characters"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
@@ -520,9 +520,9 @@ en:
     user_created: "User has been successfully created"
     user_updated: "User has been successfully updated"
     message_sent: "Message has been sent"
-    category_created: "Category was successfully created."
-    category_updated: "Category was successfully updated."
-    category_deleted: "Category was successfully destroyed."
+    category_created: "Category was successfully created"
+    category_updated: "Category was successfully updated"
+    category_deleted: "Category was successfully destroyed"
     feature_flags_updated: "Features updated successfully"
     site_setting_updated: "Settings were successfully updated"
     site_setting_reverted: "The title and favicon have been successfully reverted to default"
@@ -586,95 +586,95 @@ en:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: about 1 hour
-        other: about %{count} hours
+        one: "about 1 hour"
+        other: "about %{count} hours"
       about_x_months:
-        one: about 1 month
-        other: about %{count} months
+        one: "about 1 month"
+        other: "about %{count} months"
       about_x_years:
-        one: about 1 year
-        other: about %{count} years
+        one: "about 1 year"
+        other: "about %{count} years"
       almost_x_years:
-        one: almost 1 year
-        other: almost %{count} years
-      half_a_minute: half a minute
+        one: "almost 1 year"
+        other: "almost %{count} years"
+      half_a_minute: "half a minute"
       less_than_x_seconds:
-        one: less than 1 second
-        other: less than %{count} seconds
+        one: "less than 1 second"
+        other: "less than %{count} seconds"
       less_than_x_minutes:
-        one: less than a minute
-        other: less than %{count} minutes
+        one: "less than a minute"
+        other: "less than %{count} minutes"
       over_x_years:
-        one: over 1 year
-        other: over %{count} years
+        one: "over 1 year"
+        other: "over %{count} years"
       x_seconds:
-        one: 1 second
+        one: "1 second"
         other: "%{count} seconds"
       x_minutes:
-        one: 1 minute
+        one: "1 minute"
         other: "%{count} minutes"
       x_days:
-        one: 1 day
+        one: "1 day"
         other: "%{count} days"
       x_months:
-        one: 1 month
+        one: "1 month"
         other: "%{count} months"
       x_years:
-        one: 1 year
+        one: "1 year"
         other: "%{count} years"
     prompts:
-      second: Second
-      minute: Minute
-      hour: Hour
-      day: Day
-      month: Month
-      year: Year
+      second: "Second"
+      minute: "Minute"
+      hour: "Hour"
+      day: "Day"
+      month: "Month"
+      year: "Year"
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match %{attribute}
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      in: must be in %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      model_invalid: 'Validation failed: %{errors}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      odd: must be odd
-      other_than: must be other than %{count}
-      present: must be blank
-      required: must exist
-      taken: has already been taken
+      accepted: "must be accepted"
+      blank: "can't be blank"
+      confirmation: "doesn't match %{attribute}"
+      empty: "can't be empty"
+      equal_to: "must be equal to %{count}"
+      even: "must be even"
+      exclusion: "is reserved"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      in: "must be in %{count}"
+      inclusion: "is not included in the list"
+      invalid: "is invalid"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      model_invalid: "Validation failed: %{errors}"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      odd: "must be odd"
+      other_than: "must be other than %{count}"
+      present: "must be blank"
+      required: "must exist"
+      taken: "has already been taken"
       too_long:
-        one: is too long (maximum is 1 character)
-        other: is too long (maximum is %{count} characters)
+        one: "is too long (maximum is 1 character)"
+        other: "is too long (maximum is %{count} characters)"
       too_short:
-        one: is too short (minimum is 1 character)
-        other: is too short (minimum is %{count} characters)
+        one: "is too short (minimum is 1 character)"
+        other: "is too short (minimum is %{count} characters)"
       wrong_length:
-        one: is the wrong length (should be 1 character)
-        other: is the wrong length (should be %{count} characters)
+        one: "is the wrong length (should be 1 character)"
+        other: "is the wrong length (should be %{count} characters)"
     template:
-      body: 'There were problems with the following fields:'
+      body: "There were problems with the following fields:"
       header:
-        one: 1 error prohibited this %{model} from being saved
+        one: "1 error prohibited this %{model} from being saved"
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
     select:
-      prompt: Please select
+      prompt: "Please select"
     submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
   number:
     currency:
       format:
@@ -696,14 +696,14 @@ en:
       decimal_units:
         format: "%n %u"
         units:
-          billion: Billion
-          million: Million
-          quadrillion: Quadrillion
-          thousand: Thousand
-          trillion: Trillion
-          unit: ''
+          billion: "Billion"
+          million: "Million"
+          quadrillion: "Quadrillion"
+          thousand: "Thousand"
+          trillion: "Trillion"
+          unit: ""
       format:
-        delimiter: ''
+        delimiter: ""
         precision: 3
         significant: true
         strip_insignificant_zeros: true
@@ -711,30 +711,30 @@ en:
         format: "%n %u"
         units:
           byte:
-            one: Byte
-            other: Bytes
-          eb: EB
-          gb: GB
-          kb: KB
-          mb: MB
-          pb: PB
-          tb: TB
+            one: "Byte"
+            other: "Bytes"
+          eb: "EB"
+          gb: "GB"
+          kb: "KB"
+          mb: "MB"
+          pb: "PB"
+          tb: "TB"
     percentage:
       format:
-        delimiter: ''
+        delimiter: ""
         format: "%n%"
     precision:
       format:
-        delimiter: ''
+        delimiter: ""
   support:
     array:
       last_word_connector: ", and "
       two_words_connector: " and "
       words_connector: ", "
   time:
-    am: am
+    am: "am"
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
-    pm: pm
+    pm: "pm"
