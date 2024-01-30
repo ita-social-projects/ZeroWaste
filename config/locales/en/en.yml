@@ -215,7 +215,7 @@ en:
           create_product_button: "Create product"
       created: "A product was successfully created"
       updated: "A product was successfully updated"
-      deleted: "A product was successfully destroyed"
+      deleted: "A product was successfully deleted"
     users:
       index:
         main_header: "Dashboard"
@@ -522,7 +522,7 @@ en:
     message_sent: "Message has been sent"
     category_created: "Category was successfully created"
     category_updated: "Category was successfully updated"
-    category_deleted: "Category was successfully destroyed"
+    category_deleted: "Category was successfully deleted"
     feature_flags_updated: "Features updated successfully"
     site_setting_updated: "Settings were successfully updated"
     site_setting_reverted: "The title and favicon have been successfully reverted to default"

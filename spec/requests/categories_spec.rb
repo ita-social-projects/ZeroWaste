@@ -85,7 +85,7 @@ RSpec.describe Account::CategoriesController, type: :request do
       end.to change(Category, :count).by(-1)
 
       expect(response).to redirect_to(account_categories_path)
-      expect(flash[:notice]).to eq("Category was successfully destroyed")
+      expect(flash[:notice]).to eq("Category was successfully deleted")
     end
   end
 end
