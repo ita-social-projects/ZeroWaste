@@ -1,0 +1,25 @@
+<turbo-frame id="diapers_categories">
+  <p>Diapers Periods</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Price</th>
+        <th>Period Start</th>
+        <th>Period End</th>
+        <th>Usage Amount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @diapers_periods.each do |diapers_period| %>
+        <tr>
+          <td><%= diapers_period.price %></td>
+          <td><%= diapers_period.period_start %></td>
+          <td><%= diapers_period.period_end %></td>
+          <td><%= diapers_period.usage_amount %></td>
+          <td><%= link_to 'Edit', edit_account_site_setting_diapers_period_path(diapers_period.category, diapers_period), data: { turbo_frame: 'diapers_categories' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</turbo-frame>

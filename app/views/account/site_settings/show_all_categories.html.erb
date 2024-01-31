@@ -1,0 +1,7 @@
+<turbo-frame id="diapers_categories">
+  <h3><strong>Add new category</strong></h3>
+  <% @categories.each do |category| %>
+    <p><%= category.name %></p>
+  <% end %>
+  <%= link_to 'Show Diapers Categories', show_diapers_categories_account_site_setting_path, method: :get, data: { turbo_frame: 'diapers_categories' }, class: "btn-grey" %>
+</turbo-frame>

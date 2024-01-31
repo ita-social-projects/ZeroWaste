@@ -49,7 +49,11 @@ Rails.application.routes.draw do
       get "/site_setting", to: "site_settings#edit", as: "site_setting"
 
       resource :site_setting, only: [:edit, :update] do
+        resources :diapers_periods, path: "period", only: [:edit, :update]
         post :revert
+        get :show_all_categories, on: :collection
+        get :show_diapers_categories, on: :member
+        get 'show_diapers_period/:category_id', to: 'site_settings#show_diapers_period', as: :show_diapers_period, on: :collection
       end
 
       scope module: :calculators do

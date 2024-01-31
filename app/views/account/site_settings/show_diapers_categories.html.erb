@@ -1,0 +1,11 @@
+<turbo-frame id="diapers_categories">
+  <% @categories.each do |category| %>
+    <div style="display: flex; align-items: center;">
+      <p><%= category.name %></p>
+      <%= link_to '[Show Diapers Periods]', show_diapers_period_account_site_setting_path(category_id: category.id), method: :get, data: { turbo_frame: 'diapers_categories' } %>
+    </div>
+  <% end %>
+
+  <%= link_to '[Show All Categories]', show_all_categories_account_site_setting_path, method: :get, data: { turbo_frame: 'diapers_categories' }, class: "btn-grey" %>
+
+</turbo-frame>

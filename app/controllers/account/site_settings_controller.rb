@@ -5,6 +5,32 @@ class Account::SiteSettingsController < Account::BaseController
 
   def edit
     @site_setting = resource
+    @categories = Category.joins(:diapers_periods).distinct
+  end
+
+  def show_all_categories
+    @categories = Category.all
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+    end
+  end
+
+  def show_diapers_categories
+    @categories = Category.joins(:diapers_periods).distinct
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+    end
+  end
+
+  def show_diapers_period
+    @diapers_periods = DiapersPeriod.where(category_id: params[:category_id])
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+    end
   end
 
   def update
