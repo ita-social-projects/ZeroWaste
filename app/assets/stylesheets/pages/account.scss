@@ -53,11 +53,11 @@ $burger-size: 20px;
     .top-bar {
       @include lineTransform(-20px, 0deg);
     }
-  
+
     .middle-bar {
       @include middleLineTransform(100)
     }
-    
+
     .bottom-bar {
       @include lineTransform(20px, 0deg);
     }
@@ -84,10 +84,11 @@ $burger-size: 20px;
 
   .btn-danger {
     border: none;
+    border-radius: 4px;
     padding: 10px;
 
     &:hover {
-      color: black;
+      color: white;
     }
   }
 }

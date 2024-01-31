@@ -23,6 +23,7 @@ uk:
       unlock_instructions:
         subject: "Інструкції з розблокування облікового запису"
     omniauth_callbacks:
+      continue_with: "Або продовжити через"
       failure: "Ви не можете увійти до системи з облікового запису %{kind}, оскільки \"%{reason}\"."
       success: "Вхід до системи з облікового запису %{kind} успішний."
     passwords:
