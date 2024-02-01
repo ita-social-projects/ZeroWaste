@@ -1,0 +1,31 @@
+<turbo-frame id="diapers_categories">
+  <h1>Edit Diapers Period</h1>
+
+<%= form_with(model: @diapers_period, url: account_site_setting_diapers_period_path(@site_setting, @diapers_period), method: :patch, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :period_start %>
+      <%= form.text_field :period_start %>
+    </div>
+
+    <div class="field">
+      <%= form.label :period_end %>
+      <%= form.text_field :period_end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :usage_amount %>
+      <%= form.text_field :usage_amount %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back', account_site_setting_path, class: "btn-grey" %>
+</turbo-frame>

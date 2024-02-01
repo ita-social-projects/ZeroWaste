@@ -1,0 +1,33 @@
+<turbo-frame id="diapers_categories">
+  <h3><strong>New Diapers Period</strong></h3>
+
+<%= form_with(model: @diapers_period, url: account_diapers_periods_path, method: :post, local: true) do |form| %>
+   <div class="field">
+      <%= form.label :period_start %>
+      <%= form.text_field :period_start %>
+    </div>
+
+    <div class="field">
+      <%= form.label :period_end %>
+      <%= form.text_field :period_end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :usage_amount %>
+      <%= form.text_field :usage_amount %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price %>
+    </div>
+
+    <%= form.hidden_field :category_id, value: params[:category_id] %>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back', account_site_setting_path, class: "btn-grey" %>
+</turbo-frame>
