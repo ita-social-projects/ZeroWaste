@@ -22,9 +22,7 @@
 <fieldset class="bordered">
   <legend class="admin-legend">Diapers Categories</legend>
 
-  <%= turbo_frame_tag "diapers_categories" do %>
-    <%= render template: 'account/site_settings/show_diapers_categories' %>
-  <% end %>
+  <%= render 'account/diapers_periods/partials/categories/content', categories: @categories %>
 </fieldset>
 
 <fieldset class="bordered">

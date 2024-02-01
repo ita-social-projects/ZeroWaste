@@ -47,16 +47,21 @@ Rails.application.routes.draw do
       resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
       get "/site_setting", to: "site_settings#edit", as: "site_setting"
-      resources :diapers_periods, only: [:new, :create, :edit, :destroy]
 
       resource :site_setting, only: [:edit, :update] do
-        resources :diapers_periods, only: [:new, :edit, :update, :create]
         post :revert
-        get :show_all_categories, on: :collection
-        get :show_diapers_categories, on: :member
-        delete :delete_all_periods, on: :collection, to: "site_settings#delete_all_periods", as: "delete_all_periods"
-        get "show_diapers_period/:category_id", to: "site_settings#show_diapers_period", as: :show_diapers_period, on: :collection
-        get "period/:id/edit", to: "diapers_periods#edit", as: :edit_diapers_period
+      end
+
+      resources :diapers_periods, except: [:index, :destroy] do
+        collection do
+          # get :show_all_categories
+          # get "show_diapers_period/:category_id", to: "site_settings#show_diapers_period", as: :show_diapers_period
+          get :available_categories
+          get "/:category_id/category", action: :index, as: ""
+          delete "/:category_id/category", action: :destroy
+        end
+
+        # get "period/:id/edit", to: "diapers_periods#edit", as: :edit_diapers_period
       end
 
       scope module: :calculators do

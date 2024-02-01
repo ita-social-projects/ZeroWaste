@@ -1,0 +1,26 @@
+<%= turbo_frame_tag :diapers_periods do %>
+  <h3><strong>Select category:</strong></h3>
+  <br>
+  <% if categories.exists? %>
+    <table class="w-full table-auto">
+      <% categories.each do |category| %>
+        <tr>
+          <td class="flex items-center py-2">
+            <%= category.name %>
+          </td>
+          <td class="w-1/3">
+            <%= link_to(
+                  '[Select]',
+                  new_account_diapers_period_path(category_id: category.id),
+                  class: "flex justify-center",
+                  data: { turbo_stream: true }
+                ) %>
+          </td>
+      <% end %>
+    </table>
+  <% else %>
+    <p>No Avaliable categories. Create new Category</p>
+  <% end %>
+
+  <%#= link_to '[Back]', account_categories_with_periods_path, class: "btn-grey", data: { turbo_stream: "_top" } %>
+<% end %>

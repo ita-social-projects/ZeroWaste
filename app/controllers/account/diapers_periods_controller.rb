@@ -1,21 +1,25 @@
 class Account::DiapersPeriodsController < Account::BaseController
-  before_action :set_diapers_period, only: [:edit, :update]
+  # repond_with format: :turbo_stream, only: []
+
+  def available_categories
+    @categories = Category.available_categories
+  end
+
+  def index
+  end
 
   def new
-    @site_setting               = SiteSetting.current
-    @diapers_period             = DiapersPeriod.new
-    @diapers_period.category_id = params[:category_id]
-    render template: "account/site_settings/new_diapers_period"
+    # @site_setting               = SiteSetting.current
+    @diapers_period             = DiapersPeriod.new(category_id: params[:category_id])
+    # render template: "account/site_settings/new_diapers_period"
 
-    respond_to do |format|
-      format.turbo_stream
-      format.html
-    end
+    respond_to :turbo_stream
   end
 
   def edit
     @diapers_period = DiapersPeriod.find(params[:id])
-    render template: "account/site_settings/edit_diapers_period"
+
+    # render template: :edit_diapers_period
   end
 
   def create
@@ -36,7 +40,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     @diapers_period = DiapersPeriod.find(params[:id])
 
     respond_to do |format|
-      if @diapers_period.update(diapers_period_params)
+      if @diapers_period.update!(diapers_period_params)
         format.turbo_stream { redirect_back(fallback_location: account_site_setting_path, notice: "Diapers period was successfully updated.") }
         format.html { redirect_back(fallback_location: account_site_setting_path, notice: "Diapers period was successfully updated.") }
       else
@@ -46,21 +50,28 @@ class Account::DiapersPeriodsController < Account::BaseController
     end
   end
 
+  # Action to DESTROY ALL periods for category
   def destroy
-    @diapers_period = DiapersPeriod.find(params[:id])
-    @diapers_period.destroy
+    @category = Category.find(params[:category_id])
 
-    respond_to do |format|
-      format.turbo_stream { redirect_back(fallback_location: account_site_setting_path, notice: "Period was successfully destroyed.", status: :see_other) }
-      format.html { redirect_back(fallback_location: account_site_setting_path, notice: "Period was successfully destroyed.", status: :see_other) }
-    end
+    # notify if something went wrong
+    @category.diapers_periods.destroy_all
+
+    respond_to :turbo_stream
   end
+
+  # Action to DESTROY ONE period for each category
+  # def destroy
+  #   @diapers_period = DiapersPeriod.find(params[:id])
+  #   @diapers_period.destroy
+
+  #   respond_to do |format|
+  #     format.turbo_stream { redirect_back(fallback_location: account_site_setting_path, notice: "Period was successfully destroyed.", status: :see_other) }
+  #     format.html { redirect_back(fallback_location: account_site_setting_path, notice: "Period was successfully destroyed.", status: :see_other) }
+  #   end
+  # end
 
   private
-
-  def set_diapers_period
-    @diapers_period = DiapersPeriod.find(params[:id])
-  end
 
   def diapers_period_params
     params.require(:diapers_period).permit(:price, :period_start, :period_end, :usage_amount, :category_id)

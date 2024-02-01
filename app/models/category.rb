@@ -23,4 +23,7 @@ class Category < ApplicationRecord
   scope :ordered_by_name, -> { order(:name) }
   scope :ordered_by_priority, -> { order(:priority) }
   scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
+
+  scope :available_categories, -> { left_outer_joins(:diapers_periods).where(diapers_periods: { category_id: nil }).distinct }
+  scope :categories_with_periods, -> { joins(:diapers_periods).distinct }
 end
