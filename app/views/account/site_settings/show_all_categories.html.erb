@@ -1,13 +1,18 @@
 <turbo-frame id="diapers_categories">
   <h3><strong>Add new category for diapers</strong></h3>
   <br>
-  <% @categories.each do |category| %>
-    <div style="display: flex; align-items: center;">
-      <p><%= category.name %></p>
-      <p>-------------------</p>
-      <%= link_to '[Add New Period]', new_account_site_setting_diapers_period_path(category_id: category.id), class: 'button' %>
-    </div>
-    <br>
+  <% if @categories.present? %>
+    <% @categories.each do |category| %>
+      <div style="display: flex; align-items: center;">
+        <p><%= category.name %></p>
+        <p>-------------------</p>
+        <%= link_to '[Add New Period]', new_account_site_setting_diapers_period_path(category_id: category.id), class: 'button' %>
+      </div>
+      <br>
+    <% end %>
+  <% else %>
+    <p>No Free Avaliable categories. Create new Category</p>
   <% end %>
+
   <%= link_to '[Back to Diapers Categories]', show_diapers_categories_account_site_setting_path, method: :get, data: { turbo_frame: 'diapers_categories' }, class: "btn-grey" %>
 </turbo-frame>
