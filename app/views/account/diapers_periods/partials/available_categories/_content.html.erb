@@ -22,5 +22,10 @@
     <p>No Avaliable categories. Create new Category</p>
   <% end %>
 
-  <%#= link_to '[Back]', account_categories_with_periods_path, class: "btn-grey", data: { turbo_stream: "_top" } %>
+  <%= link_to(
+        '[Back]',
+        categories_account_diapers_periods_path,
+        data: { turbo_stream: true },
+        class: "btn-grey"
+      ) %>
 <% end %>

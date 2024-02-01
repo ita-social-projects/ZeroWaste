@@ -5,7 +5,8 @@ class Account::DiapersPeriodsController < Account::BaseController
     @categories = Category.available_categories
   end
 
-  def index
+  def categories
+    @categories_with_periods   = Category.categories_with_periods
   end
 
   def new

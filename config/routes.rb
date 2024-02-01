@@ -57,7 +57,7 @@ Rails.application.routes.draw do
           # get :show_all_categories
           # get "show_diapers_period/:category_id", to: "site_settings#show_diapers_period", as: :show_diapers_period
           get :available_categories
-          get "/:category_id/category", action: :index, as: ""
+          get :categories
           delete "/:category_id/category", action: :destroy
         end
 
