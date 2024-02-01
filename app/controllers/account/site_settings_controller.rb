@@ -5,7 +5,7 @@ class Account::SiteSettingsController < Account::BaseController
 
   def edit
     @site_setting = resource
-    @categories = Category.joins(:diapers_periods).distinct
+    @categories   = Category.joins(:diapers_periods).distinct
   end
 
   def show_all_categories
@@ -25,7 +25,7 @@ class Account::SiteSettingsController < Account::BaseController
   end
 
   def show_diapers_period
-    @category = Category.find(params[:category_id])
+    @category        = Category.find(params[:category_id])
     @diapers_periods = DiapersPeriod.where(category_id: params[:category_id])
 
     respond_to do |format|
@@ -41,9 +41,9 @@ class Account::SiteSettingsController < Account::BaseController
   def delete_all_periods
     category = Category.find(params[:category_id])
     category.diapers_periods.destroy_all
-    redirect_to account_site_setting_path, notice: 'All periods for this category were successfully deleted.'
+
     respond_to do |format|
-      format.turbo_stream
+      format.turbo_stream { redirect_to account_site_setting_path, notice: "All periods for this category were successfully deleted." }
       format.html
     end
   end
