@@ -16,7 +16,8 @@
         <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
         <th scope="col"><%= sort_link(@q, :name, t('.table.title'), default_order: :desc) %></th>
         <th scope="col"><%= sort_link(@q, :priority, t('.table.priority'), default_order: :desc) %></th>
-        <th scope="col"><%= t('.table.actions') %></th>
+        <th scope="col" class="text-center"><%= t('.table.edit') %></th>
+        <th scope="col" class="text-center"><%= t('.table.delete') %></th>
       </tr>
     </thead>
     <tbody class="admin-table-links">
@@ -25,15 +26,12 @@
           <th scope="row"><%= category.id %></th>
           <td><%= category.name %></td>
           <td><%= category.priority %></td>
-          <td class="actions">
-            <div class="d-flex">
-              <%= link_to(edit_account_category_path(id: category)) do %>
-                <i class="mx-2 fa fa-pen"></i>
-              <% end %>
-              <%= button_to(account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') }) do %>
-                <i class="mx-2 fa fa-trash"></i>
-              <% end %>
-            </div>
+          <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_category_path(id: category) %></td>
+          <td class="text-center">
+            <%= button_to account_category_path(id: category), method: :delete,
+                        data: { turbo_confirm: t(".confirm_delete") } do %>
+              <i class="mx-2 fa fa-trash"></i>
+            <% end %>
           </td>
         </tr>
       <% end %>

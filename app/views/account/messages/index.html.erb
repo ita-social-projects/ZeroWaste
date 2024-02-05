@@ -1,5 +1,5 @@
 <div class="container home">
-  <table class="table">
+  <table aria-label="messages table" class="table admin-table">
     <caption class="sr-only">This table displays a list of messages.</caption>
     <thead>
       <tr>
@@ -7,19 +7,17 @@
         <th scope="col"><%= t('.table.title') %></th>
         <th scope="col"><%= t('.table.email') %></th>
         <th scope="col"><%= t('.table.message') %></th>
-        <th scope="col"><%= t('.table.show_more') %></th>
+        <th scope="col" class="text-center"><%= t('.table.show_more') %></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="admin-table-links">
       <% @messages.each do |message| %>
         <tr>
           <th scope="row"><%= message.id %></th>
           <td><%= message.title %></td>
           <td><%= message.email %></td>
           <td><%= message.message.first(40) %></td>
-          <td class="text-center"><%= link_to account_message_path(id: message, locale: I18n.locale) do %>
-            <i class="fa fa-eye"></i>
-          <% end %></td>
+          <td "<td class="text-center"><%= link_to icon('fa-solid', 'eye'), account_message_path(id: message, locale: I18n.locale) %></td>
         </tr>
       <% end %>
     </tbody>
