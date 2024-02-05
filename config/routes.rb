@@ -52,16 +52,12 @@ Rails.application.routes.draw do
         post :revert
       end
 
-      resources :diapers_periods, except: [:index, :destroy] do
+      resources :diapers_periods do
         collection do
-          # get :show_all_categories
-          # get "show_diapers_period/:category_id", to: "site_settings#show_diapers_period", as: :show_diapers_period
           get :available_categories
           get :categories
-          delete "/:category_id/category", action: :destroy
+          delete :destroy_category
         end
-
-        # get "period/:id/edit", to: "diapers_periods#edit", as: :edit_diapers_period
       end
 
       scope module: :calculators do
