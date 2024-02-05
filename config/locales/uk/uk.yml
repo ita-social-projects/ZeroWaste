@@ -187,6 +187,8 @@ uk:
           title: "Назва"
           actions: "Дії"
           priority: "Пріоритет"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
       edit:
@@ -201,6 +203,8 @@ uk:
           title: "Назва"
           prices: "Ціни"
           actions: "Дії"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_product_button: "Додати продукт"
         confirm_delete: "Видалити продукт?"
       show:
@@ -232,7 +236,7 @@ uk:
           first_name: "Ім'я"
           last_name: "Прізвище"
           last_visit_col: "Час останнього візиту"
-          view_info_col: "Показати"
+          show: "Показати"
           edit: "Відредагувати"
           ban: "Заблокувати"
           delete: "Видалити"
@@ -278,6 +282,9 @@ uk:
           calculator_slug: "Шлях"
           calculator_name: "Назва"
           calculator_actions: "Дії"
+          show: "Показати"
+          edit: "Відредагувати"
+          delete: "Видалити"
       edit:
         add_new_field_label: "Додати нове поле"
         form:
