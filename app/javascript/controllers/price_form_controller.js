@@ -13,11 +13,15 @@ export default class extends Controller {
   }
 
   togglePrice(event) {
-    this.priceTargets.forEach((target) => {
-      if (event.target.attributes.name.value == target.attributes.name.value) {
-        target.hidden = !target.hidden
+    this.priceTargets.forEach((target, i) => {
+      if (event.target.attributes.name.value === target.attributes.name.value) {
+        target.hidden = !target.hidden;
+
+        if (target.hidden) {
+          this.priceInputTargets[i].value = '';
+        }
       }
-    })
+    });
   }
 
   removePrice(event) {
