@@ -1,36 +1,37 @@
 <%= turbo_frame_tag :diapers_periods do %>
-  <h3 class="mb-4"><strong>Diapers Periods for <%= @category.name %> Category</strong></h3>
-  <table class="w-full">
+  <h3 class="mb-4"><strong><%= t(".periods_for") %> <%= @category.name %></strong></h3>
+  <table class="table admin-table">
     <thead>
       <tr>
-        <th class="p-2 border border-gray-500">Period Start</th>
-        <th class="p-2 border border-gray-500">Period End</th>
-        <th class="p-2 border border-gray-500">Usage Amount</th>
-        <th class="p-2 border border-gray-500">Price</th>
-        <th colspan="2" class="p-2 border border-gray-500">Actions</th>
+        <th class="p-2"><%= t(".period_start") %></th>
+        <th class="p-2"><%= t(".period_end") %></th>
+        <th class="p-2"><%= t(".usage_amount") %></th>
+        <th class="p-2"><%= t(".price") %></th>
+        <th scope="col" class="text-center"><%= t('.table.edit') %></th>
+        <th scope="col" class="text-center"><%= t('.table.delete') %></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="admin-table-links">
       <% @diapers_periods.each do |diapers_period| %>
         <tr id="<%= dom_id(diapers_period) %>">
-          <td class="p-2 border border-gray-500"><%= diapers_period.period_start %></td>
-          <td class="p-2 border border-gray-500"><%= diapers_period.period_end %></td>
-          <td class="p-2 border border-gray-500"><%= diapers_period.usage_amount %></td>
-          <td class="p-2 border border-gray-500"><%= diapers_period.price %></td>
-          <td class="p-2 border border-gray-500">
+          <td class="p-2"><%= diapers_period.period_start %></td>
+          <td class="p-2"><%= diapers_period.period_end %></td>
+          <td class="p-2"><%= diapers_period.usage_amount %></td>
+          <td class="p-2"><%= diapers_period.price %></td>
+          <td class="text-center">
             <%= link_to(
-                    '[Edit]',
-                    edit_account_diapers_period_path(id: diapers_period.id),
-                    data: { turbo_stream: true }
-                  ) %>
+                edit_account_diapers_period_path(id: diapers_period.id),
+                data: { turbo_stream: true }) do %>
+                <i class="mx-2 fa fa-pen"></i>
+                <% end %>
           </td>
-          <td class="p-2 border border-gray-500">
+          <td class="text-center">
             <%= button_to(
-                    '[Delete]',
-                    account_diapers_period_path(id: diapers_period.id),
-                    method: :delete,
-                    data: { turbo_confirm: 'Are you sure?' }
-                  ) %>
+                account_diapers_period_path(id: diapers_period.id),
+                method: :delete,
+                data: { turbo_confirm: t(".confirm_delete") }) do %>
+                <i class="mx-2 fa fa-trash"></i>
+                <% end %>
           </td>
         </tr>
       <% end %>
@@ -38,13 +39,13 @@
   </table>
 
   <%= link_to(
-          '[Add New Period]',
+          t(".add_new"),
           new_account_diapers_period_path(category_id: @category.id),
           class: "btn-grey mt-4",
           data: { turbo_stream: true }
         ) %>
   <%= link_to(
-          '[Back to Categories]',
+          t(".back_button"),
           categories_account_diapers_periods_path,
           class: "btn-grey mt-4",
           data: { turbo_stream: true }

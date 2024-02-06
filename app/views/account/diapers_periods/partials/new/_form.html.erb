@@ -1,38 +1,45 @@
 <%= turbo_frame_tag :diapers_periods do %>
-  <h3><strong>New Diapers Period for <%= category.name %></strong></h3>
+  <h3><strong><%= t(".new_period") %> <%= category.name %></strong></h3>
   <%= simple_form_for period, url: account_diapers_periods_path(locale: I18n.locale), html: { class: "mt-4" } do |form| %>
 
-    <div class="flex flex-wrap mb-6 -mx-3">
-      <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-        <%= form.input :period_start, label: "Period Start", input_html: { class: "appearance-none border py-2 px-3 text-gray-700 w-full" } %>
+    <div class="group-wrapper">
+      <div class="input-field-wrapper">
+        <%= form.input :period_start,
+              label: t(".period_start"),
+              input_html: { class: "input-field" } %>
       </div>
 
-      <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-        <%= form.input :period_end, label: "Period End", input_html: { class: "appearance-none border py-2 px-3 text-gray-700 w-full" } %>
+      <div class="input-field-wrapper">
+        <%= form.input :period_end,
+              label: t(".period_end"),
+              input_html: { class: "input-field" } %>
       </div>
     </div>
 
-    <div class="flex flex-wrap mt-4 mb-6 -mx-3">
-      <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-        <%= form.input :usage_amount, label: "Usage Amount", input_html: { class: "appearance-none border w-full py-2 px-3 text-gray-700" } %>
+    <div class="mt-4 group-wrapper">
+      <div class="input-field-wrapper">
+        <%= form.input :usage_amount,
+              label: t(".usage_amount"),
+              input_html: { class: "input-field" } %>
       </div>
 
-      <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-        <%= form.input :price, label: "Price", input_html: { class: "appearance-none border w-full py-2 px-3 text-gray-700" } %>
+      <div class="input-field-wrapper">
+        <%= form.input :price,
+              label: t(".price"),
+              input_html: { class: "input-field" } %>
       </div>
     </div>
 
     <%= form.input :category_id, as: :hidden, input_html: { value: period.category_id } %>
 
     <div class="mt-4 actions md:w-1/2 md:mb-0">
-      <%= form.submit %>
-    </div>
-  <% end %>
-
-  <%= link_to(
-      '[Back]',
+      <%= form.submit t('buttons.create')%>
+      <%= link_to(
+      t(".back_button"),
       account_diapers_periods_path(category_id: period.category_id),
-      class: "btn-grey mt-2",
+      class: "btn-grey",
       data: { turbo_stream: true }
     ) %>
+    </div>
+  <% end %>
 <% end %>

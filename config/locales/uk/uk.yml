@@ -272,8 +272,58 @@ uk:
         site_features: "Особливості сайту"
         rails_db_description: "Доступ до бази даних (лише перегляд)"
         dev_features: "Для розробників"
+        diapers_categories: "Категорії підгузків"
         apply_button: "Застосувати"
         confirm_default: "Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та іконки сайту?"
+    diapers_periods:
+          partials:
+            available_categories:
+              content:
+                available: "Оберіть категорію:"
+                no_categories_available: "Немає доступних категорій. Створіть нову категорію."
+                category_name: "Назва категорії"
+                confirm_delete: "Видалити всі періоди?"
+                back_button: "Назад"
+                table:
+                  add: "Додати"
+            categories:
+              content:
+                category_name: "Назва категорії"
+                confirm_delete: "Видалити всі періоди?"
+                table:
+                  show: "Показати"
+                  delete: "Видалити"
+                no_categories: "Не знайдено періодів для підгузків. Додайте новий зі списку доступних."
+                add_button: "Додати"
+            edit:
+              form:
+                edit_name: "Редагувати періоди для підгузків"
+                period_start: "Початок періоду"
+                period_end: "Кінець періоду"
+                usage_amount: "Обсяг використання "
+                price: "Ціна"
+                back_button: "Назад"
+            index:
+              content:
+                periods_for: "Періоди підгудків для категорії:"
+                confirm_delete: "Видалити цей період?"
+                period_start: "Початок періоду"
+                period_end: "Кінець періоду"
+                usage_amount: "Обсяг використання "
+                price: "Ціна"
+                table:
+                  edit: "Редагувати"
+                  delete: "Видалити"
+                add_new: "Додати новий період"
+                back_button: "Назад"
+            new:
+              form:
+                new_period: "Новий період для підгузків категорії:"
+                period_start: "Початок періоду"
+                period_end: "Кінець періоду"
+                usage_amount: "Обсяг використання "
+                price: "Ціна"
+                back_button: "Назад"
     feature_flags:
       submit_button: "Зберегти"
       new_calculator_design:
@@ -423,6 +473,11 @@ uk:
         remember_me: "Запам'ятати мене"
       site_setting:
         title: "Назва"
+      diapers_period:
+        price: "Ціна"
+        period_start: "Початок періоду"
+        period_end: "Кінець періоду"
+        usage_amount: "Обсяг використання"
       calculator:
         name: "Назва"
         slug: "Шлях"
@@ -467,6 +522,10 @@ uk:
                 few: "занадто коротка (мінімум %{count} знаки)"
                 many: "занадто коротка (мінімум %{count} знаків)"
                 other: "занадто коротка (мінімум %{count} знаків)"
+        diapers_period:
+          attributes:
+            price:
+              blank: "не може бути пустою"
         product:
           attributes:
             title:
