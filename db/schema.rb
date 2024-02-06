@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_22_225503) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_06_152415) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -82,9 +82,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_225503) do
   create_table "diapers_periods", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.decimal "price", precision: 8, scale: 2
-    t.integer "period_start", default: 0, null: false
-    t.integer "period_end", default: 0, null: false
-    t.integer "usage_amount", default: 0, null: false
+    t.integer "period_start", null: false
+    t.integer "period_end", null: false
+    t.integer "usage_amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_diapers_periods_on_category_id"
@@ -149,7 +149,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_225503) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id", "priceable_id", "priceable_type"], name: "idx_on_category_id_priceable_id_priceable_type_1fa9ce7f24", unique: true
+    t.index ["category_id", "priceable_id", "priceable_type"], name: "index_prices_on_category_id_and_priceable_id_and_priceable_type", unique: true
     t.index ["category_id"], name: "index_prices_on_category_id"
     t.index ["priceable_type", "priceable_id"], name: "index_prices_on_priceable"
   end
@@ -183,22 +183,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_225503) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
-    t.datetime "locked_at"
+    t.datetime "locked_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "country"
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "provider"
@@ -211,13 +211,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_225503) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.string "item_type"
-    t.string "{:null=>false}"
+    t.string "item_type", null: false
     t.bigint "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
     t.text "object"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.text "object_changes"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
