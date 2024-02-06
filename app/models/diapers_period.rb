@@ -6,7 +6,7 @@ class DiapersPeriod < ApplicationRecord
   validates :period_end, presence: true, numericality: { only_integer: true, greater_than: :period_start }
   validates :usage_amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  validate :period_does_not_overlap
+  # validate :period_does_not_overlap
 
   private
 
