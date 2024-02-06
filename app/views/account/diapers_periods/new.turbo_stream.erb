@@ -1,5 +1,5 @@
 <%= turbo_stream.replace(
       :diapers_periods,
       partial: "account/diapers_periods/partials/new/form",
-      locals: { period: @diapers_period }
+      locals: { period: @diapers_period, category: @category }
 ) %>
