@@ -8,46 +8,6 @@ class Account::SiteSettingsController < Account::BaseController
     @categories   = Category.categories_with_periods
   end
 
-  # def show_all_categories
-  #   @categories = Category.left_outer_joins(:diapers_periods).where(diapers_periods: { category_id: nil }).distinct
-  #   respond_to do |format|
-  #     format.turbo_stream
-  #     format.html
-  #   end
-  # end
-
-  # def show_diapers_categories
-  #   @categories = Category.joins(:diapers_periods).distinct
-  #   respond_to do |format|
-  #     format.turbo_stream
-  #     format.html
-  #   end
-  # end
-
-  # def show_diapers_period
-  #   @category        = Category.find(params[:category_id])
-  #   @diapers_periods = DiapersPeriod.where(category_id: params[:category_id])
-
-  #   respond_to do |format|
-  #     format.turbo_stream
-  #     format.html
-  #   end
-  # end
-
-  # def edit_diapers_period
-  #   @diapers_period = DiapersPeriod.find(params[:id])
-  # end
-
-  # def delete_all_periods
-  #   category = Category.find(params[:category_id])
-  #   category.diapers_periods.destroy_all
-
-  #   respond_to do |format|
-  #     format.turbo_stream { redirect_to account_site_setting_path, notice: "All periods for this category were successfully deleted." }
-  #     format.html
-  #   end
-  # end
-
   def update
     @site_setting = resource
 
