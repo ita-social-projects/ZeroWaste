@@ -1,0 +1,52 @@
+<%= turbo_frame_tag :diapers_periods do %>
+  <h3 class="mb-4"><strong>Diapers Periods for <%= @category.name %> Category</strong></h3>
+  <table class="w-full">
+    <thead>
+      <tr>
+        <th class="p-2 border border-gray-500">Period Start</th>
+        <th class="p-2 border border-gray-500">Period End</th>
+        <th class="p-2 border border-gray-500">Usage Amount</th>
+        <th class="p-2 border border-gray-500">Price</th>
+        <th colspan="2" class="p-2 border border-gray-500">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @diapers_periods.each do |diapers_period| %>
+        <tr id="<%= dom_id(diapers_period) %>">
+          <td class="p-2 border border-gray-500"><%= diapers_period.period_start %></td>
+          <td class="p-2 border border-gray-500"><%= diapers_period.period_end %></td>
+          <td class="p-2 border border-gray-500"><%= diapers_period.usage_amount %></td>
+          <td class="p-2 border border-gray-500"><%= diapers_period.price %></td>
+          <td class="p-2 border border-gray-500">
+            <%= link_to(
+                    '[Edit]',
+                    edit_account_diapers_period_path(id: diapers_period.id),
+                    data: { turbo_stream: true }
+                  ) %>
+          </td>
+          <td class="p-2 border border-gray-500">
+            <%= button_to(
+                    '[Delete]',
+                    account_diapers_period_path(id: diapers_period.id),
+                    method: :delete,
+                    data: { turbo_confirm: 'Are you sure?' }
+                  ) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to(
+          '[Add New Period]',
+          new_account_diapers_period_path(category_id: @category.id),
+          class: "btn-grey mt-4",
+          data: { turbo_stream: true }
+        ) %>
+  <%= link_to(
+          '[Back to Categories]',
+          categories_account_diapers_periods_path,
+          class: "btn-grey mt-4",
+          data: { turbo_stream: true }
+        ) %>
+<% end %>
