@@ -276,54 +276,56 @@ uk:
         apply_button: "Застосувати"
         confirm_default: "Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та іконки сайту?"
     diapers_periods:
-          partials:
-            available_categories:
-              content:
-                available: "Оберіть категорію:"
-                no_categories_available: "Немає доступних категорій. Створіть нову категорію."
-                category_name: "Назва категорії"
-                confirm_delete: "Видалити всі періоди?"
-                back_button: "Назад"
-                table:
-                  add: "Додати"
-            categories:
-              content:
-                category_name: "Назва категорії"
-                confirm_delete: "Видалити всі періоди?"
-                table:
-                  show: "Показати"
-                  delete: "Видалити"
-                no_categories: "Не знайдено періодів для підгузків. Додайте новий зі списку доступних."
-                add_button: "Додати"
-            edit:
-              form:
-                edit_name: "Редагувати періоди для підгузків"
-                period_start: "Початок періоду"
-                period_end: "Кінець періоду"
-                usage_amount: "Обсяг використання "
-                price: "Ціна"
-                back_button: "Назад"
-            index:
-              content:
-                periods_for: "Періоди підгудків для категорії:"
-                confirm_delete: "Видалити цей період?"
-                period_start: "Початок періоду"
-                period_end: "Кінець періоду"
-                usage_amount: "Обсяг використання "
-                price: "Ціна"
-                table:
-                  edit: "Редагувати"
-                  delete: "Видалити"
-                add_new: "Додати новий період"
-                back_button: "Назад"
-            new:
-              form:
-                new_period: "Новий період для підгузків категорії:"
-                period_start: "Початок періоду"
-                period_end: "Кінець періоду"
-                usage_amount: "Обсяг використання "
-                price: "Ціна"
-                back_button: "Назад"
+      partials:
+        available_categories:
+          content:
+            available: "Оберіть категорію:"
+            no_categories_available: "Немає доступних категорій. Створіть нову категорію."
+            category_name: "Назва категорії"
+            confirm_delete: "Видалити всі періоди?"
+            back_button: "Назад"
+            table:
+              add: "Додати"
+        categories:
+          content:
+            category_name: "Назва категорії"
+            confirm_delete: "Видалити всі періоди?"
+            table:
+              show: "Показати"
+              delete: "Видалити"
+            no_categories: "Не знайдено періодів для підгузків. Додайте новий зі списку доступних."
+            add_button: "Додати"
+            tooltip: "Ця категорія не відображається в Калькуляторі, оскільки вона не охоплює всі періоди."
+        edit:
+          form:
+            edit_name: "Редагувати періоди для підгузків"
+            period_start: "Початок періоду"
+            period_end: "Кінець періоду"
+            usage_amount: "Обсяг використання "
+            price: "Ціна"
+            back_button: "Назад"
+        index:
+          content:
+            periods_for: "Періоди підгудків для категорії:"
+            confirm_delete: "Видалити цей період?"
+            period_start: "Початок періоду"
+            period_end: "Кінець періоду"
+            usage_amount: "Обсяг використання "
+            price: "Ціна"
+            table:
+              edit: "Редагувати"
+              delete: "Видалити"
+            add_new: "Додати новий період"
+            back_button: "Назад"
+            warning: "Ця категорія не відображається в калькуляторі, оскільки вона не охоплює всі періоди. Будь ласка, додайте нові періоди, щоб категорія охоплювала 30 місяців."
+        new:
+          form:
+            new_period: "Новий період для підгузків категорії:"
+            period_start: "Початок періоду"
+            period_end: "Кінець періоду"
+            usage_amount: "Обсяг використання "
+            price: "Ціна"
+          back_button: "Назад"
     feature_flags:
       submit_button: "Зберегти"
       new_calculator_design:
@@ -594,6 +596,8 @@ uk:
     feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
     site_setting_reverted: "Заголовок та іконку сайту успішно відновлено до стандартних"
+    diapers_period_not_deleted: "Неможливо видалити період підгузків."
+    category_diapers_period_not_deleted: "Неможливо видалити періоди підгузків з категорії."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'

@@ -1,5 +1,5 @@
 <%= turbo_stream.replace(
       :diapers_periods,
       partial: "account/diapers_periods/partials/categories/content",
-      locals: { categories: @categories_with_periods }
+      locals: { categories: @categories_with_periods, unfilled_categories: @unfilled_categories }
     ) %>

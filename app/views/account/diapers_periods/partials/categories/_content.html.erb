@@ -11,7 +11,16 @@
       <tbody class="admin-table-links">
         <% categories.each do |category| %>
           <tr id="<%= dom_id(category) %>">
-            <td><%= category.name %></td>
+            <td>
+              <%= category.name %>
+              <% if unfilled_categories.include?(category) %>
+                <div class="relative inline-block cursor-help">
+                  <span title="<%= t('.tooltip') %>">
+                    <i class="text-yellow-600 fa-solid fa-circle-exclamation hover:text-yellow-700"></i>
+                  </span>
+                </div>
+              <% end %>
+            </td>
             <td class="text-center">
               <%= link_to(
                   icon('fa-solid', 'eye'),

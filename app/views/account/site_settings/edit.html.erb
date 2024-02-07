@@ -22,7 +22,7 @@
 <fieldset class="bordered">
   <legend class="admin-legend"><%= t(".diapers_categories") %></legend>
 
-  <%= render 'account/diapers_periods/partials/categories/content', categories: @categories %>
+  <%= render 'account/diapers_periods/partials/categories/content', categories: @categories, unfilled_categories: @unfilled_categories %>
 </fieldset>
 
 <fieldset class="bordered">
