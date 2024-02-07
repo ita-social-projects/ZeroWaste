@@ -26,4 +26,8 @@ class Category < ApplicationRecord
 
   scope :available_categories, -> { left_outer_joins(:diapers_periods).where(diapers_periods: { category_id: nil }).distinct }
   scope :categories_with_periods, -> { joins(:diapers_periods).distinct }
+
+  def self.preferable
+    find_by(preferable: true)
+  end
 end
