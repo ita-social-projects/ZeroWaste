@@ -485,6 +485,7 @@ uk:
       category:
         name: "Назва"
         priority: "Пріоритет"
+        preferable: "Основна"
       product:
         title: "Назва"
     errors:
