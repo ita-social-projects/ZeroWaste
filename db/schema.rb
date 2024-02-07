@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_150024) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority", default: 0, null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "category_categoryables", force: :cascade do |t|
@@ -141,6 +142,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
     t.index ["category_id", "priceable_id", "priceable_type"], name: "idx_on_category_id_priceable_id_priceable_type_1fa9ce7f24", unique: true
     t.index ["category_id"], name: "index_prices_on_category_id"
     t.index ["priceable_type", "priceable_id"], name: "index_prices_on_priceable"
+    t.check_constraint "sum >= 0::numeric", name: "check_sum_non_negative"
   end
 
   create_table "product_types", force: :cascade do |t|
