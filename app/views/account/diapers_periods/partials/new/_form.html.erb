@@ -6,7 +6,7 @@
       <div class="input-field-wrapper">
         <%= form.input :period_start,
               label: t(".period_start"),
-              input_html: { class: "input-field" } %>
+              input_html: { class: "input-field", value: period.period_start || "--" } %>
       </div>
 
       <div class="input-field-wrapper">

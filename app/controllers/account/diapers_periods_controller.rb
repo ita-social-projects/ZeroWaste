@@ -8,7 +8,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def new
     set_category
-    @diapers_period = DiapersPeriod.new(category_id: @category.id)
+    @diapers_period = DiapersPeriod.new(category_id: @category.id, period_start: set_period_start)
   end
 
   def edit
@@ -80,5 +80,10 @@ class Account::DiapersPeriodsController < Account::BaseController
   def set_category
     category_id = params[:diapers_period].present? ? params[:diapers_period][:category_id] : params[:category_id]
     @category   = Category.find(category_id)
+  end
+
+  def set_period_start
+    last_period   = @category.diapers_periods.order(:created_at).last
+    last_period ? last_period.period_end : 1
   end
 end
