@@ -1,1 +1,6 @@
 <%= turbo_stream.remove(dom_id(@diapers_period)) %>
+<%= turbo_stream.replace(
+        :add_new_link,
+        partial: "account/diapers_periods/partials/index/add_new_link",
+        locals: { category: @category, unfilled_categories: @unfilled_categories }
+      ) %>

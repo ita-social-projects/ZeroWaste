@@ -44,14 +44,13 @@
     </tbody>
   </table>
 
-  <% if @unfilled_categories.include?(@category) %>
-    <%= link_to(
-            t(".add_new"),
-            new_account_diapers_period_path(category_id: @category.id),
-            class: "btn-green px-4 py-2",
-            data: { turbo_stream: true }
+  <%= turbo_frame_tag :add_new_link do %>
+    <%= render(
+            partial: "account/diapers_periods/partials/index/add_new_link",
+            locals: { category: @category, unfilled_categories: @unfilled_categories }
           ) %>
   <% end %>
+
   <%= link_to(
           t(".back_button"),
           categories_account_diapers_periods_path,

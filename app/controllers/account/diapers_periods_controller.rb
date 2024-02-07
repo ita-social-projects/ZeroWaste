@@ -44,6 +44,8 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def destroy
     set_diapers_period
+    set_category
+    unfilled_categories
 
     if @diapers_period.destroy
       respond_to :turbo_stream
@@ -82,8 +84,13 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def set_category
-    category_id = params[:diapers_period].present? ? params[:diapers_period][:category_id] : params[:category_id]
-    @category   = Category.find(category_id)
+    if params[:id]
+      @diapers_period = DiapersPeriod.find(params[:id])
+      @category       = @diapers_period.category
+    else
+      category_id = params[:diapers_period].present? ? params[:diapers_period][:category_id] : params[:category_id]
+      @category   = Category.find(category_id)
+    end
   end
 
   def set_period_start
