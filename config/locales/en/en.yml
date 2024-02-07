@@ -283,6 +283,7 @@ en:
             no_categories: "No diapers categories found. Add some from Available list."
             add_button: "Add New"
             tooltip: "This category isn't shown in Calculator, because it doesn't have all periods covered."
+            cannot_delete: "You can't delete periods in preferable category."
         edit:
           form:
             edit_name: "Edit Diapers Period"
@@ -305,6 +306,7 @@ en:
             add_new: "Add New Period"
             back_button: "Back"
             warning: "This category isn't showing in Calculator, because it doesn't cover all periods. Please, add new periods, so the category covers 30 months."
+            cannot_delete: "You can't delete periods in preferable category."
         new:
           form:
             new_period: "New Diapers Period for Category:"

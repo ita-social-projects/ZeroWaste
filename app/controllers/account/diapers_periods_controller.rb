@@ -34,6 +34,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     set_category
     @diapers_periods = @category.diapers_periods
     set_diapers_period
+    unfilled_categories
 
     if @diapers_period.update(diapers_period_params)
       respond_to :turbo_stream, status: :see_other
