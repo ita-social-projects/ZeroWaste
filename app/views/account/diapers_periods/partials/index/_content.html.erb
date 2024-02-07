@@ -41,13 +41,13 @@
   <%= link_to(
           t(".add_new"),
           new_account_diapers_period_path(category_id: @category.id),
-          class: "btn-grey mt-4",
+          class: "btn-green px-4 py-2",
           data: { turbo_stream: true }
         ) %>
   <%= link_to(
           t(".back_button"),
           categories_account_diapers_periods_path,
-          class: "btn-grey mt-4",
+          class: "btn-grey px-4 py-2",
           data: { turbo_stream: true }
         ) %>
 <% end %>

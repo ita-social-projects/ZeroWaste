@@ -6,27 +6,25 @@
       <div class="input-field-wrapper">
         <%= form.input :period_start,
               label: t(".period_start"),
-              input_html: { class: "input-field" } %>
+              input_html: { value: period.period_start || "--" },
+              readonly: true %>
       </div>
 
       <div class="input-field-wrapper">
         <%= form.input :period_end,
-              label: t(".period_end"),
-              input_html: { class: "input-field" } %>
+              label: t(".period_end") %>
       </div>
     </div>
 
     <div class="mt-4 group-wrapper">
       <div class="input-field-wrapper">
         <%= form.input :usage_amount,
-              label: t(".usage_amount"),
-              input_html: { class: "input-field" } %>
+              label: t(".usage_amount") %>
       </div>
 
       <div class="input-field-wrapper">
         <%= form.input :price,
-              label: t(".price"),
-              input_html: { class: "input-field" } %>
+              label: t(".price") %>
       </div>
     </div>
 

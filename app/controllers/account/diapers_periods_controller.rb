@@ -8,7 +8,8 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def new
     set_category
-    @diapers_period = DiapersPeriod.new(category_id: @category.id, period_start: set_period_start)
+    set_period_start
+    @diapers_period = DiapersPeriod.new(category_id: @category.id, period_start: @period_start)
   end
 
   def edit
@@ -84,6 +85,6 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def set_period_start
     last_period   = @category.diapers_periods.order(:created_at).last
-    last_period ? last_period.period_end : 1
+    @period_start = last_period ? (last_period.period_end + 1) : 1
   end
 end

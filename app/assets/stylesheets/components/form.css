@@ -27,8 +27,4 @@
     .input-field-wrapper {
       @apply w-full px-3 mb-6 md:w-1/2 md:mb-0;
     }
-
-    .input-field {
-      @apply w-full px-3 py-2 text-gray-700 border appearance-none;
-    }
 }
