@@ -4,6 +4,7 @@ class Account::DiapersPeriodsController < Account::BaseController
   def index
     set_category
     @diapers_periods = @category.diapers_periods
+    unfilled_categories
   end
 
   def new
@@ -20,6 +21,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     set_category
     @diapers_periods = @category.diapers_periods
     @diapers_period  = @category.diapers_periods.build(diapers_period_params)
+    unfilled_categories
 
     if @diapers_period.save
       respond_to :turbo_stream, status: :see_other
@@ -46,7 +48,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     if @diapers_period.destroy
       respond_to :turbo_stream
     else
-      redirect_to account_site_setting_path, alert: "Can't delete diapers period."
+      redirect_to account_site_setting_path, alert: t("notifications.diapers_period_not_deleted")
     end
   end
 
@@ -56,6 +58,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def categories
     @categories_with_periods = Category.categories_with_periods
+    unfilled_categories
   end
 
   def destroy_category
@@ -64,7 +67,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     if @category.diapers_periods.destroy_all
       respond_to :turbo_stream
     else
-      redirect_to account_site_setting_path, alert: "Can't delete diapers periods from category."
+      redirect_to account_site_setting_path, alert: t("notifications.category_diapers_period_not_deleted")
     end
   end
 
@@ -86,5 +89,9 @@ class Account::DiapersPeriodsController < Account::BaseController
   def set_period_start
     last_period   = @category.diapers_periods.order(:created_at).last
     @period_start = last_period ? (last_period.period_end + 1) : 1
+  end
+
+  def unfilled_categories
+    @unfilled_categories = Category.unfilled_categories
   end
 end

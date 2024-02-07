@@ -26,7 +26,11 @@ class Category < ApplicationRecord
 
   scope :available_categories, -> { left_outer_joins(:diapers_periods).where(diapers_periods: { category_id: nil }).distinct }
   scope :categories_with_periods, -> { joins(:diapers_periods).distinct }
-
+  scope :unfilled_categories, -> {
+                                left_joins(:diapers_periods)
+                                  .group(:id)
+                                  .having("MAX(diapers_periods.period_end) IS NULL OR MAX(diapers_periods.period_end) < ?", 30)
+                              }
   def self.preferable
     find_by(preferable: true)
   end

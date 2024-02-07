@@ -4,8 +4,9 @@ class Account::SiteSettingsController < Account::BaseController
   load_and_authorize_resource
 
   def edit
-    @site_setting = resource
-    @categories   = Category.categories_with_periods
+    @site_setting        = resource
+    @categories          = Category.categories_with_periods
+    @unfilled_categories = Category.unfilled_categories
   end
 
   def update
