@@ -186,6 +186,7 @@ en:
       index:
         add_category_button: 'Add category'
         confirm_delete: 'Delete category?'
+        cannot_delete: "You cannot delete preferable category."
     products:
       table:
         title: 'Title'
