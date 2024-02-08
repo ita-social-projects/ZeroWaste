@@ -33,11 +33,11 @@
     <div class="mt-4 actions md:w-1/2 md:mb-0">
       <%= form.submit t('buttons.create'), class: "btn-green px-4 py-2"%>
       <%= link_to(
-      t(".back_button"),
-      available_categories_account_diapers_periods_path,
-      class: "btn-grey px-4 py-2",
-      data: { turbo_stream: true }
-    ) %>
+          t(".back_button"),
+          account_diapers_periods_path(category_id: category.id),
+          class: "btn-grey px-4 py-2",
+          data: { turbo_stream: true }
+        ) %>
     </div>
   <% end %>
 <% end %>
