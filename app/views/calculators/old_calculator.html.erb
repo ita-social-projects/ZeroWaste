@@ -10,29 +10,28 @@
     <div class="mx-5 mt-5 calc-container">
       <%= t(".form.description") %>
     </div>
-    <%= simple_form_for(:child, url: "#", html: { class: "simple_form_calculator calc-container",
+    <%= simple_form_for(:child, url: "#", html: { class: "simple_form_calculator w-full mx-5",
                                                   data: { controller: "input-child-info",
                                                           input_child_info_url_value: api_v1_diaper_calculators_url,
                                                           input_child_info_months_value: month_number("old"),
                                                           input_child_info_results_outlet: ".result" }}) do |form| %>
-      <div class="inline ms-5 calc-item">
+      <div class="flex flex-row justify-content-start">
         <%= form.input_field :years,
                               collection: years_number,
                               prompt: t(".form.years_prompt"),
                               class: "rounded custom-select",
                               data: { input_child_info_target: "year", action: "input-child-info#yearChanged" } %>
-      </div>
-      <div class="inline ms-5 calc-item">
+
         <%= form.input_field :months,
                               collection: month_number("old"),
                               prompt: t(".form.months_prompt"),
-                              class: "rounded custom-select childs_months",
+                              class: "rounded custom-select mx-5",
                               data: { input_child_info_target: "month" } %>
       </div>
       <%= form.hidden_field :product_category, collection: collection_product_category,
                                                         selected: t(".form.medium"),
                                                         data: { input_child_info_target: "productCategory" } %>
-      <div class="block mx-5 mt-4 mb-3">
+      <div class="block mt-4 mb-3">
         <%= form.submit t("calculators.buttons.calculate"),
                         class: "calculate-btn result-btn calc-item old-btn",
                         data: { action: "input-child-info#submit" } %>
