@@ -31,6 +31,14 @@ class Category < ApplicationRecord
                                   .group(:id)
                                   .having("MAX(diapers_periods.period_end) IS NULL OR MAX(diapers_periods.period_end) < ?", 30)
                               }
+
+  scope :ordered_by_price, -> {
+    where.not(id: unfilled_categories)
+         .joins(:diapers_periods)
+         .group("categories.id")
+         .order("MIN(diapers_periods.price) ASC")
+  }
+
   def self.preferable
     find_by(preferable: true)
   end
