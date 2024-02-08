@@ -64,12 +64,15 @@
           { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: t(".pieces"), text: t(".will_buy_diapers") },
           { image: "money_spent_2.png", data_target: "moneySpent", unit: t(".unit"), text: t(".money_spent") },
           "arrow",
-          { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".unit"), text: t(".money_will_be_spent") }].each do |item| %>
+          { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".unit"), text: t(".money_will_be_spent") }].each_with_index do |item, index| %>
         <% if item == "arrow" %>
           <div class="vector-width">
             <%= image_tag "icons/vector_5.png", class: "vector" %>
             <%= image_tag "icons/vector_2.png", class: "vector-mobile" %>
           </div>
+          <% if index % 3 == 2 %>
+            </div><div class="result-container">
+          <% end %>
         <% else %>
           <div>
             <%= image_tag item[:image], class: "img-margin" %>
@@ -77,11 +80,15 @@
             <p class="diapers-font"><%= item[:unit] %></p>
             <p class="diapers-font-text"><%= item[:text] %></p>
           </div>
+          <% if (index + 1) % 3 == 0 %>
+            </div><div class="result-container">
+          <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
 
 <div class="container calculation-results">
   <div class="row">
