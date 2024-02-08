@@ -18,10 +18,10 @@ class CalculatorDecorator
 
   def results
     {
-      money_spent: result.used_diapers_price.round(1),
-      money_will_be_spent: result.to_be_used_diapers_price.round(1),
-      used_diapers_amount: result.used_diapers_amount,
-      to_be_used_diapers_amount: result.to_be_used_diapers_amount
+      money_spent: result.used_diapers_price.round(1).to_s,
+      money_will_be_spent: result.to_be_used_diapers_price.round(1).to_s,
+      used_diapers_amount: result.used_diapers_amount.to_s,
+      to_be_used_diapers_amount: result.to_be_used_diapers_amount.to_s
     }
   end
 

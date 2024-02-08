@@ -44,7 +44,6 @@ Rails.application.routes.draw do
       resources :products
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
-      resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
       get "/site_setting", to: "site_settings#edit", as: "site_setting"
 

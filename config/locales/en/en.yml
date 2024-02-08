@@ -113,7 +113,6 @@ en:
       histories: "History"
       users: "Users"
       messages: "Messages"
-      app_config: "App Config"
       site_settings: "Site Settings"
       categories: 'Categories'
       products: "Products"
@@ -155,19 +154,6 @@ en:
         new_password_label: "New password:"
         confirm_password_label: "Confirm new password:"
         change_password_button: "Change password"
-    app_configs:
-      edit:
-        diapers_calculator_config: "Diapers calculator configuration"
-        first_period: "First period"
-        second_period: "Second period"
-        third_period: "Third period"
-        fourth_period: "Fourth period"
-        fifth_period: "Fifth period"
-        sixth_period: "Sixth period"
-        seventh_period: "Seventh period"
-        amount: "Amount"
-        price: "Price"
-        update: "Update"
     messages:
       index:
         table:
