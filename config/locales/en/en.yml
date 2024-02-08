@@ -296,6 +296,8 @@ en:
           delete_button:
             confirm_delete: "Are you sure you want to delete this period?"
             cannot_delete: "You can't delete periods in preferable category."
+          add_new_link:
+            add_new: "Add New Period"
           content:
             periods_for: "Diapers Periods for category:"
             confirm_delete: "Are you sure you want to delete this period?"
