@@ -20,7 +20,7 @@ class CalculatorsController < ApplicationController
   end
 
   def calculator
-    @diaper_categories = Category.joins(:diapers_periods).distinct
+    @diaper_categories = Category.where.not(id: Category.unfilled_categories)
 
     if Flipper[:new_calculator_design].enabled?
       render "calculators/new_calculator"
