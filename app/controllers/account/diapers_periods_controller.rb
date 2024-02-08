@@ -3,7 +3,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def index
     set_category
-    @diapers_periods = @category.diapers_periods
+    @diapers_periods = @category.diapers_periods.order(:id)
     unfilled_categories
   end
 
@@ -19,7 +19,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def create
     set_category
-    @diapers_periods = @category.diapers_periods
+    @diapers_periods = @category.diapers_periods.order(:id)
     @diapers_period  = @category.diapers_periods.build(diapers_period_params)
     unfilled_categories
 
@@ -32,7 +32,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def update
     set_category
-    @diapers_periods = @category.diapers_periods
+    @diapers_periods = @category.diapers_periods.order(:id)
     set_diapers_period
     unfilled_categories
 
