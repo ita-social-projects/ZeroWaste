@@ -169,6 +169,7 @@ uk:
           priority: "Пріоритет"
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
+        cannot_delete: "Ви не можете видалити основну категорію."
     products:
       index:
         table:

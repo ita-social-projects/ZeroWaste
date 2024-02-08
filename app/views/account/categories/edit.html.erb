@@ -4,7 +4,11 @@
       <div class="my-auto col-12 has-float-label">
         <%= f.input :name, class: 'form-control col-sm-11', required: true %>
         <%= f.input :priority, class: 'form-control col-sm-11', input_html: { min: 0 } %>
-        <%= f.input :preferable, class: 'form-control' %>
+        <% unless @unfilled_categories.include?(@category) %>
+          <%= f.input :preferable,
+          class: 'form-control',
+          input_html: { disabled: (@category.preferable == true) } %>
+        <% end %>
       </div>
     </div>
     <div class="button-group d-flex">

@@ -30,8 +30,14 @@
               <%= link_to(edit_account_category_path(id: category)) do %>
                 <i class="mx-2 fa fa-pen"></i>
               <% end %>
-              <%= button_to(account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') }) do %>
-                <i class="mx-2 fa fa-trash"></i>
+              <% if category.preferable? %>
+                <div class="relative inline-block cursor-help">
+                  <span title="<%= t('.cannot_delete') %>"><i class="mx-2 fa fa-trash"></i></span>
+                </div>
+              <% else %>
+                <%= button_to(account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') }) do %>
+                  <i class="mx-2 fa fa-trash"></i>
+                <% end %>
               <% end %>
             </div>
           </td>

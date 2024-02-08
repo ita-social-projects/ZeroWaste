@@ -13,7 +13,8 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def edit
-    @category = resource
+    @category            = resource
+    @unfilled_categories = Category.unfilled_categories
   end
 
   def create
