@@ -23,6 +23,14 @@ FactoryBot.define do
       preferable { true }
     end
 
+    trait :without_diapers_period do
+      name { "without_diapers_period" }
+
+      after(:create) do |category|
+        category.diapers_periods.clear
+      end
+    end
+
     after(:create) do |category|
       create(:diapers_period, category: category)
     end
