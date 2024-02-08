@@ -32,17 +32,11 @@
                 <% end %>
           </td>
           <td class="text-center">
-            <% if @category.preferable? %>
-              <div class="relative inline-block cursor-help">
-                <span title="<%= t('.cannot_delete') %>"><i class="mx-2 fa fa-trash"></i></span>
-              </div>
-            <% else %>
-              <%= button_to(
-                account_diapers_period_path(id: diapers_period.id),
-                method: :delete,
-                data: { turbo_confirm: t(".confirm_delete") }) do %>
-                <i class="mx-2 fa fa-trash"></i>
-                <% end %>
+            <%= turbo_frame_tag dom_id(diapers_period, "delete_button") do %>
+              <%= render(
+                      partial: "account/diapers_periods/partials/index/delete_button",
+                      locals: { category: @category, diapers_period: diapers_period}
+                    ) %>
             <% end %>
           </td>
         </tr>

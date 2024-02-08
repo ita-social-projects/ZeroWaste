@@ -293,6 +293,9 @@ en:
             price: "Price"
             back_button: "Back"
         index:
+          delete_button:
+            confirm_delete: "Are you sure you want to delete this period?"
+            cannot_delete: "You can't delete periods in preferable category."
           content:
             periods_for: "Diapers Periods for category:"
             confirm_delete: "Are you sure you want to delete this period?"

@@ -47,6 +47,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     set_diapers_period
     set_category
     unfilled_categories
+    @diapers_periods = @category.diapers_periods.order(:id)
 
     if @diapers_period.destroy
       respond_to :turbo_stream

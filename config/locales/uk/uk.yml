@@ -306,6 +306,9 @@ uk:
             price: "Ціна"
             back_button: "Назад"
         index:
+          delete_button:
+            confirm_delete: "Ви впевнені що бажаєте видалити цей період?"
+            cannot_delete: "Ви не можете видалити періоди в основній категорії."
           content:
             periods_for: "Періоди підгудків для категорії:"
             confirm_delete: "Видалити цей період?"
