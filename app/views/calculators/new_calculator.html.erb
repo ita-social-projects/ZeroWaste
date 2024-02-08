@@ -41,7 +41,7 @@
 
         <%= form.input_field :product_category,
                              collection: @diaper_categories,
-                             selected: t(".form.medium"),
+                             selected: Category.preferable.id,
                              label: t(".form_price"),
                              class: "form_fild price_select rounded w-100",
                              data: { input_child_info_target: "productCategory" } %>
