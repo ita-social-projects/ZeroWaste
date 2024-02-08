@@ -17,5 +17,14 @@ FactoryBot.define do
     trait :medium do
       name { "medium" }
     end
+
+    trait :preferable do
+      name { "preferable" }
+      preferable { true }
+    end
+
+    after(:create) do |category|
+      create(:diapers_period, category: category)
+    end
   end
 end

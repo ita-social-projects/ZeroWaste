@@ -5,10 +5,10 @@ require "rails_helper"
 RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
   let(:values) do
     {
-      money_spent: 12_718.5,
-      money_will_be_spent: 10_614.0,
-      used_diapers_amount: 2745.0,
-      to_be_used_diapers_amount: 1830.0
+      money_spent: "29280.0",
+      money_will_be_spent: "43920.0",
+      used_diapers_amount: "2928.0",
+      to_be_used_diapers_amount: "4392.0"
     }
   end
   let(:expected_result) do
@@ -67,17 +67,17 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     end
 
     context "when get awaited values" do
-      include_context :app_config_load
+      let!(:preferable_category) { create(:category, :preferable) }
 
       it "got the expected result" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-        expect(response.body).to eq(expected_result.to_json)
+        expect(JSON.parse(response.body)).to eq(JSON.parse(expected_result.to_json))
       end
     end
 
     context "when get unawaited values" do
-      include_context :app_config_load
+      let!(:preferable_category) { create(:category, :preferable) }
 
       let(:invalid_values) do
         {
