@@ -24,7 +24,7 @@ FactoryBot.define do
     end
 
     trait :without_diapers_period do
-      name { "without_diapers_period" }
+      name { "without-diapers-period" }
 
       after(:create) do |category|
         category.diapers_periods.clear
