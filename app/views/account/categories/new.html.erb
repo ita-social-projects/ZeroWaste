@@ -2,11 +2,11 @@
   <div class="form-group row">
     <div class="my-auto col-12 has-float-label">
       <%= f.input :name, class: 'form-control col-sm-11' %>
-      <%= f.input :priority, class: 'form-control col-sm-11' %>
+      <%= f.input :priority, collection: Category::PRIORITY_RANGE, wrapper: :custom_vertical_select %>
     </div>
   </div>
   <div class="button-group d-flex">
-    <%= f.submit t('buttons.create'), class: 'btn btn-green me-2' %>
+    <%= f.submit t('.form.create_category_button'), class: 'btn btn-green me-2' %>
     <%= link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
       <span><%= t('buttons.cancel') %></span>
     <% end %>

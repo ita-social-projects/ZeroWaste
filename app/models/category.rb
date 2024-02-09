@@ -12,13 +12,19 @@
 #  preferable :boolean          default: false
 #
 class Category < ApplicationRecord
+  PRIORITY_RANGE = 0..10
+
   has_one :price, dependent: :destroy
   has_many :diapers_periods, dependent: :destroy
 
   has_many :category_categoryables, dependent: :restrict_with_exception
   has_many :categoryables, through: :category_categoryables
 
-  validates :name, presence: true, length: { minimum: 3, maximum: 30 }
+  validates :name, presence: true
+  validates :name,
+            length: { minimum: 3, maximum: 30 },
+            format: { with: /\A[\p{L}0-9\s'-]+\z/i },
+            allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
   scope :ordered_by_name, -> { order(:name) }

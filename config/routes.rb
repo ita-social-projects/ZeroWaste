@@ -28,7 +28,8 @@ Rails.application.routes.draw do
 
     get "/calculator", to: "calculators#calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
-    get "/about_us", to: redirect("/about_us.html")
+
+    get "about-us", to: "home#about", as: "about"
 
     resources :calculators, only: [:index, :show], param: :slug do
       member do

@@ -30,6 +30,8 @@ RSpec.describe Price, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:sum) }
 
+    it { is_expected.to validate_numericality_of(:sum).is_greater_than_or_equal_to(0) }
+
     it { is_expected.to validate_uniqueness_of(:category_id).scoped_to(:priceable_id, :priceable_type) }
   end
 end

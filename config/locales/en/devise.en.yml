@@ -29,6 +29,7 @@ en:
       password_change:
         subject: "Password Changed"
     omniauth_callbacks:
+      continue_with: "Or continue with"
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:

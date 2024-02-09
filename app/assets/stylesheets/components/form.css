@@ -27,4 +27,8 @@
     .input-field-wrapper {
       @apply w-full px-3 mb-6 md:w-1/2 md:mb-0;
     }
+
+  .auth-login-links {
+    @apply flex items-center justify-center gap-4 text-center border-t border-solid text-gray border-light_gray;
+  }
 }

@@ -6,6 +6,7 @@ uk:
     create: "Створити"
     cancel: "Скасувати"
     revert: "Скинути"
+    back: "Назад"
   calculators:
     new_calculator:
       form:
@@ -27,9 +28,17 @@ uk:
         description: "Вік дитини:"
         years_prompt: "повних років"
         months_prompt: "місяців"
-      bought_diapers: "підгузків ви вже використали"
+      bought_diapers:
+        one: "підгузок ви вже використали"
+        few: "підгузки ви вже використали"
+        many: "підгузків ви вже використали"
+        other: "підгузків ви вже використали"
       money_spent: "грн ви вже витратили"
-      will_buy_diapers: "підгузків ви ще використаєте"
+      will_buy_diapers:
+        one: "підгузок ви вже використали"
+        few: "підгузки ви вже використали"
+        many: "підгузків ви вже використали"
+        other: "підгузків ви вже використали"
       money_will_be_spent: "грн ви ще витратите"
     errors:
       year_and_month_error_msg: "Помилка: будь ласка, виберіть, скільки років та місяців дитині"
@@ -126,6 +135,17 @@ uk:
       calculator-diapers: "Калькулятор підгузків"
       calculators: "Калькулятори"
       message: "Напишіть нам повідомлення"
+  about_us:
+    title: "Про нас"
+    description:
+      first_paragraph: "Ми працюємо в багатьох напрямках на користь чистого майбутнього та сталого розвитку нашого міста та країни."
+      second_paragraph: "Zero Waste закликає нас раціонально та свідомо використовувати ресурси."
+      third_paragraph: "Основна мета zero waste – перейти до економіки замкненого циклу, де немає сміття як такого, а те, що називають сміттям, стає цінним ресурсом."
+  our_team:
+    title: "Наша команда"
+    description: "Zero Waste Lviv та SoftServe представляють калькулятор – онлайн-інструмент для розрахунку кількості
+    одноразових та повторно використовуваних предметів. Калькулятор розроблений як частина благодійної платформи Open Tech.
+    Технічна реалізація здійснюється студентами SoftServe Academy."
   account:
     account:
       edit:
@@ -156,6 +176,12 @@ uk:
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
         cannot_delete: "Ви не можете видалити основну категорію."
+      edit:
+        form:
+          update_category_button: "Оновити категорію"
+      new:
+        form:
+          create_category_button: "Створити категорію"
     products:
       index:
         table:
@@ -174,10 +200,12 @@ uk:
         title: "Назва"
         form:
           sum: "Сума"
+          update_product_button: "Оновити продукт"
       new:
         title: "Назва"
         form:
           sum: "Сума"
+          create_product_button: "Створити продукт"
       created: "Продукт був успішно створений."
       updated: "Продукт був успішно оновлений."
       deleted: "Продукт був успішно видалений."
@@ -483,6 +511,8 @@ uk:
         name: "Назва"
         priority: "Пріоритет"
         preferable: "Основна"
+      price:
+        sum: "Сума"
       product:
         title: "Назва"
     errors:
@@ -495,7 +525,7 @@ uk:
         category:
           attributes:
             name:
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
               too_long:
                 one: "занадто довга (максимум %{count} знак)"
                 few: "занадто довга (максимум %{count} знаки)"
@@ -506,6 +536,7 @@ uk:
                 few: "занадто коротка (мінімум %{count} знаки)"
                 many: "занадто коротка (мінімум %{count} знаків)"
                 other: "занадто коротка (мінімум %{count} знаків)"
+              invalid: "містить неприпустимі символи"
         site_setting:
           attributes:
             title:
@@ -527,7 +558,7 @@ uk:
         product:
           attributes:
             title:
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
               too_long:
                 one: "занадто довга (максимум %{count} знак)"
                 few: "занадто довга (максимум %{count} знаки)"
@@ -544,7 +575,7 @@ uk:
           attributes:
             email:
               invalid: "недійсна"
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
               taken: "вже зайнята, вкажіть іншу"
             first_name:
               invalid: недійсне
@@ -725,7 +756,7 @@ uk:
     format: "%{attribute} %{message}"
     messages:
       accepted: "може бути прийнятим"
-      blank: "не може бути пустим"
+      blank: "не може бути порожнім"
       confirmation: "не збігається з підтвердженням"
       empty: "не може бути порожнім"
       equal_to: "мусить дорівнювати %{count}"

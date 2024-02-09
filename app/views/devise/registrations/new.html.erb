@@ -22,11 +22,10 @@
         <%= f.input :last_name, required: true %>
         <%= f.input :country, selected: "UA", include_blank: false %>
 
-        <div class="flex-row-reverse flex-wrap d-flex justify-content-between">
+        <div class="flex-row-reverse flex-wrap flex gap-3">
           <%= f.submit t(".form.sign_up_button"), class: "btn btn-primary" %>
-          <div class="block">
-            <%= render "devise/shared/links" %>
-          </div>
+          
+          <%= render "devise/shared/links" %>          
         </div>
       <% end %>
     </div>
