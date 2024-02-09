@@ -108,10 +108,10 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
       it "is unprocessable" do
         allow(Category).to receive(:find).and_return(category)
         expect do
-          post account_diapers_periods_path(format: :turbo_stream), params: { diapers_period: invalid_params }
+          patch account_diapers_period_path(diapers_period, format: :turbo_stream), params: { diapers_period: invalid_params }
         end.not_to change(diapers_period, :usage_amount)
 
-        expect(response.body).to include('<turbo-stream action="replace" target="diapers_periods">')
+        expect(response).to render_template(:edit)
         expect(response).to be_unprocessable
       end
     end
@@ -144,13 +144,23 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
   describe "DELETE #destroy_category" do
     it "destroys all periods in the requested category" do
       allow(Category).to receive(:find).and_return(category)
-      allow(category.diapers_periods).to receive(:destroy).and_return(false)
 
       expect do
         delete destroy_category_account_diapers_periods_path(format: :turbo_stream), params: { category_id: category.id }
       end.to change(category.diapers_periods, :count).to(0)
 
       expect(response).to have_rendered(:destroy_category)
+    end
+
+    context "when destroy fails" do
+      it "redirects to account_site_setting_path with an alert message" do
+        allow_any_instance_of(Category).to receive_message_chain(:diapers_periods, :destroy_all).and_return(false)
+
+        delete destroy_category_account_diapers_periods_path(format: :turbo_stream), params: { category_id: category.id }
+
+        expect(response).to redirect_to(account_site_setting_path)
+        expect(flash[:alert]).to eq(I18n.t("notifications.category_diapers_period_not_deleted"))
+      end
     end
   end
 end
