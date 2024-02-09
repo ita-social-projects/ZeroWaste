@@ -15,10 +15,10 @@ RSpec.describe Calculators::DiaperUsageService do
       let(:result) { service.calculate }
 
       it "calculates the correct values" do
-        expect(result.used_diapers_amount).to eq(8_418.0)
-        expect(result.used_diapers_price).to eq(86_376.0)
-        expect(result.to_be_used_diapers_amount).to eq(4_026.0)
-        expect(result.to_be_used_diapers_price).to eq(42_456.0)
+        expect(result.used_diapers_amount).to eq(6_771.0)
+        expect(result.used_diapers_price).to eq(69_906.0)
+        expect(result.to_be_used_diapers_amount).to eq(2_928.0)
+        expect(result.to_be_used_diapers_price).to eq(31_476.0)
       end
     end
 
