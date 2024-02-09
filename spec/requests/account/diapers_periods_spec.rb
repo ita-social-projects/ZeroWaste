@@ -6,7 +6,6 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
   include_context :authorize_admin
 
   let!(:diapers_period) { create :diapers_period, :with_category }
-  let(:diapers_period_) { create :diapers_period, :with_category }
   let(:valid_params) { attributes_for(:diapers_period) }
   let(:invalid_params) { { usage_amount: "" } }
   let(:new_params) { attributes_for(:diapers_period, :updated_usage_amount) }
@@ -128,11 +127,24 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
 
       expect(response).to have_rendered(:destroy)
     end
+
+    context "when destroy fails" do
+      it "redirects to account_site_setting_path with alert message" do
+        allow(DiapersPeriod).to receive(:find).and_return(diapers_period)
+        allow(diapers_period).to receive(:destroy).and_return(false)
+
+        delete account_diapers_period_path(diapers_period, format: :turbo_stream), params: { id: diapers_period.id, category_id: category.id }
+
+        expect(response).to redirect_to(account_site_setting_path)
+        expect(flash[:alert]).to eq(I18n.t("notifications.diapers_period_not_deleted"))
+      end
+    end
   end
 
   describe "DELETE #destroy_category" do
     it "destroys all periods in the requested category" do
       allow(Category).to receive(:find).and_return(category)
+      allow(category.diapers_periods).to receive(:destroy).and_return(false)
 
       expect do
         delete destroy_category_account_diapers_periods_path(format: :turbo_stream), params: { category_id: category.id }
