@@ -5,8 +5,8 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
     @validation = CalculatorValidator.new(params)
 
     if @validation.valid?
-      category_id = params[:category_id].presence || Category.preferable.id
-      result = Calculators::DiaperUsageService.new(params[:childs_years], params[:childs_months], category_id).calculate
+      category_id          = params[:category_id].presence || Category.preferable.id
+      result               = Calculators::DiaperUsageService.new(params[:childs_years], params[:childs_months], category_id).calculate
       calculator_decorator = CalculatorDecorator.new(result)
 
       render json: calculator_decorator.to_json, status: :ok

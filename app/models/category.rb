@@ -9,6 +9,7 @@
 #  priority   :integer          default(0), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  preferable :boolean          default: false
 #
 class Category < ApplicationRecord
   has_one :price, dependent: :destroy
