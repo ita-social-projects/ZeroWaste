@@ -5,10 +5,10 @@ require "rails_helper"
 RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
   let(:values) do
     {
-      money_spent: "29280.0",
-      money_will_be_spent: "43920.0",
-      used_diapers_amount: "2928.0",
-      to_be_used_diapers_amount: "4392.0"
+      money_spent: "18300.0",
+      money_will_be_spent: "27450.0",
+      used_diapers_amount: "1830.0",
+      to_be_used_diapers_amount: "2745.0"
     }
   end
   let(:expected_result) do

@@ -9,7 +9,7 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
   let(:diapers_period_) { create :diapers_period, :with_category }
   let(:valid_params) { attributes_for(:diapers_period) }
   let(:invalid_params) { { usage_amount: "" } }
-  let(:new_params) { attributes_for(:diapers_period) }
+  let(:new_params) { attributes_for(:diapers_period, :updated_usage_amount) }
   let!(:category) { create :category, :budgetary }
 
   describe "GET #idex" do
