@@ -27,10 +27,10 @@
           <%= t(".form.childs_years_label") %>
 
           <%= form.input_field :months,
-                               collection: month_number("new"),
-                               prompt: "__",
-                               class: "select-age rounded",
-                               data: { input_child_info_target: "month" } %>
+                              collection: month_number("new"),
+                              prompt: "__",
+                              class: "select-age rounded",
+                              data: { input_child_info_target: "month" } %>
 
           <%= t(".form.childs_months_label") %>
         </div>
@@ -40,11 +40,11 @@
         </div>
 
         <%= form.input_field :product_category,
-                             collection: @diaper_categories,
-                             selected: Category.preferable&.id,
-                             label: t(".form_price"),
-                             class: "form_fild price_select rounded w-100",
-                             data: { input_child_info_target: "productCategory" } %>
+                            collection: @diaper_categories,
+                            selected: Category.preferable&.id,
+                            label: t(".form_price"),
+                            class: "form_fild price_select rounded w-100",
+                            data: { input_child_info_target: "productCategory" } %>
 
         <%= form.submit t("calculators.buttons.calculate"),
                     class: "calculate-btn result-btn",
@@ -59,9 +59,9 @@
 <div class="jumbotron calculation-results result" data-controller="results">
   <div class="main-result-container">
     <div class="result-container">
-      <% [{ image: "diapers_bought_2.png", data_target: "diapersUsed", unit: t(".pieces"), text: t(".bought_diapers") },
+      <% [{ image: "diapers_bought_2.png", data_target: "diapersUsed", unit: t(".pieces"), text_target: "boughtDiapersPluralize", text: t(".bought_diapers", count: 0) },
           "arrow",
-          { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: t(".pieces"), text: t(".will_buy_diapers") },
+          { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: t(".pieces"), text_target: "willBuyDiapersPluralize", text: t(".will_buy_diapers", count: 0) },
           { image: "money_spent_2.png", data_target: "moneySpent", unit: t(".unit"), text: t(".money_spent") },
           "arrow",
           { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".unit"), text: t(".money_will_be_spent") }].each_with_index do |item, index| %>
@@ -76,9 +76,9 @@
         <% else %>
           <div>
             <%= image_tag item[:image], class: "img-margin" %>
-            <p data-results-target="<%= item[:data_target] %>">000</p>
+            <p data-results-target="<%= item[:data_target] %>">0</p>
             <p class="diapers-font"><%= item[:unit] %></p>
-            <p class="diapers-font-text"><%= item[:text] %></p>
+            <p class="diapers-font-text" data-results-target="<%= item[:text_target] %>"><%= item[:text] %></p>
           </div>
           <% if (index + 1) % 3 == 0 %>
             </div><div class="result-container">
@@ -88,7 +88,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="jumbotron calculation-results">
   <div class="row">
