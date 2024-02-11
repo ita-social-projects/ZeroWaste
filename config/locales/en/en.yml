@@ -503,6 +503,10 @@ en:
               too_short: too short (minimum %{count} symbols)
               taken: has already been taken, please choose another one
               invalid: contains invalid characters
+        price:
+          attributes:
+            sum:
+              less_than: "is too long (must be between 0 and 999999.99)"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
