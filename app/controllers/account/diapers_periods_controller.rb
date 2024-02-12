@@ -3,8 +3,8 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def index
     set_category
-    @diapers_periods = @category.diapers_periods.order(:id)
     unfilled_categories
+    @diapers_periods = @category.diapers_periods.order(:id)
   end
 
   def new
@@ -19,9 +19,9 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def create
     set_category
+    unfilled_categories
     @diapers_periods = @category.diapers_periods.order(:id)
     @diapers_period  = @category.diapers_periods.build(diapers_period_params)
-    unfilled_categories
 
     if @diapers_period.save
       respond_to :turbo_stream, status: :see_other
@@ -32,9 +32,9 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def update
     set_category
-    @diapers_periods = @category.diapers_periods.order(:id)
     set_diapers_period
     unfilled_categories
+    @diapers_periods = @category.diapers_periods.order(:id)
 
     if @diapers_period.update(diapers_period_params)
       respond_to :turbo_stream, status: :see_other
@@ -44,8 +44,8 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def destroy
-    set_diapers_period
     set_category
+    set_diapers_period
     unfilled_categories
     @diapers_periods = @category.diapers_periods.order(:id)
 
@@ -61,8 +61,8 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def categories
-    @categories_with_periods = Category.categories_with_periods
     unfilled_categories
+    @categories_with_periods = Category.categories_with_periods
   end
 
   def destroy_category
