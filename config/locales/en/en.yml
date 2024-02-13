@@ -490,7 +490,7 @@ en:
               too_short: "is too short"
               too_long: "is too long (maximum is %{count} characters)"
               invalid: "is invalid"
-              name_format_validation: "must contain only letters or numbers"
+              taken: "has already been taken, please choose another one"
         category:
           attributes:
             name:
