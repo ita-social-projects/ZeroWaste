@@ -22,7 +22,7 @@ class Category < ApplicationRecord
   validates :name,
             length: { minimum: 3, maximum: 30 },
             format: { with: /\A[\p{L}0-9\s'-]+\z/i },
-            uniqueness: true,
+            uniqueness: { case_sensitive: false },
             allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
