@@ -14,7 +14,7 @@ export default class extends Controller {
 
   togglePrice(event) {
     this.priceTargets.forEach((target, i) => {
-      if (event.target.attributes.name.value === target.attributes.name.value) {
+      if (event.target.attributes.name.value == target.attributes.name.value) {
         target.hidden = !target.hidden;
 
         if (target.hidden) {
