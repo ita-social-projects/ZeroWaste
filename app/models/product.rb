@@ -47,6 +47,10 @@ class Product < ApplicationRecord
     prices.build(unsigned_categories.map { |category| { category: category } })
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "product_type_id", "title", "updated_at", "uuid"]
+  end
+
   private
 
   def blank_prices(attributes)

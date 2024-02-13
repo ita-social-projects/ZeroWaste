@@ -1,16 +1,16 @@
 <div class="container home">
-  <table class="table">
+  <table aria-label="messages table" class="table admin-table">
     <caption class="sr-only">This table displays a list of messages.</caption>
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col"><%= t('.table.title') %></th>
-        <th scope="col"><%= t('.table.email') %></th>
-        <th scope="col"><%= t('.table.message') %></th>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :title, t('.table.title'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :email, t('.table.email'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :message, t('.table.message'), default_order: :desc) %></th>
         <th scope="col"><%= t('.table.show_more') %></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="admin-table-links">
       <% @messages.each do |message| %>
         <tr>
           <th scope="row"><%= message.id %></th>

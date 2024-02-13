@@ -14,6 +14,16 @@ RSpec.describe Account::CategoriesController, type: :request do
 
       expect(response).to be_successful
     end
+
+    it "returns the expected attributes" do
+      Category.ransackable_attributes.each do |attribute|
+        get account_categories_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
+
+        get account_categories_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET :new" do
