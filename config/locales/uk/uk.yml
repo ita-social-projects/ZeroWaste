@@ -136,6 +136,17 @@ uk:
       calculator-diapers: "Калькулятор підгузків"
       calculators: "Калькулятори"
       message: "Напишіть нам повідомлення"
+  about_us:
+    title: "Про нас"
+    description:
+      first_paragraph: "Ми працюємо в багатьох напрямках на користь чистого майбутнього та сталого розвитку нашого міста та країни."
+      second_paragraph: "Zero Waste закликає нас раціонально та свідомо використовувати ресурси."
+      third_paragraph: "Основна мета zero waste – перейти до економіки замкненого циклу, де немає сміття як такого, а те, що називають сміттям, стає цінним ресурсом."
+  our_team:
+    title: "Наша команда"
+    description: "Zero Waste Lviv та SoftServe представляють калькулятор – онлайн-інструмент для розрахунку кількості
+    одноразових та повторно використовуваних предметів. Калькулятор розроблений як частина благодійної платформи Open Tech.
+    Технічна реалізація здійснюється студентами SoftServe Academy."
   account:
     account:
       edit:
@@ -176,6 +187,8 @@ uk:
           title: "Назва"
           actions: "Дії"
           priority: "Пріоритет"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
       edit:
@@ -190,6 +203,8 @@ uk:
           title: "Назва"
           prices: "Ціни"
           actions: "Дії"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_product_button: "Додати продукт"
         confirm_delete: "Видалити продукт?"
       show:
@@ -208,9 +223,9 @@ uk:
         form:
           sum: "Сума"
           create_product_button: "Створити продукт"
-      created: "Продукт був успішно створений."
-      updated: "Продукт був успішно оновлений."
-      deleted: "Продукт був успішно видалений."
+      created: "Продукт був успішно створений"
+      updated: "Продукт був успішно оновлений"
+      deleted: "Продукт був успішно видалений"
     users:
       index:
         main_header: "Адмінпанель"
@@ -221,7 +236,7 @@ uk:
           first_name: "Ім'я"
           last_name: "Прізвище"
           last_visit_col: "Час останнього візиту"
-          view_info_col: "Показати"
+          show: "Показати"
           edit: "Відредагувати"
           ban: "Заблокувати"
           delete: "Видалити"
@@ -267,6 +282,9 @@ uk:
           calculator_slug: "Шлях"
           calculator_name: "Назва"
           calculator_actions: "Дії"
+          show: "Показати"
+          edit: "Відредагувати"
+          delete: "Видалити"
       edit:
         add_new_field_label: "Додати нове поле"
         form:
@@ -417,7 +435,7 @@ uk:
         resend_confirmation_button: "Надіслати запит на підтвердження знову"
         resend_confirmation_instructions_header: "Надіслати запит на підтвердження знову"
     failure:
-      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову."
+      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову"
   models:
     calculator: "Калькулятор"
     category: "Категорію"

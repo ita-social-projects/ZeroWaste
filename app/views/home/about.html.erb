@@ -1,0 +1,19 @@
+<% set_meta_tags({
+    title: t('about_us.title'),
+    description: "Information about ZeroWaste organization and team"
+})%>
+
+<section>
+  <h2 class="text-center text-2xl text-success"><%= t('about_us.title') %></h2>
+  <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.first_paragraph') %></p>
+  <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.second_paragraph') %></p>
+  <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.third_paragraph') %></p>
+</section>
+<section>
+  <h2 class="text-center text-2xl text-success"><%= t('our_team.title') %></h2>
+  <p class="text-center text-2l text-white mx-4 mb-4"><%= t('our_team.description') %></p>
+</section>
+<div class="flex justify-evenly items-center">
+  <%= link_to image_tag("logo_zerowaste.png", class: "logo-zerowaste"), "https://zerowastelviv.org.ua/", target: "_blank" %>
+  <%= link_to image_tag("softserve_academy_logo.png", class: "logo-zerowaste"), "https://career.softserveinc.com/uk-ua/softserve-academy",target: "_blank" %>
+</div>
