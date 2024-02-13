@@ -236,7 +236,7 @@ en:
           first_name: "First name"
           last_name: "Last name"
           last_visit_col: "Last visit"
-          view_info_col: "Show"
+          show: "Show"
           edit: "Edit"
           ban: "Ban"
           delete: "Delete"
