@@ -3,10 +3,10 @@
     <caption class="sr-only">This table displays a list of messages.</caption>
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col"><%= t('.table.title') %></th>
-        <th scope="col"><%= t('.table.email') %></th>
-        <th scope="col"><%= t('.table.message') %></th>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :title, t('.table.title'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :email, t('.table.email'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :message, t('.table.message'), default_order: :desc) %></th>
         <th scope="col" class="text-center"><%= t('.table.show_more') %></th>
       </tr>
     </thead>
