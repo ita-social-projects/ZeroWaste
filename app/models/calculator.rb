@@ -34,7 +34,7 @@ class Calculator < ApplicationRecord
             length: { in: 2..30 },
             uniqueness: true,
             format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\-\s]+\z/ },
-            if: -> { name.present? }
+            allow_blank: true
 
   scope :ordered_by_name, -> { order(:name) }
   scope :by_name_or_slug, lambda { |search|
