@@ -142,7 +142,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_150024) do
     t.index ["category_id", "priceable_id", "priceable_type"], name: "idx_on_category_id_priceable_id_priceable_type_1fa9ce7f24", unique: true
     t.index ["category_id"], name: "index_prices_on_category_id"
     t.index ["priceable_type", "priceable_id"], name: "index_prices_on_priceable"
-    t.check_constraint "sum >= 0::numeric", name: "check_sum_non_negative"
   end
 
   create_table "product_types", force: :cascade do |t|
