@@ -532,6 +532,10 @@ uk:
                 other: "занадто коротка (мінімум %{count} знаків)"
               taken: "вже викориcтовується, будь ласка, оберіть іншу"
               invalid: "містить неприпустимі символи"
+        price:
+          attributes:
+            sum:
+              less_than: "занадто велика"
         user:
           attributes:
             email:
