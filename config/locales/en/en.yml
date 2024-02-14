@@ -506,7 +506,7 @@ en:
         price:
           attributes:
             sum:
-              less_than: "is too long (must be between 0 and 999999.99)"
+              less_than: "is too long"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
