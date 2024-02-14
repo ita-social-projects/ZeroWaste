@@ -29,9 +29,12 @@ class Calculator < ApplicationRecord
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 
-  validates :name, length: { minimum: 2, maximum: 30 },
-                   format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\s]+\z/, message: :name_format_validation },
-                   uniqueness: true
+  validates :name, presence: true
+  validates :name,
+            length: { in: 2..30 },
+            uniqueness: true,
+            format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\-\s]+\z/ },
+            allow_blank: true
 
   scope :ordered_by_name, -> { order(:name) }
   scope :by_name_or_slug, lambda { |search|

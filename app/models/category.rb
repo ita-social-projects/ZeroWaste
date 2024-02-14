@@ -28,4 +28,8 @@ class Category < ApplicationRecord
   scope :ordered_by_name, -> { order(:name) }
   scope :ordered_by_priority, -> { order(:priority) }
   scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "name", "priority", "updated_at"]
+  end
 end
