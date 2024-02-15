@@ -4,7 +4,7 @@
       <div class="my-auto col-12 has-float-label">
         <%= f.input :name, class: 'form-control col-sm-11', required: true %>
         <%= f.input :priority, collection: Category::PRIORITY_RANGE, wrapper: :custom_vertical_select %>
-        <% unless @unfilled_categories&.include?(@category) %>
+        <% if @unfilled_categories&.exclude?(@category) %>
           <%= f.input :preferable,
           class: 'form-control',
           input_html: { disabled: (@category.preferable == true) } %>
