@@ -183,6 +183,8 @@ uk:
           time_col: "Дата"
     categories:
       index:
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
