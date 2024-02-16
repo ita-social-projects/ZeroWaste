@@ -26,10 +26,11 @@
           <td class="p-2"><%= diapers_period.price %></td>
           <td class="text-center">
             <%= link_to(
-                edit_account_diapers_period_path(id: diapers_period.id),
-                data: { turbo_stream: true }) do %>
-                <i class="mx-2 fa fa-pen"></i>
-                <% end %>
+                  edit_account_diapers_period_path(id: diapers_period.id),
+                  data: { turbo_stream: true }
+                ) do %>
+              <i class="mx-2 fa fa-pen"></i>
+            <% end %>
           </td>
           <td class="text-center">
             <%= turbo_frame_tag dom_id(diapers_period, "delete_button") do %>
@@ -52,9 +53,9 @@
   <% end %>
 
   <%= link_to(
-          t(".back_button"),
-          categories_account_diapers_periods_path,
-          class: "btn-grey px-4 py-2",
-          data: { turbo_stream: true }
-        ) %>
+        t(".back_button"),
+        categories_account_diapers_periods_path,
+        class: "btn-grey px-4 py-2",
+        data: { turbo_stream: true }
+      ) %>
 <% end %>

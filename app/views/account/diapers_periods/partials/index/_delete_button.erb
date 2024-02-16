@@ -4,11 +4,12 @@
       <span title="<%= t('.cannot_delete') %>"><i class="mx-2 fa fa-trash"></i></span>
     </div>
   <% else %>
-  <%= button_to(
-            account_diapers_period_path(id: diapers_period.id),
-            method: :delete,
-            data: { turbo_confirm: t(".confirm_delete") }) do %>
-        <i class="mx-2 fa fa-trash"></i>
-      <% end %>
+    <%= button_to(
+          account_diapers_period_path(id: diapers_period.id),
+          method: :delete,
+          data: { turbo_confirm: t(".confirm_delete") }
+        ) do %>
+      <i class="mx-2 fa fa-trash"></i>
+    <% end %>
   <% end %>
 <% end %>

@@ -17,10 +17,11 @@
               <%= link_to(
                     new_account_diapers_period_path(category_id: category.id),
                     class: "flex justify-center",
-                    data: { turbo_stream: true }) do %>
-                    <i class="fa-solid fa-plus"></i>
-                    <i class="mx-2 fa fa-pen"></i>
-                    <% end %>
+                    data: { turbo_stream: true }
+                  ) do %>
+                <i class="fa-solid fa-plus"></i>
+                <i class="mx-2 fa fa-pen"></i>
+              <% end %>
             </td>
         <% end %>
       </tbody>
