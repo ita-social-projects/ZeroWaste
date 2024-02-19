@@ -1,7 +1,7 @@
-<% if diapers_period == @diapers_periods.last %>
-  <% if @category.preferable? %>
+<% if diapers_period == diapers_periods.last %>
+  <% if category.preferable? %>
     <div class="relative inline-block cursor-help">
-      <span title="<%= t('.cannot_delete') %>"><i class="mx-2 fa fa-trash"></i></span>
+      <span title="<%= t(".cannot_delete_category") %>"><i class="mx-2 fa fa-trash"></i></span>
     </div>
   <% else %>
     <%= button_to(
@@ -12,4 +12,8 @@
       <i class="mx-2 fa fa-trash"></i>
     <% end %>
   <% end %>
+<% else %>
+  <div class="relative inline-block cursor-help">
+    <span title="<%= t(".cannot_delete_period") %>"><i class="mx-2 fa fa-trash"></i></span>
+  </div>
 <% end %>

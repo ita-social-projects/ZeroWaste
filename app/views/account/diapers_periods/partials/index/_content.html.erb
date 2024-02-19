@@ -1,6 +1,6 @@
 <%= turbo_frame_tag :diapers_periods do %>
-  <h3 class="mb-4"><strong><%= t(".periods_for") %> <%= @category.name %></strong></h3>
-  <% if @unfilled_categories.include?(@category) %>
+  <h3 class="mb-4"><strong><%= t(".periods_for") %> <%= category.name %></strong></h3>
+  <% if unfilled_categories.include?(category) %>
     <div class="relative px-4 py-3 mb-4 text-yellow-700 bg-yellow-100 border border-yellow-400 rounded" role="alert">
       <i class="fa-solid fa-circle-exclamation"></i>
       <span class="block sm:inline"> <%= t(".warning") %> </span>
@@ -13,12 +13,12 @@
         <th class="p-2"><%= t(".period_end") %></th>
         <th class="p-2"><%= t(".usage_amount") %></th>
         <th class="p-2"><%= t(".price") %></th>
-        <th scope="col" class="text-center"><%= t('.table.edit') %></th>
-        <th scope="col" class="text-center"><%= t('.table.delete') %></th>
+        <th scope="col" class="text-center"><%= t(".table.edit") %></th>
+        <th scope="col" class="text-center"><%= t(".table.delete") %></th>
       </tr>
     </thead>
     <tbody class="admin-table-links">
-      <% @diapers_periods.each do |diapers_period| %>
+      <% diapers_periods.each do |diapers_period| %>
         <tr id="<%= dom_id(diapers_period) %>">
           <td class="p-2"><%= diapers_period.period_start %></td>
           <td class="p-2"><%= diapers_period.period_end %></td>
@@ -35,9 +35,9 @@
           <td class="text-center">
             <%= turbo_frame_tag dom_id(diapers_period, "delete_button") do %>
               <%= render(
-                      partial: "account/diapers_periods/partials/index/delete_button",
-                      locals: { category: @category, diapers_period: diapers_period}
-                    ) %>
+                    partial: "account/diapers_periods/partials/index/delete_button",
+                    locals: { category: category, diapers_period: diapers_period, diapers_periods: diapers_periods}
+                  ) %>
             <% end %>
           </td>
         </tr>
@@ -47,9 +47,9 @@
 
   <%= turbo_frame_tag :add_new_link do %>
     <%= render(
-            partial: "account/diapers_periods/partials/index/add_new_link",
-            locals: { category: @category, unfilled_categories: @unfilled_categories }
-          ) %>
+          partial: "account/diapers_periods/partials/index/add_new_link",
+          locals: { category: category, unfilled_categories: unfilled_categories }
+        ) %>
   <% end %>
 
   <%= link_to(

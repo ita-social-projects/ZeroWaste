@@ -4,8 +4,8 @@
       <thead>
         <tr>
         <th><%= t(".category_name") %></th>
-        <th class="text-center"><%= t('.table.show') %></th>
-        <th class="text-center"><%= t('.table.delete') %></th>
+        <th class="text-center"><%= t(".table.show") %></th>
+        <th class="text-center"><%= t(".table.delete") %></th>
         </tr>
       </thead>
       <tbody class="admin-table-links">
@@ -15,7 +15,7 @@
               <%= category.name %>
               <% if unfilled_categories.include?(category) %>
                 <div class="relative inline-block cursor-help">
-                  <span title="<%= t('.tooltip') %>">
+                  <span title="<%= t(".tooltip") %>">
                     <i class="text-yellow-600 fa-solid fa-circle-exclamation hover:text-yellow-700"></i>
                   </span>
                 </div>
@@ -23,7 +23,7 @@
             </td>
             <td class="text-center">
               <%= link_to(
-                  icon('fa-solid', 'eye'),
+                  icon("fa-solid", "eye"),
                   account_diapers_periods_path(category_id: category.id),
                   data: { turbo_stream: true }
                   )%>
@@ -31,7 +31,7 @@
             <td class="text-center">
               <% if category.preferable? %>
                 <div class="relative inline-block cursor-help">
-                  <span title="<%= t('.cannot_delete') %>"><i class="mx-2 fa fa-trash"></i></span>
+                  <span title="<%= t(".cannot_delete_category") %>"><i class="mx-2 fa fa-trash"></i></span>
                 </div>
               <% else %>
                 <%= button_to(
