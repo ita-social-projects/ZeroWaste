@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :diapers_period do
-    association :category
+    association :category, factory: :category
     period_start { 1 }
     period_end { 30 }
     price { 10 }
@@ -8,10 +8,6 @@ FactoryBot.define do
 
     trait :with_category do
       association :category, factory: :category, name: "budgetary"
-    end
-
-    trait :updated_usage_amount do
-      usage_amount { 7 }
     end
   end
 end
