@@ -39,12 +39,10 @@
     <% end %>
   </div>
 </div>
+
 <div class="jumbotron calculation-results result" data-controller="results">
   <div class="row row-l">
-    <% [{ image: "diapers_to_buy.png", data_target: "diapersToBeUsed", text_target: "willBuyDiapersPluralize", text: t(".will_buy_diapers", count: 0) },
-        { image: "diapers_bought.png", data_target: "diapersUsed", text_target: "boughtDiapersPluralize", text: t(".bought_diapers", count: 0) },
-        { image: "money_to_spent.png", data_target: "moneyWillBeSpent", text: t(".money_will_be_spent") },
-        { image: "money_spent.png", data_target: "moneySpent", text: t(".money_spent") }].each do |item| %>
+    <% old_calculation_items.each do |item| %>
       <div class="col-sm result-card">
         <div class="img-border">
           <%= image_tag item[:image], class: "rounded", alt: "icon" %>
@@ -57,6 +55,7 @@
     <% end %>
   </div>
 </div>
+
 <div class="jumbotron calculation-results">
   <div class="row">
     <div class="col-xl-8 result-card">
