@@ -229,6 +229,8 @@ en:
     users:
       index:
         main_header: "Dashboard"
+        search_placeholder: "Search"
+        search_button: "Search"
         add_user_button: "Add user"
         confirm_delete: "Are you sure you want to delete this user?"
         table:

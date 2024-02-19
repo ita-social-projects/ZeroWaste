@@ -229,6 +229,8 @@ uk:
     users:
       index:
         main_header: "Адмінпанель"
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         add_user_button: "Створити нового користувача"
         confirm_delete: "Ви справді хочете видалити цього користувача?"
         table:
