@@ -5,7 +5,8 @@ class CalculatorsController < ApplicationController
 
   def index
     if Flipper[:show_calculators_list].enabled?
-      @calculators = collection
+      @q           = collection.ransack(params[:q])
+      @calculators = @q.result
     else
       head :not_found
     end
@@ -35,7 +36,7 @@ class CalculatorsController < ApplicationController
   private
 
   def collection
-    Calculator.all
+    Calculator.ordered_by_name
   end
 
   def resource

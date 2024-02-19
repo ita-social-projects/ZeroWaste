@@ -2,8 +2,8 @@
   <table aria-label="public calculators table" class="table admin-table">
     <thead>
       <tr>
-        <th scope="col"><%= t('.id_column') %></th>
-        <th scope="col"><%= t('.calculator_name') %></th>
+        <th scope="col"><%= sort_link(@q, :id, t('.id_column'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :name, t('.calculator_name'), default_order: :desc) %></th>
         <th scope="col"><%= t('.calculator_actions') %></th>
       </tr>
     </thead>

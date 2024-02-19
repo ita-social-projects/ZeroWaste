@@ -12,7 +12,8 @@
         <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
         <th scope="col"><%= sort_link(@q, :title, t('.table.title'), default_order: :desc) %></th>
         <th scope="col"><%= t('.table.prices') %></th>
-        <th scope="col"><%= t('.table.actions') %></th>
+        <th scope="col" class="text-center"><%= t('.table.edit') %></th>
+        <th scope="col" class="text-center"><%= t('.table.delete') %></th>
       </tr>
     </thead>
     <tbody class="admin-table-links">
@@ -26,11 +27,10 @@
               <br>
             <% end %>
           </td>
-          <td class="actions">
-            <%= link_to edit_account_product_path(id: product) do %>
-              <i class="mx-2 fa fa-pen"></i>
-            <% end %>
-            <%= button_to account_product_path(id: product), method: :delete, data: { confirm: t('.confirm_delete') } do %>
+          <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_product_path(id: product) %></td>
+          <td class="text-center">
+            <%= button_to account_product_path(id: product), method: :delete,
+                        data: { turbo_confirm: t(".confirm_delete") } do %>
               <i class="mx-2 fa fa-trash"></i>
             <% end %>
           </td>

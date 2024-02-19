@@ -187,6 +187,8 @@ uk:
           title: "Назва"
           actions: "Дії"
           priority: "Пріоритет"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
       edit:
@@ -201,6 +203,8 @@ uk:
           title: "Назва"
           prices: "Ціни"
           actions: "Дії"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_product_button: "Додати продукт"
         confirm_delete: "Видалити продукт?"
       show:
@@ -219,9 +223,9 @@ uk:
         form:
           sum: "Сума"
           create_product_button: "Створити продукт"
-      created: "Продукт був успішно створений."
-      updated: "Продукт був успішно оновлений."
-      deleted: "Продукт був успішно видалений."
+      created: "Продукт був успішно створений"
+      updated: "Продукт був успішно оновлений"
+      deleted: "Продукт був успішно видалений"
     users:
       index:
         title: "Користувачі"
@@ -235,7 +239,7 @@ uk:
           first_name: "Ім'я"
           last_name: "Прізвище"
           last_visit_col: "Час останнього візиту"
-          view_info_col: "Показати"
+          show: "Показати"
           edit: "Відредагувати"
           ban: "Заблокувати"
           delete: "Видалити"
@@ -281,6 +285,9 @@ uk:
           calculator_slug: "Шлях"
           calculator_name: "Назва"
           calculator_actions: "Дії"
+          show: "Показати"
+          edit: "Відредагувати"
+          delete: "Видалити"
       edit:
         add_new_field_label: "Додати нове поле"
         form:
@@ -431,7 +438,7 @@ uk:
         resend_confirmation_button: "Надіслати запит на підтвердження знову"
         resend_confirmation_instructions_header: "Надіслати запит на підтвердження знову"
     failure:
-      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову."
+      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову"
   models:
     calculator: "Калькулятор"
     category: "Категорію"
@@ -470,8 +477,19 @@ uk:
         calculator:
           attributes:
             name:
-              too_long: " занадто довга (максимум %{count} знаків)"
-              name_format_validation: " допускаються тільки літери та цифри"
+              blank: "не може бути порожньою"
+              too_long:
+                one: "занадто довга (максимум %{count} знак)"
+                few: "занадто довга (максимум %{count} знаки)"
+                many: "занадто довга (максимум %{count} знаків)"
+                other: "занадто довга (максимум %{count} знаків)"
+              too_short:
+                one: "занадто коротка (мінімум %{count} знак)"
+                few: "занадто коротка (мінімум %{count} знаки)"
+                many: "занадто коротка (мінімум %{count} знаків)"
+                other: "занадто коротка (мінімум %{count} знаків)"
+              taken: "вже викориcтовується, будь ласка, оберіть іншу"
+              invalid: "містить неприпустимі символи"
         category:
           attributes:
             name:
@@ -517,6 +535,10 @@ uk:
                 other: "занадто коротка (мінімум %{count} знаків)"
               taken: "вже викориcтовується, будь ласка, оберіть іншу"
               invalid: "містить неприпустимі символи"
+        price:
+          attributes:
+            sum:
+              less_than: "занадто велика"
         user:
           attributes:
             email:

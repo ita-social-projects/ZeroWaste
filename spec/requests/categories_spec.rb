@@ -14,6 +14,16 @@ RSpec.describe Account::CategoriesController, type: :request do
 
       expect(response).to be_successful
     end
+
+    it "returns the expected attributes" do
+      Category.ransackable_attributes.each do |attribute|
+        get account_categories_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
+
+        get account_categories_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET :new" do
@@ -40,7 +50,7 @@ RSpec.describe Account::CategoriesController, type: :request do
         end.to change(Category, :count).by(1)
 
         expect(response).to redirect_to(account_categories_path)
-        expect(flash[:notice]).to eq("Category was successfully created.")
+        expect(flash[:notice]).to eq("Category was successfully created")
       end
     end
 
@@ -63,7 +73,7 @@ RSpec.describe Account::CategoriesController, type: :request do
 
         expect(category.name).to eq("premium")
         expect(response).to redirect_to(account_categories_path)
-        expect(flash[:notice]).to eq("Category was successfully updated.")
+        expect(flash[:notice]).to eq("Category was successfully updated")
       end
     end
 
@@ -85,7 +95,7 @@ RSpec.describe Account::CategoriesController, type: :request do
       end.to change(Category, :count).by(-1)
 
       expect(response).to redirect_to(account_categories_path)
-      expect(flash[:notice]).to eq("Category was successfully destroyed.")
+      expect(flash[:notice]).to eq("Category was successfully deleted")
     end
   end
 end
