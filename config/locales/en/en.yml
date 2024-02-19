@@ -228,8 +228,11 @@ en:
       deleted: "A product was successfully deleted"
     users:
       index:
+        title: "Users"
         main_header: "Dashboard"
         add_user_button: "Add user"
+        confirm_block: "Are you sure you want to block this user?"
+        confirm_unblock: "Are you sure you want to unblock this user?"
         confirm_delete: "Are you sure you want to delete this user?"
         table:
           email_col: "Email"
@@ -533,6 +536,7 @@ en:
     calculator_deleted: "Calculator has been successfully deleted"
     user_created: "User has been successfully created"
     user_updated: "User has been successfully updated"
+    user_deleted: "User has been successfully deleted"
     message_sent: "Message has been sent"
     category_created: "Category was successfully created"
     category_updated: "Category was successfully updated"

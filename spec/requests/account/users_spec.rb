@@ -122,6 +122,7 @@ RSpec.describe "Account::UsersController", type: :request do
       end.to change(User, :count).by(-1)
 
       expect(response).to redirect_to(account_users_path)
+      expect(flash[:notice]).to eq(I18n.t("notifications.user_deleted"))
     end
   end
 end
