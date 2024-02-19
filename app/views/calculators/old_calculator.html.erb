@@ -1,10 +1,10 @@
 <div class="rounded jumbotron jumbotron-fluid position-relative">
-  <a href="<%= root_path %>" class="px-2 mt-3 rounded back-link" >
-    <div class="p back-text">
-      <%= image_tag "icons/arrow-left.svg", class: "z-1" %>
-      <%= t "calculators.buttons.to_main" %>
+  <%= link_to root_path, class: "px-2 mt-3 rounded back-link" do %>
+    <div class="back-text">
+      <%= image_tag "icons/arrow-left.svg", class: "z-1", alt: "arrow left" %>
+      <%= t("calculators.buttons.to_main") %>
     </div>
-  </a>
+  <% end %>
 
   <div class="flex-wrap d-flex justify-content-around calculator_wrap ms-5">
     <div class="mx-5 mt-5 calc-container">
@@ -47,7 +47,7 @@
         { image: "money_spent.png", data_target: "moneySpent", text: t(".money_spent") }].each do |item| %>
       <div class="col-sm result-card">
         <div class="img-border">
-          <%= image_tag item[:image], class: "rounded" %>
+          <%= image_tag item[:image], class: "rounded", alt: "icon" %>
         </div>
         <span>
           <p data-results-target="<%= item[:data_target] %>">0</p>
