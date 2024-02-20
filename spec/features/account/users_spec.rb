@@ -51,6 +51,37 @@ describe "visit admin page", js: true do
     end
   end
 
+  context "when user clicks lock-open icon" do
+    it "shows the correct confirmation message for blocking" do
+      visit account_users_path
+
+      within(:css, "#user-info-#{another_user.id}") do
+        find("svg.fa-lock-open").click
+        sleep 3
+      end
+
+      accept_confirm { "Are you sure you want to block this user?" }
+      expect(page).to have_current_path(account_user_path(id: another_user.id))
+      expect(page).to have_content "Blocked"
+    end
+  end
+
+  context "when user clicks lock icon" do
+    it "shows the correct confirmation message for unblocking" do
+      another_user.update(blocked: true)
+      visit account_users_path
+
+      within(:css, "#user-info-#{another_user.id}") do
+        find("svg.fa-lock").click
+        sleep 3
+      end
+
+      accept_confirm { "Are you sure you want to unblock this user?" }
+      expect(page).to have_current_path(account_user_path(id: another_user.id))
+      expect(page).to have_content "Unblocked"
+    end
+  end
+
   context "when edit user`s info correctly" do
     it "redirects to user info page" do
       visit edit_account_user_path(id: another_user.id)

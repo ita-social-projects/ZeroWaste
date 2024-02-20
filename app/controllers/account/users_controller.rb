@@ -53,7 +53,7 @@ class Account::UsersController < Account::BaseController
   def destroy
     resource.destroy
 
-    redirect_to account_users_path
+    redirect_to account_users_path, notice: t("notifications.user_deleted"), status: :see_other
   end
 
   private
