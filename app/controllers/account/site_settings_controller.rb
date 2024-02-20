@@ -20,13 +20,16 @@ class Account::SiteSettingsController < Account::BaseController
   def revert
     @site_setting = resource
 
-    @site_setting.update(title: "ZeroWaste", favicon: {
+    if @site_setting.update(title: "ZeroWaste", favicon: {
       io: File.open("app/assets/images/icons/favicon-48x48.png"),
       filename: "favicon-48x48.png",
       content_type: "image/png"
     })
 
-    redirect_to edit_account_site_setting_path, notice: t("notifications.site_setting_reverted")
+      redirect_to edit_account_site_setting_path, notice: t("notifications.site_setting_reverted")
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

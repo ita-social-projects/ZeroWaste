@@ -8,14 +8,18 @@
         <div class="my-auto col-12 has-float-label">
           <%= f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } } %>
           <%= f.input :favicon, wrapper: :custom_vertical_file, input_html: { data: { action: "change->handle-browser-tab#setIcon" } } %>
-          <div class="mb-2">
+          <div class="mb-10">
             <%= render "browser_tab", site_setting: @site_setting %>
           </div>
         </div>
       </div>
-      <%= f.submit t("buttons.save") %>
-      <%= button_to t("buttons.revert"), revert_account_site_setting_path, onclick: "return confirm('#{j(t('.confirm_default'))}')", class: "px-4 py-2.5 my-4 btn-grey w-min" %>
+      <%= f.submit t("buttons.save") %>      
     <% end %>
+
+    <%= button_to t("buttons.revert"), revert_account_site_setting_path,
+                  method: :patch,
+                  data: { turbo_confirm: t(".confirm_default") },
+                  class: "btn-grey absolute bottom-0 left-0 ml-32" %>
   </div>
 </fieldset>
 

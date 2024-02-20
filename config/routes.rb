@@ -50,7 +50,7 @@ Rails.application.routes.draw do
       get "/site_setting", to: "site_settings#edit", as: "site_setting"
 
       resource :site_setting, only: [:edit, :update] do
-        post :revert
+        patch :revert
       end
 
       scope module: :calculators do
