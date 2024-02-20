@@ -20,7 +20,7 @@ FactoryBot.define do
 
     trait :preferable do
       name { "preferable" }
-      preferable { true }
+      preferable { :preferable }
     end
 
     trait :without_diapers_period do

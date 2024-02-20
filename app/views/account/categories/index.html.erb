@@ -1,9 +1,9 @@
 <div class="container">
-  <%= form_tag(account_category_path(id: @categories), method: :get, class: 'd-flex justify-content-end mb-5') do %>
+  <%= form_tag(account_category_path(id: @categories), method: :get, class: "d-flex justify-content-end mb-5") do %>
     <div class="d-flex">
-      <%= link_to(new_account_category_path, class: 'btn-green px-4 py-2') do %>
+      <%= link_to(new_account_category_path, class: "btn-green px-4 py-2") do %>
         <i class="fa fa-plus me-2"></i>
-        <span><%= t('.add_category_button') %></span>
+        <span><%= t(".add_category_button") %></span>
       <% end %>
     </div>
   <% end %>
@@ -14,14 +14,14 @@
     <thead>
       <tr>
         <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
-        <th scope="col"><%= sort_link(@q, :name, t('.table.title'), default_order: :desc) %></th>
-        <th scope="col"><%= sort_link(@q, :priority, t('.table.priority'), default_order: :desc) %></th>
-        <th scope="col"><%= t('.table.actions') %></th>
+        <th scope="col"><%= sort_link(@q, :name, t(".table.title"), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :priority, t(".table.priority"), default_order: :desc) %></th>
+        <th scope="col"><%= t(".table.actions") %></th>
       </tr>
     </thead>
     <tbody class="admin-table-links">
       <% @categories.each do |category| %>
-        <tr class="<%= category.preferable ? "table-success" : "table-light" %>">
+        <tr class="<%= category.preferable? ? "table-success" : "table-light" %>">
           <th scope="row"><%= category.id %></th>
           <td><%= category.name %></td>
           <td><%= category.priority %></td>
@@ -32,10 +32,10 @@
               <% end %>
               <% if category.preferable? %>
                 <div class="relative inline-block cursor-help">
-                  <span title="<%= t('.cannot_delete') %>"><i class="mx-2 fa fa-trash"></i></span>
+                  <span title="<%= t(".cannot_delete") %>"><i class="mx-2 fa fa-trash"></i></span>
                 </div>
               <% else %>
-                <%= button_to(account_category_path(id: category), method: :delete, data: { confirm: t('.confirm_delete') }) do %>
+                <%= button_to(account_category_path(id: category), method: :delete, data: { confirm: t(".confirm_delete") }) do %>
                   <i class="mx-2 fa fa-trash"></i>
                 <% end %>
               <% end %>

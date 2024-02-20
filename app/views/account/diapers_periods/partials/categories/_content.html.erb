@@ -10,7 +10,7 @@
       </thead>
       <tbody class="admin-table-links">
         <% categories.each do |category| %>
-          <tr id="<%= dom_id(category) %>" class="<%= category.preferable ? "table-success" : "text-inherit" %>">
+          <tr id="<%= dom_id(category) %>" class="<%= category.preferable? ? "table-success" : "text-inherit" %>">
             <td>
               <%= category.name %>
               <% if unfilled_categories.include?(category) %>

@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
 class Categories::PreferableService
-  def initialize(params)
-    @preferable = params.fetch(:preferable, nil)
-    @id         = params.fetch(:id, nil)
+  def initialize(category)
+    @category = category
   end
 
-  def perform!
-    return unless @preferable.to_i == 1
-
-    Category.where.not(id: @id).each do |cat|
-      cat.update(preferable: false)
+  def call
+    if @category.preferable?
+      Category.where.not(id: @category.id).update(preferable: :not_preferable)
     end
   end
 end

@@ -30,8 +30,8 @@ class Account::CategoriesController < Account::BaseController
   def update
     @category = resource
 
-    if updater
-      @category.update(category_params)
+    if @category.update(category_params.merge(preferable: category_params[:preferable].to_i))
+      ::Categories::PreferableService.new(@category).call if @category.preferable?
       redirect_to account_categories_path, notice: t("notifications.category_updated")
     else
       render :edit, status: :unprocessable_entity
@@ -57,12 +57,5 @@ class Account::CategoriesController < Account::BaseController
 
   def category_params
     params.require(:category).permit(:name, :priority, :preferable)
-  end
-
-  def updater
-    Category.transaction do
-      ::Categories::PreferableService.new(category_params).perform!
-      @category.update(category_params)
-    end
   end
 end

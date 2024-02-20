@@ -14,6 +14,8 @@
 class Category < ApplicationRecord
   PRIORITY_RANGE = 0..10
 
+  enum preferable: { not_preferable: 0, preferable: 1 }
+
   has_one :price, dependent: :destroy
   has_many :diapers_periods, dependent: :destroy
 
@@ -46,7 +48,7 @@ class Category < ApplicationRecord
          .order("MIN(diapers_periods.price) ASC")
   }
 
-  def self.preferable
-    find_by(preferable: true)
-  end
+  # def self.preferable
+  #   find_by(preferable: true)
+  # end
 end
