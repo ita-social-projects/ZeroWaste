@@ -1,6 +1,4 @@
 class Account::DiapersPeriodsController < Account::BaseController
-  # repond_with format: :turbo_stream, only: []
-
   def index
     set_category
     unfilled_categories
@@ -57,12 +55,12 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def available_categories
-    @categories = Category.available_categories
+    @categories = DiapersPeriod.available_categories
   end
 
   def categories
     unfilled_categories
-    @categories_with_periods = Category.categories_with_periods
+    @categories_with_periods = DiapersPeriod.categories_with_periods
   end
 
   def destroy_category
@@ -101,6 +99,6 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def unfilled_categories
-    @unfilled_categories = Category.unfilled_categories
+    @unfilled_categories = DiapersPeriod.unfilled_categories
   end
 end

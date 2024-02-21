@@ -32,23 +32,4 @@ class Category < ApplicationRecord
   scope :ordered_by_name, -> { order(:name) }
   scope :ordered_by_priority, -> { order(:priority) }
   scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
-
-  scope :available_categories, -> { left_outer_joins(:diapers_periods).where(diapers_periods: { category_id: nil }).distinct }
-  scope :categories_with_periods, -> { joins(:diapers_periods).distinct }
-  scope :unfilled_categories, -> {
-                                left_joins(:diapers_periods)
-                                  .group(:id)
-                                  .having("MAX(diapers_periods.period_end) IS NULL OR MAX(diapers_periods.period_end) < ?", 30)
-                              }
-
-  scope :ordered_by_price, -> {
-    where.not(id: unfilled_categories)
-         .joins(:diapers_periods)
-         .group("categories.id")
-         .order("MIN(diapers_periods.price) ASC")
-  }
-
-  # def self.preferable
-  #   find_by(preferable: true)
-  # end
 end
