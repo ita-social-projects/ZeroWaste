@@ -1,4 +1,12 @@
 <div class="container home">
+  <% set_meta_tags(title: t(".title")) %>
+  <%= search_form_for(@q, url: [:account, :messages], method: :get, class: "d-flex justify-content-end mb-5") do |f| %>
+    <div class="flex">
+      <%= f.search_field :title_or_email_or_message_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
+      <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
+    </div>
+  <% end %>
+
   <table aria-label="messages table" class="table admin-table">
     <caption class="sr-only">This table displays a list of messages.</caption>
     <thead>
