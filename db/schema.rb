@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_154012) do
 
   create_table "diapers_periods", force: :cascade do |t|
     t.bigint "category_id", null: false
-    t.decimal "price", precision: 8, scale: 2
+    t.decimal "price", precision: 8, scale: 2, null: false
     t.integer "period_start", null: false
     t.integer "period_end", null: false
     t.integer "usage_amount", null: false
