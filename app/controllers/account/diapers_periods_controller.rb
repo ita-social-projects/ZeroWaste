@@ -1,8 +1,8 @@
 class Account::DiapersPeriodsController < Account::BaseController
   def index
     set_category
-    unfilled_categories
-    @diapers_periods = @category.diapers_periods.order(:id)
+    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @diapers_periods     = @category.diapers_periods.order(:id)
   end
 
   def new
@@ -12,14 +12,14 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def edit
-    set_diapers_period
+    @diapers_period = DiapersPeriod.find(params[:id])
   end
 
   def create
     set_category
-    unfilled_categories
-    @diapers_periods = @category.diapers_periods.order(:id)
-    @diapers_period  = @category.diapers_periods.build(diapers_period_params)
+    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @diapers_period      = @category.diapers_periods.build(diapers_period_params)
+    @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.save
       respond_to :turbo_stream, status: :see_other
@@ -30,9 +30,9 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def update
     set_category
-    set_diapers_period
-    unfilled_categories
-    @diapers_periods = @category.diapers_periods.order(:id)
+    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @diapers_period      = DiapersPeriod.find(params[:id])
+    @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.update(diapers_period_params)
       respond_to :turbo_stream, status: :see_other
@@ -43,9 +43,9 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def destroy
     set_category
-    set_diapers_period
-    unfilled_categories
-    @diapers_periods = @category.diapers_periods.order(:id)
+    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @diapers_period      = DiapersPeriod.find(params[:id])
+    @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.destroy
       respond_to :turbo_stream
@@ -59,7 +59,7 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def categories
-    unfilled_categories
+    @unfilled_categories     = DiapersPeriod.unfilled_categories
     @categories_with_periods = DiapersPeriod.categories_with_periods
   end
 
@@ -79,10 +79,6 @@ class Account::DiapersPeriodsController < Account::BaseController
     params.require(:diapers_period).permit(:price, :period_start, :period_end, :usage_amount, :category_id)
   end
 
-  def set_diapers_period
-    @diapers_period = DiapersPeriod.find(params[:id])
-  end
-
   def set_category
     if params[:id]
       @diapers_period = DiapersPeriod.find(params[:id])
@@ -96,9 +92,5 @@ class Account::DiapersPeriodsController < Account::BaseController
   def set_period_start
     last_period   = @category.diapers_periods.order(:created_at).last
     @period_start = last_period ? (last_period.period_end + 1) : 1
-  end
-
-  def unfilled_categories
-    @unfilled_categories = DiapersPeriod.unfilled_categories
   end
 end
