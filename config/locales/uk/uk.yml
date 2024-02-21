@@ -169,6 +169,8 @@ uk:
         update: "Оновити"
     messages:
       index:
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         table:
           title: "Заголовок"
           email: "Електронна пошта"

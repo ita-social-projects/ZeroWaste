@@ -181,6 +181,8 @@ en:
         update: "Update"
     messages:
       index:
+        search_placeholder: "Search"
+        search_button: "Search"
         table:
           title: "Title"
           email: "Email"
