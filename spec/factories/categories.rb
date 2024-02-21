@@ -10,6 +10,8 @@
 #
 FactoryBot.define do
   factory :category do
+    name { "name" }
+
     trait :budgetary do
       name { "budgetary" }
     end
