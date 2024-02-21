@@ -1,4 +1,5 @@
 <div class="container">
+  <% set_meta_tags(title: t(".title")) %>
   <%= search_form_for(@q, url: [:account, :categories], method: :get, class: "d-flex justify-content-end mb-5") do |f| %>
     <div class="flex">
       <%= f.search_field :name_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
