@@ -41,6 +41,10 @@ class Product < ApplicationRecord
     prices.where(category: category).first
   end
 
+  def find_or_build_price_for_category(category)
+    prices.find_by(category: category) || prices.build(category: category)
+  end
+
   def build_unsigned_categories
     unsigned_categories = Category.unsigned_categories(self)
 

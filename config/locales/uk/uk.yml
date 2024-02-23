@@ -183,6 +183,8 @@ uk:
           time_col: "Дата"
     categories:
       index:
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
@@ -505,6 +507,7 @@ uk:
                 many: "занадто коротка (мінімум %{count} знаків)"
                 other: "занадто коротка (мінімум %{count} знаків)"
               invalid: "містить неприпустимі символи"
+              taken: "вже викориcтовується, будь ласка, оберіть іншу"
         site_setting:
           attributes:
             title:

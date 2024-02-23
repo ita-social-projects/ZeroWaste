@@ -1,23 +1,28 @@
 <div class="container">
-  <%= form_tag(account_category_path(id: @categories), method: :get, class: 'd-flex justify-content-end mb-5') do %>
-    <div class="d-flex">
-      <%= link_to(new_account_category_path, class: 'btn-green px-4 py-2') do %>
-        <i class="fa fa-plus me-2"></i>
-        <span><%= t('.add_category_button') %></span>
+  <% set_meta_tags(title: t(".title")) %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= search_form_for(@q, url: [:account, :categories], method: :get, class: "d-flex mb-5") do |f| %>
+        <%= f.search_field :name_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
+        <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
       <% end %>
     </div>
-  <% end %>
-</div>
+    <div class="col-md-6 text-end">
+      <%= link_to new_account_category_path, class: "btn btn-green px-4 py-2" do %>
+        <i class="fas fa-plus me-2"></i>
+        <span><%= t(".add_category_button") %></span>
+      <% end %>
+    </div>
+  </div>
 
-<div class="container home">
   <table aria-label="categories table" class="table admin-table">
     <thead>
       <tr>
         <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
-        <th scope="col"><%= sort_link(@q, :name, t('.table.title'), default_order: :desc) %></th>
-        <th scope="col"><%= sort_link(@q, :priority, t('.table.priority'), default_order: :desc) %></th>
-        <th scope="col" class="text-center"><%= t('.table.edit') %></th>
-        <th scope="col" class="text-center"><%= t('.table.delete') %></th>
+        <th scope="col"><%= sort_link(@q, :name, t(".table.title"), default_order: :desc) %></th>
+        <th scope="col" class="text-center"><%= sort_link(@q, :priority, t(".table.priority"), default_order: :desc) %></th>
+        <th scope="col" class="text-center"><%= t(".table.edit") %></th>
+        <th scope="col" class="text-center"><%= t(".table.delete") %></th>
       </tr>
     </thead>
     <tbody class="admin-table-links">
@@ -25,8 +30,8 @@
         <tr>
           <th scope="row"><%= category.id %></th>
           <td><%= category.name %></td>
-          <td><%= category.priority %></td>
-          <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_category_path(id: category) %></td>
+          <td class="text-center"><%= category.priority %></td>
+          <td class="text-center"><%= link_to icon("fa-solid", "edit"), edit_account_category_path(id: category) %></td>
           <td class="text-center">
             <%= button_to account_category_path(id: category), method: :delete,
                         data: { turbo_confirm: t(".confirm_delete") } do %>
