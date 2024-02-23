@@ -27,8 +27,6 @@ RSpec.describe Product, type: :model do
     it { is_expected.to have_many(:prices).dependent(:destroy) }
 
     it { is_expected.to have_many(:categories_by_prices).through(:prices).source(:category) }
-
-    it { is_expected.to have_many(:prices).dependent(:destroy) }
   end
 
   describe "validations" do
@@ -66,6 +64,30 @@ RSpec.describe Product, type: :model do
           expect(product).to_not be_valid
           expect(product.errors.messages[:title]).to include(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.invalid"))
         end
+      end
+    end
+  end
+
+  describe "#find_or_build_price_for_category" do
+    let(:product) { create(:product, title: "Valid Title") }
+    let(:category) { create(:category, name: "Valid Name") }
+    let(:valid_sum) { 10.0 }
+
+    context "when the product has a price for the category" do
+      let!(:existing_price) { create(:price, priceable: product, category: category, sum: valid_sum) }
+
+      it "returns the existing price" do
+        expect(product.find_or_build_price_for_category(category)).to eq(existing_price)
+      end
+    end
+
+    context "when the product does not have a price for the category" do
+      it "builds a new price for the category" do
+        expect(product.prices).to be_empty
+
+        new_price = product.find_or_build_price_for_category(category)
+        expect(new_price.category).to eq(category)
+        expect(new_price).to be_a_new(Price)
       end
     end
   end
