@@ -195,6 +195,8 @@ en:
           time_col: "Date"
     categories:
       index:
+        search_placeholder: "Search"
+        search_button: "Search"
         add_category_button: "Add category"
         confirm_delete: "Delete category?"
       edit:
