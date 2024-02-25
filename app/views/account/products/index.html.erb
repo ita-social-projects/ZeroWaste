@@ -1,9 +1,18 @@
 <div class="container">
-  <div class="mb-5 d-flex justify-content-end">
-    <%= link_to new_account_product_path, class: 'btn-green px-4 py-2' do %>
-      <i class="fa fa-plus me-2"></i>
-      <span><%= t('.add_product_button') %></span>
-    <% end %>
+  <% set_meta_tags(title: t(".title")) %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= search_form_for(@q, url: [:account, :products], method: :get, class: "d-flex mb-5") do |f| %>
+        <%= f.search_field :title_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
+        <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
+      <% end %>
+    </div>
+    <div class="col-md-6 text-end">
+      <%= link_to new_account_product_path, class: "btn btn-green px-4 py-2" do %>
+        <i class="fas fa-plus me-2"></i>
+        <span><%= t(".add_product_button") %></span>
+      <% end %>
+    </div>
   </div>
 
   <table aria-label="products table" class="table admin-table">
