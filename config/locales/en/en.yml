@@ -208,11 +208,13 @@ en:
         form:
           create_category_button: "Create category"
     products:
-      table:
-        title: "Title"
-        prices: "Prices"
-        actions: "Actions"
       index:
+        search_placeholder: "Search"
+        search_button: "Search"
+        table:
+          title: "Title"
+          prices: "Prices"
+          actions: "Actions"
         add_product_button: "Add product"
         confirm_delete: "Delete product?"
       show:
