@@ -234,6 +234,8 @@ en:
       index:
         title: "Users"
         main_header: "Dashboard"
+        search_placeholder: "Search"
+        search_button: "Search"
         add_user_button: "Add user"
         confirm_block: "Are you sure you want to block this user?"
         confirm_unblock: "Are you sure you want to unblock this user?"
