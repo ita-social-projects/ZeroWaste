@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Account::DiapersPeriodsController, type: :request do
   include_context :authorize_admin
 
-  let!(:diapers_period) { create :diapers_period, :with_category }
+  let!(:diapers_period) { create :diapers_period }
   let(:valid_params) { attributes_for(:diapers_period, category_id: category.id) }
   let(:invalid_params) { attributes_for(:diapers_period, usage_amount: "", category_id: category.id) }
   let(:new_params) { attributes_for(:diapers_period, category_id: category.id, usage_amount: 7) }

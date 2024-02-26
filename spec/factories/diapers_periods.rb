@@ -5,9 +5,5 @@ FactoryBot.define do
     period_end { 30 }
     price { 10 }
     usage_amount { 5 }
-
-    trait :with_category do
-      association :category, factory: :category, name: "budgetary"
-    end
   end
 end
