@@ -1,13 +1,14 @@
 class Account::DiapersPeriodsController < Account::BaseController
   def index
-    set_category
+    @category            = Category.find(params[:category_id])
     @unfilled_categories = DiapersPeriod.unfilled_categories
     @diapers_periods     = @category.diapers_periods.order(:id)
   end
 
   def new
-    set_category
-    set_period_start
+    @category       = Category.find(params[:category_id])
+    last_period     = @category.diapers_periods.order(:created_at).last
+    @period_start   = last_period ? (last_period.period_end + 1) : 1
     @diapers_period = DiapersPeriod.new(category_id: @category.id, period_start: @period_start)
   end
 
@@ -16,7 +17,7 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def create
-    set_category
+    @category            = Category.find(params[:diapers_period][:category_id])
     @unfilled_categories = DiapersPeriod.unfilled_categories
     @diapers_period      = @category.diapers_periods.build(diapers_period_params)
     @diapers_periods     = @category.diapers_periods.order(:id)
@@ -29,7 +30,7 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def update
-    set_category
+    @category            = Category.find(params[:diapers_period][:category_id])
     @unfilled_categories = DiapersPeriod.unfilled_categories
     @diapers_period      = DiapersPeriod.find(params[:id])
     @diapers_periods     = @category.diapers_periods.order(:id)
@@ -42,9 +43,9 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def destroy
-    set_category
-    @unfilled_categories = DiapersPeriod.unfilled_categories
     @diapers_period      = DiapersPeriod.find(params[:id])
+    @category            = @diapers_period.category
+    @unfilled_categories = DiapersPeriod.unfilled_categories
     @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.destroy
@@ -64,7 +65,7 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def destroy_category
-    set_category
+    @category = Category.find(params[:category_id])
 
     if @category.diapers_periods.destroy_all
       respond_to :turbo_stream
@@ -77,20 +78,5 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def diapers_period_params
     params.require(:diapers_period).permit(:price, :period_start, :period_end, :usage_amount, :category_id)
-  end
-
-  def set_category
-    if params[:id]
-      @diapers_period = DiapersPeriod.find(params[:id])
-      @category       = @diapers_period.category
-    else
-      category_id = params[:diapers_period].present? ? params[:diapers_period][:category_id] : params[:category_id]
-      @category   = Category.find(category_id)
-    end
-  end
-
-  def set_period_start
-    last_period   = @category.diapers_periods.order(:created_at).last
-    @period_start = last_period ? (last_period.period_end + 1) : 1
   end
 end

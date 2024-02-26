@@ -8,7 +8,7 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
   let!(:diapers_period) { create :diapers_period, :with_category }
   let(:valid_params) { attributes_for(:diapers_period, category_id: category.id) }
   let(:invalid_params) { attributes_for(:diapers_period, usage_amount: "", category_id: category.id) }
-  let(:new_params) { attributes_for(:diapers_period, usage_amount: 7) }
+  let(:new_params) { attributes_for(:diapers_period, category_id: category.id, usage_amount: 7) }
   let!(:category) { create :category, :budgetary }
 
   describe "GET #idex" do
@@ -92,8 +92,7 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
     context "with invalid parameters" do
       it "is unprocessable" do
         expect do
-          patch account_diapers_period_path(diapers_period, category_id: category.id, format: :turbo_stream),
-                params: { diapers_period: invalid_params }
+          patch account_diapers_period_path(diapers_period, format: :turbo_stream), params: { diapers_period: invalid_params }
         end.not_to change(diapers_period, :usage_amount)
 
         expect(response).to render_template(:edit)
