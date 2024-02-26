@@ -3,9 +3,11 @@
 <%= turbo_stream.replace(
       dom_id(@diapers_periods.last, "delete_button"),
       partial: "account/diapers_periods/partials/index/delete_button",
-      locals: { category: @category,
-                diapers_period: @diapers_periods.last,
-                diapers_periods: @diapers_periods }
+      locals: {
+        category: @category,
+        diapers_period: @diapers_periods.last,
+        diapers_periods: @diapers_periods
+      }
     ) unless @diapers_periods.blank? %>
 
 <%= turbo_stream.replace(
