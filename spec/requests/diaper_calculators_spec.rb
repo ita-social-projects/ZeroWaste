@@ -7,8 +7,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     {
       money_spent: "18300.0",
       money_will_be_spent: "27450.0",
-      used_diapers_amount: "1830.0",
-      to_be_used_diapers_amount: "2745.0",
+      used_diapers_amount: 1830.0,
+      to_be_used_diapers_amount: 2745.0,
       used_diapers_amount_pluralize: I18n.t("calculators.old_calculator.bought_diapers", count: 1830),
       to_be_diapers_amount_pluralize: I18n.t("calculators.old_calculator.will_buy_diapers", count: 2745)
     }

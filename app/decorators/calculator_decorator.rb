@@ -26,7 +26,7 @@ class CalculatorDecorator
                                             count: result.used_diapers_amount.ceil),
       to_be_diapers_amount_pluralize: I18n.t("calculators.#{calculator_type}_calculator.will_buy_diapers",
                                              count: result.to_be_used_diapers_amount.ceil)
-    }.transform_values(&:to_s)
+    }
   end
 
   def age
