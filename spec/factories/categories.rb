@@ -14,27 +14,23 @@ FactoryBot.define do
 
     trait :budgetary do
       name { "budgetary" }
+
+      after(:create) do |category|
+        create(:diapers_period, category: category)
+      end
     end
 
     trait :medium do
       name { "medium" }
-    end
-
-    trait :preferable do
-      name { "preferable" }
       preferable { :preferable }
+
+      after(:create) do |category|
+        create(:diapers_period, category: category)
+      end
     end
 
     trait :without_diapers_period do
       name { "without-diapers-period" }
-
-      after(:create) do |category|
-        category.diapers_periods.clear
-      end
-    end
-
-    after(:create) do |category|
-      create(:diapers_period, category: category)
     end
   end
 end

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Calculators::DiaperUsageService do
-  let(:category) { create(:category, :preferable) }
+  let(:category) { create(:category, :medium) }
   let(:empty_category) { create(:category, :without_diapers_period) }
 
   describe "#calculate" do
