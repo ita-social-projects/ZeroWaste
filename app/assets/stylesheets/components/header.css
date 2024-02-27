@@ -1,17 +1,21 @@
 @layer components {
   .page-header {
-    @apply max-w-fit h-32 mx-auto mb-2.5 flex justify-between items-center border-b-2 border-gray;
+    @apply h-32 mx-auto mb-2.5 flex items-center border-b-2 border-gray;
   }
 
   .tab {
-    @apply whitespace-nowrap uppercase text-sm text-white border-b-2 border-transparent transition duration-500 ease-in-out hover:border-success md:py-6 md:px-2 lg:py-8 lg:px-4;
+    @apply hidden flex-row xl:flex whitespace-nowrap uppercase text-sm text-white border-b-2 border-transparent transition duration-500 ease-in-out hover:border-success md:py-6 md:px-2 lg:py-8 lg:px-4;
   }
 
   .func-btns {
-    @apply flex justify-between items-center md:flex-col lg:flex-row;
+    @apply flex justify-between items-center;
   }
 
   .header-btns {
     @apply inline w-auto ml-2 min-w-fit md:p-2.5 md:m-1.5 lg:py-3.5 lg:px-9;
+  }
+
+  .menu-burger-button {
+    @apply xl:hidden flex items-center justify-end text-success pt-7 pr-4;
   }
 }
