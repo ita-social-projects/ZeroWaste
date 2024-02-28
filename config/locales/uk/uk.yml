@@ -106,6 +106,9 @@ uk:
       categories: "Категорії"
       products: "Продукти"
       zerowaste_logo: "логотип ZeroWaste"
+    account_footer:
+      created_with: "Створено з"
+      by: "в"
   mailer:
     welcome_mail:
       subject: "Ласкаво просимо до ZeroWaste!"
