@@ -21,6 +21,7 @@ gem "jquery-rails"
 # gem 'bcrypt', '~> 3.1.7'
 gem "acts_as_singleton"
 gem "friendly_id", "~> 5.4.0"
+gem 'babosa'
 
 gem "dentaku", "~> 3.1"
 gem "it"
