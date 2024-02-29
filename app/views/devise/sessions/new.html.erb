@@ -1,16 +1,10 @@
 <div class="position-block">
   <div class="card">
     <div class="p-4 card-block">
-      <h2 class="p-2 text-center"><%= t('.log_in') %></h2>
+      <h2 class="p-2 text-center"><%= t(".log_in") %></h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <% flash.each do |type, msg| %>
-          <div class="alert alert-danger">
-            <%= msg %>
-          </div>
-        <% end %>
-
-        <%= f.input :email, class: 'form-control', autofocus: true, autocomplete: "email" %>
+        <%= f.input :email, class: "form-control", autofocus: true, autocomplete: "email" %>
         <div class="password-wrapper-login" data-controller="password-visibility">
           <%= f.input :password, input_html: { class: 'form-control password-field', autocomplete: "current-password", data: { password_visibility_target: 'password' }, spellcheck: false }, required: true %>
           <%= render 'shared/password_icon' %>
@@ -20,11 +14,10 @@
           <%= f.input :remember_me, as: :boolean, inline_label: true %>
         <% end %>
 
-        <div class="flex-row-reverse flex-wrap d-flex justify-content-between align-content-center">
-          <%= f.submit t('.log_in'), class: "btn btn-primary" %>
-          <div class="d-block">
-            <%= render "devise/shared/links" %>
-          </div>
+        <div class="flex flex-row-reverse flex-wrap content-center gap-3">
+          <%= f.submit t(".log_in"), class: "btn btn-primary" %>
+
+          <%= render "devise/shared/links" %>
         </div>
       <% end %>
     </div>

@@ -27,6 +27,16 @@ RSpec.describe "Account::UsersController", type: :request do
       expect(csv_content).to match(user.last_name)
       expect(csv_content).to match(user.last_sign_in_at.to_s)
     end
+
+    it "returns the expected attributes" do
+      User.ransackable_attributes.each do |attribute|
+        get account_users_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
+
+        get account_users_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET #new" do
@@ -112,6 +122,7 @@ RSpec.describe "Account::UsersController", type: :request do
       end.to change(User, :count).by(-1)
 
       expect(response).to redirect_to(account_users_path)
+      expect(flash[:notice]).to eq(I18n.t("notifications.user_deleted"))
     end
   end
 end

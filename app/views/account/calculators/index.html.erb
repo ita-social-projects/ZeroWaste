@@ -4,7 +4,7 @@
       <%= f.search_field :name_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
       <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
 
-      <span class="mx-2"></span> <!-- Add this span for spacing -->
+      <span class="mx-2"></span>
       <%= link_to new_account_calculator_path, class: "btn-green px-4 py-2" do %>
         <i class="fas fa-plus me-2"></i>
         <span><%= t(".add_calculator_button") %></span>
@@ -18,7 +18,9 @@
         <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
         <th scope="col"><%= sort_link(@q, :slug, t(".table.calculator_slug"), default_order: :desc) %></th>
         <th scope="col"><%= sort_link(@q, :name, t(".table.calculator_name"), default_order: :desc) %></th>
-        <th scope="col"><%= t(".table.calculator_actions") %></th>
+        <th scope="col" class="text-center"><%= t('.table.show') %></th>
+        <th scope="col" class="text-center"><%= t('.table.edit') %></th>
+        <th scope="col" class="text-center"><%= t('.table.delete') %></th>
       </tr>
     </thead>
     <tbody class="admin-table-links">
@@ -27,15 +29,11 @@
           <td><%= calculator.id %></td>
           <td><%= calculator.slug %></td>
           <td><%= calculator.name %></td>
-          <td class="actions">
-            <%= link_to account_calculator_path(slug: calculator) do %>
-              <i class="mx-2 fa fa-eye"></i>
-            <% end %>
-            <%= link_to edit_account_calculator_path(slug: calculator) do %>
-              <i class="mx-2 fa fa-pen"></i>
-            <% end %>
+          <td class="text-center"><%= link_to icon('fa-solid', 'eye'), account_calculator_path(slug: calculator) %></td>
+          <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_calculator_path(slug: calculator) %></td>
+          <td class="text-center">
             <%= button_to account_calculator_path(slug: calculator), method: :delete,
-                          data: { turbo_confirm: t(".confirm_delete") } do %>
+                        data: { turbo_confirm: t(".confirm_delete") } do %>
               <i class="mx-2 fa fa-trash"></i>
             <% end %>
           </td>

@@ -133,7 +133,7 @@ RSpec.describe CalculatorsController, type: :request do
           post account_calculators_path, params: { calculator: invalid_attributes }
         end.not_to change(Calculator, :count)
 
-        expect(response.body).to include(I18n.t("activerecord.errors.models.calculator.attributes.name.name_format_validation"))
+        expect(response.body).to include(I18n.t("activerecord.errors.models.calculator.attributes.name.invalid"))
         expect(response).to render_template(:new)
       end
     end
