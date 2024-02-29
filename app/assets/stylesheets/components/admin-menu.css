@@ -1,8 +1,4 @@
 @layer base {
-  .admin-menu-navbar {
-    @apply items-center xl:ml-auto h-full 
-  }
-  
   .admin-menu-item {
     @apply text-success hover:text-dark_green whitespace-nowrap
   }

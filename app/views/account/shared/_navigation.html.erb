@@ -1,9 +1,9 @@
 <body>
   <header class="page-header">
-    <div data-controller="burger" class="flex">
+    <div data-controller="burger" class="flex justify-between w-full">
       <%= link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste' %>
       
-      <div data-burger-target="navbarNav" class="menu-navbar hidden xl:flex">
+      <div data-burger-target="navbarNav" class="hidden xl:flex">
         <ul class="admin-menu-list">
           <li class="">
             <% if Flipper[:show_calculators_list].enabled? %>
@@ -45,7 +45,7 @@
           <%= link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank', class: "header-btns main-btn btn-outline-green" %>
           <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'header-btns main-btn btn-outline-gray' %>
         </div>
-        <div class="h-12 w-12 mt-6">
+        <div class="h-12 w-12 mt-6 ml-2">
           <button data-action="click->burger#toggle" class="admin-menu-burger-button">
             <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
             <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
