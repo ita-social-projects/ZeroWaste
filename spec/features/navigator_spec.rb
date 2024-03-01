@@ -7,11 +7,9 @@ describe "navigator", js: true do
     visit root_path
 
     expect(page).to have_css(".page-header")
-    expect(page.body).to have_css(".tabs")
-
-    expect(page).to have_content("LOG IN")
-    expect(page).to have_content("SIGN UP")
-    expect(page).to have_content("CONTACT US")
+    expect(page).to have_link("Log In", href: "/en/users/sign_in", visible: :all)
+    expect(page).to have_link("Sign Up", href: "/en/sign_up", visible: :all)
+    expect(page).to have_link("Contact us", href: "/en/messages/new", visible: :all)
   end
 
   context "as an admin user" do
@@ -20,10 +18,9 @@ describe "navigator", js: true do
     before { visit root_path }
 
     it "should consist tabs" do
-      expect(page).to have_content("LOG OUT")
-      expect(page).to have_content("CONTACT US")
-
-      expect(page).to have_content("ADMIN")
+      expect(page).to have_link("Log Out", href: "/en/users/sign_out", visible: :all)
+      expect(page).to have_link("Contact us", href: "/en/messages/new", visible: :all)
+      expect(page).to have_link("Admin", href: "/en/account/calculators", visible: :all)
     end
   end
 
@@ -33,10 +30,9 @@ describe "navigator", js: true do
     before { visit root_path }
 
     it "should consist tabs" do
-      expect(page).to have_content("LOG OUT")
-      expect(page).to have_content("CONTACT US")
-
-      expect(page).not_to have_content("ADMIN")
+      expect(page).to have_link("Log Out", href: "/en/users/sign_out", visible: :all)
+      expect(page).to have_link("Contact us", href: "/en/messages/new", visible: :all)
+      expect(page).to have_no_link("Admin", href: "/en/accounts/calculators", visible: :all)
     end
   end
 end
