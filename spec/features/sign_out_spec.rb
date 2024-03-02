@@ -14,7 +14,7 @@ describe "sign out", js: true do
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_on "Log In"
-    page.driver.browser.manage.window.maximize
+    page.driver.browser.manage.window.resize_to(1920, 1080)
     Capybara.using_wait_time flash_message_disappear_time do
       click_on "Log Out"
       sleep 3
