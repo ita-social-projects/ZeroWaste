@@ -13,9 +13,9 @@ describe "sign out", js: true do
     visit "/users/sign_in"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-    click_button "Log in"
+    click_on "Log In"
     Capybara.using_wait_time flash_message_disappear_time do
-      click_link "Log Out"
+      click_on "Log Out"
       sleep 3
     end
   end

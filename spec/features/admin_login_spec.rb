@@ -15,7 +15,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "Email", with: user.email
           fill_in "Password", with: user.password
           sleep 0.5
-          click_button "Log in"
+          click_on "Log In"
           sleep 0.5
           expect(page).to have_content "Signed in successfully"
         end
@@ -27,7 +27,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "Email", with: "wrong@email.com"
           fill_in "Password", with: "wrong password"
           sleep 0.5
-          click_button "Log in"
+          click_on "Log In"
           sleep 0.5
           expect(page).to have_content "Invalid Email or password"
         end
@@ -39,7 +39,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "Email", with: user.email
           fill_in "Password", with: "wrong password"
           sleep 0.5
-          click_button "Log in"
+          click_on "Log In"
           sleep 0.5
           expect(page).to have_content "Invalid Email or password"
         end
@@ -51,7 +51,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "Email", with: "wrong@email.com"
           fill_in "Password", with: user.password
           sleep 0.5
-          click_button "Log in"
+          click_on "Log In"
           sleep 0.5
           expect(page).to have_content "Invalid Email or password"
         end
@@ -66,7 +66,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "user_email", with: user.email
           fill_in "user_password", with: user.password
           sleep 0.5
-          click_button "Увійти"
+          click_on "Увійти"
           sleep 0.5
           expect(page).to have_content "Ви увійшли до системи"
         end
@@ -79,7 +79,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: "wrong password"
           sleep 0.5
-          click_button "Увійти"
+          click_on "Увійти"
           sleep 0.5
           expect(page).to have_content "Невірний email чи пароль"
         end
@@ -92,7 +92,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "user_email", with: user.email
           fill_in "user_password", with: "wrong password"
           sleep 0.5
-          click_button "Увійти"
+          click_on "Увійти"
           sleep 0.5
           expect(page).to have_content "Невірний email чи пароль"
         end
@@ -105,7 +105,7 @@ RSpec.feature "AdminLogins", type: :feature do
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: user.password
           sleep 0.5
-          click_button "Увійти"
+          click_on "Увійти"
           sleep 0.5
           expect(page).to have_content "Невірний email чи пароль"
         end

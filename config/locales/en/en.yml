@@ -322,15 +322,15 @@ en:
         name: "Enable sandbox mode"
     sessions:
       new:
-        log_in_header: "Log in"
-        log_in_button: "Log in"
+        log_in_header: "Log In"
+        log_in_button: "Log In"
         form:
           email: "Email"
           password: "Password"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
-        log_in: "Log in"
+        log_in: "Log In"
     confirmations:
       new:
         resend_confirmation_instructions_header: "Resend confirmation instructions"
@@ -404,12 +404,12 @@ en:
         change_password_button: "Change my password"
     sessions:
       new:
-        log_in: "Log in"
+        log_in: "Log In"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
-        log_in: "Log in"
-        sign_up: "Sign up"
+        log_in: "Log In"
+        sign_up: "Sign Up"
         sign_in_with: "Sign in with %{provider}"
         google_sign_in: "Sign in with Google"
     registrations:
