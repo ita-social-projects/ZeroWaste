@@ -14,7 +14,7 @@ describe "visit Calculator page", js: true do
 
   it "visits calculator page and open log_in page" do
     visit "#{I18n.locale}/calculator"
-    find(".admin-menu-burger-button").click
+    page.driver.browser.manage.window.maximize
     click_on("Log In")
 
     expect(page).to have_content "Forgot your password"
