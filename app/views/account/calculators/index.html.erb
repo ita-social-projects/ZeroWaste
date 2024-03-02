@@ -1,16 +1,19 @@
 <div class="container">
-  <%= search_form_for(@q, url: [:account, :calculators], method: :get, class: "d-flex justify-content-end mb-5") do |f| %>
-    <div class="flex">
-      <%= f.search_field :name_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
-      <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
-
-      <span class="mx-2"></span>
-      <%= link_to new_account_calculator_path, class: "btn-green px-4 py-2" do %>
+  <% set_meta_tags(title: t(".title")) %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= search_form_for(@q, url: [:account, :calculators], method: :get, class: "d-flex mb-5") do |f| %>
+        <%= f.search_field :name_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
+        <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
+      <% end %>
+    </div>
+    <div class="col-md-6 text-end">
+      <%= link_to new_account_calculator_path, class: "btn btn-green px-4 py-2" do %>
         <i class="fas fa-plus me-2"></i>
         <span><%= t(".add_calculator_button") %></span>
       <% end %>
     </div>
-  <% end %>
+  </div>
 
   <table aria-label="calculators table" class="table admin-table">
     <thead>
@@ -25,7 +28,7 @@
     </thead>
     <tbody class="admin-table-links">
       <% @calculators.each do |calculator| %>
-        <tr class="<%= calculator.preferable ? "table-success" : "table-light" %>">
+        <tr class="<%= calculator.preferable ? "table-success" : "text-inherit" %>">
           <td><%= calculator.id %></td>
           <td><%= calculator.slug %></td>
           <td><%= calculator.name %></td>

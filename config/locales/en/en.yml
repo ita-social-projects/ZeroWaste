@@ -119,6 +119,9 @@ en:
       categories: "Categories"
       products: "Products"
       zerowaste_logo: "ZeroWaste logo"
+    account_footer:
+      created_with: "Created with"
+      by: "by"
   mailer:
     welcome_mail:
       subject: "Welcome to ZeroWaste!"

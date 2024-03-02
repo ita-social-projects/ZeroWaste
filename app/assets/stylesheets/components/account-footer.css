@@ -1,0 +1,9 @@
+@layer components {
+  .account-footer {
+    @apply bg-slate-50 p-6 mt-14 bottom-0 w-full sm:mb-0 sticky top-[100vh];
+  }
+
+  .account-footer_text {
+    @apply flex flex-col sm:flex-row justify-between items-center text-center;
+  }
+}
