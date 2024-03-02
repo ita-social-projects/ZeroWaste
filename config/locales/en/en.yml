@@ -209,8 +209,6 @@ en:
           create_category_button: "Create category"
     products:
       index:
-        search_placeholder: "Search"
-        search_button: "Search"
         table:
           title: "Title"
           prices: "Prices"

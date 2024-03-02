@@ -203,8 +203,6 @@ uk:
           create_category_button: "Створити категорію"
     products:
       index:
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         table:
           title: "Назва"
           prices: "Ціни"
