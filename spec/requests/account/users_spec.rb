@@ -25,7 +25,7 @@ RSpec.describe "Account::UsersController", type: :request do
       expect(csv_content).to match(user.email)
       expect(csv_content).to match(user.first_name)
       expect(csv_content).to match(user.last_name)
-      expect(csv_content).to match(/#{Regexp.escape(user.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S %z"))}/)
+      expect(csv_content).to include(user.last_sign_in_at.to_s)
     end
 
     it "returns the expected attributes" do
