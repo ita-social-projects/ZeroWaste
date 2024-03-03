@@ -7,8 +7,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def new
     @category       = Category.find(params[:category_id])
-    last_period     = @category.diapers_periods.order(:created_at).last
-    @period_start   = last_period ? (last_period.period_end + 1) : 1
+    @period_start   = DiapersPeriod.start_date(@category)
     @diapers_period = DiapersPeriod.new(category_id: @category.id, period_start: @period_start)
   end
 
@@ -23,7 +22,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.save
-      respond_to :turbo_stream, status: :see_other
+      respond_to :turbo_stream
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +35,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.update(diapers_period_params)
-      respond_to :turbo_stream, status: :see_other
+      respond_to :turbo_stream
     else
       render :edit, status: :unprocessable_entity
     end
@@ -49,7 +48,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.destroy
-      respond_to :turbo_stream
+      render formats: :turbo_stream, status: :see_other
     else
       redirect_to account_site_setting_path, alert: t("notifications.diapers_period_not_deleted")
     end
@@ -68,7 +67,7 @@ class Account::DiapersPeriodsController < Account::BaseController
     @category = Category.find(params[:category_id])
 
     if @category.diapers_periods.destroy_all
-      respond_to :turbo_stream
+      render formats: :turbo_stream, status: :see_other
     else
       redirect_to account_site_setting_path, alert: t("notifications.category_diapers_period_not_deleted")
     end
