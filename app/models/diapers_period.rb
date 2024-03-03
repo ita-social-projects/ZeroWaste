@@ -50,4 +50,9 @@ class DiapersPeriod < ApplicationRecord
             .group(:id)
             .order("MIN(diapers_periods.price) ASC")
   end
+
+  def self.start_date(category)
+    last_period = category.diapers_periods.order(:created_at).last
+    last_period ? (last_period.period_end + 1) : 1
+  end
 end

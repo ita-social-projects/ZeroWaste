@@ -8,7 +8,7 @@
         diapers_period: @diapers_periods.last,
         diapers_periods: @diapers_periods
       }
-    ) unless @diapers_periods.blank? %>
+    ) if @diapers_periods.present? %>
 
 <%= turbo_stream.replace(
       :add_new_link,
