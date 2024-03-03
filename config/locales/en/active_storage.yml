@@ -2,7 +2,7 @@ en:
   errors:
     messages:
       content_type_invalid: "Only .PNG and .ICO file formats are allowed"
-      file_size_out_of_range: "file size must be less than or equal to 1 KB"
+      file_size_out_of_range: "file is too big, please upload file up to 1KB"
       limit_out_of_range: "total number is out of range"
       image_metadata_missing: "is not a valid image"
       dimension_min_inclusion: "must be greater than or equal to %{width} x %{height} pixel"
