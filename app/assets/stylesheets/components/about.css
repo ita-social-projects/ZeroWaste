@@ -1,5 +1,0 @@
-@layer components {
-  .bordered-about {
-    @apply border-solid border-gray border-2 p-25 mt-50 mb-50 ml-106 mr-106;
-  }
-}

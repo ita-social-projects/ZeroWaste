@@ -3,15 +3,15 @@
     description: "Information about ZeroWaste organization and team"
 })%>
 
-<section class="bordered-about">
+<section  class="jumbotron main-container rounded">
   <h2 class="text-center text-2xl text-success"><%= t('about_us.title') %></h2>
-  <p class="text-center text-xl text-white"><%= t('about_us.description.first_paragraph') %></p>
-  <p class="text-center text-xl text-white"><%= t('about_us.description.second_paragraph') %></p>
-  <p class="text-center text-xl text-white"><%= t('about_us.description.third_paragraph') %></p>
+  <p class="text-center text-xl text-black"><%= t('about_us.description.first_paragraph') %></p>
+  <p class="text-center text-xl text-black"><%= t('about_us.description.second_paragraph') %></p>
+  <p class="text-center text-xl text-black"><%= t('about_us.description.third_paragraph') %></p>
 </section>
-<section class="bordered-about">
+<section class="jumbotron main-container rounded">
   <h2 class="text-center text-2xl text-success"><%= t('our_team.title') %></h2>
-  <p class="text-center text-xl text-white"><%= t('our_team.description') %></p>
+  <p class="text-center text-xl text-black"><%= t('our_team.description') %></p>
 </section>
 <div class="flex justify-evenly items-center">
   <%= link_to image_tag("logo_zerowaste.png", class: "logo-zerowaste"), "https://zerowastelviv.org.ua/", target: "_blank" %>
