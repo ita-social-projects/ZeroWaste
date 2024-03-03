@@ -10,9 +10,9 @@
       </thead>
       <tbody class="admin-table-links">
         <% categories.each do |category| %>
-          <tr id="<%= dom_id(category) %>" class="<%= category.preferable? ? "table-success" : "text-inherit" %>">
+          <tr id="<%= dom_id(category) %>" class="<%= highlighted_row(category) %>">
             <td>
-              <%= category.name %>
+              <span><%= category.name %></span>
               <% if unfilled_categories.include?(category) %>
                 <div class="relative inline-block cursor-help">
                   <span title="<%= t(".tooltip") %>">

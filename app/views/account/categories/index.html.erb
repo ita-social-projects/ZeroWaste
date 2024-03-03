@@ -21,7 +21,7 @@
     </thead>
     <tbody class="admin-table-links">
       <% @categories.each do |category| %>
-        <tr class="<%= category.preferable? ? "table-success" : "table-light" %>">
+        <tr class="<%= highlighted_row(category) %>">
           <th scope="row"><%= category.id %></th>
           <td><%= category.name %></td>
           <td><%= category.priority %></td>

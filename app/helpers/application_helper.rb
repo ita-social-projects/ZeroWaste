@@ -8,4 +8,8 @@ module ApplicationHelper
   def switch_locale_to
     (I18n.locale == :en) ? :uk : :en
   end
+
+  def highlighted_row(object)
+    object.preferable? ? "table-success" : "text-inherit"
+  end
 end
