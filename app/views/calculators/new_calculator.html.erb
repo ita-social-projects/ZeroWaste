@@ -1,7 +1,7 @@
 <div class="rounded jumbotron jumbotron-fluid position-relative">
   <%= link_to root_path, class: "px-2 mt-3 rounded back-link" do %>
     <div class="back-text">
-      <%= image_tag "icons/arrow-left.svg", class: "z-1", alt: "arrow left" %>
+      <%= inline_svg_tag("icons/arrow-left.svg", class: "z-1") %>
       <%= t("calculators.buttons.to_main") %>
     </div>
   <% end %>
@@ -52,24 +52,42 @@
       </div>
     <% end %>
 
-    <%= image_tag "scales.png", class: "scales_img" %>
+    <%= image_tag "scales.png", class: "scales_img", alt: "Scales" %>
   </div>
 </div>
 
 <div class="jumbotron calculation-results result" data-controller="results">
   <div class="main-result-container">
     <div class="result-container">
-      <% new_calculation_items.each_with_index do |item, index| %>
+      <% [{ image: "diapers_bought_2.png", data_target: "diapersUsed", unit: t(".pieces"), text_target: "boughtDiapersPluralize", text: t(".bought_diapers", count: 0) },
+          "arrow",
+          { image: "diapers_to_buy_2.png", data_target: "diapersToBeUsed", unit: t(".pieces"), text_target: "willBuyDiapersPluralize", text: t(".will_buy_diapers", count: 0) },
+          { image: "money_spent_2.png", data_target: "moneySpent", unit: t(".unit"), text: t(".money_spent") },
+          "arrow",
+          { image: "money_to_spent_2.png", data_target: "moneyWillBeSpent", unit: t(".unit"), text: t(".money_will_be_spent") }].each_with_index do |item, index| %>
         <% if item == "arrow" %>
-          <%= render_arrow %>
+          <div class="vector-width">
+            <%= image_tag "icons/vector_5.png", class: "vector", alt: "horizontal arrow" %>
+            <%= image_tag "icons/vector_2.png", class: "vector-mobile", alt: "vertical arrow" %>
+          </div>
+          <% if index % 3 == 2 %>
+            </div><div class="result-container">
+          <% end %>
         <% else %>
-          <%= render_new_calculation_item(item) %>
+          <div>
+            <%= image_tag item[:image], class: "img-margin", alt: "icon" %>
+            <p data-results-target="<%= item[:data_target] %>">0</p>
+            <p class="diapers-font"><%= item[:unit] %></p>
+            <p class="diapers-font-text" data-results-target="<%= item[:text_target] %>"><%= item[:text] %></p>
+          </div>
+          <% if (index + 1) % 3 == 0 %>
+            </div><div class="result-container">
+          <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
-
 
 <div class="jumbotron calculation-results">
   <div class="row">
