@@ -5,10 +5,10 @@ RSpec.describe Categories::PreferableService do
     let!(:become_preferable_category) { create(:category, :medium) }
     let!(:categories) { create_list(:category, 3) }
     let!(:current_preferable_category) { create(:category, :medium) }
+    let(:service) { described_class.new(become_preferable_category) }
 
     context "when the category is preferable" do
       it "sets the category to preferable" do
-        service = described_class.new(become_preferable_category)
         service.call
 
         categories.each do |category|
@@ -22,7 +22,6 @@ RSpec.describe Categories::PreferableService do
 
     context "when the category is preferable and another category is set to preferable" do
       it "sets the other category to not preferable" do
-        service = described_class.new(become_preferable_category)
         service.call
 
         current_preferable_category.reload

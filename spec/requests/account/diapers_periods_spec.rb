@@ -61,6 +61,7 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
         end.to change(DiapersPeriod, :count).by(1)
 
         expect(response).to render_template(:create)
+        expect(response.body).to include(valid_params[:usage_amount].to_s)
       end
     end
 
@@ -86,6 +87,7 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
         end.to change(diapers_period, :usage_amount).to(new_params[:usage_amount])
 
         expect(response).to render_template(:update)
+        expect(response.body).to include(new_params[:usage_amount].to_s)
       end
     end
 
@@ -107,7 +109,9 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
         delete account_diapers_period_path(diapers_period, category_id: category.id, format: :turbo_stream)
       end.to change(DiapersPeriod, :count).by(-1)
 
+      expect(response).to have_http_status(:see_other)
       expect(response).to have_rendered(:destroy)
+      expect(response.body).to include("action=\"remove\" target=\"diapers_period_#{diapers_period.id}\"")
     end
 
     context "when destroy fails" do
@@ -131,7 +135,9 @@ RSpec.describe Account::DiapersPeriodsController, type: :request do
                params: { category_id: category.id }
       end.to change(category.diapers_periods, :count).to(0)
 
+      expect(response).to have_http_status(:see_other)
       expect(response).to have_rendered(:destroy_category)
+      expect(response.body).to include("action=\"remove\" target=\"category_#{category.id}\"")
     end
 
     context "when destroy fails" do
