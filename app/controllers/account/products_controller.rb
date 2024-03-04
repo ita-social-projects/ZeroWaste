@@ -10,8 +10,6 @@ class Account::ProductsController < Account::BaseController
 
   def new
     @product = Product.new
-
-    @product.prices.build
   end
 
   def edit
@@ -26,8 +24,6 @@ class Account::ProductsController < Account::BaseController
     if @product.save
       redirect_to account_products_path, notice: t(".created")
     else
-      @product.prices.build
-
       render :new, status: :unprocessable_entity
     end
   end

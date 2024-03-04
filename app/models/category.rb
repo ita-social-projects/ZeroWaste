@@ -16,9 +16,8 @@ class Category < ApplicationRecord
 
   enum preferable: { not_preferable: "0", preferable: "1" }
 
-  has_one :price, dependent: :destroy
+  has_many :prices, dependent: :destroy
   has_many :diapers_periods, dependent: :destroy
-
   has_many :category_categoryables, dependent: :restrict_with_exception
   has_many :categoryables, through: :category_categoryables
 
@@ -26,10 +25,15 @@ class Category < ApplicationRecord
   validates :name,
             length: { minimum: 3, maximum: 30 },
             format: { with: /\A[\p{L}0-9\s'-]+\z/i },
+            uniqueness: { case_sensitive: false },
             allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
   scope :ordered_by_name, -> { order(:name) }
   scope :ordered_by_priority, -> { order(:priority) }
   scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "name", "priority", "updated_at"]
+  end
 end

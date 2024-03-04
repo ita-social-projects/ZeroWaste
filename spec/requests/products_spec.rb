@@ -13,6 +13,16 @@ RSpec.describe Account::ProductsController, type: :request do
       expect(response).to render_template(:index)
       expect(response.body).to include(product.title)
     end
+
+    it "returns the expected attributes" do
+      Product.ransackable_attributes.each do |attribute|
+        get account_products_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
+
+        get account_products_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET :new" do

@@ -2,8 +2,11 @@
 <html lang="EN" xml:lang="en">
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  <title><%= SiteSetting.current.title %></title>
   <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) %>
+  <%= display_meta_tags(
+      site: SiteSetting.current.title,
+      reverse: true
+  ) %>
   <meta content="width=device-width,initial-scale=1" name="viewport" />
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -11,11 +14,12 @@
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 </head>
-<body class="admin">
+<body class="admin min-h-screen">
   <%= render 'layouts/flash_messages' %>
   <%= render 'layouts/account_navbar' %>
   <div class="container admin-container">
     <%= yield %>
   </div>
+  <%= render 'layouts/account_footer' %>
 </body>
 </html>

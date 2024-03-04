@@ -114,6 +114,9 @@ uk:
       categories: "Категорії"
       products: "Продукти"
       zerowaste_logo: "логотип ZeroWaste"
+    account_footer:
+      created_with: "Створено з"
+      by: "в"
   mailer:
     welcome_mail:
       subject: "Ласкаво просимо до ZeroWaste!"
@@ -165,6 +168,8 @@ uk:
         change_password_button: "Змінити пароль"
     messages:
       index:
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         table:
           title: "Заголовок"
           email: "Електронна пошта"
@@ -179,10 +184,14 @@ uk:
           time_col: "Дата"
     categories:
       index:
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
           priority: "Пріоритет"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
         cannot_delete: "Ви не можете видалити основну категорію."
@@ -198,6 +207,8 @@ uk:
           title: "Назва"
           prices: "Ціни"
           actions: "Дії"
+          edit: "Відредагувати"
+          delete: "Видалити"
         add_product_button: "Додати продукт"
         confirm_delete: "Видалити продукт?"
       show:
@@ -216,20 +227,25 @@ uk:
         form:
           sum: "Сума"
           create_product_button: "Створити продукт"
-      created: "Продукт був успішно створений."
-      updated: "Продукт був успішно оновлений."
-      deleted: "Продукт був успішно видалений."
+      created: "Продукт був успішно створений"
+      updated: "Продукт був успішно оновлений"
+      deleted: "Продукт був успішно видалений"
     users:
       index:
+        title: "Користувачі"
         main_header: "Адмінпанель"
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         add_user_button: "Створити нового користувача"
+        confirm_block: "Ви справді хочете заблокувати цього користувача?"
+        confirm_unblock: "Ви справді хочете розблокувати цього користувача?"
         confirm_delete: "Ви справді хочете видалити цього користувача?"
         table:
           email_col: "Електронна пошта"
           first_name: "Ім'я"
           last_name: "Прізвище"
           last_visit_col: "Час останнього візиту"
-          view_info_col: "Показати"
+          show: "Показати"
           edit: "Відредагувати"
           ban: "Заблокувати"
           delete: "Видалити"
@@ -275,6 +291,9 @@ uk:
           calculator_slug: "Шлях"
           calculator_name: "Назва"
           calculator_actions: "Дії"
+          show: "Показати"
+          edit: "Відредагувати"
+          delete: "Видалити"
       edit:
         add_new_field_label: "Додати нове поле"
         form:
@@ -486,7 +505,7 @@ uk:
         resend_confirmation_button: "Надіслати запит на підтвердження знову"
         resend_confirmation_instructions_header: "Надіслати запит на підтвердження знову"
     failure:
-      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову."
+      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть до системи знову"
   models:
     calculator: "Калькулятор"
     category: "Категорію"
@@ -531,8 +550,19 @@ uk:
         calculator:
           attributes:
             name:
-              too_long: " занадто довга (максимум %{count} знаків)"
-              name_format_validation: " допускаються тільки літери та цифри"
+              blank: "не може бути порожньою"
+              too_long:
+                one: "занадто довга (максимум %{count} знак)"
+                few: "занадто довга (максимум %{count} знаки)"
+                many: "занадто довга (максимум %{count} знаків)"
+                other: "занадто довга (максимум %{count} знаків)"
+              too_short:
+                one: "занадто коротка (мінімум %{count} знак)"
+                few: "занадто коротка (мінімум %{count} знаки)"
+                many: "занадто коротка (мінімум %{count} знаків)"
+                other: "занадто коротка (мінімум %{count} знаків)"
+              taken: "вже викориcтовується, будь ласка, оберіть іншу"
+              invalid: "містить неприпустимі символи"
         category:
           attributes:
             name:
@@ -548,6 +578,7 @@ uk:
                 many: "занадто коротка (мінімум %{count} знаків)"
                 other: "занадто коротка (мінімум %{count} знаків)"
               invalid: "містить неприпустимі символи"
+              taken: "вже викориcтовується, будь ласка, оберіть іншу"
         site_setting:
           attributes:
             title:
@@ -582,6 +613,10 @@ uk:
                 other: "занадто коротка (мінімум %{count} знаків)"
               taken: "вже викориcтовується, будь ласка, оберіть іншу"
               invalid: "містить неприпустимі символи"
+        price:
+          attributes:
+            sum:
+              less_than: "занадто велика"
         user:
           attributes:
             email:
@@ -627,6 +662,7 @@ uk:
     calculator_deleted: "Калькулятор було успішно видалено"
     user_created: "Користувача було успішно створено"
     user_updated: "Користувача було успішно оновлено"
+    user_deleted: "Користувача було успішно видалено"
     message_sent: "Повідомлення було надіслано"
     category_created: "Категорію було успішно створено"
     category_updated: "Категорію було успішно оновлено"
