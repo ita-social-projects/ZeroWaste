@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_01_083954) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_150024) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -161,15 +161,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_083954) do
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["title"], name: "index_products_on_title", unique: true
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
-  end
-
-  create_table "products_sandbox", id: false, force: :cascade do |t|
-    t.bigint "id"
-    t.uuid "uuid"
-    t.string "title"
-    t.bigint "product_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "site_settings", force: :cascade do |t|
