@@ -349,6 +349,7 @@ uk:
             usage_amount: "Обсяг використання "
             price: "Ціна"
             back_button: "Назад"
+            cannot_edit_period: "Ви не можете редагувати початок та кінець періоду"
         index:
           delete_button:
             confirm_delete: "Ви впевнені що бажаєте видалити цей період?"

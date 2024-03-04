@@ -314,6 +314,7 @@ en:
             usage_amount: "Usage Amount"
             price: "Price"
             back_button: "Back"
+            cannot_edit_period: "You can't edit the start and end of the period"
         index:
           delete_button:
             confirm_delete: "Are you sure you want to delete this period?"

@@ -3,17 +3,16 @@
   <%= simple_form_for period, url: account_diapers_period_path(period, locale: I18n.locale), method: :patch, html: { class: "mt-4" } do |form| %>
 
     <div class="group-wrapper">
-      <div class="input-field-wrapper">
+      <div class="input-field-wrapper" title="<%= t(".cannot_edit_period") %>">
         <%= form.input :period_start,
               label: t(".period_start"),
-              input_html: { value: period.period_start || "--" },
-              readonly: true %>
+              input_html: { value: period.period_start, disabled: true, style: "cursor: not-allowed" } %>
       </div>
 
-      <div class="input-field-wrapper">
+      <div class="input-field-wrapper" title="<%= t(".cannot_edit_period") %>">
         <%= form.input :period_end,
               label: t(".period_end"),
-              readonly: true %>
+              input_html: { disabled: true, style: "cursor: not-allowed" } %>
       </div>
     </div>
 
