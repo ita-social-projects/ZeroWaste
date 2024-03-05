@@ -506,11 +506,11 @@ en:
         product:
           attributes:
             title:
-              blank: can't be blank
-              too_long: too long (maximum %{count} symbols)
-              too_short: too short (minimum %{count} symbols)
-              taken: has already been taken, please choose another one
-              invalid: contains invalid characters
+              blank: "can't be blank"
+              too_long: "is too long (maximum %{count} symbols)"
+              too_short: "is too short (minimum %{count} symbols)"
+              taken: "has already been taken, please choose another one"
+              invalid: "contains invalid characters"
         price:
           attributes:
             sum:
