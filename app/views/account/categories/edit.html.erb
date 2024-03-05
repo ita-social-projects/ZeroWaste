@@ -7,7 +7,7 @@
         <% if @unfilled_categories&.exclude?(@category) %>
           <%= f.input :preferable, as: :boolean,
           class: "form-control",
-          input_html: { disabled: (@category.preferable?) } %>
+          input_html: { disabled: (@category.preferable) } %>
         <% end %>
       </div>
     </div>

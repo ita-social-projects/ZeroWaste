@@ -14,8 +14,6 @@
 class Category < ApplicationRecord
   PRIORITY_RANGE = 0..10
 
-  enum preferable: { not_preferable: "0", preferable: "1" }
-
   has_many :prices, dependent: :destroy
   has_many :diapers_periods, dependent: :destroy
   has_many :category_categoryables, dependent: :restrict_with_exception
@@ -32,6 +30,10 @@ class Category < ApplicationRecord
   scope :ordered_by_name, -> { order(:name) }
   scope :ordered_by_priority, -> { order(:priority) }
   scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
+
+  def self.preferable
+    find_by(preferable: true)
+  end
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "priority", "updated_at"]

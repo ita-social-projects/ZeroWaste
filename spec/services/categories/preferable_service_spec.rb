@@ -4,7 +4,7 @@ RSpec.describe Categories::PreferableService do
   describe "#call" do
     let!(:become_preferable_category) { create(:category, :medium) }
     let!(:category) { create(:category, name: "category") }
-    let!(:current_preferable_category) { create(:category, name: "current preferable category", preferable: "1") }
+    let!(:current_preferable_category) { create(:category, name: "current preferable category", preferable: true) }
     let!(:service) { described_class.new(become_preferable_category) }
 
     context "when the category is preferable" do
@@ -13,7 +13,7 @@ RSpec.describe Categories::PreferableService do
 
         category.reload
         if category != become_preferable_category
-          expect(category.preferable?).to be(false)
+          expect(category.preferable).to be(false)
         end
       end
     end
@@ -23,7 +23,7 @@ RSpec.describe Categories::PreferableService do
         service.call
 
         current_preferable_category.reload
-        expect(current_preferable_category.preferable?).to be(false)
+        expect(current_preferable_category.preferable).to be(false)
       end
     end
   end

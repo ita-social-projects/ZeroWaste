@@ -17,6 +17,6 @@ class Api::V1::DiaperCalculatorsController < ApplicationController
   private
 
   def set_category_id
-    params[:category_id].presence || Category.find_by(preferable: :preferable)
+    params[:category_id].presence || Category.preferable.id
   end
 end
