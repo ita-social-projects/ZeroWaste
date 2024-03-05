@@ -5,8 +5,8 @@ class Account::SiteSettingsController < Account::BaseController
 
   def edit
     @site_setting        = resource
-    @categories          = DiapersPeriod.categories_with_periods
-    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @categories          = Category.with_diapers_periods
+    @unfilled_categories = Category.with_unfilled_diapers_periods
   end
 
   def update

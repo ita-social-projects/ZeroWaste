@@ -1,7 +1,7 @@
 class Account::DiapersPeriodsController < Account::BaseController
   def index
     @category            = Category.find(params[:category_id])
-    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @unfilled_categories = Category.with_unfilled_diapers_periods
     @diapers_periods     = @category.diapers_periods.order(:id)
   end
 
@@ -17,7 +17,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def create
     @category            = Category.find(params[:diapers_period][:category_id])
-    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @unfilled_categories = Category.with_unfilled_diapers_periods
     @diapers_period      = @category.diapers_periods.build(diapers_period_params)
     @diapers_periods     = @category.diapers_periods.order(:id)
 
@@ -30,7 +30,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def update
     @category            = Category.find(params[:diapers_period][:category_id])
-    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @unfilled_categories = Category.with_unfilled_diapers_periods
     @diapers_period      = DiapersPeriod.find(params[:id])
     @diapers_periods     = @category.diapers_periods.order(:id)
 
@@ -44,7 +44,7 @@ class Account::DiapersPeriodsController < Account::BaseController
   def destroy
     @diapers_period      = DiapersPeriod.find(params[:id])
     @category            = @diapers_period.category
-    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @unfilled_categories = Category.with_unfilled_diapers_periods
     @diapers_periods     = @category.diapers_periods.order(:id)
 
     if @diapers_period.destroy
@@ -55,12 +55,12 @@ class Account::DiapersPeriodsController < Account::BaseController
   end
 
   def available_categories
-    @categories = DiapersPeriod.available_categories
+    @categories = Category.without_diapers_periods
   end
 
   def categories
-    @unfilled_categories     = DiapersPeriod.unfilled_categories
-    @categories_with_periods = DiapersPeriod.categories_with_periods
+    @unfilled_categories     = Category.with_unfilled_diapers_periods
+    @categories_with_periods = Category.with_diapers_periods
   end
 
   def destroy_category

@@ -30,27 +30,6 @@ class DiapersPeriod < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
 
-  def self.categories_with_periods
-    Category.joins(:diapers_periods).group(:id).order("MIN(diapers_periods.price) ASC")
-  end
-
-  def self.available_categories
-    Category.left_outer_joins(:diapers_periods).where(diapers_periods: { category_id: nil }).distinct
-  end
-
-  def self.unfilled_categories
-    Category.left_outer_joins(:diapers_periods)
-            .group(:id)
-            .having("MAX(diapers_periods.period_end) IS NULL OR MAX(diapers_periods.period_end) < ?", 30)
-  end
-
-  def self.ordered_categories
-    Category.where.not(id: DiapersPeriod.unfilled_categories)
-            .joins(:diapers_periods)
-            .group(:id)
-            .order("MIN(diapers_periods.price) ASC")
-  end
-
   def self.start_date(category)
     last_period = category.diapers_periods.order(:created_at).last
     last_period ? (last_period.period_end + 1) : 1

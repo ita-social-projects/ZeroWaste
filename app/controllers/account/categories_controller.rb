@@ -14,7 +14,7 @@ class Account::CategoriesController < Account::BaseController
 
   def edit
     @category            = resource
-    @unfilled_categories = DiapersPeriod.unfilled_categories
+    @unfilled_categories = Category.with_unfilled_diapers_periods
   end
 
   def create
