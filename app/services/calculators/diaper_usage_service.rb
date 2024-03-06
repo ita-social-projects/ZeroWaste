@@ -36,6 +36,15 @@ class Calculators::DiaperUsageService
 
     @to_be_used_diapers_amount = used_diapers_amount_all_periods - used_diapers_amount
     @to_be_used_diapers_price  = used_diapers_price_all_periods - used_diapers_price
-    self
+  end
+
+  def result
+    {
+      age: @age,
+      used_diapers_amount: @used_diapers_amount,
+      to_be_used_diapers_amount: @to_be_used_diapers_amount,
+      used_diapers_price: @used_diapers_price,
+      to_be_used_diapers_price: @to_be_used_diapers_price
+    }
   end
 end
