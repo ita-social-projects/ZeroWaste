@@ -18,6 +18,6 @@ describe "visit Login page", js: true do
     fill_in "Password", with: user.password
     click_button "Log In"
     expect(page).to have_content("Signed in successfully")
-    expect(page).to have_link("Log Out", href: destroy_user_session_path(locale: "en"), visible: :all)
+    expect(page).to have_link("Log Out", href: destroy_user_session_path, visible: :all)
   end
 end
