@@ -1,7 +1,6 @@
 <%= turbo_frame_tag :diapers_periods do %>
   <h3><strong><%= t(".new_period") %> <%= category.name %></strong></h3>
-  <%= simple_form_for period, url: account_diapers_periods_path(locale: I18n.locale), html: { class: "mt-4" } do |form| %>
-
+  <%= simple_form_for(period, url: account_diapers_periods_path(id: period), html: { class: "mt-4" }) do |form| %>
     <div class="group-wrapper">
       <div class="input-field-wrapper">
         <%= form.input :period_start,

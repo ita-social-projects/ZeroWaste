@@ -1,7 +1,6 @@
 <%= turbo_frame_tag :diapers_periods do %>
   <h3><strong><%= t(".edit_name") %></strong></h3>
-  <%= simple_form_for period, url: account_diapers_period_path(period, locale: I18n.locale), method: :patch, html: { class: "mt-4" } do |form| %>
-
+  <%= simple_form_for(period, url: account_diapers_period_path(id: period), method: :patch, html: { class: "mt-4" }) do |form| %>
     <div class="group-wrapper">
       <div class="input-field-wrapper" title="<%= t(".cannot_edit_period") %>">
         <%= form.input :period_start,

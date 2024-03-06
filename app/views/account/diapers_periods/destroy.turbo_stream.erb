@@ -1,14 +1,16 @@
 <%= turbo_stream.remove(dom_id(@diapers_period)) %>
 
-<%= turbo_stream.replace(
-      dom_id(@diapers_periods.last, "delete_button"),
-      partial: "account/diapers_periods/partials/index/delete_button",
-      locals: {
-        category: @category,
-        diapers_period: @diapers_periods.last,
-        diapers_periods: @diapers_periods
-      }
-    ) if @diapers_periods.present? %>
+<% if @diapers_periods.present? %>
+  <%= turbo_stream.replace(
+        dom_id(@diapers_periods.last, "delete_button"),
+        partial: "account/diapers_periods/partials/index/delete_button",
+        locals: {
+          category: @category,
+          diapers_period: @diapers_periods.last,
+          diapers_periods: @diapers_periods
+        }
+      ) %>
+<% end %>
 
 <%= turbo_stream.replace(
       :add_new_link,
