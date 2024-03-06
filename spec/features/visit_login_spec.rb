@@ -16,8 +16,8 @@ describe "visit Login page", js: true do
     visit "/users/sign_in"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-    click_button "Log in"
+    click_button "Log In"
     expect(page).to have_content("Signed in successfully")
-    expect(page).to have_content("LOG OUT")
+    expect(page).to have_link("Log Out", href: destroy_user_session_path, visible: :all)
   end
 end
