@@ -286,8 +286,6 @@ uk:
           unblocked_label: "Розблокований"
     calculators:
       index:
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         add_calculator_button: "Додати калькулятор"
         confirm_delete: "Ви справді хочете видалити калькулятор?"
         table:

@@ -295,8 +295,6 @@ en:
         confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
     calculators:
       index:
-        search_placeholder: "Search"
-        search_button: "Search"
         add_calculator_button: "Add calculator"
         confirm_delete: "Are you sure you want to delete calculator?"
         table:
