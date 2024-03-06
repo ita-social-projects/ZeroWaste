@@ -31,7 +31,7 @@ class Account::CategoriesController < Account::BaseController
     @category = resource
 
     if @category.update(category_params)
-      Categories::PreferableService.new(@category).call if @category.preferable
+      Categories::PreferableService.new(@category).call if @category.preferable?
       redirect_to account_categories_path, notice: t("notifications.category_updated")
     else
       render :edit, status: :unprocessable_entity

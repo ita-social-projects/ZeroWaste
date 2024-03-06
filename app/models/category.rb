@@ -14,6 +14,8 @@
 class Category < ApplicationRecord
   PRIORITY_RANGE = 0..10
 
+  enum preferable: { not_preferable: false, preferable: true }
+
   has_many :prices, dependent: :destroy
   has_many :diapers_periods, dependent: :destroy
   has_many :category_categoryables, dependent: :restrict_with_exception
@@ -45,10 +47,6 @@ class Category < ApplicationRecord
          .group("categories.id")
          .order("MIN(diapers_periods.price) ASC")
   }
-
-  def self.preferable
-    find_by(preferable: true)
-  end
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "priority", "updated_at"]

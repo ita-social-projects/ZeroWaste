@@ -10,6 +10,6 @@ module ApplicationHelper
   end
 
   def highlighted_row(object)
-    object.preferable ? "table-success" : "text-inherit"
+    object.preferable? ? "table-success" : "text-inherit"
   end
 end

@@ -5,9 +5,15 @@
         <%= f.input :name, class: "form-control col-sm-11", required: true %>
         <%= f.input :priority, collection: Category::PRIORITY_RANGE, wrapper: :custom_vertical_select %>
         <% if @unfilled_categories&.exclude?(@category) %>
-          <%= f.input :preferable, as: :boolean,
-          class: "form-control",
-          input_html: { disabled: (@category.preferable) } %>
+          <div class="my-4">
+            <%= f.check_box :preferable,
+                            { disabled: (@category.preferable?),
+                              class: (@category.preferable? ? "opacity-50 cursor-not-allowed" : "")
+                            },
+                            "preferable", "not_preferable"
+                  %>
+            <%= f.label :preferable %>
+          </div>
         <% end %>
       </div>
     </div>

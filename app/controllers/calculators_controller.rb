@@ -22,7 +22,7 @@ class CalculatorsController < ApplicationController
 
   def calculator
     @diaper_categories   = Category.ordered_by_diapers_periods_price
-    @preferable_category = Category.preferable
+    @preferable_category = Category.preferable.first
 
     if Flipper[:new_calculator_design].enabled?
       render "calculators/new_calculator"

@@ -10,7 +10,7 @@
     </thead>
     <tbody class="admin-table-links">
       <% @calculators.each do |calculator| %>
-        <tr class="<%= calculator.preferable ? "table-success" : "text-inherit" %>">
+        <tr class="<%= calculator.preferable? ? "table-success" : "text-inherit" %>">
           <td><%= calculator.id %></td>
           <td><%= calculator.name %></td>
           <td class="text-center actions">

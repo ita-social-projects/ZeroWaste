@@ -6,8 +6,8 @@ class Categories::PreferableService
   end
 
   def call
-    if @category.preferable
-      Category.where.not(id: @category.id).update(preferable: false)
+    if @category.preferable?
+      Category.where.not(id: @category.id).update(preferable: :not_preferable)
     end
   end
 end

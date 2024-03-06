@@ -29,7 +29,7 @@
                   )%>
             </td>
             <td class="text-center">
-              <% if category.preferable %>
+              <% if category.preferable? %>
                 <div class="relative inline-block cursor-help">
                   <span title="<%= t(".cannot_delete_category") %>"><i class="mx-2 fa fa-trash"></i></span>
                 </div>

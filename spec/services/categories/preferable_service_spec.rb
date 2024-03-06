@@ -12,9 +12,7 @@ RSpec.describe Categories::PreferableService do
         service.call
 
         category.reload
-        if category != become_preferable_category
-          expect(category.preferable).to be(false)
-        end
+        expect(category.preferable).to eq("not_preferable")
       end
     end
 
@@ -23,7 +21,7 @@ RSpec.describe Categories::PreferableService do
         service.call
 
         current_preferable_category.reload
-        expect(current_preferable_category.preferable).to be(false)
+        expect(current_preferable_category.preferable).to eq("not_preferable")
       end
     end
   end
