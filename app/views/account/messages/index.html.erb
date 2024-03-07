@@ -1,11 +1,10 @@
 <div class="container">
   <% set_meta_tags(title: t(".title")) %>
-    <div class="col-md-6">
-      <%= search_form_for(@q, url: [:account, :messages], method: :get, class: "d-flex mb-5") do |f| %>
-        <%= f.search_field :title_or_email_or_message_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
-        <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
-      <% end %>
-  </div>
+  <%= render partial: "account/shared/search_form", locals: {
+        q: @q,
+        search_url: account_messages_path,
+        search_attribute: :title_or_email_or_message_cont
+      } %>
 
   <table aria-label="messages table" class="table admin-table">
     <caption class="sr-only">This table displays a list of messages.</caption>

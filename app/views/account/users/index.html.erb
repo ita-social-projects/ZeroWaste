@@ -1,18 +1,17 @@
 <div class="container home">
   <% set_meta_tags(title: t(".title")) %>
   <div class="row align-items-end">
-    <div class="col-md-6">
-      <%= search_form_for(@q, url: [:account, :users], method: :get, class: "d-flex mb-2 mb-md-5") do |f| %>
-        <%= f.search_field :email_or_first_name_or_last_name_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
-        <%= f.button t(".search_button"), class: "btn btn-blue px-4" %>
-      <% end %>
-    </div>
+    <%= render partial: "account/shared/search_form", locals: {
+          q: @q,
+          search_url: account_users_path,
+          search_attribute: :email_or_first_name_or_last_name_cont
+        } %>
+
     <div class="col-md-6 text-md-end mb-md-5">
       <div class="mb-2" style="display: inline-block;">
         <h1 class="text-body d-inline"><%= t(".main_header") %></h1>
         <h3 class="d-inline"><%= link_to icon("fa-solid", "download"), account_users_path(format: "csv") %></h3>
       </div>
-    </div>
     </div>
 
     <table aria-label="users table" class="table admin-table">
@@ -55,5 +54,4 @@
       </tbody>
     </table>
   </div>
-</div>
 </div>
