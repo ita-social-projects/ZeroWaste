@@ -172,8 +172,6 @@ uk:
         update: "Оновити"
     messages:
       index:
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         table:
           title: "Заголовок"
           email: "Електронна пошта"
@@ -188,8 +186,6 @@ uk:
           time_col: "Дата"
     categories:
       index:
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
@@ -237,8 +233,6 @@ uk:
       index:
         title: "Користувачі"
         main_header: "Адмінпанель"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         add_user_button: "Створити нового користувача"
         confirm_block: "Ви справді хочете заблокувати цього користувача?"
         confirm_unblock: "Ви справді хочете розблокувати цього користувача?"
