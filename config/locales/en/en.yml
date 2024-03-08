@@ -381,7 +381,7 @@ en:
     histories:
       index:
         history_title: "History"
-        back_link: "Back"
+        back_link: "Up"
         table:
           version_created_at: "Version creation date"
           event_ID: "Event ID"

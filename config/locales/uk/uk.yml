@@ -387,7 +387,7 @@ uk:
     histories:
       index:
         history_title: "Історія"
-        back_link: "Назад"
+        back_link: "Наверх"
         table:
           version_created_at: "Дата створення версії"
           event_ID: "ID події"
