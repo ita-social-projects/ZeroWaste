@@ -49,7 +49,7 @@ Rails.application.routes.draw do
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
 
       resource :site_setting, only: [:edit, :update] do
-        patch :revert
+        put :revert
       end
 
       scope module: :calculators do

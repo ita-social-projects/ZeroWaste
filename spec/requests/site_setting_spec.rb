@@ -52,12 +52,12 @@ RSpec.describe Account::SiteSettingsController, type: :request do
     end
   end
 
-  describe "PATCH #revert" do
+  describe "PUT #revert" do
     context "with valid params" do
       before { site_setting.update(site_setting_params_new_title) }
 
       it "reverts site setting" do
-        patch revert_account_site_setting_path
+        put revert_account_site_setting_path
 
         expect(response).to redirect_to(edit_account_site_setting_path)
         expect(flash[:notice]).to eq(I18n.t("notifications.site_setting_reverted"))
@@ -74,7 +74,7 @@ RSpec.describe Account::SiteSettingsController, type: :request do
       before { allow(site_setting).to receive(:update).and_return(false) }
 
       it "renders edit page with error message" do
-        patch revert_account_site_setting_path
+        put revert_account_site_setting_path
 
         expect(response).to render_template(:edit)
         expect(response).to be_unprocessable

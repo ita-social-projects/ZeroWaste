@@ -17,7 +17,7 @@
     <% end %>
 
     <%= button_to t("buttons.revert"), revert_account_site_setting_path,
-                  method: :patch,
+                  method: :put,
                   data: { turbo_confirm: t(".confirm_default") },
                   class: "btn-grey absolute bottom-0 left-0 ml-32" %>
   </div>
