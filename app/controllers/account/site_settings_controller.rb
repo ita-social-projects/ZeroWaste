@@ -18,6 +18,8 @@ class Account::SiteSettingsController < Account::BaseController
   end
 
   def revert
+    @site_setting = resource
+
     if SiteSetting.restore_defaults!
       redirect_to edit_account_site_setting_path, notice: t("notifications.site_setting_reverted")
     else
