@@ -1,3 +1,5 @@
+<% set_meta_tags(title: t(".title")) %>
+
 <div class="position-block">
   <div class="card">
     <div class="p-4 card-block">
@@ -24,8 +26,8 @@
 
         <div class="flex-row-reverse flex-wrap flex gap-3">
           <%= f.submit t(".form.sign_up_button"), class: "btn btn-primary" %>
-          
-          <%= render "devise/shared/links" %>          
+
+          <%= render "devise/shared/links" %>
         </div>
       <% end %>
     </div>

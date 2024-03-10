@@ -39,6 +39,8 @@ en:
     revert: "Revert"
     back: "Back"
   calculators:
+    index:
+      title: "Calculators"
     new_calculator:
       form:
         description: "Child’s age:"
@@ -135,10 +137,11 @@ en:
       thanks: "Thanks for joining and have a great day!"
   messages:
     new:
+      title: "Contact Us"
       contact_us_header: "Contact us"
       email: "Email"
       message: "Message"
-      title: "Title"
+      title1: "Title"
       send: "Send"
       title_hint: "title (min 5 characters)"
       message_hint: "Your message (min 20 characters)"
@@ -171,6 +174,7 @@ en:
         change_password_button: "Change password"
     app_configs:
       edit:
+        title: "App Config"
         diapers_calculator_config: "Diapers calculator configuration"
         first_period: "First period"
         second_period: "Second period"
@@ -184,10 +188,11 @@ en:
         update: "Update"
     messages:
       index:
+        title: "Messages"
         search_placeholder: "Search"
         search_button: "Search"
         table:
-          title: "Title"
+          title1: "Title"
           email: "Email"
           message: "Message"
           show_more: "Show more"
@@ -200,6 +205,7 @@ en:
           time_col: "Date"
     categories:
       index:
+        title: "Categories"
         search_placeholder: "Search"
         search_button: "Search"
         add_category_button: "Add category"
@@ -216,6 +222,7 @@ en:
         prices: "Prices"
         actions: "Actions"
       index:
+        title: "Products"
         add_product_button: "Add product"
         confirm_delete: "Delete product?"
       show:
@@ -287,6 +294,7 @@ en:
         button: "Back"
     site_settings:
       edit:
+        title: "Site Settings"
         site_settings: "Site settings"
         site_features: "Site features"
         dev_features: "Development features"
@@ -295,6 +303,7 @@ en:
         confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
     calculators:
       index:
+        title: "Calculators"
         search_placeholder: "Search"
         search_button: "Search"
         add_calculator_button: "Add calculator"
@@ -382,6 +391,7 @@ en:
         email_label: "Email"
     histories:
       index:
+        title: "History"
         history_title: "History"
         back_link: "Back"
         table:
@@ -407,6 +417,7 @@ en:
         change_password_button: "Change my password"
     sessions:
       new:
+        title: "Log In"
         log_in: "Log in"
     shared:
       links:
@@ -417,6 +428,7 @@ en:
         google_sign_in: "Sign in with Google"
     registrations:
       new:
+        title: "Sign Up"
         sign_up_header: "Sign Up"
         form:
           email_label: "Email"

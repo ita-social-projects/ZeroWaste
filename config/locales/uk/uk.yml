@@ -8,6 +8,8 @@ uk:
     revert: "Скинути"
     back: "Назад"
   calculators:
+    index:
+      title: "Калькулятори"
     new_calculator:
       form:
         description: "Вік дитини:"
@@ -122,10 +124,11 @@ uk:
       thanks: "Дякуємо за приєднання та бажаємо гарного дня!"
   messages:
     new:
+      title: "Зв'яжіться з нами"
       contact_us_header: "Зв'яжіться з нами"
       email: "Електронна пошта"
       message: "Повідомлення"
-      title: "Заголовок"
+      title1: "Заголовок"
       send: "Надіслати"
       title_hint: "Заголовок (мінімум 5 символів)"
       message_hint: "Напишіть ваше повідомлення тут (мінімум 20 символів)"
@@ -159,6 +162,7 @@ uk:
         change_password_button: "Змінити пароль"
     app_configs:
       edit:
+        title: "Налаштування"
         diapers_calculator_config: "Налаштування калькулятора підгузків"
         first_period: "Перший період"
         second_period: "Другий період"
@@ -172,6 +176,7 @@ uk:
         update: "Оновити"
     messages:
       index:
+        title: "Повідомлення"
         search_placeholder: "Пошук"
         search_button: "Шукати"
         table:
@@ -188,6 +193,7 @@ uk:
           time_col: "Дата"
     categories:
       index:
+        title: "Категорії"
         search_placeholder: "Пошук"
         search_button: "Шукати"
         table:
@@ -206,6 +212,7 @@ uk:
           create_category_button: "Створити категорію"
     products:
       index:
+        title: "Продукти"
         table:
           title: "Назва"
           prices: "Ціни"
@@ -286,6 +293,7 @@ uk:
           unblocked_label: "Розблокований"
     calculators:
       index:
+        title: "Калькулятори"
         search_placeholder: "Пошук"
         search_button: "Шукати"
         add_calculator_button: "Додати калькулятор"
@@ -315,6 +323,7 @@ uk:
         error: "помилки"
     site_settings:
       edit:
+        title: "Налаштування сайту"
         site_settings: "Налаштування сайту"
         site_features: "Особливості сайту"
         rails_db_description: "Доступ до бази даних (лише перегляд)"
@@ -388,6 +397,7 @@ uk:
         email_label: "Електронна пошта"
     histories:
       index:
+        title: "Історія"
         history_title: "Історія"
         back_link: "Назад"
         table:
@@ -413,6 +423,7 @@ uk:
         change_password_button: "Змінити пароль"
     sessions:
       new:
+        title: "Увійти"
         log_in: "Увійти"
     shared:
       links:
@@ -423,6 +434,7 @@ uk:
         google_sign_in: "Увійти через Google"
     registrations:
       new:
+        title: "Зареєструватися"
         sign_up_header: "Зареєструватися"
         form:
           email_label: "Електронна пошта"
