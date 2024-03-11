@@ -1,11 +1,12 @@
 <div class="container">
   <% set_meta_tags(title: t(".title")) %>
   <div class="row">
-<%= render partial: "account/shared/search_form", locals: {
-      q: @q,
-      search_url: account_calculators_path,
-      search_attribute: :name_cont
-    } %>
+    <%= render partial: "account/shared/search_form", locals: {
+          q: @q,
+          search_url: account_calculators_path,
+          search_attribute: :name_cont
+        } %>
+
     <div class="col-md-6 text-end">
       <%= link_to new_account_calculator_path, class: "btn btn-green px-4 py-2" do %>
         <i class="fas fa-plus me-2"></i>
