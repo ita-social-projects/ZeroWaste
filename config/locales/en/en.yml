@@ -162,6 +162,9 @@ en:
     title: "Our Team"
     description: "Zero Waste Lviv and SoftServe present a calculator - an online tool for calculating the number of disposable and reusable items used.
     The calculator was developed as part of the charity crowdsourcing platform Open Tech. The technical development is carried out by students of SoftServe Academy."
+  404_page:
+    title: "404 error. Page not found."
+    description: "Sorry, page you requested does not exist or was deleted!"
   account:
     account:
       edit:
