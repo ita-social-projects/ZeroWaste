@@ -118,7 +118,7 @@ describe "visit admin page", js: true do
     context "viewing non-existing user" do
       it "renders the 404 page" do
         visit account_user_path(id: 1355)
-        expect(page).to have_content("page you were looking for doesn't exist")
+        expect(page).to have_content("404 error. Page not found.")
       end
     end
   end
