@@ -1,5 +1,5 @@
 <div class="container">
-  <% set_meta_tags(title: t(".title")) %>
+  <% set_meta_tags(title: t(".meta-title")) %>
     <div class="col-md-6">
       <%= search_form_for(@q, url: [:account, :messages], method: :get, class: "d-flex mb-5") do |f| %>
         <%= f.search_field :title_or_email_or_message_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>

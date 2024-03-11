@@ -1,4 +1,4 @@
-<% set_meta_tags(title: t(".title")) %>
+<% set_meta_tags(title: t(".meta-title")) %>
 
 <div class="position-block">
   <div class="card">
@@ -10,9 +10,9 @@
         <%= form_with model: @message do |form| %>
           <div class="title">
             <div class="text">
-              <%= t('.title1') %>
+              <%= t('.title') %>
             </div>
-            <%= form.text_field :title1, class:'form-control', placeholder: t('.title_hint'), minlength: "5", required: true %>
+            <%= form.text_field :title, class:'form-control', placeholder: t('.title_hint'), minlength: "5", required: true %>
           </div>
           <div class="email">
             <div class="text">
