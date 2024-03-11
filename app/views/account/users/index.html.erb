@@ -1,5 +1,6 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
 <div class="container home">
-  <% set_meta_tags(title: t(".meta-title")) %>
   <div class="row align-items-end">
     <div class="col-md-6">
       <%= search_form_for(@q, url: [:account, :users], method: :get, class: "d-flex mb-2 mb-md-5") do |f| %>

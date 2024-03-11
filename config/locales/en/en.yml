@@ -192,7 +192,7 @@ en:
         search_placeholder: "Search"
         search_button: "Search"
         table:
-          title1: "Title"
+          title: "Title"
           email: "Email"
           message: "Message"
           show_more: "Show more"
