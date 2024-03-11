@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Account::CategoriesController < Account::BaseController
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+
   load_and_authorize_resource
 
   def index
@@ -55,5 +57,9 @@ class Account::CategoriesController < Account::BaseController
 
   def category_params
     params.require(:category).permit(:name, :priority)
+  end
+
+  def render_404
+    render 'errors/admin_404', status: :not_found, layout: 'account'
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Account::UsersController < Account::BaseController
-  rescue_from ActiveRecord::RecordNotFound, with: :render404
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
   layout "account"
 
@@ -79,7 +79,7 @@ class Account::UsersController < Account::BaseController
     User.find(params[:id])
   end
 
-  def render404
-    render file: Rails.public_path.join("404.html"), layout: false, status: :not_found
+  def render_404
+    render 'errors/admin_404', status: :not_found, layout: 'account'
   end
 end

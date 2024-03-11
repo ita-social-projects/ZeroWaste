@@ -1,4 +1,6 @@
 class Account::ProductsController < Account::BaseController
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+
   def index
     @q        = collection.ransack(params[:q])
     @products = @q.result
@@ -62,5 +64,9 @@ class Account::ProductsController < Account::BaseController
   def product_params
     params.require(:product).permit(:title, prices_attributes: [:id,
       :sum, :category_id, :_destroy])
+  end
+
+  def render_404
+    render 'errors/admin_404', status: :not_found, layout: 'account'
   end
 end
