@@ -39,7 +39,7 @@ RSpec.describe Account::DiapersPeriods::CategoriesController, type: :request do
         allow_any_instance_of(Category).to receive_message_chain(:diapers_periods, :destroy_all).and_return(false)
 
         delete account_diapers_periods_category_path(id: category.id, format: :turbo_stream),
-               params: { category_id: category.id  }
+               params: { category_id: category.id }
 
         expect(response).to redirect_to(account_site_setting_path)
         expect(flash[:alert]).to eq(I18n.t("notifications.category_diapers_period_not_deleted"))
