@@ -75,7 +75,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get '/404', to: 'errors#not_found'
-    get '*unmatched_route', to: 'errors#not_found'
+    get "/404", to: "errors#not_found"
+    get "*unmatched_route", to: "errors#not_found"
   end
 end

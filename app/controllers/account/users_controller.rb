@@ -80,6 +80,6 @@ class Account::UsersController < Account::BaseController
   end
 
   def render_404
-    render 'errors/admin_404', status: :not_found, layout: 'account'
+    render "errors/admin_404", status: :not_found, layout: "account"
   end
 end
