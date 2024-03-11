@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       resources :users
       resources :calculators, param: :slug
       resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
-      resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :products
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]

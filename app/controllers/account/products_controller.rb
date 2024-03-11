@@ -6,6 +6,10 @@ class Account::ProductsController < Account::BaseController
     @products = @q.result
   end
 
+  def show
+    @product = resource
+  end
+
   def new
     @product = Product.new
   end

@@ -34,6 +34,16 @@ RSpec.describe Account::ProductsController, type: :request do
     end
   end
 
+  describe "GET :show" do
+    it "is successful" do
+      get account_product_path(product)
+
+      expect(response).to be_successful
+      expect(response).to render_template(:show)
+      expect(response.body).to include(product.title)
+    end
+  end
+
   describe "GET :edit" do
     let!(:category) { create(:category, :budgetary) }
 
