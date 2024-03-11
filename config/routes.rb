@@ -47,10 +47,9 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :show]
       resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
-      get "/site_setting", to: "site_settings#edit", as: "site_setting"
 
       resource :site_setting, only: [:edit, :update] do
-        post :revert
+        put :revert
       end
 
       scope module: :calculators do
