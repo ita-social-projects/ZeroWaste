@@ -52,11 +52,12 @@ Rails.application.routes.draw do
         post :revert
       end
 
-      resources :diapers_periods do
-        collection do
-          get :available_categories
-          get :categories
-          delete :destroy_category
+      resources :diapers_periods
+
+      namespace :diapers_periods do
+        resources :categories, only: [:destroy] do
+          get :with_periods, on: :collection
+          get :available, on: :collection
         end
       end
 

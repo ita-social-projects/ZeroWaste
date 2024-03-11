@@ -286,26 +286,6 @@ en:
         confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
     diapers_periods:
       partials:
-        available_categories:
-          content:
-            available: "Select category:"
-            no_categories_available: "No Available categories. Create new Category."
-            category_name: "Category name"
-            confirm_delete: "Are you sure you want to delete all periods?"
-            back_button: "Back"
-            table:
-              add: "Add"
-        categories:
-          content:
-            category_name: "Category name"
-            confirm_delete: "Are you sure you want to delete all periods?"
-            table:
-              show: "Show"
-              delete: "Delete"
-            no_categories: "No diapers categories found. Add some from Available list."
-            add_button: "Add New"
-            tooltip: "This category isn't shown in Calculator, because it doesn't have all periods covered."
-            cannot_delete_category: "You can't delete periods in preferable category."
         edit:
           form:
             edit_name: "Edit Diapers Period"
@@ -344,6 +324,28 @@ en:
             usage_amount: "Usage Amount"
             price: "Price"
           back_button: "Back"
+      categories:
+        partials:
+          available:
+            content:
+              available: "Select category:"
+              no_categories_available: "No Available categories. Create new Category."
+              category_name: "Category name"
+              confirm_delete: "Are you sure you want to delete all periods?"
+              back_button: "Back"
+              table:
+                add: "Add"
+          with_periods:
+            content:
+              category_name: "Category name"
+              confirm_delete: "Are you sure you want to delete all periods?"
+              table:
+                show: "Show"
+                delete: "Delete"
+              no_categories: "No diapers categories found. Add some from Available list."
+              add_button: "Add New"
+              tooltip: "This category isn't shown in Calculator, because it doesn't have all periods covered."
+              cannot_delete_category: "You can't delete periods in preferable category."
     calculators:
       index:
         search_placeholder: "Search"

@@ -10,7 +10,9 @@ class Account::SiteSettingsController < Account::BaseController
   end
 
   def update
-    @site_setting = resource
+    @site_setting        = resource
+    @categories          = Category.with_diapers_periods
+    @unfilled_categories = Category.with_unfilled_diapers_periods
 
     if @site_setting.update(site_setting_params)
       redirect_to edit_account_site_setting_path, notice: t("notifications.site_setting_updated")

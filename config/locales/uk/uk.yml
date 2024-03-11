@@ -321,26 +321,6 @@ uk:
         confirm_default: "Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та іконки сайту?"
     diapers_periods:
       partials:
-        available_categories:
-          content:
-            available: "Оберіть категорію:"
-            no_categories_available: "Немає доступних категорій. Створіть нову категорію."
-            category_name: "Назва категорії"
-            confirm_delete: "Видалити всі періоди?"
-            back_button: "Назад"
-            table:
-              add: "Додати"
-        categories:
-          content:
-            category_name: "Назва категорії"
-            confirm_delete: "Видалити всі періоди?"
-            table:
-              show: "Показати"
-              delete: "Видалити"
-            no_categories: "Не знайдено періодів для підгузків. Додайте новий зі списку доступних."
-            add_button: "Додати"
-            tooltip: "Ця категорія не відображається в Калькуляторі, оскільки вона не охоплює всі періоди."
-            cannot_delete_category: "Ви не можете видалити періоди в основній категорії."
         edit:
           form:
             edit_name: "Редагувати періоди для підгузків"
@@ -380,6 +360,28 @@ uk:
             price: "Ціна"
             back_button: "Назад"
           back_button: "Назад"
+      categories:
+        partials:
+          available:
+            content:
+              available: "Оберіть категорію:"
+              no_categories_available: "Немає доступних категорій. Створіть нову категорію."
+              category_name: "Назва категорії"
+              confirm_delete: "Видалити всі періоди?"
+              back_button: "Назад"
+              table:
+                add: "Додати"
+          with_periods:
+            content:
+              category_name: "Назва категорії"
+              confirm_delete: "Видалити всі періоди?"
+              table:
+                show: "Показати"
+                delete: "Видалити"
+              no_categories: "Не знайдено періодів для підгузків. Додайте новий зі списку доступних."
+              add_button: "Додати"
+              tooltip: "Ця категорія не відображається в Калькуляторі, оскільки вона не охоплює всі періоди."
+              cannot_delete_category: "Ви не можете видалити періоди в основній категорії."
     feature_flags:
       submit_button: "Зберегти"
       new_calculator_design:

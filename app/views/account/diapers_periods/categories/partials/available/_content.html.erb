@@ -1,7 +1,7 @@
 <%= turbo_frame_tag :diapers_periods do %>
   <h3><strong><%= t(".available") %></strong></h3>
   <br>
-  <% if categories.exists? %>
+  <% if categories.present? %>
     <table class="table admin-table">
       <thead class="border-b border-gray-600">
         <tr>
@@ -32,7 +32,7 @@
 
   <%= link_to(
         (t".back_button"),
-        categories_account_diapers_periods_path,
+        with_periods_account_diapers_periods_categories_path,
         data: { turbo_stream: true },
         class: "btn-grey px-4 py-2"
       ) %>
