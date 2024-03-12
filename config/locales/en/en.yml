@@ -39,6 +39,8 @@ en:
     revert: "Revert"
     back: "Back"
   calculators:
+    index:
+      meta-title: "Calculators"
     new_calculator:
       form:
         description: "Child’s age:"
@@ -135,6 +137,7 @@ en:
       thanks: "Thanks for joining and have a great day!"
   messages:
     new:
+      meta-title: "Contact Us"
       contact_us_header: "Contact us"
       email: "Email"
       message: "Message"
@@ -171,6 +174,7 @@ en:
         change_password_button: "Change password"
     app_configs:
       edit:
+        meta-title: "App Config"
         diapers_calculator_config: "Diapers calculator configuration"
         first_period: "First period"
         second_period: "Second period"
@@ -184,6 +188,7 @@ en:
         update: "Update"
     messages:
       index:
+        meta-title: "Messages"
         table:
           title: "Title"
           email: "Email"
@@ -198,6 +203,7 @@ en:
           time_col: "Date"
     categories:
       index:
+        meta-title: "Categories"
         add_category_button: "Add category"
         confirm_delete: "Delete category?"
       edit:
@@ -208,6 +214,7 @@ en:
           create_category_button: "Create category"
     products:
       index:
+        meta-title: "Products"
         table:
           title: "Title"
           prices: "Prices"
@@ -231,7 +238,7 @@ en:
       deleted: "A product was successfully deleted"
     users:
       index:
-        title: "Users"
+        meta-title: "Users"
         main_header: "Dashboard"
         add_user_button: "Add user"
         confirm_block: "Are you sure you want to block this user?"
@@ -281,6 +288,7 @@ en:
         button: "Back"
     site_settings:
       edit:
+        meta-title: "Site Settings"
         site_settings: "Site settings"
         site_features: "Site features"
         dev_features: "Development features"
@@ -289,6 +297,7 @@ en:
         confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
     calculators:
       index:
+        meta-title: "Calculators"
         add_calculator_button: "Add calculator"
         confirm_delete: "Are you sure you want to delete calculator?"
         table:
@@ -374,6 +383,7 @@ en:
         email_label: "Email"
     histories:
       index:
+        meta-title: "History"
         history_title: "History"
         back_link: "Back"
         table:
@@ -399,6 +409,7 @@ en:
         change_password_button: "Change my password"
     sessions:
       new:
+        meta-title: "Log In"
         log_in: "Log In"
     shared:
       links:
@@ -409,6 +420,7 @@ en:
         google_sign_in: "Sign in with Google"
     registrations:
       new:
+        meta-title: "Sign Up"
         sign_up_header: "Sign Up"
         form:
           email_label: "Email"

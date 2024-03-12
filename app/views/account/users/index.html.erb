@@ -1,5 +1,6 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
 <div class="container home">
-  <% set_meta_tags(title: t(".title")) %>
   <div class="row align-items-end">
     <%= render partial: "account/shared/search_form", locals: {
           q: @q,

@@ -1,5 +1,6 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
 <div class="container">
-  <% set_meta_tags(title: t(".title")) %>
   <%= render partial: "account/shared/search_form", locals: {
         q: @q,
         search_url: account_messages_path,

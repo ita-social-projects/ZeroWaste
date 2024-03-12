@@ -55,10 +55,10 @@ uk:
       to_main: "На головну"
       calculate: "Розрахувати"
     index:
+      meta-title: "Калькулятори"
       id_column: "№"
       calculator_name: "Назва"
       calculator_actions: "Дії"
-
     date:
       months:
         one: "%{count} місяць"
@@ -122,6 +122,7 @@ uk:
       thanks: "Дякуємо за приєднання та бажаємо гарного дня!"
   messages:
     new:
+      meta-title: "Зв'яжіться з нами"
       contact_us_header: "Зв'яжіться з нами"
       email: "Електронна пошта"
       message: "Повідомлення"
@@ -159,6 +160,7 @@ uk:
         change_password_button: "Змінити пароль"
     app_configs:
       edit:
+        meta-title: "Налаштування"
         diapers_calculator_config: "Налаштування калькулятора підгузків"
         first_period: "Перший період"
         second_period: "Другий період"
@@ -172,6 +174,9 @@ uk:
         update: "Оновити"
     messages:
       index:
+        meta-title: "Повідомлення"
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         table:
           title: "Заголовок"
           email: "Електронна пошта"
@@ -186,6 +191,9 @@ uk:
           time_col: "Дата"
     categories:
       index:
+        meta-title: "Категорії"
+        search_placeholder: "Пошук"
+        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
@@ -202,6 +210,7 @@ uk:
           create_category_button: "Створити категорію"
     products:
       index:
+        meta-title: "Продукти"
         table:
           title: "Назва"
           prices: "Ціни"
@@ -231,7 +240,7 @@ uk:
       deleted: "Продукт був успішно видалений"
     users:
       index:
-        title: "Користувачі"
+        meta-title: "Користувачі"
         main_header: "Адмінпанель"
         add_user_button: "Створити нового користувача"
         confirm_block: "Ви справді хочете заблокувати цього користувача?"
@@ -280,6 +289,7 @@ uk:
           unblocked_label: "Розблокований"
     calculators:
       index:
+        meta-title: "Калькулятори"
         add_calculator_button: "Додати калькулятор"
         confirm_delete: "Ви справді хочете видалити калькулятор?"
         table:
@@ -307,6 +317,7 @@ uk:
         error: "помилки"
     site_settings:
       edit:
+        meta-title: "Налаштування сайту"
         site_settings: "Налаштування сайту"
         site_features: "Особливості сайту"
         rails_db_description: "Доступ до бази даних (лише перегляд)"
@@ -380,6 +391,7 @@ uk:
         email_label: "Електронна пошта"
     histories:
       index:
+        meta-title: "Історія"
         history_title: "Історія"
         back_link: "Назад"
         table:
@@ -405,6 +417,7 @@ uk:
         change_password_button: "Змінити пароль"
     sessions:
       new:
+        meta-title: "Увійти"
         log_in: "Увійти"
     shared:
       links:
@@ -415,6 +428,7 @@ uk:
         google_sign_in: "Увійти через Google"
     registrations:
       new:
+        meta-title: "Зареєструватися"
         sign_up_header: "Зареєструватися"
         form:
           email_label: "Електронна пошта"
