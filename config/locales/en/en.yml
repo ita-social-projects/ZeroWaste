@@ -189,8 +189,6 @@ en:
     messages:
       index:
         meta-title: "Messages"
-        search_placeholder: "Search"
-        search_button: "Search"
         table:
           title: "Title"
           email: "Email"
@@ -206,8 +204,6 @@ en:
     categories:
       index:
         meta-title: "Categories"
-        search_placeholder: "Search"
-        search_button: "Search"
         add_category_button: "Add category"
         confirm_delete: "Delete category?"
       edit:
@@ -217,12 +213,12 @@ en:
         form:
           create_category_button: "Create category"
     products:
-      table:
-        title: "Title"
-        prices: "Prices"
-        actions: "Actions"
       index:
         meta-title: "Products"
+        table:
+          title: "Title"
+          prices: "Prices"
+          actions: "Actions"
         add_product_button: "Add product"
         confirm_delete: "Delete product?"
       show:
@@ -244,8 +240,6 @@ en:
       index:
         meta-title: "Users"
         main_header: "Dashboard"
-        search_placeholder: "Search"
-        search_button: "Search"
         add_user_button: "Add user"
         confirm_block: "Are you sure you want to block this user?"
         confirm_unblock: "Are you sure you want to unblock this user?"
@@ -304,8 +298,6 @@ en:
     calculators:
       index:
         meta-title: "Calculators"
-        search_placeholder: "Search"
-        search_button: "Search"
         add_calculator_button: "Add calculator"
         confirm_delete: "Are you sure you want to delete calculator?"
         table:
@@ -334,15 +326,15 @@ en:
         name: "Enable sandbox mode"
     sessions:
       new:
-        log_in_header: "Log in"
-        log_in_button: "Log in"
+        log_in_header: "Log In"
+        log_in_button: "Log In"
         form:
           email: "Email"
           password: "Password"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
-        log_in: "Log in"
+        log_in: "Log In"
     confirmations:
       new:
         resend_confirmation_instructions_header: "Resend confirmation instructions"
@@ -422,8 +414,8 @@ en:
     shared:
       links:
         forgot_your_password: "Forgot your password?"
-        log_in: "Log in"
-        sign_up: "Sign up"
+        log_in: "Log In"
+        sign_up: "Sign Up"
         sign_in_with: "Sign in with %{provider}"
         google_sign_in: "Sign in with Google"
     registrations:
@@ -523,11 +515,11 @@ en:
         product:
           attributes:
             title:
-              blank: can't be blank
-              too_long: too long (maximum %{count} symbols)
-              too_short: too short (minimum %{count} symbols)
-              taken: has already been taken, please choose another one
-              invalid: contains invalid characters
+              blank: "can't be blank"
+              too_long: "is too long (maximum %{count} symbols)"
+              too_short: "is too short (minimum %{count} symbols)"
+              taken: "has already been taken, please choose another one"
+              invalid: "contains invalid characters"
         price:
           attributes:
             sum:

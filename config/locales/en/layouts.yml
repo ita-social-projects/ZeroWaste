@@ -9,4 +9,7 @@ en:
   account:
     shared:
       navigation:
-        donate: "DONATE"
+        donate: "Donate"
+      search_form:
+        search_placeholder: "Search"
+        search_button: "Search"

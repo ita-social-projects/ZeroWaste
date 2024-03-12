@@ -3,17 +3,17 @@
     description: "Information about ZeroWaste organization and team"
 })%>
 
-<section>
-  <h2 class="text-center text-2xl text-success"><%= t('about_us.title') %></h2>
-  <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.first_paragraph') %></p>
-  <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.second_paragraph') %></p>
-  <p class="text-center text-2l text-white mx-16 mb-4"><%= t('about_us.description.third_paragraph') %></p>
+<section class="jumbotron main-container rounded mt-16">
+  <h2 class="text-center text-2xl text-success my-8 "><%= t('about_us.title') %></h2>
+  <p class="text-center text-xl text-black"><%= t('about_us.description.first_paragraph') %></p>
+  <p class="text-center text-xl text-black"><%= t('about_us.description.second_paragraph') %></p>
+  <p class="text-center text-xl text-black mb-8"><%= t('about_us.description.third_paragraph') %></p>
 </section>
-<section>
-  <h2 class="text-center text-2xl text-success"><%= t('our_team.title') %></h2>
-  <p class="text-center text-2l text-white mx-4 mb-4"><%= t('our_team.description') %></p>
+<section class="jumbotron main-container rounded mt-16">
+  <h2 class="text-center text-2xl text-success my-8"><%= t('our_team.title') %></h2>
+  <p class="text-center text-xl text-black"><%= t('our_team.description') %></p>
+  <div class="flex justify-between items-center mt-24">
+    <%= link_to image_tag("logo_zerowaste.png", alt: "Zero Waste Logo", class: "logo-zerowaste"), "https://zerowastelviv.org.ua/", target: "_blank", rel: "noopener" %>
+    <%= link_to image_tag("softserve_academy_logo.png", alt: "Softserve Academy Logo", class: "logo-zerowaste"), "https://career.softserveinc.com/uk-ua/softserve-academy", target: "_blank", rel: "noopener" %>
+  </div>
 </section>
-<div class="flex justify-evenly items-center">
-  <%= link_to image_tag("logo_zerowaste.png", class: "logo-zerowaste"), "https://zerowastelviv.org.ua/", target: "_blank" %>
-  <%= link_to image_tag("softserve_academy_logo.png", class: "logo-zerowaste"), "https://career.softserveinc.com/uk-ua/softserve-academy",target: "_blank" %>
-</div>

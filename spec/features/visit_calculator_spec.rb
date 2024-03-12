@@ -14,6 +14,7 @@ describe "visit Calculator page", js: true do
 
   it "visits calculator page and open log_in page" do
     visit "#{I18n.locale}/calculator"
+    page.driver.browser.manage.window.resize_to(1920, 1080)
     click_link("Log In")
 
     expect(page).to have_content "Forgot your password"

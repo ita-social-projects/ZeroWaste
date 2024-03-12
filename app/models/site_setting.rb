@@ -25,6 +25,19 @@ class SiteSetting < ApplicationRecord
 
   singleton_class.alias_method :current, :instance
 
+  def self.restore_defaults!
+    default_attributes = {
+      title: "ZeroWaste",
+      favicon: {
+        io: File.open("app/assets/images/icons/favicon-48x48.png"),
+        filename: "favicon-48x48.png",
+        content_type: "image/png"
+      }
+    }
+
+    SiteSetting.current.update(default_attributes)
+  end
+
   private
 
   def set_default_favicon

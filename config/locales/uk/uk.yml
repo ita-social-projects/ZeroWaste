@@ -242,8 +242,6 @@ uk:
       index:
         meta-title: "Користувачі"
         main_header: "Адмінпанель"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         add_user_button: "Створити нового користувача"
         confirm_block: "Ви справді хочете заблокувати цього користувача?"
         confirm_unblock: "Ви справді хочете розблокувати цього користувача?"
@@ -292,8 +290,6 @@ uk:
     calculators:
       index:
         meta-title: "Калькулятори"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         add_calculator_button: "Додати калькулятор"
         confirm_delete: "Ви справді хочете видалити калькулятор?"
         table:
