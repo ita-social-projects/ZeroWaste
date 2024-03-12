@@ -410,7 +410,7 @@ en:
     sessions:
       new:
         meta-title: "Log In"
-        log_in: "Log in"
+        log_in: "Log In"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
