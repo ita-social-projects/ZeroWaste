@@ -30,6 +30,8 @@ class DiapersPeriod < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
 
+  scope :ordered, -> { order(:id) }
+
   def self.start_date(category)
     last_period = category.diapers_periods.order(:created_at).last
 

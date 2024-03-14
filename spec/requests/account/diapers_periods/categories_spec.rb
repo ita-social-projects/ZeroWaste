@@ -35,14 +35,14 @@ RSpec.describe Account::DiapersPeriods::CategoriesController, type: :request do
     end
 
     context "when destroy fails" do
-      it "redirects to account_site_setting_path with an alert message" do
+      it "returns a turbo stream response with a status" do
         allow_any_instance_of(Category).to receive_message_chain(:diapers_periods, :destroy_all).and_return(false)
 
         delete account_diapers_periods_category_path(id: category.id, format: :turbo_stream),
                params: { category_id: category.id }
 
-        expect(response).to redirect_to(account_site_setting_path)
-        expect(flash[:alert]).to eq(I18n.t("notifications.category_diapers_period_not_deleted"))
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_rendered(:with_periods)
       end
     end
   end
