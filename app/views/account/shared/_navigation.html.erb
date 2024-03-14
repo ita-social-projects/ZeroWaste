@@ -44,7 +44,7 @@
         <%= link_to t(".donate"), "https://zerowastelviv.org.ua/pidtrymaty/", target: "_blank", rel: "noopener", class: "header-btns main-btn btn-outline-green" %>
         <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: "header-btns main-btn btn-outline-gray" %>
       </div>
-      <div class="h-12 w-12 mt-6 ml-2">
+      <div class="mt-6 ml-2">
         <button data-action="click->burger#toggle" class="admin-menu-burger-button">
           <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
           <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
