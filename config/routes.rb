@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   #   authenticate :user do
   #     mount Sidekiq::Web => 'admins/sidekiq'
   #   end
-
   mount Sidekiq::Web => "/sidekiq"
 
   devise_for :users, only: :omniauth_callbacks,
@@ -14,6 +13,10 @@ Rails.application.routes.draw do
     "users/omniauth_callbacks" }
 
   get "/", to: "application#redirection", as: :root_redirection
+
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection
+  end
 
   scope "/(:locale)", locale: /uk|en/ do
     devise_for :users, skip: [:omniauth_callbacks, :registration]
@@ -39,12 +42,12 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create]
     namespace :account do
       root "dashboard#index"
-      resources :users
-      resources :calculators, param: :slug
-      resources :categories
-      resources :products
-      resources :histories, only: :index
-      resources :messages, only: [:index, :show]
+      resources :users, concerns: :paginatable
+      resources :calculators, param: :slug, concerns: :paginatable
+      resources :categories, concerns: :paginatable
+      resources :products, concerns: :paginatable
+      resources :histories, only: :index, concerns: :paginatable
+      resources :messages, only: [:index, :show], concerns: :paginatable
       resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
 

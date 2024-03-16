@@ -6,7 +6,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def index
     @q           = collection.ransack(params[:q])
-    @calculators = @q.result
+    @calculators = @q.result.page(params[:page])
   end
 
   def show

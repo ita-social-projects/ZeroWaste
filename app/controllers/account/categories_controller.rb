@@ -5,7 +5,7 @@ class Account::CategoriesController < Account::BaseController
 
   def index
     @q          = collection.ransack(params[:q])
-    @categories = @q.result
+    @categories = @q.result.page(params[:page])
   end
 
   def new
