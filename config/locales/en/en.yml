@@ -38,6 +38,13 @@ en:
     cancel: "Cancel"
     revert: "Revert"
     back: "Back"
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
   calculators:
     index:
       meta-title: "Calculators"
