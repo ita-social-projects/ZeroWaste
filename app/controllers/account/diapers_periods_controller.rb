@@ -1,7 +1,7 @@
 class Account::DiapersPeriodsController < Account::BaseController
   def index
     @category            = category_resource
-    @unfilled_categories = Category.with_unfilled_diapers_periods
+    @unfilled_categories = category_collection.with_unfilled_diapers_periods
     @diapers_periods     = @category.diapers_periods.ordered
   end
 
@@ -17,7 +17,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def create
     @category            = Category.find(params[:diapers_period][:category_id])
-    @unfilled_categories = Category.with_unfilled_diapers_periods
+    @unfilled_categories = category_collection.with_unfilled_diapers_periods
     @diapers_period      = @category.diapers_periods.build(diapers_period_params)
     @diapers_periods     = @category.diapers_periods.ordered
 
@@ -30,7 +30,7 @@ class Account::DiapersPeriodsController < Account::BaseController
 
   def update
     @category            = Category.find(params[:diapers_period][:category_id])
-    @unfilled_categories = Category.with_unfilled_diapers_periods
+    @unfilled_categories = category_collection.with_unfilled_diapers_periods
     @diapers_period      = DiapersPeriod.find(params[:id])
     @diapers_periods     = @category.diapers_periods.ordered
 
@@ -44,7 +44,7 @@ class Account::DiapersPeriodsController < Account::BaseController
   def destroy
     @diapers_period      = DiapersPeriod.find(params[:id])
     @category            = @diapers_period.category
-    @unfilled_categories = Category.with_unfilled_diapers_periods
+    @unfilled_categories = category_collection.with_unfilled_diapers_periods
     @diapers_periods     = @category.diapers_periods.ordered
 
     if @diapers_period.destroy
