@@ -359,6 +359,7 @@ uk:
             usage_amount: "Обсяг використання "
             price: "Ціна"
             back_button: "Назад"
+            cannot_edit_start_period: "Ви не можете редагувати початок періоду"
           back_button: "Назад"
       categories:
         partials:

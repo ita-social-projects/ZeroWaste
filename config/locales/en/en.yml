@@ -323,6 +323,7 @@ en:
             period_end: "Period End"
             usage_amount: "Usage Amount"
             price: "Price"
+            cannot_edit_start_period: "You can't edit the start of the period"
           back_button: "Back"
       categories:
         partials:

@@ -2,11 +2,11 @@
   <h3><strong><%= t(".new_period") %> <%= category.name %></strong></h3>
   <%= simple_form_for(period, url: account_diapers_periods_path(id: period), html: { class: "mt-4" }) do |form| %>
     <div class="group-wrapper">
-      <div class="input-field-wrapper">
+      <div class="input-field-wrapper" title="<%= t(".cannot_edit_start_period") %>">
         <%= form.input :period_start,
               label: t(".period_start"),
-              input_html: { class: "input-field", value: period.period_start },
-              readonly: true %>
+              input_html: { value: period.period_start, disabled: true, style: "cursor: not-allowed" } %>
+        <%= form.hidden_field :period_start, value: period.period_start %>
       </div>
 
       <div class="input-field-wrapper">

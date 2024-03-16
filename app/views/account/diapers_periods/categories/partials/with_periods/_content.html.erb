@@ -47,7 +47,10 @@
       </tbody>
     </table>
   <% else %>
-    <p><%= t(".no_categories") %></p>
+    <div class="mb-4 d-flex align-items-center">
+      <i class="mx-4 fa fa-exclamation-triangle" style="color:orange"></i>
+      <p class="mb-0"><%= t(".no_categories") %></p>
+    </div>
   <% end %>
 
   <%= link_to(
