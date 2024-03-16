@@ -10,18 +10,18 @@ class Account::DiapersPeriods::CategoriesController < Account::BaseController
   end
 
   def with_periods
-    @unfilled_categories     = Category.with_unfilled_diapers_periods
-    @categories_with_periods = collection
+    @unfilled_categories     = collection.with_unfilled_diapers_periods
+    @categories_with_periods = collection.with_diapers_periods
   end
 
   def available
-    @categories = Category.without_diapers_periods
+    @categories = collection.without_diapers_periods
   end
 
   private
 
   def collection
-    Category.with_diapers_periods
+    Category.ordered_by_name
   end
 
   def resource
