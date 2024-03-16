@@ -8,7 +8,7 @@ ruby "3.2.2"
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
-gem 'kaminari'
+gem "kaminari"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.1", ">= 7.1.2"

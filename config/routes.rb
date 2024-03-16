@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "/", to: "application#redirection", as: :root_redirection
 
   concern :paginatable do
-    get '(page/:page)', action: :index, on: :collection
+    get "(page/:page)", action: :index, on: :collection
   end
 
   scope "/(:locale)", locale: /uk|en/ do
