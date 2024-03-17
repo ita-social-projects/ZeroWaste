@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       root "dashboard#index"
       resources :users
       resources :calculators, param: :slug
-      resources :categories
+      resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :products
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
@@ -73,5 +73,8 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    get "/404", to: "errors#not_found"
+    get "*unmatched_route", to: "errors#not_found"
   end
 end
