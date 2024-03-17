@@ -3,14 +3,14 @@
     <div class="flex w-36 h-24">
     <%= link_to root_path, title: t(".homepage") do %>
       <%= image_tag("logo_zerowaste.png", alt: t(".zerowaste_logo"), class: "max-w-full h-auto") %>
-    <% end %>  
+    <% end %>
     </div>
 
     <div data-burger-target="navbarNav" class="hidden xl:flex">
       <ul class="admin-menu-list">
         <li class="mx-4">
           <%= link_to_unless_current t(".calculators"), account_calculators_path, title: t(".calculators"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
+            <p class="tab-active">
               <%= t(".calculators") %>
             </p>
           <% end %>
@@ -18,7 +18,7 @@
 
         <li class="mx-4">
           <%= link_to_unless_current t(".histories"), account_histories_path, title: t(".histories"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
+            <p class="tab-active">
               <%= t(".histories") %>
             </p>
           <% end %>
@@ -26,7 +26,7 @@
 
         <li class="mx-4">
           <%= link_to_unless_current t(".users"), account_users_path, title: t(".users"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
+            <p class="tab-active">
               <%= t(".users") %>
             </p>
           <% end %>
@@ -34,43 +34,35 @@
 
         <li class="mx-4">
           <%= link_to_unless_current t(".messages"), account_messages_path, title: t(".messages"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
+            <p class="tab-active">
               <%= t(".messages") %>
             </p>
           <% end %>
         </li>
 
         <li class="mx-4">
-          <%= link_to_unless_current t(".app_config"), edit_account_app_config_path, title: t(".app_config"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
-              <%= t(".app_config") %>
+          <%= link_to_unless_current t(".products"), account_products_path, title: t(".products"), class: "admin-menu-item" do %>
+            <p class="tab-active">
+              <%= t(".products") %>
             </p>
           <% end %>
         </li>
 
         <li class="mx-4">
-          <%= link_to_unless_current t(".products"), account_products_path, title: t(".products"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
-              <%= t(".products") %>
-            </p>
-          <% end %>
-        </li>   
-
-        <li class="mx-4">
           <%= link_to_unless_current t(".categories"), account_categories_path, title: t(".categories"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
+            <p class="tab-active">
               <%= t(".categories") %>
             </p>
           <% end %>
-        </li> 
+        </li>
 
          <li class="mx-4">
           <%= link_to_unless_current t(".site_settings"), edit_account_site_setting_path, title: t(".site_settings"), class: "admin-menu-item" do %>
-            <p class="tab-active"> 
+            <p class="tab-active">
               <%= t(".site_settings") %>
             </p>
           <% end %>
-        </li> 
+        </li>
       </ul>
     </div>
 
@@ -86,7 +78,7 @@
           <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
           <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
         </button>
-      </div>  
-		</div>       
+      </div>
+		</div>
   </div>
-</nav>  
+</nav>

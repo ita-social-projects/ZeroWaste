@@ -1,0 +1,42 @@
+<%= turbo_frame_tag :diapers_periods do %>
+  <h3><strong><%= t(".new_period") %> <%= category.name %></strong></h3>
+  <%= simple_form_for(period, url: account_diapers_periods_path(id: period), html: { class: "mt-4" }) do |form| %>
+    <div class="group-wrapper">
+      <div class="input-field-wrapper" title="<%= t(".cannot_edit_start_period") %>">
+        <%= form.input :period_start,
+              label: t(".period_start"),
+              input_html: { value: period.period_start, disabled: true, style: "cursor: not-allowed" } %>
+        <%= form.hidden_field :period_start, value: period.period_start %>
+      </div>
+
+      <div class="input-field-wrapper">
+        <%= form.input :period_end,
+              label: t(".period_end") %>
+      </div>
+    </div>
+
+    <div class="mt-4 group-wrapper">
+      <div class="input-field-wrapper">
+        <%= form.input :usage_amount,
+              label: t(".usage_amount")%>
+      </div>
+
+      <div class="input-field-wrapper">
+        <%= form.input :price,
+              label: t(".price")%>
+      </div>
+    </div>
+
+    <%= form.input :category_id, as: :hidden, input_html: { value: period.category_id } %>
+
+    <div class="mt-4 actions md:w-1/2 md:mb-0">
+      <%= form.submit t('buttons.create'), class: "btn-green px-4 py-2"%>
+      <%= link_to(
+          t(".back_button"),
+          account_diapers_periods_path(category_id: category.id),
+          class: "btn-grey px-4 py-2",
+          data: { turbo_stream: true }
+        ) %>
+    </div>
+  <% end %>
+<% end %>

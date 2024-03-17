@@ -1,0 +1,88 @@
+<div class="rounded jumbotron jumbotron-fluid position-relative">
+  <%= link_to root_path, class: "px-2 mt-3 rounded back-link" do %>
+    <div class="back-text">
+      <%= inline_svg("icons/arrow-left.svg", class: "z-1") %>
+      <%= t("calculators.buttons.to_main") %>
+    </div>
+  <% end %>
+
+  <div class="flex-wrap d-flex justify-content-around calculator_wrap ms-5">
+    <%= simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
+                                            data: { controller: "input-child-info",
+                                                    input_child_info_url_value: api_v1_diaper_calculators_url,
+                                                    input_child_info_months_value: month_number("new"),
+                                                    input_child_info_results_outlet: ".result" }}) do |form| %>
+      <div class="flex-item flex-column">
+        <div class="pb-2 input_lable">
+          <%= t(".form.description") %>
+        </div>
+
+        <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
+          <%= form.input_field :years,
+                                collection: 0..2,
+                                prompt: "__",
+                                class: "select-age ms-2 rounded",
+                                data: { input_child_info_target: "year", action: "input-child-info#yearChanged" } %>
+
+          <%= t(".form.childs_years_label") %>
+
+          <%= form.input_field :months,
+                              collection: month_number("new"),
+                              prompt: "__",
+                              class: "select-age rounded",
+                              data: { input_child_info_target: "month" } %>
+
+          <%= t(".form.childs_months_label") %>
+        </div>
+
+        <div class="pb-2 input_lable">
+          <%= t(".form.price") %>
+        </div>
+
+        <%= form.input_field :product_category,
+                            collection: @diaper_categories,
+                            selected: @preferable_category&.id,
+                            label: t(".form_price"),
+                            class: "form_fild price_select rounded w-100",
+                            data: { input_child_info_target: "productCategory" } %>
+
+        <%= form.submit t("calculators.buttons.calculate"),
+                    class: "calculate-btn result-btn",
+                    data: { action: "input-child-info#submit" } %>
+      </div>
+    <% end %>
+
+    <%= image_tag "scales.png", class: "scales_img", alt: "Scales" %>
+  </div>
+</div>
+
+<div class="jumbotron calculation-results result main-result-container result-container" data-controller="results">
+  <% new_calculator_items.each do |item| %>
+    <% if item == "arrow" %>
+      <div class="vector-width">
+        <%= image_tag "icons/vector_5.png", class: "vector", alt: "horizontal arrow" %>
+        <%= image_tag "icons/vector_2.png", class: "vector-mobile", alt: "vertical arrow" %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag item[:image], class: "img-margin", alt: "icon" %>
+        <p data-results-target="<%= item[:data_target] %>">0</p>
+        <p class="diapers-font"><%= item[:unit] %></p>
+        <p class="diapers-font-text" data-results-target="<%= item[:text_target] %>"><%= item[:text] %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="jumbotron calculation-results">
+  <div class="row">
+    <div class="col-xl-8 result-card">
+      <%= render "layouts/description_block" %>
+    </div>
+    <div class="col-sm result-card">
+      <button class="calculate-btn description-btn">
+        <%= render "layouts/description_button" %>
+      </button>
+    </div>
+  </div>
+</div>

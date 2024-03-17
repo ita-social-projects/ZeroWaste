@@ -1,0 +1,61 @@
+<%= turbo_frame_tag :diapers_periods do %>
+  <h3 class="mb-4"><strong><%= t(".periods_for") %> <%= category.name %></strong></h3>
+  <% if unfilled_categories.include?(category) %>
+    <div class="relative px-4 py-3 mb-4 text-yellow-700 bg-yellow-100 border border-yellow-400 rounded" role="alert">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <span class="block sm:inline"> <%= t(".warning") %> </span>
+    </div>
+  <% end %>
+  <table class="table admin-table">
+    <thead>
+      <tr>
+        <th class="p-2"><%= t(".period_start") %></th>
+        <th class="p-2"><%= t(".period_end") %></th>
+        <th class="p-2"><%= t(".usage_amount") %></th>
+        <th class="p-2"><%= t(".price") %></th>
+        <th scope="col" class="text-center"><%= t(".table.edit") %></th>
+        <th scope="col" class="text-center"><%= t(".table.delete") %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% diapers_periods.each do |diapers_period| %>
+        <tr id="<%= dom_id(diapers_period) %>">
+          <td class="p-2"><%= diapers_period.period_start %></td>
+          <td class="p-2"><%= diapers_period.period_end %></td>
+          <td class="p-2"><%= diapers_period.usage_amount %></td>
+          <td class="p-2"><%= diapers_period.price %></td>
+          <td class="text-center">
+            <%= link_to(
+                  edit_account_diapers_period_path(id: diapers_period.id),
+                  data: { turbo_stream: true }
+                ) do %>
+              <i class="mx-2 fa fa-pen"></i>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= turbo_frame_tag dom_id(diapers_period, "delete_button") do %>
+              <%= render(
+                    partial: "account/diapers_periods/partials/index/delete_button",
+                    locals: { category: category, diapers_period: diapers_period, diapers_periods: diapers_periods}
+                  ) %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= turbo_frame_tag :add_new_link do %>
+    <%= render(
+          partial: "account/diapers_periods/partials/index/add_new_link",
+          locals: { category: category, unfilled_categories: unfilled_categories }
+        ) %>
+  <% end %>
+
+  <%= link_to(
+        t(".back_button"),
+        with_periods_account_diapers_periods_categories_path,
+        class: "btn-grey px-4 py-2",
+        data: { turbo_stream: true }
+      ) %>
+<% end %>
