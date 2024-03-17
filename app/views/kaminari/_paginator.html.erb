@@ -8,7 +8,6 @@
 %>
 <%= paginator.render do -%>
   <nav class="pagination wrapper" role="navigation" aria-label="pager">
-    <%= first_page_tag unless current_page.first? %>
     <%= prev_page_tag unless current_page.first? %>
     <% each_page do |page| -%>
       <% if page.display_tag? -%>
@@ -17,9 +16,11 @@
         <%= gap_tag %>
       <% end -%>
     <% end -%>
+    <span class="current sm:hidden">
+      <%= "#{current_page}/#{total_pages}" %>
+    </span>
     <% unless current_page.out_of_range? %>
       <%= next_page_tag unless current_page.last? %>
-      <%= last_page_tag unless current_page.last? %>
     <% end %>
   </nav>
 <% end -%>

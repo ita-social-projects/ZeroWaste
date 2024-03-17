@@ -4,14 +4,18 @@
   }
 
   .page-nav {
-    @apply min-w-[36px] px-3 py-1 border border-slate-300 rounded shadow hover:text-white hover:bg-grey;
+    @apply text-sm sm:text-base min-w-[36px] px-3 py-1 border border-slate-300 rounded shadow hover:text-white hover:bg-grey;
   }
 
   .current {
-    @apply min-w-[36px] px-3 py-1 border border-success rounded bg-success text-white shadow;
+    @apply text-sm sm:text-base min-w-[36px] px-3 py-1 border border-success rounded bg-success text-white shadow;
   }
 
   .gap-dots {
     @apply place-self-end;
+  }
+
+  .page-hidden {
+    @apply hidden sm:inline-block;
   }
 }
