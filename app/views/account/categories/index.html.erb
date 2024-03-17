@@ -1,12 +1,13 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
 <div class="container">
-  <% set_meta_tags(title: t(".title")) %>
   <div class="row">
-    <div class="col-md-6">
-      <%= search_form_for(@q, url: [:account, :categories], method: :get, class: "d-flex mb-5") do |f| %>
-        <%= f.search_field :name_cont, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
-        <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
-      <% end %>
-    </div>
+    <%= render partial: "account/shared/search_form", locals: {
+          q: @q,
+          search_url: account_categories_path,
+          search_attribute: :name_cont
+        } %>
+
     <div class="col-md-6 text-end">
       <%= link_to new_account_category_path, class: "btn btn-green px-4 py-2" do %>
         <i class="fas fa-plus me-2"></i>

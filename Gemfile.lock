@@ -99,6 +99,7 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (10.4.15.0)
       execjs (~> 2)
+    babosa (2.0.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.0.2)
@@ -608,6 +609,7 @@ DEPENDENCIES
   acts_as_singleton
   annotate
   any_login
+  babosa
   bigdecimal (= 3.0.2)
   bootsnap (>= 1.4.4)
   bootstrap

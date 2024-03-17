@@ -46,10 +46,9 @@ Rails.application.routes.draw do
       resources :histories, only: :index
       resources :messages, only: [:index, :show]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
-      get "/site_setting", to: "site_settings#edit", as: "site_setting"
 
       resource :site_setting, only: [:edit, :update] do
-        post :revert
+        put :revert
       end
 
       resources :diapers_periods
