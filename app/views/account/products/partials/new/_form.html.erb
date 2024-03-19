@@ -1,0 +1,25 @@
+<%= simple_form_for product, url: account_products_path, html: {id: dom_id(product, :form)},  data: { controller: "price-form" } do |f| %>
+  <div class="form-group row">
+    <div class="my-auto col-12 has-float-label">
+      <%= f.input :title, label: t(".title"), class: "form-control col-sm-11" %>
+      <% Category.ordered_by_name.each do |category| %>
+        <div class="checkbox-blocks">
+          <%= check_box_tag category.name, 1, false, data: { action: "click->price-form#togglePrice", price_form_target: "checkbox" }, class: "me-1" %>
+          <%= label_tag category.name %>
+          <div class="hidden-sum" data-price-form-target="price" name="<%= category.name %>">
+            <%= f.simple_fields_for :prices, f.object.find_or_build_price_for_category(category) do |prices_form| %>
+              <%= prices_form.input :sum, label: false, input_html: { placeholder: t(".form.sum"), data: { price_form_target: "priceInput" } } %>
+              <%= prices_form.hidden_field :category_id, value: category.id %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="mt-2 button-group d-flex">
+    <%= f.submit t(".form.create_product_button"), class: "btn btn-green me-2 w-auto" %>
+    <%= link_to account_products_path, class: "btn btn-danger d-flex align-items-center justify-content-center" do %>
+      <span class="me-1"><%= t("buttons.cancel") %></span>
+    <% end %>
+  </div>
+<% end %>
