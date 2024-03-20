@@ -7,6 +7,11 @@ uk:
     cancel: "Скасувати"
     revert: "Скинути"
     back: "Назад"
+  views:
+    pagination:
+      previous: "&lsaquo; Поперед."
+      next: "Наступна &rsaquo;"
+      truncate: "&hellip;"
   calculators:
     new_calculator:
       form:

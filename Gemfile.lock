@@ -643,6 +643,7 @@ DEPENDENCIES
   it
   jbuilder (~> 2.7)
   jquery-rails
+  kaminari
   letter_opener
   listen (~> 3.3)
   meta-tags
