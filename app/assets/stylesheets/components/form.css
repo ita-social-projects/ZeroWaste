@@ -11,14 +11,29 @@
   }
 
   .input-group-addon.toggle-password i {
-    @apply text-success bg-white;
+    @apply bg-white text-success;
   }
 
   .password-wrapper-login .toggle-password {
     @apply pt-11;
   }
 
+  /* Site Settings Diapers Categories */
+
+  .group-wrapper {
+    @apply flex flex-wrap mb-6 -mx-3;
+  }
+
+  .input-field-wrapper {
+    @apply w-full px-3 mb-6 md:w-1/2 md:mb-0;
+  }
+
+  .input-field-wrapper.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+
   .auth-login-links {
-    @apply flex justify-center items-center gap-4 text-center text-gray border-t border-solid border-light_gray;
+    @apply flex items-center justify-center gap-4 text-center border-t border-solid text-gray border-light_gray;
   }
 }

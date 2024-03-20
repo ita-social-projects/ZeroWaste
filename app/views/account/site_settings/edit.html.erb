@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <%= f.submit t("buttons.save") %>      
+      <%= f.submit t("buttons.save") %>
     <% end %>
 
     <%= button_to t("buttons.revert"), revert_account_site_setting_path,
@@ -23,6 +23,12 @@
                   data: { turbo_confirm: t(".confirm_default") },
                   class: "btn-grey absolute bottom-0 left-0 ml-32" %>
   </div>
+</fieldset>
+
+<fieldset class="bordered">
+  <legend class="admin-legend"><%= t(".diapers_categories") %></legend>
+
+  <%= render "account/diapers_periods/categories/partials/with_periods/content", categories: @categories, unfilled_categories: @unfilled_categories %>
 </fieldset>
 
 <fieldset class="bordered">
@@ -40,7 +46,7 @@
     <% end %>
 
     <div data-controller="loader">
-      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" } %>
+      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" }, class: "btn-green px-4 py-2" %>
     </div>
   <% end %>
 </fieldset>
@@ -52,5 +58,5 @@
   <p class="mb-3">
     <%= t(".rails_db_description") %>
   </p>
-  <%= link_to "Rails DB", rails_db_path, class: "px-4 py-2.5 btn-grey w-fit mt-4 mb-0" %>
+  <%= link_to "Rails DB", rails_db_path, class: "btn-grey px-4 py-2" %>
 </fieldset>

@@ -50,7 +50,7 @@ export default class extends Controller {
     let formData = {
       childs_years: parseInt(this.yearTarget.value),
       childs_months: parseInt(this.monthTarget.value),
-      price_id: this.productCategoryTarget.selectedIndex,
+      category_id: this.productCategoryTarget.value,
     };
 
     const request = new FetchRequest("POST", this.urlValue, {

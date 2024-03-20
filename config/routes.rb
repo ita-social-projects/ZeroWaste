@@ -48,11 +48,19 @@ Rails.application.routes.draw do
       resources :products, concerns: :paginatable
       resources :histories, only: :index, concerns: :paginatable
       resources :messages, only: [:index, :show], concerns: :paginatable
-      resource :app_config, only: [:edit, :update]
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
 
       resource :site_setting, only: [:edit, :update] do
         put :revert
+      end
+
+      resources :diapers_periods
+
+      namespace :diapers_periods do
+        resources :categories, only: [:destroy] do
+          get :with_periods, on: :collection
+          get :available, on: :collection
+        end
       end
 
       scope module: :calculators do

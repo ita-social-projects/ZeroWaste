@@ -22,9 +22,17 @@ uk:
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
-      bought_diapers: "підгузків ви вже використали"
+      bought_diapers:
+        one: "підгузок ви вже використали"
+        few: "підгузки ви вже використали"
+        many: "підгузків ви вже використали"
+        other: "підгузків ви вже використали"
       money_spent: "грн ви вже витратили"
-      will_buy_diapers: "підгузків ви ще використаєте"
+      will_buy_diapers:
+        one: "підгузок ви ще використаєте"
+        few: "підгузки ви ще використаєте"
+        many: "підгузків ви ще використаєте"
+        other: "підгузків ви ще використаєте"
       money_will_be_spent: "грн ви ще витратите"
       pieces: "шт."
       unit: "грн"
@@ -40,10 +48,10 @@ uk:
         other: "підгузків ви вже використали"
       money_spent: "грн ви вже витратили"
       will_buy_diapers:
-        one: "підгузок ви вже використали"
-        few: "підгузки ви вже використали"
-        many: "підгузків ви вже використали"
-        other: "підгузків ви вже використали"
+        one: "підгузок ви ще використаєте"
+        few: "підгузки ви ще використаєте"
+        many: "підгузків ви ще використаєте"
+        other: "підгузків ви ще використаєте"
       money_will_be_spent: "грн ви ще витратите"
     errors:
       year_and_month_error_msg: "Помилка: будь ласка, виберіть, скільки років та місяців дитині"
@@ -87,12 +95,13 @@ uk:
       contacts: "%{contacts_uk:Контакти}"
       local_lang: "English"
     description_block:
-      description_block_html: "Ці результати є приблизними, точні цифри для вашої сімʼї можуть бути дещо іншими
-                              та залежать від ваших щоденних звичок та обраної марки підгузків. На будь-якому етапі користування підгузками
-                              є можливість зменшити рівень їхнього використання. Запрошуємо вас дізнатися більше про методи, як це можна
-                              зробити, та про доступні багаторазові альтернативи одноразовим дитячим підгузкам. А ще ви можете почитати
-                              докладніше про те, %{calculate_link_one:як ми розраховуємо} кількість та вартість підгузків,
-                              або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
+      description_block_html:
+        "Ці результати є приблизними, точні цифри для вашої сімʼї можуть бути дещо іншими
+        та залежать від ваших щоденних звичок та обраної марки підгузків. На будь-якому етапі користування підгузками
+        є можливість зменшити рівень їхнього використання. Запрошуємо вас дізнатися більше про методи, як це можна
+        зробити, та про достmупні багаторазові альтернативи одноразовим дитячим підгузкам. А ще ви можете почитати
+        докладніше про те, %{calculate_link_one:як ми розраховуємо} кількість та вартість підгузків,
+        або %{calculate_link_two:написати нам}, якщо маєте інші запитання."
     description_button:
       use_less: "%{use_less_link:ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ}"
     homepage:
@@ -106,7 +115,6 @@ uk:
       histories: "Історія"
       users: "Користувачі"
       messages: "Повідомлення"
-      app_config: "Налаштування"
       site_settings: "Налаштування сайту"
       categories: "Категорії"
       products: "Продукти"
@@ -153,9 +161,10 @@ uk:
       third_paragraph: "Основна мета zero waste – перейти до економіки замкненого циклу, де немає сміття як такого, а те, що називають сміттям, стає цінним ресурсом."
   our_team:
     title: "Наша команда"
-    description: "Zero Waste Lviv та SoftServe представляють калькулятор – онлайн-інструмент для розрахунку кількості
-    одноразових та повторно використовуваних предметів. Калькулятор розроблений як частина благодійної платформи Open Tech.
-    Технічна реалізація здійснюється студентами SoftServe Academy."
+    description:
+      "Zero Waste Lviv та SoftServe представляють калькулятор – онлайн-інструмент для розрахунку кількості
+      одноразових та повторно використовуваних предметів. Калькулятор розроблений як частина благодійної платформи Open Tech.
+      Технічна реалізація здійснюється студентами SoftServe Academy."
   account:
     account:
       edit:
@@ -163,20 +172,6 @@ uk:
         new_password_label: "Новий пароль:"
         confirm_password_label: "Підтвердіть новий пароль:"
         change_password_button: "Змінити пароль"
-    app_configs:
-      edit:
-        meta-title: "Налаштування"
-        diapers_calculator_config: "Налаштування калькулятора підгузків"
-        first_period: "Перший період"
-        second_period: "Другий період"
-        third_period: "Третій період"
-        fourth_period: "Четвертий період"
-        fifth_period: "П'ятий період"
-        sixth_period: "Шостий період"
-        seventh_period: "Сьомий період"
-        amount: "Кількість"
-        price: "Вартість"
-        update: "Оновити"
     messages:
       index:
         meta-title: "Повідомлення"
@@ -207,6 +202,7 @@ uk:
           delete: "Видалити"
         add_category_button: "Додати категорію"
         confirm_delete: "Видалити категорію?"
+        cannot_delete: "Ви не можете видалити основну категорію."
       edit:
         form:
           update_category_button: "Оновити категорію"
@@ -327,8 +323,73 @@ uk:
         site_features: "Особливості сайту"
         rails_db_description: "Доступ до бази даних (лише перегляд)"
         dev_features: "Для розробників"
+        diapers_categories: "Категорії підгузків"
         apply_button: "Застосувати"
         confirm_default: "Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та іконки сайту?"
+    diapers_periods:
+      partials:
+        edit:
+          form:
+            edit_name: "Редагувати періоди для підгузків"
+            period_start: "Початок періоду"
+            period_end: "Кінець періоду"
+            usage_amount: "Обсяг використання "
+            price: "Ціна"
+            back_button: "Назад"
+            cannot_edit_period: "Ви не можете редагувати початок та кінець періоду"
+        index:
+          delete_button:
+            confirm_delete: "Ви впевнені що бажаєте видалити цей період?"
+            cannot_delete_category: "Ви не можете видалити періоди в основній категорії."
+            cannot_delete_period: "Ви можете видалити лише останній період."
+          add_new_link:
+            add_new: "Додати новий період"
+          content:
+            periods_for: "Періоди підгудків для категорії:"
+            confirm_delete: "Видалити цей період?"
+            period_start: "Початок періоду"
+            period_end: "Кінець періоду"
+            usage_amount: "Обсяг використання "
+            price: "Ціна"
+            table:
+              edit: "Редагувати"
+              delete: "Видалити"
+            add_new: "Додати новий період"
+            back_button: "Назад"
+            warning: "Ця категорія не відображається в калькуляторі, оскільки вона не охоплює всі періоди. Будь ласка, додайте нові періоди, щоб категорія охоплювала 30 місяців."
+            cannot_delete: "Ви не можете видалити періоди в основній категорії."
+        new:
+          form:
+            new_period: "Новий період для підгузків категорії:"
+            period_start: "Початок періоду"
+            period_end: "Кінець періоду"
+            usage_amount: "Обсяг використання "
+            price: "Ціна"
+            back_button: "Назад"
+            cannot_edit_start_period: "Ви не можете редагувати початок періоду"
+          back_button: "Назад"
+      categories:
+        partials:
+          available:
+            content:
+              available: "Оберіть категорію:"
+              no_categories_available: "Немає доступних категорій. Створіть нову категорію."
+              category_name: "Назва категорії"
+              confirm_delete: "Видалити всі періоди?"
+              back_button: "Назад"
+              table:
+                add: "Додати"
+          with_periods:
+            content:
+              category_name: "Назва категорії"
+              confirm_delete: "Видалити всі періоди?"
+              table:
+                show: "Показати"
+                delete: "Видалити"
+              no_categories: "Не знайдено періодів для підгузків. Додайте новий зі списку доступних."
+              add_button: "Додати"
+              tooltip: "Ця категорія не відображається в Калькуляторі, оскільки вона не охоплює всі періоди."
+              cannot_delete_category: "Ви не можете видалити періоди в основній категорії."
     feature_flags:
       submit_button: "Зберегти"
       new_calculator_design:
@@ -481,6 +542,11 @@ uk:
         remember_me: "Запам'ятати мене"
       site_setting:
         title: "Назва"
+      diapers_period:
+        price: "Ціна"
+        period_start: "Початок періоду"
+        period_end: "Кінець періоду"
+        usage_amount: "Обсяг використання"
       calculator:
         name: "Назва"
         slug: "Шлях"
@@ -488,6 +554,7 @@ uk:
       category:
         name: "Назва"
         priority: "Пріоритет"
+        preferable: "Основна"
       price:
         sum: "Сума"
       product:
@@ -540,6 +607,10 @@ uk:
                 few: "занадто коротка (мінімум %{count} знаки)"
                 many: "занадто коротка (мінімум %{count} знаків)"
                 other: "занадто коротка (мінімум %{count} знаків)"
+        diapers_period:
+          attributes:
+            price:
+              blank: "не може бути пустою"
         product:
           attributes:
             title:
@@ -575,24 +646,25 @@ uk:
               too_long: занадто довге (максимум %{count} знаків)
               too_short: занадто коротке (мінімум %{count} знаки)
             avatar:
-            content_type: "%{extension}"
+            content_type:
+              "%{extension}"
               # extension_allowlist_error: "Вам заборонено завантажувати %{extension} файли, дозволені типи: %{allowed_types}"
 
             # uk:
-              # carrierwave:
-              #   hint: "Дозволені формати: %{allowed_extensions}, рекомендоване розширення фото - %{dimension}, а максимальний розмір файлу: %{size}"
-              # errors:
-              #   messages:
-              #     carrierwave_processing_error: не вдалося обробити
-              #     carrierwave_integrity_error: не є дозволеним типом файлу
-              #     carrierwave_download_error: не вдалося завантажити
-              #     extension_denylist_error: "Вам заборонено завантажувати %{extension} файли, заборонені типи: %{prohibited_types}"
-              #     content_type_allowlist_error: "Вам заборонено завантажувати %{content_type} файли, дозволені типи: %{allowed_types}"
-              #     content_type_denylist_error: "Вам заборонено завантажувати %{content_type} файли"
-              #     processing_error: "Не вдалося опрацювати, можливо, це не зображення?"
-              #     min_size_error: "Розмір файлу має бути більшим за %{min_size}"
-              #     max_size_error: "Розмір файлу має бути менше %{max_size}"
-              #     mini_magick_processing_error: "Не вдалося опрацювати з MiniMagick, можливо, це не зображення?"
+            # carrierwave:
+            #   hint: "Дозволені формати: %{allowed_extensions}, рекомендоване розширення фото - %{dimension}, а максимальний розмір файлу: %{size}"
+            # errors:
+            #   messages:
+            #     carrierwave_processing_error: не вдалося обробити
+            #     carrierwave_integrity_error: не є дозволеним типом файлу
+            #     carrierwave_download_error: не вдалося завантажити
+            #     extension_denylist_error: "Вам заборонено завантажувати %{extension} файли, заборонені типи: %{prohibited_types}"
+            #     content_type_allowlist_error: "Вам заборонено завантажувати %{content_type} файли, дозволені типи: %{allowed_types}"
+            #     content_type_denylist_error: "Вам заборонено завантажувати %{content_type} файли"
+            #     processing_error: "Не вдалося опрацювати, можливо, це не зображення?"
+            #     min_size_error: "Розмір файлу має бути більшим за %{min_size}"
+            #     max_size_error: "Розмір файлу має бути менше %{max_size}"
+            #     mini_magick_processing_error: "Не вдалося опрацювати з MiniMagick, можливо, це не зображення?"
       messages:
         record_invalid: "Виникли помилки: %{errors}"
         restrict_dependent_destroy:
@@ -612,63 +684,65 @@ uk:
     feature_flags_updated: "Оновлено успішно"
     site_setting_updated: "Налаштування було успішно оновлено"
     site_setting_reverted: "Заголовок та іконку сайту успішно відновлено до стандартних"
+    diapers_period_not_deleted: "Неможливо видалити період підгузків."
+    category_diapers_period_not_deleted: "Неможливо видалити періоди підгузків з категорії."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
   #     short: '%d, %B, %Y'
   date:
     abbr_day_names:
-    - нд.
-    - пн.
-    - вт.
-    - ср.
-    - чт.
-    - пт.
-    - сб.
+      - нд.
+      - пн.
+      - вт.
+      - ср.
+      - чт.
+      - пт.
+      - сб.
     abbr_month_names:
-    -
-    - січ.
-    - лют.
-    - бер.
-    - квіт.
-    - трав.
-    - черв.
-    - лип.
-    - серп.
-    - вер.
-    - жовт.
-    - лист.
-    - груд.
+      -
+      - січ.
+      - лют.
+      - бер.
+      - квіт.
+      - трав.
+      - черв.
+      - лип.
+      - серп.
+      - вер.
+      - жовт.
+      - лист.
+      - груд.
     day_names:
-    - неділя
-    - понеділок
-    - вівторок
-    - середа
-    - четвер
-    - п'ятниця
-    - субота
+      - неділя
+      - понеділок
+      - вівторок
+      - середа
+      - четвер
+      - п'ятниця
+      - субота
     formats:
       default: "%d.%m.%Y"
       long: "%d %B %Y"
       short: "%d %b"
     month_names:
-    -
-    - Січня
-    - Лютого
-    - Березня
-    - Квітня
-    - Травня
-    - Червня
-    - Липня
-    - Серпня
-    - Вересня
-    - Жовтня
-    - Листопада
-    - Грудня
+      -
+      - Січня
+      - Лютого
+      - Березня
+      - Квітня
+      - Травня
+      - Червня
+      - Липня
+      - Серпня
+      - Вересня
+      - Жовтня
+      - Листопада
+      - Грудня
     order:
-    - :day
-    - :month
-    - :year
+      - :day
+      - :month
+      - :year
   datetime:
     distance_in_words:
       about_x_hours:

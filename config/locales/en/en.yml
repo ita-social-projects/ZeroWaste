@@ -102,17 +102,20 @@ en:
       contacts: "%{contacts:Contacts}"
       local_lang: "Українська"
     description_block:
-      description_block_html: "These are approximate results. The exact numbers for your
-                              family may differ depending on your daily habits and the diaper brand of choice. At any point of using
-                              diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
-                              this can be done and what reusable alternatives to disposable diapers there are. You can also learn
-                              more about %{calculate_link_one:how we calculate} the number and cost of diapers
-                              or %{calculate_link_two:contact us} with any other questions you may have."
+      description_block_html:
+        "These are approximate results. The exact numbers for your
+        family may differ depending on your daily habits and the diaper brand of choice. At any point of using
+        diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
+        this can be done and what reusable alternatives to disposable diapers there are. You can also learn
+        more about %{calculate_link_one:how we calculate} the number and cost of diapers
+        or %{calculate_link_two:contact us} with any other questions you may have."
     description_button:
       use_less: "%{use_less_link:HOW TO USE LESS}"
     homepage:
       homepage_title: "Welcome to the diaper calculator"
-      description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
+      description:
+        "The calculator tells you how many disposable diapers your baby has already used and will use in the future before
+        switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
       calculate: "Let's go"
       visit_website: "Visit website"
     account_navbar:
@@ -121,7 +124,6 @@ en:
       histories: "History"
       users: "Users"
       messages: "Messages"
-      app_config: "App Config"
       site_settings: "Site Settings"
       categories: "Categories"
       products: "Products"
@@ -168,8 +170,9 @@ en:
       third_paragraph: "The main goal of zero waste is to move to a circular economy, where there is no garbage as such, and what is called garbage becomes a valuable resource."
   our_team:
     title: "Our Team"
-    description: "Zero Waste Lviv and SoftServe present a calculator - an online tool for calculating the number of disposable and reusable items used.
-    The calculator was developed as part of the charity crowdsourcing platform Open Tech. The technical development is carried out by students of SoftServe Academy."
+    description:
+      "Zero Waste Lviv and SoftServe present a calculator - an online tool for calculating the number of disposable and reusable items used.
+      The calculator was developed as part of the charity crowdsourcing platform Open Tech. The technical development is carried out by students of SoftServe Academy."
   account:
     account:
       edit:
@@ -177,20 +180,6 @@ en:
         new_password_label: "New password:"
         confirm_password_label: "Confirm new password:"
         change_password_button: "Change password"
-    app_configs:
-      edit:
-        meta-title: "App Config"
-        diapers_calculator_config: "Diapers calculator configuration"
-        first_period: "First period"
-        second_period: "Second period"
-        third_period: "Third period"
-        fourth_period: "Fourth period"
-        fifth_period: "Fifth period"
-        sixth_period: "Sixth period"
-        seventh_period: "Seventh period"
-        amount: "Amount"
-        price: "Price"
-        update: "Update"
     messages:
       index:
         meta-title: "Messages"
@@ -211,6 +200,7 @@ en:
         meta-title: "Categories"
         add_category_button: "Add category"
         confirm_delete: "Delete category?"
+        cannot_delete: "You cannot delete preferable category."
       edit:
         form:
           update_category_button: "Update category"
@@ -297,9 +287,72 @@ en:
         site_settings: "Site settings"
         site_features: "Site features"
         dev_features: "Development features"
-        rails_db_description: "Access to database (read-only)"
+        rails_db_description: "Access to database (read only)"
         apply_button: "Apply"
         confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
+    diapers_periods:
+      partials:
+        edit:
+          form:
+            edit_name: "Edit Diapers Period"
+            period_start: "Period Start"
+            period_end: "Period End"
+            usage_amount: "Usage Amount"
+            price: "Price"
+            back_button: "Back"
+            cannot_edit_period: "You can't edit the start and end of the period"
+        index:
+          delete_button:
+            confirm_delete: "Are you sure you want to delete this period?"
+            cannot_delete_category: "You can't delete periods in preferable category."
+            cannot_delete_period: "You can only delete the last period."
+          add_new_link:
+            add_new: "Add New Period"
+          content:
+            periods_for: "Diapers Periods for category:"
+            confirm_delete: "Are you sure you want to delete this period?"
+            period_start: "Period Start"
+            period_end: "Period End"
+            usage_amount: "Usage Amount"
+            price: "Price"
+            table:
+              edit: "Edit"
+              delete: "Delete"
+            add_new: "Add New Period"
+            back_button: "Back"
+            warning: "This category isn't showing in Calculator, because it doesn't cover all periods. Please, add new periods, so the category covers 30 months."
+            cannot_delete: "You can't delete periods in preferable category."
+        new:
+          form:
+            new_period: "New Diapers Period for Category:"
+            period_start: "Period Start"
+            period_end: "Period End"
+            usage_amount: "Usage Amount"
+            price: "Price"
+            cannot_edit_start_period: "You can't edit the start of the period"
+          back_button: "Back"
+      categories:
+        partials:
+          available:
+            content:
+              available: "Select category:"
+              no_categories_available: "No Available categories. Create new Category."
+              category_name: "Category name"
+              confirm_delete: "Are you sure you want to delete all periods?"
+              back_button: "Back"
+              table:
+                add: "Add"
+          with_periods:
+            content:
+              category_name: "Category name"
+              confirm_delete: "Are you sure you want to delete all periods?"
+              table:
+                show: "Show"
+                delete: "Delete"
+              no_categories: "No diapers categories found. Add some from Available list."
+              add_button: "Add New"
+              tooltip: "This category isn't shown in Calculator, because it doesn't have all periods covered."
+              cannot_delete_category: "You can't delete periods in preferable category."
     calculators:
       index:
         meta-title: "Calculators"
@@ -563,63 +616,65 @@ en:
     feature_flags_updated: "Features updated successfully"
     site_setting_updated: "Settings were successfully updated"
     site_setting_reverted: "The title and favicon have been successfully reverted to default"
+    diapers_period_not_deleted: "Can't delete diapers period."
+    category_diapers_period_not_deleted: "Can't delete diapers periods from category."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
   #     short: '%d, %B, %Y'
   date:
     abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thu
+      - Fri
+      - Sat
     abbr_month_names:
-    -
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
+      -
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
     day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
     formats:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%b %d"
     month_names:
-    -
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
+      -
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
     order:
-    - :year
-    - :month
-    - :day
+      - :year
+      - :month
+      - :day
   datetime:
     distance_in_words:
       about_x_hours:
@@ -733,11 +788,11 @@ en:
       decimal_units:
         format: "%n %u"
         units:
-          billion: "Billion"
-          million: "Million"
-          quadrillion: "Quadrillion"
-          thousand: "Thousand"
-          trillion: "Trillion"
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
           unit: ""
       format:
         delimiter: ""
