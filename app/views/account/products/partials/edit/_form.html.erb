@@ -1,8 +1,8 @@
- <%= simple_form_for @product, method: :patch, url: account_product_path, html: {id: dom_id(product, :form)}, data: { controller: "price-form" } do |f| %>
+ <%= simple_form_for product, method: :patch, url: account_product_path, html: { id: dom_id(product, :form) }, data: { controller: "price-form" } do |f| %>
     <div class="form-group row">
       <div class="my-auto col-12 has-float-label">
         <%= f.input :title, label: t('.title'), class: 'form-control col-sm-11' %>
-        <% if Category.ordered_by_name.exists? %>
+        <% if categories.exists? %>
           <%= f.simple_fields_for :prices do |prices_form| %>
             <div class="checkbox-blocks">
               <%= check_box_tag prices_form.object.category.name, 1, true, data: { price_form_target: 'checkbox', action: "click->price-form#removePrice click->price-form#togglePrice" }, class: 'me-1' %>

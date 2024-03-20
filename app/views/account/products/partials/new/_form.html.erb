@@ -1,8 +1,8 @@
-<%= simple_form_for product, url: account_products_path, html: {id: dom_id(product, :form)},  data: { controller: "price-form" } do |f| %>
+<%= simple_form_for product, url: account_products_path, html: { id: dom_id(product, :form) },  data: { controller: "price-form" } do |f| %>
   <div class="form-group row">
     <div class="my-auto col-12 has-float-label">
       <%= f.input :title, label: t(".title"), class: "form-control col-sm-11" %>
-      <% Category.ordered_by_name.each do |category| %>
+      <% categories.each do |category| %>
         <div class="checkbox-blocks">
           <%= check_box_tag category.name, 1, false, data: { action: "click->price-form#togglePrice", price_form_target: "checkbox" }, class: "me-1" %>
           <%= label_tag category.name %>
