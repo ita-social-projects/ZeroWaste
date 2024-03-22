@@ -3,7 +3,7 @@
 <div class="position-block">
   <div class="card">
     <div class="card-block p-4">
-      <h2 class="text-center p-2">
+      <h2 class="text-center text-2xl text-success py-4">
         <%= t('.contact_us_header') %>
       </h2>
       <div class="contact-form">
@@ -27,17 +27,31 @@
             <%= form.text_area :message, class: 'form-control', placeholder: (t('.message_hint')), size: "25x2", minlength:"20", required: true %>
           </div>
           <div class="d-flex justify-content-between flex-wrap flex-row-reverse">
-            <%= form.submit t('.send'), class:"btn btn-primary" %>
+            <%= form.submit t('.send'), class:"btn btn-primary mt-3" %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-  <br>
-  <div class="contact-info card-block p-3 m-auto">
-    <div class="adress">
+  <div class="card">
+    <div class="text-success text-center pt-8">
       <span class="fas fa-globe"></span>
-      <span class="text">
-        <%= link_to 'zerowastelviv.org.ua', 'http://zerowastelviv.org.ua', target: '_blank' %>
+      <span class="text inline-block">
+        <%= link_to "zerowastelviv.org.ua", "https://zerowastelviv.org.ua", target: "_blank", **seo_link_attributes %>
+      </span>
     </div>
+    <div class="flex justify-center">
+      <%= link_to "https://www.facebook.com/zerowastelviv/", target: "_blank", **seo_link_attributes do %>
+        <%= inline_svg("facebook_logo.svg", class: "w-12 px-2", title: "Facebook Logo") %>
+      <% end %>
+
+      <%= link_to "https://www.youtube.com/channel/UCpFxQ1UgIbwSAvWe0gOw0Zg", target: "_blank", **seo_link_attributes do %>
+        <%= inline_svg("youtube_logo.svg", class: "w-12 px-2", title: "Youtube Logo") %>
+      <% end %>
+
+      <%= link_to "https://www.instagram.com/zerowastelviv/", target: "_blank", **seo_link_attributes do %>
+        <%= inline_svg("instagram_logo.svg", class: "w-12 px-2",  title: "Instagram Logo") %>
+      <% end %>
+    </div>
+  </div>
 </div>
