@@ -218,16 +218,19 @@ en:
         confirm_delete: "Delete product?"
       show:
         confirm_delete: "Delete product?"
-      edit:
-        title: "Title"
-        form:
-          sum: "Sum"
-          update_product_button: "Update product"
-      new:
-        title: "Title"
-        form:
-          sum: "Sum"
-          create_product_button: "Create product"
+      partials:
+        new:
+          form:
+            title: "Title"
+            form:
+              sum: "Sum"
+              create_product_button: "Create product"
+        edit:
+          form:
+            title: "Title"
+            form:
+              sum: "Sum"
+              update_product_button: "Update product"
       created: "A product was successfully created"
       updated: "A product was successfully updated"
       deleted: "A product was successfully deleted"

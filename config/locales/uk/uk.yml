@@ -226,16 +226,19 @@ uk:
           prices: "Ціни"
           actions: "Дії"
         confirm_delete: "Видалити продукт?"
-      edit:
-        title: "Назва"
-        form:
-          sum: "Сума"
-          update_product_button: "Оновити продукт"
-      new:
-        title: "Назва"
-        form:
-          sum: "Сума"
-          create_product_button: "Створити продукт"
+      partials:
+        new:
+          form:
+            title: "Назва"
+            form:
+              sum: "Сума"
+              create_product_button: "Створити продукт"
+        edit:
+          form:
+            title: "Назва"
+            form:
+              sum: "Сума"
+              update_product_button: "Оновити продукт"
       created: "Продукт був успішно створений"
       updated: "Продукт був успішно оновлений"
       deleted: "Продукт був успішно видалений"
