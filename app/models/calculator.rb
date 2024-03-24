@@ -22,7 +22,7 @@
 class Calculator < ApplicationRecord
   extend FriendlyId
 
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: :sequentially_slugged
 
   has_paper_trail
 
