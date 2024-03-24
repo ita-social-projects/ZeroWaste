@@ -92,7 +92,6 @@ main p {
     select {
       display: inline-block;
       outline: none;
-      background: $color;
       border: 2px solid $gray;
       box-sizing: border-box;
       border-radius: 4px;
@@ -102,11 +101,10 @@ main p {
     input[type="submit"] {
       text-transform: uppercase;
       white-space: initial;
-      color: $gray;
-      padding: 15px;
+      padding: 10px;
       height: 100%;
-      max-width: 230px;
-      font-size: 14px;
+      font-size: 16px;
+      border: none;
 
       &:hover {
         color: $success;
