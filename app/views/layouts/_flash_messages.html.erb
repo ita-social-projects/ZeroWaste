@@ -1,3 +1,4 @@
 <% flash.each do |message_type, message| %>
+  <% next if message_type == 'timedout' %>
   <%= turbo_stream.toast(message, background: message_type) %>
 <% end %>
