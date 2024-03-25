@@ -94,8 +94,6 @@ GEM
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
-    any_login (1.5.2)
-      rails (>= 6.0)
     ast (2.4.2)
     autoprefixer-rails (10.4.15.0)
       execjs (~> 2)
@@ -608,7 +606,6 @@ DEPENDENCIES
   active_storage_validations
   acts_as_singleton
   annotate
-  any_login
   babosa
   bigdecimal (= 3.0.2)
   bootsnap (>= 1.4.4)
