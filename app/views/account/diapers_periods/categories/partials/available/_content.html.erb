@@ -20,14 +20,16 @@
                     data: { turbo_stream: true }
                   ) do %>
                 <i class="fa-solid fa-plus"></i>
-                <i class="mx-2 fa fa-pen"></i>
               <% end %>
             </td>
         <% end %>
       </tbody>
     </table>
   <% else %>
-    <p><%= t(".no_categories_available") %></p>
+    <div class="mb-4 d-flex align-items-center">
+      <i class="mx-4 fa fa-exclamation-triangle" style="color:orange"></i>
+      <p><%= t(".no_categories_available") %></p>
+    </div>
   <% end %>
 
   <%= link_to(
