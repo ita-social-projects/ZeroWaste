@@ -610,7 +610,7 @@ uk:
         diapers_period:
           attributes:
             price:
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
         product:
           attributes:
             title:
