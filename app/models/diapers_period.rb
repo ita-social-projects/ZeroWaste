@@ -16,7 +16,7 @@ class DiapersPeriod < ApplicationRecord
 
   validates :price,
             presence: true,
-            numericality: { greater_than_or_equal_to: 0 }
+            numericality: { greater_than_or_equal_to: 0, less_than: 1000 }
 
   validates :period_start,
             presence: true,
@@ -28,7 +28,7 @@ class DiapersPeriod < ApplicationRecord
 
   validates :usage_amount,
             presence: true,
-            numericality: { greater_than_or_equal_to: 0 }
+            numericality: { greater_than_or_equal_to: 0, less_than: 100 }
 
   scope :ordered, -> { order(:id) }
 
