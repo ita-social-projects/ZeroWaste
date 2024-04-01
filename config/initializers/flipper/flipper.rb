@@ -11,7 +11,10 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
   end
 
   Flipper.features.each do |feature|
-    if feature.name == "sandbox_mode" && !DatabaseBackupService.sandbox_enabled?
+    case feature.name
+    when "sandbox_mode"
+      Flipper.disable(feature.name) unless DatabaseBackupService.sandbox_enabled?
+    when "show_calculators_list"
       Flipper.disable(feature.name)
     else
       Flipper.enable(feature.name)
