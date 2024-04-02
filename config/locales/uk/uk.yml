@@ -488,6 +488,8 @@ uk:
       new:
         meta-title: "Увійти"
         log_in: "Увійти"
+        email_placeholder: "Введіть свою ел.пошту"
+        password_placeholder: "Введіть свій пароль"
     shared:
       links:
         forgot_your_password: "Забули пароль?"

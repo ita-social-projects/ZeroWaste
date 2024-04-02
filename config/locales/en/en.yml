@@ -472,6 +472,8 @@ en:
       new:
         meta-title: "Log In"
         log_in: "Log In"
+        email_placeholder: "Enter your email"
+        password_placeholder: "Enter your password"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
