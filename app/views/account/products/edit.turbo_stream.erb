@@ -1,0 +1,5 @@
+<%= turbo_stream.replace(
+      dom_id(@product, :form),
+      partial: "account/products/partials/edit/form",
+      locals: { product: @product, categories: @categories }
+    ) %>
