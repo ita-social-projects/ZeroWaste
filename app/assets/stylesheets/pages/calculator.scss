@@ -14,7 +14,7 @@
   font-weight: 400;
   font-family: "Nunito", sans-serif;
   font-style: normal;
-  transition: transform 0.5s linear;
+  transition: transform 0.5s ease-in-out;
   max-width: 300px;
 }
 
@@ -177,6 +177,7 @@
   }
   &:hover {
     background-color: $matte_lime_green;
+    transition: background-color 0.5s ease-in-out;
   }
 }
 
