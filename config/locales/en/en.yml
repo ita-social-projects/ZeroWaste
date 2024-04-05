@@ -460,7 +460,7 @@ en:
         forgot_password_header: "Forgot your password?"
         forgot_password_message: "Enter your email address and we'll send you reset instructions."
         email_placeholder: "Enter your email"
-        send_instructions_button: "Reset password"
+        send_instructions_button: "Reset"
         back_to: "Back to"
         form:
           email_label: "Email"
