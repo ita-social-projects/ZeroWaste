@@ -29,6 +29,15 @@
           <li>
             <%= link_to t("layouts.navigation.log_out"), destroy_user_session_path, class: "tab" %>
           </li> 
+        <% else %>  
+        <!-- 
+          <li>
+            <%= link_to t("layouts.navigation.sign_up"), new_user_registration_path, class: "tab" %>
+          </li>
+          <li>
+            <%= link_to t("layouts.navigation.log_in"), new_user_session_path, class: "tab", id: "log_in" %>
+          </li>
+        -->  
         <% end %>
       </ul>
     </div>

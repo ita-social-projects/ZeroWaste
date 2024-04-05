@@ -7,6 +7,8 @@ describe "navigator", js: true do
     visit root_path
 
     expect(page).to have_css(".page-header")
+    # expect(page).to have_link("Log In", href: user_session_path, visible: :all)
+    # expect(page).to have_link("Sign Up", href: new_user_registration_path, visible: :all)
     expect(page).to have_link("Contact us", href: new_message_path, visible: :all)
   end
 

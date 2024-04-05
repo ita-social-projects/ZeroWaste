@@ -99,6 +99,7 @@ group :test do
 end
 
 gem "active_model_serializers", "~> 0.10.0"
+gem "any_login"
 gem "devise"
 gem "devise-async"
 gem "faker"
