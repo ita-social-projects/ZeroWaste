@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   scope "/(:locale)", locale: /uk|en/ do
     devise_for :users, skip: [:omniauth_callbacks, :registration]
 
-    # as :user do
-    #   get :sign_up, to: "users/registrations#new", as: :new_user_registration
-    #   post :sign_up, to: "users/registrations#create", as: :user_registration
-    # end
+    as :user do
+      get :sign_up, to: "users/registrations#new", as: :new_user_registration
+      post :sign_up, to: "users/registrations#create", as: :user_registration
+    end
 
     root "home#index"
     get "/sitemap", to: "sitemap#index"
