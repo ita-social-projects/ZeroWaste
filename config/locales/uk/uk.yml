@@ -14,7 +14,7 @@ uk:
       truncate: "&hellip;"
   calculators:
     new_calculator:
-      Diaper_сalculator: "Калькулятор підгузків"
+      diaper_сalculator: "Калькулятор підгузків"
       form:
         description: "Вік дитини:"
         price: "Цінова категорія"
@@ -23,10 +23,18 @@ uk:
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
-      bought_diapers: "ви вже використали"
-      money_spent: "ви вже витратили"
-      will_buy_diapers: "ви ще використаєте"
-      money_will_be_spent: "ви ще витратите"
+      bought_diapers:
+        one: "підгузок ви вже використали"
+        few: "підгузки ви вже використали"
+        many: "підгузків ви вже використали"
+        other: "підгузків ви вже використали"
+      money_spent: "грн ви вже витратили"
+      will_buy_diapers:
+        one: "підгузок ви ще використаєте"
+        few: "підгузки ви ще використаєте"
+        many: "підгузків ви ще використаєте"
+        other: "підгузків ви ще використаєте"
+      money_will_be_spent: "грн ви ще витратите"
       pieces: "шт."
       unit: "грн"
     old_calculator:
