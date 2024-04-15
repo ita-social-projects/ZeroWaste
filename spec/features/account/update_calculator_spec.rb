@@ -32,7 +32,7 @@ describe "Update Calculator Page", js: true do
     it "shows message that name is invalid" do
       fill_in "Name", with: '\[d]]p'
       click_button UPDATE_CALCULATOR_BUTTON
-      expect(page).to have_content("Name is invalid")
+      expect(page).to have_content("Name contains invalid characters")
     end
   end
 end

@@ -32,7 +32,7 @@ RSpec.describe Category, type: :model do
     it "returns only one error message when field is blank" do
       category.valid?
       expect(category.errors.full_messages_for(:name).length).to eq 1
-      expect(category.errors.full_messages_for(:name)).to include("Name can't be blank")
+      expect(category.errors.full_messages_for(:name)).to include("Title can't be blank")
     end
   end
 end
