@@ -566,9 +566,9 @@ en:
           attributes:
             name:
               blank: "can't be blank"
-              too_short: "is too short"
+              too_short: "is too short (minimum is 2 characters)"
               too_long: "is too long (maximum is %{count} characters)"
-              invalid: "is invalid"
+              invalid: "contains invalid characters"
               taken: "has already been taken, please choose another one"
         category:
           attributes:

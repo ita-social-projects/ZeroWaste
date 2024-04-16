@@ -41,7 +41,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name is too short" do
       fill_in "Name", with: "i"
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("is too short")
+      expect(page).to have_content("Name is too short (minimum is 2 characters)")
     end
   end
 
@@ -49,7 +49,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name is invalid" do
       fill_in "Name", with: "i[]p"
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("Name is invalid")
+      expect(page).to have_content("Name contains invalid characters")
     end
   end
 
