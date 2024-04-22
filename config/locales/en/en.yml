@@ -47,6 +47,7 @@ en:
     index:
       meta-title: "Calculators"
     new_calculator:
+      diaper_сalculator: "Diaper calculator"
       form:
         description: "Child’s age:"
         price: "Price category"
