@@ -107,8 +107,8 @@ main p {
       border: none;
 
       &:hover {
-        color: $success;
-        border-color: $success;
+        color: $white;
+        background-color: $matte_lime_green;
       }
 
       &:active {

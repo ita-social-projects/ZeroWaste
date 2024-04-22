@@ -474,7 +474,10 @@ uk:
     passwords:
       new:
         forgot_password_header: "Забули пароль?"
-        send_instructions_button: "Надішліть мені інструкції щодо скидання пароля"
+        forgot_password_message: "Введіть свою електронну адресу, і ми надішлемо вам інструкції для скидання пароля."
+        email_placeholder: "Введіть свою ел.пошту"
+        send_instructions_button: "Скинути"
+        back_to: "Назад до"
         form:
           email_label: "Електронна пошта"
       edit:
