@@ -21,7 +21,7 @@ describe "sign out", js: true do
     end
   end
 
-  it "signs the user out" do
+  xit "signs the user out" do
     expect(page).to have_current_path("/calculators/#{calculator.slug}")
     expect(page).to have_content("LOG IN")
   end

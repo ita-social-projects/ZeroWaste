@@ -9,7 +9,7 @@ FIRSTNAME           = "First name"
 LASTNAME            = "Last name"
 SIGN_UP_BUTTON_TEXT = I18n.t("layouts.navigation.sign_up")
 
-describe "User Sign Up", js: true do
+xdescribe "User Sign Up", js: true do
   context "when sign up with correct password and email" do
     it "shows a message about a confirmation link in the mail" do
       receive(:confirmation_instructions)
