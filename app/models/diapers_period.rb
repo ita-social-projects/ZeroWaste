@@ -14,21 +14,22 @@
 class DiapersPeriod < ApplicationRecord
   belongs_to :category
 
-  validates :price,
-            presence: true,
-            numericality: { greater_than_or_equal_to: 0 }
+  validates :price, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0, less_than: 1000 }, allow_blank: true
 
   validates :period_start,
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
+  validates :period_end, presence: true
   validates :period_end,
-            presence: true,
-            numericality: { only_integer: true, greater_than: :period_start, less_than_or_equal_to: 30 }
+            numericality: { only_integer: true, greater_than: :period_start, less_than_or_equal_to: 30 },
+            allow_blank: true
 
+  validates :usage_amount, presence: true
   validates :usage_amount,
-            presence: true,
-            numericality: { greater_than_or_equal_to: 0 }
+            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 100 },
+            allow_blank: true
 
   scope :ordered, -> { order(:id) }
 

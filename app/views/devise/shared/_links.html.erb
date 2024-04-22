@@ -12,11 +12,11 @@
   </div>
 <% end %>
 
-<% if devise_mapping.omniauthable? %>
+<% if devise_mapping.omniauthable? && controller_name != "passwords"%>
   <div class="block w-full mt-3">
     <fieldset class="auth-login-links">
       <legend class="float-none w-auto text-sm px-2.5 mx-auto"><%= t("devise.omniauth_callbacks.continue_with") %></legend>
-
+     
       <%#= link_to user_google_oauth2_omniauth_authorize_path do %>
         <%#= image_tag("icons/google.svg", alt: "Google Sign In", class: "w-14") %>
       <%# end %>      
