@@ -13,6 +13,8 @@ uk:
       next: "Наступна &rsaquo;"
       truncate: "&hellip;"
   calculators:
+    index:
+      meta-title: "Калькулятори"
     new_calculator:
       form:
         description: "Вік дитини:"
@@ -22,18 +24,10 @@ uk:
         budgetary: "бюджетна"
         medium: "середня"
         premium: "преміум"
-      bought_diapers:
-        one: "підгузок ви вже використали"
-        few: "підгузки ви вже використали"
-        many: "підгузків ви вже використали"
-        other: "підгузків ви вже використали"
-      money_spent: "грн ви вже витратили"
-      will_buy_diapers:
-        one: "підгузок ви ще використаєте"
-        few: "підгузки ви ще використаєте"
-        many: "підгузків ви ще використаєте"
-        other: "підгузків ви ще використаєте"
-      money_will_be_spent: "грн ви ще витратите"
+      bought_diapers: "ви вже використали"
+      will_buy_diapers: "ви ще використаєте"
+      money_spent: "ви вже витратили"
+      money_will_be_spent: "ви ще витратите"
       pieces: "шт."
       unit: "грн"
     old_calculator:
@@ -46,17 +40,17 @@ uk:
         few: "підгузки ви вже використали"
         many: "підгузків ви вже використали"
         other: "підгузків ви вже використали"
-      money_spent: "грн ви вже витратили"
       will_buy_diapers:
         one: "підгузок ви ще використаєте"
         few: "підгузки ви ще використаєте"
         many: "підгузків ви ще використаєте"
         other: "підгузків ви ще використаєте"
+      money_spent: "грн ви вже витратили"
       money_will_be_spent: "грн ви ще витратите"
     errors:
-      year_and_month_error_msg: "Помилка: будь ласка, виберіть, скільки років та місяців дитині"
-      year_error_msg: "Помилка: будь ласка, виберіть, скільки років дитині"
-      month_error_msg: "Помилка: будь ласка, виберіть, скільки місяців дитині"
+      year_and_month_error_msg: "Будь ласка, виберіть, скільки років та місяців дитині"
+      year_error_msg: "Будь ласка, виберіть, скільки років дитині"
+      month_error_msg: "Будь ласка, виберіть, скільки місяців дитині"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
@@ -327,7 +321,7 @@ uk:
         rails_db_description: "Доступ до бази даних (лише перегляд)"
         dev_features: "Для розробників"
         diapers_categories: "Категорії підгузків"
-        apply_button: "Застосувати"
+        apply_button: "Зберегти"
         confirm_default: "Ви впевнені, що бажаєте повернути налаштування за замовчуванням для назви та іконки сайту?"
     diapers_periods:
       partials:
@@ -342,14 +336,14 @@ uk:
             cannot_edit_period: "Ви не можете редагувати початок та кінець періоду"
         index:
           delete_button:
-            confirm_delete: "Ви впевнені що бажаєте видалити цей період?"
+            confirm_delete: "Ви впевнені, що бажаєте видалити цей період?"
             cannot_delete_category: "Ви не можете видалити періоди в основній категорії."
             cannot_delete_period: "Ви можете видалити лише останній період."
           add_new_link:
             add_new: "Додати новий період"
           content:
             periods_for: "Періоди підгудків для категорії:"
-            confirm_delete: "Видалити цей період?"
+            confirm_delete: "Ви впевнені, що бажаєте видалити цей період?"
             period_start: "Початок періоду"
             period_end: "Кінець періоду"
             usage_amount: "Обсяг використання "
@@ -370,7 +364,6 @@ uk:
             price: "Ціна"
             back_button: "Назад"
             cannot_edit_start_period: "Ви не можете редагувати початок періоду"
-          back_button: "Назад"
       categories:
         partials:
           available:
@@ -378,14 +371,14 @@ uk:
               available: "Оберіть категорію:"
               no_categories_available: "Немає доступних категорій. Створіть нову категорію."
               category_name: "Назва категорії"
-              confirm_delete: "Видалити всі періоди?"
+              confirm_delete: "Ви впевнені, що бажаєте видалити всі періоди?"
               back_button: "Назад"
               table:
                 add: "Додати"
           with_periods:
             content:
               category_name: "Назва категорії"
-              confirm_delete: "Видалити всі періоди?"
+              confirm_delete: "Ви впевнені, що бажаєте видалити всі періоди?"
               table:
                 show: "Показати"
                 delete: "Видалити"
@@ -406,7 +399,7 @@ uk:
         log_in_header: "Увійти"
         log_in_button: "Увійти"
         form:
-          email: "Пошта"
+          email: "Електронна пошта"
           password: "Пароль"
     shared:
       links:
@@ -532,41 +525,6 @@ uk:
     calculator: "Калькулятор"
     category: "Категорію"
   activerecord:
-    form_errors:
-      one: "Одна помилка перешкоджає зберегти %{model}:"
-      few: "%{count} помилки перешкоджають зберегти %{model}:"
-    attributes:
-      user:
-        email: "Електронна пошта"
-        password: "Пароль"
-        password_confirmation: "Повторний пароль"
-        first_name: "Ім'я"
-        last_name: "Прізвище"
-        country: "Країна"
-        role: "Роль"
-        remember_me: "Запам'ятати мене"
-        successful_update: "Інформацію про користувача було успішно оновлено!"
-      admin:
-        remember_me: "Запам'ятати мене"
-      site_setting:
-        title: "Назва"
-      diapers_period:
-        price: "Ціна"
-        period_start: "Початок періоду"
-        period_end: "Кінець періоду"
-        usage_amount: "Обсяг використання"
-      calculator:
-        name: "Назва"
-        slug: "Шлях"
-        preferable: "Бажаний"
-      category:
-        name: "Назва"
-        priority: "Пріоритет"
-        preferable: "Основна"
-      price:
-        sum: "Сума"
-      product:
-        title: "Назва"
     errors:
       models:
         calculator:
@@ -604,7 +562,7 @@ uk:
         site_setting:
           attributes:
             title:
-              blank: "не може бути пустою"
+              blank: "не може бути порожньою"
               too_long:
                 one: "занадто довга (максимум %{count} знак)"
                 few: "занадто довга (максимум %{count} знаки)"
@@ -646,13 +604,13 @@ uk:
               blank: "не може бути порожньою"
               taken: "вже зайнята, вкажіть іншу"
             first_name:
-              invalid: недійсне
-              too_long: занадто довге (максимум %{count} знаків)
-              too_short: занадто коротке (мінімум %{count} знаки)
+              invalid: "недійсне"
+              too_long: "занадто довге (максимум %{count} знаків)"
+              too_short: "занадто коротке (мінімум %{count} знаки)"
             last_name:
-              invalid: недійсне
-              too_long: занадто довге (максимум %{count} знаків)
-              too_short: занадто коротке (мінімум %{count} знаки)
+              invalid: "недійсне"
+              too_long: "занадто довге (максимум %{count} знаків)"
+              too_short: "занадто коротке (мінімум %{count} знаки)"
             avatar:
             content_type:
               "%{extension}"
@@ -678,6 +636,41 @@ uk:
         restrict_dependent_destroy:
           has_one: "Неможливо видалити запис, оскільки існує залежність: %{record}"
           has_many: "Неможливо видалити запис, оскільки існують залежності: %{record}"
+    form_errors:
+      one: "Одна помилка перешкоджає зберегти %{model}:"
+      few: "%{count} помилки перешкоджають зберегти %{model}:"
+    attributes:
+      user:
+        email: "Електронна пошта"
+        password: "Пароль"
+        password_confirmation: "Повторний пароль"
+        first_name: "Ім'я"
+        last_name: "Прізвище"
+        country: "Країна"
+        role: "Роль"
+        remember_me: "Запам'ятати мене"
+        successful_update: "Інформацію про користувача було успішно оновлено!"
+      admin:
+        remember_me: "Запам'ятати мене"
+      site_setting:
+        title: "Назва"
+      diapers_period:
+        price: "Ціна"
+        period_start: "Початок періоду"
+        period_end: "Кінець періоду"
+        usage_amount: "Обсяг використання"
+      calculator:
+        name: "Назва"
+        slug: "Шлях"
+        preferable: "Бажаний"
+      category:
+        name: "Назва"
+        priority: "Пріоритет"
+        preferable: "Основна"
+      price:
+        sum: "Сума"
+      product:
+        title: "Назва"
   notifications:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"
@@ -834,6 +827,7 @@ uk:
       exclusion: "є зарезервованим"
       greater_than: "мусить бути більше ніж %{count}"
       greater_than_or_equal_to: "мусить бути більше ніж або дорівнювати %{count}"
+      in: "має бути в %{count}"
       inclusion: "не є включеним до переліку"
       invalid: "не є дійсним"
       less_than: "мусить бути менше ніж %{count}"
@@ -934,9 +928,11 @@ uk:
             few: "байти"
             many: "байтів"
             other: "байтів"
+          eb: "ЕБ"
           gb: "ГБ"
           kb: "кБ"
           mb: "МБ"
+          pb: "ПБ"
           tb: "ТБ"
     percentage:
       format:

@@ -81,7 +81,7 @@ RSpec.feature "AdminLogins", type: :feature do
           sleep 0.5
           click_button "Увійти"
           sleep 0.5
-          expect(page).to have_content "Невірний email чи пароль"
+          expect(page).to have_content "Невірна електронна пошта чи пароль"
         end
       end
 
@@ -94,7 +94,7 @@ RSpec.feature "AdminLogins", type: :feature do
           sleep 0.5
           click_button "Увійти"
           sleep 0.5
-          expect(page).to have_content "Невірний email чи пароль"
+          expect(page).to have_content "Невірна електронна пошта чи пароль"
         end
       end
 
@@ -107,7 +107,7 @@ RSpec.feature "AdminLogins", type: :feature do
           sleep 0.5
           click_button "Увійти"
           sleep 0.5
-          expect(page).to have_content "Невірний email чи пароль"
+          expect(page).to have_content "Невірна електронна пошта чи пароль"
         end
       end
     end

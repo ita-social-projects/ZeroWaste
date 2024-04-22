@@ -71,14 +71,19 @@ en:
       will_buy_diapers: "diapers to be used in the future"
       money_will_be_spent: "UAH yet to be spent on diapers"
     errors:
-      year_and_month_error_msg: "Error: please, select years and months"
-      year_error_msg: "Error: please, select years"
-      month_error_msg: "Error: please, select month"
+      year_and_month_error_msg: "Please, select years and months"
+      year_error_msg: "Please, select years"
+      month_error_msg: "Please, select month"
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
       to_main: "To main"
       calculate: "Calculate"
+    index:
+      meta-title: "Calculators"
+      id_column: "ID Column"
+      calculator_name: "Calculator Name"
+      calculator_actions: "Calculator Actions"
     date:
       months:
         one: "%{count} month"
@@ -150,7 +155,7 @@ en:
       message: "Message"
       title: "Title"
       send: "Send"
-      title_hint: "title (min 5 characters)"
+      title_hint: "Title (min 5 characters)"
       message_hint: "Your message (min 20 characters)"
       company_address: "Company address"
       about_us: "About us"
@@ -183,6 +188,8 @@ en:
     messages:
       index:
         meta-title: "Messages"
+        search_placeholder: "Search"
+        search_button: "Search"
         table:
           title: "Title"
           email: "Email"
@@ -198,6 +205,14 @@ en:
     categories:
       index:
         meta-title: "Categories"
+        search_placeholder: "Search"
+        search_button: "Search"
+        table:
+          title: "Title"
+          actions: "Actions"
+          priority: "Priority"
+          edit: "Edit"
+          delete: "Delete"
         add_category_button: "Add category"
         confirm_delete: "Delete category?"
         cannot_delete: "You cannot delete preferable category."
@@ -214,9 +229,15 @@ en:
           title: "Title"
           prices: "Prices"
           actions: "Actions"
+          edit: "Edit"
+          delete: "Delete"
         add_product_button: "Add product"
         confirm_delete: "Delete product?"
       show:
+        table:
+          title: "Title"
+          prices: "Prices"
+          actions: "Actions"
         confirm_delete: "Delete product?"
       partials:
         new:
@@ -284,6 +305,34 @@ en:
           blocked_label: "Blocked"
           unblocked_label: "Unblocked"
         button: "Back"
+    calculators:
+      index:
+        meta-title: "Calculators"
+        add_calculator_button: "Add calculator"
+        confirm_delete: "Are you sure you want to delete calculator?"
+        table:
+          calculator_slug: "Slug"
+          calculator_name: "Name"
+          calculator_actions: "Actions"
+          show: "Show"
+          edit: "Edit"
+          delete: "Delete"
+        edit:
+          add_new_field_label: "Add new field"
+          form:
+            select_field_kind_label: "Select field kind"
+            select_field_type_label: "Select field type"
+            form_label: "Form"
+            parameters_label: "Parameters"
+            results_label: "Results"
+            no_fields_yet_label: "No fields yet"
+            update_calculator_button: "Update calculator"
+        new:
+          create_calculator_button: "Create calculator"
+          cancel_button: "Сancel"
+          prohibited_to_update: " prevent the calculator from updating"
+          prohibited_to_save: " перешкоджають збереженню калькулятора"
+          error: "помилки"
     site_settings:
       edit:
         meta-title: "Site Settings"
@@ -291,7 +340,7 @@ en:
         site_features: "Site features"
         dev_features: "Development features"
         rails_db_description: "Access to database (read only)"
-        apply_button: "Apply"
+        apply_button: "Save"
         confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
     diapers_periods:
       partials:
@@ -334,7 +383,6 @@ en:
             price: "Price"
             back_button: "Back"
             cannot_edit_start_period: "You can't edit the start of the period"
-          back_button: "Back"
       categories:
         partials:
           available:
@@ -559,7 +607,7 @@ en:
           attributes:
             value:
               too_short: "is too short"
-              invalid: "is invalid"
+              invalid: "contains invalid characters"
         product_type:
           attributes:
             title:
@@ -572,7 +620,7 @@ en:
               blank: "can't be blank"
               too_short: "is too short"
               too_long: "is too long (maximum is %{count} characters)"
-              invalid: "is invalid"
+              invalid: "contains invalid characters"
               taken: "has already been taken, please choose another one"
         category:
           attributes:
@@ -602,13 +650,28 @@ en:
         first_name: "First name"
         last_name: "Last name"
         country: "Country"
+        role: "Role"
+        remember_me: "Remember me"
         successful_update: "User info was successfully updated!"
       admin:
         remember_me: "Remember me"
+      site_setting:
+        title: "Title"
+      diapers_period:
+        price: "Price"
+        period_start: "Period Start"
+        period_end: "Period End"
+        usage_amount: "Usage Amount"
       calculator:
         name: "Name"
         slug: "Slug"
         preferable: "Preferable"
+      category:
+        name: "Title"
+        priority: "Priority"
+        preferable: "Main"
+      price:
+        sum: "Sum"
       product:
         sum: "Sum"
   notifications:
@@ -797,11 +860,11 @@ en:
       decimal_units:
         format: "%n %u"
         units:
-          billion: Billion
-          million: Million
-          quadrillion: Quadrillion
-          thousand: Thousand
-          trillion: Trillion
+          billion: "Billion"
+          million: "Million"
+          quadrillion: "Quadrillion"
+          thousand: "Thousand"
+          trillion: "Trillion"
           unit: ""
       format:
         delimiter: ""
