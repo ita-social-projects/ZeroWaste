@@ -60,9 +60,7 @@ RSpec.feature "AdminLogins", type: :feature do
 
     context "with ukrainian locale" do
       context "when sign in with correct login and password" do
-        it "redirect to admin page" do
-          skip "Skip test after delete device path"
-
+        xit "redirect to admin page" do
           visit new_user_session_path
           click_link LANG_BUTTON_TEXT
           fill_in "user_email", with: user.email
