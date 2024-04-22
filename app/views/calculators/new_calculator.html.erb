@@ -15,7 +15,7 @@
                                                     input_child_info_results_outlet: ".result" }}) do |form| %>
       <div class="flex-item flex-column">
         <div class="pb-2 input_lable">
-          <%= label_tag "child_years", t(".form.description") %>
+          <%= t(".form.description") %>
         </div>
 
         <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
@@ -25,27 +25,27 @@
                                 class: "select-age ms-2 rounded",
                                 data: { input_child_info_target: "year", action: "input-child-info#yearChanged" } %>
 
-          <%= label_tag "child_years", t(".form.childs_years_label"), class: "select-age-label" %>
+          <%= t(".form.childs_years_label") %>
 
           <%= form.input_field :months,
-                                collection: month_number("new"),
-                                prompt: "__",
-                                class: "select-age rounded",
-                                data: { input_child_info_target: "month" } %>
+                              collection: month_number("new"),
+                              prompt: "__",
+                              class: "select-age rounded",
+                              data: { input_child_info_target: "month" } %>
 
-          <%= label_tag "child_months", t(".form.childs_months_label"), class: "select-age-label" %>
+          <%= t(".form.childs_months_label") %>
         </div>
 
         <div class="pb-2 input_lable">
-          <%= label_tag "child_product_category", t(".form.price") %>
+          <%= t(".form.price") %>
         </div>
 
         <%= form.input_field :product_category,
-                             collection: @diaper_categories,
-                             selected: @preferable_category&.id,
-                             label: t(".form_price"),
-                             class: "form_fild price_select rounded w-100",
-                             data: { input_child_info_target: "productCategory" } %>
+                            collection: @diaper_categories,
+                            selected: @preferable_category&.id,
+                            label: t(".form_price"),
+                            class: "form_fild price_select rounded w-100",
+                            data: { input_child_info_target: "productCategory" } %>
 
         <%= form.submit t("calculators.buttons.calculate"),
                     class: "calculate-btn result-btn",
