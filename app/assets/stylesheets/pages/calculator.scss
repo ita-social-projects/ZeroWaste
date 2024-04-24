@@ -74,7 +74,7 @@
   }
 
   .form_fild {
-    min-height: 33px;
+    min-height: 40px;
     font-weight: 400;
     margin-bottom: 24px;
     max-width: 275px;
@@ -83,17 +83,23 @@
 
   .age_wrapper {
     align-items: center;
+
     .select-age {
+      appearance: none;
       background-color: $light_gray;
       background-image: none;
-      width: 10%;
-      margin-left: 40px;
-      text-align: center;
       border: none;
-      outline: none;
       color: $dark_gray;
-      appearance: none;
-      padding: 0rem;
+      width: 70px;
+      margin: 0 5px 0 25px;
+      padding: 1px 0 1px 15px;
+      text-align: left;
+    }
+
+    .select-age-label {
+      margin-left: -40px;
+      pointer-events: none;
+      z-index: 1;
     }
   }
 
