@@ -1,4 +1,3 @@
 <% flash.each do |message_type, message| %>
-  <% next unless message.is_a? String %>
-  <%= turbo_stream.toast(message, background: message_type) %>
+  <%= turbo_stream.toast(message, background: message_type) if message.is_a? String %>
 <% end %>
