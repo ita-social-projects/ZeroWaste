@@ -8,6 +8,10 @@ RSpec.describe "Account::UsersController", type: :request do
   let!(:user) { create(:user, last_sign_in_at: Time.current) }
 
   describe "GET #index" do
+    let(:csv_content) do
+      response.instance_variable_get(:@stream).instance_variable_get(:@buf).join
+    end
+
     it "returns a successful html response" do
       get account_users_path
 
@@ -18,8 +22,6 @@ RSpec.describe "Account::UsersController", type: :request do
 
     it "returns a successful csv response" do
       get account_users_path(format: "csv")
-
-      csv_content = response.instance_variable_get(:@stream).instance_variable_get(:@buf).join
 
       expect(response.header["Content-Type"]).to include "application/octet-stream"
       expect(csv_content).to match(user.email)

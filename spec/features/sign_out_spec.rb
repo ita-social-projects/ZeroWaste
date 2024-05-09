@@ -5,8 +5,8 @@ require "rails_helper"
 describe "sign out", js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
+  let(:flash_message_disappear_time) { 20 }
 
-  flash_message_disappear_time = 20
   before do
     create(:feature_flag, :show_admin_menu)
     allow_any_instance_of(ApplicationController).to receive(:after_sign_in_path_for).and_return("/calculators/#{calculator.slug}")
