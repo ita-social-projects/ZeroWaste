@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_404
-
   before_action :calculator, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
@@ -83,9 +81,5 @@ class Account::CalculatorsController < Account::BaseController
       ::Calculators::PreferableService.new(calculator_params).perform!
       @calculator.update(calculator_params)
     end
-  end
-
-  def render_404
-    render "errors/admin_404", status: :not_found, layout: "account"
   end
 end

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Account::UsersController < Account::BaseController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_404
-
   layout "account"
 
   before_action :set_paper_trail_whodunnit
@@ -77,9 +75,5 @@ class Account::UsersController < Account::BaseController
 
   def resource
     User.find(params[:id])
-  end
-
-  def render_404
-    render "errors/admin_404", status: :not_found, layout: "account"
   end
 end
