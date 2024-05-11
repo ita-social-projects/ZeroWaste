@@ -18,10 +18,11 @@
 #  index_calculators_on_slug  (slug) UNIQUE
 #  index_calculators_on_uuid  (uuid) UNIQUE
 #
+
 class Calculator < ApplicationRecord
   extend FriendlyId
 
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: :sequentially_slugged
 
   has_paper_trail
 
@@ -44,6 +45,10 @@ class Calculator < ApplicationRecord
                               "%#{search&.strip}%"
                             )
                           }
+
+  def normalize_friendly_id(input)
+    input.to_slug.transliterate(:ukrainian).normalize.to_s
+  end
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]

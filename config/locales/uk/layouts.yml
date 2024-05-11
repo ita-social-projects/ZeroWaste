@@ -11,3 +11,6 @@ uk:
       navigation:
         donate: "Підтримати"
         calculators: "Калькулятори"
+      search_form:
+        search_placeholder: "Пошук"
+        search_button: "Шукати"

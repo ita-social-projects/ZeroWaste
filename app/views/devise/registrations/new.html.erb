@@ -1,7 +1,9 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
 <div class="position-block">
   <div class="card">
     <div class="p-4 card-block">
-      <h2 class="p-2 text-center">
+      <h2 class="text-center text-2xl text-success py-4">
         <%= t(".sign_up_header") %>
       </h2>
 
@@ -24,8 +26,8 @@
 
         <div class="flex-row-reverse flex-wrap flex gap-3">
           <%= f.submit t(".form.sign_up_button"), class: "btn btn-primary" %>
-          
-          <%= render "devise/shared/links" %>          
+
+          <%= render "devise/shared/links" %>
         </div>
       <% end %>
     </div>

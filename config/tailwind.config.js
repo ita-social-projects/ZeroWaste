@@ -26,6 +26,9 @@ module.exports = {
         blue: '#007bff',
         dark_blue: '#0069d9',
       },
+      minWidth: {
+        '36': '36px',
+      },
     },
   },
   plugins: [

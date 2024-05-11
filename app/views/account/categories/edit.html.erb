@@ -1,13 +1,24 @@
 <div class="container">
-  <%= simple_form_for @category, url: { action: 'update' }, html: { novalidate: false } do |f| %>
+  <%= simple_form_for @category, url: { action: "update" }, html: { novalidate: false } do |f| %>
     <div class="form-group row">
       <div class="my-auto col-12 has-float-label">
-        <%= f.input :name, class: 'form-control col-sm-11', required: true %>
+        <%= f.input :name, class: "form-control col-sm-11", required: true %>
         <%= f.input :priority, collection: Category::PRIORITY_RANGE, wrapper: :custom_vertical_select %>
+        <% if @unfilled_categories&.exclude?(@category) %>
+          <div class="my-4">
+            <%= f.check_box :preferable,
+                            { disabled: (@category.preferable?),
+                              class: (@category.preferable? ? "opacity-50 cursor-not-allowed" : "")
+                            },
+                            "preferable", "not_preferable"
+                  %>
+            <%= f.label :preferable %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="button-group d-flex">
-      <%= f.submit t('.form.update_category_button'), class: 'btn btn-green me-2 height w-auto' %>
+      <%= f.submit t(".form.update_category_button"), class: 'btn btn-green me-2 height w-auto' %>
       <%= link_to account_categories_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
         <span class="me-1"><%= t('buttons.cancel') %></span>
       <% end %>

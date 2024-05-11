@@ -1,27 +1,55 @@
-<body>
-  <header class="page-header">
-    <%= link_to image_tag('logo_zerowaste.png'), root_path, class: 'logo-zerowaste' %>
-    <div class="tabs flex">
-      <% if Flipper[:show_calculators_list].enabled? %>
-        <%= link_to t('.calculators'), calculators_path, class: 'tab' %>
-      <% else %>
-        <%= link_to t('layouts.navigation.calculate'), calculator_path, class: 'tab' %>
-      <% end %>
-      <%= link_to t('layouts.navigation.about_us'), about_path, class: 'tab' %>
-      <%= link_to t('layouts.navigation.contact_us'), new_message_path, class: 'tab' %>
-      <% if user_signed_in? %>
-        <% if current_user.admin? %>
-          <%= link_to t('layouts.navigation.admin'), account_calculators_path, class: 'tab' %>
+
+<header class="page-header">
+  <div data-controller="burger" class="flex justify-between w-full">
+    <%= link_to image_tag("logo_zerowaste.png", alt: "Zero Waste Logo"), root_path, class: "logo-zerowaste" %>
+    
+    <div data-burger-target="navbarNav" class="hidden xl:flex">
+      <ul class="admin-menu-list">
+        <li>
+          <% if Flipper[:show_calculators_list].enabled? %>
+            <%= link_to t(".calculators"), calculators_path, class: "tab" %>
+          <% else %>
+            <%= link_to t("layouts.navigation.calculate"), calculator_path, class: "tab" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to t("layouts.navigation.about_us"), about_path, class: "tab" %>
+        </li>
+        <li>        
+          <%= link_to t("layouts.navigation.contact_us"), new_message_path, class: "tab" %>
+        </li>
+
+        <% if user_signed_in? && current_user.admin? %>
+          <li>
+            <%= link_to t("layouts.navigation.admin"), account_calculators_path, class: "tab" %>
+          </li>  
         <% end %>
-        <%= link_to t('layouts.navigation.log_out'), destroy_user_session_path, class: 'tab' %>
-      <% else %>
-        <%= link_to t('layouts.navigation.sign_up'), new_user_registration_path, class: 'tab' %>
-        <%= link_to t('layouts.navigation.log_in'), new_user_session_path, class: 'tab', id: 'log_in' %>
-      <% end %>
+        
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t("layouts.navigation.log_out"), destroy_user_session_path, class: "tab" %>
+          </li> 
+        <% elsif false %>  
+          <li>
+            <%= link_to t("layouts.navigation.sign_up"), new_user_registration_path, class: "tab" %>
+          </li>
+          <li>
+            <%= link_to t("layouts.navigation.log_in"), new_user_session_path, class: "tab", id: "log_in" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-    <div class="func-btns">
-      <%= link_to t('.donate'), "https://zerowastelviv.org.ua/pidtrymaty/", target: '_blank', class: "header-btns main-btn btn-outline-green" %>
-      <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: 'header-btns main-btn btn-outline-gray' %>
-    </div>
-  </header>
-</body>
+    <div class="flex">
+      <div class="mt-14">
+        <%= link_to t(".donate"), "https://zerowastelviv.org.ua/pidtrymaty/", target: "_blank", rel: "noopener", class: "header-btns main-btn btn-outline-green" %>
+        <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: "header-btns main-btn btn-outline-gray" %>
+      </div>
+      <div class="mt-6 ml-2">
+        <button data-action="click->burger#toggle" class="admin-menu-burger-button">
+          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
+          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
+        </button>
+      </div> 
+    </div> 
+  </div>   
+</header>

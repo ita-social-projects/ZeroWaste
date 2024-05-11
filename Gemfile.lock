@@ -99,6 +99,7 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (10.4.15.0)
       execjs (~> 2)
+    babosa (2.0.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.0.2)
@@ -241,6 +242,9 @@ GEM
     importmap-rails (1.1.6)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-console (0.6.0)
     irb (1.9.1)
       rdoc
@@ -605,6 +609,7 @@ DEPENDENCIES
   acts_as_singleton
   annotate
   any_login
+  babosa
   bigdecimal (= 3.0.2)
   bootsnap (>= 1.4.4)
   bootstrap
@@ -634,9 +639,11 @@ DEPENDENCIES
   hotwire-rails
   image_processing (~> 1.2)
   importmap-rails (~> 1.1)
+  inline_svg
   it
   jbuilder (~> 2.7)
   jquery-rails
+  kaminari
   letter_opener
   listen (~> 3.3)
   meta-tags

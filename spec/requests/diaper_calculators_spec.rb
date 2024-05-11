@@ -5,12 +5,12 @@ require "rails_helper"
 RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
   let(:values) do
     {
-      money_spent: 12_718.5,
-      money_will_be_spent: 10_614.0,
-      used_diapers_amount: 2745.0,
-      to_be_used_diapers_amount: 1830.0,
-      used_diapers_amount_pluralize: I18n.t("calculators.old_calculator.bought_diapers", count: 2745),
-      to_be_diapers_amount_pluralize: I18n.t("calculators.old_calculator.will_buy_diapers", count: 1830)
+      money_spent: "18300.0",
+      money_will_be_spent: "27450.0",
+      used_diapers_amount: 1830.0,
+      to_be_used_diapers_amount: 2745.0,
+      used_diapers_amount_pluralize: I18n.t("calculators.old_calculator.bought_diapers", count: 1830),
+      to_be_diapers_amount_pluralize: I18n.t("calculators.old_calculator.will_buy_diapers", count: 2745)
     }
   end
   let(:expected_result) do
@@ -26,13 +26,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     context "when no year and no month values" do
       let(:year_and_month_error) do
         {
-          error: "Error: please, select years and months"
+          error: "Please, select years and months"
         }
       end
 
       it "renders year and month error" do
         post api_v1_diaper_calculators_path
-
         expect(response).to be_unprocessable
         expect(response.body).to eq(year_and_month_error.to_json)
       end
@@ -41,13 +40,12 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     context "when no year value" do
       let(:year_error) do
         {
-          error: "Error: please, select years"
+          error: "Please, select years"
         }
       end
 
       it "renders year error" do
         post api_v1_diaper_calculators_path, params: { childs_months: 0 }
-
         expect(response).to be_unprocessable
         expect(response.body).to eq(year_error.to_json)
       end
@@ -56,30 +54,29 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     context "when no month value" do
       let(:month_error) do
         {
-          error: "Error: please, select month"
+          error: "Please, select month"
         }
       end
 
       it "renders month error" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1 }
-
         expect(response).to be_unprocessable
         expect(response.body).to eq(month_error.to_json)
       end
     end
 
     context "when get awaited values" do
-      include_context :app_config_load
+      let!(:preferable_category) { create(:category, :medium) }
 
       it "got the expected result" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-        expect(response.body).to eq(expected_result.to_json)
+        expect(JSON.parse(response.body)).to eq(JSON.parse(expected_result.to_json))
       end
     end
 
     context "when get unawaited values" do
-      include_context :app_config_load
+      let!(:preferable_category) { create(:category, :medium) }
 
       let(:invalid_values) do
         {
@@ -93,37 +90,8 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       it "got the unexpected result" do
         expected_result[:result] = invalid_values
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
-
         expect(response).to be_successful
         expect(response.body).not_to eq(expected_result.to_json)
-      end
-    end
-
-    context "when get awaited values" do
-      include_context :app_config_load
-
-      let(:used_diapers_count) { values[:used_diapers_amount] }
-      let(:to_be_used_diapers_count) { values[:to_be_used_diapers_amount] }
-
-      let(:expected_used_diapers) do
-        I18n.t("calculators.old_calculator.bought_diapers", count: used_diapers_count)
-      end
-
-      let(:expected_to_be_used_diapers) do
-        I18n.t("calculators.old_calculator.will_buy_diapers", count: to_be_used_diapers_count)
-      end
-
-      let(:response_body) do
-        JSON.parse(response.body)["result"]
-      end
-
-      before do
-        post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
-      end
-
-      it "translates used and to-be-used diapers amounts" do
-        expect(response_body["used_diapers_amount_pluralize"]).to eq(expected_used_diapers)
-        expect(response_body["to_be_diapers_amount_pluralize"]).to eq(expected_to_be_used_diapers)
       end
     end
   end

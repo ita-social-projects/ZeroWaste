@@ -9,4 +9,8 @@ en:
   account:
     shared:
       navigation:
-        donate: "DONATE"
+        donate: "Donate"
+        calculators: "Calculators"
+      search_form:
+        search_placeholder: "Search"
+        search_button: "Search"

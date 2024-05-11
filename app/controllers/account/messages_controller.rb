@@ -5,7 +5,7 @@ class Account::MessagesController < Account::BaseController
 
   def index
     @q        = collection.ransack(params[:q])
-    @messages = @q.result
+    @messages = @q.result.page(params[:page])
   end
 
   def show
