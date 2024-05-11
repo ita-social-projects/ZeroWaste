@@ -42,7 +42,7 @@ class Product < ApplicationRecord
   end
 
   def find_or_build_price_for_category(category)
-    prices.find_by(category: category) || prices.build(category: category)
+    prices.find { |p| p.category_id == category.id } || prices.build(category: category)
   end
 
   def build_unsigned_categories
