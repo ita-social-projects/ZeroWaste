@@ -4,10 +4,21 @@ class Account::MessagesController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @message = Message.order(created_at: :desc)
+    @q        = collection.ransack(params[:q])
+    @messages = @q.result.page(params[:page])
   end
 
   def show
-    @message = Message.find(params[:id])
+    @message = resource
+  end
+
+  private
+
+  def resource
+    collection.find(params[:id])
+  end
+
+  def collection
+    Message.ordered_by_title
   end
 end

@@ -31,72 +31,154 @@
 
 en:
   uk: "Українська"
+  buttons:
+    save: "Save"
+    update: "Update"
+    create: "Create"
+    cancel: "Cancel"
+    revert: "Revert"
+    back: "Back"
+  views:
+    pagination:
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
   calculators:
-    calculator:
-      diaper: "diaper"
-      form_description: "Child’s age:"
-      form_price: "Price category"
+    index:
+      meta-title: "Calculators"
+    new_calculator:
+      diaper_сalculator: "Diaper calculator"
       form:
-        childs_birthday_label: "Child's birthday"
-        childs_age_label: "Child`s age"
-        childs_years_label: "years"
-        childs_months_label: "months"
-        baby_weight_label: "Baby weight"
+        description: "Child’s age:"
+        price: "Price category"
+        childs_years_label: "y/o."
+        childs_months_label: "mth."
         budgetary: "budgetary"
         medium: "medium"
         premium: "premium"
-      calculate_result_button: "Calculate"
-      want_recomentation_label: "Yes, I want to receive email messages with recommendations"
+      bought_diapers: "already used"
+      will_buy_diapers: "to be used in the future"
+      money_spent: "already spent on diapers"
+      money_will_be_spent: "yet to be spent on diapers"
+      pieces: "pcs."
+      unit: "uah"
+    old_calculator:
+      form:
+        description: "Child’s age:"
+        years_prompt: "years"
+        months_prompt: "months"
       bought_diapers: "diapers already used"
-      will_buy_diapers: "diapers to be used in the future"
       money_spent: "UAH already spent on diapers"
+      will_buy_diapers: "diapers to be used in the future"
       money_will_be_spent: "UAH yet to be spent on diapers"
-      mililiters_of_naphtha: "Mililiters of Naphtha"
-      gram_of_plastic: "Gram of Plastic"
+    errors:
+      year_and_month_error_msg: "Please, select years and months"
+      year_error_msg: "Please, select years"
+      month_error_msg: "Please, select month"
     show:
       welcome_header: "Welcome to ZeroWaste"
+    buttons:
+      to_main: "To main"
+      calculate: "Calculate"
+    index:
+      meta-title: "Calculators"
+      id_column: "ID Column"
+      calculator_name: "Calculator Name"
+      calculator_actions: "Calculator Actions"
+    date:
+      months:
+        one: "%{count} month"
+        few: "%{count} months"
+        many: "%{count} months"
+        other: "%{count} months"
+      years:
+        one: "%{count} year"
+        few: "%{count} years"
+        many: "%{count} years"
+        other: "%{count} years"
   layouts:
     navigation:
+      about_us: "About us"
       admin: "Admin"
+      calculate: "Diaper calculator"
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
-      сontact_us: "Contact us"
+      contact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
       local_lang: "Українська"
     description_block:
-      description_block_html: "These are approximate results. The exact numbers for your
-                              family may differ depending on your daily habits and the diaper brand of choice. At any point of using
-                              diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
-                              this can be done and what reusable alternatives to disposable diapers there are. You can also learn
-                              more about %{calculate_link_one:how we calculate} the number and cost of diapers
-                              or %{calculate_link_two:contact us} with any other questions you may have."
+      description_block_html:
+        "These are approximate results. The exact numbers for your
+        family may differ depending on your daily habits and the diaper brand of choice. At any point of using
+        diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
+        this can be done and what reusable alternatives to disposable diapers there are. You can also learn
+        more about %{calculate_link_one:how we calculate} the number and cost of diapers
+        or %{calculate_link_two:contact us} with any other questions you may have."
     description_button:
       use_less: "%{use_less_link:HOW TO USE LESS}"
     homepage:
       homepage_title: "Welcome to the diaper calculator"
-      description: "The calculator tells you how many disposable diapers your baby has already used and will use in the future before switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
+      description:
+        "The calculator tells you how many disposable diapers your baby has already used and will use in the future before
+        switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
       calculate: "Let's go"
-      visit_website: "Visit WebSite"
+      visit_website: "Visit website"
     account_navbar:
+      homepage: "Home page"
       calculators: "Calculators"
       histories: "History"
       users: "Users"
       messages: "Messages"
-      app_config: "App Config"
       site_settings: "Site Settings"
-      categories: 'Categories'
+      categories: "Categories"
+      products: "Products"
+      zerowaste_logo: "ZeroWaste logo"
+    account_footer:
+      created_with: "Created with"
+      by: "by"
+  mailer:
+    welcome_mail:
+      subject: "Welcome to ZeroWaste!"
+  user_mailer:
+    welcome_email:
+      greeting: "Welcome to ZeroWaste, %{name}"
+      login_info: "You have successfully signed up to zerowaste.com, your login info is"
+      email: "Email: %{email}"
+      password: "Password: %{password}"
+      to_login: "To login to the site, just follow this link"
+      thanks: "Thanks for joining and have a great day!"
   messages:
     new:
+      meta-title: "Contact Us"
       contact_us_header: "Contact us"
       email: "Email"
       message: "Message"
       title: "Title"
       send: "Send"
-      title_hint: "title (min 5 characters)"
+      title_hint: "Title (min 5 characters)"
       message_hint: "Your message (min 20 characters)"
       company_address: "Company address"
       about_us: "About us"
+  sitemap:
+    index:
+      sitemap: "Sitemap"
+      homepage: "Home page"
+      about_us: "About us"
+      calculator-diapers: "Calculator diapers"
+      calculators: "Calculators"
+      message: "Write us a message"
+  about_us:
+    title: "About Us"
+    description:
+      first_paragraph: "We work in many directions for the sake of a clean future and sustainable development of our city and country."
+      second_paragraph: "Zero Waste encourages us to use resources rationally and consciously."
+      third_paragraph: "The main goal of zero waste is to move to a circular economy, where there is no garbage as such, and what is called garbage becomes a valuable resource."
+  our_team:
+    title: "Our Team"
+    description:
+      "Zero Waste Lviv and SoftServe present a calculator - an online tool for calculating the number of disposable and reusable items used.
+      The calculator was developed as part of the charity crowdsourcing platform Open Tech. The technical development is carried out by students of SoftServe Academy."
   account:
     account:
       edit:
@@ -104,21 +186,11 @@ en:
         new_password_label: "New password:"
         confirm_password_label: "Confirm new password:"
         change_password_button: "Change password"
-    app_configs:
-      edit:
-        diapers_calculator_config: "Diapers calculator configuration"
-        first_period: "First period"
-        second_period: "Second period"
-        third_period: "Third period"
-        fourth_period: "Fourth period"
-        fifth_period: "Fifth period"
-        sixth_period: "Sixth period"
-        seventh_period: "Seventh period"
-        amount: "Amount"
-        price: "Price"
-        update: "Update"
     messages:
       index:
+        meta-title: "Messages"
+        search_placeholder: "Search"
+        search_button: "Search"
         table:
           title: "Title"
           email: "Email"
@@ -133,29 +205,83 @@ en:
           time_col: "Date"
     categories:
       index:
-        add_category_button: 'Add category'
-        confirm_delete: 'Delete category?'
-        cancel_button: 'Cancel'
+        meta-title: "Categories"
+        search_placeholder: "Search"
+        search_button: "Search"
+        table:
+          title: "Title"
+          actions: "Actions"
+          priority: "Priority"
+          edit: "Edit"
+          delete: "Delete"
+        add_category_button: "Add category"
+        confirm_delete: "Delete category?"
+        cannot_delete: "You cannot delete preferable category."
       edit:
-        update_button: 'Update'
-        cancel_button: 'Cancel'
+        form:
+          update_category_button: "Update category"
       new:
-        create_button: 'Create'
-        cancel_button: 'Cancel'
-    site_settings:
-      validations:
-        size: 'is too large'
-      edit:
-        update_button: 'Update'
+        form:
+          create_category_button: "Create category"
+    products:
+      index:
+        meta-title: "Products"
+        table:
+          title: "Title"
+          prices: "Prices"
+          actions: "Actions"
+          edit: "Edit"
+          delete: "Delete"
+        add_product_button: "Add product"
+        confirm_delete: "Delete product?"
+      show:
+        table:
+          title: "Title"
+          prices: "Prices"
+          actions: "Actions"
+        confirm_delete: "Delete product?"
+      partials:
+        new:
+          form:
+            title: "Title"
+            form:
+              sum: "Sum"
+              create_product_button: "Create product"
+        edit:
+          form:
+            title: "Title"
+            form:
+              sum: "Sum"
+              update_product_button: "Update product"
+      created: "A product was successfully created"
+      updated: "A product was successfully updated"
+      deleted: "A product was successfully deleted"
     users:
       index:
+        meta-title: "Users"
         main_header: "Dashboard"
+        add_user_button: "Add user"
+        confirm_block: "Are you sure you want to block this user?"
+        confirm_unblock: "Are you sure you want to unblock this user?"
+        confirm_delete: "Are you sure you want to delete this user?"
         table:
           email_col: "Email"
+          first_name: "First name"
+          last_name: "Last name"
           last_visit_col: "Last visit"
-          view_info_col: "Show"
+          show: "Show"
           edit: "Edit"
           ban: "Ban"
+          delete: "Delete"
+      new:
+        table:
+          create_new_user: "Create new user"
+        form:
+          first_name_label: "First name"
+          last_name_label: "Last name"
+          password_hint: "Minimum 8 characters"
+          create_user_button: "Create user"
+          send_credentials_email: "Send email with credentials"
       edit:
         avatar: "User profile photo"
         table:
@@ -164,7 +290,7 @@ en:
           name_label: "Name"
           surname_label: "Surname"
           password_hint: "Leave blank if you don't want to change it"
-          avatar_hint: "Avatar must be less than 2 MB. Allowed file types: PNG,JPG and JPEG"
+          avatar_hint: "Avatar must be less than 2 MB. Allowed file types: PNG, JPG and JPEG"
           update_user_button: "Update user"
       show:
         header: "User information"
@@ -179,10 +305,110 @@ en:
           ban_col: "Status"
           blocked_label: "Blocked"
           unblocked_label: "Unblocked"
+        button: "Back"
     calculators:
       index:
-        search_placeholder: "Search"
-        search_button: "Search"
+        meta-title: "Calculators"
+        add_calculator_button: "Add calculator"
+        confirm_delete: "Are you sure you want to delete calculator?"
+        table:
+          calculator_slug: "Slug"
+          calculator_name: "Name"
+          calculator_actions: "Actions"
+          show: "Show"
+          edit: "Edit"
+          delete: "Delete"
+        edit:
+          add_new_field_label: "Add new field"
+          form:
+            select_field_kind_label: "Select field kind"
+            select_field_type_label: "Select field type"
+            form_label: "Form"
+            parameters_label: "Parameters"
+            results_label: "Results"
+            no_fields_yet_label: "No fields yet"
+            update_calculator_button: "Update calculator"
+        new:
+          create_calculator_button: "Create calculator"
+          cancel_button: "Сancel"
+          prohibited_to_update: " prevent the calculator from updating"
+          prohibited_to_save: " перешкоджають збереженню калькулятора"
+          error: "помилки"
+    site_settings:
+      edit:
+        meta-title: "Site Settings"
+        site_settings: "Site settings"
+        site_features: "Site features"
+        dev_features: "Development features"
+        rails_db_description: "Access to database (read only)"
+        apply_button: "Save"
+        confirm_default: "Are you sure you want to revert the title and favicon to their default settings?"
+    diapers_periods:
+      partials:
+        edit:
+          form:
+            edit_name: "Edit Diapers Period"
+            period_start: "Period Start"
+            period_end: "Period End"
+            usage_amount: "Usage Amount"
+            price: "Price"
+            back_button: "Back"
+            cannot_edit_period: "You can't edit the start and end of the period"
+        index:
+          delete_button:
+            confirm_delete: "Are you sure you want to delete this period?"
+            cannot_delete_category: "You can't delete periods in preferable category."
+            cannot_delete_period: "You can only delete the last period."
+          add_new_link:
+            add_new: "Add New Period"
+          content:
+            periods_for: "Diapers Periods for category:"
+            confirm_delete: "Are you sure you want to delete this period?"
+            period_start: "Period Start"
+            period_end: "Period End"
+            usage_amount: "Usage Amount"
+            price: "Price"
+            table:
+              edit: "Edit"
+              delete: "Delete"
+            add_new: "Add New Period"
+            back_button: "Back"
+            warning: "This category isn't showing in Calculator, because it doesn't cover all periods. Please, add new periods, so the category covers 30 months."
+            cannot_delete: "You can't delete periods in preferable category."
+        new:
+          form:
+            new_period: "New Diapers Period for Category:"
+            period_start: "Period Start"
+            period_end: "Period End"
+            usage_amount: "Usage Amount"
+            price: "Price"
+            back_button: "Back"
+            cannot_edit_start_period: "You can't edit the start of the period"
+      categories:
+        partials:
+          available:
+            content:
+              available: "Select category:"
+              no_categories_available: "No Available categories. Create new Category."
+              category_name: "Category name"
+              confirm_delete: "Are you sure you want to delete all periods?"
+              back_button: "Back"
+              table:
+                add: "Add"
+          with_periods:
+            content:
+              category_name: "Category name"
+              confirm_delete: "Are you sure you want to delete all periods?"
+              table:
+                show: "Show"
+                delete: "Delete"
+              no_categories: "No diapers categories found. Add some from Available list."
+              add_button: "Add New"
+              tooltip: "This category isn't shown in Calculator, because it doesn't have all periods covered."
+              cannot_delete_category: "You can't delete periods in preferable category."
+    calculators:
+      index:
+        meta-title: "Calculators"
         add_calculator_button: "Add calculator"
         confirm_delete: "Are you sure you want to delete calculator?"
         table:
@@ -194,51 +420,56 @@ en:
         form:
           select_field_kind_label: "Select field kind"
           select_field_type_label: "Select field type"
-          create_button: "Create"
           form_label: "Form"
           parameters_label: "Parameters"
           results_label: "Results"
           no_fields_yet_label: "No fields yet"
           update_calculator_button: "Update calculator"
-          cancel_button: "Cancel"
       new:
         create_calculator_button: "Create calculator"
-        cancel_button: "Cancel"
+    feature_flags:
+      submit_button: "Save"
+      new_calculator_design:
+        name: "Enable new calculator design"
+      show_calculators_list:
+        name: "Show calculators on the public side"
+      sandbox_mode:
+        name: "Enable sandbox mode"
     sessions:
       new:
-        log_in_header: "Log in"
-        log_in_button: "Log in"
+        log_in_header: "Log In"
+        log_in_button: "Log In"
         form:
           email: "Email"
           password: "Password"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
-        log_in: "Log in"
+        log_in: "Log In"
     confirmations:
       new:
         resend_confirmation_instructions_header: "Resend confirmation instructions"
         resend_confirmation_instructions_button: "Resend confirmation instructions"
     mailer:
       confirmation_instructions:
-        greetings_to_user: Welcome, %{recipient}!
+        greetings_to_user: "Welcome, %{recipient}!"
         confirmation_email_through_link: "You can confirm your account email through the link below:"
         confirmation_account_link: "Confirm my account"
       email_changed:
-        greeting: Hello %{recipient}!
-        message_confirmed: We're contacting you to notify you that your email has been changed to %{email}.
-        message_unconfirmed: We're contacting you to notify you that your email is being changed to %{email}.
+        greeting: "Hello, %{recipient}!"
+        message_confirmed: "We're contacting you to notify you that your email has been changed to %{email}."
+        message_unconfirmed: "We're contacting you to notify you that your email is being changed to %{email}."
       password_change:
-        greeting: Hello %{recipient}!
+        greeting: "Hello, %{recipient}!"
         successful_change: "We're contacting you to notify you that your password has been changed."
       reset_password_instructions:
-        greeting: Hello %{recipient}!
+        greeting: "Hello, %{recipient}!"
         change_password_link: "Change my password"
         request_change_password: "Someone has requested a link to change your password. You can do this through the link below."
         ignore_email: "If you didn't request this, please ignore this email."
         access_to_changing: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
-        greeting: Hello %{recipient}!
+        greeting: "Hello, %{recipient}!"
         locked_message: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
         unlock_your_account: "Click the link below to unlock your account:"
         unlock_link: "Unlock my account"
@@ -263,6 +494,7 @@ en:
         email_label: "Email"
     histories:
       index:
+        meta-title: "History"
         history_title: "History"
         back_link: "Back"
         table:
@@ -276,7 +508,10 @@ en:
     passwords:
       new:
         forgot_password_header: "Forgot your password?"
-        send_instructions_button: "Send me reset password instructions"
+        forgot_password_message: "Enter your email address and we'll send you reset instructions."
+        email_placeholder: "Enter your email"
+        send_instructions_button: "Reset"
+        back_to: "Back to"
         form:
           email_label: "Email"
       edit:
@@ -288,31 +523,35 @@ en:
         change_password_button: "Change my password"
     sessions:
       new:
-        log_in: "Log in"
+        meta-title: "Log In"
+        log_in: "Log In"
+        email_placeholder: "Enter your email"
+        password_placeholder: "Enter your password"
     shared:
       links:
         forgot_your_password: "Forgot your password?"
-        log_in: "Log in"
-        sign_up: "Sign up"
+        log_in: "Log In"
+        sign_up: "Sign Up"
         sign_in_with: "Sign in with %{provider}"
         google_sign_in: "Sign in with Google"
     registrations:
       new:
+        meta-title: "Sign Up"
         sign_up_header: "Sign Up"
         form:
           email_label: "Email"
           password_label: "Password"
-          password_characters_minimum_label: "Characters Minimum"
-          password_confirmation_label: "Password Confirmation"
-          first_name_label: "First Name"
-          last_name_label: "Last Name"
+          password_characters_minimum_label: "Characters minimum"
+          password_confirmation_label: "Password confirmation"
+          first_name_label: "First name"
+          last_name_label: "Last name"
           sign_up_button: "Sign Up"
           password_hint: "Minimum 8 characters"
       edit:
         update_user_button: "Update information"
         current_password_label: "Current password:"
         confirm_password_label: "Confirm new password:"
-        change_password_button: "Змінити пароль"
+        change_password_button: "Change my password"
         delete_account_label: "Delete my profile"
         are_user_satisfied_question: "Unhappy?"
         delete_account_button: "Delete profile"
@@ -325,69 +564,82 @@ en:
       timeout: "Your session expired. Please sign in again to continue"
   models:
     calculator: "Calculator"
+    category: "Category"
   activerecord:
     errors:
       models:
         field:
           attributes:
             type:
-              blank: " can't be blank"
+              blank: "can't be blank"
             label:
-              blank: " can't be blank"
+              blank: "can't be blank"
             kind:
-              blank: " can't be blank"
+              blank: "can't be blank"
         named_value:
           attributes:
             name:
-              too_short: " is too short"
+              too_short: "is too short"
             from:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
             to:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
         range_field:
           attributes:
             from:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
             to:
-              not_an_integer: " must be an integer"
-              not_a_number: " must be an integer"
+              not_an_integer: "must be an integer"
+              not_a_number: "must be an integer"
             value:
-              too_short: " is too short"
+              too_short: "is too short"
         calculation:
           attributes:
             value:
-              too_short: " is too short"
+              too_short: "is too short"
         select:
           attributes:
             value:
-              too_short: " is too short"
+              too_short: "is too short"
         value:
           attributes:
             value:
-              too_short: " is too short"
-              invalid: " is invalid"
+              too_short: "is too short"
+              invalid: "contains invalid characters"
         product_type:
           attributes:
             title:
-              blank: "The field 'Title' can't be blank."
-              too_short: "The field 'Title' is too short."
+              blank: "The field 'Title' can't be blank"
+              too_short: "The field 'Title' is too short"
               invalid: "Invalid value for the field 'Title'"
         calculator:
           attributes:
             name:
-              blank: " can't be blank"
-              too_short: " is too short"
-              invalid: " is invalid"
-              name_format_validation: must contain only letters or numbers
+              blank: "can't be blank"
+              too_short: "is too short (minimum is 2 characters)"
+              too_long: "is too long (maximum is %{count} characters)"
+              invalid: "contains invalid characters"
+              taken: "has already been taken, please choose another one"
+        category:
+          attributes:
+            name:
+              invalid: "contains invalid characters"
+              taken: "has already been taken, please choose another one"
         product:
           attributes:
             title:
-              blank: "The field 'Title' can't be blank"
-              too_long: "The field 'Title' is too long"
-              too_short: "The field 'Title' is too short."
+              blank: "can't be blank"
+              too_long: "is too long (maximum %{count} symbols)"
+              too_short: "is too short (minimum %{count} symbols)"
+              taken: "has already been taken, please choose another one"
+              invalid: "contains invalid characters"
+        price:
+          attributes:
+            sum:
+              less_than: "is too long"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
@@ -399,171 +651,195 @@ en:
         first_name: "First name"
         last_name: "Last name"
         country: "Country"
+        role: "Role"
+        remember_me: "Remember me"
         successful_update: "User info was successfully updated!"
       admin:
         remember_me: "Remember me"
+      site_setting:
+        title: "Title"
+      diapers_period:
+        price: "Price"
+        period_start: "Period Start"
+        period_end: "Period End"
+        usage_amount: "Usage Amount"
       calculator:
         name: "Name"
         slug: "Slug"
         preferable: "Preferable"
+      category:
+        name: "Title"
+        priority: "Priority"
+        preferable: "Main"
+      price:
+        sum: "Sum"
+      product:
+        sum: "Sum"
   notifications:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"
     calculator_deleted: "Calculator has been successfully deleted"
+    user_created: "User has been successfully created"
+    user_updated: "User has been successfully updated"
+    user_deleted: "User has been successfully deleted"
     message_sent: "Message has been sent"
-    category_created: "Category was successfully created."
-    category_updated: "Category was successfully updated."
-    category_deleted: "Category was successfully destroyed."
-    site_setting_updated: "Setting was successfully updated"
+    category_created: "Category was successfully created"
+    category_updated: "Category was successfully updated"
+    category_deleted: "Category was successfully deleted"
+    feature_flags_updated: "Features updated successfully"
+    site_setting_updated: "Settings were successfully updated"
+    site_setting_reverted: "The title and favicon have been successfully reverted to default"
+    diapers_period_not_deleted: "Can't delete diapers period."
+    category_diapers_period_not_deleted: "Can't delete diapers periods from category."
   # time:
   #   formats:
   #     long: '%A, %d %B, %Y'
   #     short: '%d, %B, %Y'
   date:
     abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thu
+      - Fri
+      - Sat
     abbr_month_names:
-    -
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
+      -
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
     day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
     formats:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%b %d"
     month_names:
-    -
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
+      -
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
     order:
-    - :year
-    - :month
-    - :day
+      - :year
+      - :month
+      - :day
   datetime:
     distance_in_words:
       about_x_hours:
-        one: about 1 hour
-        other: about %{count} hours
+        one: "about 1 hour"
+        other: "about %{count} hours"
       about_x_months:
-        one: about 1 month
-        other: about %{count} months
+        one: "about 1 month"
+        other: "about %{count} months"
       about_x_years:
-        one: about 1 year
-        other: about %{count} years
+        one: "about 1 year"
+        other: "about %{count} years"
       almost_x_years:
-        one: almost 1 year
-        other: almost %{count} years
-      half_a_minute: half a minute
+        one: "almost 1 year"
+        other: "almost %{count} years"
+      half_a_minute: "half a minute"
       less_than_x_seconds:
-        one: less than 1 second
-        other: less than %{count} seconds
+        one: "less than 1 second"
+        other: "less than %{count} seconds"
       less_than_x_minutes:
-        one: less than a minute
-        other: less than %{count} minutes
+        one: "less than a minute"
+        other: "less than %{count} minutes"
       over_x_years:
-        one: over 1 year
-        other: over %{count} years
+        one: "over 1 year"
+        other: "over %{count} years"
       x_seconds:
-        one: 1 second
+        one: "1 second"
         other: "%{count} seconds"
       x_minutes:
-        one: 1 minute
+        one: "1 minute"
         other: "%{count} minutes"
       x_days:
-        one: 1 day
+        one: "1 day"
         other: "%{count} days"
       x_months:
-        one: 1 month
+        one: "1 month"
         other: "%{count} months"
       x_years:
-        one: 1 year
+        one: "1 year"
         other: "%{count} years"
     prompts:
-      second: Second
-      minute: Minute
-      hour: Hour
-      day: Day
-      month: Month
-      year: Year
+      second: "Second"
+      minute: "Minute"
+      hour: "Hour"
+      day: "Day"
+      month: "Month"
+      year: "Year"
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match %{attribute}
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      in: must be in %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      model_invalid: 'Validation failed: %{errors}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      odd: must be odd
-      other_than: must be other than %{count}
-      present: must be blank
-      required: must exist
-      taken: has already been taken
+      accepted: "must be accepted"
+      blank: "can't be blank"
+      confirmation: "doesn't match %{attribute}"
+      empty: "can't be empty"
+      equal_to: "must be equal to %{count}"
+      even: "must be even"
+      exclusion: "is reserved"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      in: "must be in %{count}"
+      inclusion: "is not included in the list"
+      invalid: "is invalid"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      model_invalid: "Validation failed: %{errors}"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      odd: "must be odd"
+      other_than: "must be other than %{count}"
+      present: "must be blank"
+      required: "must exist"
+      taken: "has already been taken"
       too_long:
-        one: is too long (maximum is 1 character)
-        other: is too long (maximum is %{count} characters)
+        one: "is too long (maximum is 1 character)"
+        other: "is too long (maximum is %{count} characters)"
       too_short:
-        one: is too short (minimum is 1 character)
-        other: is too short (minimum is %{count} characters)
+        one: "is too short (minimum is 1 character)"
+        other: "is too short (minimum is %{count} characters)"
       wrong_length:
-        one: is the wrong length (should be 1 character)
-        other: is the wrong length (should be %{count} characters)
+        one: "is the wrong length (should be 1 character)"
+        other: "is the wrong length (should be %{count} characters)"
     template:
-      body: 'There were problems with the following fields:'
+      body: "There were problems with the following fields:"
       header:
-        one: 1 error prohibited this %{model} from being saved
+        one: "1 error prohibited this %{model} from being saved"
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
     select:
-      prompt: Please select
+      prompt: "Please select"
     submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
   number:
     currency:
       format:
@@ -585,14 +861,14 @@ en:
       decimal_units:
         format: "%n %u"
         units:
-          billion: Billion
-          million: Million
-          quadrillion: Quadrillion
-          thousand: Thousand
-          trillion: Trillion
-          unit: ''
+          billion: "Billion"
+          million: "Million"
+          quadrillion: "Quadrillion"
+          thousand: "Thousand"
+          trillion: "Trillion"
+          unit: ""
       format:
-        delimiter: ''
+        delimiter: ""
         precision: 3
         significant: true
         strip_insignificant_zeros: true
@@ -600,30 +876,30 @@ en:
         format: "%n %u"
         units:
           byte:
-            one: Byte
-            other: Bytes
-          eb: EB
-          gb: GB
-          kb: KB
-          mb: MB
-          pb: PB
-          tb: TB
+            one: "Byte"
+            other: "Bytes"
+          eb: "EB"
+          gb: "GB"
+          kb: "KB"
+          mb: "MB"
+          pb: "PB"
+          tb: "TB"
     percentage:
       format:
-        delimiter: ''
+        delimiter: ""
         format: "%n%"
     precision:
       format:
-        delimiter: ''
+        delimiter: ""
   support:
     array:
       last_word_connector: ", and "
       two_words_connector: " and "
       words_connector: ", "
   time:
-    am: am
+    am: "am"
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
-    pm: pm
+    pm: "pm"

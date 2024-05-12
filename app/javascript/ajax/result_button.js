@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('turbo:load', function() {
   const form = document.getElementById('form');
   if (!form) {
     return

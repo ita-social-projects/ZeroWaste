@@ -1,0 +1,60 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
+<div class="container home">
+  <div class="row align-items-end">
+    <%= render partial: "account/shared/search_form", locals: {
+          q: @q,
+          search_url: account_users_path,
+          search_attribute: :email_or_first_name_or_last_name_cont
+        } %>
+
+    <div class="col-md-6 text-md-end mb-md-5">
+      <div class="mb-2" style="display: inline-block;">
+        <h1 class="text-body d-inline"><%= t(".main_header") %></h1>
+        <h3 class="d-inline"><%= link_to icon("fa-solid", "download"), account_users_path(format: "csv") %></h3>
+      </div>
+    </div>
+
+    <table aria-label="users table" class="table admin-table">
+      <thead>
+        <tr>
+          <th scope="col"><%= sort_link(@q, :email, t(".table.email_col"), default_order: :desc) %></th>
+          <th scope="col"><%= sort_link(@q, :first_name, t(".table.first_name"), default_order: :desc) %></th>
+          <th scope="col"><%= sort_link(@q, :last_name, t(".table.last_name"), default_order: :desc) %></th>
+          <th scope="col"><%= sort_link(@q, :updated_at, t(".table.last_visit_col"), default_order: :desc) %></th>
+          <th scope="col" class="text-center"><%= t(".table.show") %></th>
+          <th scope="col" class="text-center"><%= t(".table.edit") %></th>
+          <th scope="col" class="text-center"><%= t(".table.ban") %></th>
+          <th scope="col" class="text-center"><%= t(".table.delete") %></th>
+        </tr>
+      </thead>
+      <tbody class="admin-table-links">
+        <% @users.each do |user| %>
+          <tr id="user-info-<%= user.id %>">
+            <td><%= user.email %></td>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.last_sign_in_at %></td>
+            <td class="text-center"><%= link_to icon("fa-solid", "eye"), account_user_path(id: user.id) %></td>
+            <td class="text-center"><%= link_to icon("fa-solid", "edit"), edit_account_user_path(id: user.id) %></td>
+            <td class="text-center">
+              <%= button_to account_user_path(id: user, user: toggle_block_param(user)),
+                            method: :patch,
+                            data: { turbo_confirm: toggle_confirm(user) } do %>
+                <%= icon("fa-solid", toggle_class(user)) %>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= button_to account_user_path(id: user), method: :delete,
+                            data: { turbo_confirm: t(".confirm_delete") } do %>
+                <i class="mx-2 fa fa-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= paginate @users %>

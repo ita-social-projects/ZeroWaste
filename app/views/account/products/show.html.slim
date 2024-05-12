@@ -1,0 +1,23 @@
+.container
+  table.table
+    thead
+      tr
+        th scope="col" #
+        th scope="col" =t('.table.title')
+        th scope="col" =t('.table.prices')
+        th scope="col" =t('.table.actions')
+
+    tbody
+      tr
+        td = @product.id
+        td = @product.title
+        td
+          - @product.prices.includes(:category).each do |price|
+            span = "#{price.category.name}: #{price.sum}"
+            br
+        td.actions
+          = link_to edit_account_product_path(id: @product) do
+            i.fa.fa-pen.mx-2
+          = button_to account_product_path(id: @product), method: :delete,
+                  data: { confirm: t('.confirm_delete') } do
+            i.fa.fa-trash.mx-2

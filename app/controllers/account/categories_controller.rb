@@ -4,7 +4,8 @@ class Account::CategoriesController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @categories = collection
+    @q          = collection.ransack(params[:q])
+    @categories = @q.result.page(params[:page])
   end
 
   def new
@@ -12,7 +13,8 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def edit
-    @category = resource
+    @category            = resource
+    @unfilled_categories = Category.with_unfilled_diapers_periods
   end
 
   def create
@@ -29,6 +31,7 @@ class Account::CategoriesController < Account::BaseController
     @category = resource
 
     if @category.update(category_params)
+      Categories::PreferableService.new(@category).call if @category.preferable?
       redirect_to account_categories_path, notice: t("notifications.category_updated")
     else
       render :edit, status: :unprocessable_entity
@@ -45,7 +48,7 @@ class Account::CategoriesController < Account::BaseController
   private
 
   def collection
-    Category.all
+    Category.ordered_by_name
   end
 
   def resource
@@ -53,6 +56,6 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :priority, :preferable)
   end
 end

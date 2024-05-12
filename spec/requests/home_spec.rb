@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "HomeController", type: :request do
+RSpec.describe HomeController, type: :request do
   describe "GET :index" do
     it "is successful" do
       get root_path
@@ -36,6 +36,30 @@ RSpec.describe "HomeController", type: :request do
         expect(response).to render_template(:index)
         expect(response).to be_successful
       end
+    end
+  end
+
+  describe "GET :about" do
+    it "is successful" do
+      get about_path
+
+      expect(response).to be_successful
+      expect(response).to render_template(:about)
+    end
+  end
+
+  context "with locale switching" do
+    it "is successful" do
+      get about_path(locale: :uk)
+
+      expect(response).to be_successful
+      expect(response.body).to include("Про нас")
+
+      get about_path(locale: :en)
+
+      expect(response).to be_successful
+      expect(response.body).to include("About Us")
+      expect(response).to render_template(:about)
     end
   end
 end

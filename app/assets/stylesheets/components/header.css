@@ -1,0 +1,13 @@
+@layer components {
+  .page-header {
+    @apply w-full xl:max-w-fit h-auto mx-auto mb-2.5 flex border-b-2 border-gray justify-center;
+  }
+
+  .tab {
+    @apply flex-row xl:flex whitespace-nowrap uppercase text-sm text-white border-b-2 border-transparent transition duration-500 ease-in-out hover:border-success py-6 px-4;
+  }
+
+  .header-btns {
+    @apply inline w-auto ml-2 min-w-fit;
+  }
+}

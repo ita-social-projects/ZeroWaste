@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 require "rails_helper"
+
 CREATE_CALCULATOR_BUTTON = "Create calculator"
 
 describe "Create Calculator Page", js: true do
   let(:calculator) { create(:calculator) }
 
+  include_context :authorize_admin
+
   before do
-    @admin = create(:user, :admin)
-    sign_in @admin
     visit new_account_calculator_path
   end
 
@@ -40,7 +41,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name is too short" do
       fill_in "Name", with: "i"
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("is too short")
+      expect(page).to have_content("Name is too short (minimum is 2 characters)")
     end
   end
 
@@ -48,7 +49,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name is invalid" do
       fill_in "Name", with: "i[]p"
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("Name must contain only letters or numbers")
+      expect(page).to have_content("Name contains invalid characters")
     end
   end
 
@@ -56,7 +57,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name can't be blank" do
       fill_in "Name", with: ""
       click_button CREATE_CALCULATOR_BUTTON
-      expect(page).to have_content("is too short")
+      expect(page).to have_content("Name can't be blank")
     end
   end
 end

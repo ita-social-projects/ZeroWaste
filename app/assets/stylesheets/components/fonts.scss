@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Comfortaa";
+  src: asset-url("Comfortaa-Regular.eot");
+  src: asset-url("Comfortaa-Regular.eot?#iefix") format("embedded-opentype"),
+    asset-url("Comfortaa-Regular.woff2") format("woff2"),
+    asset-url("Comfortaa-Regular.woff") format("woff"),
+    asset-url("Comfortaa-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

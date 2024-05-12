@@ -3,16 +3,13 @@
 require "rails_helper"
 
 describe "visit admin page", js: true do
-  let(:time_login) { Time.new(2020, 0o1, 0o1).utc }
+  let(:time_login) { Time.new(2020, 0o1, 0o1).in_time_zone("Kyiv") }
   let!(:another_user) do
     create(:user, email: "test1@gmail.com", password: "12345878",
                   last_sign_in_at: time_login)
   end
 
-  before do
-    @admin = create(:user, :admin)
-    sign_in @admin
-  end
+  include_context :authorize_admin
 
   it "visits admin page" do
     visit account_users_path
@@ -24,7 +21,7 @@ describe "visit admin page", js: true do
     it "redirects to user info page" do
       visit account_users_path
       within(:css, "#user-info-#{another_user.id}") do
-        click_link(href: account_user_path(id: another_user.id))
+        find(".fa-eye", visible: :all).click
         sleep 3
       end
       expect(page).to have_current_path(account_user_path(id: another_user.id))
@@ -51,6 +48,37 @@ describe "visit admin page", js: true do
       expect(page).to have_content "Country"
       expect(page).to have_content "Password"
       expect(page).to have_content "Re-password"
+    end
+  end
+
+  context "when user clicks lock-open icon" do
+    it "shows the correct confirmation message for blocking" do
+      visit account_users_path
+
+      within(:css, "#user-info-#{another_user.id}") do
+        find("svg.fa-lock-open").click
+        sleep 3
+      end
+
+      accept_confirm { "Are you sure you want to block this user?" }
+      expect(page).to have_current_path(account_user_path(id: another_user.id))
+      expect(page).to have_content "Blocked"
+    end
+  end
+
+  context "when user clicks lock icon" do
+    it "shows the correct confirmation message for unblocking" do
+      another_user.update(blocked: true)
+      visit account_users_path
+
+      within(:css, "#user-info-#{another_user.id}") do
+        find("svg.fa-lock").click
+        sleep 3
+      end
+
+      accept_confirm { "Are you sure you want to unblock this user?" }
+      expect(page).to have_current_path(account_user_path(id: another_user.id))
+      expect(page).to have_content "Unblocked"
     end
   end
 
@@ -81,17 +109,12 @@ describe "visit admin page", js: true do
       find_button("commit").click
       expect(page).to have_content "First name is too short (minimum is 2 characters)"
       expect(page).to have_content "Last name is too short (minimum is 2 characters)"
-      expect(page).to have_content "Password is too short (minimum is 6 characters)"
+      expect(page).to have_content "Password is too short (minimum is 8 characters)"
       expect(page).to have_content "Re-password doesn't match Password"
     end
   end
 
   describe "user info page" do
-    before do
-      @admin = create(:user, :admin)
-      sign_in @admin
-    end
-
     context "viewing non-existing user" do
       it "renders the 404 page" do
         visit account_user_path(id: 1355)

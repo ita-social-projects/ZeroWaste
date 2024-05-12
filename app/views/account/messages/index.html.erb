@@ -1,0 +1,35 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
+<div class="container">
+  <%= render partial: "account/shared/search_form", locals: {
+        q: @q,
+        search_url: account_messages_path,
+        search_attribute: :title_or_email_or_message_cont
+      } %>
+
+  <table aria-label="messages table" class="table admin-table">
+    <caption class="sr-only">This table displays a list of messages.</caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :title, t('.table.title'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :email, t('.table.email'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :message, t('.table.message'), default_order: :desc) %></th>
+        <th scope="col" class="text-center"><%= t('.table.show_more') %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% @messages.each do |message| %>
+        <tr>
+          <th scope="row"><%= message.id %></th>
+          <td><%= message.title %></td>
+          <td><%= message.email %></td>
+          <td><%= message.message.first(40) %></td>
+          <td "<td class="text-center"><%= link_to icon('fa-solid', 'eye'), account_message_path(id: message, locale: I18n.locale) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @messages %>

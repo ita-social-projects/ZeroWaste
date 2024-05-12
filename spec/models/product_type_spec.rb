@@ -21,6 +21,10 @@ LOCAL_PREFIX_PRIDUCT_TYPE = "activerecord.errors.models.product_type.attributes"
 RSpec.describe ProductType, type: :model do
   subject { build(:product_type) }
 
+  describe "associations" do
+    it { is_expected.to have_many(:products).dependent(:destroy) }
+  end
+
   describe "validations" do
     it {
       is_expected.to validate_presence_of(:title).with_message(I18n
