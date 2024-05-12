@@ -80,4 +80,16 @@ RSpec.describe User, type: :model do
       expect(user.versions.count).to eq(2)
     end
   end
+
+  describe ".grouped_collection_by_role" do
+    let!(:admin) { create(:user, :admin) }
+    let!(:regular_user) { create(:user) }
+
+    subject { described_class.grouped_collection_by_role.to_h }
+
+    it "returns a hash with the users grouped by role" do
+      expect(subject.keys).to match_array(["admin", "user"])
+      expect(subject.values.flatten).to match_array([admin, regular_user])
+    end
+  end
 end
