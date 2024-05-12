@@ -88,7 +88,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth(access_token)
     data       = access_token.info
-    user       = User.where(email: data["email"]).first
+    user       = User.find_by(email: data["email"])
     split_name = data["name"].split if data["name"].present?
     user     ||= User.create(first_name: data["first_name"] || split_name[0],
                              last_name: data["last_name"] || split_name[1],
