@@ -120,15 +120,6 @@ class User < ApplicationRecord
     super
   end
 
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if (data = session["devise.google_oauth2"]) &&
-          session["devise.google_oauth2_data"]["extra"]["raw_info"]
-        user.email = data["email"]
-      end
-    end
-  end
-
   def full_name
     [first_name, last_name].compact_blank.join(" ")
   end
