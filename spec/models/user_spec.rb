@@ -92,4 +92,41 @@ RSpec.describe User, type: :model do
       expect(subject.values.flatten).to match_array([admin, regular_user])
     end
   end
+
+  describe ".from_omniauth" do
+    context "when the user exists" do
+      let(:user) { create(:user) }
+      let(:access_token) do
+        double(
+          "access_token",
+          info: {
+            "email" => user.email
+          }
+        )
+      end
+
+      it "returns the user" do
+        expect(described_class.from_omniauth(access_token)).to eq(user)
+      end
+    end
+
+    context "when the user does not exist" do
+      let(:access_token) do
+        double(
+          "access_token",
+          info: {
+            "first_name" => "John",
+            "last_name" => "Doe",
+            "email" => "example@mail.io"
+          }
+        )
+      end
+
+      it "creates a new user" do
+        expect do
+          described_class.from_omniauth(access_token)
+        end.to change(described_class, :count).by(1)
+      end
+    end
+  end
 end
