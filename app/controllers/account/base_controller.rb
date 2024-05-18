@@ -12,7 +12,6 @@ class Account::BaseController < ApplicationController
     end
   end
 
-
   private
 
   def render_404
