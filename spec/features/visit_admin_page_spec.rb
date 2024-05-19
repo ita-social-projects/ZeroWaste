@@ -3,11 +3,7 @@
 require "rails_helper"
 
 describe "visit Admin page", js: true do
-  let(:user) { create(:user) }
-
-  before do
-    sign_in user
-  end
+  include_context :authorize_regular_user
 
   it "visits manage calculators page" do
     visit account_calculators_path

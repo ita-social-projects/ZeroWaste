@@ -7,10 +7,11 @@ RSpec.feature "AdminLogins", type: :feature do
     let(:lang_button_text) { I18n.t("layouts.navigation.local_lang") }
     let(:user) { create(:user, :admin) }
 
+    before { visit new_user_session_path }
+
     context "english local" do
       context "when sign in with correct login and password" do
         it "redirect to admin page" do
-          visit "/users/sign_in"
           fill_in "Email", with: user.email
           fill_in "Password", with: user.password
           sleep 0.5
@@ -22,7 +23,6 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong login and password" do
         it "redirect to admin login page" do
-          visit "/users/sign_in"
           fill_in "Email", with: "wrong@email.com"
           fill_in "Password", with: "wrong password"
           sleep 0.5
@@ -34,7 +34,6 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong password" do
         it "redirect to admin login page" do
-          visit "/users/sign_in"
           fill_in "Email", with: user.email
           fill_in "Password", with: "wrong password"
           sleep 0.5
@@ -46,7 +45,6 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong login" do
         it "redirect to admin login page" do
-          visit "/users/sign_in"
           fill_in "Email", with: "wrong@email.com"
           fill_in "Password", with: user.password
           sleep 0.5
@@ -60,7 +58,6 @@ RSpec.feature "AdminLogins", type: :feature do
     context "with ukrainian locale" do
       context "when sign in with correct login and password" do
         xit "redirect to admin page" do
-          visit new_user_session_path
           click_link lang_button_text
           fill_in "user_email", with: user.email
           fill_in "user_password", with: user.password
@@ -73,7 +70,6 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong login and password" do
         it "redirect to admin login page" do
-          visit new_user_session_path
           click_link lang_button_text
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: "wrong password"
@@ -86,7 +82,6 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong password" do
         it "redirect to admin login page" do
-          visit new_user_session_path
           click_link lang_button_text
           fill_in "user_email", with: user.email
           fill_in "user_password", with: "wrong password"
@@ -99,7 +94,6 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong login" do
         it "redirect to admin login page" do
-          visit new_user_session_path
           click_link lang_button_text
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: user.password

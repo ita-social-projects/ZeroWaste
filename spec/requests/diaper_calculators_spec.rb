@@ -13,6 +13,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       to_be_diapers_amount_pluralize: I18n.t("calculators.old_calculator.will_buy_diapers", count: 2745)
     }
   end
+
   let(:expected_result) do
     {
       result: values,

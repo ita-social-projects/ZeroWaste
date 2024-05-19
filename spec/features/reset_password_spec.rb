@@ -3,7 +3,7 @@
 require "rails_helper"
 
 xdescribe "Password Reset Page", js: true do
-  let(:password_reset_path) { "/users/password/new" }
+  let(:password_reset_path) { new_user_password_path }
   let(:user) { create(:user) }
 
   context "when user clicks button Send me reset password instructions" do

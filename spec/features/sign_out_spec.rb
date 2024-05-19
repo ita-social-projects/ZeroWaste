@@ -10,7 +10,7 @@ describe "sign out", js: true do
   before do
     create(:feature_flag, :show_admin_menu)
     allow_any_instance_of(ApplicationController).to receive(:after_sign_in_path_for).and_return("/calculators/#{calculator.slug}")
-    visit "/users/sign_in"
+    visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_on "Log In"
