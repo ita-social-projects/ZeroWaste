@@ -228,12 +228,14 @@ uk:
             form:
               sum: "Сума"
               create_product_button: "Створити продукт"
+              error_sum: "Поле може містити лише цифри"
         edit:
           form:
             title: "Назва"
             form:
               sum: "Сума"
               update_product_button: "Оновити продукт"
+              error_sum: "Поле може містити лише цифри"
       created: "Продукт був успішно створений"
       updated: "Продукт був успішно оновлений"
       deleted: "Продукт був успішно видалений"
