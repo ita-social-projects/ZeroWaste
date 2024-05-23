@@ -80,4 +80,53 @@ RSpec.describe User, type: :model do
       expect(user.versions.count).to eq(2)
     end
   end
+
+  describe ".grouped_collection_by_role" do
+    let!(:admin) { create(:user, :admin) }
+    let!(:regular_user) { create(:user) }
+
+    subject { described_class.grouped_collection_by_role.to_h }
+
+    it "returns a hash with the users grouped by role" do
+      expect(subject.keys).to match_array(["admin", "user"])
+      expect(subject.values.flatten).to match_array([admin, regular_user])
+    end
+  end
+
+  describe ".from_omniauth" do
+    context "when the user exists" do
+      let(:user) { create(:user) }
+      let(:access_token) do
+        double(
+          "access_token",
+          info: {
+            "email" => user.email
+          }
+        )
+      end
+
+      it "returns the user" do
+        expect(described_class.from_omniauth(access_token)).to eq(user)
+      end
+    end
+
+    context "when the user does not exist" do
+      let(:access_token) do
+        double(
+          "access_token",
+          info: {
+            "first_name" => "John",
+            "last_name" => "Doe",
+            "email" => "example@mail.io"
+          }
+        )
+      end
+
+      it "creates a new user" do
+        expect do
+          described_class.from_omniauth(access_token)
+        end.to change(described_class, :count).by(1)
+      end
+    end
+  end
 end
