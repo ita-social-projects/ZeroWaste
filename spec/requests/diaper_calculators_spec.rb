@@ -13,7 +13,6 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       to_be_diapers_amount_pluralize: I18n.t("calculators.old_calculator.will_buy_diapers", count: 2745)
     }
   end
-
   let(:expected_result) do
     {
       result: values,
@@ -81,7 +80,6 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
 
     context "when get unawaited values" do
       let!(:preferable_category) { create(:category, :medium) }
-
       let(:invalid_values) do
         {
           money_spent: 42,
@@ -90,7 +88,6 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
           to_be_used_diapers_amount: 42
         }
       end
-
       let(:expected_result) { { result: invalid_values } }
 
       it "got the unexpected result" do

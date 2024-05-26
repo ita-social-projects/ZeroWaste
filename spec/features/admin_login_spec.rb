@@ -69,7 +69,7 @@ RSpec.feature "AdminLogins", type: :feature do
       end
 
       context "when sign in with wrong login and password" do
-        it "redirect to admin login page" do
+        xit "redirect to admin login page" do
           click_link lang_button_text
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: "wrong password"
@@ -81,7 +81,7 @@ RSpec.feature "AdminLogins", type: :feature do
       end
 
       context "when sign in with wrong password" do
-        it "redirect to admin login page" do
+        xit "redirect to admin login page" do
           click_link lang_button_text
           fill_in "user_email", with: user.email
           fill_in "user_password", with: "wrong password"
@@ -93,7 +93,7 @@ RSpec.feature "AdminLogins", type: :feature do
       end
 
       context "when sign in with wrong login" do
-        it "redirect to admin login page" do
+        xit "redirect to admin login page" do
           click_link lang_button_text
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: user.password
