@@ -5,6 +5,7 @@ RSpec.describe String do
     context "with months" do
       let(:months) do
         {
+          0 => "місяців",
           1 => "місяць",
           2 => "місяці",
           3 => "місяці",
@@ -15,8 +16,7 @@ RSpec.describe String do
           8 => "місяців",
           9 => "місяців",
           10 => "місяців",
-          11 => "місяців",
-          0 => "місяців"
+          11 => "місяців"
         }
       end
 
@@ -106,11 +106,11 @@ end
 RSpec.describe ActiveSupport::Inflector do
   context "with #pluralize" do
     it "pluralizes properly" do
-      expect(ActiveSupport::Inflector.pluralize("місяць", 2, :uk)).to eq("місяці")
-      expect(ActiveSupport::Inflector.pluralize("рік", 0, :uk)).to eq("років")
-      expect(ActiveSupport::Inflector.pluralize("dog")).to eq("dogs")
-      expect(ActiveSupport::Inflector.pluralize("money", 15)).to eq("money")
-      expect(ActiveSupport::Inflector.pluralize("person", 2)).to eq("people")
+      expect(described_class.pluralize("місяць", 2, :uk)).to eq("місяці")
+      expect(described_class.pluralize("рік", 0, :uk)).to eq("років")
+      expect(described_class.pluralize("dog")).to eq("dogs")
+      expect(described_class.pluralize("money", 15)).to eq("money")
+      expect(described_class.pluralize("person", 2)).to eq("people")
     end
   end
 
@@ -140,30 +140,30 @@ RSpec.describe ActiveSupport::Inflector do
     end
 
     it "applies properly plurals with ukrainian rules" do
-      expect(ActiveSupport::Inflector.apply_inflections("людина", uk_rules, :uk, 1)).to eq("людина")
-      expect(ActiveSupport::Inflector.apply_inflections("людина", uk_rules, :uk, 3)).to eq("людини")
-      expect(ActiveSupport::Inflector.apply_inflections("людина", uk_rules, :uk, 9)).to eq("людей")
-      expect(ActiveSupport::Inflector.apply_inflections("кіт", uk_rules, :uk)).to eq("коти")
-      expect(ActiveSupport::Inflector.apply_inflections("кіт", uk_rules, :uk, 99)).to eq("коти")
+      expect(described_class.apply_inflections("людина", uk_rules, :uk, 3)).to eq("людини")
+      expect(described_class.apply_inflections("людина", uk_rules, :uk, 1)).to eq("людина")
+      expect(described_class.apply_inflections("людина", uk_rules, :uk, 9)).to eq("людей")
+      expect(described_class.apply_inflections("кіт", uk_rules, :uk)).to eq("коти")
+      expect(described_class.apply_inflections("кіт", uk_rules, :uk, 99)).to eq("коти")
     end
 
     it "applies properly plurals with english rules" do
-      expect(ActiveSupport::Inflector.apply_inflections("dog", en_rules, :en, 1)).to eq("dog")
-      expect(ActiveSupport::Inflector.apply_inflections("dog", en_rules, :en, 99)).to eq("dogs")
-      expect(ActiveSupport::Inflector.apply_inflections("dog", en_rules, :en, 101)).to eq("other dogs")
-      expect(ActiveSupport::Inflector.apply_inflections("cat", en_rules, :en)).to eq("cats")
-      expect(ActiveSupport::Inflector.apply_inflections("cat", en_rules, :en, 99)).to eq("cats")
+      expect(described_class.apply_inflections("dog", en_rules, :en, 1)).to eq("dog")
+      expect(described_class.apply_inflections("dog", en_rules, :en, 99)).to eq("dogs")
+      expect(described_class.apply_inflections("dog", en_rules, :en, 101)).to eq("other dogs")
+      expect(described_class.apply_inflections("cat", en_rules, :en)).to eq("cats")
+      expect(described_class.apply_inflections("cat", en_rules, :en, 99)).to eq("cats")
     end
 
     it "does not plural empty string" do
-      expect(ActiveSupport::Inflector.apply_inflections("", en_rules, :en, 99)).to eq("")
-      expect(ActiveSupport::Inflector.apply_inflections("", en_rules, :uk, 99)).to eq("")
-      expect(ActiveSupport::Inflector.apply_inflections("", en_rules, :en)).to eq("")
+      expect(described_class.apply_inflections("", en_rules, :en, 99)).to eq("")
+      expect(described_class.apply_inflections("", en_rules, :uk, 99)).to eq("")
+      expect(described_class.apply_inflections("", en_rules, :en)).to eq("")
     end
 
     it "does not plural uncountable words" do
-      expect(ActiveSupport::Inflector.apply_inflections("equipment", en_rules, :en, 99)).to eq("equipment")
-      expect(ActiveSupport::Inflector.apply_inflections("money", en_rules, :en)).to eq("money")
+      expect(described_class.apply_inflections("equipment", en_rules, :en, 99)).to eq("equipment")
+      expect(described_class.apply_inflections("money", en_rules, :en)).to eq("money")
     end
   end
 end

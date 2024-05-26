@@ -10,13 +10,8 @@ RSpec.describe UsersCsvGenerator do
   end
 
   let(:csv_content) do
-    result = "email,first_name,last_name,last_sign_in_at\n"
-
-    users.each do |user|
-      result += "#{users.first.email},#{users.first.first_name},#{users.first.last_name},#{time_login}\n"
-    end
-
-    result
+    "email,first_name,last_name,last_sign_in_at\n" +
+      users.map { |user| "#{user.email},#{user.first_name},#{user.last_name},#{user.last_sign_in_at}\n" }.join
   end
 
   it "export users" do

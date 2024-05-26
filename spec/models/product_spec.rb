@@ -18,9 +18,9 @@
 #
 require "rails_helper"
 
-LOCAL_PREFIX_PRODUCT = "activerecord.errors.models.product.attributes"
-
 RSpec.describe Product, type: :model do
+  let(:local_prefix_product) { "activerecord.errors.models.product.attributes" }
+
   subject { build(:product) }
 
   describe "associations" do
@@ -32,20 +32,20 @@ RSpec.describe Product, type: :model do
   describe "validations" do
     it "validates the title and message " do
       is_expected.to validate_presence_of(:title)
-        .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.blank"))
+        .with_message(I18n.t("#{local_prefix_product}.title.blank"))
     end
 
     it "validates the title's length and message" do
       is_expected.to validate_length_of(:title).is_at_least(2)
-                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_short", count: 2))
+                                               .with_message(I18n.t("#{local_prefix_product}.title.too_short", count: 2))
 
       is_expected.to validate_length_of(:title).is_at_most(30)
-                                               .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.too_long", count: 30))
+                                               .with_message(I18n.t("#{local_prefix_product}.title.too_long", count: 30))
     end
 
     it "validates the title's uniqueness and message " do
       is_expected.to validate_uniqueness_of(:title)
-        .with_message(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.taken"))
+        .with_message(I18n.t("#{local_prefix_product}.title.taken"))
     end
 
     context "validates the title format" do
@@ -62,7 +62,7 @@ RSpec.describe Product, type: :model do
           product.title = "Invalid Title #{sym}"
 
           expect(product).to_not be_valid
-          expect(product.errors.messages[:title]).to include(I18n.t("#{LOCAL_PREFIX_PRODUCT}.title.invalid"))
+          expect(product.errors.messages[:title]).to include(I18n.t("#{local_prefix_product}.title.invalid"))
         end
       end
     end
@@ -82,10 +82,10 @@ RSpec.describe Product, type: :model do
     end
 
     context "when the product does not have a price for the category" do
+      let(:new_price) { product.find_or_build_price_for_category(category) }
+
       it "builds a new price for the category" do
         expect(product.prices).to be_empty
-
-        new_price = product.find_or_build_price_for_category(category)
         expect(new_price.category).to eq(category)
         expect(new_price).to be_a_new(Price)
       end
