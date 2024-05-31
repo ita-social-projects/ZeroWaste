@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe Account::CategoriesController, type: :request do
   let!(:category) { create(:category, :budgetary) }
-  let(:valid_attributes) { { category: { name: "medium" }} }
-  let(:invalid_attributes) { { category: { name: "" }} }
-  let(:new_attributes) { { category: { name: "premium" }} }
+  let(:valid_attributes) { { category: { en_name: "medium", uk_name: "середня" }} }
+  let(:invalid_attributes) { { category: { en_name: "" }} }
+  let(:new_attributes) { { category: { en_name: "premium" }} }
 
   include_context :authorize_admin
 

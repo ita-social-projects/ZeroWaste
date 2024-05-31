@@ -2,7 +2,8 @@
   <%= simple_form_for @category, url: { action: "update" }, html: { novalidate: false } do |f| %>
     <div class="form-group row">
       <div class="my-auto col-12 has-float-label">
-        <%= f.input :name, class: "form-control col-sm-11", required: true %>
+        <%= f.input :uk_name, class: "form-control col-sm-11", required: true %>
+        <%= f.input :en_name, class: "form-control col-sm-11", required: true %>
         <%= f.input :priority, collection: Category::PRIORITY_RANGE, wrapper: :custom_vertical_select %>
         <% if @unfilled_categories&.exclude?(@category) %>
           <div class="my-4">

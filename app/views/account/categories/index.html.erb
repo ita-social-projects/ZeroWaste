@@ -5,7 +5,7 @@
     <%= render partial: "account/shared/search_form", locals: {
           q: @q,
           search_url: account_categories_path,
-          search_attribute: :name_cont
+          search_attribute: @search_attribute
         } %>
 
     <div class="col-md-6 text-end">

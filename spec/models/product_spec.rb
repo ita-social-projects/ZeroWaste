@@ -70,7 +70,7 @@ RSpec.describe Product, type: :model do
 
   describe "#find_or_build_price_for_category" do
     let(:product) { create(:product, title: "Valid Title") }
-    let(:category) { create(:category, name: "Valid Name") }
+    let(:category) { create(:category, :medium) }
     let(:valid_sum) { 10.0 }
 
     context "when the product has a price for the category" do

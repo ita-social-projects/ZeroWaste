@@ -669,6 +669,8 @@ en:
         preferable: "Preferable"
       category:
         name: "Title"
+        en_name: "Title in English"
+        uk_name: "Title in Ukrainian"
         priority: "Priority"
         preferable: "Main"
       price:

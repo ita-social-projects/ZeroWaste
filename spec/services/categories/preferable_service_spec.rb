@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe Categories::PreferableService do
   describe "#call" do
     let!(:become_preferable_category) { create(:category, :medium) }
-    let!(:category) { create(:category, name: "category") }
-    let!(:current_preferable_category) { create(:category, name: "current preferable category", preferable: true) }
+    let!(:category) { create(:category, :budgetary) }
+    let!(:current_preferable_category) { create(:category, preferable: true) }
     let!(:service) { described_class.new(become_preferable_category) }
 
     context "when the category is preferable" do
