@@ -14,7 +14,7 @@ export default class extends Controller {
     this.priceInputTargets.forEach(input => {
       input.addEventListener('input', this.validatePriceInput.bind(this));
     });
-}
+  }
 
   togglePrice(event) {
     this.priceTargets.forEach((target, i) => {
@@ -45,14 +45,13 @@ export default class extends Controller {
   validatePriceInput(event) {
     const target = event.target;
     const inputValue = target.value;
-    const regex = /^[^\+\-]+$/;
+    const regex = /^[\d.]+$/;
 
     const errorMessage = target.closest('.hidden-sum').querySelector('.error-message');
 
     if (!regex.test(inputValue)) {
       errorMessage.style.display = "block";
       target.style.borderColor = "red";
-      target.value = "";
     } else {
       errorMessage.style.display = "none";
       target.style.borderColor = "";
