@@ -247,12 +247,14 @@ en:
             form:
               sum: "Sum"
               create_product_button: "Create product"
+              error_sum: "The field can contain only numbers"
         edit:
           form:
             title: "Title"
             form:
               sum: "Sum"
               update_product_button: "Update product"
+              error_sum: "The field can contain only numbers"
       created: "A product was successfully created"
       updated: "A product was successfully updated"
       deleted: "A product was successfully deleted"
