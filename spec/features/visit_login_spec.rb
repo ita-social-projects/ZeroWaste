@@ -13,10 +13,11 @@ describe "visit Login page", js: true do
     allow(Devise::Mailer).to receive(:confirmation_instructions)
       .and_return(double(deliver: true))
     create(:feature_flag, :show_admin_menu)
-    visit "/users/sign_in"
+    visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button "Log In"
+
     expect(page).to have_content("Signed in successfully")
     expect(page).to have_link("Log Out", href: destroy_user_session_path, visible: :all)
   end

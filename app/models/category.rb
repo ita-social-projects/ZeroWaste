@@ -12,6 +12,9 @@
 #  preferable :boolean          default: false
 #
 class Category < ApplicationRecord
+  include Translatable
+  translates :name
+
   PRIORITY_RANGE = 0..10
 
   enum preferable: { not_preferable: false, preferable: true }
@@ -21,15 +24,15 @@ class Category < ApplicationRecord
   has_many :category_categoryables, dependent: :restrict_with_exception
   has_many :categoryables, through: :category_categoryables
 
-  validates :name, presence: true
-  validates :name,
+  validates :uk_name, :en_name, presence: true
+  validates :uk_name, :en_name,
             length: { minimum: 3, maximum: 30 },
             format: { with: /\A[\p{L}0-9\s'-]+\z/i },
             uniqueness: { case_sensitive: false },
             allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
-  scope :ordered_by_name, -> { order(:name) }
+  scope :ordered_by_name, -> { order(:uk_name) }
   scope :ordered_by_priority, -> { order(:priority) }
   scope :unsigned_categories, ->(product) { where.not(id: product.categories_by_prices) }
 
@@ -49,6 +52,6 @@ class Category < ApplicationRecord
   }
 
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "id", "name", "priority", "updated_at"]
+    ["created_at", "id", "#{I18n.locale}_name", "priority", "updated_at"]
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_08_154012) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -56,12 +56,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_154012) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "uk_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority", default: 0, null: false
     t.boolean "preferable", default: false, null: false
-    t.index "lower((name)::text)", name: "index_categories_on_name", unique: true
+    t.string "en_name"
+    t.index "lower((en_name)::text)", name: "index_categories_on_en_name", unique: true
+    t.index "lower((uk_name)::text)", name: "index_categories_on_uk_name", unique: true
   end
 
   create_table "category_categoryables", force: :cascade do |t|

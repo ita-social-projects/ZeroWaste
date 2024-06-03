@@ -20,28 +20,28 @@
 #
 require "rails_helper"
 
-LOCAL_PREFIX_CALCULATOR = "activerecord.errors.models.calculator.attributes"
-
 RSpec.describe Calculator, type: :model do
+  let(:local_prefix_calculator) { "activerecord.errors.models.calculator.attributes" }
+
   subject { build(:calculator) }
 
   describe "validations" do
     it "validates the name and message " do
       is_expected.to validate_presence_of(:name)
-        .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.blank"))
+        .with_message(I18n.t("#{local_prefix_calculator}.name.blank"))
     end
 
     it "validates the name's length and message" do
       is_expected.to validate_length_of(:name).is_at_least(2)
-                                              .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.too_short", count: 2))
+                                              .with_message(I18n.t("#{local_prefix_calculator}.name.too_short", count: 2))
 
       is_expected.to validate_length_of(:name).is_at_most(30)
-                                              .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.too_long", count: 30))
+                                              .with_message(I18n.t("#{local_prefix_calculator}.name.too_long", count: 30))
     end
 
     it "validates the name's uniqueness and message" do
       is_expected.to validate_uniqueness_of(:name)
-        .with_message(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.taken"))
+        .with_message(I18n.t("#{local_prefix_calculator}.name.taken"))
     end
 
     context "validates the name format" do
@@ -58,7 +58,7 @@ RSpec.describe Calculator, type: :model do
           calculator.name = "Invalid Name #{sym}"
 
           expect(calculator).to_not be_valid
-          expect(calculator.errors.messages[:name]).to include(I18n.t("#{LOCAL_PREFIX_CALCULATOR}.name.invalid"))
+          expect(calculator.errors.messages[:name]).to include(I18n.t("#{local_prefix_calculator}.name.invalid"))
         end
       end
     end
