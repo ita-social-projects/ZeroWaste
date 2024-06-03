@@ -548,7 +548,7 @@ uk:
               invalid: "містить неприпустимі символи"
         category:
           attributes:
-            name:
+            uk_name: &name_errors
               blank: "не може бути порожньою"
               too_long:
                 one: "занадто довга (максимум %{count} знак)"
@@ -562,6 +562,8 @@ uk:
                 other: "занадто коротка (мінімум %{count} знаків)"
               invalid: "містить неприпустимі символи"
               taken: "вже викориcтовується, будь ласка, оберіть іншу"
+            en_name:
+              <<: *name_errors
         site_setting:
           attributes:
             title:
@@ -668,6 +670,8 @@ uk:
         preferable: "Бажаний"
       category:
         name: "Назва"
+        en_name: "Назва Англійською"
+        uk_name: "Назва Українською"
         priority: "Пріоритет"
         preferable: "Основна"
       price:

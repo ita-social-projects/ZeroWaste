@@ -4,13 +4,13 @@
 })%>
 
 <section class="jumbotron main-container rounded mt-16">
-  <h2 class="text-center text-2xl text-success my-8 "><%= t('about_us.title') %></h2>
+  <h2 class="text-center text-2xl text-success my-8 font-semibold"><%= t('about_us.title') %></h2>
   <p class="text-center text-xl text-black"><%= t('about_us.description.first_paragraph') %></p>
   <p class="text-center text-xl text-black"><%= t('about_us.description.second_paragraph') %></p>
   <p class="text-center text-xl text-black mb-8"><%= t('about_us.description.third_paragraph') %></p>
 </section>
 <section class="jumbotron main-container rounded mt-16">
-  <h2 class="text-center text-2xl text-success my-8"><%= t('our_team.title') %></h2>
+  <h2 class="text-center text-2xl text-success my-8 font-semibold"><%= t('our_team.title') %></h2>
   <p class="text-center text-xl text-black"><%= t('our_team.description') %></p>
   <div class="flex justify-between items-center mt-24">
     <%= link_to image_tag("logo_zerowaste.png", alt: "Zero Waste Logo", class: "logo-zerowaste"), "https://zerowastelviv.org.ua/", target: "_blank", rel: "noopener" %>

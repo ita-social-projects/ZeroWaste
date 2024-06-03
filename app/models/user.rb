@@ -88,8 +88,8 @@ class User < ApplicationRecord
 
   def self.from_omniauth(access_token)
     data       = access_token.info
-    user       = User.where(email: data["email"]).first
-    split_name = data["name"].split
+    user       = User.find_by(email: data["email"])
+    split_name = data["name"].split if data["name"].present?
     user     ||= User.create(first_name: data["first_name"] || split_name[0],
                              last_name: data["last_name"] || split_name[1],
                              email: data["email"],
@@ -118,15 +118,6 @@ class User < ApplicationRecord
     return false if skip_password_validation
 
     super
-  end
-
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if (data = session["devise.google_oauth2"]) &&
-          session["devise.google_oauth2_data"]["extra"]["raw_info"]
-        user.email = data["email"]
-      end
-    end
   end
 
   def full_name

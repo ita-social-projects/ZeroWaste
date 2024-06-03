@@ -4,8 +4,9 @@ class Account::CategoriesController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    @q          = collection.ransack(params[:q])
-    @categories = @q.result.page(params[:page])
+    @q                = collection.ransack(params[:q])
+    @categories       = @q.result.page(params[:page])
+    @search_attribute = :"#{I18n.locale}_name_cont"
   end
 
   def new
@@ -56,6 +57,6 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def category_params
-    params.require(:category).permit(:name, :priority, :preferable)
+    params.require(:category).permit(:uk_name, :en_name, :priority, :preferable)
   end
 end

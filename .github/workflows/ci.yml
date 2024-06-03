@@ -40,6 +40,7 @@ jobs:
       RAILS_ENV: test
       DATABASE_URL: postgres://test:password@localhost:5432/zero_waste_test
       USE_STATIC_ASSETS: true
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2

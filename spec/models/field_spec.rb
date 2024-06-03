@@ -25,23 +25,24 @@
 #  index_fields_on_uuid           (uuid) UNIQUE
 #
 require "rails_helper"
-LOCAL_PREFIX_FIELD = "activerecord.errors.models.field.attributes"
 
 RSpec.describe Field, type: :model do
+  let(:local_prefix_field) { "activerecord.errors.models.field.attributes" }
+
   subject { create(:field) }
 
   describe "validations" do
     it {
       is_expected.to validate_presence_of(:type).with_message(I18n
-        .t("#{LOCAL_PREFIX_FIELD}.type.blank"))
+        .t("#{local_prefix_field}.type.blank"))
     }
     it {
       is_expected.to validate_presence_of(:label).with_message(I18n
-      .t("#{LOCAL_PREFIX_FIELD}.label.blank"))
+      .t("#{local_prefix_field}.label.blank"))
     }
     it {
       is_expected.to validate_presence_of(:kind).with_message(I18n
-      .t("#{LOCAL_PREFIX_FIELD}.kind.blank"))
+      .t("#{local_prefix_field}.kind.blank"))
     }
     it {
       is_expected.to define_enum_for(:kind)
