@@ -1,12 +1,12 @@
 <div class="rounded jumbotron jumbotron-fluid position-relative">
   <%= link_to root_path, class: "px-2 mt-3 rounded back-link" do %>
-    <div class="back-text">
-      <%= inline_svg("icons/arrow-left.svg", class: "z-1") %>
-      <%= t("calculators.buttons.to_main") %>
+    <div class="flex items-center gap-1 mt-2 ml-2 w-[160px]">
+      <%= inline_svg("icons/arrow-left.svg", class: "z-1 h-5") %>
+      <span class="text-success text-lg"><%= t("calculators.buttons.to_main")%></span>
     </div>
   <% end %>
 
-  <h1 class="text-center text-2xl text-success pt-8 font-semibold"><%= t(".diaper_сalculator") %></h1>
+  <h1 class="text-center text-2xl text-success font-semibold pt-12"><%= t(".diaper_сalculator") %></h1>
   <div class="flex-wrap d-flex justify-content-around calculator_wrap ms-5">
     <%= simple_form_for(:child, url: "#", html: { class: "simple_form_calculator",
                                             data: { controller: "input-child-info",
