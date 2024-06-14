@@ -45,10 +45,18 @@ $ `bin/setup`
 or
 $ `bundle install`
 
+<b>Install the following packages:</b>
+
+`sudo apt install imagemagick`
+
+`sudo apt install libvips42`
+
 <b>PostgreSQL</b>
 
 <a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem.
 You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>.
+
+To check if it is installed and running correctly run `sudo systemctl status postgresql`
 
 In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
 
@@ -98,6 +106,8 @@ echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://pack
 $ `sudo apt-get update`
 $ `sudo apt-get install redis`
 
+To check if it is installed and running correctly run `sudo systemctl status redis`
+
 <b>npm and Node.js</b>
 
 Also you need Node.js.
@@ -131,10 +141,10 @@ $ `bundle add sidekiq`
 
 ## How to run local
 
-1. Open terminal.
-In some systems, after restarting them, the postgresql server remains disabled, perhaps at the first start you should enter `sudo service postgresql start`.
-2. Run `rails server`/`rails s` to start application
-3. Open http://localhost:3000 to view it in the browser.
+1. Ensure that postgresql and redis are running
+2. Run `rails assets:precompile` to precompile assets
+3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+4. Open http://localhost:3000 to view it in the browser.
 
 Solutions when an errors occurs:
 <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>
