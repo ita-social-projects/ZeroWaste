@@ -4,7 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag(url_for(SiteSetting.current.favicon))
+    <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) %>
     <%= display_meta_tags(
       site: SiteSetting.current.title,
       viewport: 'width=device-width, initial-scale=1.0',
