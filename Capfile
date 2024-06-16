@@ -15,7 +15,7 @@ require "capistrano/rbenv"
 require "dotenv"
 
 set :rbenv_type, :user
-set :rbenv_ruby, "3.2.2"
+set :rbenv_ruby, "3.3.3"
 
 Dotenv.load
 
