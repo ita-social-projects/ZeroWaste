@@ -23,6 +23,8 @@ class CalculatorsController < ApplicationController
   def calculator
     @diaper_categories   = Category.ordered_by_diapers_periods_price
     @preferable_category = Category.preferable.first
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb t(".new_calculator.diaper_сalculator")
 
     if Flipper[:new_calculator_design].enabled?
       render "calculators/new_calculator"

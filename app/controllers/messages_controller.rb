@@ -3,6 +3,8 @@
 class MessagesController < ApplicationController
   def new
     @message = Message.new
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb t(".contact_us_header")
   end
 
   def create

@@ -1,0 +1,17 @@
+@import "common_sizes.scss";
+
+@layer components {
+  .breadcrumbs {
+    @apply flex w-full mx-auto mb-4 text-light_gray;
+    max-width: $max_width_content;
+  }
+
+  .breadcrumbs ol a {
+    @apply text-white
+  }
+
+  .breadcrumbs ol a:hover {
+    color: #8fba3b;
+    font-weight: bold;
+  }
+}

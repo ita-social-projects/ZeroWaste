@@ -5,5 +5,7 @@ class HomeController < ApplicationController
   end
 
   def about
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb t("about_us.title")
   end
 end
