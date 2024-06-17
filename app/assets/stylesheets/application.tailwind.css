@@ -8,3 +8,4 @@
 @import "./components/form.css";
 @import "/components/account-footer";
 @import "/components/pagination";
+@import "/components/breadcrumbs.scss";
