@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.3.3"
 
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
@@ -47,10 +47,11 @@ gem "active_storage_validations"
 gem "font-awesome-sass", "~> 6.4"
 gem "mini_magick", ">= 4.9.5"
 gem "factory_bot_rails" # TODO: create ENV staging and use it for this
+gem "faraday-retry"
 
 group :development, :test do
   gem "annotate"
-  gem "dotenv-rails", require: "dotenv/rails-now"
+  gem "dotenv-rails"
   gem "pry-rails"
   gem "rails-controller-testing"
   gem "rspec-rails"
