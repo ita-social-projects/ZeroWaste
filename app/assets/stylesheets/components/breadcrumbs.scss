@@ -7,11 +7,12 @@
   }
 
   .breadcrumbs ol a {
-    @apply text-white
+    @apply text-success font-bold;
   }
 
   .breadcrumbs ol a:hover {
-    color: #8fba3b;
-    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
+    color: #7ca718;
   }
 }
