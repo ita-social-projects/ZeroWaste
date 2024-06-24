@@ -1,6 +1,7 @@
 @layer components {
   .page-header {
-    @apply flex justify-center w-full mx-auto mb-1 border-b-2 xl:max-w-fit border-gray;
+    @apply flex w-full mx-auto mb-4 border-b-2 border-gray;
+    max-width: $max_width_content;
   }
 
   .tab {
