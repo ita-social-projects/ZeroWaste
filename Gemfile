@@ -17,7 +17,6 @@ gem "sass-rails", ">= 6"
 gem "hotwire-rails"
 gem "importmap-rails", "~> 1.1"
 gem "bootstrap"
-gem "jquery-rails"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "acts_as_singleton"
