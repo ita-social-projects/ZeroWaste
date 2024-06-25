@@ -1,9 +1,11 @@
 <a href="https://softserve.academy/"><img src="https://s.057.ua/section/newsInternalIcon/upload/images/news/icon/000/050/792/vnutr_5ce4f980ef15f.jpg" title="SoftServe IT Academy" alt="SoftServe IT Academy"></a>
 
 # ZERO WASTE
+
 #### [Staging](https://zero-waste-staging.onrender.com/)
 
 # 1. About the project
+
 <img src='logo.jpg' alt='zero-waste'>
 Zero Waste Lviv is a Public Organization that works on the implementation of waste reduction principles in Lviv and Ukraine. Organization draws attention of the city and businesses by conducting trainings, meetings, workshops and research to support ‘zero waste’ grounds. Organization conducts a campaign to draw attention to the problem of using disposable hygiene products for women and children and possible ways or reduction. Website - https://zerowastelviv.org.ua
 
@@ -20,18 +22,21 @@ In order to attract attention to financial and ecological consequences of dispos
   - [Git-hook pre-commit](#Git-hook-pre-commit)
 
 ## Deployed Apps and Environments
+
 The latest version from the 'develop' branch is automatically deployed to stage environment in Render, [staging link](https://zero-waste-staging.onrender.com/).
 The latest version from the release branch 'master' is automatically deployed to Production environment, [production link](http://calc.zerowastelviv.org.ua/).
 
 ## Installation
-* Start the project locally
+
+- Start the project locally
+
 # Required to install
+
 - Ruby 3.2.2
 - Ruby on Rails 7.1.2
 - PostgreSQL 12
 - Puma as a web server
 - Yarn
-- jQuery
 - Bootstrap
 
 ## Clone
@@ -39,6 +44,7 @@ The latest version from the release branch 'master' is automatically deployed to
 $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
 ## Local setup
+
 First of all you need RVM to setup project. For the operating system Windows the optimal solution is to use <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a>.
 
 $ `bin/setup`
@@ -75,7 +81,6 @@ To install manually:
 $ `sudo apt-get install libpq-dev`
 then
 $ `gem install pg`
-
 
 <b>Database configure</b>
 
@@ -157,6 +162,7 @@ $ `yarn install`
 # Usage
 
 # How to run Rubocop
+
 Running rubocop with no arguments will check all Ruby source files in the current folder:
 
 $ `rubocop`
@@ -170,6 +176,7 @@ For more details check the available command-line options:
 $ `rubocop -h`
 
 # Git-hook pre-commit
+
 Before using `git-hook-pre-commit` you need to install `sudo apt-get install cmake`
 
 For using `git-hook-pre-commit` type `cp git-hooks/pre-commit .git/hooks/pre-commit` command to install your hook.
