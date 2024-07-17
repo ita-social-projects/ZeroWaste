@@ -693,6 +693,7 @@ DEPENDENCIES
   meta-tags
   mini_magick (>= 4.9.5)
   mutex_m (= 0.1.2)
+  net-protocol
   net-smtp
   omniauth (~> 1.9.1)
   omniauth-facebook
