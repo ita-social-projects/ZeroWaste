@@ -121,4 +121,4 @@ gem "ransack"
 gem "rails_db", "~> 2.4"
 gem "meta-tags"
 gem "inline_svg"
-gem "net-pop"
+gem "net-pop", require: false
