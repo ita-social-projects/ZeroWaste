@@ -1,0 +1,17 @@
+<div class="container calculation-results">
+  <div class="row">
+    <div class="col-9 result-card">
+      <span>
+        <p data-type="description_block_html">
+          <%= t(".description_block_html",
+                calculate_link: link_to_external(text: t(".calculate_link"), url: t(".method_link")),
+                contact_link: link_to_external(text: t(".contact_us_link"), url: t(".contact_link"))) %>
+        </p>
+      </span>
+    </div>
+
+    <div class="col-3 result-card">
+      <%= link_to_external(text: t('.use_less'), url: t(".use_less_link"), class: 'calculate-btn m-auto d-flex align-items-center px-3') %>
+    </div>
+  </div>
+</div>

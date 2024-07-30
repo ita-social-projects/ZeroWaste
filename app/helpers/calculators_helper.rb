@@ -29,7 +29,7 @@ module CalculatorsHelper
         content_tag(:i, nil, class: "fas fa-external-link-alt ms-1")
       )
     end
-  end 
+  end
 
   def new_calculator_items
     [{ image: "diapers_bought_2.png", data_target: "diapersUsed", unit: t(".pieces"), text_target: "boughtDiapersPluralize", text: t(".bought_diapers", count: 0) },
