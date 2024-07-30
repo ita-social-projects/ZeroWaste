@@ -1,7 +1,7 @@
 class Account::ProductsController < Account::BaseController
   def index
     @q        = collection.ransack(params[:q])
-    @products = @q.result
+    @products = @q.result.page(params[:page])
   end
 
   def show
@@ -9,31 +9,31 @@ class Account::ProductsController < Account::BaseController
   end
 
   def new
-    @product = Product.new
-
-    @product.prices.build
+    @product    = Product.new
+    @categories = category_collection
   end
 
   def edit
-    @product = resource
+    @product    = resource
+    @categories = category_collection
 
     @product.build_unsigned_categories
   end
 
   def create
-    @product = Product.new(product_params)
+    @product    = Product.new(product_params)
+    @categories = category_collection
 
     if @product.save
       redirect_to account_products_path, notice: t(".created")
     else
-      @product.prices.build
-
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    @product = resource
+    @product    = resource
+    @categories = category_collection
 
     if @product.update(product_params)
       redirect_to account_products_path, notice: t(".updated")
@@ -61,6 +61,10 @@ class Account::ProductsController < Account::BaseController
 
   def collection
     Product.ordered_by_title
+  end
+
+  def category_collection
+    Category.ordered_by_name
   end
 
   def product_params

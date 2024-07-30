@@ -1,9 +1,8 @@
 import { Application } from "@hotwired/stimulus"
-import toastr from "toastr";
-
-window.toastr = toastr
+import { Turbo } from "@hotwired/turbo-rails";
 
 const application = Application.start()
+Turbo.start();
 
 // Configure Stimulus development experience
 application.debug = false

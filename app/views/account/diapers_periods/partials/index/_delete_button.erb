@@ -1,0 +1,15 @@
+<% if diapers_period == diapers_periods.last && category.not_preferable? %>
+  <%= button_to(
+        account_diapers_period_path(id: diapers_period.id),
+        method: :delete,
+        data: { turbo_confirm: t(".confirm_delete") }
+      ) do %>
+    <i class="mx-2 fa fa-trash"></i>
+  <% end %>
+<% else %>
+  <div class="relative inline-block cursor-help">
+    <span title="<%= diapers_period == diapers_periods.last ? t(".cannot_delete_category") : t(".cannot_delete_period") %>">
+      <i class="mx-2 fa fa-trash"></i>
+    </span>
+  </div>
+<% end %>

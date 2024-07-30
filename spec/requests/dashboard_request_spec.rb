@@ -21,7 +21,7 @@ RSpec.describe Account::DashboardController, type: :request do
         get account_root_path
 
         expect(response).to redirect_to(new_user_session_path)
-        expect(flash[:alert]).to eq("You need to sign in or sign up before continuing.")
+        expect(flash[:alert]).to eq("You need to sign in or sign up before continuing")
       end
     end
   end

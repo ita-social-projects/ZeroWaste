@@ -1,0 +1,62 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
+<fieldset class="bordered">
+  <legend class="admin-legend">
+    <%= t(".site_settings") %>
+  </legend>
+  <div class="position-relative">
+    <%= simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } } do |f| %>
+      <div class="form-group row">
+        <div class="my-auto col-12 has-float-label">
+          <%= f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } } %>
+          <%= f.input :favicon, wrapper: :custom_vertical_file, input_html: { data: { action: "change->handle-browser-tab#setIcon" } } %>
+          <div class="mb-10">
+            <%= render "browser_tab", site_setting: @site_setting %>
+          </div>
+        </div>
+      </div>
+      <%= f.submit t("buttons.save") %>
+    <% end %>
+
+    <%= button_to t("buttons.revert"), revert_account_site_setting_path,
+                  method: :put,
+                  data: { turbo_confirm: t(".confirm_default") },
+                  class: "btn-grey absolute bottom-0 left-0 ml-32" %>
+  </div>
+</fieldset>
+
+<fieldset class="bordered">
+  <legend class="admin-legend"><%= t(".diapers_categories") %></legend>
+
+  <%= render "account/diapers_periods/categories/partials/with_periods/content", categories: @categories, unfilled_categories: @unfilled_categories %>
+</fieldset>
+
+<fieldset class="bordered">
+  <legend class="admin-legend">
+    <%= t(".site_features") %>
+  </legend>
+  <%= simple_form_for :feature_flags, url: account_features_flags_path, method: :patch do |f| %>
+    <% Flipper.features.each do |feature| %>
+      <div class="feature-container">
+        <%= f.input "#{feature.name}_enabled", as: :boolean, label: t("account.feature_flags.#{feature.name}.name"), input_html: { checked: feature.enabled? } %>
+        <div class="description-feature">
+          <%= feature.description %>
+        </div>
+      </div>
+    <% end %>
+
+    <div data-controller="loader">
+      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" }, class: "btn-green px-4 py-2" %>
+    </div>
+  <% end %>
+</fieldset>
+
+<fieldset class="bordered">
+  <legend class="admin-legend">
+    <%= t(".dev_features") %>
+  </legend>
+  <p class="mb-3">
+    <%= t(".rails_db_description") %>
+  </p>
+  <%= link_to "Rails DB", rails_db_path, class: "btn-grey px-4 py-2" %>
+</fieldset>

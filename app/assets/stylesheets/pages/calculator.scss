@@ -14,7 +14,7 @@
   font-weight: 400;
   font-family: "Nunito", sans-serif;
   font-style: normal;
-  transition: transform 0.5s linear;
+  transition: transform 0.5s ease-in-out;
   max-width: 300px;
 }
 
@@ -42,6 +42,10 @@
 
 .back-text {
   color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .calulator-arrow {
@@ -70,7 +74,7 @@
   }
 
   .form_fild {
-    min-height: 33px;
+    min-height: 40px;
     font-weight: 400;
     margin-bottom: 24px;
     max-width: 275px;
@@ -79,17 +83,23 @@
 
   .age_wrapper {
     align-items: center;
+
     .select-age {
+      appearance: none;
       background-color: $light_gray;
       background-image: none;
-      width: 10%;
-      margin-left: 40px;
-      text-align: center;
       border: none;
-      outline: none;
       color: $dark_gray;
-      appearance: none;
-      padding: 0rem;
+      width: 70px;
+      margin: 0 5px 0 25px;
+      padding: 1px 0 1px 15px;
+      text-align: left;
+    }
+
+    .select-age-label {
+      margin-left: -40px;
+      pointer-events: none;
+      z-index: 1;
     }
   }
 
@@ -174,7 +184,7 @@
       text-decoration: none;
     }
     a:hover {
-      color: $dark_green;
+      color: $matte_lime_green;
       background-color: transparent;
       text-decoration: none;
     }
@@ -305,6 +315,7 @@ select.custom-select {
   div.jumbotron {
     margin: 0;
     padding: 0;
+    margin-bottom: 20px;
   }
 
   .container {

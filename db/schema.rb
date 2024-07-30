@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -43,12 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "app_configs", force: :cascade do |t|
-    t.jsonb "diapers_calculator", default: {}
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "calculators", force: :cascade do |t|
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.string "name"
@@ -62,10 +56,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "uk_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority", default: 0, null: false
+    t.boolean "preferable", default: false, null: false
+    t.string "en_name"
+    t.index "lower((en_name)::text)", name: "index_categories_on_en_name", unique: true
+    t.index "lower((uk_name)::text)", name: "index_categories_on_uk_name", unique: true
   end
 
   create_table "category_categoryables", force: :cascade do |t|
@@ -77,6 +75,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
     t.index ["category_id"], name: "index_category_categoryables_on_category_id"
     t.index ["categoryable_type", "categoryable_id", "category_id"], name: "unique_of_category_categoryables_index", unique: true
     t.index ["categoryable_type", "categoryable_id"], name: "index_category_categoryables_on_categoryable"
+  end
+
+  create_table "diapers_periods", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.decimal "price", precision: 8, scale: 2, null: false
+    t.integer "period_start", null: false
+    t.integer "period_end", null: false
+    t.integer "usage_amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_diapers_periods_on_category_id"
   end
 
   create_table "feature_flags", force: :cascade do |t|
@@ -158,6 +167,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
+    t.index ["title"], name: "index_products_on_title", unique: true
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
   end
 
@@ -213,4 +223,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_194527) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "category_categoryables", "categories"
+  add_foreign_key "diapers_periods", "categories"
 end

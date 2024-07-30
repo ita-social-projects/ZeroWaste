@@ -26,19 +26,22 @@
 #
 require "rails_helper"
 
-LOCAL_PREFIX_SELECT = "activerecord.errors.models.select.attributes"
+RSpec.describe Select, type: :model do
+  describe "validations" do
+    context "with a valid label length of 2 characters" do
+      subject { build(:select, label: "ab") }
 
-# RSpec.describe Select, type: :model do
-#   subject { create(:select) }
-#   describe 'validations' do
-#     it { is_expected.to be_valid }
-#     it {
-#       is_expected.to validate_presence_of(:value).with_message(I18n
-#         .t("#{LOCAL_PREFIX_SELECT}.value.blank"))
-#     }
-#     it {
-#       is_expected.to validate_length_of(:value).is_at_least(2).with_message(I18n
-#         .t("#{LOCAL_PREFIX_SELECT}.value.too_short"))
-#     }
-#   end
-# end
+      it { is_expected.to be_valid }
+    end
+
+    context "with a label of less than 2 characters" do
+      subject(:select) { build(:select, label: "a") }
+
+      it "is not valid" do
+        select.valid?
+
+        expect(select.errors[:label]).to include("is too short (minimum is 2 characters)")
+      end
+    end
+  end
+end

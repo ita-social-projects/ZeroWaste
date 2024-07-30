@@ -6,25 +6,34 @@ Rails.application.routes.draw do
   #   authenticate :user do
   #     mount Sidekiq::Web => 'admins/sidekiq'
   #   end
-
   mount Sidekiq::Web => "/sidekiq"
 
-  devise_for :users, only: :omniauth_callbacks,
-                     controllers: { omniauth_callbacks:
-    "users/omniauth_callbacks" }
+  # devise_for :users, only: :omniauth_callbacks,
+  #                    controllers: { omniauth_callbacks:
+  #   "users/omniauth_callbacks" }
 
   get "/", to: "application#redirection", as: :root_redirection
 
+  concern :paginatable do
+    get "(page/:page)", action: :index, on: :collection
+  end
+
   scope "/(:locale)", locale: /uk|en/ do
-    devise_for :users, controllers: { registrations: "users/registrations" },
-                       skip: :omniauth_callbacks
+    devise_for :users, only: [:session]
+    # devise_for :users, skip: [:omniauth_callbacks, :registration]
+
+    # as :user do
+    #   get :sign_up, to: "users/registrations#new", as: :new_user_registration
+    #   post :sign_up, to: "users/registrations#create", as: :user_registration
+    # end
 
     root "home#index"
     get "/sitemap", to: "sitemap#index"
 
     get "/calculator", to: "calculators#calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
-    get "/about_us", to: redirect("/about_us.html")
+
+    get "about-us", to: "home#about", as: "about"
 
     resources :calculators, only: [:index, :show], param: :slug do
       member do
@@ -34,17 +43,25 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create]
     namespace :account do
       root "dashboard#index"
-      resources :users
-      resources :calculators, param: :slug
-      resources :categories
-      resources :products
-      resources :histories, only: :index
-      resources :messages, only: [:index, :show]
-      resource :app_config, only: [:edit, :update]
+      resources :users, concerns: :paginatable
+      resources :calculators, param: :slug, concerns: :paginatable
+      resources :categories, concerns: :paginatable
+      resources :products, concerns: :paginatable
+      resources :histories, only: :index, concerns: :paginatable
+      resources :messages, only: [:index, :show], concerns: :paginatable
       patch "/feature_flags", to: "feature_flags#update", as: "features_flags"
 
       resource :site_setting, only: [:edit, :update] do
-        post :revert
+        put :revert
+      end
+
+      resources :diapers_periods
+
+      namespace :diapers_periods do
+        resources :categories, only: [:destroy] do
+          get :with_periods, on: :collection
+          get :available, on: :collection
+        end
       end
 
       scope module: :calculators do

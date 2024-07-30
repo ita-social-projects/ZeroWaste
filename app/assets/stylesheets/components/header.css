@@ -1,0 +1,18 @@
+@layer components {
+  .page-header {
+    @apply flex w-full mx-auto mb-1 border-b-2 border-gray;
+    max-width: $max_width_content;
+  }
+
+  .tab {
+    @apply flex-row px-4 py-6 text-sm text-white uppercase transition duration-500 ease-in-out border-b-2 border-transparent xl:flex whitespace-nowrap hover:border-success;
+  }
+
+  .tab-main-page {
+     @apply flex-row px-6 py-4 text-sm text-white uppercase transition duration-500 ease-in-out border-b-2 border-transparent xl:flex whitespace-nowrap hover:border-success;
+  }
+
+  .header-btns {
+    @apply inline w-auto ml-2 min-w-fit;
+  }
+}

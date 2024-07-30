@@ -6,7 +6,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def index
     @q           = collection.ransack(params[:q])
-    @calculators = @q.result
+    @calculators = @q.result.page(params[:page])
   end
 
   def show
@@ -38,9 +38,9 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def destroy
-    @calculator.destroy!
+    @calculator.destroy
 
-    redirect_to account_calculators_path, notice: t("notifications.calculator_deleted")
+    redirect_to account_calculators_path, notice: t("notifications.calculator_deleted"), status: :see_other
   end
 
   private
