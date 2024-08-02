@@ -174,23 +174,6 @@
   border-radius: 5px;
 }
 
-.col-9.result-card {
-  span {
-    text-align: left;
-    margin-left: 30px;
-    a {
-      color: $success;
-      background-color: transparent;
-      text-decoration: none;
-    }
-    a:hover {
-      color: $matte_lime_green;
-      background-color: transparent;
-      text-decoration: none;
-    }
-  }
-}
-
 .old-btn {
   width: 300px !important;
 }

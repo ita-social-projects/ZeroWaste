@@ -451,6 +451,7 @@ en:
     shared:
       navigation:
         donate: "DONATE"
+        donate_link: "https://zerowastelviv.org.ua/pidtrymaty/"
       links:
         forgot_your_password: "Forgot your password?"
         log_in: "Log In"
