@@ -1,6 +1,6 @@
-if Flipper::Adapters::ActiveRecord::Feature.table_exists?
-  require_relative "flipper_feature"
+require_relative "flipper_feature"
 
+if Rails.configuration.database_exists && Flipper::Adapters::ActiveRecord::Feature.table_exists?
   Flipper[:new_calculator_design].en_description = "This feature flag is responsible for enabling new calculator design"
   Flipper[:new_calculator_design].uk_description = "Відкриває можливість використовувати новий дизайн калькулятора"
 

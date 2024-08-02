@@ -1,4 +1,4 @@
-if Flipper::Adapters::ActiveRecord::Feature.table_exists?
+if Rails.configuration.database_exists && Flipper::Adapters::ActiveRecord::Feature.table_exists?
   class Flipper::Feature
     delegate :en_description, :en_description=, to: :feature_record
     delegate :uk_description, :uk_description=, to: :feature_record

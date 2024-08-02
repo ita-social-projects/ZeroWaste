@@ -28,5 +28,7 @@ module ZeroWaste
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
 
     config.assets.css_compressor = nil
+
+    config.database_exists = ::ActiveRecord::Base.connection_pool.with_connection(&:active?) rescue false
   end
 end

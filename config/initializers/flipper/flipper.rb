@@ -1,9 +1,9 @@
-if Flipper::Adapters::ActiveRecord::Feature.table_exists?
-  require "flipper/adapters/active_record"
+require "flipper/adapters/active_record"
 
-  require_relative "flipper_feature"
-  require "./app/services/database_backup_service"
+require_relative "flipper_feature"
+require "./app/services/database_backup_service"
 
+if Rails.configuration.database_exists && Flipper::Adapters::ActiveRecord::Feature.table_exists?
   Flipper.configure do |config|
     config.default do
       Flipper.new(Flipper::Adapters::ActiveRecord.new)
