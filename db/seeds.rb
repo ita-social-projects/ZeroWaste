@@ -3,6 +3,8 @@
 require "faker"
 require "factory_bot_rails"
 
+print "Seeding the database..."
+
 # A regular user
 unless User.exists?(email: "user@zw.com")
   User.create(
@@ -30,3 +32,5 @@ unless User.exists?(email: "admin@zw.com")
 end
 
 FactoryBot.create(:product, :diaper) unless Product.exists?(title: "diaper")
+
+puts "\tSeeding is done!"
