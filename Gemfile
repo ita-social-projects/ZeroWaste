@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.3"
+ruby "3.3.4"
 
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
@@ -25,9 +25,6 @@ gem "friendly_id", "~> 5.4.0"
 gem "babosa"
 
 gem "dentaku", "~> 3.1"
-gem "it"
-
-gem "rugged", "1.6.3"
 
 gem "net-smtp"
 
@@ -70,8 +67,6 @@ end
 group :development do
   gem "letter_opener"
   gem "listen", "~> 3.3"
-  gem "pronto"
-  # gem 'pronto-rubocop', require: false
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
   gem "web-console", ">= 4.1.0"
