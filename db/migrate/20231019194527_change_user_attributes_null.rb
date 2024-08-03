@@ -10,12 +10,20 @@ class ChangeUserAttributesNull < ActiveRecord::Migration[7.1]
       user.save(validate: false)
     end
 
-    change_column_null :users, :first_name, false
-    change_column_null :users, :last_name, false
+    # change_column_null :users, :first_name, false
+    # change_column_null :users, :last_name, false
+    change_table :users, bulk: true do |t|
+      t.change_null :first_name, false
+      t.change_null :last_name, false
+    end
   end
 
   def down
-    change_column_null :users, :first_name, true
-    change_column_null :users, :last_name, true
+    # change_column_null :users, :first_name, true
+    # change_column_null :users, :last_name, true
+    change_table :users, bulk: true do |t|
+      t.change_null :first_name, true
+      t.change_null :last_name, true
+    end
   end
 end
