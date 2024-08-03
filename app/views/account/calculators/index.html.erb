@@ -1,0 +1,48 @@
+<div class="container">
+  <%= form_tag account_calculators_path, method: :get, class: 'd-flex justify-content-end mb-5' do %>
+    <div class="d-flex">
+      <%= text_field_tag :search, params[:search], class: 'form-control me-sm-2', placeholder: t('.search_placeholder') %>
+      <%= button_tag type: :submit, name: nil, class: 'btn btn-primary px-4 d-flex align-items-center' do %>
+        <i class="fa fa-search me-2"></i>
+        <span><%= t('.search_button') %></span>
+      <% end %>
+    </div>
+
+    <%= link_to new_account_calculator_path, class: 'btn btn-success px-4 ms-1' do %>
+      <i class="fa fa-plus me-2"></i>
+      <span><%= t('.add_calculator_button') %></span>
+    <% end %>
+  <% end %>
+
+  <table class="table admin-table">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :slug, t('.table.calculator_slug'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :name, t('.table.calculator_name'), default_order: :desc) %></th>
+        <th scope="col"><%= t('.table.calculator_actions') %></th>
+      </tr>
+    </thead>
+
+    <tbody class="admin-table-links">
+      <% @calculators.each do |calculator| %>
+        <tr class="<%= calculator.preferable ? 'table-success' : 'table-light' %>">
+          <td><%= calculator.id %></td>
+          <td><%= calculator.slug %></td>
+          <td><%= calculator.name %></td>
+          <td class="actions">
+            <%= link_to account_calculator_path(slug: calculator) do %>
+              <i class="fa fa-eye mx-2"></i>
+            <% end %>
+            <%= link_to edit_account_calculator_path(slug: calculator) do %>
+              <i class="fa fa-pen mx-2"></i>
+            <% end %>
+            <%= link_to account_calculator_path(slug: calculator), data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } do %>
+              <i class="fa fa-trash mx-2"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
