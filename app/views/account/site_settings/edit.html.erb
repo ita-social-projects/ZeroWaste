@@ -1,0 +1,39 @@
+<fieldset class="bordered">
+  <legend class="admin-legend">
+    <%= t(".site_settings") %>
+  </legend>
+  <div class="position-relative">
+    <%= simple_form_for @site_setting, url: account_site_setting_path, html: { data: { controller: "handle-browser-tab" } } do |f| %>
+      <div class="form-group row">
+        <div class="col-12 has-float-label my-auto">
+          <%= f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } } %>
+          <%= f.input :favicon, class: "form-control", input_html: { data: { action: "change->handle-browser-tab#setIcon" } } %>
+          <div class="mb-2">
+            <%= render "browser_tab", site_setting: @site_setting %>
+          </div>
+        </div>
+      </div>
+      <%= f.submit t(".apply_button") %>
+    <% end %>
+    <%= button_to t("buttons.revert"), revert_account_site_setting_path, data: { turbo_confirm: t('.confirm_default') }, class: "btn-revert position-absolute right-bottom" %>
+  </div>
+</fieldset>
+
+<fieldset class="bordered">
+  <legend class="admin-legend">
+    <%= t(".site_features") %>
+  </legend>
+  <%= simple_form_for :feature_flags, url: account_features_flags_path, method: :patch do |f| %>
+    <% Flipper.features.each do |feature| %>
+      <div class="feature-container">
+        <%= f.input "#{feature.name}_enabled", as: :boolean, label: t("account.feature_flags.#{feature.name}.name"), input_html: { checked: feature.enabled? } %>
+        <div class="description-feature">
+          <%= feature.description %>
+        </div>
+      </div>
+    <% end %>
+    <div>
+      <%= f.submit t("buttons.save") %>
+    </div>
+  <% end %>
+</fieldset>
