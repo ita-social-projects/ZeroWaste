@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="d-flex justify-content-end mb-5">
+    <%= link_to new_account_product_path, class: 'btn btn-success px-4 ms-1' do %>
+      <i class="fa fa-plus me-2"></i>
+      <span><%= t('.add_product_button') %></span>
+    <% end %>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :title, t('.table.title'), default_order: :desc) %></th>
+        <th scope="col"><%= t('.table.default_usage_per_day') %></th>
+        <th scope="col"><%= t('.table.prices') %></th>
+        <th scope="col"><%= t('.table.actions') %></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @products.includes(prices: :category).each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= product.title %></td>
+          <td><%= product.default_usage_per_day %></td>
+          <td>
+            <% product.prices.includes(:category).each do |price| %>
+              <span><%= "#{price.category.name}: #{price.sum}" %></span><br>
+            <% end %>
+          </td>
+          <td class="actions">
+            <%= link_to edit_account_product_path(id: product) do %>
+              <i class="fa fa-pen mx-2"></i>
+            <% end %>
+            <%= link_to account_product_path(id: product), data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } do %>
+              <i class="fa fa-trash mx-2"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
