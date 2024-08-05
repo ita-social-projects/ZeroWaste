@@ -1,7 +1,7 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "priceInput", "price", "checkbox", "hiddenField" ]
+  static targets = ["priceInput", "price", "checkbox", "hiddenField", "errorMessage"];
 
   connect() {
     for(let i = 0; i < this.checkboxTargets.length; i++) {
@@ -10,6 +10,10 @@ export default class extends Controller {
         this.priceTargets[i].hidden = true
       }
     }
+
+    this.priceInputTargets.forEach(input => {
+      input.addEventListener('input', this.validatePriceInput.bind(this));
+    });
   }
 
   togglePrice(event) {
@@ -35,6 +39,22 @@ export default class extends Controller {
   submit() {
     for(let i = 0; i < this.checkboxTargets.length; i++) {
       this.hiddenFieldTargets[i].value = !this.checkboxTargets[i].checked
+    }
+  }
+
+  validatePriceInput(event) {
+    const target = event.target;
+    const inputValue = target.value;
+    const regex = /^[\d.]+$/;
+
+    const errorMessage = target.closest('.hidden-sum').querySelector('.error-message');
+
+    if (!regex.test(inputValue)) {
+      errorMessage.style.display = "block";
+      target.style.borderColor = "red";
+    } else {
+      errorMessage.style.display = "none";
+      target.style.borderColor = "";
     }
   }
 }

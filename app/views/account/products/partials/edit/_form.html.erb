@@ -11,6 +11,7 @@
                 <%= prices_form.input :sum, label: false, input_html: { placeholder: t('.form.sum'), data: { price_form_target: 'priceInput' } } %>
                 <%= prices_form.hidden_field :category_id, value: prices_form.object.category.id %>
                 <%= prices_form.hidden_field :_destroy, data: { price_form_target: 'hiddenField' } %>
+                <div class="error-message hidden text-error" data-price-form-target="errorMessage"><%= t(".form.error_sum") %></div>
               </div>
             </div>
           <% end %>
