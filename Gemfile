@@ -49,7 +49,7 @@ gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
 group :development, :test do
   gem "annotate"
-  gem "dotenv-rails", require: "dotenv/rails-now"
+  gem "dotenv-rails", require: "dotenv/load"
   gem "pry-rails"
   gem "rails-controller-testing"
   gem "rspec-rails"
