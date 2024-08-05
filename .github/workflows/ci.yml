@@ -51,6 +51,9 @@ jobs:
           ruby-version: 3.3.3
           bundler-cache: true
 
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvips42 libvips-dev imagemagick
+        
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
@@ -76,5 +79,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           json-path: tmp/rspec_results.json
         if: always()
-      - name: Install system dependencies
-        run: sudo apt-get install -y libvips42 libvips-dev imagemagick
