@@ -37,6 +37,8 @@ RSpec.describe Price, type: :model do
     it { is_expected.to validate_numericality_of(:sum).is_less_than(1_000_000) }
 
     it { is_expected.to validate_uniqueness_of(:category_id).scoped_to(:priceable_id, :priceable_type) }
+
+    it { is_expected.to validate_uniqueness_of(:priceable_id).scoped_to(:category_id, :priceable_type) }
   end
 
   describe "validations" do
