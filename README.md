@@ -32,7 +32,7 @@ The latest version from the release branch 'master' is automatically deployed to
 
 # Required to install
 
-- Ruby 3.3.3
+- Ruby 3.3.4
 - Ruby on Rails 7.1.2
 - PostgreSQL 12
 - Puma as a web server
