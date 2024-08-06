@@ -24,6 +24,6 @@
   }
 
   .action-button {
-    @apply flex items-center justify-center w-auto h-14 max-w-xs border-none text-sm tracking-widest text-center uppercase font-normal font-nunito px-5 sm:px-8 transition-basic sm:whitespace-nowrap;
+    @apply flex items-center justify-center w-56 h-14 max-w-xs border-none text-sm tracking-widest text-center uppercase font-normal font-nunito px-5 py-2 sm:w-auto sm:px-7 sm:whitespace-nowrap transition-basic;
   }
 }

@@ -25,8 +25,8 @@ module CalculatorsHelper
   def link_to_external(text:, url:, **options)
     link_to(url, target: "_blank", rel: "noopener", **options) do
       concat(
-        content_tag(:span, text, class: "ml-0") +
-        content_tag(:i, nil, class: "fas fa-external-link-alt ml-1")
+        content_tag(:span, text, class: "ml-0 pt-1") +
+        content_tag(:i, nil, class: "fas fa-external-link-alt ml-1.5")
       )
     end
   end
