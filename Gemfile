@@ -3,47 +3,56 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "3.2.2"
 
+gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
 gem "jbuilder", "~> 2.7"
+gem "kaminari"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "rails", "~> 6.1.3", ">= 6.1.3.1"
+gem "rails", "~> 7.1", ">= 7.1.2"
 gem "redis", "~> 4.0"
 gem "sass-rails", ">= 6"
-gem "turbolinks", "~> 5"
-gem "webpacker", "~> 5.4"
+gem "hotwire-rails"
+gem "importmap-rails", "~> 1.1"
+gem "bootstrap"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "acts_as_singleton"
 gem "friendly_id", "~> 5.4.0"
+gem "babosa"
 
 gem "dentaku", "~> 3.1"
 gem "it"
 
-gem "country_select", "~> 4.0"
+gem "rugged", "1.6.3"
 
-gem "bigdecimal", "1.3.5"
+gem "net-smtp"
+
+gem "country_select"
+
+gem "bigdecimal", "3.0.2"
 gem "rails-i18n", "~> 7.0.0"
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem "image_processing", "~> 1.2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
+gem "tailwindcss-rails", "~> 2.0"
 
 gem "active_storage_validations"
-gem "font-awesome-rails"
+gem "font-awesome-sass", "~> 6.4"
 gem "mini_magick", ">= 4.9.5"
+gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
 group :development, :test do
   gem "annotate"
   gem "dotenv-rails", require: "dotenv/rails-now"
-  gem "factory_bot_rails"
   gem "pry-rails"
   gem "rails-controller-testing"
-  gem "rspec-rails", "~> 5.0.0"
+  gem "rspec-rails"
 end
 
 group :development, :test, :ci do
@@ -63,6 +72,14 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
   gem "web-console", ">= 4.1.0"
+  # deploy
+  gem "capistrano", "~> 3.11"
+  gem "capistrano-rails", "~> 1.4"
+  gem "capistrano-passenger", "~> 0.2.0"
+  gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
+  gem "capistrano-yarn"
+  gem "capistrano-rails-tail-log"
+  gem "ed25519"
 end
 
 # group :ci do
@@ -75,31 +92,30 @@ group :test do
   gem "database_cleaner-active_record"
   gem "selenium-webdriver"
   gem "simplecov", require: false
-  gem "shoulda-matchers", "~> 4.0"
-  gem "webdrivers"
+  gem "shoulda-matchers"
+  gem "webdrivers", "~> 5.3.1"
   gem "fuubar"
 end
 
 gem "active_model_serializers", "~> 0.10.0"
 gem "any_login"
-gem "cocoon"
 gem "devise"
 gem "devise-async"
 gem "faker"
 gem "omniauth", "~> 1.9.1"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
-gem "paper_trail"
+gem "paper_trail", "~> 15.0"
 gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
+gem "stimulus-rails"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# deploy
-gem "capistrano", "~> 3.11"
-gem "capistrano-rails", "~> 1.4"
-gem "capistrano-passenger", "~> 0.2.0"
-gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
-gem "capistrano-yarn"
-gem "capistrano-rails-tail-log"
-gem "ed25519"
+gem "requestjs-rails"
+gem "flipper"
+gem "flipper-active_record"
+gem "ransack"
+gem "rails_db", "~> 2.4"
+gem "meta-tags"
+gem "inline_svg"
+gem "breadcrumbs_on_rails"
