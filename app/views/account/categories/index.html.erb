@@ -1,0 +1,54 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
+<div class="container">
+  <div class="row">
+    <%= render partial: "account/shared/search_form", locals: {
+          q: @q,
+          search_url: account_categories_path,
+          search_attribute: @search_attribute
+        } %>
+
+    <div class="col-md-6 text-end">
+      <%= link_to new_account_category_path, class: "btn btn-green px-4 py-2" do %>
+        <i class="fas fa-plus me-2"></i>
+        <span><%= t(".add_category_button") %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <table aria-label="categories table" class="table admin-table">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :name, t(".table.title"), default_order: :desc) %></th>
+        <th scope="col" class="text-center"><%= sort_link(@q, :priority, t(".table.priority"), default_order: :desc) %></th>
+        <th scope="col" class="text-center"><%= t(".table.edit") %></th>
+        <th scope="col" class="text-center"><%= t(".table.delete") %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% @categories.each do |category| %>
+        <tr class="<%= highlighted_row(category) %>">
+          <th scope="row"><%= category.id %></th>
+          <td><%= category.name %></td>
+          <td class="text-center"><%= category.priority %></td>
+          <td class="text-center"><%= link_to icon("fa-solid", "edit"), edit_account_category_path(id: category) %></td>
+          <td class="text-center">
+          <% if category.preferable? %>
+            <div class="relative inline-block cursor-help">
+              <span title="<%= t(".cannot_delete") %>"><i class="mx-2 fa fa-trash"></i></span>
+            </div>
+          <% else %>
+            <%= button_to account_category_path(id: category), method: :delete,
+                                                               data: { turbo_confirm: t(".confirm_delete") } do %>
+              <i class="mx-2 fa fa-trash"></i>
+            <% end %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @categories %>

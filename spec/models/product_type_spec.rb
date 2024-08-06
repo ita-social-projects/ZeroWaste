@@ -16,24 +16,28 @@
 #
 require "rails_helper"
 
-LOCAL_PREFIX_PRIDUCT_TYPE = "activerecord.errors.models.product_type.attributes"
-
 RSpec.describe ProductType, type: :model do
+  let(:local_prefix_product_type) { "activerecord.errors.models.product_type.attributes" }
+
   subject { build(:product_type) }
+
+  describe "associations" do
+    it { is_expected.to have_many(:products).dependent(:destroy) }
+  end
 
   describe "validations" do
     it {
       is_expected.to validate_presence_of(:title).with_message(I18n
-        .t("#{LOCAL_PREFIX_PRIDUCT_TYPE}.title.blank"))
+        .t("#{local_prefix_product_type}.title.blank"))
     }
     it { is_expected.to allow_value("Ab2").for(:title) }
     it {
       is_expected.to validate_length_of(:title).is_at_least(3).with_message(I18n
-        .t("#{LOCAL_PREFIX_PRIDUCT_TYPE}.title.too_short"))
+        .t("#{local_prefix_product_type}.title.too_short"))
     }
     it {
       is_expected.not_to allow_value(".*+/+/").for(:title).with_message(I18n
-        .t("#{LOCAL_PREFIX_PRIDUCT_TYPE}.title.invalid"))
+        .t("#{local_prefix_product_type}.title.invalid"))
     }
   end
 end

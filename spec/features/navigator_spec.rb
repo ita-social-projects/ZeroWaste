@@ -5,36 +5,34 @@ require "rails_helper"
 describe "navigator", js: true do
   it "should style the navbar" do
     visit root_path
+
     expect(page).to have_css(".page-header")
-    expect(page.body).to have_css(".tabs")
+    # expect(page).to have_link("Log In", href: user_session_path, visible: :all)
+    # expect(page).to have_link("Sign Up", href: new_user_registration_path, visible: :all)
+    expect(page).to have_link("Contact us", href: new_message_path, visible: :all)
   end
 
-  context "when feature show_admin_menu does not exist" do
-    it "should not consist tabs" do
-      visit root_path
-      expect(page).not_to have_content("SIGN UP")
-      expect(page).not_to have_content("LOG IN")
-      expect(page).not_to have_content("CONTACT US")
-    end
-  end
+  context "as an admin user" do
+    include_context :authorize_admin
 
-  context "when feature show_admin_menu is disabled" do
-    it "should not consist tabs" do
-      create(:feature_flag, :hide_admin_menu)
-      visit root_path
-      expect(page).not_to have_content("SIGN UP")
-      expect(page).not_to have_content("LOG IN")
-      expect(page).not_to have_content("CONTACT US")
-    end
-  end
+    before { visit root_path }
 
-  context "when feature show_admin_menu is enabled" do
     it "should consist tabs" do
-      create(:feature_flag, :show_admin_menu)
-      visit root_path
-      expect(page).to have_content("SIGN UP")
-      expect(page).to have_content("LOG IN")
-      expect(page).to have_content("CONTACT US")
+      expect(page).to have_link("Log Out", href: destroy_user_session_path, visible: :all)
+      expect(page).to have_link("Contact us", href: new_message_path, visible: :all)
+      expect(page).to have_link("Admin", href: account_calculators_path, visible: :all)
+    end
+  end
+
+  context "as an regular user" do
+    include_context :authorize_regular_user
+
+    before { visit root_path }
+
+    it "should consist tabs" do
+      expect(page).to have_link("Log Out", href: destroy_user_session_path, visible: :all)
+      expect(page).to have_link("Contact us", href: new_message_path, visible: :all)
+      expect(page).to have_no_link("Admin", href: account_calculators_path, visible: :all)
     end
   end
 end

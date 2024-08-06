@@ -1,30 +1,23 @@
 # frozen_string_literal: true
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
-  include LanguageHelpers::UkrLanguage
+  def calculate
+    @validation = CalculatorValidator.new(params)
 
-  def create
-    result          = Calculators::DiapersService.new(params[:childs_age].to_i)
-                                                 .calculate!
-    diapers_be_used = correct_word_form(result.to_be_used_diapers_amount)
-    diapers_used    = correct_word_form(result.used_diapers_amount)
-    values          = [
-      { name: "money_spent", result: result.used_diapers_price || 0 },
-      { name: "money_will_be_spent",
-        result: result.to_be_used_diapers_price || 0 },
-      { name: "used_diapers_amount",
-        result: result.used_diapers_amount || 0 },
-      { name: "to_be_used_diapers_amount",
-        result: result.to_be_used_diapers_amount || 0 }
-    ]
+    if @validation.valid?
+      calc_service         = Calculators::DiaperUsageService.new(params[:childs_years], params[:childs_months], set_category_id)
+      calc_service.calculate
+      calculator_decorator = CalculatorDecorator.new(calc_service.result)
 
-    render(
-      json: {
-        result: values,
-        date: params[:childs_age].to_i,
-        word_form_to_be_used: diapers_be_used,
-        word_form_used: diapers_used
-      }
-    )
+      render json: calculator_decorator.to_json, status: :ok
+    else
+      render json: { error: @validation.error }, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def set_category_id
+    params[:category_id].presence || Category.preferable.first.id
   end
 end

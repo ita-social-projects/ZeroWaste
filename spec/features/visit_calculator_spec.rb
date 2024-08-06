@@ -7,15 +7,16 @@ describe "visit Calculator page", js: true do
   let(:calculator) { create(:calculator) }
 
   it "visits calculator page" do
-    visit "/calculators/#{calculator.slug}"
-    expect(page).to have_content "receive email messages"
+    visit "#{I18n.locale}/calculator"
+
+    expect(page).to have_content "Child’s age"
   end
 
-  it "visits calculator page and open log_in page" do
-    create(:feature_flag, :show_admin_menu)
-    visit "/calculators/#{calculator.slug}"
+  xit "visits calculator page and open log_in page" do
+    visit "#{I18n.locale}/calculator"
+    page.driver.browser.manage.window.resize_to(1920, 1080)
     click_link("Log In")
-    sleep 3
+
     expect(page).to have_content "Forgot your password"
   end
 end

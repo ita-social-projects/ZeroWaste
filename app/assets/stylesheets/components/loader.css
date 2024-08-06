@@ -1,0 +1,13 @@
+@layer base {
+  .mask {
+    @apply  bg-white opacity-0 flex fixed inset-0 w-full h-full justify-center items-center -z-10 transition-opacity
+  }
+  
+  .loader {
+    @apply m-auto border-8 border-success border-left-green rounded-full w-20 h-20 animate-spin
+  }
+}
+
+.border-left-green {
+  border-left-color: theme("colors.dark_green");
+}

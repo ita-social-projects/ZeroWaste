@@ -1,0 +1,22 @@
+@import "components/**/*";
+
+@import "bootstrap";
+
+@import "pages/**/*";
+
+@import "font-awesome";
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+.inline {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}

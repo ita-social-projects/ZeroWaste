@@ -1,0 +1,380 @@
+body {
+  position: relative;
+  margin: 0 auto;
+  background: asset-url("mother.jpeg") no-repeat center top;
+  background-size: cover;
+  overflow-x: hidden;
+  height: 100vh;
+  font-family: "Comfortaa", sans-serif;
+}
+
+a {
+  display: inline-block;
+  cursor: pointer;
+  @include transition(all 0.5s ease-in-out);
+  outline: 0;
+
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.body-inside {
+  position: absolute;
+  background-color: #00000078;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.jumbotron {
+  background-color: $color;
+  max-width: $max_width_content;
+  margin: 0 auto;
+}
+
+.jumbotron-fluid {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.mn-vd {
+  min-width: 102px;
+}
+
+.main-container {
+  margin-bottom: 20px;
+  padding: 20px;
+
+  img {
+    margin: 0px 30px;
+  }
+}
+
+.logo {
+  font-size: 24px;
+  color: $color;
+  @include transition(all 0.5s ease-in-out);
+
+  &:hover {
+    color: $success;
+  }
+}
+
+/* home-page */
+.homepage_title {
+  text-align: center;
+  margin-top: 200px;
+  color: $color;
+}
+
+main p {
+  color: $color;
+  max-width: 640px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+// forms
+.position-block {
+  .card {
+    max-width: 650px;
+    margin: auto;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    margin-top: 64px;
+
+
+    input,
+    select {
+      display: inline-block;
+      outline: none;
+      border: 2px solid $gray;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    input[type="submit"] {
+      text-transform: uppercase;
+      white-space: initial;
+      padding: 10px;
+      height: 100%;
+      font-size: 16px;
+      border: none;
+
+      &:hover {
+        color: $white;
+        background-color: $matte_lime_green;
+      }
+
+      &:active {
+        background-color: $success;
+      }
+    }
+  }
+}
+
+h1,
+.footer-items {
+  color: $color;
+}
+
+h1.display-4 {
+  font-size: 48px;
+  padding-top: 70px;
+}
+
+h3.container {
+  font-size: 22px;
+  padding: 20px;
+}
+
+.tab-active {
+  color: darkgreen !important;
+  border-bottom: solid darkgreen 3px;
+}
+
+.calculation-results {
+  padding: 10px;
+  margin-top: 20px;
+  position: center;
+  background-color: $color;
+  max-width: $max_width_content;
+  min-height: 151px;
+  border-radius: 6px;
+}
+
+.row_break {
+  display: none;
+}
+
+.result-card {
+  font-size: 14px;
+  text-align: center;
+  color: #b3b3b3;
+  border-right: 0.5px solid #f5f5f5;
+  display: inline-flex;
+
+  .img-border {
+    flex-shrink: 0;
+    height: 70px;
+    width: 70px;
+    border: 2px solid #f5f5f5;
+    border-radius: 90%;
+    margin-right: 10px;
+
+    img {
+      height: 100%;
+      padding: 0px;
+      margin: auto;
+    }
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.result-card,
+.last-result-card {
+  font-weight: 300;
+  padding: 20px;
+
+  p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #808080;
+  }
+
+  img {
+    margin: 0px 15px;
+  }
+}
+
+/* admin */
+
+body.admin {
+  background: none;
+  background-color: #fff;
+}
+
+body:where(.admin)::before {
+  background: none;
+}
+
+.admin-container {
+  padding-top: 60px;
+}
+
+.admin-container h1 {
+  margin-bottom: 30px;
+}
+
+.admin-table {
+
+  .admin-table-header>*,
+  .admin-table-body>* {
+    display: flex;
+  }
+
+  .admin-table-header {
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+
+    .actions {
+      justify-content: center;
+    }
+  }
+
+  td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .admin-table-links {
+
+    a,
+    form {
+      color: $success;
+
+      &:hover {
+        color: $matte_lime_green;
+      }
+    }
+
+    form {
+      display: inline-block;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .admin-table-body {
+      &>* {
+        align-items: center;
+      }
+
+      .actions {
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.flash-message {
+  color: $color;
+  padding: 15px;
+  border-radius: 3px;
+
+  &.notice {
+    background: $success;
+  }
+
+  &.alert {
+    background: $error;
+  }
+}
+
+.bordered {
+  border: solid darkgray 3px;
+  padding: 20px;
+  margin-bottom: 50px
+}
+
+.admin-legend {
+  float: none;
+  width: auto;
+  padding: 20px;
+}
+
+@media screen and (max-width: $xs) {
+
+  .body-inside {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .jumbotron {
+    width: 100%;
+  }
+
+  .calculation-results {
+    width: 100%;
+  }
+
+  .calculation-results span {
+    width: 410px;
+  }
+
+  .donate-btn a {
+    font-size: 12px;
+  }
+
+  .main-btns {
+    max-width: 320px;
+
+    a {
+      padding: 10px;
+    }
+  }
+
+  .func-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+    margin-right: 5px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .tab {
+    display: none;
+  }
+
+  .func-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: initial;
+    padding-bottom: initial;
+    width: fit-content;
+  }
+
+  .donate-btn a {
+    padding: 10px;
+  }
+
+  .row_break {
+    display: block;
+  }
+}
+
+@media screen and (max-width: $md) and (min-width: $sm) {
+  .row_break {
+    display: block;
+  }
+
+  .donate-btn a {
+    padding: 10px;
+  }
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 0;
+}

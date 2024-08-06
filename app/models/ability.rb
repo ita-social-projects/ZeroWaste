@@ -11,6 +11,7 @@ class Ability
     can :manage, Calculator
     can :manage, User
     can :manage, Message
-    can :manage, AppConfig
+    can :manage, Category
+    can :manage, SiteSetting
   end
 end

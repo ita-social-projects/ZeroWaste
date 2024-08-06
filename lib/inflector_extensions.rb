@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class String
-  def pluralize(count: nil, locale: :en)
+  def pluralize(count = nil, locale = :en)
     if count == 1
       dup
     else
@@ -22,19 +22,21 @@ module InflectorExtensions
       return result
     end
 
-    rules.each do |rule, replacement, range|
-      if (range.nil? || range.include?(count)) && result.sub!(rule, replacement)
-        break
+    rules.each do |rule, replacement, callback|
+      if callback.is_a?(Proc) && !count.nil?
+        replacement = callback.call(count) || replacement
       end
+
+      break if result.sub!(rule, replacement)
     end
     result
   end
 end
 
 module InflectionsExtensions
-  def plural(rule, replacement, range = nil)
+  def plural(rule, replacement, callback = nil)
     super(rule, replacement)
-    @plurals.first << range unless range.nil?
+    @plurals.first << callback unless callback.nil?
   end
 end
 

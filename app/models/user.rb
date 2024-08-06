@@ -38,7 +38,11 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  attr_accessor :current_password, :skip_password_validation
+  attr_accessor :current_password, :skip_password_validation, :send_credentials_email
+
+  scope :ordered_by_email, -> { order(:email) }
+  scope :ordered_by_first_name, -> { order(:first_name) }
+  scope :ordered_by_last_name, -> { order(:last_name) }
 
   has_paper_trail ignore: [
     :current_sign_in_at, :last_sign_in_at, :confirmation_token,
@@ -48,50 +52,44 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   enum role: {
-    user: 0,
-    admin: 1
+    admin: 1,
+    user: 0
   }
 
   def self.grouped_collection_by_role
-    User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }
+    User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }.sort
   end
 
-  # validate :correct_image_type
-
-  # Include default devise modules. Others available are:
-  #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :validatable, :confirmable, :lockable, :timeoutable, :trackable, :async,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
-  validates :email, presence: true, uniqueness: { case_sensitive: false },
-                    length: { minimum: 6, maximum: 100 },
-                    format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :email, length: { minimum: 6, maximum: 100 }, allow_blank: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
+  validates :password, presence: true, unless: :skip_password_validation
   validates :password,
-            presence: true,
             confirmation: true,
             length: { in: 8..64 },
+            unless: :skip_password_validation,
+            allow_blank: true
+  validates :password,
+            confirmation: true,
             format: { with: %r{[-!$%^&*()_+|~=`{}\[\]:";'<>?,./\w]{8,}} },
-            unless: :skip_password_validation
-  # validates :password_confirmation, presence: true
+            unless: :skip_password_validation,
+            allow_blank: true
+  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, length: { in: 2..50 }, allow_blank: true
   validates :first_name, :last_name,
-            presence: true,
-            length: { minimum: 2 },
-            on: [:create, :update],
-            format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ }
+            format: { with: /[a-zA-Zа-їА-ЯЄІЇ]+-?'?`?/ },
+            allow_blank: true
 
   validates :avatar, content_type: ["image/png", "image/jpeg", "image/jpg"],
                      size: { less_than: 2.megabytes }
-  # validates :avatar, attached: true, content_type: {
-  #                                      in: [:png, :jpg, :jpeg]
-  #                                    },
-  #  size: {
-  #    less_than: 2.megabytes
-  #  }
 
   def self.from_omniauth(access_token)
     data       = access_token.info
-    user       = User.where(email: data["email"]).first
-    split_name = data["name"].split
+    user       = User.find_by(email: data["email"])
+    split_name = data["name"].split if data["name"].present?
     user     ||= User.create(first_name: data["first_name"] || split_name[0],
                              last_name: data["last_name"] || split_name[1],
                              email: data["email"],
@@ -122,12 +120,15 @@ class User < ApplicationRecord
     super
   end
 
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if (data = session["devise.google_oauth2"]) &&
-          session["devise.google_oauth2_data"]["extra"]["raw_info"]
-        user.email = data["email"]
-      end
-    end
+  def full_name
+    [first_name, last_name].compact_blank.join(" ")
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "blocked", "country", "email", "first_name", "last_name", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
   end
 end

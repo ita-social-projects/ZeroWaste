@@ -1,0 +1,43 @@
+<div class="container d-flex justify-content-between">
+  <div>
+    <h2 class="text-center">
+      <%= t('.table.edit_user_info') %>
+    </h2>
+    <%= simple_form_for(@user, url: account_user_path(id: @user), remote: false, wrapper: :horizontal_form) do |f| %>
+      <%= f.input :first_name, placeholder: t('.form.name_label'), autofocus: true, autocomplete: 'first name' %>
+      <%= f.input :last_name, placeholder: t('.form.surname_label'), autofocus: true, autocomplete: 'last name' %>
+      <%= f.input :country, autofocus: true %>
+
+      <div class="password-wrapper" data-controller="password-visibility">
+        <%= f.input :password, autocomplete: 'new-password', hint: t('.form.password_hint'), input_html: { data: { password_visibility_target: 'password' } }, required: false %>
+        <%= render 'shared/password_icon' %>
+      </div>
+
+      <div class="password-wrapper" data-controller="password-visibility">
+        <%= f.input :password_confirmation, autocomplete: 'new-password', input_html: { data: { password_visibility_target: 'password' } }, required: false %>
+        <%= render 'shared/password_icon' %>
+      </div>
+
+      <%= f.input :avatar, as: :file, direct_upload: true, class: 'm-3', label: t('.avatar'), hint: t('.form.avatar_hint'), wrapper: :horizontal_form %>
+      <div class="button-group d-flex">
+        <%= f.submit t('.form.update_user_button'), class: 'btn btn-green me-2 height w-auto' %>
+        <%= link_to account_users_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
+          <span class="me-1"><%= t('buttons.cancel') %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <h2 class="text-center">
+      <%= t('.avatar') %>
+    </h2>
+    <dd>
+      <% if @user.avatar.attached? && @user.avatar.persisted? %>
+        <%= image_tag @user.avatar, class: "w-75 d-block my-0 mx-auto" %>
+      <% else %>
+        <%= image_tag 'user.png', class: "w-75 d-block my-0 mx-auto" %>
+      <% end %>
+    </dd>
+  </div>
+</div>

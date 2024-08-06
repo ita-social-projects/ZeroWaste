@@ -2,26 +2,26 @@
 
 require "rails_helper"
 
-BUDGETARY_OPTION = "budgetary"
-MEDIUM_OPTION    = "medium"
-PREMIUM_OPTION   = "premium"
-
-describe "product category dropdown list", js: true do
+describe "product category dropdown list in new design", js: true do
   let(:calculator) { create(:calculator) }
+  let!(:budgetary_category) { create(:category, :budgetary) }
+  let!(:preferable_category) { create(:category, :medium) }
+
+  include_context :new_calculator_design
 
   before do
-    FeatureFlag.get("feature_budget_category").activate
     visit "/calculator"
-    find(:select, "product_category")
-    has_select?("product_category", with_options: [BUDGETARY_OPTION, MEDIUM_OPTION, PREMIUM_OPTION])
+
+    find(:select, "child_product_category")
+    has_select?("child_product_category", with_options: ["budgetary", "medium"])
   end
 
   it "default product category" do
-    expect(page).to have_select("product_category", selected: MEDIUM_OPTION)
+    expect(page).to have_select("child_product_category", selected: "medium")
   end
 
   it "custom product category selected" do
-    select(BUDGETARY_OPTION, from: "product_category")
-    expect(page).to have_select("product_category", selected: BUDGETARY_OPTION)
+    select("budgetary", from: "child_product_category")
+    expect(page).to have_select("child_product_category", selected: "budgetary")
   end
 end

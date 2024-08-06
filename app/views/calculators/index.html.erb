@@ -1,0 +1,26 @@
+<% set_meta_tags(title: t(".meta-title")) %>
+
+<div class="container">
+  <table aria-label="public calculators table" class="table admin-table">
+    <thead>
+      <tr>
+        <th scope="col"><%= sort_link(@q, :id, t('.id_column'), default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@q, :name, t('.calculator_name'), default_order: :desc) %></th>
+        <th scope="col" class="text-center"><%= t('.calculator_actions') %></th>
+      </tr>
+    </thead>
+    <tbody class="admin-table-links">
+      <% @calculators.each do |calculator| %>
+        <tr class="<%= calculator.preferable? ? "table-success" : "text-inherit" %>">
+          <td><%= calculator.id %></td>
+          <td><%= calculator.name %></td>
+          <td class="text-center actions">
+            <%= link_to '#', class: 'disabled-link', onclick: 'return false;' do %>
+              <i class="mx-2 fa fa-eye"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

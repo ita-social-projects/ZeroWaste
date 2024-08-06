@@ -1,0 +1,24 @@
+<div class="position-block">
+  <div class="card text-center">
+    <div class="card-block p-4">
+      <h1 class="text-center text-2xl text-success py-4"><%= t(".forgot_password_header") %></h1>
+      <p class="pb-4 text-lg"><%= t(".forgot_password_message") %></p>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="flex justify-between flex-wrap mb-4">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t(".email_placeholder"), required: true  %>
+        </div>
+
+        <div class="flex justify-center flex-wrap flex-row-reverse pb-4">
+          <%= f.submit t(".send_instructions_button"), class: "btn-green text-center px-4 py-2" %>
+        </div>
+          <div class="text-center text-success before:content-['_\2190']">
+          <span class="text-gray text-lg font-medium"><%= t(".back_to") %></span><%= render "devise/shared/links" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

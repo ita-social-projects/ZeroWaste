@@ -1,0 +1,5 @@
+.tab-browser
+  .tab-content
+    = image_tag(SiteSetting.current.favicon, class: 'tab-icon', alt: 'Tab Browser Image', data: { handle_browser_tab_target: "icon" })
+    span.tab-text data-handle-browser-tab-target="title"
+      = SiteSetting.current.title

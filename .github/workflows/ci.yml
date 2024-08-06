@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+          cache-version: 1
+      - name: Run rubocop
+        run: |
+          bundle exec rubocop
+  rspec:
+    needs: rubocop
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: zero_waste_test
+        ports:
+          - 5432:5432
+        options: >-
+          --mount type=tmpfs,destination=/var/lib/postgresql/data
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://test:password@localhost:5432/zero_waste_test
+      USE_STATIC_ASSETS: true
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - uses: nanasess/setup-chromedriver@master
+
+      - name: Prepare config
+        run: |
+          mv config/database.yml.docker config/database.yml
+
+      - name: Precompile assets
+        run: |
+          bundle exec rails assets:precompile
+
+      - name: Run tests
+        run: |
+          bundle exec rspec ./spec -f j -o tmp/rspec_results.json -f p
+
+      - name: RSpec Report
+        uses: SonicGarden/rspec-report-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          json-path: tmp/rspec_results.json
+        if: always()
