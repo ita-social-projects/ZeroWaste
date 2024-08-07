@@ -1,5 +1,5 @@
 @layer components {
-  .description-section{
+  .description-section {
     @apply max-w-1230 min-h-min bg-white rounded-md p-2.5 mt-5 mx-auto;
   }
 
