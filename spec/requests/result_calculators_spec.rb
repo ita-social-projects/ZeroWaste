@@ -24,7 +24,7 @@ RSpec.describe Api::V2::CalculatorsController, type: :request do
                    kind: "parameter",
                    calculator: calculator)
   end
-  let(:json_response) { JSON.parse(response.body) }
+  let(:json_response) { response.parsed_body }
 
   describe "POST api/v2/calculators/PERMALINK/compute" do
     before do

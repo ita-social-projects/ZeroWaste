@@ -16,7 +16,7 @@
 require "rails_helper"
 
 RSpec.describe DiapersPeriod, type: :model do
-  let(:diapers_period) { FactoryBot.build :diapers_period }
+  let(:diapers_period) { build(:diapers_period) }
 
   describe "associations" do
     it { is_expected.to belong_to(:category) }

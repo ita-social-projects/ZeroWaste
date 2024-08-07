@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe Account::DiapersPeriods::CategoriesController, type: :request do
   include_context :authorize_admin
 
-  let!(:diapers_period) { create :diapers_period }
-  let!(:category) { create :category, :budgetary }
+  let!(:diapers_period) { create(:diapers_period) }
+  let!(:category) { create(:category, :budgetary) }
 
   describe "GET #with_periods" do
     it "is successful" do

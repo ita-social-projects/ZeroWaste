@@ -3,8 +3,8 @@
 require "rails_helper"
 
 RSpec.describe "Year changed", type: :feature do
-  let(:year_select) { find("#child_years") }
-  let(:month_select) { find("#child_months") }
+  let(:year_select) { find_by_id("child_years") }
+  let(:month_select) { find_by_id("child_months") }
 
   it "resets month value when year changes" do
     visit calculator_path
