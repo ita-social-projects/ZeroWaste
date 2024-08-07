@@ -51,9 +51,6 @@ jobs:
           ruby-version: 3.3.4
           bundler-cache: true
 
-      - name: Install system dependencies
-        run: sudo apt-get install -y libvips42 libvips-dev imagemagick --fix-missing
-        
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
