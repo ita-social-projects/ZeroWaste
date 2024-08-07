@@ -55,6 +55,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libvips42 libvips-dev imagemagick || sudo apt-get install -y libvips42 libvips-dev imagemagick --fix-missing
+          sudo apt-get install -y libcurl4-openssl-dev --fix-missing 
     
       - uses: actions/setup-node@v1
         with:
