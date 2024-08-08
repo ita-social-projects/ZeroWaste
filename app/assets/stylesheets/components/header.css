@@ -1,6 +1,6 @@
 @layer components {
   .page-header {
-    @apply flex w-full mx-auto border-b-2 border-gray;
+    @apply flex w-full max-w-1230 mx-auto border-b-2 border-gray;
   }
 
   .tab {
