@@ -21,7 +21,11 @@ FactoryBot.define do
     association :priceable, factory: [:product, :diaper]
 
     trait :budgetary_price do
-      sum { 40.2 }
+      sum { 7 }
+    end
+
+    trait :medium_price do
+      sum { 15 }
     end
 
     trait :invalid_price do

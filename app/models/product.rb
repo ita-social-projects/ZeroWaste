@@ -29,6 +29,7 @@ class Product < ApplicationRecord
             uniqueness: true,
             format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\-\s]+\z/ },
             if: -> { title.present? }
+  validates :default_usage_per_day, numericality: { greater_than: 0 }
 
   scope :ordered_by_title, -> { order(:title) }
 

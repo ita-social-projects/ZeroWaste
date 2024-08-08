@@ -68,7 +68,7 @@ class Account::ProductsController < Account::BaseController
   end
 
   def product_params
-    params.require(:product).permit(:title, prices_attributes: [:id,
+    params.require(:product).permit(:title, :default_usage_per_day, prices_attributes: [:id,
       :sum, :category_id, :_destroy])
   end
 end

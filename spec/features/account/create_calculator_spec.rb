@@ -3,7 +3,9 @@
 require "rails_helper"
 
 describe "Create Calculator Page", js: true do
-  let(:calculator) { create(:calculator) }
+  let!(:product) { create(:product, :diaper) }
+  let(:calculator) { create(:calculator, :diaper_calculator) }
+  let(:category) { create(:category) }
   let(:create_calrulator_button) { "Create calculator" }
 
   include_context :authorize_admin
@@ -15,6 +17,7 @@ describe "Create Calculator Page", js: true do
   context "when user clicks button Create calculator" do
     it "shows message that calculator has been successfully created" do
       fill_in "Name", with: "Calculator1"
+      select product.title, from: "calculator_product_id"
       click_button create_calrulator_button
       expect(page).to have_content("Calculator has been successfully created")
     end

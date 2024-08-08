@@ -2,7 +2,7 @@
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
   def calculate
-    @validation = CalculatorValidator.new(params)
+    @validation = DiaperCalculatorValidator.new(params)
 
     if @validation.valid?
       calc_service         = Calculators::DiaperUsageService.new(params[:childs_years], params[:childs_months], set_category_id)

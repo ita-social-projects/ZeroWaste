@@ -37,4 +37,12 @@ module CalculatorsHelper
       { image: "money_to_spent.png", data_target: "moneyWillBeSpent", text: t(".money_will_be_spent") },
       { image: "money_spent.png", data_target: "moneySpent", text: t(".money_spent") }]
   end
+
+  def use_period
+    ["day", "week", "month", "year"].map { |period| [I18n.t("calculators.date.#{period}"), period] }
+  end
+
+  def product_prices(calculator)
+    calculator.product.prices.map { |price| [price.category.name, price.id] }
+  end
 end

@@ -73,11 +73,8 @@ Rails.application.routes.draw do
 
     namespace :api do
       namespace :v1 do
-        resources :calculators, only: [] do
-          post :compute, on: :member
-        end
-        post "/diaper_calculators",
-             to: "diaper_calculators#calculate"
+        post "/calculators/:slug", to: "calculators#calculate", as: "calculate"
+        post "/diaper_calculators", to: "diaper_calculators#calculate"
       end
       namespace :v2 do
         resources :calculators, only: [] do

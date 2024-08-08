@@ -19,15 +19,15 @@
 FactoryBot.define do
   factory :product do
     trait :diaper do
-      title { "diaper" }
+      title { "diaper #{SecureRandom.hex(10)}" }
     end
 
     trait :napkin do
-      title { "napkin" }
+      title { "napkin #{SecureRandom.hex(10)}" }
     end
 
     trait :huggie do
-      title { "huggie" }
+      title { "huggie #{SecureRandom.hex(10)}" }
     end
 
     trait :invalid do

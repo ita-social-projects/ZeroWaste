@@ -75,6 +75,17 @@ en:
       year_and_month_error_msg: "Please, select years and months"
       year_error_msg: "Please, select years"
       month_error_msg: "Please, select month"
+      period_and_price_error_msg: "Please, select reporting period and price category"
+      period_error_msg: "Please, select reporting period"
+      price_error_msg: "Please, select price category"
+    form:
+      period: "Reporting period"
+      price: "Price category"
+    results:
+      unit: "pcs"
+      money: "uah"
+      used: "will be used"
+      spent: "will be spent"
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
@@ -86,6 +97,10 @@ en:
       calculator_name: "Calculator Name"
       calculator_actions: "Calculator Actions"
     date:
+      day: "day"
+      week: "week"
+      month: "month"
+      year: "year"
       months:
         one: "%{count} month"
         few: "%{count} months"
@@ -217,6 +232,8 @@ en:
         add_category_button: "Add category"
         confirm_delete: "Delete category?"
         cannot_delete: "You cannot delete preferable category."
+      destroy:
+        relation_error: "Please remove prices with this category in next products:"
       edit:
         form:
           update_category_button: "Update category"
@@ -228,6 +245,7 @@ en:
         meta-title: "Products"
         table:
           title: "Title"
+          default_usage_per_day: "Default usage per day"
           prices: "Prices"
           actions: "Actions"
           edit: "Edit"
@@ -244,6 +262,7 @@ en:
         new:
           form:
             title: "Title"
+            default_usage_per_day: "Default usage per day"
             form:
               sum: "Sum"
               create_product_button: "Create product"
@@ -251,6 +270,7 @@ en:
         edit:
           form:
             title: "Title"
+            default_usage_per_day: "Default usage per day"
             form:
               sum: "Sum"
               update_product_button: "Update product"
@@ -678,6 +698,7 @@ en:
       price:
         sum: "Sum"
       product:
+        default_usage_per_day: "Default usage per day"
         sum: "Sum"
   notifications:
     calculator_created: "Calculator has been successfully created"

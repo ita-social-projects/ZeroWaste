@@ -1,0 +1,65 @@
+<div class="jumbotron jumbotron-fluid position-relative rounded">
+  <a class="rounded back-link mt-3 px-2" href="<%= root_path %>">
+    <p class="back-text"><%= t 'calculators.buttons.to_main' %></p>
+    <%= image_tag "icons/arrow-left.svg", class: "z-1" %>
+  </a>
+  <div class="d-flex justify-content-around flex-wrap calculator_wrap ml-5">
+    <%= simple_form_for(api_v1_calculate_path, html: { class: "simple_form_calculator",
+                                          data: { controller: "calculate",
+                                                  calculate_url_value: api_v1_calculate_path,
+                                                  calculate_calculationresults_outlet: '.result' }}) do |form| %>
+      <div class="flex-item flex-column">
+
+        <div class="mb-3">
+          <%= "#{@calculator.product.title} calculator".capitalize %>
+        </div>
+
+        <%= t("calculators.form.period") %>
+        <%= form.input_field :period,
+                              collection: use_period,
+                              prompt: '__',
+                              class: 'form_fild price_select rounded w-100',
+                              data: { calculate_target: 'period' } %>
+        <%= t("calculators.form.price") %>
+        <%= form.input_field :product_category,
+                              collection: product_prices(@calculator),
+                              prompt: '__',
+                              label: t('.form_price'),
+                              class: 'form_fild price_select rounded w-100',
+                              data: { calculate_target: 'priceCategory' } %>
+        <%= form.submit t('calculators.buttons.calculate'),
+                      class: 'calculate-btn result-btn',
+                      data: { action: 'calculate#submit' } %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container calculation-results result" data-controller="calculationresults">
+  <div class="main-result-container">
+    <div class="result-container">
+      <% [{ image: "money_spent_2.png", data_target: "moneySpentResult", unit: t("calculators.results.money"), text: t("calculators.results.spent") },
+        { image: "thrash_produced.png", data_target: "itemsUsedResult", unit: t("calculators.results.unit"), text: t("calculators.results.used") }].each do |item| %>
+        <div>
+          <%= image_tag item[:image], class: "img-margin" %>
+          <p data-calculationresults-target="<%= item[:data_target] %>">000</p>
+          <p class="diapers-font"><%= item[:unit] %></p>
+          <p class="diapers-font-text"><%= item[:text] %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container calculation-results">
+  <div class="row">
+    <div class="col-xl-8 result-card">
+      <%= render 'layouts/description_block' %>
+    </div>
+    <div class="col-sm result-card">
+      <button class="calculate-btn description-btn">
+        <%= render 'layouts/description_button' %>
+      </button>
+    </div>
+  </div>
+</div>
