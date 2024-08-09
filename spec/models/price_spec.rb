@@ -50,7 +50,6 @@ RSpec.describe Price, type: :model do
     let(:product_napkin) do
       create(:product, :napkin, prices: [budgetary_price, medium_price])
     end
-    # let(:resource) { create(:resource) }
 
     context "when a sum of price will presence" do
       it { is_expected.to validate_presence_of(:sum) }
@@ -74,15 +73,6 @@ RSpec.describe Price, type: :model do
       end
 
       include_examples "compare categories"
-    end
-
-    skip "are skipped because resource isn't alredy created" do
-      context "when a resource model can have the same prices as a product model" do
-        it "returns valid product" do
-          expect(product_napkin).to be_valid
-          expect(resource).to be_valid
-        end
-      end
     end
 
     context "with two identical prices and the same category a product(diaper)" do
