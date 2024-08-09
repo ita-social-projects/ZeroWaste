@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { FetchRequest } from "@rails/request.js";
+import { toastUtils } from "helpers/toast_helper";
 
 export default class extends Controller {
   static targets = ["month", "year", "productCategory"];
@@ -49,7 +50,7 @@ export default class extends Controller {
     let formData = {
       childs_years: parseInt(this.yearTarget.value),
       childs_months: parseInt(this.monthTarget.value),
-      price_id: this.productCategoryTarget.selectedIndex,
+      category_id: this.productCategoryTarget.value,
     };
 
     const request = new FetchRequest("POST", this.urlValue, {
@@ -68,7 +69,7 @@ export default class extends Controller {
     if (response.ok) {
       this.resultsOutlet.showResults(result);
     } else if (response.statusCode == 422) {
-      toastr.error(result.error);
+      toastUtils.showToast(result.error, "error");
     }
   }
 

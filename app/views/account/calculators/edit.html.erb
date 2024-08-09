@@ -1,32 +1,83 @@
-<div class="container">
-  <% if @calculator.errors.any? %>
-    <div>
-      <h2>
-        <%= t('activerecord.form_errors', count: @calculator.errors.count,
-                                          model: t('models.calculator').downcase) %>
-      </h2>
-      <ul>
-        <% @calculator.errors.full_messages.each do |error_message| %>
-          <li><%= error_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= simple_form_for @calculator, url: account_calculator_path do |f| %>
+<div id="calculators-edit" class="container">
+  <%= simple_form_for @calculator, url: { action: 'update' }, wrapper: :horizontal_form, html: { novalidate: false } do |f| %>
     <div class="form-group row">
-      <div class="col-12 has-float-label my-auto">
-        <%= f.input :name, class: 'form-control' %>
-        <%= f.input :product_id, collection: @products, include_blank: false %>
+      <div class="my-auto col-4 has-float-label">
+        <%= f.input :name, class: 'form-control', required: true %>
+      </div>
+      <div class="my-auto col-4 has-float-label">
+        <%= f.input :preferable, class: 'form-control' %>
       </div>
     </div>
 
-    <div class="div d-flex">
-      <%= f.button :submit, t('.form.update_calculator_button'), class: 'btn btn-success mr-2 height-auto w-auto' %>
-      <%= link_to account_calculators_path, class: 'btn btn-danger d-flex align-items-center justify-content-center height-auto w-auto' do %>
-        <span class="mr-1"><%= t('.cancel_button') %></span>
-        <i class="fa fa-times-circle"></i>
-      <% end %>
+    <h4 class="mt-5"><%= t('.add_new_field_label') %></h4>
+
+    <div class="form-group row">
+      <div class="col-6">
+        <%= select_tag :kind,
+                        options_from_collection_for_select(Field.kinds.keys, :itself, :capitalize),
+                        id: 'calculator_fields_kind',
+                        prompt: t('.form.select_field_kind_label'),
+                        class: 'custom-select',
+                        data: { 'fields-list' => { form: [NamedValue.name, Select.name],
+                                                   parameter: [Value.name, RangeField.name, Select.name, Calculation.name],
+                                                   result: [Calculation.name] } } %>
+      </div>
+      <div class="col-4">
+        <%= select_tag :type, '', id: 'calculator_fields_type',
+                                prompt: t('.form.select_field_type_label'),
+                                class: 'custom-select',
+                                disabled: true %>
+      </div>
+      <div class="col-2">
+        <%= link_to t('buttons.create'), '#',
+                    class: 'btn btn-success text-white disabled',
+                    id: 'add-calculator-field',
+                    data: { url: new_account_calculator_field_path(calculator_slug: @calculator) } %>
+      </div>
+    </div>
+
+    <div class="my-5">
+      <h4 class="mb-2"><%= t('.form.form_label') %></h4>
+      <div class="form-group row" data-kind='form' data-selector-letter='F' data-last-selector='<%= extract_max_selector(@form_fields) %>'>
+        <% if @form_fields.any? %>
+          <%= f.fields_for :fields, @form_fields do |ff| %>
+            <%= render 'account/calculators/fields/form', f: ff %>
+          <% end %>
+        <% else %>
+          <p class="my-3 ms-3 text-black-50" data-empty-text=true><%= t('.form.no_fields_yet_label') %></p>
+        <% end %>
+      </div>
+
+      <h4 class="mb-2"><%= t('.form.parameters_label') %></h4>
+      <div class="form-group row" data-kind='parameter' data-selector-letter='P' data-last-selector='<%= extract_max_selector(@parameter_fields) %>'>
+        <% if @parameter_fields.any? %>
+          <%= f.fields_for :fields, @parameter_fields do |ff| %>
+            <%= render 'account/calculators/fields/form', f: ff %>
+          <% end %>
+        <% else %>
+          <p class="my-3 ms-3 text-black-50" data-empty-text=true><%= t('.form.no_fields_yet_label') %></p>
+        <% end %>
+      </div>
+
+      <h4 class="mb-2"><%= t('.form.results_label') %></h4>
+      <div class="form-group row" data-kind='result' data-selector-letter='R' data-last-selector='<%= extract_max_selector(@result_fields) %>'>
+        <% if @result_fields.any? %>
+          <%= f.fields_for :fields, @result_fields do |ff| %>
+            <%= render 'account/calculators/fields/form', f: ff %>
+          <% end %>
+        <% else %>
+          <p class="my-3 ms-3 text-black-50" data-empty-text=true><%= t('.form.no_fields_yet_label') %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="my-4 row">
+      <div class="col-12 d-flex justify-content-end button-group">
+        <%= f.button :submit, t('.form.update_calculator_button'), class: 'btn btn-green me-2' %>
+        <%= link_to account_calculators_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
+          <span class="me-1"><%= t('buttons.cancel') %></span>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

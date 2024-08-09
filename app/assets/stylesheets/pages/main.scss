@@ -30,17 +30,6 @@ a {
   left: 0;
 }
 
-.page-header {
-  max-width: $max_width_content;
-  margin: auto;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  border-bottom: 2px solid $gray;
-}
-
 .jumbotron {
   background-color: $color;
   max-width: $max_width_content;
@@ -50,14 +39,6 @@ a {
 .jumbotron-fluid {
   padding-top: 0;
   padding-bottom: 0;
-}
-
-.func-btns {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 315px;
 }
 
 .mn-vd {
@@ -73,46 +54,6 @@ a {
   }
 }
 
-.main-btn {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-
-  text-align: center;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: $color;
-  border: 1px solid;
-  border-radius: 4px;
-  margin: 20px auto;
-  padding: 15px 36px;
-
-  min-width: 187px;
-  max-width: 420px;
-}
-
-.btn-gray {
-  border-color: $gray;
-  color: $color;
-
-  &:hover {
-    color: $success;
-    border-color: $success;
-  }
-}
-
-.btn-green {
-  border-color: $success;
-  color: $success;
-
-  &:hover {
-    background-color: $success;
-    color: white;
-    border-color: $success;
-  }
-}
-
 .logo {
   font-size: 24px;
   color: $color;
@@ -120,20 +61,6 @@ a {
 
   &:hover {
     color: $success;
-  }
-}
-
-.tab {
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 33px 25px;
-  color: $color;
-  border-bottom: 3px solid transparent;
-  @include transition(all 0.5s ease-in-out);
-
-  &:hover {
-    color: $color;
-    border-bottom: 3px solid $success;
   }
 }
 
@@ -158,12 +85,13 @@ main p {
     margin: auto;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
+    margin-top: 64px;
+
 
     input,
     select {
       display: inline-block;
       outline: none;
-      background: $color;
       border: 2px solid $gray;
       box-sizing: border-box;
       border-radius: 4px;
@@ -173,15 +101,14 @@ main p {
     input[type="submit"] {
       text-transform: uppercase;
       white-space: initial;
-      color: $gray;
-      padding: 15px;
+      padding: 10px;
       height: 100%;
-      max-width: 230px;
-      font-size: 14px;
+      font-size: 16px;
+      border: none;
 
       &:hover {
-        color: $success;
-        border-color: $success;
+        color: $white;
+        background-color: $matte_lime_green;
       }
 
       &:active {
@@ -233,7 +160,7 @@ h3.container {
   display: inline-flex;
 
   .img-border {
-    display: inline-block;
+    flex-shrink: 0;
     height: 70px;
     width: 70px;
     border: 2px solid #f5f5f5;
@@ -284,7 +211,7 @@ body:where(.admin)::before {
 }
 
 .admin-container {
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
 .admin-container h1 {
@@ -293,8 +220,8 @@ body:where(.admin)::before {
 
 .admin-table {
 
-  .admin-table-header > *,
-  .admin-table-body > * {
+  .admin-table-header>*,
+  .admin-table-body>* {
     display: flex;
   }
 
@@ -307,13 +234,27 @@ body:where(.admin)::before {
     }
   }
 
+  td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .admin-table-links {
-    a {
+
+    a,
+    form {
       color: $success;
 
       &:hover {
-        color: #3d5217;
+        color: $matte_lime_green;
       }
+    }
+
+    form {
+      display: inline-block;
+      transition: all 0.5s ease-in-out;
     }
 
     .admin-table-body {
@@ -355,9 +296,6 @@ body:where(.admin)::before {
 }
 
 @media screen and (max-width: $xs) {
-  .tab {
-    display: none;
-  }
 
   .body-inside {
     width: 100%;
@@ -375,12 +313,6 @@ body:where(.admin)::before {
 
   .calculation-results span {
     width: 410px;
-  }
-
-  .page-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
   }
 
   .donate-btn a {
@@ -442,10 +374,7 @@ body:where(.admin)::before {
   }
 }
 
-@media screen and (max-width: $md) and (min-width: $xs) {
-  .page-header {
-    width: auto;
-    margin-right: 16px;
-    margin-left: 16px;
-  }
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 0;
 }

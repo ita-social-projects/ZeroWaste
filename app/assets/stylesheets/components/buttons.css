@@ -1,5 +1,33 @@
 @layer base {
   .btn-cyan {
-   @apply text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
+    @apply text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2;
+  }
+
+  .btn-green {
+    @apply text-white rounded hover:text-white bg-success hover:bg-matte_lime_green;
+  }
+
+  .btn-blue {
+    @apply text-white rounded hover:text-white bg-blue hover:bg-dark_blue;
+  }
+
+  .btn-grey {
+    @apply text-white rounded hover:text-white bg-grey hover:bg-dark_gray;
+  }
+
+  .main-btn {
+    @apply flex justify-around flex-wrap text-center tracking-widest uppercase text-xs text-white border border-solid rounded my-5 mx-auto py-3.5 px-9 max-w-md;
+  }
+
+  .btn-outline-gray {
+    @apply text-white border-gray hover:text-success hover:border-success;
+  }
+
+  .btn-outline-green {
+    @apply text-success border-success hover:text-white hover:bg-success;
+  }
+
+  .btn-grey {
+    @apply text-white rounded hover:text-white bg-grey hover:bg-dark_gray;
   }
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="EN" xml:lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) %>
+    <%= display_meta_tags(
+      site: SiteSetting.current.title,
+      viewport: "width=device-width, initial-scale=1.0",
+      reverse: true
+    ) %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <div class="body-inside">
+      <%= render "layouts/flash_messages" %>
+      <%= render "account/shared/navigation" %>
+      <%= render "shared/breadcrumbs" %>
+      <%= yield %>
+      <%= any_login_here if defined?(AnyLogin) %>
+    </div>
+  </body>
+</html>

@@ -232,8 +232,6 @@ en:
         add_category_button: "Add category"
         confirm_delete: "Delete category?"
         cannot_delete: "You cannot delete preferable category."
-      destroy:
-        relation_error: 'Please remove prices with this category in next products:'
       edit:
         form:
           update_category_button: "Update category"
@@ -241,11 +239,6 @@ en:
         form:
           create_category_button: "Create category"
     products:
-      table:
-        title: "Title"
-        prices: "Prices"
-        actions: "Actions"
-        default_usage_per_day: "Default usage per day"
       index:
         meta-title: "Products"
         table:
@@ -262,12 +255,6 @@ en:
           prices: "Prices"
           actions: "Actions"
         confirm_delete: "Delete product?"
-      edit:
-        title: "Title"
-        default_usage_per_day: "Default usage per day"
-      new:
-        title: "Title"
-        default_usage_per_day: "Default usage per day"
       partials:
         new:
           form:
@@ -666,7 +653,6 @@ en:
               too_short: "is too short (minimum %{count} symbols)"
               taken: "has already been taken, please choose another one"
               invalid: "contains invalid characters"
-            default_usage_per_day: "Default usage per day"
         price:
           attributes:
             sum:

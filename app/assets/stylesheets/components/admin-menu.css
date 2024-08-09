@@ -1,0 +1,18 @@
+@layer base {
+  .admin-menu-item {
+    @apply text-success hover:text-dark_green whitespace-nowrap
+  }
+  
+  .admin-menu-burger-button {
+    @apply xl:hidden flex items-center text-success pt-4 pr-8 ml-auto
+  }
+
+  .locale-button {
+    @apply inline-block border border-success text-success hover:bg-success hover:text-dark_green text-sm px-2 py-1 rounded ml-auto mt-7 mr-6
+  }
+
+  .admin-menu-list {
+    @apply flex flex-col xl:flex-row items-center ml-auto
+  }
+}
+

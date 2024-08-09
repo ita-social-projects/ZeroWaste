@@ -10,12 +10,31 @@
 #
 FactoryBot.define do
   factory :category do
+    en_name { "category" }
+    uk_name { "категорія" }
+
     trait :budgetary do
-      name { "budgetary" }
+      en_name { "budgetary" }
+      uk_name { "бюджетна" }
+
+      after(:create) do |category|
+        create(:diapers_period, category: category)
+      end
     end
 
     trait :medium do
-      name { "medium" }
+      en_name { "medium" }
+      uk_name { "середня" }
+      preferable { true }
+
+      after(:create) do |category|
+        create(:diapers_period, category: category)
+      end
+    end
+
+    trait :without_diapers_period do
+      en_name { "without-diapers-period" }
+      uk_name { "без-diapers-period" }
     end
   end
 end

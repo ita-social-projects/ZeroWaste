@@ -8,6 +8,10 @@ RSpec.describe "Account::UsersController", type: :request do
   let!(:user) { create(:user, last_sign_in_at: Time.current) }
 
   describe "GET #index" do
+    let(:csv_content) do
+      response.instance_variable_get(:@stream).instance_variable_get(:@buf).join
+    end
+
     it "returns a successful html response" do
       get account_users_path
 
@@ -19,13 +23,21 @@ RSpec.describe "Account::UsersController", type: :request do
     it "returns a successful csv response" do
       get account_users_path(format: "csv")
 
-      csv_content = response.instance_variable_get(:@stream).instance_variable_get(:@buf).join
-
       expect(response.header["Content-Type"]).to include "application/octet-stream"
       expect(csv_content).to match(user.email)
       expect(csv_content).to match(user.first_name)
       expect(csv_content).to match(user.last_name)
-      expect(csv_content).to match(user.last_sign_in_at.to_s)
+      expect(csv_content).to include(user.last_sign_in_at.to_s)
+    end
+
+    it "returns the expected attributes" do
+      User.ransackable_attributes.each do |attribute|
+        get account_users_path(q: { s: "#{attribute} asc" })
+        expect(response).to be_successful
+
+        get account_users_path(q: { s: "#{attribute} desc" })
+        expect(response).to be_successful
+      end
     end
   end
 
@@ -112,6 +124,7 @@ RSpec.describe "Account::UsersController", type: :request do
       end.to change(User, :count).by(-1)
 
       expect(response).to redirect_to(account_users_path)
+      expect(flash[:notice]).to eq(I18n.t("notifications.user_deleted"))
     end
   end
 end

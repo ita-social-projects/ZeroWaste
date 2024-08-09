@@ -43,10 +43,18 @@ class Product < ApplicationRecord
     prices.where(category: category).first
   end
 
+  def find_or_build_price_for_category(category)
+    prices.find { |p| p.category_id == category.id } || prices.build(category: category)
+  end
+
   def build_unsigned_categories
     unsigned_categories = Category.unsigned_categories(self)
 
     prices.build(unsigned_categories.map { |category| { category: category } })
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "product_type_id", "title", "updated_at", "uuid"]
   end
 
   private

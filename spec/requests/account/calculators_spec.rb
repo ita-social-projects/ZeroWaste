@@ -47,6 +47,7 @@ RSpec.describe Account::CalculatorsController, type: :request do
   context "GET #new" do
     it "returns http success and shows a form for new calculator" do
       get new_account_calculator_path
+
       expect(response).to be_successful
     end
   end
@@ -61,16 +62,16 @@ RSpec.describe Account::CalculatorsController, type: :request do
 
   context "POST #create" do
     it "creates a new calculator" do
-      expect { post account_calculators_path, params: valid_attributes }.to change(Calculator, :count).by(1)
 
+      expect { post account_calculators_path, params: valid_attributes }.to change(Calculator, :count).by(1)
       expect(response).to redirect_to(account_calculators_path)
       expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
     end
 
     it "renders new template with errors if creation fails" do
       post account_calculators_path, params: invalid_attributes
-      expect(response).to have_http_status(:unprocessable_entity)
 
+      expect(response).to have_http_status(:unprocessable_entity)
       expect(response).to render_template(:new)
     end
   end
@@ -99,7 +100,6 @@ RSpec.describe Account::CalculatorsController, type: :request do
       calculator.reload
 
       expect { delete account_calculator_path(calculator) }.to change(Calculator, :count).by(-1)
-
       expect(response).to redirect_to(account_calculators_path)
       expect(flash[:notice]).to eq(I18n.t("notifications.calculator_deleted"))
     end
