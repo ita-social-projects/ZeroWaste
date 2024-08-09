@@ -62,8 +62,8 @@ RSpec.describe Account::CalculatorsController, type: :request do
 
   context "POST #create" do
     it "creates a new calculator" do
-
       expect { post account_calculators_path, params: valid_attributes }.to change(Calculator, :count).by(1)
+
       expect(response).to redirect_to(account_calculators_path)
       expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
     end
