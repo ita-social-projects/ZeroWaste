@@ -50,7 +50,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.boolean "preferable", default: false
+    t.bigint "product_id"
     t.index ["name"], name: "index_calculators_on_name", unique: true
+    t.index ["product_id"], name: "index_calculators_on_product_id"
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
   end
@@ -166,6 +168,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
     t.bigint "product_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "default_usage_per_day", default: 1, null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["title"], name: "index_products_on_title", unique: true
     t.index ["uuid"], name: "index_products_on_uuid", unique: true

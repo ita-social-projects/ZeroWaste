@@ -4,7 +4,6 @@ require "rails_helper"
 
 describe "Update Calculator Page", js: true do
   let(:calculator) { create(:calculator) }
-  let(:update_calculator_button) { "Update calculator" }
 
   include_context :authorize_admin
 
@@ -15,7 +14,7 @@ describe "Update Calculator Page", js: true do
   context "when user clicks button Update calculator" do
     it "shows message that calculator has been successfully updated" do
       fill_in "Name", with: "Calculator2"
-      click_button update_calculator_button
+      click_button UPDATE_CALCULATOR_BUTTON
       expect(page).to have_content("Calculator has been successfully updated")
     end
   end

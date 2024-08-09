@@ -75,6 +75,17 @@ en:
       year_and_month_error_msg: "Please, select years and months"
       year_error_msg: "Please, select years"
       month_error_msg: "Please, select month"
+      period_and_price_error_msg: "Please, select reporting period and price category"
+      period_error_msg: "Please, select reporting period"
+      price_error_msg: "Please, select price category"
+    form:
+      period: "Reporting period"
+      price: "Price category"
+    results:
+      unit: "pcs"
+      money: "uah"
+      used: "will be used"
+      spent: "will be spent"
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
@@ -86,6 +97,10 @@ en:
       calculator_name: "Calculator Name"
       calculator_actions: "Calculator Actions"
     date:
+      day: "day"
+      week: "week"
+      month: "month"
+      year: "year"
       months:
         one: "%{count} month"
         few: "%{count} months"

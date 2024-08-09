@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe CalculatorResolver do
   subject { described_class }
 
-  let(:calculator) { build(:calculator) }
+  let(:calculator) { build(:calculator, :diaper_calculator) }
   let!(:calculation_r1) { create(:calculation, value: "P1 * P2 / P3", type: "Calculation", selector: "R1", label: "one", kind: "result", calculator: calculator) }
   let!(:calculation_r2) { create(:calculation, value: "10 * P4", type: "Calculation", selector: "R2", label: "one", kind: "result", calculator: calculator) }
   let!(:calculation_p4) { create(:value, value: "P1 * P5", type: "Calculation", selector: "P4", label: "four", kind: "parameter", calculator: calculator) }

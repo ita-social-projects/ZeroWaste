@@ -4,7 +4,6 @@ require "rails_helper"
 
 describe "visit Login page", js: true do
   let(:user) { create(:user) }
-  let(:calculator) { create(:calculator) }
 
   it "when sign in with correct login and password" do
     allow_any_instance_of(ApplicationController)

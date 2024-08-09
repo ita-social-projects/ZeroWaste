@@ -20,7 +20,11 @@
 #
 FactoryBot.define do
   factory :calculator do
-    name { "Diapers Calculator" }
-    slug { "diapers" }
+    trait :diaper_calculator do
+      association :product, :diaper
+
+      name { "Diapers Calculator" }
+      slug { "diapers" }
+    end
   end
 end

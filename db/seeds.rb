@@ -29,4 +29,13 @@ unless User.exists?(email: "admin@zw.com")
   )
 end
 
-FactoryBot.create(:product, :diaper) unless Product.exists?(title: "diaper")
+# Create a calculator with related objects
+bud_category = Category.find_or_create_by(name: "budgetary")
+mid_category = Category.find_or_create_by(name: "medium")
+
+product = Product.find_or_create_by(title: "Napkin")
+
+Price.find_or_create_by(priceable: product, category: bud_category, sum: 7)
+Price.find_or_create_by(priceable: product, category: mid_category, sum: 15)
+
+Calculator.find_or_create_by(name: "Napkins Calculator", product: product)

@@ -26,11 +26,12 @@
 #
 FactoryBot.define do
   factory :range_field do
+    association :calculator, :diaper_calculator
+
     from { 0 }
     type { "RangeField" }
     label { "Label" }
     kind { "form" }
-    calculator
     to { 200 }
     value { "10" }
   end

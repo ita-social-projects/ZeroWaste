@@ -68,6 +68,10 @@ uk:
       calculator_name: "Назва"
       calculator_actions: "Дії"
     date:
+      day: день
+      week: тиждень
+      month: місяць
+      year: рік
       months:
         one: "%{count} місяць"
         few: "%{count} місяці"
@@ -209,6 +213,8 @@ uk:
         form:
           create_category_button: "Створити категорію"
     products:
+      attributes:
+        default_usage_per_day: Використання в день за замовчуванням
       index:
         meta-title: "Продукти"
         table:
