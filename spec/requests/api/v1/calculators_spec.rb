@@ -80,8 +80,6 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
     end
 
     context "when get awaited values" do
-      include_context :app_config_load
-
       it "got the expected result" do
         post api_v1_calculate_path(calculator), params: valid_params
 
