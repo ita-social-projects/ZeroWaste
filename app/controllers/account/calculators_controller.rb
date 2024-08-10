@@ -9,7 +9,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def show
-    @calculator = resourse
+    @calculator = resource
   end
 
   def new
@@ -17,7 +17,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def edit
-    @calculator = resourse
+    @calculator = resource
     @products   = products_collection
   end
 
@@ -34,7 +34,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def update
-    @calculator = resourse
+    @calculator = resource
 
     if updater
       redirect_to account_calculators_path, notice: t("notifications.calculator_updated")
@@ -46,24 +46,19 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def destroy
-    @calculator = resourse
-    @calculator.destroy!
+    resource.destroy
 
     redirect_to account_calculators_path, notice: t("notifications.calculator_deleted"), status: :see_other
   end
 
   private
 
-  def resourse
+  def resource
     Calculator.friendly.find(params[:slug])
   end
 
   def collection
     Calculator.ordered_by_name
-  end
-
-  def calculator
-    @calculator = Calculator.friendly.find(params[:slug])
   end
 
   def calculator_params
@@ -78,6 +73,6 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def products_collection
-    @products = Product.ordered_by_title
+    Product.ordered_by_title
   end
 end
