@@ -1,0 +1,14 @@
+<section class="description-section">
+  <div class="description-block">
+    <div class="description-content-box">
+      <p data-type="description_block_html" class="description-text">
+        <%= t(".description_block_html",
+              calculate_link: link_to_external(text: t(".calculate_link"), url: t(".method_link"), class: 'description-link'),
+              contact_link: link_to_external(text: t(".contact_us_link"), url: t(".contact_link"), class: 'description-link')) %>
+      </p>
+    </div>
+    <div class="description-btn-box">
+      <%= link_to_external(text: t('.use_less'), url: t(".use_less_link"), class: 'action-button btn-green') %>
+    </div>
+  </div>
+</section>

@@ -251,8 +251,6 @@ GEM
     irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
-    it (2.0.0)
-      actionpack (>= 3.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -639,7 +637,6 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails (~> 1.1)
   inline_svg
-  it
   jbuilder (~> 2.7)
   kaminari
   letter_opener

@@ -174,36 +174,6 @@
   border-radius: 5px;
 }
 
-.description-btn {
-  margin: auto;
-  a {
-    color: $color;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  &:hover {
-    background-color: $matte_lime_green;
-    transition: background-color 0.5s ease-in-out;
-  }
-}
-
-.col-xl-8.result-card {
-  span {
-    text-align: left;
-    margin-left: 30px;
-    a {
-      color: $success;
-      background-color: transparent;
-      text-decoration: none;
-    }
-    a:hover {
-      color: $matte_lime_green;
-      background-color: transparent;
-      text-decoration: none;
-    }
-  }
-}
-
 .old-btn {
   width: 300px !important;
 }
@@ -221,7 +191,7 @@
 }
 
 .calc-item {
-  width: 300px
+  width: 300px;
 }
 
 select.custom-select {
@@ -237,12 +207,6 @@ select.custom-select {
 
 .back-link:hover {
   text-decoration: none;
-}
-
-@media screen and (max-width: 1199px) and (min-width: 400px) {
-  .description-btn {
-    margin: auto;
-  }
 }
 
 @media screen and (max-width: $sm) {
@@ -277,7 +241,7 @@ select.custom-select {
     font-size: 40px;
     font-weight: bold;
     p {
-      margin:0;
+      margin: 0;
     }
   }
   .vector-width {
@@ -299,12 +263,12 @@ select.custom-select {
 .diapers-font {
   font-size: 24px;
   font-weight: bold;
-  }
+}
 
 .diapers-font-text {
   font-size: 16px;
   font-weight: normal;
-  color:#515151;
+  color: #515151;
 }
 
 .img-margin {
@@ -376,6 +340,10 @@ select.custom-select {
   }
   .container {
     width: auto;
+  }
+
+  .result-card {
+    width: 100%;
   }
 }
 
