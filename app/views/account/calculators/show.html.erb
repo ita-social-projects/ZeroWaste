@@ -1,9 +1,5 @@
 <div class="jumbotron jumbotron-fluid position-relative rounded">
-  <a class="rounded back-link mt-3 px-2" href="<%= root_path %>">
-    <p class="back-text"><%= t 'calculators.buttons.to_main' %></p>
-    <%= image_tag "icons/arrow-left.svg", class: "z-1" %>
-  </a>
-  <div class="d-flex justify-content-around flex-wrap calculator_wrap ml-5">
+  <div class="d-flex justify-content-around flex-wrap calculator_wrap">
     <%= simple_form_for(api_v1_calculate_path, html: { class: "simple_form_calculator",
                                           data: { controller: "calculate",
                                                   calculate_url_value: api_v1_calculate_path,
@@ -53,15 +49,4 @@
   </div>
 </div>
 
-<div class="container calculation-results">
-  <div class="row">
-    <div class="col-xl-8 result-card">
-      <%= render 'layouts/description_block' %>
-    </div>
-    <div class="col-sm result-card">
-      <button class="calculate-btn description-btn">
-        <%= render 'layouts/description_button' %>
-      </button>
-    </div>
-  </div>
-</div>
+<%= render "layouts/description_block" %>
