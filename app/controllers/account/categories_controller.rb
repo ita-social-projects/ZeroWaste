@@ -40,17 +40,9 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def destroy
-    @category = resource
+    resource.destroy
 
-    validator = CategoryValidator.new(@category)
-
-    if validator.valid?
-      @category.destroy
-
-      redirect_to account_categories_path, notice: t("notifications.category_deleted")
-    else
-      redirect_to account_categories_path, alert: "#{t(".relation_error")} #{validator.references}", status: :unprocessable_entity
-    end
+    redirect_to account_categories_path, notice: t("notifications.category_deleted"), status: :see_other
   end
 
   private

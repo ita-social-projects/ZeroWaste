@@ -53,12 +53,12 @@ class Account::CalculatorsController < Account::BaseController
 
   private
 
-  def resource
-    Calculator.friendly.find(params[:slug])
-  end
-
   def collection
     Calculator.ordered_by_name
+  end
+
+  def resource
+    collection.friendly.find(params[:slug])
   end
 
   def calculator_params
