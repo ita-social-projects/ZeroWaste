@@ -119,10 +119,14 @@ en:
         family may differ depending on your daily habits and the diaper brand of choice. At any point of using
         diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
         this can be done and what reusable alternatives to disposable diapers there are. You can also learn
-        more about %{calculate_link_one:how we calculate} the number and cost of diapers
-        or %{calculate_link_two:contact us} with any other questions you may have."
-    description_button:
-      use_less: "%{use_less_link:HOW TO USE LESS}"
+        more about %{calculate_link} the number and cost of diapers
+        or %{contact_link} with any other questions you may have."
+      calculate_link: "how we calculate"
+      contact_us_link: "contact us"
+      use_less: "HOW TO USE LESS"
+      method_link: https://zerowastelviv.org.ua/diaper-calculator-method-en/
+      contact_link: https://zerowastelviv.org.ua/contacts/
+      use_less_link: https://zerowastelviv.org.ua/en/zero-waste-nappies-en/
     homepage:
       homepage_title: "Welcome to the diaper calculator"
       description:
@@ -451,6 +455,9 @@ en:
           email: "Email"
           password: "Password"
     shared:
+      navigation:
+        donate: "DONATE"
+        donate_link: "https://zerowastelviv.org.ua/pidtrymaty/"
       links:
         forgot_your_password: "Forgot your password?"
         log_in: "Log In"
