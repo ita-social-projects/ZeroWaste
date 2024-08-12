@@ -43,6 +43,12 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+  shared:
+    under_construction:
+      title: "This Page Is Under Construction"
+      text: "This page is temporarily unavailable as we work on some upgrades. Exciting Changes Are Coming!"
+      text_update: "Keep an eye out for updates!"
+      alt_text: "Under Construction"
   calculators:
     index:
       meta-title: "Calculators"

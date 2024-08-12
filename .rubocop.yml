@@ -58,3 +58,6 @@ Style/BlockDelimiters:
 
 Lint/Env:
   Enabled: false
+
+Rails/UnknownEnv:
+  Enabled: false

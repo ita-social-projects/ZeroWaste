@@ -1,0 +1,30 @@
+@layer components {
+  .under-constr_section {
+    @apply px-4;
+  }
+
+  .under-constr_wrapper {
+    @apply flex flex-col items-center justify-between md:flex-row;
+  }
+
+  .under-constr_content {
+    @apply text-center p-2.5 mb-3 md:w-5/12 xl:w-1/2 md:text-left md:mb-0 lg:mr-2;
+
+  }
+
+  .under-constr_title {
+    @apply text-2xl leading-normal font-semibold text-success tracking-tight uppercase mb-5 lg:text-4xl lg:leading-normal;
+  }
+
+  .under-constr_text {
+    @apply text-lg font-medium italic sm:text-xl;
+  }
+
+  .under-constr_img-box {
+    @apply w-full flex justify-center md:w-7/12 xl:w-1/2 max-w-xl;
+  }
+
+  .under-constr_img {
+    @apply max-w-full h-auto hover:scale-105 transition duration-500 ease-in-out;
+  }
+}
