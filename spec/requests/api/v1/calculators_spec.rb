@@ -3,21 +3,22 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::CalculatorsController, type: :request do
-  DAYS = { # rubocop:disable Lint/ConstantDefinitionInBlock
-    "day" => 1,
-    "week" => 7,
-    "month" => 30.5,
-    "year" => 365
-  }.freeze
-
+  let(:days) do
+    {
+      day: 1,
+      week: 7,
+      month: 30.5,
+      year: 365
+    }
+  end
   let(:product) { create(:product, :diaper, default_usage_per_day: 3) }
   let(:category) { create(:category, :budgetary) }
   let(:price) { create(:price, :budgetary_price, priceable: product, category: category) }
   let(:calculator) { create(:calculator, :diaper_calculator, product: product) }
-  let(:valid_params) { { period: "week", price_id: price.id } }
+  let(:valid_params) { { period: :week, price_id: price.id } }
 
-  let(:money_spent) { price.sum.to_i * product.default_usage_per_day * DAYS[valid_params[:period]] }
-  let(:items_used) { product.default_usage_per_day * DAYS[valid_params[:period]] }
+  let(:money_spent) { price.sum.to_i * product.default_usage_per_day * days[valid_params[:period]] }
+  let(:items_used) { product.default_usage_per_day * days[valid_params[:period]] }
 
   let(:expected_result) do
     {
