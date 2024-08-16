@@ -9,18 +9,14 @@ class Api::V1::CalculatorsController < ApplicationController
 
       render json: result.to_json, status: :ok
     else
-      render(
-        json: {
-          error: @validation.error
-        }, status: :unprocessable_entity
-      )
+      render json: { error: @validation.error }, status: :unprocessable_entity
     end
   end
 
   private
 
   def collection
-    Calculator.all
+    Calculator.ordered_by_name
   end
 
   def resource
