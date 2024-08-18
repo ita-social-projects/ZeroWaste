@@ -705,6 +705,19 @@ uk:
       product:
         title: "Назва"
         default_usage_per_day: "Використання в день за замовчуванням"
+  activemodel:
+    attributes:
+      calculator_form:
+        period: "Звітний період"
+        price_id: "Цінова категорія"
+    errors:
+      models:
+        calculator_form:
+          attributes:
+            period:
+              blank: "не може бути порожнім"
+            price_id:
+              blank: "не може бути порожньою"
   notifications:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"

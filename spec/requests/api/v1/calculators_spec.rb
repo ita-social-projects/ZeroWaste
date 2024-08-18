@@ -38,7 +38,7 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
     context "when no year and no month values" do
       let(:period_and_price_error_msg) do
         {
-          error: I18n.t("calculators.errors.period_and_price_error_msg")
+          error: "Reporting period can't be blank, Price category can't be blank"
         }
       end
 
@@ -53,7 +53,7 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
     context "when no period value" do
       let(:period_error_msg) do
         {
-          error: I18n.t("calculators.errors.period_error_msg")
+          error: "Reporting period can't be blank"
         }
       end
 
@@ -68,7 +68,7 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
     context "when no price value" do
       let(:price_error_msg) do
         {
-          error: I18n.t("calculators.errors.price_error_msg")
+          error: "Price category can't be blank"
         }
       end
 

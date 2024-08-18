@@ -2,14 +2,14 @@
 
 class Api::V1::CalculatorsController < ApplicationController
   def calculate
-    @validation = CalculatorValidator.new(params)
+    @calculator_form = CalculatorForm.new(calculator_params)
 
-    if @validation.valid?
+    if @calculator_form.valid?
       result = Calculators::CalculateService.new(product_resource, calculator_params).calculate
 
       render json: result.to_json, status: :ok
     else
-      render json: { error: @validation.error }, status: :unprocessable_entity
+      render json: { error: @calculator_form.errors.full_messages.join(", ") }, status: :unprocessable_entity
     end
   end
 

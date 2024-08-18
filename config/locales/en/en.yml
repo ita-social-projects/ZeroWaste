@@ -705,6 +705,19 @@ en:
       product:
         default_usage_per_day: "Default usage per day"
         sum: "Sum"
+  activemodel:
+    attributes:
+      calculator_form:
+        period: "Reporting period"
+        price_id: "Price category"
+    errors:
+      models:
+        calculator_form:
+          attributes:
+            period:
+              blank: "can't be blank"
+            price_id:
+              blank: "can't be blank"
   notifications:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"
