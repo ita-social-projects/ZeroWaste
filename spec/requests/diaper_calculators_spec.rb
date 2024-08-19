@@ -74,7 +74,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       it "got the expected result" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-        expect(JSON.parse(response.body)).to eq(JSON.parse(expected_result.to_json))
+        expect(response.parsed_body).to eq(JSON.parse(expected_result.to_json))
       end
     end
 
