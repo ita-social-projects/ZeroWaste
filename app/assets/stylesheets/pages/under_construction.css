@@ -9,7 +9,6 @@
 
   .under-construction__content {
     @apply text-center p-2.5 mb-3 md:w-5/12 xl:w-1/2 md:text-left md:mb-0 lg:mr-2;
-
   }
 
   .under-construction__title {
