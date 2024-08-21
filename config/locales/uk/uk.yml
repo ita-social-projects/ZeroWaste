@@ -12,6 +12,12 @@ uk:
       previous: "&lsaquo; Поперед."
       next: "Наступна &rsaquo;"
       truncate: "&hellip;"
+  shared:
+    under_construction:
+      title: "Ця сторінка на реконструкції"
+      text: "Ця сторінка тимчасово недоступна у зв'язку з оновленнями. Незабаром очікуйте на цікаві зміни!"
+      text_update: "Слідкуйте за новинами!"
+      alt_text: "На реконструкції"
   calculators:
     index:
       meta-title: "Калькулятори"

@@ -56,7 +56,7 @@ end
 
 group :development, :test, :ci do
   # Code linters
-  gem "rubocop", "~> 1.39", require: false
+  gem "rubocop", "~> 1.65", require: false
   gem "rubocop-rspec", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false

@@ -16,7 +16,7 @@ module I18nExtended
   end
 
   def default_url_options
-    if /account/.match?(request.path)
+    if request.path.include?("account")
       super
     else
       { locale: I18n.locale }
