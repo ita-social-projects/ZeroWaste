@@ -38,13 +38,4 @@ export default class extends Controller {
       toastUtils.showToast(result.error, "error");
     }
   }
-
-  getBasicOption(i) {
-    let option = document.createElement("option");
-
-    option.value = i;
-    option.innerText = i;
-
-    return option;
-  }
 }
