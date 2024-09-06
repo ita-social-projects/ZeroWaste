@@ -18,7 +18,9 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require "simplecov"
-SimpleCov.start "rails"
+SimpleCov.start "rails" do
+  add_filter "app/controllers/users/registrations_controller.rb"
+end
 
 if ENV["CI"]
   require "codecov"
