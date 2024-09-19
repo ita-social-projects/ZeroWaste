@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_15_194239) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
+    t.string "checksum"
     t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.boolean "preferable", default: false
+    t.boolean "preferable", default: false, null: false
     t.index ["name"], name: "index_calculators_on_name", unique: true
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
     t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
@@ -201,9 +201,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
     t.string "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
-    t.boolean "blocked", default: false
+    t.boolean "blocked", default: false, null: false
     t.integer "role", default: 0
-    t.boolean "receive_recomendations", default: false
+    t.boolean "receive_recomendations", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

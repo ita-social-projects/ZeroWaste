@@ -666,7 +666,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
-  rails (~> 7.2, >= 7.2)
+  rails (~> 7.2, >= 7.2.1)
   rails-controller-testing
   rails-i18n (~> 7.0.0)
   rails_db (~> 2.4)
