@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.2.5"
 
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
@@ -25,7 +25,7 @@ gem "babosa"
 
 gem "dentaku", "~> 3.1"
 
-gem "rugged", "1.6.3"
+# gem "rugged", "1.6.3"
 
 gem "net-smtp"
 
@@ -38,7 +38,7 @@ gem "rails-i18n", "~> 7.0.0"
 gem "image_processing", "~> 1.2"
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.4.4", require: false
+gem "bootsnap", require: false
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "active_storage_validations"
@@ -66,7 +66,7 @@ end
 group :development do
   gem "letter_opener"
   gem "listen", "~> 3.3"
-  gem "pronto"
+  # gem "pronto"
   # gem 'pronto-rubocop', require: false
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
@@ -79,6 +79,7 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rails-tail-log"
   gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 # group :ci do
