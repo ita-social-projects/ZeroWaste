@@ -151,7 +151,7 @@ GEM
     country_select (8.0.3)
       countries (~> 5.0)
     crass (1.0.6)
-    database_cleaner-active_record (2.1.0)
+    database_cleaner-active_record (2.2.0)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
@@ -231,7 +231,7 @@ GEM
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
@@ -338,7 +338,7 @@ GEM
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
     orm_adapter (0.5.0)
-    paper_trail (15.1.0)
+    paper_trail (15.2.0)
       activerecord (>= 6.1)
       request_store (~> 1.4)
     parallel (1.26.3)
@@ -421,7 +421,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.1.0)
-    ransack (4.1.1)
+    ransack (4.2.1)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
@@ -434,7 +434,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.10)
       io-console (~> 0.5)
-    request_store (1.5.1)
+    request_store (1.7.0)
       rack (>= 1.4)
     requestjs-rails (0.0.10)
       rails (>= 6.0.0)
@@ -632,7 +632,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   codecov
   country_select
-  database_cleaner-active_record
+  database_cleaner-active_record (~> 2.0)
   dentaku (~> 3.1)
   devise
   devise-async
@@ -660,7 +660,7 @@ DEPENDENCIES
   omniauth (~> 1.9.1)
   omniauth-facebook
   omniauth-google-oauth2
-  paper_trail (~> 15.0)
+  paper_trail (~> 15.2)
   pg (~> 1.1)
   pronto
   pry-rails
@@ -670,7 +670,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n (~> 7.0.0)
   rails_db (~> 2.4)
-  ransack
+  ransack (~> 4.2.1)
   redis (~> 4.0)
   requestjs-rails
   rspec-rails

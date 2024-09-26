@@ -88,7 +88,7 @@ end
 group :test do
   gem "capybara", ">= 3.26"
   gem "codecov", require: false
-  gem "database_cleaner-active_record"
+  gem "database_cleaner-active_record", "~> 2.0"
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "shoulda-matchers"
@@ -104,7 +104,7 @@ gem "faker"
 gem "omniauth", "~> 1.9.1"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
-gem "paper_trail", "~> 15.0"
+gem "paper_trail", "~> 15.2"
 gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
@@ -113,7 +113,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "requestjs-rails"
 gem "flipper"
 gem "flipper-active_record"
-gem "ransack"
+gem "ransack", "~> 4.2.1"
 gem "rails_db", "~> 2.4"
 gem "meta-tags"
 gem "inline_svg"
