@@ -11,10 +11,6 @@ development:
   <<: *default
   database: zero_waste_development
 
-staging:
-  <<: *default
-  database: zero_waste_staging
-
 test:
   <<: *default
   database: zero_waste_test

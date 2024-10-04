@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.5"
+ruby "3.2.2"
 
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
@@ -11,7 +11,7 @@ gem "jbuilder", "~> 2.7"
 gem "kaminari"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "rails", "~> 7.1", ">= 7.1.2"
+gem "rails", "~> 7.2", ">= 7.2.1"
 gem "redis", "~> 4.0"
 gem "sass-rails", ">= 6"
 gem "hotwire-rails"
@@ -25,7 +25,7 @@ gem "babosa"
 
 gem "dentaku", "~> 3.1"
 
-# gem "rugged", "1.6.3"
+gem "rugged", "1.6.3"
 
 gem "net-smtp"
 
@@ -38,7 +38,7 @@ gem "rails-i18n", "~> 7.0.0"
 gem "image_processing", "~> 1.2"
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem "bootsnap", ">= 1.4.4", require: false
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "active_storage_validations"
@@ -66,7 +66,7 @@ end
 group :development do
   gem "letter_opener"
   gem "listen", "~> 3.3"
-  # gem "pronto"
+  gem "pronto"
   # gem 'pronto-rubocop', require: false
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
@@ -79,7 +79,6 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rails-tail-log"
   gem "ed25519"
-  gem "bcrypt_pbkdf"
 end
 
 # group :ci do
@@ -89,7 +88,7 @@ end
 group :test do
   gem "capybara", ">= 3.26"
   gem "codecov", require: false
-  gem "database_cleaner-active_record"
+  gem "database_cleaner-active_record", "~> 2.0"
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "shoulda-matchers"
@@ -105,7 +104,7 @@ gem "faker"
 gem "omniauth", "~> 1.9.1"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
-gem "paper_trail", "~> 15.0"
+gem "paper_trail", "~> 15.2"
 gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
@@ -114,7 +113,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "requestjs-rails"
 gem "flipper"
 gem "flipper-active_record"
-gem "ransack"
+gem "ransack", "~> 4.2.1"
 gem "rails_db", "~> 2.4"
 gem "meta-tags"
 gem "inline_svg"
