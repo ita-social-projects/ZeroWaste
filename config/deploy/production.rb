@@ -1,5 +1,3 @@
-require "capistrano/yarn"
-
 set :user, "deploy"
 
 server "185.233.37.137", user: fetch(:user), roles: ["app", "db", "web"], primary: true, port: 22
@@ -14,6 +12,3 @@ set :ssh_options, {
 
 set :stage, :production
 set :rails_env, "production"
-
-set :branch, :master
-set :rbenv_ruby, "2.7.2"
