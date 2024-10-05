@@ -1,14 +1,14 @@
 <div class="container">
   <%= simple_form_for @calculator, url: { action: 'create' }, html: { novalidate: false } do |f| %>
     <div class="form-group row">
-      <div class="my-auto col-12 has-float-label">
+      <div class="my-auto col-12">
         <%= f.input :name, class: 'form-control' %>
       </div>
     </div>
 
     <div class="form-group row">
-      <div class="my-auto col-12 has-float-label">
-        <%= f.input :product_id, collection: @products, include_blank: false, class: 'form-control' %>
+      <div class="my-auto col-12">
+        <%= f.input :product_id, collection: @products, include_blank: false, class: 'form-select' %>
       </div>
     </div>
 

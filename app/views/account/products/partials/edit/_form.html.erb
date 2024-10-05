@@ -1,6 +1,6 @@
 <%= simple_form_for product, method: :patch, url: account_product_path, html: { id: dom_id(product, :form) }, data: { controller: "price-form", action: "submit->price-form#submit" } do |f| %>
   <div class="form-group row">
-    <div class="my-auto col-12 has-float-label">
+    <div class="my-auto col-12">
       <%= f.input :title, label: t('.title'), class: 'form-control col-sm-11' %>
       <%= f.input :default_usage_per_day, label: t('.default_usage_per_day'), class: 'form-control col-sm-11' %>
       <% if categories.exists? %>
