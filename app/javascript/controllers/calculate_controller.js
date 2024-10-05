@@ -4,7 +4,7 @@ import { toastUtils } from "helpers/toast_helper";
 
 export default class extends Controller {
   static targets = ["period", "priceCategory"];
-  static outlets = ["calculationresults"];
+  static outlets = ["calculation-results"];
   static values = {
     url: {
       type: String,
@@ -33,7 +33,7 @@ export default class extends Controller {
     const result = await response.json;
 
     if (response.ok) {
-      this.calculationresultsOutlet.showResults(result);
+      this.calculationResultsOutlet.showResults(result);
     } else if (response.statusCode == 422) {
       toastUtils.showToast(result.error, "error");
     }

@@ -26,9 +26,9 @@ class Calculator < ApplicationRecord
 
   has_paper_trail
 
-  has_many :fields, dependent: :destroy
-
   belongs_to :product
+
+  has_many :fields, dependent: :destroy
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 

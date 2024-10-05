@@ -3,7 +3,7 @@
     <%= simple_form_for(api_v1_calculate_path, html: { class: "simple_form_calculator",
                                           data: { controller: "calculate",
                                                   calculate_url_value: api_v1_calculate_path,
-                                                  calculate_calculationresults_outlet: '.result' }}) do |form| %>
+                                                  calculate_calculation_results_outlet: '.result' }}) do |form| %>
       <div class="flex-item flex-column">
 
         <div class="mb-3">
@@ -33,14 +33,14 @@
   </div>
 </div>
 
-<div class="container calculation-results result" data-controller="calculationresults">
+<div class="container calculation-results result" data-controller="calculation-results">
   <div class="main-result-container">
     <div class="result-container">
       <% [{ image: "money_spent_2.png", data_target: "moneySpentResult", unit: t("calculators.results.money"), text: t("calculators.results.spent") },
         { image: "thrash_produced.png", data_target: "itemsUsedResult", unit: t("calculators.results.unit"), text: t("calculators.results.used") }].each do |item| %>
         <div>
           <%= image_tag item[:image], class: "img-margin" %>
-          <p data-calculationresults-target="<%= item[:data_target] %>">000</p>
+          <p data-calculation-results-target="<%= item[:data_target] %>">000</p>
           <p class="diapers-font"><%= item[:unit] %></p>
           <p class="diapers-font-text"><%= item[:text] %></p>
         </div>
