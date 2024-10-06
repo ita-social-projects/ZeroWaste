@@ -34,7 +34,7 @@ RSpec.describe Api::V1::CalculatorsController, type: :request do
     }
   end
 
-  describe "POST /api/v1/calculators/slug}" do
+  describe "POST #calculate" do
     context "when no year and no month values" do
       let(:period_and_price_error_msg) do
         {

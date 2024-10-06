@@ -72,7 +72,7 @@ RSpec.describe Account::CalculatorsController, type: :request do
       post account_calculators_path, params: invalid_attributes
 
       expect(response).to have_http_status(:unprocessable_entity)
-      expect(response).to render_template(:new)
+      expect(response.body).to include(I18n.t("activerecord.errors.models.calculator.attributes.name.invalid"))
     end
   end
 
@@ -90,7 +90,7 @@ RSpec.describe Account::CalculatorsController, type: :request do
       patch account_calculator_path(calculator), params: invalid_attributes
 
       expect(response).to have_http_status(:unprocessable_entity)
-      expect(response).to render_template(:edit)
+      expect(response.body).to include(I18n.t("activerecord.errors.models.calculator.attributes.name.invalid"))
     end
   end
 
