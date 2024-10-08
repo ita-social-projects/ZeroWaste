@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.5"
+ruby "3.2.3"
 
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
@@ -76,6 +76,7 @@ group :development do
   gem "capistrano-rails", "~> 1.4"
   gem "capistrano-passenger", "~> 0.2.0"
   gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
+  gem "capistrano-rvm"
   gem "capistrano-yarn"
   gem "capistrano-rails-tail-log"
   gem "ed25519"

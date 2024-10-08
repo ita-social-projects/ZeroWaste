@@ -10,11 +10,7 @@ require "capistrano/rails/migrations"
 require "capistrano/passenger"
 require "capistrano/rails_tail_log"
 require "capistrano/rails"
-require "capistrano/rbenv"
-require "dotenv"
-
-set :rbenv_type, :user
-
-Dotenv.load
+require "capistrano/rvm"
+# require "capistrano/rbenv"
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

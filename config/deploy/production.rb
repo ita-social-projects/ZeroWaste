@@ -1,6 +1,7 @@
 require "capistrano/yarn"
 
 set :user, "deploy"
+set :rbenv_type, :user
 
 server "185.233.37.137", user: fetch(:user), roles: ["app", "db", "web"], primary: true, port: 22
 

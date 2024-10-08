@@ -1,6 +1,6 @@
-set :user, "bitnami"
+set :user, "ubuntu"
 
-server "3.120.151.175", user: fetch(:user), roles: ["app", "db", "web"], primary: true, port: 22
+server "51.44.25.104", user: fetch(:user), roles: ["app", "db", "web"], primary: true, port: 22
 
 set :passenger_restart_with_touch, true
 set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"
@@ -14,4 +14,5 @@ set :stage, :staging
 set :rails_env, "staging"
 
 set :branch, :develop
-set :rbenv_ruby, "3.2.5"
+set :rvm_ruby, "3.2.3"
+set :rvm_custom_path, "/usr/share/rvm"
