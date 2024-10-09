@@ -78,9 +78,6 @@ en:
       period_and_price_error_msg: "Please, select reporting period and price category"
       period_error_msg: "Please, select reporting period"
       price_error_msg: "Please, select price category"
-    form:
-      period: "Reporting period"
-      price: "Price category"
     results:
       unit: "pcs"
       money: "uah"

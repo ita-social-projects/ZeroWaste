@@ -3,6 +3,8 @@ en:
     labels:
       defaults:
         required: "%{text} %{mark}"
+        period: "Reporting period"
+        product_category: "Price category"
     required:
       text: "Required"
       mark: "*"
