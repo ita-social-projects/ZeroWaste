@@ -28,5 +28,3 @@ unless User.exists?(email: "admin@zw.com")
     role: "admin"
   )
 end
-
-FactoryBot.create(:product, :diaper) unless Product.exists?(title: "diaper")

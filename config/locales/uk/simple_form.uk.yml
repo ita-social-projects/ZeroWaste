@@ -3,6 +3,8 @@ uk:
     labels:
       defaults:
         required: "%{text} %{mark}"
+        period: "Звітний період"
+        product_category: "Цінова категорія"
     required:
       text: "Обовʼязкове поле"
       mark: "*"

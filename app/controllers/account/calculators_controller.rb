@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :calculator, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
@@ -12,11 +11,16 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def show
-    # TODO: fill it
+    @calculator = resource
+  end
+
+  def new
+    @products = products_collection
   end
 
   def edit
-    collect_fields_for_form
+    @calculator = resource
+    @products   = products_collection
   end
 
   def create
@@ -25,22 +29,26 @@ class Account::CalculatorsController < Account::BaseController
     if @calculator.save
       redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
+      @products = products_collection
+
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
+    @calculator = resource
+
     if updater
-      redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
+      redirect_to account_calculators_path, notice: t("notifications.calculator_updated")
     else
-      collect_fields_for_form
+      @products = products_collection
 
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @calculator.destroy
+    resource.destroy
 
     redirect_to account_calculators_path, notice: t("notifications.calculator_deleted"), status: :see_other
   end
@@ -51,31 +59,12 @@ class Account::CalculatorsController < Account::BaseController
     Calculator.ordered_by_name
   end
 
-  def calculator
-    @calculator = Calculator.friendly.find(params[:slug])
-  end
-
-  def collect_fields_for_form
-    @form_fields      = collect_fields_for_kind("form")
-    @parameter_fields = collect_fields_for_kind("parameter")
-    @result_fields    = collect_fields_for_kind("result")
-  end
-
-  def collect_fields_for_kind(kind)
-    @calculator
-      .fields
-      .select { |field| field.kind == kind }
-      .sort_by { |field| field.created_at || Time.zone.now }
+  def resource
+    collection.friendly.find(params[:slug])
   end
 
   def calculator_params
-    params.require(:calculator).permit(
-      :name, :id, :slug, :preferable,
-      fields_attributes: [
-        :id, :selector, :label, :name, :value, :unit, :from, :to, :type, :kind,
-        :_destroy
-      ]
-    )
+    params.require(:calculator).permit(:name, :slug, :product_id)
   end
 
   def updater
@@ -83,5 +72,9 @@ class Account::CalculatorsController < Account::BaseController
       ::Calculators::PreferableService.new(calculator_params).perform!
       @calculator.update(calculator_params)
     end
+  end
+
+  def products_collection
+    Product.ordered_by_title
   end
 end

@@ -21,6 +21,7 @@
       <tr>
         <th scope="col"><%= sort_link(@q, :id, "#", default_order: :desc) %></th>
         <th scope="col"><%= sort_link(@q, :title, t('.table.title'), default_order: :desc) %></th>
+        <th scope="col"><%= t('.table.default_usage_per_day') %></th>
         <th scope="col"><%= t('.table.prices') %></th>
         <th scope="col" class="text-center"><%= t('.table.edit') %></th>
         <th scope="col" class="text-center"><%= t('.table.delete') %></th>
@@ -31,6 +32,7 @@
         <tr>
           <td><%= product.id %></td>
           <td><%= product.title %></td>
+          <td><%= product.default_usage_per_day %></td>
           <td>
             <% product.prices.includes(:category).each do |price| %>
               <span><%= "#{price.category.name}: #{price.sum}" %></span>

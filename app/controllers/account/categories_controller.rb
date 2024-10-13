@@ -40,10 +40,9 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def destroy
-    @category = resource
-    @category.destroy
+    resource.destroy
 
-    redirect_to account_categories_path, notice: t("notifications.category_deleted")
+    redirect_to account_categories_path, notice: t("notifications.category_deleted"), status: :see_other
   end
 
   private

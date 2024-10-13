@@ -23,7 +23,7 @@ require "rails_helper"
 RSpec.describe Calculator, type: :model do
   let(:local_prefix_calculator) { "activerecord.errors.models.calculator.attributes" }
 
-  subject { build(:calculator) }
+  subject { build(:calculator, :diaper_calculator) }
 
   describe "validations" do
     it "validates the name and message " do
@@ -45,7 +45,7 @@ RSpec.describe Calculator, type: :model do
     end
 
     context "validates the name format" do
-      let(:calculator) { build(:calculator) }
+      let(:calculator) { build(:calculator, :diaper_calculator) }
 
       it "with valid name" do
         calculator.name = "Hedgehog і єнот з'їли 2 аґруси"
@@ -66,8 +66,8 @@ RSpec.describe Calculator, type: :model do
 
   describe "scope" do
     context "finds instances by slug and name" do
-      let!(:calc) { create(:calculator, slug: "calc") }
-      let!(:calc2) { create(:calculator, slug: "diapers", name: "Calculator") }
+      let!(:calc) { create(:calculator, :diaper_calculator, slug: "calc") }
+      let!(:calc2) { create(:calculator, :diaper_calculator, slug: "diapers", name: "Calculator") }
 
       it "finds two instances by slug or name" do
         expect(Calculator.by_name_or_slug("calc").to_a).to include(calc, calc2)
@@ -88,7 +88,7 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "versioning", versioning: true do
-    let!(:calculator) { create(:calculator, name: "Calculator 1") }
+    let!(:calculator) { create(:calculator, :diaper_calculator, name: "Calculator 1") }
 
     it "adds a version when the calculator is updated" do
       calculator.update!(name: "Calculator 2")

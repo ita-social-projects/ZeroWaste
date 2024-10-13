@@ -58,6 +58,14 @@ uk:
       year_and_month_error_msg: "Будь ласка, виберіть, скільки років та місяців дитині"
       year_error_msg: "Будь ласка, виберіть, скільки років дитині"
       month_error_msg: "Будь ласка, виберіть, скільки місяців дитині"
+      period_and_price_error_msg: "Будь ласка, виберіть звітний період та цінову категорію"
+      period_error_msg: "Будь ласка, виберіть звітний період"
+      price_error_msg: "Будь ласка, виберіть цінову категорію"
+    results:
+      unit: "шт"
+      money: "грн"
+      used: "буде використано"
+      spent: "буде витрачено"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
@@ -74,6 +82,10 @@ uk:
       calculator_name: "Назва"
       calculator_actions: "Дії"
     date:
+      day: "день"
+      week: "тиждень"
+      month: "місяць"
+      year: "рік"
       months:
         one: "%{count} місяць"
         few: "%{count} місяці"
@@ -219,6 +231,7 @@ uk:
         meta-title: "Продукти"
         table:
           title: "Назва"
+          default_usage_per_day: "Використання в день за замовчуванням"
           prices: "Ціни"
           actions: "Дії"
           edit: "Відредагувати"
@@ -235,6 +248,7 @@ uk:
         new:
           form:
             title: "Назва"
+            default_usage_per_day: "Використання в день за замовчуванням"
             form:
               sum: "Сума"
               create_product_button: "Створити продукт"
@@ -242,6 +256,7 @@ uk:
         edit:
           form:
             title: "Назва"
+            default_usage_per_day: "Використання в день за замовчуванням"
             form:
               sum: "Сума"
               update_product_button: "Оновити продукт"
@@ -679,6 +694,7 @@ uk:
         usage_amount: "Обсяг використання"
       calculator:
         name: "Назва"
+        product_id: "Продукт"
         slug: "Шлях"
         preferable: "Бажаний"
       category:
@@ -691,6 +707,20 @@ uk:
         sum: "Сума"
       product:
         title: "Назва"
+        default_usage_per_day: "Використання в день за замовчуванням"
+  activemodel:
+    attributes:
+      calculator_form:
+        period: "Звітний період"
+        price_id: "Цінова категорія"
+    errors:
+      models:
+        calculator_form:
+          attributes:
+            period:
+              blank: "не може бути порожнім"
+            price_id:
+              blank: "не може бути порожньою"
   notifications:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"

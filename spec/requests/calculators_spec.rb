@@ -3,7 +3,8 @@
 require "rails_helper"
 
 RSpec.describe CalculatorsController, type: :request do
-  let(:calculator) { create(:calculator) }
+  let(:product) { create(:product, :diaper) }
+  let(:calculator) { create(:calculator, :diaper_calculator) }
   let!(:calculation_r1) do
     create(:calculation, value: "P1 * P2 / P3", type: "Calculation",
                          selector: "R1", name: "First result",
@@ -113,8 +114,8 @@ RSpec.describe CalculatorsController, type: :request do
   describe "POST #create" do
     include_context :authorize_admin
 
-    let(:valid_attributes) { { name: "калькулятор", slug: "test" } }
-    let(:invalid_attributes) { { name: "$калькулятор", slug: "test" } }
+    let(:valid_attributes) { { name: "калькулятор", slug: "test", product_id: product.id } }
+    let(:invalid_attributes) { { name: "$калькулятор", slug: "test", product_id: product.id } }
 
     context "with valid attributes" do
       it "creates a calculator" do

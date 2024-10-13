@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Api::V2::CalculatorsController, type: :request do
-  let(:calculator) { create(:calculator) }
+  let(:calculator) { create(:calculator, :diaper_calculator) }
   let!(:value_p1) do
     create(:value, value: "10", type: "Value", selector: "P1", label: "one",
                    kind: "parameter",

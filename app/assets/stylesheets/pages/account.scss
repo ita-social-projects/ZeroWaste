@@ -81,14 +81,4 @@ $burger-size: 20px;
   .btn {
     min-width: 120px;
   }
-
-  .btn-danger {
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-
-    &:hover {
-      color: white;
-    }
-  }
 }
