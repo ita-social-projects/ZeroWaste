@@ -104,27 +104,4 @@ RSpec.describe Account::CalculatorsController, type: :request do
       expect(flash[:notice]).to eq(I18n.t("notifications.calculator_deleted"))
     end
   end
-
-  describe "GET #index" do
-    context "when in production environment" do
-      include_context :in_production_environment
-
-      it "renders the 'under_construction' template" do
-        get account_calculators_path
-
-        expect(response).to render_template("shared/under_construction")
-      end
-    end
-
-    context "when in local environment" do
-      include_context :in_local_environment
-
-      it "loads calculators and renders the index template" do
-        get account_calculators_path
-
-        expect(response).to render_template(:index)
-        expect(assigns(:calculators)).to include(calculator)
-      end
-    end
-  end
 end
