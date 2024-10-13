@@ -27,9 +27,13 @@ module.exports = {
         white: '#ffffff',
         blue: '#007bff',
         dark_blue: '#0069d9',
+        red: '#dc3545',
+        dark_red: '#bb2d3b',
+        active_red: '#b02a37',
       },
       minWidth: {
         '36': '36px',
+        '120': '120px',
       },
       maxWidth: {
         '1230': '1230px',

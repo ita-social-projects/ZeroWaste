@@ -30,6 +30,11 @@
   .btn-grey {
     @apply text-white rounded hover:text-white bg-grey hover:bg-dark_gray;
   }
+
+  .btn-cancel {
+    @apply text-white rounded hover:text-white active:text-white bg-red hover:bg-dark_red active:bg-active_red border-none min-w-120 flex items-center justify-center;
+  }
+
   .btn-space {
     @apply py-3;
   }
