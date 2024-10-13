@@ -28,14 +28,3 @@ unless User.exists?(email: "admin@zw.com")
     role: "admin"
   )
 end
-
-# Create a calculator with related objects
-budgetary_category = Category.find_or_create_by(uk_name: "Бюджетна", en_name: "Budgetary")
-medium_category    = Category.find_or_create_by(uk_name: "Середня", en_name: "Medium")
-
-product = Product.find_or_create_by(title: "Napkin")
-
-Price.find_or_create_by(priceable: product, category: budgetary_category, sum: 7)
-Price.find_or_create_by(priceable: product, category: medium_category, sum: 15)
-
-Calculator.find_or_create_by(name: "Napkins Calculator", product: product)
