@@ -118,7 +118,7 @@ RSpec.describe ActiveSupport::Inflector do
     let(:uk_rules) do
       human_inflections_callback = lambda do |count|
         return "людина" if count == 1
-        return "людини" if (2..4).cover?(count)
+        "людини" if (2..4).cover?(count)
       end
 
       [
@@ -130,7 +130,7 @@ RSpec.describe ActiveSupport::Inflector do
     let(:en_rules) do
       dog_inflections_callback = lambda do |count|
         return "dog" if count == 1
-        return "dogs" if (2..100).cover?(count)
+        "dogs" if (2..100).cover?(count)
       end
 
       [

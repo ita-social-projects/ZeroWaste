@@ -102,10 +102,11 @@ GEM
     babosa (2.0.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
+    bcrypt_pbkdf (1.1.1)
     bigdecimal (3.0.2)
     bindex (0.8.1)
-    bootsnap (1.9.3)
-      msgpack (~> 1.0)
+    bootsnap (1.18.4)
+      msgpack (~> 1.2)
     bootstrap (5.3.2)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
@@ -132,6 +133,9 @@ GEM
     capistrano-rbenv (2.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capistrano-yarn (2.0.2)
       capistrano (~> 3.0)
     capybara (3.39.2)
@@ -148,7 +152,7 @@ GEM
     codecov (0.6.0)
       simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.3.4)
     connection_pool (2.4.1)
     countries (5.7.0)
       unaccent (~> 0.3)
@@ -177,8 +181,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    drb (2.2.0)
-      ruby2_keywords
+    drb (2.2.1)
     ed25519 (1.3.0)
     erubi (1.12.0)
     execjs (2.9.1)
@@ -223,9 +226,6 @@ GEM
     fuubar (2.5.1)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
-    gitlab (4.17.0)
-      httparty (~> 0.18)
-      terminal-table (~> 1.5, >= 1.5.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -233,10 +233,7 @@ GEM
       rails (>= 6.0.0)
       stimulus-rails
       turbo-rails
-    httparty (0.20.0)
-      mime-types (~> 3.0)
-      multi_xml (>= 0.5.2)
-    i18n (1.14.1)
+    i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
@@ -251,12 +248,10 @@ GEM
     irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
-    it (2.0.0)
-      actionpack (>= 3.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.6.3)
+    json (2.7.2)
     jsonapi-renderer (0.2.2)
     jwt (2.3.0)
     kaminari (1.2.2)
@@ -271,11 +266,12 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    language_server-protocol (3.17.0.2)
+    language_server-protocol (3.17.0.3)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.8.1)
       launchy (>= 2.2, < 3)
+    lint_roller (1.1.0)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -292,14 +288,11 @@ GEM
     meta-tags (2.20.0)
       actionpack (>= 6.0.0, < 7.2)
     method_source (1.0.0)
-    mime-types (3.4.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.1115)
     mini_magick (4.11.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
-    minitest (5.20.0)
-    msgpack (1.4.2)
+    minitest (5.25.1)
+    msgpack (1.7.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -326,9 +319,6 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    octokit (4.21.0)
-      faraday (>= 0.9)
-      sawyer (~> 0.8.0, >= 0.5.3)
     omniauth (1.9.2)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
@@ -346,19 +336,12 @@ GEM
     paper_trail (15.1.0)
       activerecord (>= 6.1)
       request_store (~> 1.4)
-    parallel (1.22.1)
-    parser (3.1.3.0)
+    parallel (1.26.3)
+    parser (3.3.4.2)
       ast (~> 2.4.1)
+      racc
     pg (1.5.4)
     popper_js (2.11.8)
-    pronto (0.11.2)
-      gitlab (>= 4.4.0, < 5.0)
-      httparty (>= 0.13.7, < 1.0)
-      octokit (>= 4.7.0, < 8.0)
-      rainbow (>= 2.2, < 4.0)
-      rexml (>= 3.2.5, < 4.0)
-      rugged (>= 0.23.0, < 2.0)
-      thor (>= 0.20.3, < 2.0)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -369,8 +352,8 @@ GEM
     public_suffix (5.0.3)
     puma (5.5.2)
       nio4r (~> 2.0)
-    racc (1.7.3)
-    rack (2.2.8)
+    racc (1.8.1)
+    rack (2.2.9)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
     rack-session (1.0.1)
@@ -423,7 +406,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
-    rainbow (3.0.0)
+    rainbow (3.1.1)
     rake (13.1.0)
     ransack (4.1.1)
       activerecord (>= 6.1.5)
@@ -435,7 +418,7 @@ GEM
     rdoc (6.6.0)
       psych (>= 4.0.0)
     redis (4.5.1)
-    regexp_parser (2.8.1)
+    regexp_parser (2.9.2)
     reline (0.4.0)
       io-console (~> 0.5)
     request_store (1.5.1)
@@ -445,7 +428,8 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.6)
+    rexml (3.3.5)
+      strscan
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
@@ -463,33 +447,34 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
-    rubocop (1.39.0)
+    rubocop (1.65.1)
       json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
-      parser (>= 3.1.2.1)
+      parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
+      regexp_parser (>= 2.4, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.23.0, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.24.0)
-      parser (>= 3.1.1.0)
-    rubocop-performance (1.15.1)
-      rubocop (>= 1.7.0, < 2.0)
-      rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.17.3)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.32.1)
+      parser (>= 3.3.1.0)
+    rubocop-performance (1.21.1)
+      rubocop (>= 1.48.1, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-rails (2.25.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rspec (2.15.0)
       rubocop (~> 1.33)
-    ruby-progressbar (1.11.0)
+    ruby-progressbar (1.13.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    rugged (1.6.3)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -502,9 +487,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sawyer (0.8.2)
-      addressable (>= 2.3.5)
-      faraday (> 0.8, < 2.0)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -542,13 +524,22 @@ GEM
     sshkit (1.21.3)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    standard (1.19.1)
+    standard (1.40.0)
       language_server-protocol (~> 3.17.0.2)
-      rubocop (= 1.39.0)
-      rubocop-performance (= 1.15.1)
+      lint_roller (~> 1.0)
+      rubocop (~> 1.65.0)
+      standard-custom (~> 1.0.0)
+      standard-performance (~> 1.4)
+    standard-custom (1.0.2)
+      lint_roller (~> 1.0)
+      rubocop (~> 1.50)
+    standard-performance (1.4.0)
+      lint_roller (~> 1.1)
+      rubocop-performance (~> 1.21.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     stringio (3.0.9)
+    strscan (3.1.0)
     tailwindcss-rails (2.0.27)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.27-arm64-darwin)
@@ -573,7 +564,7 @@ GEM
     tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
     unaccent (0.4.0)
-    unicode-display_width (2.3.0)
+    unicode-display_width (2.5.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -608,8 +599,9 @@ DEPENDENCIES
   annotate
   any_login
   babosa
+  bcrypt_pbkdf
   bigdecimal (= 3.0.2)
-  bootsnap (>= 1.4.4)
+  bootsnap
   bootstrap
   breadcrumbs_on_rails
   cancancan (~> 3.3)
@@ -618,6 +610,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.4)
   capistrano-rails-tail-log
   capistrano-rbenv (~> 2.1, >= 2.1.4)
+  capistrano-rvm
   capistrano-yarn
   capybara (>= 3.26)
   codecov
@@ -639,7 +632,6 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails (~> 1.1)
   inline_svg
-  it
   jbuilder (~> 2.7)
   kaminari
   letter_opener
@@ -653,7 +645,6 @@ DEPENDENCIES
   omniauth-google-oauth2
   paper_trail (~> 15.0)
   pg (~> 1.1)
-  pronto
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -665,11 +656,10 @@ DEPENDENCIES
   redis (~> 4.0)
   requestjs-rails
   rspec-rails
-  rubocop (~> 1.39)
+  rubocop (~> 1.65)
   rubocop-performance
   rubocop-rails
   rubocop-rspec
-  rugged (= 1.6.3)
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
@@ -686,7 +676,7 @@ DEPENDENCIES
   webdrivers (~> 5.3.1)
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.2.3p157
 
 BUNDLED WITH
    2.4.18
