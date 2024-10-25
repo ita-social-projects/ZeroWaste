@@ -29,6 +29,8 @@ unless User.exists?(email: "admin@zw.com")
   )
 end
 
+FactoryBot.create(:product, :diaper) unless Product.exists?(title: "diaper")
+
 # Categories
 def create_category_with_periods(en_name, uk_name, periods)
   unless Category.exists?(en_name: en_name)
