@@ -12,25 +12,17 @@ Zero Waste Lviv is a Public Organization that works on the implementation of was
 In order to attract attention to financial and ecological consequences of disposable diaper usage it is planned to create a module that will calculate budget spent on diapers and calculations of the future expenses. As visual representation it is planned to show the volume of waste that was made during usage of disposable diapers for one child.
 
 - [Deployed Apps and Environments](#deployed-apps-and-environments)
+- [Required to install](#required-to-install)
 - [Installation](#installation)
-  - [Required to install](#Required-to-install)
-  - [Clone](#Clone)
-  - [Local setup](#Setup)
-  - [How to run local](#How-to-run-local)
-- [Usage](#Usage)
-  - [How to run Rubocop](#How-to-run-Rubocop)
-  - [Git-hook pre-commit](#Git-hook-pre-commit)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
 ## Deployed Apps and Environments
 
 The latest version from the 'develop' branch is automatically deployed to stage environment in Render, [staging link](https://zero-waste-staging.onrender.com/).
 The latest version from the release branch 'master' is automatically deployed to Production environment, [production link](http://calc.zerowastelviv.org.ua/).
 
-## Installation
-
-- Start the project locally
-
-# Required to install
+## Required to install
 
 - Ruby 3.2.2
 - Ruby on Rails 7.1.2
@@ -38,130 +30,138 @@ The latest version from the release branch 'master' is automatically deployed to
 - Puma as a web server
 - Yarn
 - Bootstrap
+  
+## Installation
 
-## Clone
+ To install ZeroWaste, follow these steps:
 
-$ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
+<details>
+  <summary> <h4>on Windows</h4> </summary>
 
-## Local setup
+  First of all you need RVM to setup project. For the operating system Windows the optimal solution is to use <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL 2</a>.
+   
+  **1. Clone the repository:**
+  
+  $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
+  
+  **2. Navigate to the project directory:**
+  
+  $ `cd project-title`
+  
+  **3. Install the following libraries for image pocessing:**
+  
+  `sudo apt install imagemagick`
+  
+  `sudo apt install libvips42`
+  
+  **4. Install all of a project's dependencies:**
+ 
+  $ `bin/setup`
+  or
+  $ `bundle install`
+  
+  **5. Install PostgresSQL**
 
-First of all you need RVM to setup project. For the operating system Windows the optimal solution is to use <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a>.
+  To check if PostgreSQL is installed and running correctly run `sudo systemctl status postgresql`
+ 
+  | if PostgreSQL does not install  | if PostgreSQL is instlled but not active | if PostgreSQL is installed and active |
+  | ------------- | ------------- | ------------- |
+  | Unit postgresql.service could not be found.  | ● postgresql.service - PostgreSQL RDBMS Loaded: loaded (/lib/systemd/system/postgresql.service; enabled) Active: inactive (dead) since [дата і час] Docs: man:postgres(1)  | ● postgresql.service - PostgreSQL RDBMS Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled) Active: active (exited) since [дата і час]Main PID: 426 (code=exited, status=0/SUCCESS) |
+  | <a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem. You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>. | run `sudo systemctl start postgresql` | Move to the next step. |
+  
+  In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
 
-$ `bin/setup`
-or
-$ `bundle install`
+  **6. Database configure**
 
-<b>Install the following packages:</b>
+  For further work, make sure that you have a user 'postgres' with proper password. 
+  Create database:
+  $ `sudo su postgres`
+  $ `CREATE DATABASE zero_waste_development;`
+  $ `CREATE DATABASE zero_waste_test;`
+  
+  If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
+  
+  To update databases run:
 
-`sudo apt install imagemagick`
+  $ `rake db:migrate`
+  
+  $ `rake db:reset` can resolve some errors connected with database.
+  
+  **7. Install Redis**
+  
+  You need Redis for correct work.
+  <a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
+  <a href="https://redis.io/docs//">Redis documentation</a>.
 
-`sudo apt install libvips42`
+  ```
+  curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+  
+  echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+  
+  sudo apt-get update
+  sudo apt-get install redis
+  ```
 
-<b>PostgreSQL</b>
+  Lastly, start the Redis server like so:
 
-<a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem.
-You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>.
+  $ `sudo service redis-server start`
+  
+  To check if it is installed and running correctly run `sudo systemctl status redis-server`
 
-To check if it is installed and running correctly run `sudo systemctl status postgresql`
+  **8. Install Yarn**
+  
+  You can read more about yarn there:
+  <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
 
-In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+  For Windows doqnload the <a href="https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable">yarn installer</a>.
+  
+  This will give you a .msi file that when run will walk you through installing Yarn on Windows.
 
-For further work, make sure that you have a user 'postgres' with superuser. If is no that one do next:
-$ `sudo -u user psql user`
-$ `CREATE USER postgres SUPERUSER;`
-$ `CREATE DATABASE postgres WITH OWNER postgres;`
+  If you use the installer you will first need to install Node.js.
+   
+ **9. Install Sidekiq**
+  
+  Simple, efficient background processing for Ruby. You can read more about sidekiq there:
+  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>.
+  
+  Installation:
+  $ `bundle add sidekiq`
 
-If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
+  **First run**
+  
+  1. Ensure that postgresql and redis are running
+  2. Run `rails assets:precompile` to precompile assets
+  3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+  4. Open http://localhost:3000 to view it in the browser.
+  
+  Solutions when an errors occurs:
+  <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>
+</details>
 
-<b>pg gem</b>
+## Usage
 
-Under certain circumstances bundle can do not install pg.
+To use ZeroWaste, follow these steps:
+1. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind
+2. Start server `rails s` or run `bin/dev`
+3. Open http://localhost:3000 to view it in the browser.
 
-To install manually:
-$ `sudo apt-get install libpq-dev`
-then
-$ `gem install pg`
+## Contributing
 
-<b>Database configure</b>
+If you'd like to contribute to ZeroWaste, here are some guidelines:
 
-For correct operation of the migration, you need to rename the migration file `20220123171144_create_versions.rb` so that it is processed first.
+1. Create a new branch for your changes.
+2. Make your changes.
+3. Write tests to cover your changes.
+4. Run the tests to ensure they pass.
+5. Commit your changes.
+6. Push your changes to your forked repository.
+7. Submit a pull request.
 
-To create the necessary databases and update them:
+**Before commitying check your code style using [Rubocop](#rubocop)**
 
-$ `rake db:create`
-then
-$ `rake db:migrate`
+**[Git-hoor pre-commit](#git-hook-pre-commit) will run automatically before commit**
 
-$ `rake db:reset` can resolve some errors connected with database.
-
-<b>Redis</b>
-
-You need Redis for correct work.
-<a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
-<a href="https://redis.io/docs//">Redis documentation</a>.
-
-Installation for Ubuntu:
-
-$ `curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg`
-
-```shell
-echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
-```
-
-$ `sudo apt-get update`
-$ `sudo apt-get install redis`
-
-To check if it is installed and running correctly run `sudo systemctl status redis`
-
-<b>npm and Node.js</b>
-
-Also you need Node.js.
-<a href="https://nodejs.org/en/download/">Install npm and Node.js</a> for your operating system or subsystem. You can familiarize yourself with
-<a href="https://nodejs.org/en/about/">npm and Node.js documentation</a>
-
-<b>yarn</b>
-
-You can read more about yarn there:
-<a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
-
-Installation:
-$ `npm install --global yarn`
-
-<b>Webpacker</b>
-
-To prevent an error when starting the server install webpacker. You can read more about webpacker there:
-<a href="https://guides.rubyonrails.org/webpacker.html">Webpacker documentation</a>.
-
-Installation:
-$ `yarn add @rails/webpacker`
-$ `bundle update webpacker`
-
-<b>Sidekiq</b>
-
-Simple, efficient background processing for Ruby. You can read more about sidekiq there:
-<a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>.
-
-Installation:
-$ `bundle add sidekiq`
-
-## How to run local
-
-1. Ensure that postgresql and redis are running
-2. Run `rails assets:precompile` to precompile assets
-3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
-4. Open http://localhost:3000 to view it in the browser.
-
-Solutions when an errors occurs:
-<a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>
-
-If you have Webpacker::Manifest::MissingEntryError you can try next steps:
-$ `rm -rf node_modules`
-$ `rails webpacker:install`
-$ `yarn install`
-
-# Usage
-
-# How to run Rubocop
+### Rubocop
 
 Running rubocop with no arguments will check all Ruby source files in the current folder:
 
@@ -175,7 +175,7 @@ For more details check the available command-line options:
 
 $ `rubocop -h`
 
-# Git-hook pre-commit
+### Git-hook pre-commit
 
 Before using `git-hook-pre-commit` you need to install `sudo apt-get install cmake`
 
