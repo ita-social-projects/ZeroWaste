@@ -64,6 +64,9 @@ group :development, :test, :ci do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem "standard", "~> 1.0", require: false
+
+  gem "rubocop-factory_bot", require: false
+  gem "rubocop-capybara", require: false
 end
 
 group :development do

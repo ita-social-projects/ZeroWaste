@@ -11,6 +11,8 @@ inherit_mode:
 require:
   - rubocop-performance
   - standard
+  - rubocop-factory_bot
+  - rubocop-capybara 
 
 inherit_gem:
   standard: config/base.yml
