@@ -47,9 +47,11 @@ gem "font-awesome-sass", "~> 6.4"
 gem "mini_magick", ">= 4.9.5"
 gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
+gem "faraday-retry"
+
 group :development, :test do
   gem "annotate"
-  gem "dotenv-rails", require: "dotenv/rails-now"
+  gem "dotenv-rails", require: "dotenv/load"
   gem "pry-rails"
   gem "rails-controller-testing"
   gem "rspec-rails"
@@ -105,7 +107,7 @@ gem "faker"
 gem "omniauth", "~> 1.9.1"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
-gem "paper_trail", "~> 15.0"
+gem "paper_trail", github: "paper-trail-gem/paper_trail"
 gem "sidekiq"
 gem "simple_form"
 gem "slim-rails"
