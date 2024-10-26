@@ -64,15 +64,16 @@ The latest version from the release branch 'master' is automatically deployed to
 
   To check if PostgreSQL is installed and running correctly run `sudo systemctl status postgresql`
  
-  | if PostgreSQL does not install  | if PostgreSQL is instlled but not active | if PostgreSQL is installed and active |
-  | ------------- | ------------- | ------------- |
-  | Unit postgresql.service could not be found.  | ● postgresql.service - PostgreSQL RDBMS Loaded: loaded (/lib/systemd/system/postgresql.service; enabled) Active: inactive (dead) since [дата і час] Docs: man:postgres(1)  | ● postgresql.service - PostgreSQL RDBMS Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled) Active: active (exited) since [дата і час]Main PID: 426 (code=exited, status=0/SUCCESS) |
-  | <a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem. You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>. | run `sudo systemctl start postgresql` | Move to the next step. |
-  
-  In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+  | Status  | Next step |
+  | ------------- | ------------- |
+  | Not installed  | <a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem. You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>.|
+  | Installed but inactive | Start PostgreSQL `sudo systemctl start postgresql` |
+  | Installed and avtive | Move to the next step. |
 
   **6. Database configure**
-
+ 
+  In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+  
   For further work, make sure that you have a user 'postgres' with proper password. 
   Create database:
   $ `sudo su postgres`
@@ -120,22 +121,124 @@ The latest version from the release branch 'master' is automatically deployed to
   If you use the installer you will first need to install Node.js.
    
  **9. Install Sidekiq**
-  
   Simple, efficient background processing for Ruby. You can read more about sidekiq there:
-  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>.
-  
+  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>. 
   Installation:
   $ `bundle add sidekiq`
-
-  **First run**
   
+**First run**
   1. Ensure that postgresql and redis are running
   2. Run `rails assets:precompile` to precompile assets
   3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
-  4. Open http://localhost:3000 to view it in the browser.
+
+**Access the application**
+ Open http://localhost:3000 to view it in the browser.
   
   Solutions when an errors occurs:
   <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>
+</details>
+
+<details>
+  <summary> <h4>on Linux</h4> </summary>
+  
+  First, ensure RVM is installed for Ruby management. You can install RVM by following the official RVM installation guide. Make sure to follow any instructions for setting up your shell.
+
+ **1. Clone the repository:**
+  
+  $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
+  
+  **2. Navigate to the project directory:**
+  
+  $ `cd project-title`
+  
+  **3. Install the following libraries for image pocessing:**
+  
+  `sudo apt install imagemagick`
+  
+  `sudo apt install libvips42`
+  
+  **4. Install all of a project's dependencies:**
+ 
+  $ `bin/setup`
+  or
+  $ `bundle install`
+  
+  **5. Install PostgresSQL**
+
+  To check if PostgreSQL is installed and running correctly run `sudo systemctl status postgresql`
+ 
+  | Status  | Next step |
+  | ------------- | ------------- |
+  | Not installed  | <a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem. You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>.|
+  | Installed but inactive | Start PostgreSQL `sudo systemctl start postgresql` |
+  | Installed and avtive | Move to the next step. |
+
+  **6. Database configure**
+ 
+  In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+  
+  For further work, make sure that you have a user 'postgres' with proper password. 
+  Create database:
+  $ `sudo su postgres`
+  $ `CREATE DATABASE zero_waste_development;`
+  $ `CREATE DATABASE zero_waste_test;`
+  
+  If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
+  
+  To update databases run:
+
+  $ `rake db:migrate`
+  
+  $ `rake db:reset` can resolve some errors connected with database.
+  
+  **7. Install Redis**
+  
+  You need Redis for correct work.
+  <a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
+  <a href="https://redis.io/docs//">Redis documentation</a>.
+
+  ```
+  curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+  
+  echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+  
+  sudo apt-get update
+  sudo apt-get install redis
+  ```
+
+  Lastly, start the Redis server like so:
+
+  $ `sudo service redis-server start`
+  
+  To check if it is installed and running correctly run `sudo systemctl status redis-server`
+
+  **8. Install Yarn**
+  
+  You can read more about yarn there:
+  <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
+
+  For Windows doqnload the <a href="https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable">yarn installer</a>.
+  
+  This will give you a .msi file that when run will walk you through installing Yarn on Windows.
+
+  If you use the installer you will first need to install Node.js.
+   
+ **9. Install Sidekiq**
+  Simple, efficient background processing for Ruby. You can read more about sidekiq there:
+  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>. 
+  Installation:
+  $ `bundle add sidekiq`
+  
+**First run**
+  1. Ensure that postgresql and redis are running
+  2. Run `rails assets:precompile` to precompile assets
+  3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+
+**Access the application**
+ Open http://localhost:3000 to view it in the browser.
+  
+  Solutions when an errors occurs:
+  <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>  
 </details>
 
 ## Usage
