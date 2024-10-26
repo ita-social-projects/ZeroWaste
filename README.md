@@ -165,7 +165,14 @@ The latest version from the release branch 'master' is automatically deployed to
   
   **5. Install PostgresSQL**
 
-  To check if PostgreSQL is installed and running correctly run `sudo systemctl status postgresql`
+  Make sure PostgreSQL is installed and active:
+
+  ```
+  sudo apt update
+  sudo apt install postgresql postgresql-contrib
+  ```
+
+  To check if PostgreSQL is running: `sudo systemctl status postgresql`
  
   | Status  | Next step |
   | ------------- | ------------- |
@@ -173,69 +180,66 @@ The latest version from the release branch 'master' is automatically deployed to
   | Installed but inactive | Start PostgreSQL `sudo systemctl start postgresql` |
   | Installed and avtive | Move to the next step. |
 
-  **6. Database configure**
+  **6. Database configuration**
  
-  In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+  In the config folder, rename database.yml.sample to database.yml. Update it with your PostgreSQL username and password, and adjust the port if necessary.
+
+  To set up the database:
+
+  ```
+  sudo -u postgres psql -c "CREATE DATABASE zero_waste_development;"
+  sudo -u postgres psql -c "CREATE DATABASE zero_waste_test;"
+  ```
+   
+   If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
   
-  For further work, make sure that you have a user 'postgres' with proper password. 
-  Create database:
-  $ `sudo su postgres`
-  $ `CREATE DATABASE zero_waste_development;`
-  $ `CREATE DATABASE zero_waste_test;`
-  
-  If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
-  
-  To update databases run:
+  Run Database migrations:
 
   $ `rake db:migrate`
+
+  If issues arise, reset the database:
   
-  $ `rake db:reset` can resolve some errors connected with database.
+  $ `rake db:reset`
   
   **7. Install Redis**
   
-  You need Redis for correct work.
+  Install Redis for background job processing:
   <a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
   <a href="https://redis.io/docs//">Redis documentation</a>.
 
   ```
-  curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-  
-  echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
-  
-  sudo apt-get update
-  sudo apt-get install redis
+  sudo apt update
+  sudo apt install redis
   ```
 
-  Lastly, start the Redis server like so:
+  Start the Redis server like so:
 
   $ `sudo service redis-server start`
   
-  To check if it is installed and running correctly run `sudo systemctl status redis-server`
+  Verify Redis is active `sudo systemctl status redis-server`
 
   **8. Install Yarn**
   
   You can read more about yarn there:
   <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
-
-  For Windows doqnload the <a href="https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable">yarn installer</a>.
-  
-  This will give you a .msi file that when run will walk you through installing Yarn on Windows.
-
-  If you use the installer you will first need to install Node.js.
    
  **9. Install Sidekiq**
-  Simple, efficient background processing for Ruby. You can read more about sidekiq there:
+ 
+  Sidekiq handles background processing in Ruby. Install it with:
   <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>. 
+  
   Installation:
+  
   $ `bundle add sidekiq`
   
 **First run**
-  1. Ensure that postgresql and redis are running
+
+  1. Confirm PostgreSQL and Redis are running.
   2. Run `rails assets:precompile` to precompile assets
   3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
 
 **Access the application**
- Open http://localhost:3000 to view it in the browser.
+ Open http://localhost:3000 to view ZeroWaste in the browser.
   
   Solutions when an errors occurs:
   <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>  
