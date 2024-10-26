@@ -36,7 +36,7 @@ The latest version from the release branch 'master' is automatically deployed to
  To install ZeroWaste, follow these steps:
 
 <details>
-  <summary> <h4>on Windows</h4> </summary>
+  <summary> <h4>Windows</h4> </summary>
 
   First of all you need RVM to setup project. For the operating system Windows the optimal solution is to use <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL 2</a>.
    
@@ -139,8 +139,7 @@ The latest version from the release branch 'master' is automatically deployed to
 </details>
 
 <details>
-  <summary> <h4>on Linux</h4> </summary>
-  
+  <summary> <h4>Linux</h4> </summary>
   First, ensure RVM is installed for Ruby management. You can install RVM by following the official RVM installation guide. Make sure to follow any instructions for setting up your shell.
 
  **1. Clone the repository:**
@@ -165,7 +164,7 @@ The latest version from the release branch 'master' is automatically deployed to
   
   **5. Install PostgresSQL**
 
-  Make sure PostgreSQL is installed and active:
+  Ensure PostgreSQL is installed and active:
 
   ```
   sudo apt update
@@ -212,7 +211,7 @@ The latest version from the release branch 'master' is automatically deployed to
   sudo apt install redis
   ```
 
-  Start the Redis server like so:
+  Start the Redis server:
 
   $ `sudo service redis-server start`
   
@@ -222,6 +221,109 @@ The latest version from the release branch 'master' is automatically deployed to
   
   You can read more about yarn there:
   <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
+   
+ **9. Install Sidekiq**
+ 
+  Sidekiq handles background processing in Ruby. Install it with:
+  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>. 
+  
+  Installation:
+  
+  $ `bundle add sidekiq`
+  
+  **First run**
+
+    1. Confirm PostgreSQL and Redis are running.
+    2. Run `rails assets:precompile` to precompile assets
+    3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+
+  **Access the application**
+ Open http://localhost:3000 to view ZeroWaste in the browser.
+
+  Solutions when an errors occurs:
+  <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>  
+</details>
+
+<details>
+  <summary> <h4>macOS</h4> </summary>
+  
+  First, ensure RVM is installed for Ruby management. You can install RVM by following the official RVM installation guide. Make sure to follow any instructions for setting up your shell.
+
+ **1. Clone the repository:**
+  
+  $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
+  
+  **2. Navigate to the project directory:**
+  
+  $ `cd project-title`
+  
+  **3. Install the following libraries for image pocessing:**
+  
+  `brew install imagemagick`
+  
+  `brew install libvips42`
+  
+  **4. Install all of a project's dependencies:**
+ 
+  $ `bin/setup`
+  or
+  $ `bundle install`
+  
+  **5. Install PostgresSQL**
+
+  Ensure PostgreSQL is installed and active:
+
+  ```
+  brew install postgresql
+  ```
+
+  After installation, start PostgreSQL: `brew services start postgresql`
+
+  **6. Database configuration**
+ 
+  In the config folder, rename database.yml.sample to database.yml. 
+  
+  Update it with your PostgreSQL username and password, and adjust the port if necessary.
+
+  ```
+  psql -U postgres
+  CREATE DATABASE zero_waste_development;
+  CREATE DATABASE zero_waste_test;
+  \q
+  ```
+   
+   If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
+  
+  Run Database migrations:
+
+  $ `rake db:migrate`
+
+  If issues arise, reset the database:
+  
+  $ `rake db:reset`
+  
+  **7. Install Redis**
+  
+  Install Redis for background tasks processing:
+  <a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
+  <a href="https://redis.io/docs//">Redis documentation</a>.
+
+  ```
+  brew install redis
+  ```
+
+  Start the Redis service:
+
+  $ `brew services start redis`
+
+  **8. Install Yarn**
+  
+  You can read more about yarn there:
+  <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
+
+  Install Yarn using Homebrew. You may need Node.js as well if it’s not installed.
+
+  `brew install yarn`
    
  **9. Install Sidekiq**
  
@@ -244,6 +346,7 @@ The latest version from the release branch 'master' is automatically deployed to
   Solutions when an errors occurs:
   <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>  
 </details>
+
 
 ## Usage
 
