@@ -33,6 +33,15 @@ class CalculatorsController < ApplicationController
     end
   end
 
+  def mhc_calculator
+    @diaper_categories   = Category.ordered_by_diapers_periods_price
+    @preferable_category = Category.preferable.first
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb t(".mhc_calculator.calculator_name")
+
+    render "calculators/mhc_calculator"
+  end
+
   def receive_recomendations
     current_user.toggle(:receive_recomendations)
     current_user.save

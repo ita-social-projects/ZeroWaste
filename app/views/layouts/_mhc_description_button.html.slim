@@ -1,0 +1,6 @@
+- if I18n.locale == :en
+  = it "layouts.description_button.use_less",
+          use_less_link: It.link("https://zerowastelviv.org.ua/en/zero-waste-period/", target: '_blank', class: "px-5")
+- else
+  = it "layouts.description_button.use_less",
+          use_less_link: It.link("https://zerowastelviv.org.ua/reuse-zero-waste-menstruatsii/", target: '_blank', class: "px-2")

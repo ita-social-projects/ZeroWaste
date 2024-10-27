@@ -46,6 +46,24 @@ en:
   calculators:
     index:
       meta-title: "Calculators"
+    mhc_calculator:
+      calculator_name: "Menstrual hygiene products calculator"
+      form:
+        user_age: "Your age"
+        menstruation_age: "Age at First Menstruation"
+        menopause_age: "Age at Menopause"
+        average_menstruation_cycle_duration: "Average Menstrual Cycle Duration (days)"
+        pads_per_cycle: "Average Products Used Per Cycle"
+        pad_category: "Product Category"
+        budgetary: "Budgetary"
+        average: "Average"
+        premium: "Premium"
+      bought_products: "already used"
+      will_buy_products: "to be used in the future"
+      money_spent: "already spent on menstrual hygiene products"
+      money_will_be_spent: "yet to be spent on menstrual hygiene products"
+      pieces: "pcs."
+      unit: "uah"
     new_calculator:
       diaper_сalculator: "Diaper calculator"
       form:
@@ -75,6 +93,7 @@ en:
       year_and_month_error_msg: "Please, select years and months"
       year_error_msg: "Please, select years"
       month_error_msg: "Please, select month"
+      presence_error_msg: "%{field} is missing"
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
@@ -115,6 +134,14 @@ en:
         this can be done and what reusable alternatives to disposable diapers there are. You can also learn
         more about %{calculate_link_one:how we calculate} the number and cost of diapers
         or %{calculate_link_two:contact us} with any other questions you may have."
+    mhc_description_block:
+      mhc_description_block_html:
+        "These data are approximate, and exact values may vary depending on your individual needs and habits. 
+        Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
+        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
+        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
+        More %{information_link:detailed information} about the calculations regarding the quantity and cost of these products can be found in our materials 
+        or by %{contact_link:contacting us} with your questions."
     description_button:
       use_less: "%{use_less_link:HOW TO USE LESS}"
     homepage:
