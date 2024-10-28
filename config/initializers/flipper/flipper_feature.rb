@@ -6,7 +6,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
     alias_method :name, :key
 
     def description
-      public_send("#{I18n.locale}_description")
+      public_send(:"#{I18n.locale}_description")
     end
 
     private

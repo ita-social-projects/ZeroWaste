@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     update_method_name, usr_params = user_params
 
-    if @user.public_send("update_#{update_method_name}", usr_params)
+    if @user.public_send(:"update_#{update_method_name}", usr_params)
       redirect_to(
         edit_user_registration_path,
         notice: I18n.t("activerecord.attributes.user.successful_update")
