@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+
   def redirection
     redirect_to root_url
   end
@@ -44,6 +46,10 @@ class ApplicationController < ActionController::Base
         logger.error flash.now[:notice]
       end
     end
+  end
+
+  def render_404
+    render "errors/not_found", status: :not_found
   end
 
   protected
