@@ -9,4 +9,4 @@
 @import "components/form";
 @import "components/account-footer";
 @import "components/pagination";
-@import "components/breadcrumbs";
+@import "components/breadcrumbs.scss";
