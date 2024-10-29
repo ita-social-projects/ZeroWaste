@@ -4,6 +4,7 @@
 require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
+
 # Prevent database truncation if the environment is production
 if Rails.env.production?
   abort("The Rails environment is running in production mode!")
@@ -44,7 +45,7 @@ RSpec.configure do |config|
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = Rails.root.join("spec", "fixtures")
+  config.fixture_paths = [Rails.root.join("spec", "fixtures")]
   config.include Devise::Test::ControllerHelpers, type: :controller
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
