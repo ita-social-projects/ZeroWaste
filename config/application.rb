@@ -29,6 +29,6 @@ module ZeroWaste
 
     config.assets.css_compressor = nil
 
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
   end
 end
