@@ -20,7 +20,7 @@ inherit_gem:
 AllCops:
   SuggestExtensions: true
   NewCops: enable
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 
 
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: true
