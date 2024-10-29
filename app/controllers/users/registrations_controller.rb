@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  def send_devise_notification(notification, *args)
-    UserMailer.send(notification, self, *args).deliver_later
+  def send_devise_notification(notification, **args)
+    UserMailer.send(notification, self, **args).deliver_later
   end
 
   def edit
