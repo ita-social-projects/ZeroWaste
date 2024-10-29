@@ -25,7 +25,7 @@ require "devise"
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each do |f|
+Rails.root.glob("spec/support/**/*.rb").sort.each do |f|
   require f
 end
 
