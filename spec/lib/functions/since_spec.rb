@@ -1,7 +1,7 @@
 require "rails_helper"
 require "functions/since"
 
-RSpec.describe Since, type: :function do
+RSpec.describe Functions::Since, type: :function do
   subject { described_class }
 
   it {
