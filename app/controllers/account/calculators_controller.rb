@@ -13,6 +13,11 @@ class Account::CalculatorsController < Account::BaseController
     # TODO: fill it
   end
 
+  def new
+    @calculator                 = Calculator.new
+    @creation_calculator_failed = false
+  end
+
   def edit
     collect_fields_for_form
   end
@@ -23,6 +28,8 @@ class Account::CalculatorsController < Account::BaseController
     if @calculator.save
       redirect_to account_calculators_path, notice: t("notifications.calculator_created")
     else
+      @creation_calculator_failed = true
+
       render :new, status: :unprocessable_entity
     end
   end
