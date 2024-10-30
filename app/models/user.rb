@@ -51,7 +51,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  enum role: {
+  enum :role, {
     admin: 1,
     user: 0
   }
