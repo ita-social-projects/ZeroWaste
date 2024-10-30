@@ -8,8 +8,8 @@ class CalculationResolver
 
   def initialize
     @calculator = Dentaku::Calculator.new
-    @calculator.add_function(:since, :numeric, Since.calculate_units)
-    @calculator.add_function(:items_per_month, :numeric, ItemsPerMonth.deferred)
+    @calculator.add_function(:since, :numeric, Functions::Since.calculate_units)
+    @calculator.add_function(:items_per_month, :numeric, Functions::ItemsPerMonth.deferred)
   end
 
   def result(parameters, value)

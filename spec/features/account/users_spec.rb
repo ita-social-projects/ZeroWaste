@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "visit admin page", js: true do
-  let(:time_login) { Time.new(2020, 0o1, 0o1).in_time_zone("Kyiv") }
+  let(:time_login) { Time.new(2020, 0o1, 0o1).in_time_zone("Europe/Kyiv") }
   let!(:another_user) do
     create(:user, email: "test1@gmail.com", password: "12345878",
                   last_sign_in_at: time_login)
@@ -39,7 +39,7 @@ describe "visit admin page", js: true do
     it "redirects to user edit info page" do
       visit account_users_path
       within(:css, "#user-info-#{another_user.id}") do
-        click_link_or_button(href: edit_account_user_path(id: another_user.id))
+      find("a[href='#{edit_account_user_path(id: another_user.id)}']").click
         sleep 3
       end
       expect(page).to have_current_path(edit_account_user_path(id: another_user.id))
