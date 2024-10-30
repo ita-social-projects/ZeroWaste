@@ -1,6 +1,6 @@
 # This cops checks for direct usage of ENV variables and
 # Rails.env
-class RuboCop::Cop::Lint::Env < RuboCop::Cop::Cop
+class RuboCop::Cop::LintEnv < RuboCop::Cop::Cop
   MSG_ENV       = "Avoid direct usage of ENV in application code"
   MSG_RAILS_ENV = "Avoid direct usage of Rails.env in application code"
   USAGE_MSG     = ", use configuration parameters instead"
