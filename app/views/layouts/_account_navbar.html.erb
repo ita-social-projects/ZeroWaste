@@ -69,11 +69,10 @@
     <div class="flex ml-auto">
       <div id="lang-btn" >
         <%= link_to(
-          url_for(@creation_calculator_failed ? new_account_calculator_path(locale: switch_locale_to) : { locale: switch_locale_to }),
+          t("#{switch_locale_to}"),
+          url_for(params[:rendered_from] == "new" ? new_account_calculator_path(locale: switch_locale_to) : { locale: switch_locale_to }),
           class: "locale-button"
-          ) do %>
-          <%= t("#{switch_locale_to}") %>
-        <% end %>
+        ) %>
       </div>
 
       <div>
