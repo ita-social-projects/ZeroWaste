@@ -139,31 +139,31 @@ RSpec.describe ActiveSupport::Inflector do
       ]
     end
 
-    it "applies properly plurals with Ukrainian rules" do
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "людина", uk_rules, :uk, 3)).to eq("людини")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "людина", uk_rules, :uk, 1)).to eq("людина")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "людина", uk_rules, :uk, 9)).to eq("людей")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "кіт", uk_rules, :uk)).to eq("коти")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "кіт", uk_rules, :uk, 99)).to eq("коти")
+    it "applies properly plurals with ukrainian rules" do
+      expect(described_class.apply_inflections("людина", uk_rules, :uk, 3)).to eq("людини")
+      expect(described_class.apply_inflections("людина", uk_rules, :uk, 1)).to eq("людина")
+      expect(described_class.apply_inflections("людина", uk_rules, :uk, 9)).to eq("людей")
+      expect(described_class.apply_inflections("кіт", uk_rules, :uk)).to eq("коти")
+      expect(described_class.apply_inflections("кіт", uk_rules, :uk, 99)).to eq("коти")
     end
 
-    it "applies plurals correctly with English rules" do
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "dog", en_rules, :en, 1)).to eq("dog")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "dog", en_rules, :en, 99)).to eq("dogs")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "dog", en_rules, :en, 101)).to eq("other dogs")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "cat", en_rules, :en)).to eq("cats")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "cat", en_rules, :en, 99)).to eq("cats")
+    it "applies properly plurals with english rules" do
+      expect(described_class.apply_inflections("dog", en_rules, :en, 1)).to eq("dog")
+      expect(described_class.apply_inflections("dog", en_rules, :en, 99)).to eq("dogs")
+      expect(described_class.apply_inflections("dog", en_rules, :en, 101)).to eq("other dogs")
+      expect(described_class.apply_inflections("cat", en_rules, :en)).to eq("cats")
+      expect(described_class.apply_inflections("cat", en_rules, :en, 99)).to eq("cats")
     end
 
-    it "does not pluralize an empty string" do
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "", en_rules, :en, 99)).to eq("")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "", en_rules, :uk, 99)).to eq("")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "", en_rules, :en)).to eq("")
+    it "does not plural empty string" do
+      expect(described_class.apply_inflections("", en_rules, :en, 99)).to eq("")
+      expect(described_class.apply_inflections("", en_rules, :uk, 99)).to eq("")
+      expect(described_class.apply_inflections("", en_rules, :en)).to eq("")
     end
 
-    it "does not pluralize uncountable words" do
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "equipment", en_rules, :en, 99)).to eq("equipment")
-      expect(ActiveSupport::Inflector.send(:apply_inflections, "money", en_rules, :en)).to eq("money")
+    it "does not plural uncountable words" do
+      expect(described_class.apply_inflections("equipment", en_rules, :en, 99)).to eq("equipment")
+      expect(described_class.apply_inflections("money", en_rules, :en)).to eq("money")
     end
   end
 end
@@ -180,8 +180,9 @@ RSpec.describe ActiveSupport::Inflector::Inflections do
     it "runs properly" do
       ActiveSupport::Inflector.inflections(:uk).plural("машина", "машини")
       uk_plurals_with_callback = uk_plurals.map { |singular, plural| [singular, plural, fake_callback] }
-
+      
       expect(uk_plurals_with_callback.first).to eq(["машина", "машини", fake_callback])
     end
+    
   end
 end
