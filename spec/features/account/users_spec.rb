@@ -39,7 +39,7 @@ describe "visit admin page", js: true do
     it "redirects to user edit info page" do
       visit account_users_path
       within(:css, "#user-info-#{another_user.id}") do
-      find("a[href='#{edit_account_user_path(id: another_user.id)}']").click
+        find("a[href='#{edit_account_user_path(id: another_user.id)}']").click
         sleep 3
       end
       expect(page).to have_current_path(edit_account_user_path(id: another_user.id))
