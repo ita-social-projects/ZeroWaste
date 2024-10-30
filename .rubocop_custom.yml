@@ -1,8 +1,8 @@
 require:
   # Cops source code lives in the lib/ folder
-  - ./lib/rubocop/cop/lint_env
+  - ./lib/rubo_cop/cop/lint_env
 
-Lint/Env:
+LintEnv:
   Enabled: true
   Include:
     - "**/*.rb"
