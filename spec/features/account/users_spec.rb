@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "visit admin page", js: true do
-  let(:time_login) { Time.new(2020, 0o1, 0o1).in_time_zone("Europe/Kyiv") }
+  let(:time_login) { Time.new(2020, 0o1, 0o1).in_time_zone("Kyiv") }
   let!(:another_user) do
     create(:user, email: "test1@gmail.com", password: "12345878",
                   last_sign_in_at: time_login)
