@@ -23,7 +23,7 @@ xdescribe "User Sign Up", js: true do
       fill_in lastname, with: "Users"
       select "Albania", from: "user_country"
 
-      click_button sign_up_button_text
+      click_link_or_button sign_up_button_text
 
       expect(page).to have_content "A message with a confirmation link has "
     end
@@ -36,7 +36,7 @@ xdescribe "User Sign Up", js: true do
       fill_in password, with: " "
       fill_in re_password, with: " "
 
-      click_button sign_up_button_text
+      click_link_or_button sign_up_button_text
 
       expect(page).to have_content "Password can't be blank"
     end
@@ -49,7 +49,7 @@ xdescribe "User Sign Up", js: true do
       fill_in password, with: "n"
       fill_in re_password, with: "n"
 
-      click_button sign_up_button_text
+      click_link_or_button sign_up_button_text
 
       expect(page).to have_content "Password is too short"
     end
@@ -61,7 +61,7 @@ xdescribe "User Sign Up", js: true do
 
       fill_in email, with: " "
 
-      click_button sign_up_button_text
+      click_link_or_button sign_up_button_text
 
       expect(page).to have_content "Email can't be blank"
     end
@@ -74,7 +74,7 @@ xdescribe "User Sign Up", js: true do
       fill_in firstname, with: "123"
       fill_in lastname, with: " "
 
-      click_button sign_up_button_text
+      click_link_or_button sign_up_button_text
 
       expect(page).to have_content "First name is invalid"
       expect(page).to have_content "Last name can't be blank"
@@ -88,7 +88,7 @@ xdescribe "User Sign Up", js: true do
       fill_in firstname, with: "A"
       fill_in lastname, with: "A"
 
-      click_button sign_up_button_text
+      click_link_or_button sign_up_button_text
 
       expect(page).to have_content "First name is too short"
       expect(page).to have_content "Last name is too short"
@@ -102,11 +102,11 @@ xdescribe "User Sign Up", js: true do
 
       fill_in firstname, with: " "
 
-      click_button sign_up_button_text
+      click_link_or_button sign_up_button_text
 
       expect(page).to have_content "First name can't be blank"
-      expect(page).not_to have_content "First name is too short"
-      expect(page).not_to have_content "First name is invalid"
+      expect(page).to have_no_content "First name is too short"
+      expect(page).to have_no_content "First name is invalid"
     end
   end
 end
