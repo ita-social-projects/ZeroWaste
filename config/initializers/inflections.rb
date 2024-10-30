@@ -13,3 +13,30 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
 # end
+
+require "inflector_extensions"
+
+def generate_inflections(one, few, many)
+  lambda do |count|
+    count = count.round.to_s
+    last2 = count[-2..].to_i
+    last1 = count[-1].to_i
+
+    return one if (last1 == 1) && (last2 != 11)
+    return few if (2..4).cover?(last1) && (12..14).exclude?(last2)
+
+    many
+  end
+end
+
+ActiveSupport::Inflector.inflections(:uk) do |inflect|
+  inflect.plural("місяць", "місяців", generate_inflections("місяць",
+                                                           "місяці",
+                                                           "місяців"))
+  inflect.plural("рік", "років", generate_inflections("рік",
+                                                      "роки",
+                                                      "років"))
+  inflect.plural("підгузок", "підгузки", generate_inflections("підгузок",
+                                                              "підгузки",
+                                                              "підгузків"))
+end
