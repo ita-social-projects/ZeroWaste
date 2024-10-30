@@ -46,8 +46,6 @@ gem "font-awesome-sass", "~> 6.4"
 gem "mini_magick", ">= 4.9.5"
 gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
-gem "ruby-vips", "~> 2.2", ">= 2.2.2"
-
 group :development, :test do
   gem "annotate"
   gem "dotenv-rails", require: "dotenv/load"

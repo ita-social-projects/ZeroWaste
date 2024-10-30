@@ -16,6 +16,7 @@ jobs:
       - name: Run rubocop
         run: |
           bundle exec rubocop
+
   rspec:
     needs: rubocop
     runs-on: ubuntu-latest
@@ -57,6 +58,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - uses: nanasess/setup-chromedriver@master
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libvips42
 
       - name: Prepare config
         run: |
