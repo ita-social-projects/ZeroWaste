@@ -25,9 +25,9 @@ RSpec.feature "AdminLogins", type: :feature do
         it "redirect to admin login page" do
           fill_in "Email", with: "wrong@email.com"
           fill_in "Password", with: "wrong password"
-          sleep 0.5
+          sleep 1
           click_link_or_button "Log In"
-          sleep 0.5
+          sleep 2
           expect(page).to have_content "Invalid Email or password"
         end
       end

@@ -16,6 +16,7 @@ describe "Update Calculator Page", js: true do
     it "shows message that calculator has been successfully updated" do
       fill_in "Name", with: "Calculator2"
       click_link_or_button update_calculator_button
+      sleep 2
       expect(page).to have_content("Calculator has been successfully updated")
     end
   end
@@ -32,6 +33,7 @@ describe "Update Calculator Page", js: true do
     it "shows message that name is invalid" do
       fill_in "Name", with: '\[d]]p'
       click_link_or_button update_calculator_button
+      sleep 1
       expect(page).to have_content("Name contains invalid characters")
     end
   end

@@ -93,6 +93,7 @@ describe "visit admin page", js: true do
       find_by_id("user_password").set("111111111")
       find_by_id("user_password_confirmation").set("111111111")
       find_button("commit").click
+      sleep 1
       expect(page).to have_current_path(account_user_path(id: another_user.id))
       expect(page).to have_content "John"
       expect(page).to have_content "Doe"
@@ -109,6 +110,7 @@ describe "visit admin page", js: true do
       find_by_id("user_password").set("1")
       find_by_id("user_password_confirmation").set("2")
       find_button("commit").click
+      sleep 2
       expect(page).to have_content "First name is too short (minimum is 2 characters)"
       expect(page).to have_content "Last name is too short (minimum is 2 characters)"
       expect(page).to have_content "Password is too short (minimum is 8 characters)"

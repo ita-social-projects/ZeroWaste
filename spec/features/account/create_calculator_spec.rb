@@ -16,6 +16,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that calculator has been successfully created" do
       fill_in "Name", with: "Calculator1"
       click_link_or_button create_calrulator_button
+      sleep 1
       expect(page).to have_content("Calculator has been successfully created")
     end
   end
@@ -32,6 +33,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name is already has been taken" do
       fill_in "Name", with: calculator.name
       click_link_or_button create_calrulator_button
+      sleep 2
       expect(page).to have_content("Name has already been taken")
     end
   end
@@ -40,6 +42,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name is too short" do
       fill_in "Name", with: "i"
       click_link_or_button create_calrulator_button
+      sleep 2
       expect(page).to have_content("Name is too short (minimum is 2 characters)")
     end
   end
@@ -56,6 +59,7 @@ describe "Create Calculator Page", js: true do
     it "shows message that name can't be blank" do
       fill_in "Name", with: ""
       click_link_or_button create_calrulator_button
+      sleep 2
       expect(page).to have_content("Name can't be blank")
     end
   end
