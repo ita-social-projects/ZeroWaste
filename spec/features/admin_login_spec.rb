@@ -58,7 +58,7 @@ RSpec.feature "AdminLogins", type: :feature do
     context "with ukrainian locale" do
       context "when sign in with correct login and password" do
         xit "redirect to admin page" do
-          click_link_or_buttonlang_button_text
+          click_link_or_button lang_button_text
           fill_in "user_email", with: user.email
           fill_in "user_password", with: user.password
           sleep 0.5
@@ -70,7 +70,7 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong login and password" do
         xit "redirect to admin login page" do
-          click_link_or_buttonlang_button_text
+          click_link_or_button lang_button_text
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: "wrong password"
           sleep 0.5
@@ -82,7 +82,7 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong password" do
         xit "redirect to admin login page" do
-          click_link_or_buttonlang_button_text
+          click_link_or_button lang_button_text
           fill_in "user_email", with: user.email
           fill_in "user_password", with: "wrong password"
           sleep 0.5
@@ -94,7 +94,7 @@ RSpec.feature "AdminLogins", type: :feature do
 
       context "when sign in with wrong login" do
         xit "redirect to admin login page" do
-          click_link_or_buttonlang_button_text
+          click_link_or_button lang_button_text
           fill_in "user_email", with: "wrong@email.com"
           fill_in "user_password", with: user.password
           sleep 0.5
