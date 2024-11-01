@@ -1,0 +1,8 @@
+---
+smtp_user: "engineering.zerowaste@gmail.com"
+
+alert_emails:
+  - andrii.khomik@gmail.com
+  - vanuha277@gmail.com
+  - olegiv.mail@gmail.com
+mmonit_url: "http://monit:monit@185.233.37.137:8080/collector"

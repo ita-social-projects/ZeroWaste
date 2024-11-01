@@ -1,0 +1,7 @@
+check process postgresql with pidfile /var/run/postgresql/12-main.pid
+     start program = "/bin/systemctl postgresql start"
+     stop program = "/bin/systemctl postgresql stop"
+     if failed
+        port 5432
+
+     then alert

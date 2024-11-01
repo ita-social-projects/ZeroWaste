@@ -1,0 +1,7 @@
+webservers:
+  hosts:
+    monit:
+      ansible_host: 185.233.37.137
+      ansible_user: deploy
+      ansible_ssh_private_key: ~/.ssh/ansible
+      ansible_connection: ssh
