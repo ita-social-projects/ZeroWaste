@@ -2,5 +2,6 @@
   <%= search_form_for(q, url: search_url, method: :get, class: "d-flex mb-5") do |f| %>
     <%= f.search_field search_attribute, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
     <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
+    <%= link_to t(".clear_button"), search_url, class:"btn btn-grey px-4 items-center ml-2" %>
   <% end %>
 </div>
