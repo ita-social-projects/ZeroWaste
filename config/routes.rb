@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   #   end
   mount Sidekiq::Web => "/sidekiq"
 
-  # devise_for :users, only: :omniauth_callbacks,
-  #                    controllers: { omniauth_callbacks:
-  #   "users/omniauth_callbacks" }
+  devise_for :users, only: :omniauth_callbacks,
+                    controllers: { omniauth_callbacks:
+                    "users/omniauth_callbacks" }
 
   get "/", to: "application#redirection", as: :root_redirection
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   scope "/(:locale)", locale: /uk|en/ do
-    devise_for :users, only: [:session]
+    devise_for :users, only: [:session], skip: [:omniauth_callbacks, :registration]
     # devise_for :users, skip: [:omniauth_callbacks, :registration]
 
     # as :user do
