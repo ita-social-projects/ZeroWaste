@@ -816,6 +816,7 @@ en:
     messages:
       accepted: "must be accepted"
       blank: "can't be blank"
+      blocked_user_cannot_be_admin: "Admin cannot be blocked"
       confirmation: "doesn't match %{attribute}"
       empty: "can't be empty"
       equal_to: "must be equal to %{count}"

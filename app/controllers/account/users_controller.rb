@@ -43,6 +43,12 @@ class Account::UsersController < Account::BaseController
   def update
     @user = resource
 
+    if blocked_admin?
+      flash[:alert] = t("errors.messages.blocked_user_cannot_be_admin")
+      redirect_to account_user_path(id: @user)
+      return
+    end
+
     if @user.update(user_params)
       redirect_to account_user_path(id: @user), notice: t("notifications.user_updated")
     else
@@ -69,6 +75,10 @@ class Account::UsersController < Account::BaseController
     end
 
     prms
+  end
+
+  def blocked_admin?
+    !@user.blocked? && @user.role == "admin"
   end
 
   def collection

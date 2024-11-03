@@ -840,6 +840,7 @@ uk:
     messages:
       accepted: "може бути прийнятим"
       blank: "не може бути порожнім"
+      blocked_user_cannot_be_admin: "Неможливо заблокувати адміна"
       confirmation: "не збігається з підтвердженням"
       empty: "не може бути порожнім"
       equal_to: "мусить дорівнювати %{count}"

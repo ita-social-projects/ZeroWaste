@@ -8,6 +8,7 @@ describe "visit admin page", js: true do
     create(:user, email: "test1@gmail.com", password: "12345878",
                   last_sign_in_at: time_login)
   end
+  let!(:admin_user) { create(:user, role: :admin) }
 
   include_context :authorize_admin
 
@@ -61,6 +62,7 @@ describe "visit admin page", js: true do
       end
 
       accept_confirm { "Are you sure you want to block this user?" }
+      sleep 3
       expect(page).to have_current_path(account_user_path(id: another_user.id))
       expect(page).to have_content "Blocked"
     end
@@ -77,8 +79,19 @@ describe "visit admin page", js: true do
       end
 
       accept_confirm { "Are you sure you want to unblock this user?" }
+      sleep 3
       expect(page).to have_current_path(account_user_path(id: another_user.id))
       expect(page).to have_content "Unblocked"
+    end
+  end
+
+  context "when trying to block an admin user" do
+    it "shows an alert message and redirects to account users path" do
+      visit account_users_path
+
+      within(:css, "#user-info-#{admin_user.id}") do
+        expect(page).not_to have_selector("svg.fa-lock-open") # Expect the lock-open button not to be present
+      end
     end
   end
 
