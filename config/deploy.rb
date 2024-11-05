@@ -9,7 +9,7 @@ set :deploy_to, "/home/deploy/#{fetch :application}"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, :master
+# set :branch, :master
 
 # Default value for :scm is :git
 # set :scm, :git

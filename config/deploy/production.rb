@@ -1,3 +1,5 @@
+require "capistrano/yarn"
+
 set :user, "deploy"
 set :rbenv_type, :user
 
@@ -13,3 +15,6 @@ set :ssh_options, {
 
 set :stage, :production
 set :rails_env, "production"
+
+set :branch, :master
+set :rbenv_ruby, "2.7.2"

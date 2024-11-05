@@ -2,7 +2,7 @@
 
 @layer components {
   .breadcrumbs {
-    @apply flex w-full mx-auto mb-4 text-light_gray;
+    @apply flex w-full mx-auto py-3.5 text-light_gray;
     max-width: $max_width_content;
   }
 

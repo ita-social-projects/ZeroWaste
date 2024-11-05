@@ -24,9 +24,8 @@ gem "friendly_id", "~> 5.4.0"
 gem "babosa"
 
 gem "dentaku", "~> 3.1"
-gem "it"
 
-gem "rugged", "1.6.3"
+# gem "rugged", "1.6.3"
 
 gem "net-smtp"
 
@@ -39,7 +38,7 @@ gem "rails-i18n", "~> 7.0.0"
 gem "image_processing", "~> 1.2"
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.4.4", require: false
+gem "bootsnap", require: false
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "active_storage_validations"
@@ -57,7 +56,7 @@ end
 
 group :development, :test, :ci do
   # Code linters
-  gem "rubocop", require: false
+  gem "rubocop", "~> 1.65", require: false
   gem "rubocop-rspec", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
@@ -69,7 +68,7 @@ end
 group :development do
   gem "letter_opener"
   gem "listen", "~> 3.3"
-  gem "pronto"
+  # gem "pronto"
   # gem 'pronto-rubocop', require: false
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"
@@ -83,6 +82,7 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rails-tail-log"
   gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 # group :ci do

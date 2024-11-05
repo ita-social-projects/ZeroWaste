@@ -98,6 +98,7 @@ GEM
     babosa (2.0.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
+    bcrypt_pbkdf (1.1.1)
     bigdecimal (3.0.2)
     bindex (0.8.1)
     bootsnap (1.18.4)
@@ -510,7 +511,6 @@ GEM
       ffi (~> 1.12)
       logger
     rubyzip (2.3.2)
-    rugged (1.6.3)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -655,8 +655,9 @@ DEPENDENCIES
   annotate
   any_login
   babosa
+  bcrypt_pbkdf
   bigdecimal (= 3.0.2)
-  bootsnap (>= 1.4.4)
+  bootsnap
   bootstrap
   breadcrumbs_on_rails
   cancancan (~> 3.3)
@@ -687,7 +688,6 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails (~> 1.1)
   inline_svg
-  it
   jbuilder (~> 2.7)
   kaminari
   letter_opener
@@ -701,7 +701,6 @@ DEPENDENCIES
   omniauth-google-oauth2
   paper_trail (~> 15.0)
   pg (~> 1.1)
-  pronto
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -719,7 +718,6 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
-  rugged (= 1.6.3)
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
