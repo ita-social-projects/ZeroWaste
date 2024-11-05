@@ -22,12 +22,12 @@ FactoryBot.define do
     priceable factory: [:product, :diaper]
 
     trait :budgetary_price do
-      association :category, :budgetary
+      category factory: [:category, :budgetary]
       sum { Faker::Number.between(from: 20, to: 42) }
     end
 
     trait :medium_price do
-      association :category, :medium
+      category factory: [:category, :medium]
       sum { Faker::Number.between(from: 42, to: 71) }
     end
 
