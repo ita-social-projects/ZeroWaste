@@ -16,7 +16,7 @@ class SiteSetting < ApplicationRecord
   validates :title, length: { minimum: 3, maximum: 30 }, if: -> { title.present? }
   validates :favicon, attached: true,
                       content_type: [:png, :ico],
-                      size: { less_than_or_equal_to: 1.kilobytes },
+                      size: { less_than_or_equal_to: 1.kilobyte },
                       dimension: { width: { min: 16, max: 180 },
                                    height: { min: 16, max: 180 }},
                       aspect_ratio: :square
