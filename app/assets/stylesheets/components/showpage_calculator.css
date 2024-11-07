@@ -1,0 +1,17 @@
+@layer base {
+    .main-show-container {
+      @apply flex flex-col bg-white rounded-lg shadow-md w-full p-6 text-left mt-4;
+    }
+    .back-arrow {
+      @apply rounded mb-4 px-2 flex items-center; 
+    }
+    .calc-details {
+      @apply flex flex-col mb-4 px-2; 
+    }
+    .showpage-buttons {
+      @apply flex justify-start w-full space-x-4;
+    }
+    .showpage-text {
+      @apply text-gray-900;
+    }
+  }

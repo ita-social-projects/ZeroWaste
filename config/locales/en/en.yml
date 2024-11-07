@@ -439,6 +439,12 @@ en:
           update_calculator_button: "Update calculator"
       new:
         create_calculator_button: "Create calculator"
+      show:
+        confirm_delete: "Are you sure you want to delete this calculator?"
+        name: "Name"
+        slug: "Slug"
+        edit: "Edit"
+        delete: "Delete"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:
