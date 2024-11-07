@@ -22,7 +22,7 @@ class Calculator < ApplicationRecord
   accepts_nested_attributes_for :fields, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :formulas, reject_if: :all_blank, allow_destroy: true
 
-  scope :ordered_by_name, -> { order(:name) }
+  scope :ordered_by_name, -> { order(:en_name) }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
