@@ -22,7 +22,7 @@
 class Calculator < ApplicationRecord
   extend FriendlyId
 
-  friendly_id :name, use: :sequentially_slugged
+  friendly_id :uk_name, use: :sequentially_slugged
 
   has_paper_trail
 
@@ -30,17 +30,17 @@ class Calculator < ApplicationRecord
 
   accepts_nested_attributes_for :fields, allow_destroy: true
 
-  validates :name, presence: true
-  validates :name,
+  validates :uk_name, presence: true
+  validates :uk_name,
             length: { in: 2..30 },
             uniqueness: true,
             format: { with: /\A[a-zA-Zа-яієїґ'А-ЯІЄЇҐ0-9\-\s]+\z/ },
             allow_blank: true
 
-  scope :ordered_by_name, -> { order(:name) }
+  scope :ordered_by_name, -> { order(:uk_name) }
   scope :by_name_or_slug, lambda { |search|
                             where(
-                              "name ILIKE ? OR slug ILIKE ?",
+                              "uk_name ILIKE ? OR slug ILIKE ?",
                               "%#{search&.strip}%",
                               "%#{search&.strip}%"
                             )
