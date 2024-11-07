@@ -11,6 +11,13 @@ class Account::CalculatorsController < Account::BaseController
     @calculators = @q.result.page(params[:page])
   end
 
+  def new
+    @calculator = Calculator.new
+
+    @calculator.fields.build.categories.build
+    @calculator.formulas.build
+  end
+
   def show
     # TODO: fill it
   end

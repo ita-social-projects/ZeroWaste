@@ -3,6 +3,29 @@
     <div class="my-auto col-12 has-float-label">
       <%= f.input :en_name, label: "Calculator Name:", class: 'form-control' %>
 
+    <!-- formula input-->
+    <div id="formulas" class="space-y-4">
+      <%= f.simple_fields_for :formulas do |formula_fields| %>
+        <%= render "account/calculators/partials/formula_fields", f: formula_fields %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "+Add Formula", f, :formulas, 
+         partial: "account/calculators/partials/formula_fields",
+         class: "underline" %>
+      </div>
+    </div>
+
+    <!-- field input-->
+    <div id="fields" class="space-y-4">
+      <%= f.simple_fields_for :fields do |field_fields| %>
+        <%= render "account/calculators/partials/field_fields", f: field_fields %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "Add Field", f, :fields, 
+        partial: "account/calculators/partials/field_fields",
+        class: "underline" %>
+      </div>
+    </div>
 
     </div>
   </div>
