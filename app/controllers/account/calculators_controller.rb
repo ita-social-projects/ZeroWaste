@@ -22,11 +22,14 @@ class Account::CalculatorsController < Account::BaseController
   def create
     @calculator = Calculator.new(calculator_params)
 
-    if @calculator.save
-      flash[:notice] = t("notifications.calculator_created")
-      respond_to :turbo_stream
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @calculator.save
+        format.html { redirect_to account_calculators_path, notice: t("notifications.calculator_created") }
+        format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render :new }
+      end
     end
   end
 
