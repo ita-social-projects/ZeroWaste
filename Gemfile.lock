@@ -148,6 +148,7 @@ GEM
       activesupport
     childprocess (5.1.0)
       logger (~> 1.5)
+    cocoon (1.2.15)
     codecov (0.2.12)
       json
       simplecov
@@ -648,6 +649,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano-yarn
   capybara (>= 3.26)
+  cocoon (~> 1.2)
   codecov
   country_select
   database_cleaner-active_record
