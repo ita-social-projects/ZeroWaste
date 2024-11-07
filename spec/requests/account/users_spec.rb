@@ -123,7 +123,7 @@ RSpec.describe "Account::UsersController", type: :request do
       it "sets an alert message and redirects to the admin user account page" do
         patch account_user_path(admin_user), params: { user: { blocked: true }}
 
-        expect(response).to redirect_to(account_user_path(admin_user))
+        expect(response).to redirect_to(account_users_path)
 
         follow_redirect!
 

@@ -74,12 +74,11 @@ class Account::UsersController < Account::BaseController
 
   def blocking_admin
     @user = resource
+    return unless params[:user][:blocked] && @user.role == "admin"
 
-    if params.dig(:user, :blocked) && @user.admin?
-      flash[:alert] = t("errors.messages.blocked_user_cannot_be_admin")
+    flash[:alert] = t("errors.messages.blocked_user_cannot_be_admin")
 
-      redirect_to account_user_path(@user)
-    end
+    redirect_to account_users_path
   end
 
   def collection
