@@ -14,6 +14,7 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
+    @result = params[:result]
   end
 
   def calculate
