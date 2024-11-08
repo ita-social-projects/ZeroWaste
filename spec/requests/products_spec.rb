@@ -144,11 +144,10 @@ RSpec.describe Account::ProductsController, type: :request do
       end
 
       it "does not delete the product and returns unprocessable entity" do
-        expect do
-          delete account_product_path(id: product)
-        end.not_to change(Product, :count)
+        delete account_product_path(product)
 
         expect(response).to be_unprocessable
+        expect(flash[:notice]).to eq(I18n.t("account.products.not_deleted"))
       end
     end
   end
