@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  #before_action :resource, only: [:show, :edit, :update, :destroy]
+  # before_action :resource, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
@@ -60,7 +60,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def resource
     Calculator.find(params[:slug])
-   end
+  end
 
   def calculator
     @calculator = Calculator.friendly.find(params[:slug])
@@ -81,10 +81,10 @@ class Account::CalculatorsController < Account::BaseController
 
   def calculator_params
     params.require(:calculator).permit(
-      :id, :en_name, :uk_name, 
+      :id, :en_name, :uk_name,
       formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :_destroy],
       fields_attributes: [:id, :en_label, :uk_label, :var_name, :field_type, :_destroy,
-      categories_attributes: [:id, :en_name, :price, :_destroy]]
+        categories_attributes: [:id, :en_name, :price, :_destroy]]
     )
   end
 

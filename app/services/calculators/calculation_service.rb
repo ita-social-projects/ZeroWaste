@@ -1,7 +1,7 @@
 class Calculators::CalculationService
   def initialize(calculator, inputs)
     @calculator = calculator
-    @inputs = inputs.to_unsafe_h
+    @inputs     = inputs.to_unsafe_h
 
     @dentaku = Dentaku::Calculator.new
   end
