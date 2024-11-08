@@ -12,8 +12,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def show
-    @calculator = resource
-    @result = params[:result]
+    # TODO: fill it
   end
 
   def new
@@ -35,15 +34,6 @@ class Account::CalculatorsController < Account::BaseController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def calculate
-    @calculator = resource
-    inputs = JSON.parse(params[:inputs].to_json, symbolize_names: true)
-    formula = @calculator.formulas
-    result = eval(formula.first.expression % inputs)
-
-    redirect_to account_calculator_path(@calculator, result: result)
   end
 
   def update
