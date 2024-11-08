@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :calculator, only: [:edit, :update, :destroy]
+  #before_action :resource, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
@@ -12,7 +12,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def show
-    # TODO: fill it
+    @calculator = resource
+    @result = params[:result]
   end
 
   def new
@@ -34,6 +35,15 @@ class Account::CalculatorsController < Account::BaseController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def calculate
+    @calculator = resource
+    inputs = JSON.parse(params[:inputs].to_json, symbolize_names: true)
+    formula = @calculator.formulas
+    result = eval(formula.first.expression % inputs)
+
+    redirect_to account_calculator_path(@calculator, result: result)
   end
 
   def update
@@ -58,6 +68,10 @@ class Account::CalculatorsController < Account::BaseController
     Calculator.ordered_by_name
   end
 
+  def resource
+    Calculator.find(params[:slug])
+   end
+
   def calculator
     @calculator = Calculator.friendly.find(params[:slug])
   end
@@ -77,11 +91,10 @@ class Account::CalculatorsController < Account::BaseController
 
   def calculator_params
     params.require(:calculator).permit(
-      :name, :id, :slug, :preferable,
-      fields_attributes: [
-        :id, :selector, :label, :name, :value, :unit, :from, :to, :type, :kind,
-        :_destroy
-      ]
+      :id, :en_name, :uk_name, 
+      formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :_destroy],
+      fields_attributes: [:id, :en_label, :uk_label, :var_name, :field_type, :_destroy,
+      categories_attributes: [:id, :en_name, :price, :_destroy]]
     )
   end
 

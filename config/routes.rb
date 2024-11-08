@@ -56,16 +56,19 @@ Rails.application.routes.draw do
       end
 
       resources :diapers_periods
-
+      resources :calculators, param: :slug do
+        member do
+          post :calculate
+        end
+      end 
       namespace :diapers_periods do
         resources :categories, only: [:destroy] do
           get :with_periods, on: :collection
           get :available, on: :collection
         end
       end
-
       scope module: :calculators do
-        resources :calculators, only: [], param: :slug do
+       resources :calculators, only: [], param: :slug do
           resources :fields, only: :new
         end
       end
