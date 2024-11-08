@@ -47,8 +47,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.string "uk_name", null: false
-    t.string "en_name", null: false
+    t.string "uk_name", default: "", null: false
+    t.string "en_name", default: "", null: false
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
   end
 
@@ -98,10 +98,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
     t.bigint "calculator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uk_label", null: false
-    t.string "en_label", null: false
-    t.string "var_name", null: false
-    t.string "field_type", null: false
+    t.string "uk_label", default: "", null: false
+    t.string "en_label", default: "", null: false
+    t.string "var_name", default: "", null: false
+    t.string "field_type", default: "", null: false
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
   end
 
@@ -124,8 +124,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   end
 
   create_table "formulas", force: :cascade do |t|
-    t.string "expression", null: false
-    t.string "uk_label", null: false
+    t.string "expression", default: "", null: false
+    t.string "uk_label", default: "", null: false
     t.string "en_label", null: false
     t.string "uk_unit"
     t.string "en_unit"
@@ -204,9 +204,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
     t.string "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
-    t.boolean "blocked", default: false
+    t.boolean "blocked", default: false, null: false
     t.integer "role", default: 0
-    t.boolean "receive_recomendations", default: false
+    t.boolean "receive_recomendations", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
