@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  #before_action :resource, only: [:show, :edit, :update, :destroy]
+  before_action :calculator, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
