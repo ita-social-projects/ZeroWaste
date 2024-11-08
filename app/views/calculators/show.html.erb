@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="font-bold text-4xl">Calculator <%= @calculator.en_name %></div>
+  <div class="text-4xl font-bold">Calculator <%= @calculator.en_name %></div>
 
-  <%= form_with url: calculate_account_calculator_path(slug: @calculator.slug || @calculator.id) do |form| %>
+  <%= form_with url: calculate_calculator_path(slug: @calculator.slug || @calculator.id) do |form| %>
     <% @calculator.fields.each do |field| %>
-      <div class="form-inputs space-y-4">
+      <div class="space-y-4 form-inputs">
         <%= form.label field.var_name, field.en_label %><br>
         <% if field.field_type == 'number' %>
           <%= form.number_field "inputs[#{field.var_name}]", placeholder: field.en_label %>
@@ -12,12 +12,10 @@
         <% end %>
       </div>
     <% end %>
-    <div class="form-actions mt-6">
+    <div class="mt-6 form-actions">
       <%= form.submit "Calculate", class: "bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-700" %>
     </div>
   <% end %>
 
-  <% if @result.present? %>
-    <p>Result: <%= @result %></p>
-  <% end %>
+  <%= turbo_frame_tag "calc-results" %>
 </div>

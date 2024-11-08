@@ -14,25 +14,28 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
-    @result = params[:result]
   end
 
   def calculate
     @calculator = resource
+
+    @results = Calculators::CalculationService.new(@calculator, params[:inputs]).perform
+
+    respond_to :turbo_stream
   end
 
-  def calculator
-    @diaper_categories   = Category.ordered_by_diapers_periods_price
-    @preferable_category = Category.preferable.first
-    add_breadcrumb t("breadcrumbs.home"), root_path
-    add_breadcrumb t(".new_calculator.diaper_сalculator")
+  # def calculator
+  #   @diaper_categories   = Category.ordered_by_diapers_periods_price
+  #   @preferable_category = Category.preferable.first
+  #   add_breadcrumb t("breadcrumbs.home"), root_path
+  #   add_breadcrumb t(".new_calculator.diaper_сalculator")
 
-    if Flipper[:new_calculator_design].enabled?
-      render "calculators/new_calculator"
-    else
-      render "calculators/old_calculator"
-    end
-  end
+  #   if Flipper[:new_calculator_design].enabled?
+  #     render "calculators/new_calculator"
+  #   else
+  #     render "calculators/old_calculator"
+  #   end
+  # end
 
   def receive_recomendations
     current_user.toggle(:receive_recomendations)
@@ -46,6 +49,6 @@ class CalculatorsController < ApplicationController
   end
 
   def resource
-    collection.friendly.find(params[:slug])
+    collection.find(params[:slug])
   end
 end
