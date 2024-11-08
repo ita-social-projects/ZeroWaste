@@ -326,6 +326,12 @@ uk:
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
+      show:
+        confirm_delete: "Ви впевнені, що хочете видалити цей калькулятор?"
+        name: "Назва"
+        slug: "Шлях"
+        edit: "Редагувати"
+        delete: "Видалити"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"
