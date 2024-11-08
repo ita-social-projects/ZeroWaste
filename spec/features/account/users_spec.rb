@@ -39,7 +39,9 @@ describe "visit admin page", js: true do
     it "redirects to user edit info page" do
       visit account_users_path
       within(:css, "#user-info-#{another_user.id}") do
-        click_link(href: edit_account_user_path(id: another_user.id))
+        # click_link(href: edit_account_user_path(id: another_user.id))
+        # click_link don't like Rubpcop, click_link_or_button not pass the test
+        find(:css, "a[href='#{edit_account_user_path(id: another_user.id)}']").click
         sleep 3
       end
       expect(page).to have_current_path(edit_account_user_path(id: another_user.id))
@@ -85,12 +87,13 @@ describe "visit admin page", js: true do
   context "when edit user`s info correctly" do
     it "redirects to user info page" do
       visit edit_account_user_path(id: another_user.id)
-      find("#user_first_name").set("John")
-      find("#user_last_name").set("Doe")
+      find_by_id("user_first_name").set("John")
+      find_by_id("user_last_name").set("Doe")
       select "Albania", from: "user_country"
-      find("#user_password").set("111111111")
-      find("#user_password_confirmation").set("111111111")
+      find_by_id("user_password").set("111111111")
+      find_by_id("user_password_confirmation").set("111111111")
       find_button("commit").click
+      sleep 1
       expect(page).to have_current_path(account_user_path(id: another_user.id))
       expect(page).to have_content "John"
       expect(page).to have_content "Doe"
@@ -101,12 +104,13 @@ describe "visit admin page", js: true do
   context "when edit user`s info wrongly" do
     it "show error messages" do
       visit edit_account_user_path(id: another_user.id)
-      find("#user_first_name").set("J")
-      find("#user_last_name").set("D")
+      find_by_id("user_first_name").set("J")
+      find_by_id("user_last_name").set("D")
       select "Albania", from: "user_country"
-      find("#user_password").set("1")
-      find("#user_password_confirmation").set("2")
+      find_by_id("user_password").set("1")
+      find_by_id("user_password_confirmation").set("2")
       find_button("commit").click
+      sleep 2
       expect(page).to have_content "First name is too short (minimum is 2 characters)"
       expect(page).to have_content "Last name is too short (minimum is 2 characters)"
       expect(page).to have_content "Password is too short (minimum is 8 characters)"

@@ -25,7 +25,7 @@ require "devise"
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each do |f|
+Rails.root.glob("spec/support/**/*.rb").sort.each do |f|
   require f
 end
 
@@ -44,7 +44,7 @@ RSpec.configure do |config|
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = Rails.root.join("spec", "fixtures")
+  config.fixture_paths = [Rails.root.join("spec", "fixtures")]
   config.include Devise::Test::ControllerHelpers, type: :controller
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

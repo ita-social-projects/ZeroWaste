@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.3"
+ruby "3.3.5"
 
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
@@ -46,9 +46,11 @@ gem "font-awesome-sass", "~> 6.4"
 gem "mini_magick", ">= 4.9.5"
 gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
+gem "cocoon", "~> 1.2"
+
 group :development, :test do
   gem "annotate"
-  gem "dotenv-rails", require: "dotenv/rails-now"
+  gem "dotenv-rails", require: "dotenv/load"
   gem "pry-rails"
   gem "rails-controller-testing"
   gem "rspec-rails"
@@ -60,6 +62,8 @@ group :development, :test, :ci do
   gem "rubocop-rspec", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "rubocop-factory_bot", require: false
+  gem "rubocop-capybara", require: false
   gem "standard", "~> 1.0", require: false
 end
 

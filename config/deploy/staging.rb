@@ -14,5 +14,5 @@ set :stage, :staging
 set :rails_env, "staging"
 
 set :branch, :develop
-set :rvm_ruby, "3.2.3"
+set :rvm_ruby, "3.3.5"
 set :rvm_custom_path, "/usr/share/rvm"
