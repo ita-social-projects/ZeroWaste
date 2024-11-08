@@ -75,7 +75,7 @@ class Account::UsersController < Account::BaseController
   def blocking_admin
     @user = resource
 
-    return if params.dig(:user, :blocked) && !@user.admin?
+    return unless params.dig(:user, :blocked) && @user.admin?
 
     flash[:alert] = t("errors.messages.blocked_user_cannot_be_admin")
 
