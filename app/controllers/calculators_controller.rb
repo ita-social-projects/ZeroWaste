@@ -16,6 +16,10 @@ class CalculatorsController < ApplicationController
     @calculator = resource
   end
 
+  def calculate
+    @calculator = resource
+  end
+
   def calculator
     @diaper_categories   = Category.ordered_by_diapers_periods_price
     @preferable_category = Category.preferable.first

@@ -151,4 +151,15 @@ RSpec.describe CalculatorsController, type: :request do
       end
     end
   end
+
+  describe "POST #calculate" do
+    before do
+      sign_in user
+      post calculate_calculator_path(calculator.slug)
+    end
+
+    it "returns a successful response" do
+      expect(response).to be_successful
+    end
+  end
 end
