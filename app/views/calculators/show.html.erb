@@ -1,16 +1,16 @@
-<div class="container">
-  <div class="text-4xl font-bold">Calculator <%= @calculator.en_name %></div>
+<div class="container place-items-center">
+  <h1 class="text-4xl font-bold">Calculator <%= @calculator.en_name %></h1><br>
 
   <%= form_with url: calculate_calculator_path(slug: @calculator.slug || @calculator.id) do |form| %>
     <% @calculator.fields.each do |field| %>
       <div class="space-y-4 form-inputs">
-        <%= form.label field.var_name, field.en_label %><br>
+        <h1><%= form.label field.var_name, field.en_label %></h1>
         <% if field.field_type == 'number' %>
           <%= form.number_field "inputs[#{field.var_name}]", placeholder: field.en_label %>
         <% else %>
           <%= form.select "inputs[#{field.var_name}]", options_from_collection_for_select(field.categories, :price, :en_name) %>
         <% end %>
-      </div>
+      </div><br>
     <% end %>
     <div class="mt-6 form-actions">
       <%= form.submit "Calculate", class: "bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-700" %>
