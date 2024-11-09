@@ -24,6 +24,7 @@ class Account::CalculatorsController < Account::BaseController
 
     respond_to do |format|
       if @calculator.save
+        flash[:notice] = t("notifications.calculator_created")
         format.html { redirect_to account_calculators_path, notice: t("notifications.calculator_created") }
         format.turbo_stream
       else

@@ -1,5 +1,5 @@
-<%= turbo_stream.append "body" do %>
+<%= turbo_stream.append "redirect" do %>
   <script>
-    window.location.replace("<%= account_calculators_path %>");
+    window.location.assign("<%= account_calculators_path %>");
   </script>
 <% end %>
