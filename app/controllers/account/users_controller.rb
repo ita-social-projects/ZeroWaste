@@ -6,6 +6,7 @@ class Account::UsersController < Account::BaseController
   layout "account"
 
   before_action :set_paper_trail_whodunnit
+  before_action :blocking_admin, only: :update
 
   load_and_authorize_resource
 
@@ -69,6 +70,16 @@ class Account::UsersController < Account::BaseController
     end
 
     prms
+  end
+
+  def blocking_admin
+    @user = resource
+
+    return if params.dig(:user, :blocked).blank? || !@user.admin?
+
+    flash[:alert] = t("errors.messages.blocked_user_cannot_be_admin")
+
+    redirect_to account_users_path
   end
 
   def collection
