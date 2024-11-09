@@ -77,10 +77,10 @@ class Account::CalculatorsController < Account::BaseController
 
   def calculator_params
     params.require(:calculator).permit(
-      :id, :en_name, :uk_name, 
+      :id, :en_name, :uk_name,
       formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :_destroy],
       fields_attributes: [:id, :en_label, :uk_label, :var_name, :field_type, :_destroy,
-      categories_attributes: [:id, :en_name, :price, :_destroy]]
+        categories_attributes: [:id, :en_name, :price, :_destroy]]
     )
   end
 

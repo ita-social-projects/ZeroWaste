@@ -9,9 +9,7 @@
         <%= render "account/calculators/partials/formula_fields", f: formula_fields %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association "+Add Formula", f, :formulas, 
-         partial: "account/calculators/partials/formula_fields",
-         class: "underline" %>
+        <%= link_to_add_association "+ Add Formula", f, :formulas, partial: "account/calculators/partials/formula_fields", class: "underline" %>
       </div>
     </div>
 
@@ -21,9 +19,7 @@
         <%= render "account/calculators/partials/field_fields", f: field_fields %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association "Add Field", f, :fields, 
-        partial: "account/calculators/partials/field_fields",
-        class: "underline" %>
+        <%= link_to_add_association "Add Field", f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
       </div>
     </div>
 

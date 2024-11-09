@@ -56,8 +56,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
     t.string "uk_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "priority", default: 0, null: false
     t.string "en_name"
-    t.float "price", null: false
+    t.float "price", default: 0.0, null: false
     t.bigint "field_id", null: false
     t.index "lower((en_name)::text)", name: "index_categories_on_en_name", unique: true
     t.index "lower((uk_name)::text)", name: "index_categories_on_uk_name", unique: true
@@ -95,13 +96,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   end
 
   create_table "fields", force: :cascade do |t|
-    t.bigint "calculator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "uk_label", default: "", null: false
     t.string "en_label", default: "", null: false
     t.string "var_name", default: "", null: false
     t.string "field_type", default: "", null: false
+    t.bigint "calculator_id", null: false
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
   end
 
@@ -228,5 +229,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   add_foreign_key "categories", "fields"
   add_foreign_key "category_categoryables", "categories"
   add_foreign_key "diapers_periods", "categories"
+  add_foreign_key "fields", "calculators"
   add_foreign_key "formulas", "calculators"
 end
