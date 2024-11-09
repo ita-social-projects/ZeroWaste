@@ -68,6 +68,26 @@ RSpec.describe Product, type: :model do
     end
   end
 
+  describe "#price_by_category" do
+    let(:product) { create(:product, title: "Valid Title") }
+    let(:category) { create(:category, :medium) }
+    let(:valid_sum) { 10.0 }
+
+    context "when the product has a price for the category" do
+      let!(:existing_price) { create(:price, priceable: product, category: category, sum: valid_sum) }
+
+      it "returns the price for the specified category" do
+        expect(product.price_by_category(category)).to eq(existing_price)
+      end
+    end
+
+    context "when the product does not have a price for the category" do
+      it "returns nil" do
+        expect(product.price_by_category(category)).to be_nil
+      end
+    end
+  end
+
   describe "#find_or_build_price_for_category" do
     let(:product) { create(:product, title: "Valid Title") }
     let(:category) { create(:category, :medium) }
@@ -89,6 +109,19 @@ RSpec.describe Product, type: :model do
         expect(new_price.category).to eq(category)
         expect(new_price).to be_a_new(Price)
       end
+    end
+  end
+
+  describe ".diaper" do
+    let!(:diaper_product) { create(:product, title: "diaper") }
+    let!(:other_product) { create(:product, title: "shampoo") }
+
+    it "returns the product with title 'diaper'" do
+      expect(Product.diaper).to eq(diaper_product)
+    end
+
+    it "does not return a product with a different title" do
+      expect(Product.diaper).not_to eq(other_product)
     end
   end
 end
