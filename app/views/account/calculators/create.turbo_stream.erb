@@ -1,1 +1,5 @@
-<div data-controller="redirect" data-url="<%= account_calculators_path %>"></div>
+<%= turbo_stream.append "body" do %>
+  <script>
+    window.location.replace("<%= account_calculators_path %>");
+  </script>
+<% end %>
