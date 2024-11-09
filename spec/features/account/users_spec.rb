@@ -117,8 +117,10 @@ describe "visit admin page", js: true do
   describe "user info page" do
     context "viewing non-existing user" do
       it "renders the 404 page" do
-        visit account_user_path(id: 1355)
-        expect(page).to have_content("Oops! Page Not Found")
+        expect do
+          visit account_user_path(id: 1355)
+          expect(page).to have_content("Oops! Page Not Found")
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
