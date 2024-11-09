@@ -5,16 +5,10 @@
 # Table name: fields
 #
 #  id            :bigint           not null, primary key
-#  from          :integer
-#  kind          :integer          not null
-#  label         :string
-#  name          :string
-#  selector      :string           not null
-#  to            :integer
-#  type          :string           not null
-#  unit          :integer          default("day")
-#  uuid          :uuid             not null
-#  value         :string
+#  en_label      :string           default(""), not null
+#  field_type    :string           default(""), not null
+#  uk_label      :string           default(""), not null
+#  var_name      :string           default(""), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  calculator_id :bigint           not null
@@ -22,14 +16,13 @@
 # Indexes
 #
 #  index_fields_on_calculator_id  (calculator_id)
-#  index_fields_on_uuid           (uuid) UNIQUE
 #
 require "rails_helper"
 
 RSpec.describe Field, type: :model do
   let(:local_prefix_field) { "activerecord.errors.models.field.attributes" }
-
-  subject { create(:field) }
+  let(:calculator) { create(:calculator) }
+  let!(:field) { build(:field, var_name: "a", calculator: calculator) }
 
   describe "validations" do
     it {
@@ -52,6 +45,19 @@ RSpec.describe Field, type: :model do
       is_expected.to define_enum_for(:unit)
         .with_values([:day, :week, :month, :year, :date, :times, :money, :items])
     }
+
+    it "is valid when field is used in any of calculators formulas" do
+      calculator.formulas.build(expression: "a + b")
+
+      expect(field).to be_valid
+    end
+
+    it "is invalid when field isn't used in any of calculators formulas" do
+      calculator.formulas.build(expression: "y + c")
+
+      expect(field).not_to be_valid
+      expect(field.errors[:var_name]).to include(I18n.t("#{local_prefix_field}.var_name.unused_in_formula"))
+    end
   end
 
   describe "associations" do

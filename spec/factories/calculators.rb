@@ -5,22 +5,20 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
-#  name       :string
-#  preferable :boolean          default(FALSE)
+#  en_name    :string           default(""), not null
 #  slug       :string
-#  uuid       :uuid             not null
+#  uk_name    :string           default(""), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_calculators_on_name  (name) UNIQUE
 #  index_calculators_on_slug  (slug) UNIQUE
-#  index_calculators_on_uuid  (uuid) UNIQUE
 #
 FactoryBot.define do
   factory :calculator do
-    name { "Diapers Calculator" }
-    slug { "diapers" }
+    en_name { "English Calculator" }
+    uk_name { "Український калькуялтор" }
+    slug { "calculator" }
   end
 end

@@ -543,6 +543,16 @@ uk:
   activerecord:
     errors:
       models:
+        field:
+          attributes:
+            var_name:
+              unused_in_formula: "не використовується в жодній формулі"
+        formula:
+          attributes:
+            expression:
+              uninitialized_fields:
+                one: "має не ініціалізоване поле %{fields}"
+                other: "має не ініціалізовані поля %{fields}"
         calculator:
           attributes:
             name:
@@ -691,6 +701,10 @@ uk:
         sum: "Сума"
       product:
         title: "Назва"
+      field:
+        var_name: "Змінна"
+      formula:
+        expression: "Вираз"
   notifications:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"
