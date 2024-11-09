@@ -19,6 +19,7 @@
 class Calculator < ApplicationRecord
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
+
   accepts_nested_attributes_for :fields, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :formulas, reject_if: :all_blank, allow_destroy: true
 
