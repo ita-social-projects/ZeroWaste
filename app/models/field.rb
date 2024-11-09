@@ -31,6 +31,13 @@ class Field < ApplicationRecord
 
   accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
 
+  enum :kind, { form: 0, parameter: 1, result: 2 }
+  enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
+
+  validates :type, :kind, :label, presence: true
+
+  before_create :set_selector, if: -> { selector.blank? }
+
   FIELD_TYPES = [
     ["Number", "number"],
     ["Category", "category"]
