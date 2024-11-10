@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
     t.string "en_name"
     t.float "price", default: 0.0, null: false
     t.bigint "field_id", null: false
+    t.boolean "preferable", default: false, null: false
     t.index "lower((en_name)::text)", name: "index_categories_on_en_name", unique: true
     t.index "lower((uk_name)::text)", name: "index_categories_on_uk_name", unique: true
     t.index ["field_id"], name: "index_categories_on_field_id"
@@ -128,8 +129,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
     t.string "expression", default: "", null: false
     t.string "uk_label", default: "", null: false
     t.string "en_label", default: "", null: false
-    t.string "uk_unit"
-    t.string "en_unit"
     t.bigint "calculator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

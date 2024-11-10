@@ -1,0 +1,56 @@
+{
+  "editor.guides.bracketPairs": true,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.guides.bracketPairsHorizontal": "active",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.tabSize": 2,
+  "editor.linkedEditing": true,
+  "html.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "explorer.confirmDelete": true,
+  "explorer.confirmDragAndDrop": true,
+  "files.autoSave": "onFocusChange",
+  "files.autoSaveDelay": 500,
+  "breadcrumbs.enabled": true,
+  "git.autofetch": true,
+  "editor.rulers": [
+      80
+  ],
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "emmet.includeLanguages": {
+      "html.erb": "html",
+      "erb": "html"
+  },
+  "tailwindCSS.includeLanguages": {
+      "html.erb": "html",
+      "erb": "html",
+  },
+  "redhat.telemetry.enabled": true,
+  "solargraph.rename": false,
+  "solargraph.symbols": false,
+  "vscode-office.openOutline": true,
+  "ruby.useLanguageServer": true,
+  "editor.fontFamily": "'Fira Code'",
+  "editor.fontLigatures": true,
+  "[markdown]": {
+      "editor.quickSuggestions": {
+          "strings": true
+      }
+  },
+  "window.commandCenter": true,
+  "terminal.integrated.shellIntegration.enabled": true,
+  "editor.minimap.size": "fill",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "yaml.customTags": [
+      "!ruby/range"
+  ],
+
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.transport": "stdio",
+}
