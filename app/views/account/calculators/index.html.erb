@@ -31,7 +31,7 @@
       <% @calculators.each do |calculator| %>
         <tr >
           <td><%= calculator.id %></td>
-          <td><%= calculator.en_name %></td>
+          <td><%= calculator.name %></td>
           <td><%= calculator.slug %></td>
           <td class="text-center"><%= link_to icon('fa-solid', 'eye'), account_calculator_path(slug: calculator) %></td>
           <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_calculator_path(slug: calculator) %></td>
