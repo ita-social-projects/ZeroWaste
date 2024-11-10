@@ -58,12 +58,8 @@ class Account::CalculatorsController < Account::BaseController
     Calculator.ordered_by_name
   end
 
-  def resource
-    Calculator.find(params[:slug])
-  end
-
   def calculator
-    @calculator = Calculator.friendly.find(params[:slug])
+    @calculator = Calculator.find(params[:slug])
   end
 
   def collect_fields_for_form
