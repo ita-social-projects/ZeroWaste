@@ -9,14 +9,11 @@ class ChangeFields < ActiveRecord::Migration[7.2]
       t.remove :value, type: :integer
       t.remove :from, type: :integer
       t.remove :to, type: :integer
-      t.remove :kind, type: :string
-      t.remove :unit, type: :string
       t.remove :calculator_id, type: :integer
 
       t.string :uk_label, null: false, default: ""
       t.string :en_label, null: false, default: ""
       t.string :var_name, null: false, default: ""
-      t.string :field_type, null: false, default: ""
 
       t.references :calculator, foreign_key: true, null: false, default: 0
     end
@@ -34,14 +31,11 @@ class ChangeFields < ActiveRecord::Migration[7.2]
       t.integer :value
       t.integer :from
       t.integer :to
-      t.string :kind
-      t.string :unit
       t.integer :calculator_id
 
       t.remove :uk_label
       t.remove :en_label
       t.remove :var_name
-      t.remove :field_type
 
       t.remove_references :calculator, foreign_key: true
     end

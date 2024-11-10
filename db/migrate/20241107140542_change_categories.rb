@@ -3,7 +3,7 @@ class ChangeCategories < ActiveRecord::Migration[7.2]
     change_table :categories, bulk: true do |t|
       t.remove :preferable, type: :boolean
 
-      t.float :price, null: false, default: 0.0
+      t.decimal :price, precision: 10, scale: 2, null: false, default: 0.0
 
       t.references :field, null: false, foreign_key: true, default: 0
 
