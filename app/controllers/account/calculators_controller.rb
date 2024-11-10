@@ -59,7 +59,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def resource
-    @calculator = Calculator.find(params[:slug])
+    Calculator.find(params[:slug])
   end
 
   def collect_fields_for_form

@@ -17,18 +17,18 @@
 #
 
 class Calculator < ApplicationRecord
+  include Translatable
+
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
   accepts_nested_attributes_for :fields, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :formulas, reject_if: :all_blank, allow_destroy: true
 
+  translates :name
+
   scope :ordered_by_name, -> { order(:en_name) }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
-  end
-
-  def name
-    (I18n.locale == :uk) ? uk_name : en_name
   end
 end
