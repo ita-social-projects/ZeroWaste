@@ -1,7 +1,7 @@
 <div class="nested-fields" data-controller="field-type">
   <%= f.input :en_label, label: "Field Label:" %>
   <%= f.input :var_name, label: "Variable Name:" %>
-  <%= f.input :field_type, 
+  <%= f.input :kind, 
     collection: Field::FIELD_TYPES.to_a,
     prompt: "Select Field Type",
     label: "Field Type:",
