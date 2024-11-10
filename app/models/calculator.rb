@@ -29,6 +29,6 @@ class Calculator < ApplicationRecord
   end
 
   def name
-    I18n.locale == :uk ? uk_name : en_name
+    (I18n.locale == :uk) ? uk_name : en_name
   end
 end
