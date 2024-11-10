@@ -25,38 +25,46 @@ RSpec.describe Field, type: :model do
   let!(:field) { build(:field, var_name: "a", calculator: calculator) }
 
   describe "validations" do
-    it {
-      is_expected.to validate_presence_of(:type).with_message(I18n
-        .t("#{local_prefix_field}.type.blank"))
-    }
-    it {
-      is_expected.to validate_presence_of(:label).with_message(I18n
-      .t("#{local_prefix_field}.label.blank"))
-    }
+    it { is_expected.to validate_presence_of(:uk_label) }
+    it { is_expected.to validate_length_of(:uk_label).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_presence_of(:en_label) }
+    it { is_expected.to validate_length_of(:en_label).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_presence_of(:var_name) }
+    it { is_expected.to validate_uniqueness_of(:var_name) }
+    it { is_expected.to allow_value('valid_var_name').for(:var_name) }
+    it { is_expected.not_to allow_value('valid_var@21name').for(:var_name) }
     it {
       is_expected.to validate_presence_of(:kind).with_message(I18n
-      .t("#{local_prefix_field}.kind.blank"))
+                                                                .t("#{local_prefix_field}.kind.blank"))
     }
     it {
       is_expected.to define_enum_for(:kind)
-        .with_values([:form, :parameter, :result])
+                       .with_values([:number, :dropdown])
     }
     it {
       is_expected.to define_enum_for(:unit)
-        .with_values([:day, :week, :month, :year, :date, :times, :money, :items])
+                       .with_values([:day, :week, :month, :year, :date, :times, :money, :items])
     }
 
-    it "is valid when field is used in any of calculators formulas" do
-      calculator.formulas.build(expression: "a + b")
+    context "field is used in any of calculators formulas" do
+      before do
+        calculator.formulas.build(expression: "a + b")
+      end
 
-      expect(field).to be_valid
+      it "is valid when field is used in any of calculators formulas" do
+        expect(field).to be_valid
+      end
     end
 
-    it "is invalid when field isn't used in any of calculators formulas" do
-      calculator.formulas.build(expression: "y + c")
+    context "field isn't used in any of calculators formulas" do
+      before do
+        calculator.formulas.build(expression: "y + c")
+      end
 
-      expect(field).not_to be_valid
-      expect(field.errors[:var_name]).to include(I18n.t("#{local_prefix_field}.var_name.unused_in_formula"))
+      it "is invalid" do
+        expect(field).not_to be_valid
+        expect(field.errors[:var_name]).to include(I18n.t("#{local_prefix_field}.var_name.unused_in_formula"))
+      end
     end
   end
 

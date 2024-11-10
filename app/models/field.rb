@@ -35,11 +35,12 @@ class Field < ApplicationRecord
 
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
 
-  validates :type, :kind, :label, presence: true
+  validates :kind, presence: true
+  validates :uk_label, :en_label, presence: true, length: { minimum: 3, maximum: 50 }
+  validates :var_name, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z_]+\z/ }
 
   validates_with FieldValidator
 
-  before_create :set_selector, if: -> { selector.blank? }
 
   FIELD_TYPES = {
     "Number" => "number",

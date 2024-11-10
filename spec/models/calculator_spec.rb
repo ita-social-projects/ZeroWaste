@@ -26,42 +26,17 @@ RSpec.describe Calculator, type: :model do
   subject { build(:calculator) }
 
   describe "validations" do
-    it "validates the name and message " do
-      is_expected.to validate_presence_of(:name)
-        .with_message(I18n.t("#{local_prefix_calculator}.name.blank"))
-    end
+    it { is_expected.to validate_presence_of(:en_name) }
+    it { is_expected.to validate_length_of(:en_name).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_presence_of(:uk_name) }
+    it { is_expected.to validate_length_of(:uk_name).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_presence_of(:slug) }
+    it { is_expected.to validate_uniqueness_of(:slug) }
+  end
 
-    it "validates the name's length and message" do
-      is_expected.to validate_length_of(:name).is_at_least(2)
-                                              .with_message(I18n.t("#{local_prefix_calculator}.name.too_short", count: 2))
-
-      is_expected.to validate_length_of(:name).is_at_most(30)
-                                              .with_message(I18n.t("#{local_prefix_calculator}.name.too_long", count: 30))
-    end
-
-    it "validates the name's uniqueness and message" do
-      is_expected.to validate_uniqueness_of(:name)
-        .with_message(I18n.t("#{local_prefix_calculator}.name.taken"))
-    end
-
-    context "validates the name format" do
-      let(:calculator) { build(:calculator) }
-
-      it "with valid name" do
-        calculator.name = "Hedgehog і єнот з'їли 2 аґруси"
-
-        expect(calculator).to be_valid
-      end
-
-      it "with invalid name" do
-        ["#", "!", "@", "$", "%", "^", "&", "*", "(", ")", "?", "\"", "_"].each do |sym|
-          calculator.name = "Invalid Name #{sym}"
-
-          expect(calculator).to_not be_valid
-          expect(calculator.errors.messages[:name]).to include(I18n.t("#{local_prefix_calculator}.name.invalid"))
-        end
-      end
-    end
+  describe "associations" do
+    it { is_expected.to have_many(:fields).dependent(:destroy) }
+    it { is_expected.to have_many(:formulas).dependent(:destroy) }
   end
 
   describe "scope" do

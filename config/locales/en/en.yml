@@ -592,7 +592,7 @@ en:
             kind:
               blank: "can't be blank"
             var_name:
-              unused_in_formula: "Field isn't used in any formula"
+              unused_in_formula: "isn't used in any formula"
         named_value:
           attributes:
             name:
@@ -685,7 +685,8 @@ en:
         period_end: "Period End"
         usage_amount: "Usage Amount"
       calculator:
-        name: "Name"
+        en_name: "Name in English"
+        uk_name: "Name in Ukrainian"
         slug: "Slug"
         preferable: "Preferable"
       category:
@@ -699,6 +700,8 @@ en:
       product:
         sum: "Sum"
       field:
+        en_label: "Label in English"
+        uk_label: "Label in Ukrainian"
         var_name: "Variable"
       formula:
         expression: "Expression"

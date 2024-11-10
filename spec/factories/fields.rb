@@ -19,7 +19,7 @@
 #
 FactoryBot.define do
   factory :field do
-    field_type { "number" }
+    kind { 0 }
     en_label { "Label" }
     uk_label { "Label" }
     var_name { "var" }

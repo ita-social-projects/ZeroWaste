@@ -688,7 +688,8 @@ uk:
         period_end: "Кінець періоду"
         usage_amount: "Обсяг використання"
       calculator:
-        name: "Назва"
+        en_name: "Назва Англійською"
+        uk_name: "Назва Українською"
         slug: "Шлях"
         preferable: "Бажаний"
       category:
@@ -702,8 +703,12 @@ uk:
       product:
         title: "Назва"
       field:
+        en_label: "Назва Англійською"
+        uk_label: "Назва Українською"
         var_name: "Змінна"
       formula:
+        en_label: "Назва Англійською"
+        uk_label: "Назва Українською"
         expression: "Вираз"
   notifications:
     calculator_created: "Калькулятор було успішно створено"

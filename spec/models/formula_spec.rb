@@ -28,16 +28,33 @@ RSpec.describe Formula, type: :model do
   let!(:formula) { build(:formula, expression: "a + b", calculator: calculator) }
 
   describe "validations" do
-    it "is valid when formula has all fields initialized" do
-      calculator.fields.build(var_name: "a")
-      calculator.fields.build(var_name: "b")
+    it { is_expected.to validate_presence_of(:uk_label) }
+    it { is_expected.to validate_length_of(:uk_label).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_presence_of(:en_label) }
+    it { is_expected.to validate_length_of(:en_label).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_presence_of(:uk_unit) }
+    it { is_expected.to validate_length_of(:uk_unit).is_at_least(1).is_at_most(30) }
+    it { is_expected.to validate_presence_of(:en_unit) }
+    it { is_expected.to validate_length_of(:en_unit).is_at_least(1).is_at_most(30) }
+    it { is_expected.to validate_presence_of(:expression) }
 
-      expect(formula).to be_valid
+
+    context "formula has all fields initialized" do
+      before do
+        calculator.fields.build(var_name: "a")
+        calculator.fields.build(var_name: "b")
+      end
+
+      it "is valid" do
+        expect(formula).to be_valid
+      end
     end
 
-    it "is invalid when formula has some fields not initialized" do
-      expect(formula).not_to be_valid
-      expect(formula.errors[:expression]).to include(I18n.t("#{local_prefix_formula}.expression.uninitialized_fields", fields: "a, b", count: 2))
+    context "formula has some fields not initialized" do
+      it "is invalid" do
+        expect(formula).not_to be_valid
+        expect(formula.errors[:expression]).to include(I18n.t("#{local_prefix_formula}.expression.uninitialized_fields", fields: "a, b", count: 2))
+      end
     end
   end
 
