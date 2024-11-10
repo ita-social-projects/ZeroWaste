@@ -1,7 +1,7 @@
 <div class="container place-items-center">
   <h1 class="text-4xl font-bold">Calculator <%= @calculator.en_name %></h1><br>
 
-  <%= form_with url: calculate_account_calculator_path(slug: @calculator.slug || @calculator.id) do |form| %>
+  <%= form_with url: calculate_account_calculator_path(@calculator) do |form| %>
     <% @calculator.fields.each do |field| %>
       <div class="space-y-4 form-inputs">
         <h1><%= form.label field.var_name, field.en_label %></h1>
