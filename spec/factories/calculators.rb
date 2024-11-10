@@ -20,7 +20,7 @@
 #
 FactoryBot.define do
   factory :calculator do
-    name { "Diapers Calculator" }
+    en_name { "Diapers Calculator" }
     slug { "diapers" }
   end
 end
