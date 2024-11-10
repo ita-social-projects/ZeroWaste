@@ -126,7 +126,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   create_table "formulas", force: :cascade do |t|
     t.string "expression", default: "", null: false
     t.string "uk_label", default: "", null: false
-    t.string "en_label", default: "", null: false
+    t.string "en_label", null: false
     t.string "uk_unit"
     t.string "en_unit"
     t.bigint "calculator_id", null: false
