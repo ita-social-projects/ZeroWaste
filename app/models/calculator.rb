@@ -27,4 +27,8 @@ class Calculator < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
   end
+
+  def name
+    (I18n.locale == :uk) ? uk_name : en_name
+  end
 end
