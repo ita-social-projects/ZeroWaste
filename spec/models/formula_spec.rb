@@ -38,7 +38,6 @@ RSpec.describe Formula, type: :model do
     it { is_expected.to validate_length_of(:en_unit).is_at_least(1).is_at_most(30) }
     it { is_expected.to validate_presence_of(:expression) }
 
-
     context "formula has all fields initialized" do
       before do
         calculator.fields.build(var_name: "a")

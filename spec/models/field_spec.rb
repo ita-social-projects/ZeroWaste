@@ -31,19 +31,19 @@ RSpec.describe Field, type: :model do
     it { is_expected.to validate_length_of(:en_label).is_at_least(3).is_at_most(50) }
     it { is_expected.to validate_presence_of(:var_name) }
     it { is_expected.to validate_uniqueness_of(:var_name) }
-    it { is_expected.to allow_value('valid_var_name').for(:var_name) }
-    it { is_expected.not_to allow_value('valid_var@21name').for(:var_name) }
+    it { is_expected.to allow_value("valid_var_name").for(:var_name) }
+    it { is_expected.not_to allow_value("valid_var@21name").for(:var_name) }
     it {
       is_expected.to validate_presence_of(:kind).with_message(I18n
                                                                 .t("#{local_prefix_field}.kind.blank"))
     }
     it {
       is_expected.to define_enum_for(:kind)
-                       .with_values([:number, :dropdown])
+        .with_values([:number, :dropdown])
     }
     it {
       is_expected.to define_enum_for(:unit)
-                       .with_values([:day, :week, :month, :year, :date, :times, :money, :items])
+        .with_values([:day, :week, :month, :year, :date, :times, :money, :items])
     }
 
     context "field is used in any of calculators formulas" do

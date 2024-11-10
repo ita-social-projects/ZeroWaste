@@ -37,10 +37,9 @@ class Field < ApplicationRecord
 
   validates :kind, presence: true
   validates :uk_label, :en_label, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :var_name, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z_]+\z/ }
+  validates :var_name, presence: true, format: { with: /\A[a-zA-Z_]+\z/ }
 
   validates_with FieldValidator
-
 
   FIELD_TYPES = {
     "Number" => "number",
