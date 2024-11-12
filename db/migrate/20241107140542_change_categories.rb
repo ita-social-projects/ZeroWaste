@@ -10,6 +10,8 @@ class ChangeCategories < ActiveRecord::Migration[7.2]
       t.boolean :preferable, null: false, default: false
     end
 
+    remove_index :categories, name: "index_categories_on_en_name"
+    remove_index :categories, name: "index_categories_on_uk_name"
     change_column_default :categories, :field_id, nil
   end
 
@@ -20,5 +22,8 @@ class ChangeCategories < ActiveRecord::Migration[7.2]
       t.remove :price
       t.remove_references :field, foreign_key: true
     end
+
+    add_index :categories, "lower((uk_name)::text)", name: "index_categories_on_uk_name", unique: true
+    add_index :categories, "lower((en_name)::text)", name: "index_categories_on_en_name", unique: true
   end
 end
