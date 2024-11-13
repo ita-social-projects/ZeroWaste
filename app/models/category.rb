@@ -14,11 +14,10 @@
 class Category < ApplicationRecord
   belongs_to :field
 
-  validates :uk_name, :en_name, presence: true
-  validates :uk_name, :en_name,
+  validates :en_name, presence: true
+  validates :en_name,
             length: { minimum: 3, maximum: 30 },
             format: { with: /\A[\p{L}0-9\s'-]+\z/i },
-            uniqueness: { case_sensitive: false },
             allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
