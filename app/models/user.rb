@@ -44,6 +44,8 @@ class User < ApplicationRecord
   scope :ordered_by_first_name, -> { order(:first_name) }
   scope :ordered_by_last_name, -> { order(:last_name) }
 
+  has_many :authorizations, foreign_key: "uid", inverse_of: :admin, dependent: :destroy
+
   has_paper_trail ignore: [
     :current_sign_in_at, :last_sign_in_at, :confirmation_token,
     :encrypted_password
