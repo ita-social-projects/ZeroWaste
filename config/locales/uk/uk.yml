@@ -547,12 +547,14 @@ uk:
           attributes:
             var_name:
               unused_in_formula: "не використовується в жодній формулі"
+              calculator_var_name_uniqueness: "була використана %{count} раз"
         formula:
           attributes:
             expression:
               uninitialized_fields:
                 one: "має не ініціалізоване поле %{fields}"
                 other: "має не ініціалізовані поля %{fields}"
+              mathematically_invalid: "є математично некоректним"
         calculator:
           attributes:
             name:

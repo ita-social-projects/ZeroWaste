@@ -30,7 +30,6 @@ RSpec.describe Field, type: :model do
     it { is_expected.to validate_presence_of(:en_label) }
     it { is_expected.to validate_length_of(:en_label).is_at_least(3).is_at_most(50) }
     it { is_expected.to validate_presence_of(:var_name) }
-    it { is_expected.to validate_uniqueness_of(:var_name) }
     it { is_expected.to allow_value("valid_var_name").for(:var_name) }
     it { is_expected.not_to allow_value("valid_var@21name").for(:var_name) }
     it {
@@ -39,7 +38,7 @@ RSpec.describe Field, type: :model do
     }
     it {
       is_expected.to define_enum_for(:kind)
-        .with_values([:number, :dropdown])
+        .with_values([:number, :category])
     }
     it {
       is_expected.to define_enum_for(:unit)
@@ -64,6 +63,18 @@ RSpec.describe Field, type: :model do
       it "is invalid" do
         expect(field).not_to be_valid
         expect(field.errors[:var_name]).to include(I18n.t("#{local_prefix_field}.var_name.unused_in_formula"))
+      end
+    end
+
+    context "field isn't unique within its calculator" do
+      before do
+        calculator.fields.build(var_name: "a")
+        calculator.fields.build(var_name: "a")
+      end
+
+      it "is invalid" do
+        expect(field).not_to be_valid
+        expect(field.errors[:var_name]).to include(I18n.t("#{local_prefix_field}.var_name.calculator_var_name_uniqueness", count: 2))
       end
     end
   end

@@ -55,6 +55,13 @@ RSpec.describe Formula, type: :model do
         expect(formula.errors[:expression]).to include(I18n.t("#{local_prefix_formula}.expression.uninitialized_fields", fields: "a, b", count: 2))
       end
     end
+
+    it "formula is mathematically invalid" do
+      formula.expression = "a + b b"
+
+      expect(formula).to_not be_valid
+      expect(formula.errors[:expression]).to include(I18n.t("#{local_prefix_formula}.expression.mathematically_invalid"))
+    end
   end
 
   describe "associations" do

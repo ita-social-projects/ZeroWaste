@@ -593,6 +593,7 @@ en:
               blank: "can't be blank"
             var_name:
               unused_in_formula: "isn't used in any formula"
+              calculator_var_name_uniqueness: "was used %{count} times"
         named_value:
           attributes:
             name:
@@ -661,6 +662,7 @@ en:
           attributes:
             expression:
               uninitialized_fields: "has uninitialized fields %{fields}"
+              mathematically_invalid: "is mathematically invalid"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"

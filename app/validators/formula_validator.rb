@@ -3,6 +3,7 @@ class FormulaValidator < ActiveModel::Validator
 
   def validate(record)
     fields_are_included_in_formulas(record)
+    expression_is_mathematically_valid(record)
   end
 
   private
@@ -17,5 +18,13 @@ class FormulaValidator < ActiveModel::Validator
     return if unused_fields.blank?
 
     record.errors.add(:expression, :uninitialized_fields, fields: unused_fields.join(", "), count: unused_fields.count)
+  end
+
+  def expression_is_mathematically_valid(record)
+    begin
+      Dentaku::Parser.new(Dentaku::Tokenizer.new.tokenize(record.expression)).parse
+    rescue Dentaku::ParseError, Dentaku::TokenizerError
+      record.errors.add(:expression, :mathematically_invalid)
+    end
   end
 end
