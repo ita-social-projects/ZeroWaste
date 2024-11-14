@@ -1,5 +1,1 @@
-<%= turbo_stream.append "redirect" do %>
-  <script>
-    window.location.assign("<%= account_calculators_path %>");
-  </script>
-<% end %>
+<%= render "account/shared/redirect", url: account_calculators_path %>
