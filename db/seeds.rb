@@ -31,18 +31,14 @@ end
 
 FactoryBot.create(:product, :diaper) unless Product.exists?(title: "diaper")
 
-# Categories
 categories_data = YAML.load_file(Rails.root.join("db", "data", "categories.yml"))
-def create_category_with_periods(*args)
-  en_name, uk_name, priority, periods = args
-  return if Category.exists?(en_name: en_name)
-
-  category = Category.create!(en_name: en_name, uk_name: uk_name, priority: priority)
-  periods.each { |period| DiapersPeriod.create!(period.merge(category: category)) }
-end
 
 categories_data["categories"].each do |category_data|
-  create_category_with_periods(
-    *category_data.slice("en_name", "uk_name", "priority", "periods").values
-  )
+  return if Category.exists?(en_name: en_name)
+
+  category = Category.create!(category_data.slice("en_name", "uk_name", "priority"))
+
+  period_records = category_data["periods"].map { |period_data| period_data.merge("category_id" => category.id) }
+
+  DiapersPeriod.insert_all(period_records)
 end
