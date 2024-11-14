@@ -15,7 +15,8 @@ describe "Update Calculator Page", js: true do
   context "when user clicks button Update calculator" do
     it "shows message that calculator has been successfully updated" do
       fill_in "Name", with: "Calculator2"
-      click_button update_calculator_button
+      click_link_or_button update_calculator_button
+      sleep 2
       expect(page).to have_content("Calculator has been successfully updated")
     end
   end
@@ -23,7 +24,7 @@ describe "Update Calculator Page", js: true do
   context "when user fill in the Name field with name shorter than 2 symbols" do
     it "shows message that name is too short" do
       fill_in "Name", with: "o"
-      click_button update_calculator_button
+      click_link_or_button update_calculator_button
       expect(page).to have_content("Name is too short (minimum is 2 characters)")
     end
   end
@@ -31,7 +32,8 @@ describe "Update Calculator Page", js: true do
   context "when user fill in the Name field with symbols" do
     it "shows message that name is invalid" do
       fill_in "Name", with: '\[d]]p'
-      click_button update_calculator_button
+      click_link_or_button update_calculator_button
+      sleep 1
       expect(page).to have_content("Name contains invalid characters")
     end
   end

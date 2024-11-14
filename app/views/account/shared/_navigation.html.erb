@@ -13,7 +13,7 @@
         <li>
           <%= link_to t("layouts.navigation.about_us"), about_path, class: "tab-main-page" %>
         </li>
-        <li>        
+        <li>
           <%= link_to t("layouts.navigation.contact_us"), new_message_path, class: "tab-main-page" %>
         </li>
         <% if user_signed_in? && current_user.admin? %>
@@ -24,8 +24,8 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to t("layouts.navigation.log_out"), destroy_user_session_path, class: "tab-main-page" %>
-          </li> 
-        <% elsif false %>  
+          </li>
+        <% elsif false %>
           <li>
             <%= link_to t("layouts.navigation.sign_up"), new_user_registration_path, class: "tab-main-page" %>
           </li>
@@ -34,11 +34,11 @@
           </li>
         <% end %>
       </ul>
-            
+
       <div class="admin-menu-list">
-        <%= link_to t(".donate"), "https://zerowastelviv.org.ua/pidtrymaty/", target: "_blank", rel: "noopener", class: "header-btns main-btn btn-outline-green" %>
-        <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: "header-btns main-btn btn-outline-gray" %>    
-      </div> 
+        <%= link_to_external(text: t('.donate'), url: t('.donate_link'), class: 'header-btns main-btn btn-outline-green btn-space') %>
+        <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: "header-btns main-btn btn-outline-gray" %>
+      </div>
     </div>
     <div class="flex ml-auto">
       <div class="mt-6">
@@ -46,7 +46,7 @@
           <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
           <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
         </button>
-      </div> 
-    </div> 
-  </div>   
+      </div>
+    </div>
+  </div>
 </header>

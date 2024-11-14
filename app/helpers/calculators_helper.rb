@@ -22,6 +22,15 @@ module CalculatorsHelper
     end
   end
 
+  def link_to_external(text:, url:, **options)
+    link_to(url, target: "_blank", rel: "noopener", **options) do
+      concat(
+        content_tag(:span, text, class: "ml-0 pt-1") +
+        content_tag(:i, nil, class: "fas fa-external-link-alt ml-1.5")
+      )
+    end
+  end
+
   def mhc_calculator_items
     [{ image: "pads_bought.png", data_target: "padsUsed", unit: t(".pieces"), text: t(".bought_products") },
       "arrow",

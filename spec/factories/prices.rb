@@ -16,12 +16,19 @@
 #  index_prices_on_category_id_and_priceable_id_and_priceable_type  (category_id,priceable_id,priceable_type) UNIQUE
 #  index_prices_on_priceable                                        (priceable_type,priceable_id)
 #
+
 FactoryBot.define do
   factory :price do
-    association :priceable, factory: [:product, :diaper]
+    priceable factory: [:product, :diaper]
 
     trait :budgetary_price do
-      sum { 40.2 }
+      category factory: [:category, :budgetary]
+      sum { Faker::Number.between(from: 20, to: 42) }
+    end
+
+    trait :medium_price do
+      category factory: [:category, :medium]
+      sum { Faker::Number.between(from: 42, to: 71) }
     end
 
     trait :invalid_price do

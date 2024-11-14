@@ -17,7 +17,7 @@ class Category < ApplicationRecord
 
   PRIORITY_RANGE = 0..10
 
-  enum preferable: { not_preferable: false, preferable: true }
+  enum :preferable, { not_preferable: false, preferable: true }
 
   has_many :prices, dependent: :destroy
   has_many :diapers_periods, dependent: :destroy

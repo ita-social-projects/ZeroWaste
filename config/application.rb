@@ -25,7 +25,7 @@ module ZeroWaste
     config.i18n.available_locales   = [:en, :uk]
     config.i18n.default_locale      = :en
 
-    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+    config.i18n.load_path += Rails.root.glob("config/locales/**/*.{rb,yml}")
 
     config.assets.css_compressor = nil
   end
