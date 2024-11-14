@@ -22,6 +22,14 @@ RSpec.describe HomeController, type: :request do
       end
     end
 
+    context "redirect to root_url" do
+      it "is successful" do
+        get "/"
+
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
     context "with locale switching" do
       it "is successful" do
         get root_path(locale: :uk)

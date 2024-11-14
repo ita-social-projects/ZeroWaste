@@ -268,6 +268,7 @@ en:
       created: "A product was successfully created"
       updated: "A product was successfully updated"
       deleted: "A product was successfully deleted"
+      not_deleted: "Can't delete product."
     users:
       index:
         meta-title: "Users"
