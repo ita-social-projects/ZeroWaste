@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_09_112721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
+    t.string "checksum"
     t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
@@ -41,6 +41,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "authorizations", force: :cascade do |t|
+    t.string "uid"
+    t.string "provider"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_authorizations_on_user_id"
   end
 
   create_table "calculators", force: :cascade do |t|
@@ -126,7 +135,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
   create_table "flipper_gates", force: :cascade do |t|
     t.string "feature_key", null: false
     t.string "key", null: false
-    t.string "value"
+    t.text "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
@@ -222,6 +231,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_233604) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "authorizations", "users"
   add_foreign_key "category_categoryables", "categories"
   add_foreign_key "diapers_periods", "categories"
 end
