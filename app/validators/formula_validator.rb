@@ -21,10 +21,8 @@ class FormulaValidator < ActiveModel::Validator
   end
 
   def expression_is_mathematically_valid(record)
-    begin
-      Dentaku::Parser.new(Dentaku::Tokenizer.new.tokenize(record.expression)).parse
-    rescue Dentaku::ParseError, Dentaku::TokenizerError
-      record.errors.add(:expression, :mathematically_invalid)
-    end
+    Dentaku::Parser.new(Dentaku::Tokenizer.new.tokenize(record.expression)).parse
+  rescue Dentaku::ParseError, Dentaku::TokenizerError
+    record.errors.add(:expression, :mathematically_invalid)
   end
 end

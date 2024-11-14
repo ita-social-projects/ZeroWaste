@@ -23,7 +23,7 @@ class FieldValidator < ActiveModel::Validator
   def var_name_is_unique_within_calculator(record)
     return if record.calculator.blank?
 
-    fields = record.calculator.fields.map(&:var_name)
+    fields          = record.calculator.fields.map(&:var_name)
     duplicate_count = fields.count(record.var_name)
 
     return if duplicate_count <= 1
