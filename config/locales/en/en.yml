@@ -151,10 +151,14 @@ en:
         Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
         You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
         We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
-        More %{information_link:detailed information} about the calculations regarding the quantity and cost of these products can be found in our materials 
-        or by %{contact_link:contacting us} with your questions."
-    description_button:
-      use_less: "%{use_less_link:HOW TO USE LESS}"
+        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials 
+        or by %{contact_link} with your questions."
+      information_link_text: "detailed information"
+      contact_link_text: "contacting us"
+      information_link: "https://docs.google.com/document/d/1xu6cch-Ner9OEpU4_TV5suIUsuVcWpgiUuX6QrOgaL4"
+      contact_link: "https://zerowastelviv.org.ua/en/contacts/"
+      use_less: "HOW TO USE LESS"
+      use_less_link: "https://zerowastelviv.org.ua/en/zero-waste-period/"
     homepage:
       homepage_title: "Welcome to the diaper calculator"
       description:
