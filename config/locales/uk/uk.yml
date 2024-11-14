@@ -76,6 +76,7 @@ uk:
       year_and_month_error_msg: "Будь ласка, виберіть, скільки років та місяців дитині"
       year_error_msg: "Будь ласка, виберіть, скільки років дитині"
       month_error_msg: "Будь ласка, виберіть, скільки місяців дитині"
+      presence_error_msg: "Поле \"%{field}\" відсутнє"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"

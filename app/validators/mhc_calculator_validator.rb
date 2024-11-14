@@ -22,27 +22,27 @@ class MhcCalculatorValidator
   private
 
   def validate_user_age
-    return unless presence_valid?(:user_age)
+    presence_valid?(:user_age)
   end
 
   def validate_menstruation_age
-    return unless presence_valid?(:menstruation_age)
+    presence_valid?(:menstruation_age)
   end
 
   def validate_menopause_age
-    return unless presence_valid?(:menopause_age)
+    presence_valid?(:menopause_age)
   end
 
   def validate_average_menstruation_cycle_duration
-    return unless presence_valid?(:average_menstruation_cycle_duration)
+    presence_valid?(:average_menstruation_cycle_duration)
   end
 
   def validate_pads_per_cycle
-    return unless presence_valid?(:pads_per_cycle)
+    presence_valid?(:pads_per_cycle)
   end
 
   def validate_pad_category
-    return unless presence_valid?(:pad_category)
+    presence_valid?(:pad_category)
   end
 
   def presence_valid?(param)
