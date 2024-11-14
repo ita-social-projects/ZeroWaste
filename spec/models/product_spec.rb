@@ -124,4 +124,30 @@ RSpec.describe Product, type: :model do
       expect(Product.diaper).not_to eq(other_product)
     end
   end
+
+  describe "#blank_prices" do
+    let(:product) { create(:product, title: "title") }
+
+    context "when price sum is blank" do
+      it "rejects nested attributes for price" do
+        product.attributes = {
+          prices_attributes: [
+            { sum: nil }
+          ]
+        }
+        expect(product.prices).to be_empty
+      end
+    end
+
+    context "when price sum is present" do
+      it "accepts nested attributes for price" do
+        product.attributes = {
+          prices_attributes: [
+            { sum: 100 }
+          ]
+        }
+        expect(product.prices.size).to eq(1)
+      end
+    end
+  end
 end
