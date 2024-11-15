@@ -31,7 +31,7 @@ RSpec.describe MhcCalculatorValidator do
 
         expect(validator.valid?).to be false
         expect(validator.errors).to include(:user_age)
-        expect(validator.errors[:user_age]).to eq(I18n.t('calculators.errors.presence_error_msg', field: I18n.t('calculators.mhc_calculator.form.user_age')))
+        expect(validator.errors[:user_age]).to eq(I18n.t("calculators.errors.presence_error_msg", field: I18n.t("calculators.mhc_calculator.form.user_age")))
       end
     end
   end
