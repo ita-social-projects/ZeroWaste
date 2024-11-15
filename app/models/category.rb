@@ -12,12 +12,17 @@
 #  preferable :boolean          default: false
 #
 class Category < ApplicationRecord
+  include Translatable
+
   belongs_to :field
 
-  validates :en_name, presence: true
-  validates :en_name,
+  translates :name
+
+  validates :uk_name, :en_name, presence: true
+  validates :uk_name, :en_name,
             length: { minimum: 3, maximum: 30 },
             format: { with: /\A[\p{L}0-9\s'-]+\z/i },
+            uniqueness: { case_sensitive: false },
             allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 

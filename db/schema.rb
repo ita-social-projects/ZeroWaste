@@ -95,7 +95,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   end
 
   create_table "fields", force: :cascade do |t|
-    t.integer "kind", null: false
+    t.string "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "unit", default: 0

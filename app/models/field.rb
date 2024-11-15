@@ -25,15 +25,22 @@
 #  index_fields_on_uuid           (uuid) UNIQUE
 #
 class Field < ApplicationRecord
+  include Translatable
+
+  translates :label
+
   belongs_to :calculator
 
   has_many :categories, dependent: :destroy
 
-  accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
+  NUMBER = "number".freeze
+  CATEGORY = "category".freeze
+  KINDS = { number: NUMBER, category: CATEGORY }.freeze
 
-  enum :kind, { number: 0, category: 1 }
-
+  enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
 
-  validates :kind, :en_label, presence: true
+  validates :kind, :en_label, :uk_label, presence: true
+
+  accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
 end

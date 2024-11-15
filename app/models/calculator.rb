@@ -17,6 +17,10 @@
 #
 
 class Calculator < ApplicationRecord
+  include Translatable
+
+  translates :name
+  
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
 

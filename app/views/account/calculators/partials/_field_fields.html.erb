@@ -1,11 +1,14 @@
 <div class="nested-fields" data-controller="field-type">
   <%= f.input :en_label, label: "Field Label:" %>
+  <%= f.input :uk_label, label: "Uk Field Label:" %>
   <%= f.input :var_name, label: "Variable Name:" %>
-  <%= f.input :kind, 
-    collection: Field.kinds.map { |k, _| [k.humanize, k] },
-    prompt: "Select Field Type",
-    label: "Field Type:",
-    input_html: { data: { field_type_target: "fieldTypeSelect" } } %>
+  <%= f.input( 
+        :kind, 
+        collection: Field.kinds.keys.map { |key| [key.humanize, key] },
+        prompt: "Select Field Type",
+        label: "Field Type:",
+        input_html: { data: { field_type_target: "fieldTypeSelect" } } 
+      ) %>
 
     <div class="hidden category-fields" data-field-type-target="categoryFields">
       <%= f.simple_fields_for :categories do |category_fields| %>

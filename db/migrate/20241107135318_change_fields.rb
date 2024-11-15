@@ -19,6 +19,7 @@ class ChangeFields < ActiveRecord::Migration[7.2]
     end
 
     change_column_default :fields, :calculator_id, from: 0, to: nil
+    change_column :fields, :kind, :string
   end
 
   def down
@@ -38,6 +39,7 @@ class ChangeFields < ActiveRecord::Migration[7.2]
       t.remove :var_name
 
       t.remove_references :calculator, foreign_key: true
+      change_column :fields, :kind, :integer
     end
   end
 end
