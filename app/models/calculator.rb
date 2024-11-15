@@ -18,6 +18,9 @@
 
 class Calculator < ApplicationRecord
   include Translatable
+  extend FriendlyId
+
+  friendly_id :en_name, use: :sequentially_slugged
 
   translates :name
   

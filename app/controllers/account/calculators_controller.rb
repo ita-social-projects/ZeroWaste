@@ -78,7 +78,7 @@ class Account::CalculatorsController < Account::BaseController
   def calculator_params
     params.require(:calculator).permit(
       :id, :en_name, :uk_name,
-      formulas_attributes: [:id, :expression, :en_label, :calculator_id, :_destroy],
+      formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :en_unit, :uk_unit, :_destroy],
       fields_attributes: [:id, :en_label, :uk_label, :var_name, :kind, :_destroy,
         categories_attributes: [:id, :en_name, :uk_name, :price, :_destroy]]
     )
