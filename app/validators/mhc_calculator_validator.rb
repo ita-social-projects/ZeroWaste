@@ -46,11 +46,10 @@ class MhcCalculatorValidator
   end
 
   def presence_valid?(param)
-    if @params[param].blank?
-      @errors[param] = I18n.t("calculators.errors.presence_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"))
-      return false
-    end
+    return true if @params[param].present?
 
-    true
+    @errors[param] = I18n.t("calculators.errors.presence_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"))
+
+    false
   end
 end
