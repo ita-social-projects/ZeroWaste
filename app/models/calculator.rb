@@ -31,6 +31,10 @@ class Calculator < ApplicationRecord
 
   scope :ordered_by_name, -> { order(:en_name) }
 
+  validates :en_name, :uk_name, presence: true
+  validates :en_name, :uk_name, length: { minimum: 3, maximum: 50 }
+  validates :slug, presence: true, uniqueness: true
+
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
   end

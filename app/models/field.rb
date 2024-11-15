@@ -40,7 +40,11 @@ class Field < ApplicationRecord
   enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
 
-  validates :kind, :en_label, :uk_label, presence: true
+  validates :kind, presence: true
+  validates :uk_label, :en_label, presence: true, length: { minimum: 3, maximum: 50 }
+  validates :var_name, presence: true, format: { with: /\A[a-zA-Z_]+\z/ }
+  
+  validates_with FieldValidator
 
   accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
 end
