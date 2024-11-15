@@ -14,11 +14,14 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
-    @result     = params[:result]
   end
 
   def calculate
     @calculator = resource
+
+    @results = Calculators::CalculationService.new(@calculator, params[:inputs]).perform
+
+    respond_to :turbo_stream
   end
 
   def calculator
