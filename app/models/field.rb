@@ -33,9 +33,9 @@ class Field < ApplicationRecord
 
   has_many :categories, dependent: :destroy
 
-  NUMBER = "number".freeze
-  CATEGORY = "category".freeze
-  KINDS = { number: NUMBER, category: CATEGORY }.freeze
+  NUMBER   = "number"
+  CATEGORY = "category"
+  KINDS    = { number: NUMBER, category: CATEGORY }.freeze
 
   enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
@@ -43,7 +43,7 @@ class Field < ApplicationRecord
   validates :kind, presence: true
   validates :uk_label, :en_label, presence: true, length: { minimum: 3, maximum: 50 }
   validates :var_name, presence: true, format: { with: /\A[a-zA-Z_]+\z/ }
-  
+
   validates_with FieldValidator
 
   accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true

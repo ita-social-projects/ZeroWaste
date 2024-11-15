@@ -23,7 +23,7 @@ class Calculator < ApplicationRecord
   friendly_id :en_name, use: :sequentially_slugged
 
   translates :name
-  
+
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
 
