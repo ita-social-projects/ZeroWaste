@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :calculator, only: [:edit, :update, :destroy]
+  before_action :resource, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
@@ -58,8 +58,8 @@ class Account::CalculatorsController < Account::BaseController
     Calculator.ordered_by_name
   end
 
-  def calculator
-    @calculator = Calculator.friendly.find(params[:slug])
+  def resource
+    Calculator.find(params[:slug])
   end
 
   def collect_fields_for_form
