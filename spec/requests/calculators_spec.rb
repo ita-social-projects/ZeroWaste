@@ -110,6 +110,16 @@ RSpec.describe CalculatorsController, type: :request do
     end
   end
 
+  describe "GET /mhc_calculator" do
+    it "renders pad calculator" do
+      get mhc_calculator_path
+
+      expect(response).to be_successful
+      expect(response).to render_template(:mhc_calculator)
+      expect(response.body).to include("results")
+    end
+  end
+
   describe "POST #create" do
     include_context :authorize_admin
 

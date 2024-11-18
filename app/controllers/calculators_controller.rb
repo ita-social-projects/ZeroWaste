@@ -33,6 +33,11 @@ class CalculatorsController < ApplicationController
     end
   end
 
+  def mhc_calculator
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb t(".mhc_calculator.calculator_name")
+  end
+
   def receive_recomendations
     current_user.toggle(:receive_recomendations)
     current_user.save
