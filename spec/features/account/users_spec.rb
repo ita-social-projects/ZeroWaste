@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "visit admin page", js: true do
-  let(:time_login) { Time.new(2020, 0o1, 0o1).in_time_zone("Europe/Kyiv").utc }
+  let(:time_login) { Time.new(2020, 0o1, 0o1).in_time_zone("Europe/Kyiv") }
   let!(:another_user) do
     create(:user, email: "test1@gmail.com", password: "12345878",
                   last_sign_in_at: time_login)
@@ -14,8 +14,7 @@ describe "visit admin page", js: true do
   it "visits admin page" do
     visit account_users_path
     expect(page).to have_content "test1@gmail.com"
-    formatted_time_login = time_login.utc.strftime("%Y-%m-%d %H:%M:%S UTC")
-    expect(page).to have_content formatted_time_login
+    expect(page).to have_content time_login
   end
 
   context "when user clicks show icon" do

@@ -6,7 +6,19 @@ require "active_support/core_ext/integer/time"
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those in
+  # config/application.rb.
+
+  config.cache_classes = false
+  config.action_view.cache_template_loading = true
+  config.serve_static_files = ENV["USE_STATIC_ASSETS"] == "true"
+  config.static_cache_control = "public, max-age=3600"
+  config.assets.compile = ENV["USE_STATIC_ASSETS"] != "true"
+  config.assets.digest = true
+  # Do not eager load code on boot. This avoids loading your whole application
+  # just for the purpose of running a single test. If you are using a tool that
+  # preloads Rails for running tests, you may have to set it to true.
+  config.eager_load = false
 
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
@@ -45,7 +57,7 @@ Rails.application.configure do
 
   # Unlike controllers, the mailer instance doesn't have any context about the
   # incoming request so you'll need to provide the :host parameter yourself.
-  config.action_mailer.default_url_options = { host: "www.example.com" }
+  config.action_mailer.default_url_options = { host: "localhost" }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
@@ -55,6 +67,7 @@ Rails.application.configure do
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
+  config.active_job.queue_adapter = :test
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
