@@ -24,7 +24,7 @@ module ZeroWaste
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.time_zone = "Europe/Kyiv"
+    config.time_zone = "Kyiv"
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.available_locales   = [:en, :uk]
     config.i18n.default_locale      = :en
