@@ -27,6 +27,7 @@ RSpec.describe Formula, type: :model do
   let(:local_prefix_formula) { "activerecord.errors.models.formula.attributes" }
   let(:calculator) { create(:calculator) }
   let!(:formula) { build(:formula, expression: "a + b", calculator: calculator) }
+  let!(:formula_with_priority) { build(:formula, expression: "a + b", calculator: calculator, priority: 2) }
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:uk_label) }
@@ -62,6 +63,14 @@ RSpec.describe Formula, type: :model do
 
       expect(formula).to_not be_valid
       expect(formula.errors[:expression]).to include(I18n.t("#{local_prefix_formula}.expression.mathematically_invalid"))
+    end
+
+    it "ensures priority has a default value of 0" do
+      expect(formula.priority).to eq(0)
+    end
+
+    it "allows setting a specific priority value" do
+      expect(formula_with_priority.priority).to eq(2)
     end
   end
 
