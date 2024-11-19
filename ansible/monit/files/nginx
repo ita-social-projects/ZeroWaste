@@ -1,0 +1,5 @@
+check process nginx with pidfile /run/nginx.pid
+        start program = "/usr/sbin/service nginx start" with timeout 60 seconds
+        stop program = "/usr/sbin/service nginx stop"
+        if failed host 127.0.0.1 port 443 protocol https for 3 cycles then alert
+        if failed host 127.0.0.1 port 443 protocol https for 3 cycles then restart

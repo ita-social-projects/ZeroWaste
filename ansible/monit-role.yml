@@ -1,0 +1,8 @@
+---
+- name: use monit role playbook
+  hosts: monit
+  become: true
+
+  roles:
+    - role: monit
+      system_manager: engineering.zerowaste@gmail.com
