@@ -89,3 +89,39 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           json-path: tmp/rspec_results.json
         if: always()
+
+  deploy-to-develop:
+    needs: rspec
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: development
+          deploy_key: ${{ secrets.DEV_DEPLOY_KEY }}
+
+  deploy-to-production:
+    needs: rspec
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: production
+          deploy_key: ${{ secrets.PROD_DEPLOY_KEY }}
