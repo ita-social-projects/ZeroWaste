@@ -30,8 +30,6 @@ class Calculator < ApplicationRecord
   accepts_nested_attributes_for :fields, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :formulas, reject_if: :all_blank, allow_destroy: true
 
-  translates :name
-
   scope :ordered_by_name, -> { order(:en_name) }
 
   validates :en_name, :uk_name, presence: true
