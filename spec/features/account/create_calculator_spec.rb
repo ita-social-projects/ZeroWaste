@@ -13,6 +13,14 @@ describe "Create Calculator Page", js: true do
   end
 
   context "when user clicks button Create calculator" do
+    it "shows message that calculator has been successfully created" do
+      fill_in "Name", with: "Calculator1"
+      click_button create_calrulator_button
+      expect(page).to have_content("Calculator has been successfully created")
+    end
+  end
+
+  context "when user clicks button Create calculator" do
     it "redirects to Index calculator page" do
       fill_in "Name", with: "Calculator2"
       click_button create_calrulator_button
