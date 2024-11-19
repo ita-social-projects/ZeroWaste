@@ -3,9 +3,10 @@
 # Table name: formulas
 #
 #  id            :bigint           not null, primary key
-#  en_label      :string           not null
+#  en_label      :string           default(""), not null
 #  en_unit       :string
 #  expression    :string           default(""), not null
+#  priority      :integer          default(0), not null
 #  uk_label      :string           default(""), not null
 #  uk_unit       :string
 #  created_at    :datetime         not null

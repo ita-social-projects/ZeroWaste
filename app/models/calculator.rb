@@ -5,9 +5,9 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
-#  en_name    :string           not null
+#  en_name    :string           default(""), not null
 #  slug       :string
-#  uk_name    :string           not null
+#  uk_name    :string           default(""), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

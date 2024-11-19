@@ -3,10 +3,22 @@
 # Table name: categories
 #
 #  id         :bigint           not null, primary key
-#  name       :string
+#  en_name    :string
+#  preferable :boolean          default(FALSE), not null
+#  price      :decimal(10, 2)   default(0.0), not null
 #  priority   :integer          default(0), not null
+#  uk_name    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  field_id   :bigint           not null
+#
+# Indexes
+#
+#  index_categories_on_field_id  (field_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (field_id => fields.id)
 #
 FactoryBot.define do
   factory :category do

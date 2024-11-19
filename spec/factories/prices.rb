@@ -12,9 +12,9 @@
 #
 # Indexes
 #
-#  index_prices_on_category_id                                      (category_id)
-#  index_prices_on_category_id_and_priceable_id_and_priceable_type  (category_id,priceable_id,priceable_type) UNIQUE
-#  index_prices_on_priceable                                        (priceable_type,priceable_id)
+#  idx_on_category_id_priceable_id_priceable_type_1fa9ce7f24  (category_id,priceable_id,priceable_type) UNIQUE
+#  index_prices_on_category_id                                (category_id)
+#  index_prices_on_priceable                                  (priceable_type,priceable_id)
 #
 
 FactoryBot.define do
