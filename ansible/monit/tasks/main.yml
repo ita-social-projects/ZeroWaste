@@ -36,5 +36,5 @@
 
 - name: Reload monit to apply configuration
   command: monit reload
-  notify: 
+  notify:
     - Restart monit

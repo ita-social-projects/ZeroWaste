@@ -19,13 +19,19 @@ The playbook for Monit setup typically consists of the following tasks:
 
 ## Running the Ansible Playbook
 
-Run the playbook from the Ansible directory with the following command:
+Run the playbook from the Ansible directory with the following command for production environment:
 
 ```
-ansible-playbook -i ./inventory.yml ./monit-role.yml --ask-become-pass
+ansible-playbook -i ./inventory-prod.yml ./monit-role.yml
 ```
 
-And type password SSH key password
+or
+
+```
+ansible-playbook -i ./inventory-dev.yml ./monit-role.yml
+```
+
+for development environment
 
 ## Accessing to monit
 

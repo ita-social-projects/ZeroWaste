@@ -1,0 +1,6 @@
+webservers:
+  hosts:
+    monit:
+      ansible_host: 34.136.62.183
+      ansible_user: andrii_khomik
+      ansible_ssh_private_key: ~/.ssh/gcp
