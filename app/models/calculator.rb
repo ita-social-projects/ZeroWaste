@@ -5,9 +5,9 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
-#  en_name    :string           not null
+#  en_name    :string           default(""), not null
 #  slug       :string
-#  uk_name    :string           not null
+#  uk_name    :string           default(""), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -17,18 +17,28 @@
 #
 
 class Calculator < ApplicationRecord
+  include Translatable
+  extend FriendlyId
+
+  friendly_id :en_name, use: :sequentially_slugged
+
+  translates :name
+
+  has_paper_trail
+
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
-  accepts_nested_attributes_for :fields, reject_if: :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :formulas, reject_if: :all_blank, allow_destroy: true
+
+  accepts_nested_attributes_for :fields, allow_destroy: true
+  accepts_nested_attributes_for :formulas, allow_destroy: true
 
   scope :ordered_by_name, -> { order(:en_name) }
 
+  validates :en_name, :uk_name, presence: true
+  validates :en_name, :uk_name, length: { minimum: 3, maximum: 50 }
+  validates :slug, presence: true, uniqueness: true
+
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
-  end
-
-  def name
-    (I18n.locale == :uk) ? uk_name : en_name
   end
 end

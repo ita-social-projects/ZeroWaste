@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_19_192344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -56,11 +56,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
     t.string "uk_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "priority", default: 0, null: false
     t.string "en_name"
-    t.float "price", null: false
-    t.bigint "field_id", null: false
-    t.index "lower((en_name)::text)", name: "index_categories_on_en_name", unique: true
-    t.index "lower((uk_name)::text)", name: "index_categories_on_uk_name", unique: true
+    t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
+    t.bigint "field_id"
+    t.boolean "preferable", default: false, null: false
     t.index ["field_id"], name: "index_categories_on_field_id"
   end
 
@@ -95,13 +95,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   end
 
   create_table "fields", force: :cascade do |t|
-    t.bigint "calculator_id", null: false
+    t.string "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "unit", default: 0
     t.string "uk_label", default: "", null: false
     t.string "en_label", default: "", null: false
     t.string "var_name", default: "", null: false
-    t.string "field_type", default: "", null: false
+    t.bigint "calculator_id", null: false
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
   end
 
@@ -126,7 +127,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   create_table "formulas", force: :cascade do |t|
     t.string "expression", default: "", null: false
     t.string "uk_label", default: "", null: false
-    t.string "en_label", null: false
+    t.string "en_label", default: "", null: false
     t.string "uk_unit"
     t.string "en_unit"
     t.bigint "calculator_id", null: false
@@ -228,5 +229,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_140542) do
   add_foreign_key "categories", "fields"
   add_foreign_key "category_categoryables", "categories"
   add_foreign_key "diapers_periods", "categories"
+  add_foreign_key "fields", "calculators"
   add_foreign_key "formulas", "calculators"
 end

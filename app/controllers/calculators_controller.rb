@@ -49,6 +49,6 @@ class CalculatorsController < ApplicationController
   end
 
   def resource
-    collection.find(params[:slug])
+    collection.friendly.find(params[:slug])
   end
 end

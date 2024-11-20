@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :resource, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
@@ -18,11 +17,13 @@ class Account::CalculatorsController < Account::BaseController
   def new
     @calculator = Calculator.new
 
-    @calculator.fields.build.categories.build
+    @calculator.fields.build
     @calculator.formulas.build
   end
 
   def edit
+    @calculator = resource
+
     collect_fields_for_form
   end
 
@@ -37,6 +38,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def update
+    @calculator = resource
+
     if updater
       redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
     else
@@ -47,6 +50,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def destroy
+    @calculator = resource
+
     @calculator.destroy
 
     redirect_to account_calculators_path, notice: t("notifications.calculator_deleted"), status: :see_other
@@ -59,7 +64,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def resource
-    @calculator = Calculator.find(params[:slug])
+    collection.friendly.find(params[:slug])
   end
 
   def collect_fields_for_form
@@ -78,9 +83,9 @@ class Account::CalculatorsController < Account::BaseController
   def calculator_params
     params.require(:calculator).permit(
       :id, :en_name, :uk_name,
-      formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :_destroy],
-      fields_attributes: [:id, :en_label, :uk_label, :var_name, :field_type, :_destroy,
-        categories_attributes: [:id, :en_name, :price, :_destroy]]
+      formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :en_unit, :uk_unit, :_destroy],
+      fields_attributes: [:id, :en_label, :uk_label, :var_name, :kind, :_destroy,
+        categories_attributes: [:id, :en_name, :uk_name, :price, :_destroy]]
     )
   end
 
