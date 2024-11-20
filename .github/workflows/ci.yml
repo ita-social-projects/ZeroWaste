@@ -61,6 +61,9 @@ jobs:
           ruby-version: 3.3.5
           bundler-cache: true
 
+      - name: Update packages
+        run: sudo apt-get update
+
       - name: Install system dependencies
         run: sudo apt-get install -y libvips42 libvips-dev imagemagick
 
@@ -90,7 +93,7 @@ jobs:
           json-path: tmp/rspec_results.json
         if: always()
 
-  deploy-to-develop:
+  deploy-to-staging:
     needs: rspec
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
@@ -107,6 +110,7 @@ jobs:
         with:
           target: development
           deploy_key: ${{ secrets.DEV_DEPLOY_KEY }}
+          enc_rsa_key_pth: config/credentials/deploy_id_ed25519_enc
 
   deploy-to-production:
     needs: rspec
