@@ -1,6 +1,6 @@
 webservers:
   hosts:
     monit:
-      ansible_host: 34.133.234.147
-      ansible_user: develop
+      ansible_host: 51.44.25.104
+      ansible_user: ubuntu
       ansible_ssh_private_key: ~/.ssh/gcp
