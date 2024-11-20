@@ -138,4 +138,20 @@ RSpec.describe CalculatorsController, type: :request do
       end
     end
   end
+
+  describe "POST #calculate" do
+    include_context :authorize_admin
+
+    let!(:formula_1) { create(:formula, calculator: calculator, expression: 'a + b', en_label: 'Sum') }
+    let!(:formula_2) { create(:formula, calculator: calculator, expression: 'a * b', en_label: 'Product') }
+    let(:inputs) { { a: 4, b: 3 } }
+
+    it 'returns the calculation results' do
+      post calculate_calculator_path(calculator), params: { inputs: inputs }, as: :turbo_stream
+
+      expect(response).to be_successful
+      expect(response.body).to include('Sum', '7')
+      expect(response.body).to include('Product', '12')
+    end
+  end
 end
