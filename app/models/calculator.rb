@@ -24,11 +24,13 @@ class Calculator < ApplicationRecord
 
   translates :name
 
+  has_paper_trail
+
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
 
-  accepts_nested_attributes_for :fields, reject_if: :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :formulas, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :fields, allow_destroy: true
+  accepts_nested_attributes_for :formulas, allow_destroy: true
 
   scope :ordered_by_name, -> { order(:en_name) }
 

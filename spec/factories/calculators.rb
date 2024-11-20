@@ -19,6 +19,5 @@ FactoryBot.define do
   factory :calculator do
     en_name { "English Calculator" }
     uk_name { "Український калькуялтор" }
-    slug { "calculator" }
   end
 end
