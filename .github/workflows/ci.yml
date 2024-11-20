@@ -109,8 +109,8 @@ jobs:
       - uses: miloserdow/capistrano-deploy@v3
         with:
           target: development
-          deploy_key: ${{ secrets.DEV_DEPLOY_KEY }}
-          enc_rsa_key_pth: config/credentials/deploy_id_ed25519_enc
+          deploy_key: ${{ secrets.STAGING_KEY_PASSWORD }}
+          enc_rsa_key_pth: config/credentials/staging_deploy_id_ed25519_enc
 
   deploy-to-production:
     needs: rspec
