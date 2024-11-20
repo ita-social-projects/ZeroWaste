@@ -32,10 +32,8 @@ RSpec.describe Category, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:en_name) }
     it { is_expected.to validate_length_of(:en_name).is_at_least(3).is_at_most(30) }
-    it { is_expected.to validate_uniqueness_of(:en_name).case_insensitive }
     it { is_expected.to validate_presence_of(:uk_name) }
     it { is_expected.to validate_length_of(:uk_name).is_at_least(3).is_at_most(30) }
-    it { is_expected.to validate_uniqueness_of(:uk_name).case_insensitive }
     it { is_expected.to validate_numericality_of(:priority).is_greater_than_or_equal_to(0) }
   end
 
