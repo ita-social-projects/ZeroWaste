@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe Calculators::CalculationService do
   describe '#perform' do
     let(:calculator) { create(:calculator) }
-    let!(:formula_1) { create(:formula, calculator: calculator, expression: 'a + b', en_label: 'Sum') }
-    let!(:formula_2) { create(:formula, calculator: calculator, expression: 'a * b', en_label: 'Product') }
     let(:inputs) { ActionController::Parameters.new(a: 10, b: 2) }
 
     it 'calculates results based on the provided inputs' do
