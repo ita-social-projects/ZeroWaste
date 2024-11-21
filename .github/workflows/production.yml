@@ -4,19 +4,16 @@ on:
   workflow_run:
     workflows:
       - Rspec
-
-  branches:
-    - master
+    types:
+      - completed
 
   release:
     types:
-      - completed
       - published
 
 jobs:
   deploy-to-production:
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'published'
     steps:
       - uses: actions/checkout@v2
 
