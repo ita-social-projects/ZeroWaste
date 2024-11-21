@@ -1,6 +1,9 @@
-name: CI
+name: Rspec
 
 on:
+  workflow_run:
+    workflows:
+      - Rubocop
   push:
 
   pull_request:
