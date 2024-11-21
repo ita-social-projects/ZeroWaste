@@ -1,6 +1,7 @@
 <div class="nested-fields">
   <%= f.input :en_label, label: "Formula Label:" %>
   <%= f.input :uk_label, label: "Uk Formula Label:" %>
+  <%= f.input :priority, collection: Formula::PRIORITY_RANGE, wrapper: :custom_vertical_select %>
   <%= f.input :expression, label: "Formula Expression:" %>
 
   <%= f.input :uk_unit, label: "Uk Unit Label:" %>

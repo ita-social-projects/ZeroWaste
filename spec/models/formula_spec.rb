@@ -27,7 +27,8 @@ RSpec.describe Formula, type: :model do
   let(:local_prefix_formula) { "activerecord.errors.models.formula.attributes" }
   let(:calculator) { create(:calculator) }
   let!(:formula) { build(:formula, expression: "a + b", calculator: calculator) }
-  let!(:formula_with_priority) { build(:formula, expression: "a + b", calculator: calculator, priority: 2) }
+  let!(:formula_with_priority_2) { build(:formula, expression: "a + b", calculator: calculator, priority: 2) }
+  
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:uk_label) }
@@ -39,6 +40,7 @@ RSpec.describe Formula, type: :model do
     it { is_expected.to validate_presence_of(:en_unit) }
     it { is_expected.to validate_length_of(:en_unit).is_at_least(1).is_at_most(30) }
     it { is_expected.to validate_presence_of(:expression) }
+    it { is_expected.to validate_numericality_of(:priority).is_greater_than_or_equal_to(0) }
 
     context "formula has all fields initialized" do
       before do
@@ -70,7 +72,7 @@ RSpec.describe Formula, type: :model do
     end
 
     it "allows setting a specific priority value" do
-      expect(formula_with_priority.priority).to eq(2)
+      expect(formula_with_priority_2.priority).to eq(2)
     end
   end
 
