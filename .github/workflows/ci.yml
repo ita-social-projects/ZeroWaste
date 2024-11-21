@@ -6,6 +6,8 @@ on:
   workflow_run:
     workflows:
       - Rubocop
+    types:
+      - completed
 
 jobs:
   rspec:

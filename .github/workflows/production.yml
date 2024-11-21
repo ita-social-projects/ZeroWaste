@@ -9,7 +9,9 @@ on:
     - master
 
   release:
-    types: [published]
+    types:
+      - completed
+      - published
 
 jobs:
   deploy-to-production:
