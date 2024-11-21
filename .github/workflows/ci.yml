@@ -1,9 +1,6 @@
 name: Rspec
 
 on:
-  workflow_run:
-    workflows:
-      - Rubocop
   push:
 
 jobs:
