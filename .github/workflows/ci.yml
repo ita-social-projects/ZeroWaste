@@ -3,9 +3,12 @@ name: Rspec
 on:
   push:
 
+  workflow_run:
+    workflows:
+      - Rubocop
+
 jobs:
   rspec:
-    needs: rubocop
     runs-on: ubuntu-latest
 
     services:
