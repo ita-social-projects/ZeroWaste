@@ -24,8 +24,6 @@ class Calculator < ApplicationRecord
 
   translates :name
 
-  has_paper_trail
-
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
 

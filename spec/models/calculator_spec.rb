@@ -34,14 +34,4 @@ RSpec.describe Calculator, type: :model do
     it { is_expected.to have_many(:fields).dependent(:destroy) }
     it { is_expected.to have_many(:formulas).dependent(:destroy) }
   end
-
-  describe "versioning", versioning: true do
-    let!(:calculator) { create(:calculator) }
-
-    it "adds a version when the calculator is updated" do
-      calculator.update!(en_name: "Calculator 2")
-
-      expect(calculator.versions.count).to eq(2)
-    end
-  end
 end
