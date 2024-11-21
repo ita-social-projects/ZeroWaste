@@ -190,4 +190,6 @@ Type `git commit -m "name" --no-verify` for commiting without formating.
 
 [![Rspec](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml)
 
-[![.github/workflows/staging.yml](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/staging.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/staging.yml)
+[![Staging](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/staging.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/staging.yml)
+
+[![Production](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/production.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/production.yml)
