@@ -1,6 +1,10 @@
 name: Staging
 
 on:
+  workflow_run:
+    workflows:
+      - Rspec
+
   branches:
     - develop
   types:

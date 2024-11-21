@@ -1,6 +1,10 @@
 name: Production
 
 on:
+  workflow_run:
+    workflows:
+      - Rspec
+
   branches:
     - master
 
