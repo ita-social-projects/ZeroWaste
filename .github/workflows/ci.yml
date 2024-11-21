@@ -69,9 +69,25 @@ jobs:
         run: |
           bundle exec rspec ./spec -f j -o tmp/rspec_results.json -f p
 
+      - name: Set up Coverage Environment Variable
+        run: |
+          export COVERAGE=$(cat tmp/rspec_results.json | jq '.coverage')
+          echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
+
       - name: RSpec Report
         uses: SonicGarden/rspec-report-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           json-path: tmp/rspec_results.json
         if: always()
+
+      - name: Create the Badge
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: e79c3ef008afb7fb7474dc1c582416ac
+          filename: tmp/rspec_results.json
+          label: Test Coverage
+          message: ${{ env.COVERAGE }}
+          color: green
+          namedLogo: ruby
