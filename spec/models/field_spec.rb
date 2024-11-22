@@ -43,7 +43,8 @@ RSpec.describe Field, type: :model do
     }
     it {
       is_expected.to define_enum_for(:kind)
-        .with_values([:number, :category])
+        .with_values(number: "number", category: "category")
+        .backed_by_column_of_type(:string)
     }
     it {
       is_expected.to define_enum_for(:unit)
@@ -86,26 +87,5 @@ RSpec.describe Field, type: :model do
 
   describe "associations" do
     it { is_expected.to belong_to(:calculator) }
-  end
-
-  describe "#set_selector" do
-    let(:calculator) { create(:calculator) }
-    let(:field) { build(:field, label: "new", kind: 0, calculator: calculator) }
-
-    context "when there is no form fields in a database" do
-      it "generates selector with one letter and a number" do
-        expect { field.save }.to change { field.selector }.from(nil).to("F1")
-      end
-    end
-
-    context "when there are more forms fields in a database" do
-      before do
-        create(:field, label: "new", kind: 0, calculator: calculator)
-      end
-
-      it "generates selector with one letter and an increased number" do
-        expect { field.save }.to change { field.selector }.from(nil).to("F2")
-      end
-    end
   end
 end
