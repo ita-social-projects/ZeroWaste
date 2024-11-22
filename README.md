@@ -19,7 +19,7 @@ In order to attract attention to financial and ecological consequences of dispos
 
 ## Deployed Apps and Environments
 
-The latest version from the 'develop' branch is automatically deployed to stage environment in Render, [staging link](https://zero-waste-staging.onrender.com/).
+The latest version from the 'develop' branch is automatically deployed to stage environment in Render, [staging link](http://51.44.25.104/en).
 The latest version from the release branch 'master' is automatically deployed to Production environment, [production link](http://calc.zerowastelviv.org.ua/).
 
 ## Required to install
