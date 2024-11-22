@@ -55,6 +55,8 @@ class CalculatorsController < ApplicationController
   end
 
   def check_mhc_flipper
-    raise ActionController::RoutingError, "Mhc calculator flipper is disabled" unless Flipper[:mhc_calculator_status].enabled?
+    return if Flipper[:mhc_calculator_status].enabled?
+
+    raise ActionController::RoutingError, "Mhc calculator flipper is disabled"
   end
 end
