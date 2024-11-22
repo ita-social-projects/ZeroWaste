@@ -68,15 +68,15 @@
 
     <div class="flex ml-auto">
       <div id="lang-btn" >
-        <%= link_to url_for(locale: switch_locale_to), class: "locale-button" do %>
+        <%= link_to url_for(locale: switch_locale_to), class: "locale-button", title: t("switch_language_to", locale: t("#{switch_locale_to}")) do %>
           <%= t("#{switch_locale_to}") %>
         <% end %>
       </div>
 
       <div>
-        <button data-action="click->burger#toggle" class="admin-menu-burger-button">
-          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
-          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
+        <button data-action="click->burger#toggle" class="admin-menu-burger-button" aria-label="Toggle menu">
+          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines", alt: "Open menu icon" %>
+          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross", alt: "Close menu icon" %>
         </button>
       </div>
 		</div>

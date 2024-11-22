@@ -42,9 +42,9 @@
     </div>
     <div class="flex ml-auto">
       <div class="mt-6">
-        <button data-action="click->burger#toggle" class="admin-menu-burger-button">
-          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
-          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
+        <button data-action="click->burger#toggle" class="admin-menu-burger-button" aria-label="Toggle menu">
+          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines", alt: "Open menu icon" %>
+          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross", alt: "Close menu icon" %>
         </button>
       </div>
     </div>
