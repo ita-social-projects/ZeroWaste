@@ -1,16 +1,33 @@
-name: Rspec
+name: CI
 
 on:
   push:
 
-  workflow_run:
-    workflows:
-      - Rubocop
+  pull_request:
+    branches:
+      - develop
+      - master
     types:
-      - completed
+      - closed
+
+  release:
+    types: [published]
 
 jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+          cache-version: 1
+      - name: Run rubocop
+        run: |
+          bundle exec rubocop
   rspec:
+    needs: rubocop
     runs-on: ubuntu-latest
 
     services:
@@ -69,12 +86,6 @@ jobs:
         run: |
           bundle exec rspec ./spec -f j -o tmp/rspec_results.json -f p
 
-      - name: Set up Coverage Environment Variable
-        run: cat tmp/rspec_results.json
-        # run: |
-        #   export COVERAGE=$(cat tmp/rspec_results.json | jq '.coverage')
-        #   echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
-
       - name: RSpec Report
         uses: SonicGarden/rspec-report-action@v1
         with:
@@ -82,13 +93,39 @@ jobs:
           json-path: tmp/rspec_results.json
         if: always()
 
-      # - name: Create the Badge
-      #   uses: schneegans/dynamic-badges-action@v1.7.0
-      #   with:
-      #     auth: ${{ secrets.GIST_SECRET }}
-      #     gistID: e79c3ef008afb7fb7474dc1c582416ac
-      #     filename: tmp/rspec_results.json
-      #     label: Test Coverage
-      #     message: ${{ env.COVERAGE }}
-      #     color: green
-      #     namedLogo: ruby
+  deploy-to-staging:
+    needs: rspec
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: staging
+          deploy_key: ${{ secrets.STAGING_KEY_PASSWORD }}
+          enc_rsa_key_pth: config/credentials/staging_deploy_id_ed25519_enc
+
+  deploy-to-production:
+    needs: rspec
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: production
+          deploy_key: ${{ secrets.PROD_DEPLOY_KEY }}

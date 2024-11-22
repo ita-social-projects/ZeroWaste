@@ -185,11 +185,3 @@ Run `git commit -m "name"` to commit changes locally.
 If you have some troubles with style conventions after running `git commit -m "name"`, you need to run `rubocop -a` or `rubocop -A`. Each of these commands can resolve the majority of warnings.
 
 Type `git commit -m "name" --no-verify` for commiting without formating.
-
-[![Rubocop](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/rubocop.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/rubocop.yml)
-
-[![Rspec](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml)
-
-[![Staging](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/staging.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/staging.yml)
-
-[![Production](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/production.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/production.yml)
