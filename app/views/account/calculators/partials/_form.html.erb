@@ -6,6 +6,7 @@
 
       <!-- formula input-->
       <div id="formulas" class="space-y-4">
+        <%= f.error_notification message: f.object.errors[:formulas].to_sentence if f.object.errors[:formulas].present? %>
         <%= f.simple_fields_for :formulas do |formula_fields| %>
           <%= render "account/calculators/partials/formula_fields", f: formula_fields %>
         <% end %>

@@ -641,6 +641,8 @@ en:
               too_long: "is too long (maximum is %{count} characters)"
               invalid: "contains invalid characters"
               taken: "has already been taken, please choose another one"
+            formulas:
+              not_present: "Calculator must have at least one formula present"
         category:
           attributes:
             name:

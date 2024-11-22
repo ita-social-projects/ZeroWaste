@@ -571,6 +571,8 @@ uk:
                 other: "занадто коротка (мінімум %{count} знаків)"
               taken: "вже викориcтовується, будь ласка, оберіть іншу"
               invalid: "містить неприпустимі символи"
+            formulas:
+              not_present: "Калькулятор має містити принаймні одну формулу"
         category:
           attributes:
             uk_name: &name_errors

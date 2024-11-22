@@ -35,8 +35,15 @@ class Calculator < ApplicationRecord
   validates :en_name, :uk_name, presence: true
   validates :en_name, :uk_name, length: { minimum: 3, maximum: 50 }
   validates :slug, presence: true, uniqueness: true
+  validate :must_have_at_least_one_formula
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
+  end
+
+  def must_have_at_least_one_formula
+    return if formulas.present?
+
+    errors.add(:formulas, :not_present)
   end
 end
