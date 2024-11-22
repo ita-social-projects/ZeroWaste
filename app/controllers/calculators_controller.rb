@@ -2,6 +2,7 @@
 
 class CalculatorsController < ApplicationController
   before_action :authenticate_user!, only: :receive_recomendations
+  before_action :check_mhc_flipper, only: :mhc_calculator
 
   def index
     if Flipper[:show_calculators_list].enabled?
@@ -51,5 +52,9 @@ class CalculatorsController < ApplicationController
 
   def resource
     collection.friendly.find(params[:slug])
+  end
+
+  def check_mhc_flipper
+    raise ActionController::RoutingError, "Mhc calculator flipper is disabled" unless Flipper[:mhc_calculator_status].enabled?
   end
 end

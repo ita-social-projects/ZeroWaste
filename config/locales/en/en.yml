@@ -126,6 +126,7 @@ en:
       about_us: "About us"
       admin: "Admin"
       calculate: "Diaper calculator"
+      mhc_calculator: "Pad calculator"
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
@@ -480,6 +481,8 @@ en:
         name: "Show calculators on the public side"
       sandbox_mode:
         name: "Enable sandbox mode"
+      mhc_calculator_status:
+        name: "Enable mhc calculator"
     sessions:
       new:
         log_in_header: "Log In"
