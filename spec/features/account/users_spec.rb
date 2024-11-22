@@ -92,7 +92,7 @@ describe "visit admin page", js: true do
       visit account_users_path
 
       within(:css, "#user-info-#{admin_user.id}") do
-        expect(page).not_to have_selector("svg.fa-lock-open") # Expect the lock-open button not to be present
+        expect(page).to have_no_css("svg.fa-lock-open") # Expect the lock-open button not to be present
       end
     end
   end
