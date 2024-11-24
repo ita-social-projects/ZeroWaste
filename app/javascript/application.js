@@ -8,3 +8,4 @@ import "@rails/request.js";
 import "@rails/actioncable";
 import "turbo_streams/toast";
 import "@oddcamp/cocoon-vanilla-js"
+import "./helpers/auto_resize_textarea"
