@@ -1,12 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const textareas = document.querySelectorAll('.resize-auto');
-
-  textareas.forEach(textarea => {
-    textarea.addEventListener('input', function () {
-      this.style.overflow = 'hidden';
-      this.style.resize = 'none';
-      this.style.height = 'auto'; // Reset height to auto
-      this.style.height = (this.scrollHeight) + 'px'; // Set height based on scrollHeight
-    });
-  });
+document.addEventListener('input', function (event) {
+  if (event.target && event.target.classList.contains('resize-auto') && event.target.tagName === 'TEXTAREA') {
+    const textarea = event.target;
+    textarea.style.overflow = 'hidden';
+    textarea.style.resize = 'none';
+    textarea.style.height = 'auto';
+    textarea.style.height = (textarea.scrollHeight) + 'px';
+  }
 });
