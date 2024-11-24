@@ -68,7 +68,7 @@
 
     <div class="flex ml-auto">
       <div id="lang-btn" >
-        <%= link_to url_for(locale: switch_locale_to), class: "locale-button", title: t("switch_language_to", locale: t("#{switch_locale_to}")) do %>
+        <%= link_to url_for(locale: switch_locale_to), class: "locale-button" do %>
           <%= t("#{switch_locale_to}") %>
         <% end %>
       </div>
