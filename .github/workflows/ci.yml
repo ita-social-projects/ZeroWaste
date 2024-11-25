@@ -67,9 +67,6 @@ jobs:
         run: |
           mv config/database.yml.docker config/database.yml
           
-      - name: Clean assets
-        run: bin/rails assets:clobber
-        
       - name: Precompile assets
         run: |
           bundle exec rails assets:precompile
