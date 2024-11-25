@@ -68,8 +68,7 @@ jobs:
           mv config/database.yml.docker config/database.yml
           
       - name: Precompile assets
-        run: |
-          bundle exec rails assets:precompile
+        run: RAILS_ENV=test bin/rails assets:precompile
 
       - name: Run tests
         run: |
