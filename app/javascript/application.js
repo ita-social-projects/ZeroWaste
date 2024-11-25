@@ -7,4 +7,5 @@ import "@fortawesome/fontawesome-free";
 import "@rails/request.js";
 import "@rails/actioncable";
 import "turbo_streams/toast";
-import "@oddcamp/cocoon-vanilla-js"
+import "@oddcamp/cocoon-vanilla-js";
+import "./components/auto_resize_textarea";
