@@ -407,6 +407,8 @@ uk:
         name: "Показати калькулятори користувачам"
       sandbox_mode:
         name: "Увімкнути режим пісочниці"
+      constructor_status:
+        name: "Увімкнути конструктор калькуляторів"
     sessions:
       new:
         log_in_header: "Увійти"

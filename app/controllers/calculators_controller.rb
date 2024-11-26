@@ -2,6 +2,7 @@
 
 class CalculatorsController < ApplicationController
   before_action :authenticate_user!, only: :receive_recomendations
+  before_action :check_constructor_flipper, only: [:index, :show, :calculate]
 
   def index
     if Flipper[:show_calculators_list].enabled?
@@ -50,5 +51,11 @@ class CalculatorsController < ApplicationController
 
   def resource
     collection.friendly.find(params[:slug])
+  end
+
+  def check_constructor_flipper
+    return if Flipper[:constructor_status].enabled?
+
+    raise ActionController::RoutingError, "Constructor flipper is disabled"
   end
 end

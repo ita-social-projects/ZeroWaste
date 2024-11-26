@@ -8,13 +8,15 @@
 
     <div data-burger-target="navbarNav" class="hidden xl:flex">
       <ul class="admin-menu-list">
-        <li class="mx-4">
-          <%= link_to_unless_current t(".calculators"), account_calculators_path, title: t(".calculators"), class: "admin-menu-item" do %>
-            <p class="tab-active">
-              <%= t(".calculators") %>
-            </p>
-          <% end %>
-        </li>
+        <% if Flipper[:constructor_status].enabled? %>
+          <li class="mx-4">
+            <%= link_to_unless_current t(".calculators"), account_calculators_path, title: t(".calculators"), class: "admin-menu-item" do %>
+              <p class="tab-active">
+                <%= t(".calculators") %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
 
         <li class="mx-4">
           <%= link_to_unless_current t(".histories"), account_histories_path, title: t(".histories"), class: "admin-menu-item" do %>

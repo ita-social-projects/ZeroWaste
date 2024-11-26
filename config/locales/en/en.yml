@@ -447,6 +447,8 @@ en:
         name: "Show calculators on the public side"
       sandbox_mode:
         name: "Enable sandbox mode"
+      constructor_status:
+        name: "Enable calculators constructor"
     sessions:
       new:
         log_in_header: "Log In"
