@@ -25,7 +25,7 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       it "renders the 'under_construction' template" do
         get account_calculators_path
 
-        expect(response).to render_template("shared/under_construction")
+        expect(response).to render_template("shared/_under_construction")
       end
     end
 

@@ -4,7 +4,7 @@ class Account::CalculatorsController < Account::BaseController
   load_and_authorize_resource
 
   def index
-    render "shared/under_construction" unless Rails.env.local?
+    render partial: "shared/under_construction" unless Rails.env.local?
 
     @q           = collection.ransack(params[:q])
     @calculators = @q.result.page(params[:page])
@@ -31,7 +31,7 @@ class Account::CalculatorsController < Account::BaseController
     @calculator = Calculator.new(calculator_params)
 
     if @calculator.save
-      redirect_to account_calculators_path, notice: t("notifications.calculator_created")
+      redirect_to account_calculator_path(slug: @calculator.slug), notice: t("notifications.calculator_created")
     else
       render :new, status: :unprocessable_entity
     end
