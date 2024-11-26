@@ -22,6 +22,8 @@
         <div class="links">
           <%= link_to_add_association "Add Field", f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
         </div>
+        <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
+        <%= f.file_field :logo_picture, accept: "image/jpeg, image/png", class: "file-input mb-3" %>
       </div>
     </div>
   </div>

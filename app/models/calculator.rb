@@ -24,6 +24,7 @@ class Calculator < ApplicationRecord
 
   translates :name
 
+  has_one_attached :logo_picture
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
 
