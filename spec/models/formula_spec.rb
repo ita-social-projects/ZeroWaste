@@ -28,7 +28,6 @@ RSpec.describe Formula, type: :model do
   let(:calculator) { create(:calculator) }
   let!(:formula) { build(:formula, expression: "a + b", calculator: calculator) }
   let!(:formula_with_priority_2) { build(:formula, expression: "a + b", calculator: calculator, priority: 2) }
-  
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:uk_label) }

@@ -25,7 +25,7 @@ class Formula < ApplicationRecord
   belongs_to :calculator
 
   PRIORITY_RANGE = 0..10
-  
+
   validates_with FormulaValidator
 
   validates :uk_label, :en_label, :uk_unit, :en_unit, :expression, presence: true
