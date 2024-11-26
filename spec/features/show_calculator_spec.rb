@@ -4,6 +4,8 @@ RSpec.describe CalculatorsController, type: :controller do
   describe "GET #show" do
     let(:calculator) { create(:calculator) }
 
+    include_context :show_constructor
+
     before do
       allow(controller).to receive(:resource).and_return(calculator)
     end

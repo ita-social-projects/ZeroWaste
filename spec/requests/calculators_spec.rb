@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe CalculatorsController, type: :request do
   let(:calculator) { create(:calculator) }
+  include_context :show_constructor
 
   describe "GET #index" do
     context "when show_calculators_list feature is enabled" do

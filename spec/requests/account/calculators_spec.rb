@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :authorize_admin
+  include_context :show_constructor
 
   let!(:calculator) { create(:calculator) }
 
@@ -19,19 +20,15 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   end
 
   describe "GET #index" do
-    context "when in production environment" do
-      include_context :in_production_environment
+    context "when flipper is turned off" do
+      include_context :hide_constructor
 
-      it "renders the 'under_construction' template" do
-        get account_calculators_path
-
-        expect(response).to render_template("shared/under_construction")
+      it "raises routing error" do
+        expect { get account_calculators_path }.to raise_error(ActionController::RoutingError)
       end
     end
 
-    context "when in local environment" do
-      include_context :in_local_environment
-
+    context "when flipper is turned on" do
       it "loads calculators and renders the index template" do
         get account_calculators_path
 
