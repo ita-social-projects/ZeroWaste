@@ -60,7 +60,7 @@ RSpec.describe CalculatorsController, type: :request do
 
     let(:valid_attributes) { { en_name: "calculator", uk_name: "калькулятор" } }
     let(:invalid_attributes) { { en_name: "", uk_name: "" } }
-    let(:last_calculator) {Calculator.last}
+    let(:last_calculator) { Calculator.last }
 
     context "with valid attributes" do
       it "creates a calculator" do
