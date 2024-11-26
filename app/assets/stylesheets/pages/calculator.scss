@@ -61,6 +61,11 @@
   margin-right: 0px;
 }
 
+.calculator-field {
+  background-color: $light_gray !important;
+  border: 0;
+}
+
 .flex-item {
   display: flex;
   flex-wrap: wrap;
