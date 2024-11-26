@@ -67,8 +67,7 @@ RSpec.describe CalculatorsController, type: :request do
           post account_calculators_path, params: { calculator: valid_attributes }
         end.to change(Calculator, :count).by(1)
 
-        calculator = Calculator.last
-        expect(response).to redirect_to(account_calculator_path(slug: calculator))
+        expect(response).to redirect_to(account_calculator_path(slug: Calculator.last))
         expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
       end
     end
