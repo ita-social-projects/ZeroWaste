@@ -24,16 +24,20 @@
 #
 class Category < ApplicationRecord
   include Translatable
-
-  belongs_to :field
-
   translates :name
+
+  PRIORITY_RANGE = 0..10
+
+  belongs_to :field, optional: true
+  has_many :diapers_periods, dependent: :destroy
+  has_many :category_categoryables, dependent: :restrict_with_exception
+
+  enum :preferable, { not_preferable: false, preferable: true }
 
   validates :uk_name, :en_name, presence: true
   validates :uk_name, :en_name,
             length: { minimum: 3, maximum: 30 },
             format: { with: /\A[\p{L}0-9\s'-]+\z/i },
-            uniqueness: { case_sensitive: false },
             allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
