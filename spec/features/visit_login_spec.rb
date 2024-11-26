@@ -5,6 +5,7 @@ require "rails_helper"
 describe "visit Login page", js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
+
   include_context :show_constructor
 
   it "when sign in with correct login and password" do
