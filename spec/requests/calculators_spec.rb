@@ -60,6 +60,7 @@ RSpec.describe CalculatorsController, type: :request do
 
     let(:valid_attributes) { { en_name: "calculator", uk_name: "калькулятор" } }
     let(:invalid_attributes) { { en_name: "", uk_name: "" } }
+    let(:last_calculator) {Calculator.last}
 
     context "with valid attributes" do
       it "creates a calculator" do
@@ -67,7 +68,7 @@ RSpec.describe CalculatorsController, type: :request do
           post account_calculators_path, params: { calculator: valid_attributes }
         end.to change(Calculator, :count).by(1)
 
-        expect(response).to redirect_to(account_calculator_path(slug: Calculator.last))
+        expect(response).to redirect_to(account_calculator_path(slug: last_calculator))
         expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
       end
     end
