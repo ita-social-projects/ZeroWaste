@@ -31,7 +31,7 @@ class Account::CalculatorsController < Account::BaseController
     @calculator = Calculator.new(calculator_params)
 
     if @calculator.save
-      redirect_to account_calculator_path(slug: @calculator.slug), notice: t("notifications.calculator_created")
+      redirect_to account_calculator_path(slug: @calculator), notice: t("notifications.calculator_created")
     else
       render :new, status: :unprocessable_entity
     end
