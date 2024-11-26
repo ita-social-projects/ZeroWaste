@@ -31,6 +31,7 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "associations" do
+    it { is_expected.to have_one_attached(:logo_picture) }
     it { is_expected.to have_many(:fields).dependent(:destroy) }
     it { is_expected.to have_many(:formulas).dependent(:destroy) }
   end
