@@ -14,6 +14,7 @@
 # Indexes
 #
 #  index_products_on_product_type_id  (product_type_id)
+#  index_products_on_title            (title) UNIQUE
 #  index_products_on_uuid             (uuid) UNIQUE
 #
 class Product < ApplicationRecord

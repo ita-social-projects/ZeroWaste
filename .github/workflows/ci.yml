@@ -52,7 +52,9 @@ jobs:
           bundler-cache: true
  
       - name: Install system dependencies
-        run: sudo apt-get install -y libvips42 libvips-dev imagemagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libvips42 libvips-dev imagemagick
 
       - uses: actions/setup-node@v1
         with:
