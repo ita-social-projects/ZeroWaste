@@ -14,11 +14,14 @@ RSpec.describe Calculators::CalculationService, type: :helper do
 
   before do
     allow_any_instance_of(ApplicationHelper).to receive(:current_locale?).with(:en).and_return(locale_en)
-    I18n.locale = locale_en ? :en : :uk
   end
 
   describe "#perform" do
-    subject { described_class.new(calculator, inputs).perform }
+    subject do
+      I18n.with_locale(locale_en ? :en : :uk) do
+        described_class.new(calculator, inputs).perform
+      end
+    end
 
     context "when locale is English" do
       let(:locale_en) { true }
