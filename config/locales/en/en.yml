@@ -212,6 +212,15 @@ en:
       calculator-diapers: "Calculator diapers"
       calculators: "Calculators"
       message: "Write us a message"
+  404_page:
+    title: "Oops! Page Not Found"
+    description: "The page you're looking for doesn't exist. It might have been removed, or the link you followed could be broken. Please check the URL or return to the homepage."
+  422_page:
+    title: "Unprocessable Request"
+    description: "Something went wrong with the data sent. Please review your submission and try again, or return to the previous page."
+  500_page:
+    title: "Internal Server Error"
+    description: "We encountered an unexpected issue on our end. Please try again later, or contact support if the problem persists."
   about_us:
     title: "About Us"
     description:

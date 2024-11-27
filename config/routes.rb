@@ -89,4 +89,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get "/404", to: "errors#not_found", as: :not_found_error
+  get "/422", to: "errors#unprocessable", as: :unprocessable_error
+  get "/500", to: "errors#internal_server", as: :internal_server_error
 end

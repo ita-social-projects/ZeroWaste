@@ -28,5 +28,7 @@ module ZeroWaste
     config.i18n.load_path += Rails.root.glob("config/locales/**/*.{rb,yml}")
 
     config.assets.css_compressor = nil
+
+    config.exceptions_app = routes
   end
 end

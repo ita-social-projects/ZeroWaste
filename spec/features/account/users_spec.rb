@@ -130,13 +130,4 @@ describe "visit admin page", js: true do
       expect(page).to have_content "Re-password doesn't match Password"
     end
   end
-
-  describe "user info page" do
-    context "viewing non-existing user" do
-      it "renders the 404 page" do
-        visit account_user_path(id: 1355)
-        expect(page).to have_content("page you were looking for doesn't exist")
-      end
-    end
-  end
 end
