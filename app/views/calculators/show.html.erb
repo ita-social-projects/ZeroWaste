@@ -1,11 +1,11 @@
 <%# TODO: Delete this and use user provided value %>
-<% color = "blue" %>
+<% color = "#088F8F" %>
 
 <%# TODO: Delete this and use user provided value %>
 <% calculator_image = "scales.png" %>
 
-<div class="rounded jumbotron jumbotron-fluid position-relative">
-  <h1 class="pt-6 text-2xl font-semibold text-center font-sans text-<%= color %>">Calculator <%= @calculator.name %> <%= @text %></h1>
+<div style="--calculator-color: <%= color %>" class="rounded jumbotron jumbotron-fluid position-relative">
+  <h1 class="pt-6 text-2xl font-semibold text-center font-sans dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
   <div class="flex-wrap d-flex justify-content-around calculator_wrap ms-5">
 
   <%= form_with html: { class: "simple_form_calculator"}, url: calculate_calculator_path(@calculator) do |form| %>
@@ -26,7 +26,7 @@
                           class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
         <% end %>
     <% end %>
-    <%= form.submit "Calculate", class: "btn-nonito result-btn bg-#{color}" %>
+    <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color" %>
     </div>
   <% end %>
   <%= image_tag "#{calculator_image}", class: "scales_img", alt: "Scales" %>

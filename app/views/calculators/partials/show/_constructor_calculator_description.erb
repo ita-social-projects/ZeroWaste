@@ -1,21 +1,21 @@
 <%# TODO: Delete this and use user provided value %>
-<% color = "blue" %>
+<% color = "#088F8F" %>
 
-<section class="description-section">
+<section style="--calculator-color: <%= color %>" class="description-section">
   <div class="description-block">
     <div class="description-content-box">
       <p data-type="description_block_html" class="description-text">
         <%# TODO: Change description text and links %>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus faucibus arcu iaculis placerat euismod. Pellentesque nibh arcu, varius ac arcu a, eleifend semper leo. Aliquam ultricies lacus at mi ornare, sit amet vestibulum est fermentum. Praesent sed dapibus elit. Curabitur congue ante non metus posuere porttitor. Etiam non lacus imperdiet turpis pellentesque viverra. Nulla in velit mi. Suspendisse molestie tempor ornare. 
-        <%= link_to_external(text: "Calculate Method", url: t("layouts.description_block.method_link"), class: "text-#{color}") %> or 
-        <%= link_to_external(text: "Contact Us", url: t("layouts.description_block.contact_link"), class: "text-#{color}") %>
+        <%= link_to_external(text: "Calculate Method", url: t("layouts.description_block.method_link"), class: "dynamic-text-color") %> or 
+        <%= link_to_external(text: "Contact Us", url: t("layouts.description_block.contact_link"), class: "dynamic-text-color") %>
       </p>
     </div>
     <div class="description-btn-box">
       <%# TODO: Change link here %>
       <%= link_to_external(text: t('layouts.description_block.use_less'), 
                            url: t("layouts.description_block.use_less_link"), 
-                           class: "action-button rounded bg-#{color} text-white") %>
+                           class: "action-button rounded dynamic-background-color text-white") %>
     </div> 
   </div>
 </section>

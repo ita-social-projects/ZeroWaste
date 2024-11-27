@@ -1,17 +1,17 @@
 <%# TODO: Delete this and use user provided value %>
-<% color = "blue" %>
+<% color = "#088F8F" %>
 
 <%# TODO: Delete this and use user provided value%>
 <% formula_image = "money_to_spent_2.png" %>
 
-<div class="calculation-results rounded jumbotron jumbotron-fluid position-relative">
-  <h2 class="pt-6 text-2xl font-semibold text-center text-<%= color %>">Calculation Results</h2>
+<div style="--calculator-color: <%= color %>" class="calculation-results rounded jumbotron jumbotron-fluid position-relative">
+  <h2 class="pt-6 text-2xl font-semibold text-center dynamic-text-color">Calculation Results</h2>
   <div class="jumbotron calculation-results result main-result-container result-container">
     <% results.each do |result| %>
       <div>
           <%= image_tag "#{formula_image}", class: "img-margin", alt: "icon" %>
-          <p class="text-<%= color %>"><%= result[:result] %></p>
-          <p class="text-2xl text-<%= color %>"><%= result[:en_unit] %></p>
+          <p class="dynamic-text-color"><%= result[:result] %></p>
+          <p class="text-2xl dynamic-text-color"><%= result[:unit] %></p>
           <p class="diapers-font-text"><%= result[:label] %></p>
       </div>
     <% end %>

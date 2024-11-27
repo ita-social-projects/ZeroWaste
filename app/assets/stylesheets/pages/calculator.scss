@@ -32,6 +32,14 @@
   font-style: normal;
 }
 
+.dynamic-text-color {
+  color: var(--calculator-color);
+}
+
+.dynamic-background-color {
+  background-color: var(--calculator-color);
+}
+
 #calc {
   padding-top: 2px;
   margin-right: 10px;
