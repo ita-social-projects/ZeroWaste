@@ -21,6 +21,24 @@ uk:
   calculators:
     index:
       meta-title: "Калькулятори"
+    mhc_calculator:
+      calculator_name: "Калькулятор менструальних гігієнічних засобів"
+      form:
+        user_age: "Ваш вік"
+        menstruation_age: "Вік початку менструації"
+        menopause_age: "Вік настання менопаузи"
+        average_menstruation_cycle_duration: "Середня тривалість менструального циклу (дні)"
+        pads_per_cycle: "Середня кількість засобів гігієни за цикл"
+        pad_category: "Категорія засобів гігієни"
+        budgetary: "Бюджетна"
+        average: "Середня"
+        premium: "Преміум"
+      bought_products: "ви вже використали"
+      will_buy_products: "ви ще використаєте"
+      money_spent: "ви вже витратили"
+      money_will_be_spent: "ви ще витратите"
+      pieces: "шт."
+      unit: "грн"
     new_calculator:
       diaper_сalculator: "Калькулятор підгузків"
       form:
@@ -58,6 +76,7 @@ uk:
       year_and_month_error_msg: "Будь ласка, виберіть, скільки років та місяців дитині"
       year_error_msg: "Будь ласка, виберіть, скільки років дитині"
       month_error_msg: "Будь ласка, виберіть, скільки місяців дитині"
+      presence_error_msg: "Поле \"%{field}\" відсутнє"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
@@ -90,6 +109,7 @@ uk:
       admin: "Адміністратор"
       calculate: "Калькулятор підгузків"
       log_out: "Вийти"
+      mhc_calculator: "Калькулятор прокладок"
       sign_up: "Зареєструватися"
       log_in: "Увійти"
       contact_us: "Зв'яжіться з нами"
@@ -109,6 +129,20 @@ uk:
       method_link: "https://zerowastelviv.org.ua/diaper-calculator-method/"
       contact_link: "https://zerowastelviv.org.ua/kontakty/"
       use_less_link: "https://zerowastelviv.org.ua/zero-waste-nappies/"
+    mhc_description_block:
+      mhc_description_block_html:
+        "Ці дані є орієнтовними, і точні значення можуть варіюватися залежно від ваших індивідуальних потреб та звичок. 
+        Використання багаторазових менструальних засобів може значно зменшити кількість відходів і стати економічно 
+        вигідною альтернативою одноразовим продуктам. Ви можете оптимізувати використання цих засобів на будь-якому етапі, 
+        що дозволить знизити витрати та підвищити комфорт. Ми рекомендуємо ознайомитися з методами ефективного використання 
+        багаторазових менструальних продуктів та їх перевагами. Більш %{information_link} про розрахунки кількості та вартості 
+        цих продуктів можна знайти в наших матеріалах або звернувшись %{contact_link} з вашими питаннями."
+      information_link_text: "детальну інформацію"
+      contact_link_text: "до нас"
+      information_link: "https://docs.google.com/document/d/1xu6cch-Ner9OEpU4_TV5suIUsuVcWpgiUuX6QrOgaL4"
+      contact_link: "https://zerowastelviv.org.ua/kontakty/"
+      use_less: "ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ"
+      use_less_link: "https://zerowastelviv.org.ua/reuse-zero-waste-menstruatsii/"
     homepage:
       homepage_title: "Вас вітає калькулятор підгузків"
       description: "Цей калькулятор дає змогу порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
@@ -407,6 +441,8 @@ uk:
         name: "Показати калькулятори користувачам"
       sandbox_mode:
         name: "Увімкнути режим пісочниці"
+        mhc_calculator_status:
+          name: "Увімкнути калькулятор продуктів жіночої гігієни"
     sessions:
       new:
         log_in_header: "Увійти"
@@ -415,9 +451,6 @@ uk:
           email: "Електронна пошта"
           password: "Пароль"
     shared:
-      navigation:
-        donate: "Підтримати"
-        donate_link: "https://zerowastelviv.org.ua/pidtrymaty/"
       links:
         forgot_your_password: "Забули пароль?"
         log_in: "Увійти"

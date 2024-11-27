@@ -38,10 +38,12 @@
             <td class="text-center"><%= link_to icon("fa-solid", "eye"), account_user_path(id: user.id) %></td>
             <td class="text-center"><%= link_to icon("fa-solid", "edit"), edit_account_user_path(id: user.id) %></td>
             <td class="text-center">
-              <%= button_to account_user_path(id: user, user: toggle_block_param(user)),
-                            method: :patch,
-                            data: { turbo_confirm: toggle_confirm(user) } do %>
-                <%= icon("fa-solid", toggle_class(user)) %>
+              <% unless user.admin? %>
+                <%= button_to account_user_path(id: user, user: toggle_block_param(user)),
+                              method: :patch,
+                              data: { turbo_confirm: toggle_confirm(user) } do %>
+                  <%= icon("fa-solid", toggle_class(user)) %>
+                <% end %>
               <% end %>
             </td>
             <td class="text-center">
