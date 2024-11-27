@@ -19,6 +19,10 @@ class CalculatorsController < ApplicationController
 
   def calculate
     @calculator = resource
+
+    @results = Calculators::CalculationService.new(@calculator, params[:inputs]).perform
+
+    respond_to :turbo_stream
   end
 
   def calculator

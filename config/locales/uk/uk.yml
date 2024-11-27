@@ -576,6 +576,18 @@ uk:
   activerecord:
     errors:
       models:
+        field:
+          attributes:
+            var_name:
+              unused_in_formula: "не використовується в жодній формулі"
+              calculator_var_name_uniqueness: "була використана %{count} раз"
+        formula:
+          attributes:
+            expression:
+              uninitialized_fields:
+                one: "має не ініціалізоване поле %{fields}"
+                other: "має не ініціалізовані поля %{fields}"
+              mathematically_invalid: "є математично некоректним"
         calculator:
           attributes:
             name:
@@ -711,7 +723,8 @@ uk:
         period_end: "Кінець періоду"
         usage_amount: "Обсяг використання"
       calculator:
-        name: "Назва"
+        en_name: "Назва Англійською"
+        uk_name: "Назва Українською"
         slug: "Шлях"
         preferable: "Бажаний"
       category:
@@ -724,6 +737,14 @@ uk:
         sum: "Сума"
       product:
         title: "Назва"
+      field:
+        en_label: "Назва Англійською"
+        uk_label: "Назва Українською"
+        var_name: "Змінна"
+      formula:
+        en_label: "Назва Англійською"
+        uk_label: "Назва Українською"
+        expression: "Вираз"
   notifications:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"
