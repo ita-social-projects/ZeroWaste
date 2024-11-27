@@ -1,3 +1,5 @@
+[![CI](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml)
+
 <a href="https://softserve.academy/"><img src="https://s.057.ua/section/newsInternalIcon/upload/images/news/icon/000/050/792/vnutr_5ce4f980ef15f.jpg" title="SoftServe IT Academy" alt="SoftServe IT Academy"></a>
 
 # ZERO WASTE
@@ -185,5 +187,3 @@ Run `git commit -m "name"` to commit changes locally.
 If you have some troubles with style conventions after running `git commit -m "name"`, you need to run `rubocop -a` or `rubocop -A`. Each of these commands can resolve the majority of warnings.
 
 Type `git commit -m "name" --no-verify` for commiting without formating.
-
-[![CI](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml/badge.svg)](https://github.com/ita-social-projects/ZeroWaste/actions/workflows/ci.yml)
