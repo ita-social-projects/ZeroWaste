@@ -7,6 +7,14 @@ module.exports = {
     './app/javascript/**/*.js',
     './app/views/**/*.erb'
   ],
+  safelist: [
+    {
+      pattern: /bg-.*/,
+    },
+    {
+      pattern: /text-.*/,
+    },
+  ],
   theme: {
     extend: {
       fontFamily: {

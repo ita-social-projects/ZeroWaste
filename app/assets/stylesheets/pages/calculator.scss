@@ -16,6 +16,20 @@
   font-style: normal;
   transition: transform 0.5s ease-in-out;
   max-width: 300px;
+  @include transition(all 0.5s ease-in-out);
+
+  &:hover {
+    background-color: $matte_lime_green;
+  }
+}
+
+.btn-nonito {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 
 #calc {
