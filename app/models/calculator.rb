@@ -35,8 +35,8 @@ class Calculator < ApplicationRecord
   validates :en_name, :uk_name, presence: true
   validates :en_name, :uk_name, length: { minimum: 3, maximum: 50 }
   validates :slug, presence: true, uniqueness: true
-  validates :english_additional_notes, length: { maximum: 150 }
-  validates :ukranian_additional_notes, length: { maximum: 150 }
+  validates :english_additional_notes, length: { maximum: 500 }
+  validates :ukranian_additional_notes, length: { maximum: 500 }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]

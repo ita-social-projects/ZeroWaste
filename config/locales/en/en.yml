@@ -439,6 +439,8 @@ en:
           update_calculator_button: "Update calculator"
       new:
         create_calculator_button: "Create calculator"
+        ukranian_additional_notes: "Додаткові нотатки українською"
+        english_additional_notes: "Додаткові нотатки англійською"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:

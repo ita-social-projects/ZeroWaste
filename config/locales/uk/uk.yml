@@ -326,6 +326,8 @@ uk:
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
+        ukranian_additional_notes: "Ukrainian Additional Notes"
+        english_additional_notes: "English Additional Notes"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"
