@@ -22,10 +22,10 @@ RSpec.describe CalculatorsController, type: :request do
         expect(assigns(:calculators)).not_to be_nil
       end
 
-      context 'and constructor flipper is disabled' do
+      context "and constructor flipper is disabled" do
         include_context :disable_calculators_constructor
 
-        it 'raises routing error' do
+        it "raises routing error" do
           expect { get calculators_path }.to raise_error(ActionController::RoutingError)
         end
       end
