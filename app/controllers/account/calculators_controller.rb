@@ -2,10 +2,9 @@
 
 class Account::CalculatorsController < Account::BaseController
   load_and_authorize_resource
+  before_action :check_constructor_flipper
 
   def index
-    render "shared/under_construction" unless Rails.env.local?
-
     @q           = collection.ransack(params[:q])
     @calculators = @q.result.page(params[:page])
   end
@@ -94,5 +93,11 @@ class Account::CalculatorsController < Account::BaseController
       ::Calculators::PreferableService.new(calculator_params).perform!
       @calculator.update(calculator_params)
     end
+  end
+
+  def check_constructor_flipper
+    return if Flipper[:constructor_status].enabled?
+
+    raise ActionController::RoutingError, "Constructor flipper is disabled"
   end
 end

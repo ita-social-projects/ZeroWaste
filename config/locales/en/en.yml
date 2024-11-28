@@ -481,6 +481,8 @@ en:
         name: "Show calculators on the public side"
       sandbox_mode:
         name: "Enable sandbox mode"
+      constructor_status:
+        name: "Enable calculators constructor"
       mhc_calculator_status:
         name: "Enable mhc calculator"
     sessions:

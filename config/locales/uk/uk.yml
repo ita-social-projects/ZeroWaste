@@ -441,8 +441,10 @@ uk:
         name: "Показати калькулятори користувачам"
       sandbox_mode:
         name: "Увімкнути режим пісочниці"
-        mhc_calculator_status:
-          name: "Увімкнути калькулятор продуктів жіночої гігієни"
+      constructor_status:
+        name: "Увімкнути конструктор калькуляторів"
+      mhc_calculator_status:
+        name: "Увімкнути калькулятор продуктів жіночої гігієни"
     sessions:
       new:
         log_in_header: "Увійти"

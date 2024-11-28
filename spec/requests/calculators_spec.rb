@@ -5,6 +5,8 @@ require "rails_helper"
 RSpec.describe CalculatorsController, type: :request do
   let(:calculator) { create(:calculator) }
 
+  include_context :enable_calculators_constructor
+
   describe "GET #index" do
     context "when show_calculators_list feature is enabled" do
       include_context :show_calculators_list
@@ -15,6 +17,14 @@ RSpec.describe CalculatorsController, type: :request do
         expect(response).to be_successful
         expect(response).to render_template(:index)
         expect(assigns(:calculators)).not_to be_nil
+      end
+
+      context "and constructor flipper is disabled" do
+        include_context :disable_calculators_constructor
+
+        it "raises routing error" do
+          expect { get calculators_path }.to raise_error(ActionController::RoutingError)
+        end
       end
     end
 

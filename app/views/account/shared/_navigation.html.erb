@@ -23,7 +23,7 @@
         </li>
         <% if user_signed_in? && current_user.admin? %>
           <li>
-            <%= link_to t("layouts.navigation.admin"), account_calculators_path, class: "tab-main-page" %>
+            <%= link_to t("layouts.navigation.admin"), edit_account_site_setting_path, class: "tab-main-page" %>
           </li>
         <% end %>
         <% if user_signed_in? %>
