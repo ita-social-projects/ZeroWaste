@@ -26,14 +26,14 @@ RSpec.shared_context :hide_calculators_list do
   end
 end
 
-RSpec.shared_context :show_constructor do
+RSpec.shared_context :enable_calculators_constructor do
   before do
     FeatureFlag.find_or_create_by!(name: "constructor_status")
     Flipper.enable(:constructor_status)
   end
 end
 
-RSpec.shared_context :hide_constructor do
+RSpec.shared_context :disable_calculators_constructor do
   before do
     FeatureFlag.find_or_create_by!(name: "constructor_status")
     Flipper.disable(:constructor_status)

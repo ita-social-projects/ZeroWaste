@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :authorize_admin
-  include_context :show_constructor
+  include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
 
@@ -25,7 +25,7 @@ RSpec.describe "Account::CalculatorsController", type: :request do
 
   describe "GET #index" do
     context "when flipper is turned off" do
-      include_context :hide_constructor
+      include_context :disable_calculators_constructor
 
       it "raises routing error" do
         expect { get account_calculators_path }.to raise_error(ActionController::RoutingError)

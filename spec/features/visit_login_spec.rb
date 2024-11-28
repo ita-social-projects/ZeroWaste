@@ -6,7 +6,7 @@ describe "visit Login page", js: true do
   let(:user) { create(:user) }
   let(:calculator) { create(:calculator) }
 
-  include_context :show_constructor
+  include_context :enable_calculators_constructor
 
   it "when sign in with correct login and password" do
     allow_any_instance_of(ApplicationController)
