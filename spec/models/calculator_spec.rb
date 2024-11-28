@@ -32,6 +32,8 @@ RSpec.describe Calculator, type: :model do
     it { is_expected.to validate_length_of(:uk_name).is_at_least(3).is_at_most(50) }
     it { is_expected.to validate_presence_of(:slug) }
     it { is_expected.to validate_uniqueness_of(:slug) }
+    it { is_expected.to validate_length_of(:english_additional_notes).is_at_most(150) }
+    it { is_expected.to validate_length_of(:ukranian_additional_notes).is_at_most(150) }
   end
 
   describe "associations" do

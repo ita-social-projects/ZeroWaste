@@ -25,6 +25,8 @@
       </div>
     </div>
   </div>
+  
+  <%= render "account/calculators/partials/tinymce_form", f: f %>
 
   <div class="button-group d-flex">
     <%= f.button :submit, t('account.calculators.new.create_calculator_button'), class: 'btn btn-green me-2 height-auto w-auto' %>

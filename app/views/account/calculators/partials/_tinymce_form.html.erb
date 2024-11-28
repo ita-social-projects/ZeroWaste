@@ -1,0 +1,14 @@
+  <%= tinymce_assets %> 
+  <div data-controller="tinymce">
+    <div class="pt-4">
+      <%= f.label :ukranian_additional_notes, "Ukrainian Additional Notes" %>
+      <%= f.text_area :ukranian_additional_notes, data: { tinymce_target: "input" }, class: "tinymce", rows: 20, cols: 60 %>
+    </div>
+
+    <div class="pt-4 pb-4">
+      <%= f.label :english_additional_notes, "English Additional Notes" %>
+      <%= f.text_area :english_additional_notes, data: { tinymce_target: "input" }, class: "tinymce", rows: 20, cols: 60 %>
+    </div>
+  </div>
+
+  <%= tinymce %>
