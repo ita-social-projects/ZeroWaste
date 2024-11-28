@@ -29,7 +29,7 @@ RSpec.describe CalculatorsController, type: :request do
                    label: "three",
                    kind: "parameter", calculator: calculator)
   end
-  let(:json_response) { JSON.parse(response.body) }
+  let(:json_response) { response.parsed_body }
 
   describe "POST api/v2/calculators/PERMALINK/compute" do
     before do
@@ -106,6 +106,27 @@ RSpec.describe CalculatorsController, type: :request do
         expect(response).to be_successful
         expect(response).to render_template(:old_calculator)
         expect(response.body).to include("results")
+      end
+    end
+  end
+
+  describe "GET /mhc_calculator" do
+    context "mhc calculator is enabled" do
+      include_context :mhc_calculator_enabled
+
+      it "renders pad calculator" do
+        get mhc_calculator_path
+
+        expect(response).to be_successful
+        expect(response).to render_template(:mhc_calculator)
+      end
+    end
+
+    context "mhc calculator is disabled" do
+      include_context :mhc_calculator_disabled
+
+      it "renders pad calculator" do
+        expect { get mhc_calculator_path }.to raise_error(ActionController::RoutingError)
       end
     end
   end

@@ -1,0 +1,4 @@
+<%= turbo_stream.replace(
+      dom_id(@category, :form),
+      partial: "account/categories/partials/new/form",
+      locals: {category: @category}) %>

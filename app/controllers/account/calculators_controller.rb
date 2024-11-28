@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :calculator, only: [:edit, :update, :destroy]
+  before_action :calculator, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
+    render "shared/under_construction" unless Rails.env.local?
+
     @q           = collection.ransack(params[:q])
     @calculators = @q.result.page(params[:page])
   end

@@ -20,5 +20,7 @@ export default class extends Controller {
 
     this.willBuyDiapersPluralizeTarget.innerHTML = result.to_be_diapers_amount_pluralize;
     this.boughtDiapersPluralizeTarget.innerHTML = result.used_diapers_amount_pluralize;
+
+    this.element.scrollIntoView({ behavior: "smooth" });
   }
 }

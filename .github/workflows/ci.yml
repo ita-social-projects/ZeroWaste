@@ -3,6 +3,16 @@ name: CI
 on:
   push:
 
+  pull_request:
+    branches:
+      - develop
+      - master
+    types:
+      - closed
+
+  release:
+    types: [published]
+
 jobs:
   rubocop:
     runs-on: ubuntu-latest
@@ -10,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.2
+          ruby-version: 3.3.5
           bundler-cache: true
           cache-version: 1
       - name: Run rubocop
@@ -48,13 +58,19 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.2
+          ruby-version: 3.3.5
           bundler-cache: true
+
+      - name: Update packages
+        run: sudo apt-get update
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvips42 libvips-dev imagemagick
 
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "14.x"
+          registry-url: "https://registry.npmjs.org"
 
       - uses: nanasess/setup-chromedriver@master
 
@@ -76,3 +92,40 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           json-path: tmp/rspec_results.json
         if: always()
+
+  deploy-to-staging:
+    needs: rspec
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: staging
+          deploy_key: ${{ secrets.STAGING_KEY_PASSWORD }}
+          enc_rsa_key_pth: config/credentials/staging_deploy_id_ed25519_enc
+
+  deploy-to-production:
+    needs: rspec
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: production
+          deploy_key: ${{ secrets.PROD_DEPLOY_KEY }}

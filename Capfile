@@ -8,15 +8,8 @@ require "capistrano/bundler"
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 require "capistrano/passenger"
-require "capistrano/yarn"
 require "capistrano/rails_tail_log"
 require "capistrano/rails"
-require "capistrano/rbenv"
-require "dotenv"
-
-set :rbenv_type, :user
-set :rbenv_ruby, "3.2.2"
-
-Dotenv.load
+require "capistrano/rvm"
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

@@ -1,7 +1,6 @@
 @layer components {
   .page-header {
-    @apply flex w-full mx-auto mb-1 border-b-2 border-gray;
-    max-width: $max_width_content;
+    @apply flex w-full max-w-1230 mx-auto border-b-2 border-gray;
   }
 
   .tab {
@@ -13,6 +12,6 @@
   }
 
   .header-btns {
-    @apply inline w-auto ml-2 min-w-fit;
+    @apply w-auto ml-2 min-w-fit;
   }
 }

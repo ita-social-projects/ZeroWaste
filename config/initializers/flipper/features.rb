@@ -9,4 +9,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
 
   Flipper[:sandbox_mode].en_description = "This feature flag is responsible for enabling sandbox mode"
   Flipper[:sandbox_mode].uk_description = "Відкриває можливість використовувати режим пісочниці"
+
+  Flipper[:mhc_calculator_status].en_description = "This feature flag is responsible for enabling mhc calculator"
+  Flipper[:mhc_calculator_status].uk_description = "Відкриває можливість використовувати калькулятор продуктів жіночої гігієни"
 end
