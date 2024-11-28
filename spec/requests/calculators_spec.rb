@@ -10,9 +10,6 @@ RSpec.describe CalculatorsController, type: :request do
   describe "GET #index" do
     context "when show_calculators_list feature is enabled" do
       include_context :show_calculators_list
-      before(:example, :disabled_constructor) do
-        include_context :disable_calculators_constructor
-      end
 
       it "renders the calculators index when show_calculators_list is enabled" do
         get calculators_path
