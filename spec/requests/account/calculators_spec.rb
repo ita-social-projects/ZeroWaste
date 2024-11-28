@@ -8,6 +8,10 @@ RSpec.describe "Account::CalculatorsController", type: :request do
 
   let!(:calculator) { create(:calculator) }
 
+  let(:user) { create(:user) }
+  let(:locale) { "en" }
+  let(:new_path) { new_account_calculator_path(locale: locale) }
+
   describe "DELETE #destroy" do
     it "destroys the calculator and redirects" do
       expect do
@@ -34,6 +38,53 @@ RSpec.describe "Account::CalculatorsController", type: :request do
 
         expect(response).to render_template(:index)
         expect(assigns(:calculators)).to include(calculator)
+      end
+    end
+  end
+
+  describe "GET #new" do
+    subject { get new_path }
+
+    context "when the user is authorized" do
+      it "initializes a new Calculator object with fields and formulas" do
+        subject
+
+        expect(response).to have_http_status(:ok)
+
+        calculator = assigns(:calculator)
+        expect(calculator).to be_a_new(Calculator)
+
+        expect(calculator.fields.size).to eq(1)
+        expect(calculator.formulas.size).to eq(1)
+
+        expect(calculator.fields.first).to be_a_new(Field)
+        expect(calculator.formulas.first).to be_a_new(Formula)
+      end
+
+      it "renders the new template" do
+        subject
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context "when the locale is different" do
+      let(:locale) { "uk" }
+
+      it "handles the locale correctly" do
+        subject
+        expect(I18n.locale).to eq(:uk)
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context "when the user is not logged in" do
+      before do
+        sign_out(:user)
+      end
+
+      it "redirects to the login page" do
+        subject
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

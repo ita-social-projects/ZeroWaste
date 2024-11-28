@@ -11,6 +11,11 @@
           <% end %>
         </li>
         <li>
+          <% if Flipper[:mhc_calculator_status].enabled? %>
+            <%= link_to t("layouts.navigation.mhc_calculator"), mhc_calculator_path, class: "tab-main-page" %>
+          <% end %>
+        </li>
+        <li>
           <%= link_to t("layouts.navigation.about_us"), about_path, class: "tab-main-page" %>
         </li>
         <li>

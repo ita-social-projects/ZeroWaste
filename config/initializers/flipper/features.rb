@@ -12,4 +12,7 @@ if Flipper::Adapters::ActiveRecord::Feature.table_exists?
 
   Flipper[:constructor_status].en_description = "This feature flag is responsible for enabling calculators constructor"
   Flipper[:constructor_status].uk_description = "Відкриває можливість використовувати конструктор калькулятора"
+
+  Flipper[:mhc_calculator_status].en_description = "This feature flag is responsible for enabling mhc calculator"
+  Flipper[:mhc_calculator_status].uk_description = "Відкриває можливість використовувати калькулятор продуктів жіночої гігієни"
 end

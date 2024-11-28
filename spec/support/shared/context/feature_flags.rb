@@ -49,5 +49,19 @@ def sandbox_mode_context(mode)
   end
 end
 
+RSpec.shared_context :mhc_calculator_enabled do
+  before do
+    FeatureFlag.find_or_create_by!(name: "show_calculators_list")
+    Flipper.enable(:mhc_calculator_status)
+  end
+end
+
+RSpec.shared_context :mhc_calculator_disabled do
+  before do
+    FeatureFlag.find_or_create_by!(name: "show_calculators_list")
+    Flipper.disable(:mhc_calculator_status)
+  end
+end
+
 sandbox_mode_context(:enable)
 sandbox_mode_context(:disable)
