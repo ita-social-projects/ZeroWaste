@@ -4,36 +4,37 @@
 <%# TODO: Delete this and use user provided value %>
 <% calculator_image = "scales.png" %>
 
-<div style="--calculator-color: <%= color %>" class="rounded jumbotron jumbotron-fluid position-relative">
-  <h1 class="pt-6 text-2xl font-semibold text-center font-sans dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
-  <div class="flex-wrap d-flex justify-content-around calculator_wrap ms-5">
+<div style="--calculator-color: <%= color %>">
+  <div class="rounded jumbotron jumbotron-fluid position-relative">
+    <h1 class="pt-6 text-2xl font-semibold text-center font-sans dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
+    <div class="flex-wrap d-flex justify-content-around calculator_wrap ms-5">
 
-  <%= form_with html: { class: "simple_form_calculator"}, url: calculate_calculator_path(@calculator) do |form| %>
-    <div class="flex-item flex-column">
-    <% @calculator.fields.each do |field| %>
-        <div class="pb-2 input_lable"><%= form.label field.var_name, field.label %></div>
-        <% if field.kind == 'number' %>
-          <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
-            <%= form.number_field "inputs[#{field.var_name}]", 
-                                placeholder: field.label,
-                                class: "required rounded w-100 calculator-field"
-                                %>
-          </div>
-        <% else %>
-          <%= form.select "inputs[#{field.var_name}]", 
-                          options_from_collection_for_select(field.categories, :price, :name),
-                          {},
-                          class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
-        <% end %>
+    <%= form_with html: { class: "simple_form_calculator"}, url: calculate_calculator_path(@calculator) do |form| %>
+      <div class="flex-item flex-column">
+      <% @calculator.fields.each do |field| %>
+          <div class="pb-2 input_lable"><%= form.label field.var_name, field.label %></div>
+          <% if field.kind == 'number' %>
+            <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
+              <%= form.number_field "inputs[#{field.var_name}]", 
+                                  placeholder: field.label,
+                                  class: "required rounded w-100 calculator-field"
+                                  %>
+            </div>
+          <% else %>
+            <%= form.select "inputs[#{field.var_name}]", 
+                            options_from_collection_for_select(field.categories, :price, :name),
+                            {},
+                            class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
+          <% end %>
+      <% end %>
+      <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color" %>
+      </div>
     <% end %>
-    <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color" %>
+    <%= image_tag calculator_image, class: "scales_img", alt: t(".image_alt") %>
     </div>
-  <% end %>
-  <%= image_tag "#{calculator_image}", class: "scales_img", alt: "Scales" %>
-
   </div>
-</div>
 
-<%= turbo_frame_tag "calc-results" %>
+  <%= turbo_frame_tag "calc-results" %>
+</div>
 
 <%= render "calculators/partials/show/constructor_calculator_description" %>
