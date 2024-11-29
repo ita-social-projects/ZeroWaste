@@ -15,11 +15,11 @@
   <%= javascript_importmap_tags %>
 </head>
 <body class="min-h-screen admin">
-  <%= render 'layouts/flash_messages' %>
-  <%= render 'layouts/account_navbar' %>
+  <%= render 'shared/flash_messages' %>
+  <%= render 'shared/account_navbar' %>
   <div class="container admin-container">
     <%= yield %>
   </div>
-  <%= render 'layouts/account_footer' %>
+  <%= render 'shared/account_footer' %>
 </body>
 </html>

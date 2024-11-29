@@ -49,7 +49,48 @@ en:
       text: "This page is temporarily unavailable as we work on some upgrades. Exciting Changes Are Coming!"
       text_update: "Keep an eye out for updates!"
       alt_text: "Under Construction"
+    account_navbar:
+      homepage: "Home page"
+      calculators: "Calculators"
+      histories: "History"
+      users: "Users"
+      messages: "Messages"
+      site_settings: "Site Settings"
+      categories: "Categories"
+      products: "Products"
+      zerowaste_logo: "ZeroWaste logo"
+    account_footer:
+      created_with: "Created with"
+      by: "by"
   calculators:
+    description_block:
+      description_block_html:
+        "These are approximate results. The exact numbers for your
+        family may differ depending on your daily habits and the diaper brand of choice. At any point of using
+        diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
+        this can be done and what reusable alternatives to disposable diapers there are. You can also learn
+        more about %{calculate_link} the number and cost of diapers
+        or %{contact_link} with any other questions you may have."
+      calculate_link: "how we calculate"
+      contact_us_link: "contact us"
+      use_less: "HOW TO USE LESS"
+      method_link: https://zerowastelviv.org.ua/diaper-calculator-method-en/
+      contact_link: https://zerowastelviv.org.ua/contacts/
+      use_less_link: https://zerowastelviv.org.ua/en/zero-waste-nappies-en/
+    mhc_description_block:
+      mhc_description_block_html:
+        "These data are approximate, and exact values may vary depending on your individual needs and habits. 
+        Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
+        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
+        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
+        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials 
+        or by %{contact_link} with your questions."
+      information_link_text: "detailed information"
+      contact_link_text: "contacting us"
+      information_link: "https://docs.google.com/document/d/1xu6cch-Ner9OEpU4_TV5suIUsuVcWpgiUuX6QrOgaL4"
+      contact_link: "https://zerowastelviv.org.ua/en/contacts/"
+      use_less: "HOW TO USE LESS"
+      use_less_link: "https://zerowastelviv.org.ua/en/zero-waste-period/"
     index:
       meta-title: "Calculators"
     mhc_calculator:
@@ -133,34 +174,6 @@ en:
       contact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
       local_lang: "Українська"
-    description_block:
-      description_block_html:
-        "These are approximate results. The exact numbers for your
-        family may differ depending on your daily habits and the diaper brand of choice. At any point of using
-        diapers there is a way to reduce the number of diapers used. You are welcome to learn more about how
-        this can be done and what reusable alternatives to disposable diapers there are. You can also learn
-        more about %{calculate_link} the number and cost of diapers
-        or %{contact_link} with any other questions you may have."
-      calculate_link: "how we calculate"
-      contact_us_link: "contact us"
-      use_less: "HOW TO USE LESS"
-      method_link: https://zerowastelviv.org.ua/diaper-calculator-method-en/
-      contact_link: https://zerowastelviv.org.ua/contacts/
-      use_less_link: https://zerowastelviv.org.ua/en/zero-waste-nappies-en/
-    mhc_description_block:
-      mhc_description_block_html:
-        "These data are approximate, and exact values may vary depending on your individual needs and habits. 
-        Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
-        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
-        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
-        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials 
-        or by %{contact_link} with your questions."
-      information_link_text: "detailed information"
-      contact_link_text: "contacting us"
-      information_link: "https://docs.google.com/document/d/1xu6cch-Ner9OEpU4_TV5suIUsuVcWpgiUuX6QrOgaL4"
-      contact_link: "https://zerowastelviv.org.ua/en/contacts/"
-      use_less: "HOW TO USE LESS"
-      use_less_link: "https://zerowastelviv.org.ua/en/zero-waste-period/"
     homepage:
       homepage_title: "Welcome to the diaper calculator"
       description:
@@ -168,19 +181,6 @@ en:
         switching to regular underwear. And also how much money you have already spent on diapers and how much money you have yet to spend."
       calculate: "Let's go"
       visit_website: "Visit website"
-    account_navbar:
-      homepage: "Home page"
-      calculators: "Calculators"
-      histories: "History"
-      users: "Users"
-      messages: "Messages"
-      site_settings: "Site Settings"
-      categories: "Categories"
-      products: "Products"
-      zerowaste_logo: "ZeroWaste logo"
-    account_footer:
-      created_with: "Created with"
-      by: "by"
   mailer:
     welcome_mail:
       subject: "Welcome to ZeroWaste!"
