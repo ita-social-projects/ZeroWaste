@@ -17,6 +17,8 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb @calculator.name
   end
 
   def calculate

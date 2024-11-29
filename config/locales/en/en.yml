@@ -102,6 +102,7 @@ en:
       presence_error_msg: "%{field} is missing"
     show:
       welcome_header: "Welcome to ZeroWaste"
+      image_alt: "Scales"
     buttons:
       to_main: "To main"
       calculate: "Calculate"
