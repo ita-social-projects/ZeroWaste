@@ -104,4 +104,17 @@ RSpec.describe CalculatorsController, type: :request do
       end
     end
   end
+
+  describe "POST #calculate" do
+    let(:calculator) { create(:calculator) }
+    let(:formula) { build(:formula, expression: "a + 5", calculator: calculator) }
+    let(:field) { build(:field, var_name: "a", calculator: calculator) }
+
+    it "stores the results in the session under the calculator slug" do
+      post calculate_calculator_path(calculator), params: { calculator: calculator, inputs: { a: 5 }, format: :turbo_stream }
+
+      expect(session[:calculation_results]).to have_key(calculator.slug)
+      expect(session[:calculation_results][calculator.slug]).to eq(assigns(:results))
+    end
+  end
 end

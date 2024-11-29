@@ -18,7 +18,7 @@
     </div>
   <% end %>
   <%= turbo_frame_tag "calc-results" do %>
-    <% if session.dig(:calculation_results, @calculator.slug)&.presence %>
+    <% if session.dig(:calculation_results, @calculator.slug).present? %>
       <%= render "calculators/partials/calculation_results", results: session[:calculation_results][@calculator.slug].map(&:symbolize_keys) %>
     <% end %>
   <% end %>
