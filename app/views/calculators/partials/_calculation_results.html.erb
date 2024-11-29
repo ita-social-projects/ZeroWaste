@@ -7,9 +7,15 @@
     <% results.each do |result| %>
       <div>
           <%= image_tag "#{formula_image}", class: "img-margin", alt: "icon" %>
-          <p class="dynamic-text-color"><%= result[:result] %></p>
-          <p class="text-2xl dynamic-text-color"><%= result[:unit] %></p>
-          <p class="diapers-font-text"><%= result[:label] %></p>
+          <p class="dynamic-text-color">
+            <%= result[:result] %>
+          </p>
+          <p class="text-2xl dynamic-text-color">
+            <%= result[:unit] %>
+          </p>
+          <p class="diapers-font-text">
+            <%= result[:label] %>
+          </p>
       </div>
     <% end %>
   </div>
