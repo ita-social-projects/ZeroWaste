@@ -31,11 +31,26 @@ jobs:
           ruby-version: 3.3.5
           bundler-cache: true
 
+      - name: Set up Unlighthouse Scan
+        run: npm install -g @unlighthouse/cli puppeteer
+
       - uses: miloserdow/capistrano-deploy@v3
         with:
           target: staging
           deploy_key: ${{ secrets.STAGING_KEY_PASSWORD }}
           enc_rsa_key_pth: config/credentials/staging_deploy_id_ed25519_enc
+
+      - name: Unlighthouse Assertions and Client
+        run: unlighthouse-ci --site http://51.44.25.104/en --build-static --output-path .unlighthouse/dist
+
+      - name: Convert JSON to CSV
+        run: ruby lib/convert_json_to_csv.rb .unlighthouse/dist/ci-result.json .unlighthouse/dist/ci-result.csv
+
+      - name: Upload Unlighthouse Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: unlighthouse-report
+          path: .unlighthouse/dist/**
 
   deploy-to-production:
     runs-on: ubuntu-latest
