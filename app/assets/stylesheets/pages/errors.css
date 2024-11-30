@@ -1,0 +1,17 @@
+@layer components {
+  .error-section {
+    @apply mx-auto space-y-4 text-center rounded-lg py-36 bg-white/10 text-success backdrop-blur-md max-w-1230
+  }
+
+  .error-section .error-code {
+    @apply font-bold text-7xl
+  }
+
+  .error-section .error-title {
+    @apply text-4xl font-bold
+  }
+
+  .error-section .error-description {
+    @apply px-8 text-lg
+  }
+}

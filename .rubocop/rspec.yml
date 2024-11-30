@@ -1,5 +1,7 @@
 require:
   - rubocop-rspec
+  - rubocop-factory_bot
+  - rubocop-capybara
 
 # Disable all cops by default,
 # only enable those defined explcitly in this configuration file

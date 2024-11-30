@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class Account::UsersController < Account::BaseController
-  rescue_from ActiveRecord::RecordNotFound, with: :render404
-
   layout "account"
 
   before_action :set_paper_trail_whodunnit
+  before_action :blocking_admin, only: :update
 
   load_and_authorize_resource
 
@@ -71,15 +70,21 @@ class Account::UsersController < Account::BaseController
     prms
   end
 
+  def blocking_admin
+    @user = resource
+
+    return if params.dig(:user, :blocked).blank? || !@user.admin?
+
+    flash[:alert] = t("errors.messages.blocked_user_cannot_be_admin")
+
+    redirect_to account_users_path
+  end
+
   def collection
     User.ordered_by_email
   end
 
   def resource
     User.find(params[:id])
-  end
-
-  def render404
-    render file: Rails.public_path.join("404.html"), layout: false, status: :not_found
   end
 end

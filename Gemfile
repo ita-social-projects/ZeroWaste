@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.3"
+ruby "3.3.5"
 
 gem "mutex_m", "0.1.2"
 gem "cancancan", "~> 3.3"
@@ -60,6 +60,8 @@ group :development, :test, :ci do
   gem "rubocop-rspec", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "rubocop-factory_bot", require: false
+  gem "rubocop-capybara", require: false
   gem "standard", "~> 1.0", require: false
   gem "rubocop-factory_bot"
   gem "rubocop-capybara"

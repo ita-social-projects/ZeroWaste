@@ -52,6 +52,24 @@ en:
   calculators:
     index:
       meta-title: "Calculators"
+    mhc_calculator:
+      calculator_name: "Menstrual hygiene products calculator"
+      form:
+        user_age: "Your age"
+        menstruation_age: "Age at First Menstruation"
+        menopause_age: "Age at Menopause"
+        average_menstruation_cycle_duration: "Average Menstrual Cycle Duration (days)"
+        pads_per_cycle: "Average Products Used Per Cycle"
+        pad_category: "Product Category"
+        budgetary: "Budgetary"
+        average: "Average"
+        premium: "Premium"
+      bought_products: "already used"
+      will_buy_products: "to be used in the future"
+      money_spent: "already spent on menstrual hygiene products"
+      money_will_be_spent: "yet to be spent on menstrual hygiene products"
+      pieces: "pcs."
+      unit: "uah"
     new_calculator:
       diaper_сalculator: "Diaper calculator"
       form:
@@ -81,6 +99,7 @@ en:
       year_and_month_error_msg: "Please, select years and months"
       year_error_msg: "Please, select years"
       month_error_msg: "Please, select month"
+      presence_error_msg: "%{field} is missing"
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
@@ -107,6 +126,7 @@ en:
       about_us: "About us"
       admin: "Admin"
       calculate: "Diaper calculator"
+      mhc_calculator: "Pad calculator"
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
@@ -127,6 +147,20 @@ en:
       method_link: https://zerowastelviv.org.ua/diaper-calculator-method-en/
       contact_link: https://zerowastelviv.org.ua/contacts/
       use_less_link: https://zerowastelviv.org.ua/en/zero-waste-nappies-en/
+    mhc_description_block:
+      mhc_description_block_html:
+        "These data are approximate, and exact values may vary depending on your individual needs and habits. 
+        Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
+        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
+        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
+        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials 
+        or by %{contact_link} with your questions."
+      information_link_text: "detailed information"
+      contact_link_text: "contacting us"
+      information_link: "https://docs.google.com/document/d/1xu6cch-Ner9OEpU4_TV5suIUsuVcWpgiUuX6QrOgaL4"
+      contact_link: "https://zerowastelviv.org.ua/en/contacts/"
+      use_less: "HOW TO USE LESS"
+      use_less_link: "https://zerowastelviv.org.ua/en/zero-waste-period/"
     homepage:
       homepage_title: "Welcome to the diaper calculator"
       description:
@@ -178,6 +212,15 @@ en:
       calculator-diapers: "Calculator diapers"
       calculators: "Calculators"
       message: "Write us a message"
+  404_page:
+    title: "Oops! Page Not Found"
+    description: "The page you're looking for doesn't exist. It might have been removed, or the link you followed could be broken. Please check the URL or return to the homepage."
+  422_page:
+    title: "Unprocessable Request"
+    description: "Something went wrong with the data sent. Please review your submission and try again, or return to the previous page."
+  500_page:
+    title: "Internal Server Error"
+    description: "We encountered an unexpected issue on our end. Please try again later, or contact support if the problem persists."
   about_us:
     title: "About Us"
     description:
@@ -447,6 +490,8 @@ en:
         name: "Show calculators on the public side"
       sandbox_mode:
         name: "Enable sandbox mode"
+      mhc_calculator_status:
+        name: "Enable mhc calculator"
     sessions:
       new:
         log_in_header: "Log In"
@@ -455,9 +500,6 @@ en:
           email: "Email"
           password: "Password"
     shared:
-      navigation:
-        donate: "DONATE"
-        donate_link: "https://zerowastelviv.org.ua/pidtrymaty/"
       links:
         forgot_your_password: "Forgot your password?"
         log_in: "Log In"

@@ -3,6 +3,16 @@ name: CI
 on:
   push:
 
+  pull_request:
+    branches:
+      - develop
+      - master
+    types:
+      - closed
+
+  release:
+    types: [published]
+
 jobs:
   rubocop:
     runs-on: ubuntu-latest
@@ -10,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.3
+          ruby-version: 3.3.5
           bundler-cache: true
           cache-version: 1
       - name: Run rubocop
@@ -49,13 +59,19 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.3
+          ruby-version: 3.3.5
           bundler-cache: true
+
+      - name: Update packages
+        run: sudo apt-get update
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvips42 libvips-dev imagemagick
 
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "14.x"
+          registry-url: "https://registry.npmjs.org"
 
       - uses: nanasess/setup-chromedriver@master
 
