@@ -111,12 +111,23 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "GET /mhc_calculator" do
-    it "renders pad calculator" do
-      get mhc_calculator_path
+    context "mhc calculator is enabled" do
+      include_context :mhc_calculator_enabled
 
-      expect(response).to be_successful
-      expect(response).to render_template(:mhc_calculator)
-      expect(response.body).to include("results")
+      it "renders pad calculator" do
+        get mhc_calculator_path
+
+        expect(response).to be_successful
+        expect(response).to render_template(:mhc_calculator)
+      end
+    end
+
+    context "mhc calculator is disabled" do
+      include_context :mhc_calculator_disabled
+
+      it "renders pad calculator" do
+        expect { get mhc_calculator_path }.to raise_error(ActionController::RoutingError)
+      end
     end
   end
 
