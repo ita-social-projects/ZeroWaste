@@ -30,3 +30,16 @@ unless User.exists?(email: "admin@zw.com")
 end
 
 FactoryBot.create(:product, :diaper) unless Product.exists?(title: "diaper")
+
+# Categories
+categories_data = YAML.load_file(Rails.root.join("db", "data", "categories.yml"))
+
+categories_data["categories"].each do |category_data|
+  next if Category.exists?(en_name: category_data["en_name"])
+
+  periods  = category_data.delete("periods")
+  category = Category.create!(**category_data)
+
+  periods.map! { |period_data| period_data.merge(category_id: category.id) }
+  periods.each { |period_data| DiapersPeriod.create!(**period_data) }
+end

@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 class Account::CalculatorsController < Account::BaseController
-  before_action :resource, only: [:edit, :update, :destroy]
   load_and_authorize_resource
+  before_action :check_constructor_flipper
 
   def index
-    render "shared/under_construction" unless Rails.env.local?
-
     @q           = collection.ransack(params[:q])
     @calculators = @q.result.page(params[:page])
   end
@@ -23,6 +21,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def edit
+    @calculator = resource
+
     collect_fields_for_form
   end
 
@@ -37,6 +37,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def update
+    @calculator = resource
+
     if updater
       redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
     else
@@ -47,6 +49,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def destroy
+    @calculator = resource
+
     @calculator.destroy
 
     redirect_to account_calculators_path, notice: t("notifications.calculator_deleted"), status: :see_other
@@ -59,7 +63,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def resource
-    Calculator.find(params[:slug])
+    collection.friendly.find(params[:slug])
   end
 
   def collect_fields_for_form
@@ -90,5 +94,11 @@ class Account::CalculatorsController < Account::BaseController
       ::Calculators::PreferableService.new(calculator_params).perform!
       @calculator.update(calculator_params)
     end
+  end
+
+  def check_constructor_flipper
+    return if Flipper[:constructor_status].enabled?
+
+    raise ActionController::RoutingError, "Constructor flipper is disabled"
   end
 end

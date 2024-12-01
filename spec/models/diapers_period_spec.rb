@@ -4,14 +4,23 @@
 #
 # Table name: diapers_periods
 #
-#  category_id :bigint          null: false
-#  price :decimal               precision: 8, scale: 2
-#  period_start :integer        null: false
-#  period_end :integer          null: false
-#  usage_amount :integer        null: false
-#  created_at :datetime         null: false
-#  updated_at :datetime         null: false
-#  index ["category_id"], name: "index_diapers_periods_on_category_id"
+#  id           :bigint           not null, primary key
+#  period_end   :integer          not null
+#  period_start :integer          not null
+#  price        :decimal(8, 2)    not null
+#  usage_amount :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  category_id  :bigint           not null
+#
+# Indexes
+#
+#  index_diapers_periods_on_category_id  (category_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (category_id => categories.id)
+#
 
 require "rails_helper"
 

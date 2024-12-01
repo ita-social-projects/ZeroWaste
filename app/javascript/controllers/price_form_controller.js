@@ -13,6 +13,7 @@ export default class extends Controller {
 
     this.priceInputTargets.forEach(input => {
       input.addEventListener('input', this.validatePriceInput.bind(this));
+      input.addEventListener('keydown', this.restrictDecimalInput.bind(this));
     });
   }
 
@@ -55,6 +56,15 @@ export default class extends Controller {
     } else {
       errorMessage.style.display = "none";
       target.style.borderColor = "";
+    }
+  }
+
+  restrictDecimalInput(event) {
+    const target = event.target;
+    const inputValue = target.value;
+    
+    if (inputValue.includes('.') && inputValue.split('.')[1].length >= 2 && !["Backspace", "Delete"].includes(event.key)) {
+      event.preventDefault();
     }
   }
 }

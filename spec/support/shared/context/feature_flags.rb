@@ -26,12 +26,40 @@ RSpec.shared_context :hide_calculators_list do
   end
 end
 
+RSpec.shared_context :enable_calculators_constructor do
+  before do
+    FeatureFlag.find_or_create_by!(name: "constructor_status")
+    Flipper.enable(:constructor_status)
+  end
+end
+
+RSpec.shared_context :disable_calculators_constructor do
+  before do
+    FeatureFlag.find_or_create_by!(name: "constructor_status")
+    Flipper.disable(:constructor_status)
+  end
+end
+
 def sandbox_mode_context(mode)
   RSpec.shared_context :"sandbox_mode_#{mode}" do
     before do
       FeatureFlag.find_or_create_by!(name: "sandbox_mode")
       Flipper.send(mode, :sandbox_mode)
     end
+  end
+end
+
+RSpec.shared_context :mhc_calculator_enabled do
+  before do
+    FeatureFlag.find_or_create_by!(name: "show_calculators_list")
+    Flipper.enable(:mhc_calculator_status)
+  end
+end
+
+RSpec.shared_context :mhc_calculator_disabled do
+  before do
+    FeatureFlag.find_or_create_by!(name: "show_calculators_list")
+    Flipper.disable(:mhc_calculator_status)
   end
 end
 

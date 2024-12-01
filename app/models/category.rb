@@ -5,24 +5,39 @@
 # Table name: categories
 #
 #  id         :bigint           not null, primary key
-#  name       :string
+#  en_name    :string
+#  preferable :boolean          default(FALSE), not null
+#  price      :decimal(10, 2)   default(0.0), not null
 #  priority   :integer          default(0), not null
+#  uk_name    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  preferable :boolean          default: false
+#  field_id   :bigint           not null
+#
+# Indexes
+#
+#  index_categories_on_field_id  (field_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (field_id => fields.id)
 #
 class Category < ApplicationRecord
   include Translatable
-
-  belongs_to :field
-
   translates :name
+
+  PRIORITY_RANGE = 0..10
+
+  belongs_to :field, optional: true
+  has_many :diapers_periods, dependent: :destroy
+  has_many :category_categoryables, dependent: :restrict_with_exception
+
+  enum :preferable, { not_preferable: false, preferable: true }
 
   validates :uk_name, :en_name, presence: true
   validates :uk_name, :en_name,
             length: { minimum: 3, maximum: 30 },
             format: { with: /\A[\p{L}0-9\s'-]+\z/i },
-            uniqueness: { case_sensitive: false },
             allow_blank: true
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 

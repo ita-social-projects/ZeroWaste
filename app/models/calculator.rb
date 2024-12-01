@@ -5,9 +5,9 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
-#  en_name    :string           not null
+#  en_name    :string           default(""), not null
 #  slug       :string
-#  uk_name    :string           not null
+#  uk_name    :string           default(""), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -27,8 +27,8 @@ class Calculator < ApplicationRecord
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
 
-  accepts_nested_attributes_for :fields, reject_if: :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :formulas, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :fields, allow_destroy: true
+  accepts_nested_attributes_for :formulas, allow_destroy: true
 
   scope :ordered_by_name, -> { order(:en_name) }
 

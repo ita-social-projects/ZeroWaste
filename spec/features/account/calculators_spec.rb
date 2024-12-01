@@ -3,10 +3,11 @@
 require "rails_helper"
 
 describe "visit admin page", js: true do
-  let!(:diapers_calculator) { create(:calculator, en_name: "Diapers Calculator", slug: "diapers") }
-  let!(:napkin_calculator) { create(:calculator, en_name: "Napkin Calculator", slug: "napkin") }
+  let!(:diapers_calculator) { create(:calculator, en_name: "Diapers Calculator") }
+  let!(:napkin_calculator) { create(:calculator, en_name: "Napkin Calculator") }
 
   include_context :authorize_admin
+  include_context :enable_calculators_constructor
 
   it "visits admin page" do
     visit account_calculators_path

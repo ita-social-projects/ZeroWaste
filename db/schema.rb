@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_21_165300) do
     t.integer "priority", default: 0, null: false
     t.string "en_name"
     t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
-    t.bigint "field_id", null: false
+    t.bigint "field_id"
     t.boolean "preferable", default: false, null: false
     t.index ["field_id"], name: "index_categories_on_field_id"
   end
