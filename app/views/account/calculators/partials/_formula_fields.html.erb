@@ -1,11 +1,17 @@
-<div class="nested-fields">
-  <%= f.input :en_label, label: "Formula Label:" %>
-  <%= f.input :uk_label, label: "Uk Formula Label:" %>
-  <%= f.input :expression, as: :text, label: "Formula Expression:", input_html: {
+
+<fieldset class="bordered nested-fields">
+  <legend class="admin-legend">Formula <span data-constructors-form-indexing-target="index">1</span></legend>
+  <div>
+    <%= f.input :en_label, label: "Formula Label:" %>
+    <%= f.input :uk_label, label: "Uk Formula Label:" %>
+    <%= f.input :expression, as: :text, label: "Formula Expression:", input_html: {
     data: { controller: "textarea", action: "input->textarea#input" }
   } %>
-  <%= f.input :uk_unit, label: "Uk Unit Label:" %>
-  <%= f.input :en_unit, label: "Unit Label:" %>
 
-  <%= link_to_remove_association "- Remove Formula", f, class: "text-red-500 underline" %>
-</div>
+    <%= f.input :uk_unit, label: "Uk Unit Label:" %>
+    <%= f.input :en_unit, label: "Unit Label:" %>
+
+    <%= link_to_remove_association "- Remove Formula", f, class: "text-red-500 underline" %>
+  </div>
+</fieldset>
+

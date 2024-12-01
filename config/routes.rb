@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get "/sitemap", to: "sitemap#index"
 
     get "/calculator", to: "calculators#calculator"
+    get "/mhc_calculator", to: "calculators#mhc_calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
 
     get "about-us", to: "home#about", as: "about"
@@ -81,6 +82,8 @@ Rails.application.routes.draw do
         end
         post "/diaper_calculators",
              to: "diaper_calculators#calculate"
+        post "/pad_calculators",
+             to: "pad_calculators#calculate"
       end
       namespace :v2 do
         resources :calculators, only: [] do
