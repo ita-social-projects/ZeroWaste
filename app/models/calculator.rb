@@ -36,7 +36,7 @@ class Calculator < ApplicationRecord
   validates :en_name, :uk_name, presence: true
   validates :en_name, :uk_name, length: { minimum: 3, maximum: 50 }
   validates :slug, presence: true, uniqueness: true
-  validates :color, format: { with: /\A#[0-9a-fA-F]{6}\z/}
+  validates :color, format: { with: /\A#[0-9a-fA-F]{6}\z/ }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
