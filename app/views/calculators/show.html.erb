@@ -1,10 +1,7 @@
 <%# TODO: Delete this and use user provided value %>
-<% color = "#088F8F" %>
-
-<%# TODO: Delete this and use user provided value %>
 <% calculator_image = "scales.png" %>
 
-<div style="--calculator-color: <%= color %>">
+<div style="--calculator-color: <%= @calculator.color %>">
   <div class="rounded jumbotron jumbotron-fluid position-relative">
     <h1 class="pt-6 text-2xl font-semibold text-center font-sans dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
     <div class="flex-wrap d-flex justify-content-around calculator_wrap ms-5">
@@ -15,13 +12,13 @@
           <div class="pb-2 input_lable"><%= form.label field.var_name, field.label %></div>
           <% if field.kind == 'number' %>
             <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
-              <%= form.number_field "inputs[#{field.var_name}]", 
+              <%= form.number_field "inputs[#{field.var_name}]",
                                   placeholder: field.label,
                                   class: "required rounded w-100 calculator-field"
                                   %>
             </div>
           <% else %>
-            <%= form.select "inputs[#{field.var_name}]", 
+            <%= form.select "inputs[#{field.var_name}]",
                             options_from_collection_for_select(field.categories, :price, :name),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>

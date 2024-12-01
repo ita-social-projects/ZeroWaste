@@ -23,6 +23,12 @@
           <%= link_to_add_association "Add Field", f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
         </div>
       </div>
+
+      <div id="fields" class="space-y-4">
+        <%= f.simple_fields_for :color do |color_selector| %>
+          <%= render "account/calculators/partials/color_selector", f: f %>
+        <% end %>
+      </div>
     </div>
   </div>
 

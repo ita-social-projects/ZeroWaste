@@ -5,6 +5,7 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
+#  color      :string           default("#000000")
 #  en_name    :string           default(""), not null
 #  slug       :string
 #  uk_name    :string           default(""), not null
