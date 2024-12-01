@@ -5,7 +5,6 @@ class Account::CalculatorsController < Account::BaseController
   before_action :check_constructor_flipper
 
   def index
-
     @q           = collection.ransack(params[:q])
     @calculators = @q.result.page(params[:page])
   end
