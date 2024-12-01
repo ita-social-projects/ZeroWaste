@@ -43,8 +43,11 @@ jobs:
       - name: Unlighthouse Assertions and Client
         run: unlighthouse-ci --site http://51.44.25.104/en --build-static --output-path .unlighthouse/dist
 
+      - name: Make convert_json_to_csv executable
+        run: chmod +x bin/convert_json_to_csv.rb
+
       - name: Convert JSON to CSV
-        run: ruby lib/convert_json_to_csv.rb .unlighthouse/dist/ci-result.json .unlighthouse/dist/ci-result.csv
+        run: bin/convert_json_to_csv.rb .unlighthouse/dist/ci-result.json .unlighthouse/dist/ci-result.csv
 
       - name: Upload Unlighthouse Report
         uses: actions/upload-artifact@v4

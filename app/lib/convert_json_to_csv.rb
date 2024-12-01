@@ -9,9 +9,3 @@ class ConvertJsonToCsv
     end
   end
 end
-
-if __FILE__ == $0
-  input_file  = ARGV[0]
-  output_file = ARGV[1]
-  ConvertJsonToCsv.perform(input_file, output_file)
-end
