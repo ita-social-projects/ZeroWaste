@@ -18,6 +18,6 @@
 FactoryBot.define do
   factory :calculator do
     en_name { "English Calculator" }
-    uk_name { "Український калькуялтор" }
+    uk_name { "Український калькулятор" }
   end
 end
