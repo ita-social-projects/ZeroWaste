@@ -11,7 +11,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def show
-    # TODO: fill it
+    @calculator = Calculator.find_by(slug: params[:slug])
   end
 
   def new
