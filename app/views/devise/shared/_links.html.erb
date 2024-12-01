@@ -17,9 +17,9 @@
     <fieldset class="auth-login-links">
       <legend class="float-none w-auto text-sm px-2.5 mx-auto"><%= t("devise.omniauth_callbacks.continue_with") %></legend>
      
-      <%#= link_to user_google_oauth2_omniauth_authorize_path do %>
-        <%#= image_tag("icons/google.svg", alt: "Google Sign In", class: "w-14") %>
-      <%# end %>      
+      <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+        <%= image_tag("icons/google.svg", alt: "Google Sign In", class: "w-14") %>
+      <% end %>      
     </fieldset>
   </div>
 <% end %>
