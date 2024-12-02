@@ -1,28 +1,27 @@
 name: Unlighthouse reports
 
 on:
-  workflow_dispatch:
-  # workflow_run:
-  #   workflows:
-  #     - CD
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows:
+      - CD
+    types:
+      - completed
 
-  # pull_request:
-  #   branches:
-  #     - develop
-  #     - master
-  #   types:
-  #     - closed
+  pull_request:
+    branches:
+      - develop
+      - master
+    types:
+      - closed
 
-  # release:
-  #   types:
-  #     - published
+  release:
+    types:
+      - published
 
   jobs:
   generate-unlighthouse-report:
     runs-on: ubuntu-latest
-    # if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v2
 
@@ -39,8 +38,7 @@ on:
         run: unlighthouse-ci --site http://51.44.25.104/en --build-static --output-path .unlighthouse/dist
 
       - name: Convert JSON to CSV
-        run: |
-            ruby -e "require './services/convert_json_to_csv_service'; ConvertJsonToCsvService.call('.unlighthouse/dist/ci-result.json', '.unlighthouse/ci-result.csv')"
+        run: ruby -e '$LOAD_PATH.unshift("./app/services"); require "convert_json_to_csv_service"; ConvertJsonToCsvService.call(".unlighthouse/dist/ci-result.json", ".unlighthouse/ci-result.csv")'
 
       - name: Upload Unlighthouse Report
         uses: actions/upload-artifact@v4

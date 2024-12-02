@@ -1,3 +1,6 @@
+require "json"
+require "csv"
+
 class ConvertJsonToCsvService
   def self.call(input_file, output_file)
     new(input_file, output_file).call
