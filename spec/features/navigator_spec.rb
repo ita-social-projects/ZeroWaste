@@ -20,7 +20,7 @@ describe "navigator", js: true do
     it "should consist tabs" do
       expect(page).to have_link("Log Out", href: destroy_user_session_path, visible: :all)
       expect(page).to have_link("Contact us", href: new_message_path, visible: :all)
-      expect(page).to have_link("Admin", href: account_calculators_path, visible: :all)
+      expect(page).to have_link("Admin", href: edit_account_site_setting_path, visible: :all)
     end
   end
 
