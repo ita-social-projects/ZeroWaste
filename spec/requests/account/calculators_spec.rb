@@ -40,8 +40,8 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       end
     end
   end
-  
-  describe "GET /calculator" do
+
+  describe "GET #show" do
     include_context :in_local_environment
 
     it "renders the calculator template" do
