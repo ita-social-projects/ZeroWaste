@@ -1,8 +1,11 @@
-<%# TODO: Delete this if %>
-<% if false %>
+<% if calculator.ukranian_additional_notes.present? || calculator.english_additional_notes.present? %>
   <section class="description-section">
-    <div class="description-block">
-      <%# TODO: ADD text here %>
+    <div class="description-section">
+      <% if I18n.locale == :uk %>
+        <%= raw calculator.ukranian_additional_notes %>
+      <% else %>
+        <%= raw calculator.english_additional_notes %>
+      <% end %>
     </div>
   </section>
 <% end %>
