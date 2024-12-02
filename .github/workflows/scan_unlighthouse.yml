@@ -1,11 +1,7 @@
 name: Unlighthouse reports
 
 on:
-  workflow_run:
-    workflows:
-      - CD
-    types:
-      - completed
+  workflow_dispatch:
 
   pull_request:
     branches:
@@ -21,7 +17,7 @@ on:
 jobs:
   generate-unlighthouse-report:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged }}
     steps:
       - uses: actions/checkout@v2
 
