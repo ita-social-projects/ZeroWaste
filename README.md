@@ -40,7 +40,7 @@ The latest version from the release branch 'master' is automatically deployed to
 - Bootstrap
 
 ## Clone
-
+ 
 $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
 ## Local setup

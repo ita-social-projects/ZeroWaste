@@ -22,6 +22,8 @@
 #  fk_rails_...  (calculator_id => calculators.id)
 #
 class Formula < ApplicationRecord
+  include Translatable
+
   belongs_to :calculator
 
   PRIORITY_RANGE = 0..10
@@ -34,4 +36,6 @@ class Formula < ApplicationRecord
   validates :priority, numericality: { greater_than_or_equal_to: 0 }
 
   scope :ordered_by_priority, -> { order(:priority) }
+
+  translates :label, :unit
 end
