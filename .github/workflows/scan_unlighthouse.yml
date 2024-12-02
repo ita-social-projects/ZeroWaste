@@ -17,7 +17,6 @@ on:
 jobs:
   generate-unlighthouse-report:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged }}
     steps:
       - uses: actions/checkout@v2
 
