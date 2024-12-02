@@ -133,6 +133,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_19_192344) do
     t.bigint "calculator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "priority", default: 0, null: false
     t.index ["calculator_id"], name: "index_formulas_on_calculator_id"
   end
 
