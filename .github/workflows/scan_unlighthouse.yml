@@ -1,7 +1,7 @@
 name: Unlighthouse reports
 
 on:
-  push:
+  workflow_dispatch:
 
   pull_request:
     branches:
