@@ -18,36 +18,36 @@ on:
     types:
       - published
 
-  jobs:
-    generate-unlighthouse-report:
-      runs-on: ubuntu-latest
-      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
-      steps:
-        - uses: actions/checkout@v2
+jobs:
+  generate-unlighthouse-report:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    steps:
+      - uses: actions/checkout@v2
 
-        - name: Set up Ruby
-          uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: 3.3.5
-            bundler-cache: true
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
 
-        - name: Set up Unlighthouse Scan
-          run: npm install -g @unlighthouse/cli puppeteer
+      - name: Set up Unlighthouse Scan
+        run: npm install -g @unlighthouse/cli puppeteer
 
-        - name: Unlighthouse Assertions and Client
-          run: unlighthouse-ci --site http://51.44.25.104/en --build-static --output-path .unlighthouse/dist
+      - name: Unlighthouse Assertions and Client
+        run: unlighthouse-ci --site http://51.44.25.104/en --build-static --output-path .unlighthouse/dist
 
-        - name: Convert JSON to CSV
-          run: ruby -e '$LOAD_PATH.unshift("./app/services"); require "convert_json_to_csv_service"; ConvertJsonToCsvService.call(".unlighthouse/dist/ci-result.json", ".unlighthouse/ci-result.csv")'
+      - name: Convert JSON to CSV
+        run: ruby -e '$LOAD_PATH.unshift("./app/services"); require "convert_json_to_csv_service"; ConvertJsonToCsvService.call(".unlighthouse/dist/ci-result.json", ".unlighthouse/ci-result.csv")'
 
-        - name: Upload Unlighthouse Report
-          uses: actions/upload-artifact@v4
-          with:
-            name: unlighthouse-report
-            path: .unlighthouse/dist/**
+      - name: Upload Unlighthouse Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: unlighthouse-report
+          path: .unlighthouse/dist/**
 
-        - name: Upload CSV Report
-          uses: actions/upload-artifact@v4
-          with:
-            name: csv-report
-            path: .unlighthouse/ci-result.csv
+      - name: Upload CSV Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: csv-report
+          path: .unlighthouse/ci-result.csv
