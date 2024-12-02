@@ -11,7 +11,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def show
-    @calculator = Calculator.find_by(slug: params[:slug])
+    @calculator = resource
   end
 
   def new
