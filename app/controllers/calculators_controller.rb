@@ -3,6 +3,9 @@
 class CalculatorsController < ApplicationController
   before_action :authenticate_user!, only: :receive_recomendations
 
+  before_action :check_constructor_flipper, only: [:index, :show, :calculate]
+  before_action :check_mhc_flipper, only: :mhc_calculator
+
   def index
     if Flipper[:show_calculators_list].enabled?
       @q           = collection.ransack(params[:q])
@@ -14,6 +17,8 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb @calculator.name
   end
 
   def calculate
@@ -37,6 +42,11 @@ class CalculatorsController < ApplicationController
     end
   end
 
+  def mhc_calculator
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb t(".mhc_calculator.calculator_name")
+  end
+
   def receive_recomendations
     current_user.toggle(:receive_recomendations)
     current_user.save
@@ -50,5 +60,17 @@ class CalculatorsController < ApplicationController
 
   def resource
     collection.friendly.find(params[:slug])
+  end
+
+  def check_constructor_flipper
+    return if Flipper[:constructor_status].enabled?
+
+    raise ActionController::RoutingError, "Constructor flipper is disabled"
+  end
+
+  def check_mhc_flipper
+    return if Flipper[:mhc_calculator_status].enabled?
+
+    raise ActionController::RoutingError, "Mhc calculator flipper is disabled"
   end
 end

@@ -1,29 +1,38 @@
 <%= simple_form_for(@calculator, url: account_calculators_path) do |f| %>
   <div class="form-group row">
     <div class="my-auto col-12 has-float-label">
-      <%= f.input :en_name, label: "Calculator Name:", class: 'form-control' %>
-      <%= f.input :uk_name, label: "Uk Calculator Name:", class: 'form-control' %>
+      <fieldset class="bordered">
+        <legend class="admin-legend">Calculator</legend>
+        <%= f.input :en_name, label: "Calculator Name:", class: 'form-control' %>
+        <%= f.input :uk_name, label: "Uk Calculator Name:", class: 'form-control' %>
+      </fieldset>
 
       <!-- formula input-->
       <div id="formulas" class="space-y-4">
-        <%= f.simple_fields_for :formulas do |formula_fields| %>
-          <%= render "account/calculators/partials/formula_fields", f: formula_fields %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association "+ Add Formula", f, :formulas, partial: "account/calculators/partials/formula_fields", class: "underline" %>
-        </div>
+        <fieldset class="bordered" data-controller="constructors-form-indexing"
+                  data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+          <%= f.simple_fields_for :formulas do |formula_fields| %>
+            <%= render "account/calculators/partials/formula_fields", f: formula_fields %>
+          <% end %>
+          <div class="links">
+            <%= link_to_add_association "+ Add Formula", f, :formulas, partial: "account/calculators/partials/formula_fields", class: "underline" %>
+          </div>
+        </fieldset>
       </div>
 
       <!-- field input-->
       <div id="fields" class="space-y-4">
-        <%= f.simple_fields_for :fields do |field_fields| %>
-          <%= render "account/calculators/partials/field_fields", f: field_fields %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association "Add Field", f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
-        </div>
-        <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
+        <fieldset class="bordered" data-controller="constructors-form-indexing"
+                  data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+          <%= f.simple_fields_for :fields do |field_fields| %>
+            <%= render "account/calculators/partials/field_fields", f: field_fields %>
+          <% end %>
+          <div class="links">
+            <%= link_to_add_association "+ Add Field", f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
+          </div>
+          <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
         <%= f.file_field :logo_picture, accept: "image/jpeg, image/png", class: "file-input mb-3" %>
+        </fieldset>
       </div>
     </div>
   </div>

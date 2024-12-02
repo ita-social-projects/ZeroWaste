@@ -4,8 +4,13 @@ require "rails_helper"
 
 RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :authorize_admin
+  include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
+
+  let(:user) { create(:user) }
+  let(:locale) { "en" }
+  let(:new_path) { new_account_calculator_path(locale: locale) }
 
   describe "DELETE #destroy" do
     it "destroys the calculator and redirects" do
@@ -19,19 +24,15 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   end
 
   describe "GET #index" do
-    context "when in production environment" do
-      include_context :in_production_environment
+    context "when flipper is turned off" do
+      include_context :disable_calculators_constructor
 
-      it "renders the 'under_construction' template" do
-        get account_calculators_path
-
-        expect(response).to render_template("shared/under_construction")
+      it "raises routing error" do
+        expect { get account_calculators_path }.to raise_error(ActionController::RoutingError)
       end
     end
 
-    context "when in local environment" do
-      include_context :in_local_environment
-
+    context "when flipper is turned on" do
       it "loads calculators and renders the index template" do
         get account_calculators_path
 
@@ -49,6 +50,53 @@ RSpec.describe "Account::CalculatorsController", type: :request do
 
       expect(response).to be_successful
       expect(response).to render_template(:show)
+    end
+  end
+
+  describe "GET #new" do
+    subject { get new_path }
+
+    context "when the user is authorized" do
+      it "initializes a new Calculator object with fields and formulas" do
+        subject
+
+        expect(response).to have_http_status(:ok)
+
+        calculator = assigns(:calculator)
+        expect(calculator).to be_a_new(Calculator)
+
+        expect(calculator.fields.size).to eq(1)
+        expect(calculator.formulas.size).to eq(1)
+
+        expect(calculator.fields.first).to be_a_new(Field)
+        expect(calculator.formulas.first).to be_a_new(Formula)
+      end
+
+      it "renders the new template" do
+        subject
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context "when the locale is different" do
+      let(:locale) { "uk" }
+
+      it "handles the locale correctly" do
+        subject
+        expect(I18n.locale).to eq(:uk)
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context "when the user is not logged in" do
+      before do
+        sign_out(:user)
+      end
+
+      it "redirects to the login page" do
+        subject
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
   end
 end

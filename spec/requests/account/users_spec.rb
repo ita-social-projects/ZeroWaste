@@ -6,6 +6,7 @@ RSpec.describe "Account::UsersController", type: :request do
   include_context :authorize_admin
 
   let!(:user) { create(:user, last_sign_in_at: Time.current) }
+  let!(:admin_user) { create(:user, role: :admin) }
 
   describe "GET #index" do
     let(:csv_content) do
@@ -113,6 +114,32 @@ RSpec.describe "Account::UsersController", type: :request do
 
         expect(response).to be_unprocessable
         expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  describe "PATCH /account/users/:id" do
+    context "when trying to block an admin user" do
+      it "sets an alert message and redirects to the admin user account page" do
+        patch account_user_path(admin_user), params: { user: { blocked: true }}
+
+        expect(response).to redirect_to(account_users_path)
+
+        follow_redirect!
+
+        expect(flash[:alert]).to eq I18n.t("errors.messages.blocked_user_cannot_be_admin")
+        expect(response.body).to include(I18n.t("errors.messages.blocked_user_cannot_be_admin"))
+      end
+    end
+
+    context "when trying to block a non-admin user" do
+      it "blocks the user successfully" do
+        patch account_user_path(user), params: { user: { blocked: true }}
+
+        expect(response).to redirect_to(account_user_path(user))
+
+        follow_redirect!
+        expect(user.reload.blocked).to be_truthy
       end
     end
   end
