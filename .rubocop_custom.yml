@@ -1,21 +1,3 @@
-require:
-  # Cops source code lives in the lib/ folder
-  - ./lib/rubo_cop/cop/lint_env
-
-LintEnv:
-  Enabled: true
-  Include:
-    - "**/*.rb"
-  Exclude:
-    - "**/config/environments/**/*"
-    - "**/config/application.rb"
-    - "**/config/environment.rb"
-    - "**/config/puma.rb"
-    - "**/config/boot.rb"
-    - "**/spec/*_helper.rb"
-    - "**/spec/**/support/**/*"
-    - "lib/generators/**/*"
-
 Layout/ExtraSpacing:
   Exclude:
     - "**/config/environments/**/*"
