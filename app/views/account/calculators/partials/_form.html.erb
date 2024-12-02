@@ -5,6 +5,8 @@
         <legend class="admin-legend">Calculator</legend>
         <%= f.input :en_name, label: "Calculator Name:", class: 'form-control' %>
         <%= f.input :uk_name, label: "Uk Calculator Name:", class: 'form-control' %>
+        <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
+        <%= f.file_field :logo_picture, accept: "image/jpeg, image/png", class: "file-input mb-3" %>
       </fieldset>
 
       <!-- formula input-->
@@ -30,8 +32,6 @@
           <div class="links">
             <%= link_to_add_association "+ Add Field", f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
           </div>
-          <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
-        <%= f.file_field :logo_picture, accept: "image/jpeg, image/png", class: "file-input mb-3" %>
         </fieldset>
       </div>
     </div>
