@@ -10,7 +10,7 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def show
-    # TODO: fill it
+    @calculator = resource
   end
 
   def new
