@@ -1,1 +1,5 @@
-<%= image_tag(@calculator.logo_picture.variant(resize_to_fill: [428, 307])) if @calculator.logo_picture.attached? %>
+<% if @calculator.logo_picture.attached? %>
+  <%= image_tag(@calculator.logo_picture.variant(resize_to_fill: [428, 307])) %>
+<% else %>
+  <%= image_tag("scales.png", alt: "Default image") %>
+<% end %>
