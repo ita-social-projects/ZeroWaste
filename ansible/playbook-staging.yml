@@ -1,5 +1,5 @@
 ---
-- name: use monit role playbook
+- name: Playbook to set-up staging environment
   hosts: all
   become: true
   remote_user: ubuntu

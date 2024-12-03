@@ -1,5 +1,5 @@
 ---
-- name: use monit role playbook
+- name: Playbook to set-up production environment
   hosts: all
   become: true
   remote_user: deploy
