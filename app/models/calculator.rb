@@ -23,6 +23,7 @@ class Calculator < ApplicationRecord
   friendly_id :en_name, use: :sequentially_slugged
 
   translates :name
+  attribute :logo_placeholder, :string, default: "https://via.placeholder.com/428x307?text=Logo"
 
   has_one_attached :logo_picture
   has_many :fields, dependent: :destroy
