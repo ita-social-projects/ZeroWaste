@@ -8,9 +8,9 @@ export default class extends Controller {
   }
 
   resize(textarea) {
-    textarea.style.overflow = "hidden"; // Prevent scrollbars
-    textarea.style.resize = "none"; // Prevent manual resizing
-    textarea.style.height = "auto"; // Reset height
+    textarea.style.overflow = "hidden";
+    textarea.style.resize = "none";
+    textarea.style.height = "auto";
     textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height based on scrollHeight
   }
 
