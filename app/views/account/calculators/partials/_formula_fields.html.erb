@@ -3,7 +3,7 @@
   <div>
     <%= f.input :en_label, label: "Formula Label:" %>
     <%= f.input :uk_label, label: "Uk Formula Label:" %>
-    <%= f.input :expression, as: :text, label: "Formula Expression:", input_html: {
+    <%= f.input :expression, as: :text, label: "Formula Expression:", input_html: { class: "formula",
     data: { controller: "textarea", action: "input->textarea#input" }
   } %>
 
