@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_01_141708) do
     t.string "slug"
     t.string "uk_name", default: "", null: false
     t.string "en_name", default: "", null: false
-    t.string "color", default: "#8ffffb"
+    t.string "color", default: "#8fba3b"
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
   end
 
