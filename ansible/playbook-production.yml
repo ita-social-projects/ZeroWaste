@@ -1,0 +1,7 @@
+---
+- name: use monit role playbook
+  hosts: all
+  become: true
+  remote_user: deploy
+  roles:
+    - monit

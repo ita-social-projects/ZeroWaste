@@ -1,4 +1,9 @@
 ---
+- name: Update packages
+  become: true
+  apt:
+    update_cache: yes
+
 - name: Install Monit
   apt:
     name: monit

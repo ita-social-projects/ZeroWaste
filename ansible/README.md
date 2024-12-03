@@ -22,13 +22,13 @@ The playbook for Monit setup typically consists of the following tasks:
 Run the playbook from the Ansible directory with the following command for production environment:
 
 ```
-ansible-playbook -i ./inventory-prod.yml ./monit-role.yml
+ansible-playbook -i ./inventory/production ./playbook-production.yml
 ```
 
 or
 
 ```
-ansible-playbook -i ./inventory-dev.yml ./monit-role.yml
+ansible-playbook -i ./inventory/staging ./playbook-staging.yml
 ```
 
 for development environment
