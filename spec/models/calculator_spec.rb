@@ -20,7 +20,6 @@ require "rails_helper"
 RSpec.describe Calculator, type: :model do
   let(:local_prefix_calculator) { "activerecord.errors.models.calculator.attributes" }
   let(:calculator) { build(:calculator) }
-  
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:en_name) }
