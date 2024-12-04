@@ -26,6 +26,9 @@ class CalculatorsController < ApplicationController
 
     @results = Calculators::CalculationService.new(@calculator, params[:inputs]).perform
 
+    session[:calculation_results]                 ||= {}
+    session[:calculation_results][@calculator.slug] = @results
+
     respond_to :turbo_stream
   end
 

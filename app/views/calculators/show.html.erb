@@ -15,13 +15,13 @@
           <div class="pb-2 input_lable"><%= form.label field.var_name, field.label %></div>
           <% if field.kind == 'number' %>
             <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
-              <%= form.number_field "inputs[#{field.var_name}]", 
+              <%= form.number_field "inputs[#{field.var_name}]",
                                   placeholder: field.label,
                                   class: "required rounded w-100 calculator-field"
                                   %>
             </div>
           <% else %>
-            <%= form.select "inputs[#{field.var_name}]", 
+            <%= form.select "inputs[#{field.var_name}]",
                             options_from_collection_for_select(field.categories, :price, :name),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
@@ -34,7 +34,11 @@
     </div>
   </div>
 
-  <%= turbo_frame_tag "calc-results" %>
+  <%= turbo_frame_tag "calc-results" do %>
+    <% if session.dig(:calculation_results, @calculator.slug).present? %>
+      <%= render "calculators/partials/calculation_results", results: session.dig(:calculation_results, @calculator.slug).map(&:with_indifferent_access) %>
+    <% end %>
+  <% end %>
 </div>
 
 <%= render "calculators/partials/show/constructor_calculator_description" %>
