@@ -1,0 +1,91 @@
+---
+# Update and install dependencies
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install dependencies for Ruby and Rails
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - build-essential
+    - zlib1g-dev
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm-dev
+
+# Install Ruby using Rbenv
+- name: Clone rbenv
+  git:
+    repo: "git clone https://github.com/rbenv/rbenv.git"
+    dest: ~/.rbenv
+    update: no
+
+- name: Add rbevn to PATH
+  lineinfile:
+    path: ~/.bashrc
+    line: 'export PATH="$HOME/.rbenv/bin:$PATH"'
+    state: present
+  notify: Reload shell
+
+- name: Install rbenv dependencies
+  shell: |
+    ~/.rbenv/bin/rbenv init
+    eval "$(~/.rbenv/bin/rbenv init -)"
+
+- name: Clone ruby-build plugin
+  git:
+    repo: "https://github.com/rbenv/ruby-build.git"
+    dest: ~/.rbenv/plugins/ruby-build
+    update: no
+
+- name: Install Ruby {{ ruby_version }}
+  shell: |
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    rbenv install {{ ruby_version }}
+    rbenv global {{ ruby_version }}
+
+- name: Verify Ruby version
+  shell: ruby --version
+  register: ruby_version_output
+
+- name: Debug Ruby version
+  debug:
+    msg: "Installed Ruby version {{ ruby_version_output.stdout }}"
+
+- name: Install bundler gem
+  shell: |
+    ~/.rbenv/shims/gem install bundler
+
+# Install Ruby on Rails
+- name: Install Rails {{ rails_version }}
+  shell: |
+    ~/.rbenv/shims/gem install rails -v {{ rails_version }}
+
+# Install Puma
+- name: Install Puma gem
+  shell: |
+    ~/.rbenv/shims/gem install puma
+
+# Install yarn
+- name: Ensure apt-transport-https is installed
+  apt:
+    name: apt-transport-https
+
+- name: Add Yarn apt key
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+
+- name: Add Yarn repository
+  apt_repository:
+    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
+    filename: yarn
+
+- name: Install Yarn
+  apt:
+    name: yarn

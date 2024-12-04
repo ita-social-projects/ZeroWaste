@@ -1,0 +1,6 @@
+---
+- name: Playbook to set-up development environment
+  hosts: all
+  become: true
+  roles:
+    - packages
