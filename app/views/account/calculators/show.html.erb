@@ -1,1 +1,57 @@
-<%= render "shared/under_construction" %>
+<div class="main-show-container">
+  <%= link_to account_calculators_path, class: "back-arrow" do %>
+    <%= inline_svg "icons/arrow-left.svg", class: "z-1 mr-2 mb-0.5" %>
+    <span class="text-sm"><%= t('buttons.back') %></span>
+  <% end %>
+
+  <div class="calc-details mb-4">
+    <span class="text-lg showpage-text"><%= t('.name') %>:</span>
+    <p class="text-2xl font-extrabold"> <%= @calculator.name %> </p>
+  </div>
+
+  <div class="calc-details mb-4">
+    <span class="text-lg showpage-text"><%= t('.slug') %>:</span>
+    <p class="font-bold"> <%= @calculator.slug %> </p>
+  </div>
+
+  <!-- Display Fields -->
+  <div class="calc-details mb-4">
+    <h3 class="text-lg showpage-text"><%= t('.fields') %>:</h3>
+    <% @calculator.fields.each do |field| %>
+      <div class="field mb-3">
+        <div class="field-details">
+          <span class="font-bold"><%= field.label %></span>
+          <span class="italic"> (<%= field.var_name %>)<br></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Display Formulas -->
+  <div class="calc-details mb-4">
+    <h3 class="text-lg showpage-text"><%= t('.formulas') %>:</h3>
+    <% @calculator.formulas.each do |formula| %>
+      <div class="formula mb-3">
+        <div class="formula-details">
+          <span class="font-bold"><%= formula.label %></span>
+          <span class="italic"> (<%= formula.expression %>)<br></span>
+          <span class="font-semibold"><%= t('.unit') %>:</span>
+          <span><%= formula.unit %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="showpage-buttons">
+    <%= link_to t('.edit'),
+                edit_account_calculator_path(@calculator.slug, locale: I18n.locale),
+                class: "btn btn-green" %>
+
+    <%= button_to account_calculator_path(@calculator.slug, locale: I18n.locale),
+                  method: :delete,
+                  data: { turbo_confirm: t('.confirm_delete') },
+                  class: "btn btn-danger" do %>
+      <%= t('.delete') %>
+    <% end %>
+  </div>
+</div>
