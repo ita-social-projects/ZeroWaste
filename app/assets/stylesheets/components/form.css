@@ -39,7 +39,6 @@
 
   /* Input styles */
   .color-input {
-    @apply p-2;
-    @apply w-28 h-14;
+    @apply p-2 w-28 h-14;
   }
 }
