@@ -21,14 +21,16 @@
     path: ~/.bashrc
     line: 'export PATH="$HOME/.rbenv/bin:$PATH"'
     state: present
-  notify: Reload shell
 
 - name: Add rbenv init to shell
   lineinfile:
     path: ~/.bashrc
     line: 'eval "$(rbenv init -)"'
     state: present
-  notify: Reload shell
+
+- name: Reload shell
+  shell: |
+    source ~/.bashrc
 
 - name: Install rbenv dependencies
   shell: |
