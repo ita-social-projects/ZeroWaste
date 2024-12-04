@@ -1,7 +1,17 @@
 ---
 ruby_version: "3.3.5"
 rails_version: "7.1.2"
-ruby_packages:
+ruby_install_rails: true
+__ruby_packages:
+  - ruby-full
+  - ruby-dev
+  - build-essential
+  - autogen
+  - autoconf
+  - libtool
+  - nodejs
+  - yarn
+__ruby_build_packages:
   - build-essential
   - zlib1g-dev
   - libssl-dev
@@ -10,3 +20,8 @@ ruby_packages:
   - libncurses5-dev
   - libffi-dev
   - libgdbm-dev
+ruby_rubygems_package_name: rubygems
+ruby_download_url: https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.5.tar.xz
+workspace: /root
+puma_version: "6.3.0"
+ruby_install_puma: true

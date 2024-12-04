@@ -1,98 +1,54 @@
 ---
-# Update and install dependencies
-- name: Update apt cache
-  apt:
-    update_cache: yes
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Install dependencies for Ruby and Rails
-  apt:
-    name: "{{ ruby_packages }}"
+- name: Define ruby_packages.
+  set_fact:
+    ruby_packages: "{{ __ruby_packages }}"
+  when: ruby_packages is not defined
+
+# Install ruby from source when ruby_install_from_source is true.
+- include_tasks: install-from-source.yml
+  when: ruby_install_from_source
+
+- name: Add user installed RubyGems bin directory to global $PATH
+  copy:
+    src: rubygems.sh
+    dest: /etc/profile.d/rubygems.sh
+    mode: 644
+
+# Install Bundler and configured gems
+- name: Install Bundler
+  gem:
+    name: bundler
     state: present
+    user_install: false
+  when: ruby_install_bundler
 
-# Install Ruby using Rbenv
-- name: Clone rbenv
-  git:
-    repo: "https://github.com/rbenv/rbenv.git"
-    dest: ~/.rbenv
-    update: no
-
-- name: Add rbevn to PATH
-  lineinfile:
-    path: ~/.bashrc
-    line: 'export PATH="$HOME/.rbenv/bin:$PATH"'
+- name: Install configured gems
+  gem:
+    name: "{{ item.name | default(item) }}"
+    version: "{{ item.version | default(omit) }}"
+    user_install: "{{ item.user_install | default(omit) }}"
     state: present
-
-- name: Add rbenv init to shell
-  lineinfile:
-    path: ~/.bashrc
-    line: 'eval "$(rbenv init -)"'
-    state: present
-
-- name: Reload shell
-  shell: |
-    source ~/.bashrc
-  args:
-    executable: /bin/bash
-
-- name: Install rbenv dependencies
-  shell: |
-    ~/.rbenv/bin/rbenv init
-    eval "$(~/.rbenv/bin/rbenv init -)"
-
-- name: Clone ruby-build plugin
-  git:
-    repo: "https://github.com/rbenv/ruby-build.git"
-    dest: ~/.rbenv/plugins/ruby-build
-    update: no
-
-- name: Install Ruby {{ ruby_version }}
-  shell: |
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-    rbenv install {{ ruby_version }}
-    rbenv global {{ ruby_version }}
-
-- name: Verify Ruby version
-  shell: |
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-    ruby --version
-  register: ruby_version_output
-
-- name: Debug Ruby version
-  debug:
-    msg: "Installed Ruby version {{ ruby_version_output.stdout }}"
-
-- name: Install bundler gem
-  shell: |
-    ~/.rbenv/shims/gem install bundler
+  become: true
+  become_user: "{{ ruby_install_gems_user }}"
+  with_items: "{{ ruby_install_gems }}"
 
 # Install Ruby on Rails
-- name: Install Rails {{ rails_version }}
-  shell: |
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-    ~/.rbenv/shims/gem install rails -v {{ rails_version }}
+- name: Install Ruby on Rails
+  gem:
+    name: rails
+    version: "{{ rails_version }}"
+    state: present
+    user_install: false
+  when: ruby_install_rails
 
-# Install Puma
+# Install Puma Web Server
 - name: Install Puma gem
-  shell: |
-    ~/.rbenv/shims/gem install puma
-
-# Install yarn
-- name: Ensure apt-transport-https is installed
-  apt:
-    name: apt-transport-https
-
-- name: Add Yarn apt key
-  apt_key:
-    url: https://dl.yarnpkg.com/debian/pubkey.gpg
-
-- name: Add Yarn repository
-  apt_repository:
-    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
-    filename: yarn
-
-- name: Install Yarn
-  apt:
-    name: yarn
+  gem:
+    name: puma
+    version: "{{ puma_version }}"
+    state: present
+    user_install: false
+  when: ruby_install_puma
