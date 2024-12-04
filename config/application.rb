@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module ZeroWaste
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.1
+    config.load_defaults 7.2
 
     config.active_job.queue_adapter = :sidekiq
     # Please, add to the `ignore` list any other `lib` subdirectories that do
