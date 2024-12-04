@@ -40,7 +40,6 @@
   /* Input styles */
   .color-input {
     @apply p-2;
-    width: 7rem;
-    height: 3.5rem;
+    @apply w-28 h-14;
   }
 }
