@@ -1,0 +1,8 @@
+height: 300
+width: 800
+menubar: false
+toolbar:
+  - undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat 
+plugins:
+  - insertdatetime lists media table code  wordcount
+license_key: 'gpl'
