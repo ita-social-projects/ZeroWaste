@@ -40,5 +40,12 @@
   /* Input styles */
   .color-input {
     @apply p-2 w-28 h-14;
+
+  /* Formula field */
+  .formula{
+    border-radius: inherit !important;
+    border-color: #6b7280 !important;
+    overflow: hidden;
+    resize: none !important;
   }
 }

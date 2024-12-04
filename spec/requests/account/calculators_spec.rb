@@ -88,4 +88,15 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       end
     end
   end
+
+  describe "GET /account/calculators/:slug" do
+    it "renders the calculator's show page correctly" do
+      get account_calculator_path(calculator.slug, locale: locale)
+
+      expect(response).to have_http_status(:ok)
+      expect(response).to render_template(:show)
+      expect(response.body).to include(calculator.en_name)
+      expect(response.body).to include(calculator.slug)
+    end
+  end
 end
