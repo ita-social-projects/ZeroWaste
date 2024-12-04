@@ -20,8 +20,8 @@
 
 # Install Ruby using Rbenv
 - name: Clone rbenv
-  git:
-    repo: "git clone https://github.com/rbenv/rbenv.git"
+  ansible.builtin.git:
+    repo: "https://github.com/rbenv/rbenv.git"
     dest: ~/.rbenv
     update: no
 
