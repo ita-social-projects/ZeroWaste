@@ -31,6 +31,8 @@
 - name: Reload shell
   shell: |
     source ~/.bashrc
+  args:
+    executable: /bin/bash
 
 - name: Install rbenv dependencies
   shell: |
