@@ -6,6 +6,9 @@ puma_version: "5.6.9"
 ruby_install_rails: true
 ruby_install_from_source: true
 ruby_install_bundler: true
+ruby_install_puma: true
+ruby_install_gems_development: true
+ruby_install_gems_user: root
 __ruby_packages:
   - ruby-full
   - ruby-dev
@@ -28,7 +31,6 @@ __ruby_build_packages:
 ruby_rubygems_package_name: rubygems
 ruby_download_url: https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.5.tar.xz
 workspace: /root
-ruby_install_puma: true
 ruby_source_configure_command: ./configure --enable-shared
 ruby_install_gems:
   - name: "mutex_m"

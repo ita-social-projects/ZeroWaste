@@ -1,13 +1,13 @@
 ---
-- name: Add Yarn repository
-  apt_repository:
-    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
-    filename: yarn
+- name: Add Yarn GPG key
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
 
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Define ruby_packages.
+- name: Define ruby_packages
   set_fact:
     ruby_packages: "{{ __ruby_packages }}"
   when: ruby_packages is not defined
@@ -34,20 +34,11 @@
   gem:
     name: "{{ item.name | default(item) }}"
     version: "{{ item.version | default(omit) }}"
-    user_install: "{{ item.user_install | default(omit) }}"
+    user_install: false
     state: present
   become: true
   become_user: "{{ ruby_install_gems_user }}"
   with_items: "{{ ruby_install_gems }}"
-
-# Install Bundler
-- name: Install Bundler
-  gem:
-    name: bundler
-    version: "{{ bundler_version }}"
-    state: present
-    user_install: false
-  when: ruby_install_bundler
 
 - name: Install development gems
   gem:
