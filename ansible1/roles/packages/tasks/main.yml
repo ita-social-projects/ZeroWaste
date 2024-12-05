@@ -35,6 +35,15 @@
   become_user: "{{ ruby_install_gems_user }}"
   with_items: "{{ ruby_install_gems }}"
 
+# Install Bundler
+- name: Install Bundler
+  gem:
+    name: bundler
+    version: "{{ bundler_version }}"
+    state: present
+    user_install: false
+  when: ruby_install_bundler
+
 # Install Ruby on Rails
 - name: Install Ruby on Rails
   gem:

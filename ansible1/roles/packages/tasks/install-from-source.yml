@@ -12,7 +12,7 @@
   apt:
     name: "{{ ruby_build_packages }}"
     state: present
-  when: ansible_os_family === 'Debian'
+  when: ansible_os_family == 'Debian'
 
 - name: Ensure that /var/cache/ansible/ exists
   file:
@@ -25,12 +25,12 @@
   register: ruby_version_marker
 
 - name: Download, extract and install ruby 
-  when: not ruby_version_maker.stat.exists
+  when: not ruby_version_marker.stat.exists
   block:
     - name: Download ruby
       get_url:
         url: "{{ ruby_download_url }}"
-        dest: "{{ workspace }}/ruby-{{ ruby_version }}.tag.gz"
+        dest: "{{ workspace }}/ruby-{{ ruby_version }}.tar.gz"
 
     - name: Extract ruby
       unarchive:
