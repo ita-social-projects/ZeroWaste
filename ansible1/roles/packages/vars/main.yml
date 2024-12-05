@@ -35,14 +35,28 @@ ruby_source_configure_command: ./configure --enable-shared
 ruby_install_gems:
   - name: "mutex_m"
     version: "0.1.2"
+  - name: "cancancan"
+    version: "~> 3.3"
+  - name: "jbuilder"
+    version: "~> 2.7"
+  - name: "kaminari"
+    version: null
+  - name: "pg"
+    version: "~> 1.1"
   - name: "rails"
     version: "7.1.2"
-  - name: "pg"
-    version: "1.1"
+  - name: "redis"
+    version: "~> 4.0"
   - name: "puma"
     version: "5.0"
   - name: "sass-rails"
     version: ">= 6"
+  - name: "hotwire-rails"
+    version: null
+  - name: "bootstrap"
+    version: null
+  - name: "importmap-rails"
+    version: "~> 1.1"
   - name: "image_processing"
     version: "1.2"
   - name: "mini_magick"
@@ -50,4 +64,30 @@ ruby_install_gems:
   - name: "dotenv-rails"
     version: null
   - name: "rspec-rails"
+    version: null
+  - name: "acts_as_singleton"
+    version: null
+  - name: "friendly_id"
+    version: "~> 5.4.0"
+  - name: "babosa"
+    version: null
+  - name: "dentaku"
+    version: "~> 3.1"
+  - name: "net-smtp"
+    version: null
+  - name: "country_select"
+    version: null
+  - name: "bigdecimal"
+    version: "3.0.2"
+  - name: "rails-i18n"
+    version: "~> 7.0.0"
+  - name: "bootsnap"
+    version: null
+  - name: "tailwindcss-rails"
+    version: "~> 2.0"
+  - name: "active_storage_validations"
+    version: null
+  - name: "font-awesome-sass"
+    version: "~> 6.4"
+  - name: "factory_bot_rails"
     version: null
