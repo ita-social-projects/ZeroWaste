@@ -15,6 +15,7 @@ __ruby_packages:
   - libtool
   - nodejs
   - yarn
+  - libvips
 __ruby_build_packages:
   - build-essential
   - zlib1g-dev
@@ -29,4 +30,22 @@ ruby_download_url: https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.5.tar.xz
 workspace: /root
 ruby_install_puma: true
 ruby_source_configure_command: ./configure --enable-shared
-ruby_install_gems: []
+ruby_install_gems:
+  - name: "mutex_m"
+    version: "0.1.2"
+  - name: "rails"
+    version: "7.1.2"
+  - name: "pg"
+    version: "1.1"
+  - name: "puma"
+    version: "5.0"
+  - name: "sass-rails"
+    version: ">= 6"
+  - name: "image_processing"
+    version: "1.2"
+  - name: "mini_magick"
+    version: "4.9.5"
+  - name: "dotenv-rails"
+    version: null
+  - name: "rspec-rails"
+    version: null

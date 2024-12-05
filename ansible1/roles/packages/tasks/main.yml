@@ -1,4 +1,9 @@
 ---
+- name: Add Yarn repository
+  apt_repository:
+    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
+    filename: yarn
+
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
@@ -44,20 +49,30 @@
     user_install: false
   when: ruby_install_bundler
 
-# Install Ruby on Rails
-- name: Install Ruby on Rails
+- name: Install development gems
   gem:
-    name: rails
-    version: "{{ rails_version }}"
-    state: present
+    name: "{{ item.name }}"
+    version: "{{ item.version | default(omit) }}"
     user_install: false
-  when: ruby_install_rails
+  with_items:
+    - { name: "pry-rails" }
+    - { name: "letter_opener" }
+    - { name: "web-console", version: ">= 4.1.0" }
+  when: ruby_install_gems_development
+# # Install Ruby on Rails
+# - name: Install Ruby on Rails
+#   gem:
+#     name: rails
+#     version: "{{ rails_version }}"
+#     state: present
+#     user_install: false
+#   when: ruby_install_rails
 
-# Install Puma Web Server
-- name: Install Puma gem
-  gem:
-    name: puma
-    version: "{{ puma_version }}"
-    state: present
-    user_install: false
-  when: ruby_install_puma
+# # Install Puma Web Server
+# - name: Install Puma gem
+#   gem:
+#     name: puma
+#     version: "{{ puma_version }}"
+#     state: present
+#     user_install: false
+#   when: ruby_install_puma
