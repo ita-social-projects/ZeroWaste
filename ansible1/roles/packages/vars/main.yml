@@ -28,6 +28,7 @@ __ruby_build_packages:
   - libncurses5-dev
   - libffi-dev
   - libgdbm-dev
+  - libpq-dev
 ruby_rubygems_package_name: rubygems
 ruby_download_url: https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.5.tar.xz
 workspace: /root

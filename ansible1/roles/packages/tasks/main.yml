@@ -50,20 +50,7 @@
     - { name: "letter_opener" }
     - { name: "web-console", version: ">= 4.1.0" }
   when: ruby_install_gems_development
-# # Install Ruby on Rails
-# - name: Install Ruby on Rails
-#   gem:
-#     name: rails
-#     version: "{{ rails_version }}"
-#     state: present
-#     user_install: false
-#   when: ruby_install_rails
 
-# # Install Puma Web Server
-# - name: Install Puma gem
-#   gem:
-#     name: puma
-#     version: "{{ puma_version }}"
-#     state: present
-#     user_install: false
-#   when: ruby_install_puma
+- name: Install all nessessary dependencies via bundle
+  shell: |
+    sudo bundle install
