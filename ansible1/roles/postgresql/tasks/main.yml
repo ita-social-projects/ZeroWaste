@@ -17,24 +17,24 @@
 - name: Ensure PostgreSQL packages are installed
   apt:
     name:
-      - "postgresql-{{ postges_version }}"
-      - "postgresql-contrib-{{ postges_version }}"
+      - "postgresql-{{ postgres_version }}"
+      - "postgresql-contrib-{{ postgres_version }}"
     state: present
 
 - name: Hold PostgreSQL version
-  shell: "apt-mark hold postgresql-{{ postges_version }}"
+  shell: "apt-mark hold postgresql-{{ postgres_version }}"
   become: yes
 
 - name: Check installed PostgreSQL version
   shell: "psql --version"
-  register: postges_version_output
+  register: postgres_version_output
 
 - debug:
-    msg: "Installed PostgreSQL version {{ postges_version_output.stdout }}"
+    msg: "Installed PostgreSQL version {{ postgres_version_output.stdout }}"
 
 - name: Configure PostgreSQL. Set listen_address
   lineinfile:
-    dest: "/etc/postgresql/{{ postges_version }}/main/postgresql.conf"
+    dest: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
     regexp: "max_connections ="
     line: "max_connections = 1000"
     state: present
@@ -43,7 +43,7 @@
 
 - name: Configure PostgreSQL. Set SSL
   lineinfile:
-    dest: "/etc/postgresql/{{ postges_version }}/main/postgresql.conf"
+    dest: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
     regexp: "ssl ="
     line: "ssl = false"
     state: present
@@ -52,7 +52,7 @@
 
 - name: Configure PostgreSQL. Set autovacuum
   lineinfile:
-    dest: "/etc/postgresql/{{ postges_version }}/main/postgresql.conf"
+    dest: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
     regexp: "autovacuum ="
     line: "autovacuum = on"
     state: present
@@ -62,7 +62,7 @@
 - name: Configure PostgreSQL. Set hosts in pg_hba.conf
   template:
     src: pg_hba.conf.j2
-    dest: "/etc/postgresql/{{ postges_version }}/main/pg_hba.conf"
+    dest: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
     backup: yes
   notify: restart postgresql
   become: yes
