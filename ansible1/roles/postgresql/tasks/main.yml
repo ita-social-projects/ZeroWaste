@@ -1,21 +1,13 @@
 ---
-- name: Install packages
+- name: Ensure PostgreSQL Python libraries are installed.
   apt:
-    name: "{{ item }}"
+    name: "{{ postgresql_python_library }}"
     state: present
-  with_items:
-    - postgresql
-    - postgresql-server
 
-- name: Install Python packages
-  pip:
-    name: "{{ item }}"
+- name: Ensure PostgreSQL packages are installed.
+  apt:
+    name: "{{ postgresql_packages }}"
     state: present
-  become: yes
-  with_items:
-    - postgresql-{{ postges_version }}
-    - postgresql-client-{{ postges_version }}
-    - postgresql-contrib-{{ postges_version }}
 
 - name: Configure PostgreSQL. Set listen_address
   lineinfile:
@@ -24,7 +16,7 @@
     line: "max_connections = 1000"
     state: present
   notify: restart postgresql
-  sudo: yes
+  become: yes
 
 - name: Configure PostgreSQL. Set SSL
   lineinfile:
