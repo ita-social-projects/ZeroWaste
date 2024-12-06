@@ -10,7 +10,7 @@
             <%= f.simple_fields_for :prices, f.object.find_or_build_price_for_category(category) do |prices_form| %>
               <%= prices_form.input :sum, label: false, input_html: { placeholder: t(".form.sum"), data: { price_form_target: "priceInput" } } %>
               <%= prices_form.hidden_field :category_id, value: category.id %>
-              <div class="error-message hidden text-error" data-price-form-target="errorMessage"><%= t(".form.error_sum") %></div>
+              <div class="hidden error-message text-error" data-price-form-target="errorMessage"><%= t(".form.error_sum") %></div>
             <% end %>
           </div>
         </div>
