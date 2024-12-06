@@ -62,7 +62,7 @@
 - name: Configure PostgreSQL. Set hosts in pg_hba.conf
   template:
     src: pg_hba.conf.j2
-    dest: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
+    dest: "/etc/postgresql/{{ postges_version }}/main/pg_hba.conf"
     backup: yes
   notify: restart postgresql
   become: yes
