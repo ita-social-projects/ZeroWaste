@@ -4,6 +4,10 @@
     name: "{{ postgresql_python_library }}"
     state: present
 
+- name: Define postgresql_version.
+  set_fact:
+    postgresql_version: "{{ postges_version }}"
+
 - name: Ensure PostgreSQL packages are installed.
   apt:
     name: "{{ postgresql_packages }}"
