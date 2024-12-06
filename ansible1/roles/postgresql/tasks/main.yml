@@ -78,13 +78,11 @@
   postgresql_db:
     name: "{{ postgres_db_development_name }}"
   become: yes
-  become_user: "{{ postgres_user }}"
 
 - name: Create PostgreSQL DB
   postgresql_db:
     name: "{{ postgres_db_test_name }}"
   become: yes
-  become_user: "{{ postgres_user }}"
 
 - name: Include encrypted secrets
   include_vars:
