@@ -3,3 +3,20 @@ postgres_user: "postgres"
 postgres_db_development_name: "zero_waste_development"
 postgres_db_test_name: "zero_waste_test"
 postges_version: 12
+postgresql_hba_entries:
+  - { type: local, database: all, user: postgres, auth_method: trust }
+  - { type: local, database: all, user: all, auth_method: md5 }
+  - {
+      type: host,
+      database: all,
+      user: all,
+      address: "127.0.0.1/32",
+      auth_method: md5,
+    }
+  - {
+      type: host,
+      database: all,
+      user: all,
+      address: "::1/128",
+      auth_method: md5,
+    }

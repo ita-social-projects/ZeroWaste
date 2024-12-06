@@ -1,66 +1,89 @@
 ---
 - name: Install packages
-  apt: "name={{ item }} state=present"
+  apt:
+    name: "{{ item }}"
+    state: present
   with_items:
     - postgresql
     - postgresql-server
 
 - name: Install Python packages
-  pip: "name={{ item }} state=present"
-  sudo: yes
+  pip:
+    name: "{{ item }}"
+    state: present
+  become: yes
   with_items:
     - postgresql-{{ postges_version }}
     - postgresql-client-{{ postges_version }}
     - postgresql-contrib-{{ postges_version }}
 
 - name: Configure PostgreSQL. Set listen_address
-  lineinfile: dest=/etc/postgresql/{{ postges_version }}/main/postgresql.conf
-    regexp="max_connections =" line="max_connections = 1000" state=present
+  lineinfile:
+    dest: "/etc/postgresql/{{ postges_version }}/main/postgresql.conf"
+    regexp: "max_connections ="
+    line: "max_connections = 1000"
+    state: present
   notify: restart postgresql
   sudo: yes
 
 - name: Configure PostgreSQL. Set SSL
-  lineinfile: dest=/etc/postgresql/{{ postges_version }}/main/postgresql.conf
-    regexp="ssl =" line="ssl = false" state=present
+  lineinfile:
+    dest: "/etc/postgresql/{{ postges_version }}/main/postgresql.conf"
+    regexp: "ssl ="
+    line: "ssl = false"
+    state: present
   notify: restart postgresql
-  sudo: yes
+  become: yes
 
 - name: Configure PostgreSQL. Set autovacuum
-  lineinfile: dest=/etc/postgresql/{{ postges_version }}/main/postgresql.conf
-    regexp="autovacuum =" line="autovacuum = on" state=present
+  lineinfile:
+    dest: "/etc/postgresql/{{ postges_version }}/main/postgresql.conf"
+    regexp: "autovacuum ="
+    line: "autovacuum = on"
+    state: present
   notify: restart postgresql
-  sudo: yes
+  become: yes
 
 - name: Configure PostgreSQL. Set hosts in pg_hba.conf
   template:
-    src=pg_hba.conf.j2 dest=/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf
-    backup=yes
+    src: pg_hba.conf.j2
+    dest: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+    backup: yes
   notify: restart postgresql
-  sudo: yes
+  become: yes
 
 - name: Install psycopg2
-  pip: name=psycopg2
-  sudo: yes
+  pip:
+    name: psycopg2
+  become: yes
 
 - name: Create PostgreSQL DB
-  postgresql_db: name={{ postgres_db_development_name }}
-  sudo: yes
-  sudo_user: "{{ postgres_user }}"
+  postgresql_db:
+    name: "{{ postgres_db_development_name }}"
+  become: yes
+  become_user: "{{ postgres_user }}"
 
 - name: Create PostgreSQL DB
-  postgresql_db: name={{ postgres_db_test_name }}
-  sudo: yes
-  sudo_user: "{{ postgres_user }}"
+  postgresql_db:
+    name: "{{ postgres_db_test_name }}"
+  become: yes
+  become_user: "{{ postgres_user }}"
 
 - name: Include encrypted secrets
   include_vars:
     file: vars/secrets.yml
 
 - name: Create PostgreSQL user and grant access
-  postgresql_user: db={{ postgres_db_development_name }} user={{ postgres_user }} password={{ postgres_user_password }}
-  sudo: yes
-  sudo_user: "{{ postgres_user }}"
+  postgresql_user:
+    db: "{{ postgres_db_development_name }}"
+    user: "{{ postgres_user }}"
+    password: "{{ postgres_user_password }}"
+  become: yes
+  become_user: "{{ postgres_user }}"
 
 - name: Run rake db:migrate
   shell: |
     rake db:migrate
+  become: yes
+  args:
+    chdir: "~/ZeroWaste/"
