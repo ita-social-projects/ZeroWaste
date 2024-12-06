@@ -1,0 +1,5 @@
+---
+postgres_user: "postgres"
+postgres_db_development_name: "zero_waste_development"
+postgres_db_test_name: "zero_waste_test"
+postges_version: 12

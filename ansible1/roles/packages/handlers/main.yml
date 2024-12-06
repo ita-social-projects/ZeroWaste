@@ -1,3 +1,0 @@
----
-- name: Reload shell
-  shell: exec $SHELL
