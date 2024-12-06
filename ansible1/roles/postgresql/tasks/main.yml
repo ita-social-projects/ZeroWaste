@@ -45,12 +45,12 @@
 - name: Create PostgreSQL DB
   postgresql_db: name={{ postgres_db_development_name }}
   sudo: yes
-  sudo_user: { { postgres_user } }
+  sudo_user: {{ postgres_user }}
 
 - name: Create PostgreSQL DB
   postgresql_db: name={{ postgres_db_test_name }}
   sudo: yes
-  sudo_user: { { postgres_user } }
+  sudo_user: {{ postgres_user }}
 
 - name: Include encrypted secrets
   include_vars:
@@ -59,7 +59,7 @@
 - name: Create PostgreSQL user and grant access
   postgresql_user: db={{ postgres_db_development_name }} user={{ postgres_user }} password={{ postgres_user_password }}
   sudo: yes
-  sudo_user: { { postgres_user } }
+  sudo_user: {{ postgres_user }}
 
 - name: Run rake db:migrate
   shell: |
