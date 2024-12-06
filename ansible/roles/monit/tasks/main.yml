@@ -1,0 +1,45 @@
+---
+- name: Update packages
+  become: true
+  apt:
+    update_cache: yes
+
+- name: Install Monit
+  apt:
+    name: monit
+    state: present
+
+- name: Ensure Monit is enabled and started
+  systemd:
+    name: monit
+    enabled: yes
+    state: started
+
+- name: Copy Redis Monit config
+  copy:
+    dest: /etc/monit/conf.d/redis
+    src: files/redis
+
+- name: Copy Postgres Monit config
+  copy:
+    dest: /etc/monit/conf.d/postgresql
+    src: files/postgresql
+
+- name: Copy Redis Nginx config
+  copy:
+    dest: /etc/monit/conf.d/nginx
+    src: files/nginx
+
+- name: Include encrypted secrets
+  include_vars:
+    file: vars/secrets.yml
+
+- name: Copy monit template config files
+  template:
+    src: "templates/monitrc.j2"
+    dest: "/etc/monit/monitrc"
+
+- name: Reload monit to apply configuration
+  command: monit reload
+  notify:
+    - Restart monit
