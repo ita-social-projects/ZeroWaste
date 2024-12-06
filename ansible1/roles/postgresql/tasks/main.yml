@@ -10,8 +10,17 @@
 
 - name: Ensure PostgreSQL packages are installed.
   apt:
-    name: "{{ postgresql_packages }}"
+    name:
+      - "postgresql-{{ postges_version }}"
+      - "postgresql-contrib-{{ postges_version }}"
     state: present
+
+- name: Check installed PostgreSQL version
+  shell: "psql --version"
+  register: postges_version_output
+
+- debug:
+    msg: "Installed PostgreSQL version {{ postges_version_output.stdout }}"
 
 - name: Configure PostgreSQL. Set listen_address
   lineinfile:
