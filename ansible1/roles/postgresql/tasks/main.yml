@@ -70,9 +70,9 @@
   become: yes
 
 - name: Install psycopg2
-  pip:
-    name: psycopg2
-  become: yes
+  apt:
+    name: "{{ postgresql_python_library }}"
+    state: present
 
 - name: Create PostgreSQL DB
   postgresql_db:
