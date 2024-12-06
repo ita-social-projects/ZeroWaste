@@ -6,7 +6,7 @@
 
 - name: Add PostgreSQL APT repository and GPG key
   shell: |
-    curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+    curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg -y
     echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
   become: yes
 
@@ -62,7 +62,7 @@
 - name: Configure PostgreSQL. Set hosts in pg_hba.conf
   template:
     src: pg_hba.conf.j2
-    dest: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+    dest: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
     backup: yes
   notify: restart postgresql
   become: yes
