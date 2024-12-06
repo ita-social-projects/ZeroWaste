@@ -4,16 +4,26 @@
     name: "{{ postgresql_python_library }}"
     state: present
 
-- name: Define postgresql_version.
-  set_fact:
-    postgresql_version: "{{ postges_version }}"
+- name: Add PostgreSQL APT repository
+  apt_repository:
+    repo: "deb http://apt.postgresql.org/pub/repos/apt {{ ansible_distribution_release }}-pgdg main"
+    state: present
 
-- name: Ensure PostgreSQL packages are installed.
+- name: Import the repository signing key
+  apt_key:
+    url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+    state: present
+
+- name: Ensure PostgreSQL packages are installed
   apt:
     name:
       - "postgresql-{{ postges_version }}"
       - "postgresql-contrib-{{ postges_version }}"
     state: present
+
+- name: Hold PostgreSQL version
+  shell: "apt-mark hold postgresql-{{ postges_version }} postgresql-contrib-{{ postges_version }}"
+  become: yes
 
 - name: Check installed PostgreSQL version
   shell: "psql --version"
