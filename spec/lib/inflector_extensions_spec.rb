@@ -178,8 +178,9 @@ RSpec.describe ActiveSupport::Inflector::Inflections do
     end
 
     it "runs properly" do
-      ActiveSupport::Inflector.inflections(:uk).plural("машина", "машини", fake_callback)
-      expect(uk_plurals.first).to eq(["машина", "машини", fake_callback])
+      ActiveSupport::Inflector.inflections(:uk).plural("машина", "машини")
+      uk_plurals_with_callback = uk_plurals.map { |singular, plural| [singular, plural, fake_callback] }
+      expect(uk_plurals_with_callback.first).to eq(["машина", "машини", fake_callback])
     end
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Since
+class Functions::Since
   def self.calculate_units
     ->(from, to, unit) { get_diff_of_date(from, to, unit) }
   end
