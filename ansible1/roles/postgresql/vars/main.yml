@@ -2,7 +2,7 @@
 postgres_user: "postgres"
 postgres_group: "postgres"
 postgres_version: 12
-postgresql_data_dir: "/var/lib/postgresql/{{ __postgresql_version }}/main"
+postgresql_data_dir: "/var/lib/postgresql/{{ postgres_version }}/main"
 postgresql_bin_path: "/usr/lib/postgresql/12/bin"
 postgresql_effective_log_dir: "/var/log/postgresql"
 postgresql_config_path: "/etc/postgresql/12/main"

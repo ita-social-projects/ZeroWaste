@@ -99,12 +99,20 @@
   notify: restart postgresql
   when: postgresql_hba_entries | length > 0
 
+- name: Define postgresql_unix_socket_directories_mode.
+  set_fact:
+    postgresql_unix_socket_directories_mode: >-
+      {{ __postgresql_unix_socket_directories_mode | default('02775') }}
+  when: postgresql_unix_socket_directories_mode is not defined
+
 - name: Ensure PostgreSQL unix socket dirs exists
   file:
     path: "{{ item }}"
     state: directory
     owner: "{{ postgres_user }}"
     group: "{{ postgres_group }}"
+    mode: "{{ postgresql_unix_socket_directories_mode }}"
+  with_items: "{{ postgresql_unix_socket_directories }}"
 
 - name: Ensure PostgreSQL is started and enabled on boot
   service:
