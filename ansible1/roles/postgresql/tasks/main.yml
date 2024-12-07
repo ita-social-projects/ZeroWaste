@@ -134,9 +134,11 @@
     password: ""
     login_user: "{{ postgres_user }}"
     login_password: ""
+    host: "127.0.0.1"
+    port: 5432
     state: present
   become: true
-  # become_user: "{{ postgres_user }}"
+  become_user: "{{ postgres_user }}"
 ##############
 # - name: Create PostgreSQL DB
 #   postgresql_db:
