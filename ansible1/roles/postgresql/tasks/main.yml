@@ -32,73 +32,126 @@
 - debug:
     msg: "Installed PostgreSQL version {{ postgres_version_output.stdout }}"
 
-- name: Configure PostgreSQL. Set listen_address
-  lineinfile:
-    dest: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
-    regexp: "max_connections ="
-    line: "max_connections = 1000"
-    state: present
-  notify: restart postgresql
-  become: yes
+- name: Ensure all configured locales are present.
+  locale_gen: "name={{ item }} state=present"
+  with_items: "{{ postgresql_locales }}"
+  register: locale_gen_result
 
-- name: Configure PostgreSQL. Set SSL
-  lineinfile:
-    dest: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
-    regexp: "ssl ="
-    line: "ssl = false"
-    state: present
-  notify: restart postgresql
-  become: yes
+- name: Force-restart PostgreSQL after new locales are generated
+  service:
+    name: "{{ postgresql_daemon }}"
+    state: restarted
+  when: locale_gen_result.changed
 
-- name: Configure PostgreSQL. Set autovacuum
-  lineinfile:
-    dest: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
-    regexp: "autovacuum ="
-    line: "autovacuum = on"
-    state: present
+- name: Set PostgreSQL environment variables
+  template:
+    src: postgres.sh.j2
+    dest: /etc/profile.d/postgres.sh
+    mode: 0644
   notify: restart postgresql
-  become: yes
+
+- name: Ensure PostgreSQL data directory exists
+  file:
+    path: "{{ postgresql_data_dir }}"
+    owner: "{{ postgres_user }}"
+    group: "{{ postgres_group }}"
+    state: directory
+    mode: 0700
+
+- name: Check if PostgreSQL database is initialized
+  stat:
+    path: "{{ postgresql_data_dir }}/PG_VERSION"
+  register: pgdata_dir_version
+
+- name: Ensure PostgreSQL database is initialized
+  command: "{{ postgresql_bin_path }}/initdb -D {{ postgresql_data_dir }}"
+  when: not pgdata_dir_version.stat.exists
+  become: true
+  become_user: "{{ postgres_user }}"
+  vars:
+    ansible_ssh_pipelining: true
+
+- name: Ensure PostgreSQL log directory exists
+  file:
+    path: "{{ postgresql_effective_log_dir }}"
+    owner: "{{ postgres_user }}"
+    group: "{{ postgres_group }}"
+    state: directory
+    mode: 0700
+
+- name: Configure global settings
+  lineinfile:
+    dest: "{{ postgresql_config_path }}/postgresql.conf"
+    regexp: "^#?{{ item.option }}.+$"
+    line: "{{ item.option }} = '{{ item.value }}'"
+    state: "{{ item.state | default('present') }}"
+    mode: 0644
+  with_items: "{{ postgresql_global_config_options }}"
+  notify: restart postgresql
 
 - name: Configure PostgreSQL. Set hosts in pg_hba.conf
   template:
     src: "pg_hba.conf.j2"
-    dest: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
+    dest: "{{ postgresql_config_path }}/pg_hba.conf"
     owner: "{{ postgres_user }}"
     group: "{{ postgres_group }}"
     mode: 0600
   notify: restart postgresql
-  become: yes
+  when: postgresql_hba_entries | length > 0
 
-- name: Install psycopg2
-  apt:
-    name: "{{ postgresql_python_library }}"
-    state: present
+- name: Ensure PostgreSQL unix socket dirs exists
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ postgres_user }}"
+    group: "{{ postgres_group }}"
 
-- name: Create PostgreSQL DB
-  postgresql_db:
-    name: "{{ postgres_db_development_name }}"
-  become: yes
+- name: Ensure PostgreSQL is started and enabled on boot
+  service:
+    name: "{{ postgresql_daemon }}"
+    state: "{{ postgresql_service_state }}"
+    enabled: "{{ postgresql_service_enabled }}"
 
-- name: Create PostgreSQL DB
-  postgresql_db:
-    name: "{{ postgres_db_test_name }}"
-  become: yes
+- name: Set permissions on PostgreSQL data directory
+  file:
+    path: "{{ postgresql_data_dir }}"
+    owner: "{{ postgres_user }}"
+    group: "{{ postgres_group }}"
+    mode: "0700"
+  become: true
 
-- name: Include encrypted secrets
-  include_vars:
-    file: vars/secrets.yml
-
-- name: Create PostgreSQL user and grant access
+- name: Set password for postgres user using ALTER USER
   postgresql_user:
-    db: "{{ postgres_db_development_name }}"
-    user: "{{ postgres_user }}"
-    password: "{{ postgres_user_password }}"
-  become: yes
-  become_user: "{{ postgres_user }}"
+    name: "{{ postgres_user }}"
+    password: ""
+    login_user: "{{ postgres_user }}"
+    login_password: ""
+    state: present
+# - name: Create PostgreSQL DB
+#   postgresql_db:
+#     name: "{{ postgres_db_development_name }}"
+#   become: yes
 
-- name: Run rake db:migrate
-  shell: |
-    rake db:migrate
-  become: yes
-  args:
-    chdir: "~/ZeroWaste/"
+# - name: Create PostgreSQL DB
+#   postgresql_db:
+#     name: "{{ postgres_db_test_name }}"
+#   become: yes
+
+# - name: Include encrypted secrets
+#   include_vars:
+#     file: vars/secrets.yml
+
+# - name: Create PostgreSQL user and grant access
+#   postgresql_user:
+#     db: "{{ postgres_db_development_name }}"
+#     user: "{{ postgres_user }}"
+#     password: "{{ postgres_user_password }}"
+#   become: yes
+#   become_user: "{{ postgres_user }}"
+
+# - name: Run rake db:migrate
+#   shell: |
+#     rake db:migrate
+#   become: yes
+#   args:
+#     chdir: "~/ZeroWaste/"
