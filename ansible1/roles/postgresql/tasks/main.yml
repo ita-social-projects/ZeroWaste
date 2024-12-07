@@ -135,6 +135,9 @@
     login_user: "{{ postgres_user }}"
     login_password: ""
     state: present
+  become: true
+  # become_user: "{{ postgres_user }}"
+##############
 # - name: Create PostgreSQL DB
 #   postgresql_db:
 #     name: "{{ postgres_db_development_name }}"

@@ -11,7 +11,7 @@ postgres_db_test_name: "zero_waste_test"
 postgresql_python_library: "python3-psycopg2"
 postgresql_hba_entries:
   - { type: local, database: all, user: postgres, auth_method: trust }
-  - { type: local, database: all, user: all, auth_method: md5 }
+  - { type: local, database: all, user: all, auth_method: trust }
   - {
       type: host,
       database: all,
