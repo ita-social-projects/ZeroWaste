@@ -83,6 +83,8 @@ RSpec.configure do |config|
 
   config.add_formatter "Fuubar"
   config.fuubar_output_pending_results = false
+
+  Capybara.default_max_wait_time = 10  # Increase wait time (in seconds), so test don't fail locally
 end
 
 Shoulda::Matchers.configure do |config|

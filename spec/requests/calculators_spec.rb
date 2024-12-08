@@ -91,6 +91,7 @@ RSpec.describe CalculatorsController, type: :request do
 
     let(:valid_attributes) { { en_name: "calculator", uk_name: "калькулятор" } }
     let(:invalid_attributes) { { en_name: "", uk_name: "" } }
+    let(:last_calculator) { Calculator.last }
 
     context "with valid attributes" do
       it "creates a calculator" do
@@ -98,7 +99,7 @@ RSpec.describe CalculatorsController, type: :request do
           post account_calculators_path, params: { calculator: valid_attributes }
         end.to change(Calculator, :count).by(1)
 
-        expect(response).to redirect_to(account_calculators_path)
+        expect(response).to redirect_to(account_calculator_path(slug: last_calculator))
         expect(flash[:notice]).to eq(I18n.t("notifications.calculator_created"))
       end
     end
@@ -112,6 +113,19 @@ RSpec.describe CalculatorsController, type: :request do
         expect(response.body).to include(I18n.t("errors.messages.too_short", count: 3))
         expect(response).to render_template(:new)
       end
+    end
+  end
+
+  describe "POST #calculate" do
+    let(:calculator) { create(:calculator) }
+    let(:formula) { build(:formula, expression: "a + 5", calculator: calculator) }
+    let(:field) { build(:field, var_name: "a", calculator: calculator) }
+
+    it "stores the results in the session under the calculator slug" do
+      post calculate_calculator_path(calculator), params: { calculator: calculator, inputs: { a: 5 }, format: :turbo_stream }
+
+      expect(session[:calculation_results]).to have_key(calculator.slug)
+      expect(session[:calculation_results][calculator.slug]).to eq(assigns(:results))
     end
   end
 end

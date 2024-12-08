@@ -5,6 +5,9 @@
         <legend class="admin-legend">Calculator</legend>
         <%= f.input :en_name, label: "Calculator Name:", class: 'form-control' %>
         <%= f.input :uk_name, label: "Uk Calculator Name:", class: 'form-control' %>
+        <div id="fields" class="space-y-4">
+          <%= render "account/calculators/partials/color_selector", f: f %>
+        </div>
       </fieldset>
 
       <!-- formula input-->
