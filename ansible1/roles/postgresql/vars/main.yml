@@ -41,3 +41,35 @@ postgresql_locales:
 postgresql_daemon: postgresql
 postgresql_service_state: "started"
 postgresql_service_enabled: true
+postgresql_databases:
+  - name: zero_waste_development
+    login_host: localhost
+    login_port: 5432
+    login_user: "{{ postgres_user }}"
+    login_unix_socket: /var/run/postgresql
+    owner: "{{ postgres_user }}"
+    state: present
+
+  - name: zero_waste_test
+    login_host: localhost
+    login_port: 5432
+    login_user: "{{ postgres_user }}"
+    login_unix_socket: /var/run/postgresql
+    owner: "{{ postgres_user }}"
+    state: present
+
+postgresql_users:
+  - name: "{{ postgres_user }}"
+    priv: zero_waste_development:ALL
+    db: zero_waste_development
+    login_host: localhost
+    login_unix_socket: /var/run/postgresql
+    state: present
+
+  - name: "{{ postgres_user }}"
+    priv: zero_waste_test:ALL
+    db: zero_waste_test
+    login_host: localhost
+    login_unix_socket: /var/run/postgresql
+    state: present
+postgresql_auth_method: "{{ ansible_fips  | ternary('scram-sha-256', 'md5') }}"
