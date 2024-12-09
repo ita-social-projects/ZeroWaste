@@ -203,7 +203,7 @@
     src: config/database.yml.docker
     dest: config/database.yml
 
-- name: get the username running the deploy
+- name: Get the username
   become: false
   local_action: command whoami
   register: username_on_the_host
