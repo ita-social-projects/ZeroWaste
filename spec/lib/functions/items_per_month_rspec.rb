@@ -3,7 +3,7 @@
 require "rails_helper"
 require "functions/items_per_month"
 
-RSpec.describe ItemsPerMonth do
+RSpec.describe Functions::ItemsPerMonth do
   let(:data) { { 0..2 => 30, 3..5 => 70 } }
 
   describe "#call" do

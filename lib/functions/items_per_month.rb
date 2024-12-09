@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ItemsPerMonth
+class Functions::ItemsPerMonth
   def self.deferred
     lambda do |month, *range_ids|
       ranges   = RangeField.where(selector: range_ids.map(&:upcase))
