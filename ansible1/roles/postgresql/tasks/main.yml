@@ -160,7 +160,7 @@
     state: "{{ item.state | default('present') }}"
   with_items: "{{ postgresql_databases }}"
   become: true
-  become_user: "{{ postgres_user1 }}"
+  become_user: "{{ postgres_user }}"
   vars:
     ansible_ssh_pipelining: true
 
@@ -192,14 +192,25 @@
     login_host: "{{ item.login_host }}"
     login_user: "{{ postgres_user }}"
     login_password: "{{ postgres_user_password }}"
-    port: "{{ item.port }}"
+    port: "{{ item.login_port }}"
     owner: "{{ postgres_user }}"
     state: present
+  with_items: "{{ postgresql_databases }}"
   become: true
+
+- name: Copy and rename database configuration
+  copy:
+    src: config/database.yml.docker
+    dest: config/database.yml
+
+- name: get the username running the deploy
+  become: false
+  local_action: command whoami
+  register: username_on_the_host
 
 - name: Run rake db:migrate
   shell: |
     rake db:migrate
   become: yes
   args:
-    chdir: "~/ZeroWaste/"
+    chdir: "/home/{{ username_on_the_host.stdout }}/ZeroWaste/"

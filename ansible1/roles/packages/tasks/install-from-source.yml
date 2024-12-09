@@ -1,4 +1,7 @@
 ---
+- name: Install system dependencies
+  run: sudo apt-get install -y libvips42 libvips-dev imagemagick
+
 - name: Define ruby_build_packages
   set_fact:
     ruby_build_packages: "{{ __ruby_build_packages }}"
