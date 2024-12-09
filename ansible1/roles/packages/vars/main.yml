@@ -115,6 +115,7 @@ rvm1_rvm: "{{ rvm1_install_path }}/bin/rvm"
 rvm1_temp_download_path: "/tmp"
 rvm1_rvm_latest_installer: "https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer"
 rvm1_gpg_keys: "409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB"
+rvm1_gpg_key_server: "hkp://keys.openpgp.org"
 rvm1_gpg_key_servers:
   - "{{ rvm1_gpg_key_server }}"
   - hkp://pgp.mit.edu

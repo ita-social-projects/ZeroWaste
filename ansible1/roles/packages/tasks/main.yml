@@ -5,7 +5,13 @@
     cache_valid_time: 86400
 
 - name: Install system dependencies
-  run: sudo apt-get install -y libvips42 libvips-dev imagemagick
+  apt:
+    name:
+      - libvips42
+      - libvips-dev
+      - imagemagick
+    state: present
+    update_cache: yes
 
 - name: Define ruby_build_packages
   set_fact:
