@@ -38,6 +38,11 @@
   register: bundler_install
   changed_when: '"Successfuly installed bundler" in bundler_install.stdout'
 
+- name: Install Rails
+  shell: |
+    {{ rvm1_install_path }}/wrappers/{{ item.stdout }}/gem install rails -v {{ rails_version }}
+  with_items: "{{ ruby_patch.results }}"
+
 - name: Symlink ruby related binaries on the system path
   file:
     state: 'link'

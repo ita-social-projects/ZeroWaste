@@ -59,10 +59,6 @@
     dest: /etc/profile.d/rubygems.sh
     mode: 644
 
-- name: Install Rails
-  shell: |
-    {{ rvm1_install_path }}/wrappers/default/gem install rails -v {{ rails_version }}
-
 # Install Bundler and configured gems
 # - name: Install Bundler
 #   gem:
