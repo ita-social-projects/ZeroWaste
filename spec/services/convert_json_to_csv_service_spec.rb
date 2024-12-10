@@ -4,6 +4,7 @@ RSpec.describe ConvertJsonToCsvService do
   let(:input_file) { "spec/fixtures/files/unlighthouse_report.json" }
   let(:output_file) { "spec/fixtures/files/output.csv" }
   let(:csv_content) { CSV.read(output_file, headers: true) }
+  let(:service) { described_class.call(input_file, output_file) }
 
   describe ".call" do
     context "when initializing and calling an instance" do
@@ -15,7 +16,7 @@ RSpec.describe ConvertJsonToCsvService do
       end
 
       it "initializes and calls the instance with the provided arguments" do
-        result = ConvertJsonToCsvService.call(input_file, output_file)
+        result = service
 
         expect(ConvertJsonToCsvService).to have_received(:new).with(input_file, output_file)
         expect(service_instance).to have_received(:call)
@@ -25,7 +26,7 @@ RSpec.describe ConvertJsonToCsvService do
 
     context "when creating a CSV file" do
       it "creates a csv file with correct data" do
-        result = ConvertJsonToCsvService.call(input_file, output_file)
+        result = service
 
         expect(result).to eq(output_file)
         expect(File.exist?(output_file)).to be_truthy
