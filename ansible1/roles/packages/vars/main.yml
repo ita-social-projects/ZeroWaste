@@ -9,7 +9,7 @@ ruby_install_bundler: true
 ruby_install_puma: true
 ruby_install_gems_development: true
 ruby_install_gems_user: root
-__ruby_packages:
+ruby_packages:
   - ruby-full
   - ruby-dev
   - build-essential
@@ -19,7 +19,7 @@ __ruby_packages:
   - nodejs
   - yarn
   - libvips
-__ruby_build_packages:
+ruby_build_packages:
   - build-essential
   - zlib1g-dev
   - libssl-dev

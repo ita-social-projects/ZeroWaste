@@ -48,11 +48,6 @@
     url: https://dl.yarnpkg.com/debian/pubkey.gpg
     state: present
 
-- name: Define ruby_packages
-  set_fact:
-    ruby_packages: "{{ __ruby_packages }}"
-  when: ruby_packages is not defined
-
 # Install ruby from source when ruby_install_from_source is true.
 # - include_tasks: install-from-source.yml
 #   when: ruby_install_from_source
