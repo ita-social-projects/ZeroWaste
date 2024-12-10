@@ -11,7 +11,9 @@
       - libvips-dev
       - imagemagick
     state: present
-    update_cache: yes
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
 
 - name: Define ruby_build_packages
   set_fact:
@@ -42,9 +44,6 @@
     url: https://dl.yarnpkg.com/debian/pubkey.gpg
     state: present
 
-- name: Include OS-specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
-
 - name: Define ruby_packages
   set_fact:
     ruby_packages: "{{ __ruby_packages }}"
@@ -59,6 +58,11 @@
     src: rubygems.sh
     dest: /etc/profile.d/rubygems.sh
     mode: 644
+
+- name: Install Rails
+  shell: |
+    {{ rvm1_install_path }}/wrappers/default/gem install rails -v {{ rails_version }}
+
 # Install Bundler and configured gems
 # - name: Install Bundler
 #   gem:
@@ -88,6 +92,6 @@
 #     - { name: "web-console", version: ">= 4.1.0" }
 #   when: ruby_install_gems_development
 
-# - name: Install all nessessary dependencies via bundle
-#   shell: |
-#     sudo bundle install
+- name: Install all nessessary dependencies via bundle
+  shell: |
+    sudo bundle install

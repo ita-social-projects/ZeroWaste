@@ -198,15 +198,16 @@
   with_items: "{{ postgresql_databases }}"
   become: true
 
-- name: Copy and rename database configuration
-  copy:
-    src: config/database.yml.docker
-    dest: config/database.yml
-
 - name: Get the username
   become: false
   local_action: command whoami
   register: username_on_the_host
+
+- name: Copy and rename database configuration
+  copy:
+    src: /home/{{ username_on_the_host.stdout }}/ZeroWaste/config/database.yml.docker
+    dest: /home/{{ username_on_the_host.stdout }}/ZeroWaste/config/database.yml
+    remote_src: yes
 
 - name: Run rake db:migrate
   shell: |
