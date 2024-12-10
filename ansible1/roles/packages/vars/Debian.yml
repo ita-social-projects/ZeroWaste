@@ -6,6 +6,7 @@ __ruby_packages:
   - autogen
   - autoconf
   - libtool
+  - nodejs
 __ruby_build_packages:
   - build-essential
   - zlib1g-dev

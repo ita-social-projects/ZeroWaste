@@ -29,6 +29,10 @@
   local_action: command whoami
   register: username_on_the_host
 
+- name: Install Debian packages
+  import_tasks: "setup-Debian.yml"
+  become: yes
+
 - name: Install Ruby and Gems
   import_tasks: "rvm.yml"
   become: yes
