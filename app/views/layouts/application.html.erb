@@ -17,7 +17,7 @@
   <body>
     <div class="body-inside">
       <%= render "layouts/flash_messages" %>
-      <%= render "account/shared/navigation" %>
+      <%= render "layouts/navigation" %>
       <%= render "shared/breadcrumbs" %>
       <%= yield %>
       <%= any_login_here if defined?(AnyLogin) %>
