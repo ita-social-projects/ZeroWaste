@@ -26,6 +26,7 @@ ruby_packages:
   - libncurses5-dev
   - libffi-dev
   - libgdbm-dev
+  - libpq
   - libpq-dev
 rvm_dependencies:
   - curl
