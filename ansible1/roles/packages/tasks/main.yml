@@ -59,34 +59,30 @@
     mode: 644
 
 # Install Bundler and configured gems
-# - name: Install Bundler
-#   gem:
-#     name: bundler
-#     state: present
-#     user_install: false
-#   when: ruby_install_bundler
+- name: Install Bundler
+  gem:
+    name: bundler
+    state: present
+    user_install: false
+  when: ruby_install_bundler
 
-# - name: Install configured gems
-#   gem:
-#     name: "{{ item.name | default(item) }}"
-#     version: "{{ item.version | default(omit) }}"
-#     user_install: false
-#     state: present
-#   become: true
-#   become_user: "{{ ruby_install_gems_user }}"
-#   with_items: "{{ ruby_install_gems }}"
+- name: Install configured gems
+  gem:
+    name: "{{ item.name | default(item) }}"
+    version: "{{ item.version | default(omit) }}"
+    user_install: false
+    state: present
+  become: true
+  become_user: "{{ ruby_install_gems_user }}"
+  with_items: "{{ ruby_install_gems }}"
 
-# - name: Install development gems
-#   gem:
-#     name: "{{ item.name }}"
-#     version: "{{ item.version | default(omit) }}"
-#     user_install: false
-#   with_items:
-#     - { name: "pry-rails" }
-#     - { name: "letter_opener" }
-#     - { name: "web-console", version: ">= 4.1.0" }
-#   when: ruby_install_gems_development
-
-- name: Install all nessessary dependencies via bundle
-  shell: |
-    sudo bundle install
+- name: Install development gems
+  gem:
+    name: "{{ item.name }}"
+    version: "{{ item.version | default(omit) }}"
+    user_install: false
+  with_items:
+    - { name: "pry-rails" }
+    - { name: "letter_opener" }
+    - { name: "web-console", version: ">= 4.1.0" }
+  when: ruby_install_gems_development
