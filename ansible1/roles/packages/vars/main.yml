@@ -19,8 +19,6 @@ ruby_packages:
   - nodejs
   - yarn
   - libvips
-ruby_build_packages:
-  - build-essential
   - zlib1g-dev
   - libssl-dev
   - libyaml-dev
@@ -32,20 +30,20 @@ ruby_build_packages:
 rvm_dependencies:
   - curl
   - gnupg
-  - build-essential
-  - libssl-dev
-  - libyaml-dev
+  # - build-essential
+  # - libssl-dev
+  # - libyaml-dev
   - libreadline-dev
-  - zlib1g-dev
+  # - zlib1g-dev
   - libsqlite3-dev
   - sqlite3
   - libxml2-dev
   - libxslt1-dev
   - libcurl4-openssl-dev
   - software-properties-common
-  - libffi-dev
-  - nodejs
-  - yarn
+  # - libffi-dev
+  # - nodejs
+  # - yarn
 ruby_rubygems_package_name: rubygems
 ruby_download_url: https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.5.tar.xz
 workspace: /root
