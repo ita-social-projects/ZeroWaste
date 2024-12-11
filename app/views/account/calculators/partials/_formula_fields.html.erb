@@ -9,6 +9,9 @@
 
     <%= f.input :uk_unit, label: "Uk Unit Label:" %>
     <%= f.input :en_unit, label: "Unit Label:" %>
+    <%= f.input :relation, as: :select, label: "Relation of formula (optinal):",
+                collection: ["Next", "Previous"], include_blank: "None"
+    %>
 
     <%= link_to_remove_association "- Remove Formula", f, class: "text-red-500 underline" %>
   </div>
