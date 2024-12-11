@@ -15,23 +15,29 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: Install ruby and other required dependencies.
+  apt:
+    name: "{{ ruby_packages }}"
+    state: present
+
+- name: Install rubygems.
+  apt:
+    name: "{{ ruby_rubygems_package_name }}"
+    state: present
+
 # - name: Define ruby_build_packages
 #   set_fact:
 #     ruby_build_packages: "{{ __ruby_build_packages }}"
 #   when: ruby_build_packages is not defined
-
-- name: Update apt cache (Debian)
-  apt: update_cache=true cache_valid_time=86400
-  when: ansible_os_family == 'Debian'
 
 - name: Get the username
   become: false
   local_action: command whoami
   register: username_on_the_host
 
-- name: Install Debian packages
-  import_tasks: "setup-Debian.yml"
-  become: yes
+# - name: Install Debian packages
+#   import_tasks: "setup-Debian.yml"
+#   become: yes
 
 - name: Install Ruby and Gems
   import_tasks: "rvm.yml"

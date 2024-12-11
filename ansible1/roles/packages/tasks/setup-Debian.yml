@@ -4,17 +4,17 @@
 #     update_cache: true
 #     cache_valid_time: 86400
 
-- name: Set rubygems package name for Ubuntu
-  set_fact:
-    ruby_rubygems_package_name: rubygems-integration
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'trusty'
+# - name: Set rubygems package name for Ubuntu
+#   set_fact:
+#     ruby_rubygems_package_name: rubygems-integration
+#   when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'trusty'
 
-- name: Install ruby and other required dependencies.
-  apt:
-    name: "{{ ruby_packages }}"
-    state: present
+# - name: Install ruby and other required dependencies.
+#   apt:
+#     name: "{{ ruby_packages }}"
+#     state: present
 
-- name: Install rubygems.
-  apt:
-    name: "{{ ruby_rubygems_package_name }}"
-    state: present
+# - name: Install rubygems.
+#   apt:
+#     name: "{{ ruby_rubygems_package_name }}"
+#     state: present
