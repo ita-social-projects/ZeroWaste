@@ -273,6 +273,7 @@ select.custom-select {
   }
   .result-wrapper {
     display: flex;
+    width: fit-content;
   }
   .vector-width {
     width: 100px;
@@ -289,6 +290,7 @@ select.custom-select {
       display: none;
     }
     .right {
+      padding-left: 30px;
       padding-top: 85px;
     }
     .left {
@@ -334,9 +336,6 @@ select.custom-select {
         width: 280px;
       }
     }
-    .result-wrapper {
-      width: 370px;
-    }
   }
 }
 
@@ -368,6 +367,7 @@ select.custom-select {
 
     .result-wrapper {
       display: block;
+      width: 350px;
       margin-right: 140px;
       margin-top: 0;
     }
@@ -431,6 +431,7 @@ select.custom-select {
       width: 300px;
     }
     .result-wrapper {
+      width: 280px;
       margin-right: 0;
     }
   }
