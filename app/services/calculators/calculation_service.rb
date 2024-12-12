@@ -9,8 +9,12 @@ class Calculators::CalculationService
   def perform
     @calculator.formulas.map do |formula|
       result = @dentaku.evaluate(formula.expression, @inputs).round(2)
-
-      { label: formula.label, result: result, unit: formula.unit, relation: formula.relation.downcase }
+      {
+        label: formula.label,
+        result: result,
+        unit: formula.unit,
+        relation: formula.relation
+      }
     end
   end
 end
