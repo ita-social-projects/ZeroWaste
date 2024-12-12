@@ -8,36 +8,36 @@ RSpec.describe RelationValidator do
     let(:formula_2) { build(:formula, relation: "next") }
     let(:formula_3) { build(:formula, relation: nil) }
 
-    context "when the first formula has a relation of 'Previous'" do
+    context "when the first formula has a relation of previous" do
       before do
         calculator.formulas = [formula_1]
         calculator.valid?
       end
 
       it "adds an error to the first formula" do
-        expect(formula_1.errors[:relation]).to include("The first formula cannot have a relation of 'Previous' because there is no previous formula.")
+        expect(formula_1.errors[:relation]).to include(I18n.t("activerecord.errors.models.formula.attributes.expression.first_relation_error"))
       end
     end
 
-    context "when the last formula has a relation of 'Next'" do
+    context "when the last formula has a relation of next" do
       before do
-        calculator.formulas = [formula_2]
+        calculator.formulas = [formula_3, formula_2]
         calculator.valid?
       end
 
       it "adds an error to the last formula" do
-        expect(formula_2.errors[:relation]).to include("The last formula cannot have a relation of 'Next' because there is no next formula.")
+        expect(formula_2.errors[:relation]).to include(I18n.t("activerecord.errors.models.formula.attributes.expression.last_relation_error"))
       end
     end
 
-    context "when formulas have consecutive relations 'Next' and 'Previous'" do
+    context "when formulas have consecutive relations 'next' and 'previous'" do
       before do
         calculator.formulas = [formula_2, formula_1]
         calculator.valid?
       end
 
       it "adds an error to the second formula" do
-        expect(formula_1.errors[:relation]).to include("cannot have the same relation as the previous formula.")
+        expect(formula_1.errors[:relation]).to include(I18n.t("activerecord.errors.models.formula.attributes.expression.relation_between_two_error"))
       end
     end
 

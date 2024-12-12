@@ -9,17 +9,17 @@ class RelationValidator < ActiveModel::Validator
     return if record.formulas.blank?
 
     if record.formulas.first.relation == "previous"
-      record.formulas.first.errors.add(:relation, "The first formula cannot have a relation of 'Previous' because there is no previous formula.")
+      record.formulas.first.errors.add(:relation, I18n.t("activerecord.errors.models.formula.attributes.expression.first_relation_error"))
     end
 
     if record.formulas.last.relation == "next"
-      record.formulas.last.errors.add(:relation, "The last formula cannot have a relation of 'Next' because there is no next formula.")
+      record.formulas.last.errors.add(:relation, I18n.t("activerecord.errors.models.formula.attributes.expression.last_relation_error"))
     end
 
     last_relation = nil
     record.formulas.each do |formula|
       if last_relation == "next" && formula.relation == "previous"
-        formula.errors.add(:relation, "cannot have the same relation as the previous formula.")
+        formula.errors.add(:relation, I18n.t("activerecord.errors.models.formula.attributes.expression.relation_between_two_error"))
       end
       last_relation = formula.relation
     end
