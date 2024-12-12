@@ -8,6 +8,11 @@
     name: "{{ postgresql_python_library }}"
     state: present
 
+- name: Update APT cache
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+
 - name: Add PostgreSQL APT repository and GPG key
   shell: |
     sudo apt-get install wget ca-certificates
@@ -107,6 +112,11 @@
   notify: restart postgresql
   when: postgresql_hba_entries | length > 0
 
+- name: Reload PostgreSQL configuration
+  service:
+    name: postgresql
+    state: reloaded
+
 - name: Define postgresql_unix_socket_directories_mode.
   set_fact:
     postgresql_unix_socket_directories_mode: >-
@@ -142,8 +152,8 @@
     password: "{{ postgres_user_password }}"
     login_user: "{{ postgres_user }}"
     login_password: "{{ postgres_user_password }}"
-    host: "127.0.0.1"
-    port: 5432
+    # host: "127.0.0.1"
+    # port: 5432
     state: present
   become: true
   become_user: "{{ postgres_user }}"
@@ -212,10 +222,3 @@
     src: /home/{{ username_on_the_host.stdout }}/ZeroWaste/config/database.yml.docker
     dest: /home/{{ username_on_the_host.stdout }}/ZeroWaste/config/database.yml
     remote_src: yes
-
-- name: Run rake db:migrate
-  shell: |
-    rake db:migrate
-  become: yes
-  args:
-    chdir: "/home/{{ username_on_the_host.stdout }}/ZeroWaste/"
