@@ -11,7 +11,6 @@
 - name: Update APT cache
   apt:
     update_cache: true
-    cache_valid_time: 86400
 
 - name: Add PostgreSQL APT repository and GPG key
   shell: |
@@ -25,7 +24,6 @@
 - name: Update APT cache
   apt:
     update_cache: true
-    cache_valid_time: 86400
 
 - name: Ensure PostgreSQL packages are installed
   apt:
