@@ -1,7 +1,7 @@
 require "rails_helper"
 require "functions/since"
 
-RSpec.describe Since, type: :function do
+RSpec.describe Functions::Since, type: :function do
   subject { described_class }
 
   it {
@@ -9,7 +9,7 @@ RSpec.describe Since, type: :function do
   }
 
   describe "#calculate_units" do
-    let(:calculate_units) { Since.calculate_units }
+    let(:calculate_units) { Functions::Since.calculate_units }
     let(:from) { Date.new(2020, 0o1, 0o1) }
     let(:to) { Date.new(2021, 0o1, 31) }
     let(:invalid_date_format) { Time.zone.local(2001, 0o1, 0o1) }

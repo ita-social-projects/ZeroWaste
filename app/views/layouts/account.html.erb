@@ -2,7 +2,7 @@
 <html lang="EN" xml:lang="en">
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) %>
+  <%= favicon_link_tag(url_for(SiteSetting.current.favicon)) if SiteSetting.current.favicon.attached? %>
   <%= display_meta_tags(
       site: SiteSetting.current.title,
       reverse: true
@@ -14,12 +14,12 @@
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 </head>
-<body class="admin min-h-screen">
-  <%= render 'layouts/flash_messages' %>
-  <%= render 'layouts/account_navbar' %>
+<body class="min-h-screen admin">
+  <%= render 'shared/flash_messages' %>
+  <%= render 'shared/account_navbar' %>
   <div class="container admin-container">
     <%= yield %>
   </div>
-  <%= render 'layouts/account_footer' %>
+  <%= render 'shared/account_footer' %>
 </body>
 </html>

@@ -12,7 +12,7 @@ xdescribe "Password Reset Page", js: true do
         .and_return(double(deliver: true))
       visit password_reset_path
       fill_in "user_email", with: user.email
-      click_button "Reset"
+      click_link_or_button "Reset"
       expect(page).to have_content("If your email address exists")
     end
   end
