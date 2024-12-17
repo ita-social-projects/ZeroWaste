@@ -174,14 +174,14 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "POST #calculate" do
-    before do
-      sign_in user
-    end
+    context "when user sign_in" do
+      it "returns a successful response" do
+        sign_in user
 
-    it "returns a successful response" do
-      post calculate_calculator_path(calculator.slug)
+        post calculate_calculator_path(calculator.slug)
 
-      expect(response).to be_successful
+        expect(response).to be_successful
+      end
     end
   end
 end

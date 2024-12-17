@@ -24,7 +24,7 @@ RSpec.describe HomeController, type: :request do
 
     context "redirect to root_url" do
       it "is successful" do
-        get "/"
+        get root_redirection_path
 
         expect(response).to redirect_to(root_path)
       end
