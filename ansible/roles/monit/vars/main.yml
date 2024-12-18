@@ -1,0 +1,7 @@
+---
+smtp_user: "engineering.zerowaste@gmail.com"
+
+alert_emails:
+  - andrii.khomik@gmail.com
+  - vanuha277@gmail.com
+  - olegiv.mail@gmail.com
