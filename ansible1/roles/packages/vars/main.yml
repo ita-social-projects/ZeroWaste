@@ -1,14 +1,7 @@
 ---
 ruby_version: "3.3.5"
 rails_version: "7.1.2"
-bundler_version: "2.2.8"
-# puma_version: "5.6.9"
-# ruby_install_rails: true
-# ruby_install_from_source: true
-# ruby_install_bundler: true
-# ruby_install_puma: true
-# ruby_install_gems_development: true
-# ruby_install_gems_user: root
+bundler_version: "2.5.11"
 ruby_packages:
   - ruby-full
   - ruby-dev
@@ -27,20 +20,7 @@ ruby_packages:
   - libffi-dev
   - libgdbm-dev
   - libpq-dev
-# rvm_dependencies:
-#   - curl
-#   - gnupg
-#   - libreadline-dev
-#   - libsqlite3-dev
-#   - sqlite3
-#   - libxml2-dev
-#   - libxslt1-dev
-#   - libcurl4-openssl-dev
-#   - software-properties-common
 ruby_rubygems_package_name: rubygems
-# ruby_download_url: "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-{{ ruby_version }}.tar.xz"
-# workspace: /root
-# ruby_source_configure_command: ./configure --enable-shared
 rvm1_install_path: "~/.rvm"
 rvm1_rvm: "{{ rvm1_install_path }}/bin/rvm"
 rvm1_temp_download_path: "/tmp"
