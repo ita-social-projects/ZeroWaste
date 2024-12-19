@@ -51,32 +51,32 @@
 
 - name: Ensure RVM is sourced
   shell: |
-    source ~/.rvm/scripts/rvm && rvm use 3.3.5 do ruby --version
+    echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+    # source ~/.rvm/scripts/rvm && rvm use 3.3.5 do ruby --version
   args:
     executable: /bin/bash
   become_user: "{{ username_on_the_host.stdout }}"
 
 - name: Install Bundler gem
   shell: |
-    gem install bundler -v {{ bundler_version }}
-  #   ~/.rvm/bin/rvm use {{ ruby_version }} do gem install bundler -v {{ bundler_version }}
-  # args:
-  #   creates: "~/.rvm/gems/ruby-{{ ruby_version }}/bin/bundler"
+    ~/.rvm/bin/rvm use {{ ruby_version }} do gem install bundler -v {{ bundler_version }}
+    # gem install bundler -v {{ bundler_version }}
+  args:
+    creates: "~/.rvm/gems/ruby-{{ ruby_version }}/bin/bundler"
   become_user: "{{ username_on_the_host.stdout }}"
+  become: yes
 
 - name: Run bundle install with Gemfile
   shell: |
-    bundle install --gemfile Gemfile
-  #   ~/.rvm/bin/rvm use {{ ruby_version }} do bundle install --gemfile Gemfile
+    ~/.rvm/bin/rvm use {{ ruby_version }} do bundle install --gemfile Gemfile
   args:
     chdir: "/home/{{ username_on_the_host.stdout }}/ZeroWaste/"
   become_user: "{{ username_on_the_host.stdout }}"
 
 - name: Run rake db:migrate
   shell: |
-    rake db:migrate
-  #   ~/.rvm/bin/rvm use {{ ruby_version }} do rake db:migrate
-  # become: yes
+    ~/.rvm/bin/rvm use {{ ruby_version }} do rake db:migrate
+  become: yes
   become_user: "{{ username_on_the_host.stdout }}"
   args:
     chdir: "/home/{{ username_on_the_host.stdout }}/ZeroWaste/"
