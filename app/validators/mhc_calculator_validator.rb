@@ -23,27 +23,27 @@ class MhcCalculatorValidator
 
   def validate_user_age
     return unless presence_valid?(:user_age)
-    length_valid?(:user_age, 0, 100)
+    length_valid?(:user_age, 1, 100)
   end
 
   def validate_menstruation_age
     return unless presence_valid?(:menstruation_age)
-    length_valid?(:menstruation_age, 0, 100)
+    length_valid?(:menstruation_age, 1, 100)
   end
 
   def validate_menopause_age
     return unless presence_valid?(:menopause_age)
-    length_valid?(:menopause_age, 0, 100)
+    length_valid?(:menopause_age, 1, 100)
   end
 
   def validate_average_menstruation_cycle_duration
     return unless presence_valid?(:average_menstruation_cycle_duration)
-    length_valid?(:average_menstruation_cycle_duration, 0, 40)
+    length_valid?(:average_menstruation_cycle_duration, 1, 40)
   end
 
   def validate_pads_per_cycle
     return unless presence_valid?(:pads_per_cycle)
-    length_valid?(:pads_per_cycle, 0, 100)
+    length_valid?(:pads_per_cycle, 1, 100)
   end
 
   def validate_pad_category
@@ -59,7 +59,7 @@ class MhcCalculatorValidator
   end
 
   def length_valid?(param, from, to)
-    return true if (from..to).include?(@params[param])
+    return true if (from..to).cover?(@params[param])
 
     @errors[param] = I18n.t("calculators.errors.length_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"), from: from, to: to)
 
