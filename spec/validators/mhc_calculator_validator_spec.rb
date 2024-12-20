@@ -55,7 +55,7 @@ RSpec.describe MhcCalculatorValidator do
 
     context "average menstruation cycle duration validation" do
       include_examples "presence validation", :average_menstruation_cycle_duration
-      include_examples "length validation", :average_menstruation_cycle_duration, 1, 40
+      include_examples "length validation", :average_menstruation_cycle_duration, 1, 100
     end
 
     context "pads per cycle validation" do

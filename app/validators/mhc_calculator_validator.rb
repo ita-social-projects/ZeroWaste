@@ -38,7 +38,7 @@ class MhcCalculatorValidator
 
   def validate_average_menstruation_cycle_duration
     return unless presence_valid?(:average_menstruation_cycle_duration)
-    length_valid?(:average_menstruation_cycle_duration, 1, 40)
+    length_valid?(:average_menstruation_cycle_duration, 1, 100)
   end
 
   def validate_pads_per_cycle
