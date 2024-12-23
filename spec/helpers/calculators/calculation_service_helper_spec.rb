@@ -6,7 +6,7 @@ RSpec.describe Calculators::CalculationService, type: :helper do
   let(:calculator) { instance_double("Calculator", formulas: formulas) }
   let(:formulas) do
     [
-      Formula.new(en_label: "Addition", en_unit: "units", uk_label: "Додавання", uk_unit: "одиниці", expression: "x + y"),
+      Formula.new(en_label: "Addition", en_unit: "units", uk_label: "Додавання", uk_unit: "одиниці", expression: "x + y", relation: "next"),
       Formula.new(en_label: "Multiplication", en_unit: "units", uk_label: "Множення", uk_unit: "одиниці", expression: "x * y")
     ]
   end
@@ -28,8 +28,8 @@ RSpec.describe Calculators::CalculationService, type: :helper do
 
       it "returns results with English labels and units" do
         expect(subject).to eq([
-          { label: "Addition", result: 8, unit: "units" },
-          { label: "Multiplication", result: 15, unit: "units" }
+          { label: "Addition", result: 8, unit: "units", relation: "next" },
+          { label: "Multiplication", result: 15, unit: "units", relation: nil }
         ])
       end
     end
@@ -39,8 +39,8 @@ RSpec.describe Calculators::CalculationService, type: :helper do
 
       it "returns results with Ukrainian labels and units" do
         expect(subject).to eq([
-          { label: "Додавання", result: 8, unit: "одиниці" },
-          { label: "Множення", result: 15, unit: "одиниці" }
+          { label: "Додавання", result: 8, unit: "одиниці", relation: "next" },
+          { label: "Множення", result: 15, unit: "одиниці", relation: nil }
         ])
       end
     end

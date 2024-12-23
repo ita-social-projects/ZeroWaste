@@ -591,6 +591,9 @@ uk:
                 one: "має не ініціалізоване поле %{fields}"
                 other: "має не ініціалізовані поля %{fields}"
               mathematically_invalid: "є математично некоректним"
+              first_relation_error: "некоректний немає попередньої формули"
+              last_relation_error: "некоректний немає наступної формули"
+              relation_between_two_error: "некориктний ця формула вже має зв'язок з попередньою"
         calculator:
           attributes:
             name:

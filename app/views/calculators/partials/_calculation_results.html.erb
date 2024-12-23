@@ -5,7 +5,12 @@
   <h2 class="pt-6 text-2xl font-semibold text-center dynamic-text-color">Calculation Results</h2>
   <div class="jumbotron calculation-results result main-result-container result-container">
     <% results.each do |result| %>
-      <div>
+      <div class="result-wrapper">
+        <% if result[:relation] == "previous" %>
+          <%= render "calculators/partials/show/relation_arrow", locals: {rotate_direction: "left"} %>
+        <% end %>
+
+        <div>
           <%= image_tag "#{formula_image}", class: "img-margin", alt: "icon" %>
           <p class="dynamic-text-color">
             <%= result[:result] %>
@@ -16,6 +21,11 @@
           <p class="diapers-font-text">
             <%= result[:label] %>
           </p>
+        </div>
+
+        <% if result[:relation] == "next" %>
+          <%= render "calculators/partials/show/relation_arrow", locals: {rotate_direction: "right"} %>
+        <% end %>
       </div>
     <% end %>
   </div>
