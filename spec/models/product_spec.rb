@@ -126,27 +126,18 @@ RSpec.describe Product, type: :model do
   end
 
   describe "#blank_prices" do
-    let(:product) { create(:product, title: "title") }
-
+  let(:diaper_product) { create(:product, :diaper, prices_attributes: [{ sum: 50, category: create(:category) }]) }
+  let(:invalid_product) { build(:product, prices_attributes: [{ sum: nil, category: create(:category) }]) }
+    
     context "when price sum is blank" do
       it "rejects nested attributes for price" do
-        product.attributes = {
-          prices_attributes: [
-            { sum: nil }
-          ]
-        }
-        expect(product.prices).to be_empty
+        expect(invalid_product.prices).to be_empty
       end
     end
 
     context "when price sum is present" do
       it "accepts nested attributes for price" do
-        product.attributes = {
-          prices_attributes: [
-            { sum: 100 }
-          ]
-        }
-        expect(product.prices.size).to eq(1)
+        expect(diaper_product.prices.size).to eq(1)
       end
     end
   end
