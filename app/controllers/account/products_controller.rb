@@ -46,11 +46,11 @@ class Account::ProductsController < Account::BaseController
   def destroy
     @product = resource
 
-    if @product.destroy
-      redirect_to account_products_path, notice: t(".deleted")
-    else
-      redirect_to account_products_path, status: :unprocessable_entity
-    end
+    notice = @product.destroy ? t(".deleted") : t(".not_deleted")
+
+    status = @product.destroy ? :moved_permanently : :unprocessable_entity
+
+    redirect_to account_products_path, notice: notice, status: status
   end
 
   private

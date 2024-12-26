@@ -29,6 +29,7 @@ RSpec.describe CalculatorsController, type: :request do
                    label: "three",
                    kind: "parameter", calculator: calculator)
   end
+  let!(:user) { create(:user) }
   let(:json_response) { response.parsed_body }
 
   describe "POST api/v2/calculators/PERMALINK/compute" do
@@ -156,6 +157,30 @@ RSpec.describe CalculatorsController, type: :request do
 
         expect(response.body).to include(I18n.t("activerecord.errors.models.calculator.attributes.name.invalid"))
         expect(response).to render_template(:new)
+      end
+    end
+  end
+
+  describe "POST #receive_recomendations" do
+    context "when user sign_in" do
+      it "does change recieve_recomendation" do
+        sign_in user
+
+        expect do
+          post receive_recomendations_path
+        end.to change(user, :receive_recomendations)
+      end
+    end
+  end
+
+  describe "POST #calculate" do
+    context "when user sign_in" do
+      it "returns a successful response" do
+        sign_in user
+
+        post calculate_calculator_path(calculator.slug)
+
+        expect(response).to be_successful
       end
     end
   end

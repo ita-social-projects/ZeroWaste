@@ -137,5 +137,18 @@ RSpec.describe Account::ProductsController, type: :request do
       expect(response).to redirect_to(account_products_path)
       expect(flash[:notice]).to eq(I18n.t("account.products.deleted"))
     end
+
+    context "when destroy fails" do
+      before do
+        allow_any_instance_of(Product).to receive(:destroy).and_return(false)
+      end
+
+      it "does not delete the product and returns unprocessable entity" do
+        delete account_product_path(product)
+
+        expect(response).to be_unprocessable
+        expect(flash[:notice]).to eq(I18n.t("account.products.not_deleted"))
+      end
+    end
   end
 end

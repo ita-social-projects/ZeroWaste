@@ -68,6 +68,26 @@ RSpec.describe Product, type: :model do
     end
   end
 
+  describe "#price_by_category" do
+    let(:product) { create(:product, title: "Valid Title") }
+    let(:category) { create(:category, :medium) }
+    let(:valid_sum) { 10.0 }
+
+    context "when the product has a price for the category" do
+      let!(:existing_price) { create(:price, priceable: product, category: category, sum: valid_sum) }
+
+      it "returns the price for the specified category" do
+        expect(product.price_by_category(category)).to eq(existing_price)
+      end
+    end
+
+    context "when the product does not have a price for the category" do
+      it "returns nil" do
+        expect(product.price_by_category(category)).to be_nil
+      end
+    end
+  end
+
   describe "#find_or_build_price_for_category" do
     let(:product) { create(:product, title: "Valid Title") }
     let(:category) { create(:category, :medium) }
@@ -88,6 +108,36 @@ RSpec.describe Product, type: :model do
         expect(product.prices).to be_empty
         expect(new_price.category).to eq(category)
         expect(new_price).to be_a_new(Price)
+      end
+    end
+  end
+
+  describe ".diaper" do
+    let!(:diaper_product) { create(:product, title: "diaper") }
+    let!(:other_product) { create(:product, title: "shampoo") }
+
+    it "returns the product with title 'diaper'" do
+      expect(Product.diaper).to eq(diaper_product)
+    end
+
+    it "does not return a product with a different title" do
+      expect(Product.diaper).not_to eq(other_product)
+    end
+  end
+
+  describe "#blank_prices" do
+    let(:diaper_product) { create(:product, :diaper, prices_attributes: [{ sum: 50, category: create(:category) }]) }
+    let(:invalid_product) { build(:product, prices_attributes: [{ sum: nil, category: create(:category) }]) }
+
+    context "when price sum is blank" do
+      it "rejects nested attributes for price" do
+        expect(invalid_product.prices).to be_empty
+      end
+    end
+
+    context "when price sum is present" do
+      it "accepts nested attributes for price" do
+        expect(diaper_product.prices.size).to eq(1)
       end
     end
   end
