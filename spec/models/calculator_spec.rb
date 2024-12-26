@@ -5,6 +5,7 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
+#  color      :string           default("#000000")
 #  en_name    :string           default(""), not null
 #  slug       :string
 #  uk_name    :string           default(""), not null
@@ -30,6 +31,12 @@ RSpec.describe Calculator, type: :model do
     it { is_expected.to validate_uniqueness_of(:slug) }
     it { is_expected.to validate_length_of(:en_notes).is_at_most(500) }
     it { is_expected.to validate_length_of(:uk_notes).is_at_most(500) }
+    it { is_expected.to allow_value("#123abc").for(:color) }
+    it { is_expected.to allow_value("#ABCDEF").for(:color) }
+    it { is_expected.not_to allow_value("123abc").for(:color) }
+    it { is_expected.not_to allow_value("#12345").for(:color) }
+    it { is_expected.not_to allow_value("#1234567").for(:color) }
+    it { is_expected.not_to allow_value("#GHIJKL").for(:color) }
   end
 
   describe "associations" do

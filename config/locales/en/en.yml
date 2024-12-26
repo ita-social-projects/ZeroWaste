@@ -376,7 +376,7 @@ en:
             no_fields_yet_label: "No fields yet"
             update_calculator_button: "Update calculator"
         new:
-          create_calculator_button: "Create calculator"
+          create_calculator_button: "Save calculator"
           cancel_button: "Сancel"
           prohibited_to_update: " prevent the calculator from updating"
           prohibited_to_save: " перешкоджають збереженню калькулятора"
@@ -473,9 +473,9 @@ en:
           no_fields_yet_label: "No fields yet"
           update_calculator_button: "Update calculator"
       new:
-        create_calculator_button: "Create calculator"
         uk_notes: "Ukrainian Notes"
         en_notes: "English Notes"
+        create_calculator_button: "Save calculator"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:

@@ -5,6 +5,7 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
+#  color      :string           default("#000000")
 #  en_name    :string           default(""), not null
 #  slug       :string
 #  uk_name    :string           default(""), not null
@@ -40,6 +41,7 @@ class Calculator < ApplicationRecord
               maximum: 500,
               tokenizer: :strip_tags_and_tokenize
             }
+  validates :color, format: { with: /\A#[0-9a-fA-F]{6}\z/ }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
