@@ -22,7 +22,7 @@ class Calculator < ApplicationRecord
 
   friendly_id :en_name, use: :sequentially_slugged
 
-  translates :name
+  translates :name, :notes
 
   has_many :fields, dependent: :destroy
   has_many :formulas, dependent: :destroy
@@ -35,19 +35,17 @@ class Calculator < ApplicationRecord
   validates :en_name, :uk_name, presence: true
   validates :en_name, :uk_name, length: { minimum: 3, maximum: 50 }
   validates :slug, presence: true, uniqueness: true
-  validates :english_additional_notes,
+  validates :en_notes, :uk_notes,
             length: {
               maximum: 500,
-              tokenizer: ->(string) { ActionController::Base.helpers.strip_tags(string).chars }
-            }
-
-  validates :ukranian_additional_notes,
-            length: {
-              maximum: 500,
-              tokenizer: ->(string) { ActionController::Base.helpers.strip_tags(string).chars }
+              tokenizer: :strip_tags_and_tokenize
             }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
+  end
+
+  def strip_tags_and_tokenize(string)
+    ActionController::Base.helpers.strip_tags(string).chars
   end
 end

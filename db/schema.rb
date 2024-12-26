@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_21_165300) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_01_141708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -49,8 +49,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_21_165300) do
     t.string "slug"
     t.string "uk_name", default: "", null: false
     t.string "en_name", default: "", null: false
-    t.text "ukranian_additional_notes"
-    t.text "english_additional_notes"
+    t.string "color", default: "#8fba3b"
+    t.text "uk_notes"
+    t.text "en_notes"
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
   end
 

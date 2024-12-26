@@ -1,11 +1,7 @@
-<% if calculator.ukranian_additional_notes.present? || calculator.english_additional_notes.present? %>
+<% if calculator.uk_notes.present? || calculator.en_notes.present? %>
   <section class="description-section">
     <div class="description-section">
-      <% if I18n.locale == :uk %>
-        <%= raw calculator.ukranian_additional_notes %>
-      <% else %>
-        <%= raw calculator.english_additional_notes %>
-      <% end %>
+      <%== calculator.notes %>
     </div>
   </section>
 <% end %>
