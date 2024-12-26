@@ -37,12 +37,13 @@ RSpec.describe Calculator, type: :model do
     it { is_expected.to have_many(:formulas).dependent(:destroy) }
   end
 
-  describe '#strip_tags_and_tokenize' do
+  describe "#strip_tags_and_tokenize" do
     let(:stripped_content) { Calculator.new.strip_tags_and_tokenize(content) }
 
-    context 'when contents is simple' do
-      let(:content) { "<p>#{'a' * 500}</p>" }
-      it 'ensures the stripped content length is correct' do
+    context "when contents is simple" do
+      let(:content) { "<p>#{"a" * 500}</p>" }
+
+      it "ensures the stripped content length is correct" do
         expect(stripped_content.length).to be == 500
       end
     end
