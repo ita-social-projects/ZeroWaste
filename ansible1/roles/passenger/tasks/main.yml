@@ -28,13 +28,12 @@
     state: link
 
 - name: Copy mod-http-passenger
-  file:
+  copy:
     src: mod-http-passenger.conf
     dest: /etc/nginx/conf.d/mod-http-passenger.conf
-    state: link
 
 - name: Copy Nginx configuration into place
-  template:
+  copy:
     src: ZeroWaste
     dest: /etc/nginx/sites-enabled/ZeroWaste
     mode: 0644
