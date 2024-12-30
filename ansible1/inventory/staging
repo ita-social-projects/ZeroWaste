@@ -1,0 +1,2 @@
+[staging]
+staging-server ansible_host=51.44.25.104 ansible_user=ubuntu

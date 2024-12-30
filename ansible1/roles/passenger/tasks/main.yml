@@ -1,0 +1,41 @@
+---
+- name: Add passenger apt key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 561F9B9CAC40B2F7
+    state: present
+
+- name: Add apt HTTPS capabilities
+  apt: name=apt-transport-https state=present
+
+- name: Add Phusion apt repo
+  apt_repository:
+    repo: "deb https://oss-binaries.phusionpassenger.com/apt/passenger {{ ansible_distribution_release }} main"
+    state: present
+    update_cache: true
+
+- name: Install Nginx and Passenger
+  apt:
+    name:
+      - nginx
+      - libnginx-mod-http-passenger
+    state: present
+
+- name: Ensure passenger module is enabled
+  file:
+    src: /usr/share/nginx/modules-available/mod-http-passenger.load
+    dest: /etc/nginx/modules-enabled/50-mod-http-passenger.conf
+    state: link
+
+- name: Copy mod-http-passenger
+  file:
+    src: mod-http-passenger.conf
+    dest: /etc/nginx/conf.d/mod-http-passenger.conf
+    state: link
+
+- name: Copy Nginx configuration into place
+  template:
+    src: ZeroWaste
+    dest: /etc/nginx/sites-enabled/ZeroWaste
+    mode: 0644
+  notify: restart nginx

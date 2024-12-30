@@ -150,8 +150,6 @@
     password: "{{ postgres_user_password }}"
     login_user: "{{ postgres_user }}"
     login_password: "{{ postgres_user_password }}"
-    # host: "127.0.0.1"
-    # port: 5432
     state: present
   become: true
   become_user: "{{ postgres_user }}"
@@ -217,6 +215,6 @@
 
 - name: Copy and rename database configuration
   copy:
-    src: /home/{{ username_on_the_host.stdout }}/ZeroWaste/config/database.yml.docker
+    src: /home/{{ username_on_the_host.stdout }}/ZeroWaste/config/database.yml.sample
     dest: /home/{{ username_on_the_host.stdout }}/ZeroWaste/config/database.yml
     remote_src: yes

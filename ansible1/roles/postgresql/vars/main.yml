@@ -29,11 +29,6 @@ postgresql_hba_entries:
 postgresql_unix_socket_directories:
   - /var/run/postgresql
 
-# postgresql_global_config_options:
-#   - option: unix_socket_directories
-#     value: '{{ postgresql_unix_socket_directories | join(",") }}'
-#   - option: log_directory
-#     value: "log"
 postgresql_global_config_options:
   - { option: "listen_addresses", value: "*", state: "present" }
 postgresql_locales:
