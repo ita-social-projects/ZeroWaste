@@ -5,7 +5,7 @@ on:
     workflows:
       - Rspec
     types:
-      - compleed
+      - completed
 
   pull_request:
     branches:
