@@ -594,6 +594,7 @@ uk:
               first_relation_error: "некоректний немає попередньої формули"
               last_relation_error: "некоректний немає наступної формули"
               relation_between_two_error: "некориктний ця формула вже має зв'язок з попередньою"
+              already_have_relation_error: "формула може мати зв'язок лише з однією іншою формулою"
         calculator:
           attributes:
             name:

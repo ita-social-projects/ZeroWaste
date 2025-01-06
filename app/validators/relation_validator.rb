@@ -16,11 +16,20 @@ class RelationValidator < ActiveModel::Validator
       record.formulas.last.errors.add(:relation, I18n.t("activerecord.errors.models.formula.attributes.expression.last_relation_error"))
     end
 
-    last_relation = nil
+    last_relation             = nil
+    last_formula_has_relation = false
+
     record.formulas.each do |formula|
       if last_relation == "next" && formula.relation == "previous"
         formula.errors.add(:relation, I18n.t("activerecord.errors.models.formula.attributes.expression.relation_between_two_error"))
       end
+
+      if last_formula_has_relation && formula.relation == "previous" || last_relation == "next" && formula.relation == "next"
+        formula.errors.add(:relation, I18n.t("activerecord.errors.models.formula.attributes.expression.already_have_relation_error"))
+      end
+
+      last_formula_has_relation = (formula.relation.present? || last_relation == "next") ? true : false
+
       last_relation = formula.relation
     end
 

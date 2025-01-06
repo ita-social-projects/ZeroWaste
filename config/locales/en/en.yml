@@ -702,6 +702,7 @@ en:
               first_relation_error: "is invalid no previous formula"
               last_relation_error: "is invalid no next formula"
               relation_between_two_error: "is invalid this formula already has a relation to the previous one"
+              already_have_relation_error: "is invalid formula can have relation with only one other formula"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
