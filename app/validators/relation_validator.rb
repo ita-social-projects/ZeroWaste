@@ -28,7 +28,7 @@ class RelationValidator < ActiveModel::Validator
         formula.errors.add(:relation, I18n.t("activerecord.errors.models.formula.attributes.expression.already_have_relation_error"))
       end
 
-      last_formula_has_relation = (formula.relation.present? || last_relation == "next") ? true : false
+      last_formula_has_relation = formula.relation.present? || last_relation == "next"
 
       last_relation = formula.relation
     end
