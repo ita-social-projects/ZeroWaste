@@ -26,6 +26,8 @@ class Formula < ApplicationRecord
 
   belongs_to :calculator
 
+  has_one_attached :formula_image
+
   validates_with FormulaValidator
 
   validates :uk_label, :en_label, :uk_unit, :en_unit, :expression, presence: true
