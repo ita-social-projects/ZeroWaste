@@ -30,12 +30,12 @@
 
 - name: Install Ruby and Gems
   import_tasks: "rvm.yml"
-  become: yes
+  become: true
   become_user: "{{ username_on_the_host.stdout }}"
 
 - name: Install RVM
   import_tasks: "rubies.yml"
-  become: yes
+  become: true
   become_user: "{{ username_on_the_host.stdout }}"
 
 - name: Add Yarn GPG key
@@ -64,7 +64,7 @@
   args:
     creates: "~/.rvm/gems/ruby-{{ ruby_version }}/bin/bundler"
   become_user: "{{ username_on_the_host.stdout }}"
-  become: yes
+  become: true
 
 - name: Run bundle install with Gemfile
   shell: |
@@ -76,7 +76,7 @@
 - name: Run rake db:migrate
   shell: |
     ~/.rvm/bin/rvm use {{ ruby_version }} do rake db:migrate
-  become: yes
+  become: true
   become_user: "{{ username_on_the_host.stdout }}"
   args:
     chdir: "/home/{{ username_on_the_host.stdout }}/ZeroWaste/"
