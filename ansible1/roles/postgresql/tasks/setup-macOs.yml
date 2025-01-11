@@ -7,15 +7,35 @@
 
 - name: Ensure PostgreSQL is installed
   homebrew:
-   name: postgresql
+   name: postgresql@{{ postgres_version }}
    state: present
 
 - name: Ensure PostgreSQL service is started
   shell: |
-    brew services start postgresql
+    brew services start postgresql@{{ postgres_version }}
   args:
    creates: /usr/local/var/postgres/postmaster.pid
 
 - name: Check installed PostgreSQL version
   shell: "psql --version"
   register: postgresql_version_outpul
+
+- name: Ensure PostgreSQL Python libraries are installed
+  pip:
+    name: psycopg2-binary
+
+- name: Create PostgreSQL user
+  community.postgresql.postgresql.user:
+    name: "{{ postgres_user }}"
+    password: "{{  postgres_user_password }}"
+    state: present
+  become: true
+  become_user: "{{ postgres_user }}"
+
+- name: Create PostgreSQL database
+  community.postgresql.postgresql_db:
+    name: "{{ item.name }}"
+    owner: "{{ postgres_user }}"
+    state: present
+  with_items: "{{ postgresql_databases }}"
+  become: true
