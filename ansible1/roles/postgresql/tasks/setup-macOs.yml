@@ -1,0 +1,21 @@
+---
+- name: Ensure Homebrew is installed
+  shell: |
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  args:
+    creates: /usr/local/bin/brew
+
+- name: Ensure PostgreSQL is installed
+  homebrew:
+   name: postgresql
+   state: present
+
+- name: Ensure PostgreSQL service is started
+  shell: |
+    brew services start postgresql
+  args:
+   creates: /usr/local/var/postgres/postmaster.pid
+
+- name: Check installed PostgreSQL version
+  shell: "psql --version"
+  register: postgresql_version_outpul
