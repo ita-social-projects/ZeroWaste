@@ -4,6 +4,7 @@
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   args:
     creates: /usr/local/bin/brew
+  become: false
 
 - name: Install dependencies
   homebrew:
@@ -17,6 +18,7 @@
     - readline
     - libyaml
     - zlib
+  become: false
 
 - name: Install RVM
   shell: |

@@ -1,31 +1,33 @@
 ---
 - name: Ensure Homebrew is installed
   shell: |
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSl https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   args:
     creates: /usr/local/bin/brew
+  become: false
   
 - name: Install Redis
   homebrew:
     name: redis
     state: present
+  become: false
 
-- name: Update Redis configuration
-  lineinfile:
-   path: /usr/local/etc/redis.conf
-   regexp: "^protected-mode"
-   line: "protected-mode no"
-   state: present
-   beckup: yes
+# - name: Update Redis configuration
+#   lineinfile:
+#    path: /usr/local/etc/redis.conf
+#    regexp: "^protected-mode"
+#    line: "protected-mode no"
+#    state: present
+#    backup: yes
 
-- name: Bind default address
-  lineinfiles:
-    path: /usr/local/etc/redis.conf
-    refexp: "^bind"
-    line: "bind 0.0.0.0 ::1"
-    state: present
-    backup: yes
-  notify: Restart redis
+# - name: Bind default address
+#   lineinfile:
+#     path: /usr/local/etc/redis.conf
+#     refexp: "^bind"
+#     line: "bind 0.0.0.0 ::1"
+#     state: present
+#     backup: yes
+#   notify: Restart redis
 
-- name: Start Redis
-  shell: brew services start redis
+# - name: Start Redis
+#   shell: brew services start redis

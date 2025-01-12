@@ -1,6 +1,14 @@
 ssl_certificate_key /etc/letsencrypt/live/calc.zerowastelviv.org.ua/privkey.pem;
 ssl_certificate /etc/letsencrypt/live/calc.zerowastelviv.org.ua/fullchain.pem;
 
+upstream app1 {
+  server unix:/var/www/app1/current/tmp/sockets/puma.sock fail_timeout=0;
+}
+
+upstream app2 {
+  server unix:/var/www/app2/current/tmp/sockets/puma.sock fail_timeout=0;
+}
+
 server {
   listen 80;
   server_name calc.zerowastelviv.org.ua;
@@ -8,9 +16,6 @@ server {
 }
 
 server {
-  # listen 80;
-  # listen [::]:80;
-
   listen 443 ssl;
 
   server_name _;

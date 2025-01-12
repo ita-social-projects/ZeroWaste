@@ -1,41 +1,36 @@
 ---
 - name: Ensure Homebrew is installed
   shell: |
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSl https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   args:
     creates: /usr/local/bin/brew
+  become: false
 
-- name: Ensure PostgreSQL is installed
+- name: Update Homebrew history
+  command: brew update
+  register: brew_update_result
+  become: false
+
+- name: Install PostgreSQL {{ postgres_version }}
   homebrew:
    name: postgresql@{{ postgres_version }}
    state: present
+  become: false
 
-- name: Ensure PostgreSQL service is started
-  shell: |
-    brew services start postgresql@{{ postgres_version }}
+- name: Add PostgreSQL binary PATH
+  ansible.builtin.lineinfile:
+    path: ~/.zshrc
+    line: 'export PATH="/usr/local/opt/postgresql@{{ postgres_version }}/bin:$PATH"'
+    state: present
+    create: true
+
+- name: Reload shell configuration to apply PATH changes
+  shell: source ~/.zshrc
   args:
-   creates: /usr/local/var/postgres/postmaster.pid
+    executable: /bin/zsh
 
-- name: Check installed PostgreSQL version
-  shell: "psql --version"
-  register: postgresql_version_outpul
+- name: Start  PostgreSQL {{ postgres_version }} service
+  command: brew services start postgresql@{{ postgres_version }}
+  ignore_errors: true
+  become: false
 
-- name: Ensure PostgreSQL Python libraries are installed
-  pip:
-    name: psycopg2-binary
-
-- name: Create PostgreSQL user
-  community.postgresql.postgresql.user:
-    name: "{{ postgres_user }}"
-    password: "{{  postgres_user_password }}"
-    state: present
-  become: true
-  become_user: "{{ postgres_user }}"
-
-- name: Create PostgreSQL database
-  community.postgresql.postgresql_db:
-    name: "{{ item.name }}"
-    owner: "{{ postgres_user }}"
-    state: present
-  with_items: "{{ postgresql_databases }}"
-  become: true
