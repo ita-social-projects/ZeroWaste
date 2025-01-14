@@ -51,7 +51,7 @@ RSpec.describe Calculator, type: :model do
       let(:content) { "<p>#{"a" * 500}</p>" }
 
       it "ensures the stripped content length is correct" do
-        expect(stripped_content.length).to be == 500
+        expect(stripped_content.length).to eq(500)
       end
     end
   end
