@@ -1,7 +1,7 @@
 <% if calculator.uk_notes.present? || calculator.en_notes.present? %>
   <section class="description-section">
     <div class="description-section">
-      <%= calculator.notes %>
+      <%= sanitize(calculator.notes, tags: %w[p strong em ul li a div span img], attributes: %w[href target class src alt style]) %>
     </div>
   </section>
 <% end %>
