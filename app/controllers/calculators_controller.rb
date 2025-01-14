@@ -23,11 +23,16 @@ class CalculatorsController < ApplicationController
 
   def calculate
     @calculator = resource
+    load_images if @images.nil?
 
     @results = Calculators::CalculationService.new(@calculator, params[:inputs]).perform
 
     session[:calculation_results]                 ||= {}
     session[:calculation_results][@calculator.slug] = @results
+
+    @results.each_with_index do |result, index|
+      result[:formula_image] = @images[index][:formula_image]
+    end
 
     respond_to :turbo_stream
   end
@@ -75,5 +80,18 @@ class CalculatorsController < ApplicationController
     return if Flipper[:mhc_calculator_status].enabled?
 
     raise ActionController::RoutingError, "Mhc calculator flipper is disabled"
+  end
+
+  def load_images
+    @images = @calculator.formulas.map do |formula|
+      if formula.formula_image.attached? # Ensure the image is attached
+        {
+          id: formula.id,
+          formula_image: url_for(formula.formula_image)  # Get the URL for the resized image
+        }
+      else
+        { id: formula.id, formula_image: nil }
+      end
+    end
   end
 end

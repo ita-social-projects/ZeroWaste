@@ -10,7 +10,7 @@ class Calculators::CalculationService
     @calculator.formulas.map do |formula|
       result = @dentaku.evaluate(formula.expression, @inputs).round(2)
 
-      { label: formula.label, result: result, unit: formula.unit, formula_image: formula.formula_image }
+      { label: formula.label, result: result, unit: formula.unit }
     end
   end
 end
