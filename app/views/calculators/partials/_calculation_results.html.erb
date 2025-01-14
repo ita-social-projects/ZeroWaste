@@ -4,18 +4,13 @@
 <div class="calculation-results rounded jumbotron jumbotron-fluid position-relative">
   <h2 class="pt-6 text-2xl font-semibold text-center dynamic-text-color">Calculation Results</h2>
   <div class="jumbotron calculation-results result main-result-container result-container">
-    <% results.each do |result| %>
-      <div>
-          <%= image_tag  result[:formula_image], class: "formula_image", alt: "icon", loading: "lazy" %>
-          <p class="dynamic-text-color">
-            <%= result[:result] %>
-          </p>
-          <p class="text-2xl dynamic-text-color">
-            <%= result[:unit] %>
-          </p>
-          <p class="diapers-font-text">
-            <%= result[:label] %>
-          </p>
+    <% results.each_with_index do |result, index| %>
+      <div id="result-<%= index %>">
+        <%= image_tag result[:formula_image], class: "formula_image", alt: "icon" %>
+        <turbo-frame id="calc-result-<%= index %>">
+          <%= render partial: "calculators/partials/show/calculation_result", 
+                     locals: { result: result } %>
+        </turbo-frame>
       </div>
     <% end %>
   </div>

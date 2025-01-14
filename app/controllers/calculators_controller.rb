@@ -84,13 +84,13 @@ class CalculatorsController < ApplicationController
 
   def load_images
     @images = @calculator.formulas.map do |formula|
-      if formula.formula_image.attached? # Ensure the image is attached
+      if formula.formula_image.attached?
         {
           id: formula.id,
-          formula_image: url_for(formula.formula_image)  # Get the URL for the resized image
+          formula_image: rails_blob_path(formula.formula_image)
         }
       else
-        { id: formula.id, formula_image: nil }
+        { id: formula.id, formula_image: "/assets/money_spent.png" }
       end
     end
   end

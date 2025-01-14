@@ -1,1 +1,5 @@
-<%= turbo_stream.update "calc-results", partial: "calculators/partials/calculation_results", locals: { results: @results } %>
+<% @results.each_with_index do |result, index| %>
+  <%= turbo_stream.update "calc-result-#{index}" do %>
+    <%= render partial: "calculators/partials/show/calculation_result", locals: { result: result } %>
+  <% end %>
+<% end %>
