@@ -24,7 +24,7 @@
 class Formula < ApplicationRecord
   include Translatable
 
-  belongs_to :calculator
+  belongs_to :calculator, inverse_of: :formulas
 
   PRIORITY_RANGE = 0..10
 

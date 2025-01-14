@@ -23,6 +23,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def edit
     @calculator = resource
+
     collect_fields_for_form
   end
 
