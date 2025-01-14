@@ -67,5 +67,20 @@ RSpec.describe Formula, type: :model do
 
   describe "associations" do
     it { is_expected.to belong_to(:calculator) }
+    it { is_expected.to have_one_attached(:formula_image) }
+  end
+
+  describe "attachments" do
+    it "can attach a formula_image" do
+      formula.formula_image.attach(io: Rails.root.join("spec", "fixtures", "icons", "favicon-181x182.png").open, filename: "favicon-181x182.png")
+
+      expect(formula.formula_image).to be_attached
+      expect(formula.formula_image.filename.to_s).to eq("favicon-181x182.png")
+    end
+
+    it "returns false if no formula_image is attached" do
+      formula.save
+      expect(formula.formula_image.attached?).to eq(false)
+    end
   end
 end
