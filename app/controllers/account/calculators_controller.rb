@@ -23,7 +23,6 @@ class Account::CalculatorsController < Account::BaseController
 
   def edit
     @calculator = resource
-    @formulas   = @calculator.formulas.ordered_by_priority
     collect_fields_for_form
   end
 
