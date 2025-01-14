@@ -36,4 +36,16 @@
   .auth-login-links {
     @apply flex items-center justify-center gap-4 text-center border-t border-solid text-gray border-light_gray;
   }
+
+  /* Input styles */
+  .color-input {
+    @apply p-2 w-28 h-14;
+  }
+  /* Formula field */
+  .formula{
+    border-radius: inherit !important;
+    border-color: #6b7280 !important;
+    overflow: hidden;
+    resize: none !important;
+  }
 }

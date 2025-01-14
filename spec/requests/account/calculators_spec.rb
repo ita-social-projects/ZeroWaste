@@ -7,7 +7,8 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
-
+  let!(:new_attributes) { { calculator: { en_name: "new name" }} }
+  let!(:invalid_attributes) { { calculator: { en_name: nil }} }
   let(:user) { create(:user) }
   let(:locale) { "en" }
   let(:new_path) { new_account_calculator_path(locale: locale) }
@@ -86,6 +87,40 @@ RSpec.describe "Account::CalculatorsController", type: :request do
         subject
         expect(response).to redirect_to(new_user_session_path)
       end
+    end
+  end
+
+  describe "PATCH #update" do
+    context "with valid parameters" do
+      it "is successful" do
+        patch account_calculator_path(calculator), params: new_attributes
+        calculator.reload
+
+        expect(calculator.en_name).to eq("new name")
+        expect(flash[:notice]).to eq(I18n.t("notifications.calculator_updated"))
+      end
+    end
+
+    context "with invalid parameters" do
+      it "is not successful" do
+        expect do
+          patch account_calculator_path(calculator), params: invalid_attributes
+        end.not_to change(calculator, :en_name)
+
+        expect(response).to be_unprocessable
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  describe "GET /account/calculators/:slug" do
+    it "renders the calculator's show page correctly" do
+      get account_calculator_path(calculator.slug, locale: locale)
+
+      expect(response).to have_http_status(:ok)
+      expect(response).to render_template(:show)
+      expect(response.body).to include(calculator.en_name)
+      expect(response.body).to include(calculator.slug)
     end
   end
 end
