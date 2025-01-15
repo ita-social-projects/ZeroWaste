@@ -11,7 +11,6 @@ class Account::CalculatorsController < Account::BaseController
 
   def show
     @calculator = resource
-    @formulas   = @calculator.formulas.ordered_by_priority
   end
 
   def new
