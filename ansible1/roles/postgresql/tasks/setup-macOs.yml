@@ -34,3 +34,5 @@
   ignore_errors: true
   become: false
 
+# TODO: install psycopg2-binary, create user and database
+
