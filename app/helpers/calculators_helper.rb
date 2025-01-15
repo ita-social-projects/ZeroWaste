@@ -57,6 +57,6 @@ module CalculatorsHelper
   end
 
   def sanitized_notes(notes)
-    sanitize(notes, tags: %w[p strong em ul li a div span img], attributes: %w[href target class src alt style])
+    sanitize(notes, tags: ["p", "strong", "em", "ul", "li", "a", "div", "span", "img"], attributes: ["href", "target", "class", "src", "alt", "style"])
   end
 end
