@@ -298,10 +298,10 @@ select.custom-select {
   color: #515151;
 }
 
-.formula_image {
+.formula-image {
   height: 200px;
   width: 200px;
-  margin-left: 74px;
+  margin-left: 84px;
   margin-bottom: 10px;
   border-radius: 6px;
 }
@@ -327,6 +327,9 @@ select.custom-select {
       }
     }
   }
+  .formula-image {
+    margin-left: 50px;
+  }  
 }
 
 @media screen and (max-width: 879px) {
@@ -367,6 +370,10 @@ select.custom-select {
       }
     }
   }
+
+  .formula-image {
+    margin-left: 120px;
+  }  
 }
 
 @media screen and (max-width: $sm) {
@@ -397,6 +404,9 @@ select.custom-select {
     .vector-width {
       width: 300px;
     }
+  }
+  .formula-image {
+    margin-left: 48px;
   }
 }
 
