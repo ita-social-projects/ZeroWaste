@@ -17,22 +17,23 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
+    @results    = initial_values
+
+    load_and_assign_images
+
     add_breadcrumb t("breadcrumbs.home"), root_path
     add_breadcrumb @calculator.name
   end
 
   def calculate
     @calculator = resource
-    load_images if @images.nil?
 
     @results = Calculators::CalculationService.new(@calculator, params[:inputs]).perform
 
     session[:calculation_results]                 ||= {}
     session[:calculation_results][@calculator.slug] = @results
 
-    @results.each_with_index do |result, index|
-      result[:formula_image] = @images[index][:formula_image]
-    end
+    load_and_assign_images
 
     respond_to :turbo_stream
   end
@@ -92,6 +93,20 @@ class CalculatorsController < ApplicationController
       else
         { id: formula.id, formula_image: "/assets/money_spent.png" }
       end
+    end
+  end
+
+  def load_and_assign_images
+    load_images if @images.nil?
+
+    @results.each_with_index do |result, index|
+      result[:formula_image] = @images[index][:formula_image]
+    end
+  end
+
+  def initial_values
+    @calculator.formulas.map do |formula|
+      { label: formula.label, result: 0, unit: formula.unit }
     end
   end
 end
