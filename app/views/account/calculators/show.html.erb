@@ -5,25 +5,53 @@
   <% end %>
 
   <div class="calc-details mb-4">
-    <span class="showpage-text"><%= t('.name') %>:</span>
+    <span class="text-lg showpage-text"><%= t('.name') %>:</span>
     <p class="text-2xl font-extrabold"> <%= @calculator.name %> </p>
   </div>
 
-  <div class="calc-details mb-6">
-    <span class="showpage-text"><%= t('.slug') %>:</span>
+  <div class="calc-details mb-4">
+    <span class="text-lg showpage-text"><%= t('.slug') %>:</span>
     <p class="font-bold"> <%= @calculator.slug %> </p>
+  </div>
+
+  <!-- Display Fields -->
+  <div class="calc-details mb-4">
+    <h3 class="text-lg showpage-text"><%= t('.fields') %>:</h3>
+    <% @calculator.fields.each do |field| %>
+      <div class="field mb-3">
+        <div class="field-details">
+          <span class="font-bold"><%= field.label %></span>
+          <span class="italic"> (<%= field.var_name %>)<br></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Display Formulas -->
+  <div class="calc-details mb-4">
+    <h3 class="text-lg showpage-text"><%= t('.formulas') %>:</h3>
+    <% @calculator.formulas.each do |formula| %>
+      <div class="formula mb-3">
+        <div class="formula-details">
+          <span class="font-bold"><%= formula.label %></span>
+          <span class="italic"> (<%= formula.expression %>)<br></span>
+          <span class="font-semibold"><%= t('.unit') %>:</span>
+          <span><%= formula.unit %></span>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <%= render "calculators/partials/logo_picture", calculator: @calculator %>
 
   <div class="showpage-buttons">
-    <%= link_to t('.edit'), 
-                edit_account_calculator_path(@calculator.slug, locale: I18n.locale), 
+    <%= link_to t('.edit'),
+                edit_account_calculator_path(@calculator.slug, locale: I18n.locale),
                 class: "btn btn-green" %>
-    
-    <%= button_to account_calculator_path(@calculator.slug, locale: I18n.locale), 
+
+    <%= button_to account_calculator_path(@calculator.slug, locale: I18n.locale),
                   method: :delete,
-                  data: { turbo_confirm: t('.confirm_delete') }, 
+                  data: { turbo_confirm: t('.confirm_delete') },
                   class: "btn btn-danger" do %>
       <%= t('.delete') %>
     <% end %>
