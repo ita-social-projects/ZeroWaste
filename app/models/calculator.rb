@@ -28,7 +28,7 @@ class Calculator < ApplicationRecord
 
   has_one_attached :logo_picture
   has_many :fields, dependent: :destroy
-  has_many :formulas, dependent: :destroy
+  has_many :formulas, -> { ordered_by_priority }, dependent: :destroy, inverse_of: :calculator
 
   accepts_nested_attributes_for :fields, allow_destroy: true
   accepts_nested_attributes_for :formulas, allow_destroy: true
