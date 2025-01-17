@@ -78,6 +78,36 @@ RSpec.describe Formula, type: :model do
       expect(formula.formula_image.filename.to_s).to eq("favicon-181x182.png")
     end
 
+    it "can't attach not PNG or JPNG image to formula_image" do
+      webp_content = "Some data"
+      webp_file    = Tempfile.new(["test_type", ".webp"])
+      webp_file.write(webp_content)
+
+      formula.formula_image.attach(
+        io: webp_file,
+        filename: "test_type.webp",
+        content_type: "image/webp"
+      )
+
+      expect(formula).to_not be_valid
+      expect(formula.errors[:formula_image]).to include(I18n.t("#{local_prefix_formula}.formula_image.image_type_invalid"))
+    end
+
+    it "can't attach image with more that 2MB to formula_image" do
+      large_file_content = "A" * (2.megabytes + 1)
+      large_file         = Tempfile.new("large_image.png")
+      large_file.write(large_file_content)
+
+      formula.formula_image.attach(
+        io: large_file,
+        filename: "large_image.png",
+        content_type: "image/png"
+      )
+
+      expect(formula).to_not be_valid
+      expect(formula.errors[:formula_image]).to include(I18n.t("#{local_prefix_formula}.formula_image.image_size_invalid"))
+    end
+
     it "returns false if no formula_image is attached" do
       formula.save
       expect(formula.formula_image.attached?).to eq(false)

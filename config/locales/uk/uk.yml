@@ -591,6 +591,9 @@ uk:
                 one: "має не ініціалізоване поле %{fields}"
                 other: "має не ініціалізовані поля %{fields}"
               mathematically_invalid: "є математично некоректним"
+            formula_image:
+              image_size_invalid: "зображення занадто велике (понад 2 МБ)"
+              image_type_invalid: "зображення має бути у форматі JPEG або PNG."
         calculator:
           attributes:
             name:

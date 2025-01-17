@@ -699,6 +699,9 @@ en:
             expression:
               uninitialized_fields: "has uninitialized fields %{fields}"
               mathematically_invalid: "is mathematically invalid"
+            formula_image:
+              image_size_invalid: "image is too big (more than 2MB)"
+              image_type_invalid: "image must be a JPEG or PNG"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
