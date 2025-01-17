@@ -34,8 +34,7 @@ class FormulaValidator < ActiveModel::Validator
       record.errors.add(:formula_image, :image_size_invalid)
     end
 
-    acceptable_types = ["image/jpeg", "image/png"]
-    if acceptable_types.exclude?(record.formula_image.content_type)
+    if Formula::ALLOWED_IMAGE_TYPES.exclude?(record.formula_image.content_type)
       record.errors.add(:formula_image, :image_type_invalid)
     end
   end

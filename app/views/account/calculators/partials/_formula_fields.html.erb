@@ -11,7 +11,7 @@
     <%= f.input :en_unit, label: "Unit Label:" %>
 
     <%= f.label :formula_image, "Upload logo:", class: "form-label d-block" %>
-    <%= f.file_field :formula_image, accept: "image/jpeg, image/png", class: "file-input mb-3 flex" %>
+    <%= f.file_field :formula_image, accept: Formula::ALLOWED_IMAGE_TYPES, class: "file-input mb-3 flex" %>
 
     <%= link_to_remove_association "- Remove Formula", f, class: "text-red-500 underline" %>
   </div>
