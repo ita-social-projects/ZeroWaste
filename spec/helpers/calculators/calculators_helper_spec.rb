@@ -17,26 +17,26 @@ RSpec.describe ApplicationHelper, type: :helper do
     it "allows specific tags and attributes" do
       result = helper.sanitized_notes(valid_html)
       expect(result).to include('<p class="text-bold">')
-      expect(result).to include('<strong>bold</strong>')
-      expect(result).to include('<em>italic</em>')
+      expect(result).to include("<strong>bold</strong>")
+      expect(result).to include("<em>italic</em>")
       expect(result).to include('<a href="http://example.com" target="_blank">Link</a>')
     end
 
     it "removes disallowed tags" do
       result = helper.sanitized_notes(invalid_html)
-      expect(result).not_to include('<script>')
+      expect(result).not_to include("<script>")
     end
 
     it "removes disallowed tags but keeps allowed tags and attributes" do
       result = helper.sanitized_notes(mixed_html)
-      expect(result).to include('<p>This is <strong>bold</strong>')
-      expect(result).not_to include('<script>')
+      expect(result).to include("<p>This is <strong>bold</strong>")
+      expect(result).not_to include("<script>")
       expect(result).to include('<a href="http://example.com">Link</a>')
     end
 
     it "does not remove allowed attributes from tags" do
       html_with_attributes = '<img src="image.png" alt="example image" style="width:100px;">'
-      result = helper.sanitized_notes(html_with_attributes)
+      result               = helper.sanitized_notes(html_with_attributes)
       expect(result).to eq('<img src="image.png" alt="example image" style="width:100px;">')
     end
   end
