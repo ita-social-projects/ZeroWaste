@@ -11,15 +11,19 @@ RSpec.describe CalculatorsController, type: :controller do
                { en_label: "Field B", uk_label: "Поле B", var_name: "b", kind: "number" }
              ],
              formulas_attributes: [
-               { expression: "a + b", en_label: "Formula 1", uk_label: "Формула 1", en_unit: "unit", uk_unit: "одиниця" },
-               { expression: "a + b", en_label: "Formula 2", uk_label: "Формула 2", en_unit: "unit", uk_unit: "одиниця" }
+               { expression: "a + b", en_label: "Formula 1", uk_label: "Формула 1",
+                 en_unit: "unit", uk_unit: "одиниця" },
+               { expression: "a + b", en_label: "Formula 2", uk_label: "Формула 2",
+                 en_unit: "unit", uk_unit: "одиниця" }
              ])
     end
 
     let(:expected_result) do
       [
-        { label: "Formula 1", result: 0, unit: "unit", formula_image: "/assets/money_spent.png" },
-        { label: "Formula 2", result: 0, unit: "unit", formula_image: "/assets/money_spent.png" }
+        { id: calculator.formulas.first.id, label: "Formula 1", result: 0,
+          unit: "unit", formula_image: "/assets/money_spent.png" },
+        { id: calculator.formulas.second.id, label: "Formula 2", result: 0,
+          unit: "unit", formula_image: "/assets/money_spent.png" }
       ]
     end
 
@@ -42,17 +46,20 @@ RSpec.describe CalculatorsController, type: :controller do
     end
 
     context "when formulas have images attached" do
-      before do
-        formula_with_image = calculator.formulas.first
-        allow(formula_with_image).to receive(:formula_image).and_return(double("FormulaImage", attached?: true))
-        allow(controller).to receive(:rails_blob_path).and_return("/rails/active_storage/blobs/formula_image.jpg")
-      end
+      let(:formula_with_image) { calculator.formulas.first }
 
       let(:expected_result_with_image) do
         [
-          { label: "Formula 1", result: 0, unit: "unit", formula_image: "/rails/active_storage/blobs/formula_image.jpg" },
-          { label: "Formula 2", result: 0, unit: "unit", formula_image: "/assets/money_spent.png" }
+          { id: calculator.formulas.first.id, label: "Formula 1", result: 0,
+            unit: "unit", formula_image: "/rails/active_storage/blobs/formula_image.jpg" },
+          { id: calculator.formulas.second.id, label: "Formula 2", result: 0,
+            unit: "unit", formula_image: "/assets/money_spent.png" }
         ]
+      end
+
+      before do
+        allow(formula_with_image.formula_image).to receive(:attached?).and_return(true)
+        allow(controller).to receive(:rails_blob_path).and_return("/rails/active_storage/blobs/formula_image.jpg")
       end
 
       it "assigns the correct formula images" do

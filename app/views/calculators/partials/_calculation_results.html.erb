@@ -1,13 +1,10 @@
-<%# TODO: Delete this and use user provided value %>
-<% formula_image = "money_to_spent_2.png" %>
-
 <div class="calculation-results rounded jumbotron jumbotron-fluid position-relative">
   <h2 class="pt-6 text-2xl font-semibold text-center dynamic-text-color">Calculation Results</h2>
   <div class="jumbotron calculation-results result main-result-container result-container">
-    <% results.each_with_index do |result, index| %>
+    <% results.each do |result| %>
       <div>
         <%= image_tag result[:formula_image], class: "formula-image", alt: "icon" %>
-        <%= turbo_frame_tag "calc-result-#{index}" do %>
+        <%= turbo_frame_tag "calc-result-#{result[:id]}" do %>
           <%= render partial: "calculators/partials/show/calculation_result",
                      locals: { result: result } %>
         <% end %>

@@ -101,6 +101,7 @@ class CalculatorsController < ApplicationController
 
     @results.each_with_index do |result, index|
       result[:formula_image] = @images[index][:formula_image]
+      result[:id]            = @calculator.formulas[index].id
     end
   end
 

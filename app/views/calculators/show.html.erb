@@ -34,7 +34,7 @@
   <% if session.dig(:calculation_results, @calculator.slug).present? %>
     <%= render "calculators/partials/calculation_results", results: session.dig(:calculation_results, @calculator.slug).map(&:with_indifferent_access) %>
   <% else %>
-      <%= render "calculators/partials/calculation_results", results: @results %>
+    <%= render "calculators/partials/calculation_results", results: @results %>
   <% end %>
 </div>
 
