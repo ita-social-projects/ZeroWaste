@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe ApplicationHelper, type: :helper do
   describe "#sanitized_notes" do
     let(:valid_html) do
@@ -14,30 +12,31 @@ RSpec.describe ApplicationHelper, type: :helper do
       '<p>This is <strong>bold</strong> and <script>alert("XSS")</script> <a href="http://example.com">Link</a></p>'
     end
 
+    let(:html_with_attributes) do
+      '<img src="image.png" alt="example image" style="width:100px;">'
+    end
+
+    let(:result) { |html| helper.sanitized_notes(html) }
+
     it "allows specific tags and attributes" do
-      result = helper.sanitized_notes(valid_html)
-      expect(result).to include('<p class="text-bold">')
-      expect(result).to include("<strong>bold</strong>")
-      expect(result).to include("<em>italic</em>")
-      expect(result).to include('<a href="http://example.com" target="_blank">Link</a>')
+      expect(result(valid_html)).to include('<p class="text-bold">')
+      expect(result(valid_html)).to include("<strong>bold</strong>")
+      expect(result(valid_html)).to include("<em>italic</em>")
+      expect(result(valid_html)).to include('<a href="http://example.com" target="_blank">Link</a>')
     end
 
     it "removes disallowed tags" do
-      result = helper.sanitized_notes(invalid_html)
-      expect(result).not_to include("<script>")
+      expect(result(invalid_html)).not_to include("<script>")
     end
 
     it "removes disallowed tags but keeps allowed tags and attributes" do
-      result = helper.sanitized_notes(mixed_html)
-      expect(result).to include("<p>This is <strong>bold</strong>")
-      expect(result).not_to include("<script>")
-      expect(result).to include('<a href="http://example.com">Link</a>')
+      expect(result(mixed_html)).to include("<p>This is <strong>bold</strong>")
+      expect(result(mixed_html)).not_to include("<script>")
+      expect(result(mixed_html)).to include('<a href="http://example.com">Link</a>')
     end
 
     it "does not remove allowed attributes from tags" do
-      html_with_attributes = '<img src="image.png" alt="example image" style="width:100px;">'
-      result               = helper.sanitized_notes(html_with_attributes)
-      expect(result).to eq('<img src="image.png" alt="example image" style="width:100px;">')
+      expect(result(html_with_attributes)).to eq('<img src="image.png" alt="example image" style="width:100px;">')
     end
   end
 end
