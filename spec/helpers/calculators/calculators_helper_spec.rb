@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe ApplicationHelper, type: :helper do
-
   describe "#sanitized_notes" do
     let(:valid_html) do
       '<p class="text-bold">This is <strong>bold</strong> and <em>italic</em>. <a href="http://example.com" target="_blank">Link</a></p>'
