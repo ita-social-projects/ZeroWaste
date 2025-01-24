@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe ApplicationHelper, type: :helper do
-  describe "#sanitized_notes" do
+  describe "#sanitize_content" do
     let(:valid_html) do
       '<p class="text-bold">This is <strong>bold</strong> and <em>italic</em>. <a href="http://example.com" target="_blank">Link</a></p>'
     end
@@ -19,24 +19,24 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it "allows specific tags and attributes" do
-      expect(helper.sanitized_notes(valid_html)).to include('<p class="text-bold">')
-      expect(helper.sanitized_notes(valid_html)).to include("<strong>bold</strong>")
-      expect(helper.sanitized_notes(valid_html)).to include("<em>italic</em>")
-      expect(helper.sanitized_notes(valid_html)).to include('<a href="http://example.com" target="_blank">Link</a>')
+      expect(helper.sanitize_content(valid_html)).to include('<p class="text-bold">')
+      expect(helper.sanitize_content(valid_html)).to include("<strong>bold</strong>")
+      expect(helper.sanitize_content(valid_html)).to include("<em>italic</em>")
+      expect(helper.sanitize_content(valid_html)).to include('<a href="http://example.com" target="_blank">Link</a>')
     end
 
     it "removes disallowed tags" do
-      expect(helper.sanitized_notes(invalid_html)).not_to include("<script>")
+      expect(helper.sanitize_content(invalid_html)).not_to include("<script>")
     end
 
     it "removes disallowed tags but keeps allowed tags and attributes" do
-      expect(helper.sanitized_notes(mixed_html)).to include("<p>This is <strong>bold</strong>")
-      expect(helper.sanitized_notes(mixed_html)).not_to include("<script>")
-      expect(helper.sanitized_notes(mixed_html)).to include('<a href="http://example.com">Link</a>')
+      expect(helper.sanitize_content(mixed_html)).to include("<p>This is <strong>bold</strong>")
+      expect(helper.sanitize_content(mixed_html)).not_to include("<script>")
+      expect(helper.sanitize_content(mixed_html)).to include('<a href="http://example.com">Link</a>')
     end
 
     it "does not remove allowed attributes from tags" do
-      expect(helper.sanitized_notes(html_with_attributes)).to eq('<img src="image.png" alt="example image" style="width:100px;">')
+      expect(helper.sanitize_content(html_with_attributes)).to eq('<img src="image.png" alt="example image" style="width:100px;">')
     end
   end
 end

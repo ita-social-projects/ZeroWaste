@@ -56,7 +56,7 @@ module CalculatorsHelper
       { image: "money_spent.png", data_target: "moneySpent", text: t(".money_spent") }]
   end
 
-  def sanitized_notes(notes)
+  def sanitize_content(notes)
     sanitize(notes, tags: ["p", "strong", "em", "ul", "li", "a", "div", "span", "img"], attributes: ["href", "target", "class", "src", "alt", "style"])
   end
 end
