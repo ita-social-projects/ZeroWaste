@@ -135,6 +135,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_09_084523) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "relation"
+    t.integer "priority", default: 0, null: false
     t.index ["calculator_id"], name: "index_formulas_on_calculator_id"
   end
 

@@ -356,7 +356,7 @@ uk:
           no_fields_yet_label: "Полів поки нема"
           update_calculator_button: "Оновити калькулятор"
       new:
-        create_calculator_button: "Створити калькулятор"
+        create_calculator_button: "Зберегти калькулятор"
         cancel_button: "Скасувати"
         prohibited_to_update: " перешкоджають оновленню калькулятора"
         prohibited_to_save: " перешкоджають збереженню калькулятора"
