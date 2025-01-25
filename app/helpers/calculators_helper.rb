@@ -55,4 +55,8 @@ module CalculatorsHelper
       { image: "money_to_spent.png", data_target: "moneyWillBeSpent", text: t(".money_will_be_spent") },
       { image: "money_spent.png", data_target: "moneySpent", text: t(".money_spent") }]
   end
+
+  def sanitize_content(notes)
+    sanitize(notes, tags: ["p", "strong", "em", "ul", "li", "a", "div", "span", "img"], attributes: ["href", "target", "class", "src", "alt", "style"])
+  end
 end
