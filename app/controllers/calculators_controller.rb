@@ -17,6 +17,10 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
+    @results    = initial_values
+
+    load_and_assign_images
+
     add_breadcrumb t("breadcrumbs.home"), root_path
     add_breadcrumb @calculator.name
   end
@@ -28,6 +32,8 @@ class CalculatorsController < ApplicationController
 
     session[:calculation_results]                 ||= {}
     session[:calculation_results][@calculator.slug] = @results
+
+    load_and_assign_images
 
     respond_to :turbo_stream
   end
@@ -75,5 +81,33 @@ class CalculatorsController < ApplicationController
     return if Flipper[:mhc_calculator_status].enabled?
 
     raise ActionController::RoutingError, "Mhc calculator flipper is disabled"
+  end
+
+  def load_images
+    @images = @calculator.formulas.map do |formula|
+      if formula.formula_image.attached?
+        {
+          id: formula.id,
+          formula_image: rails_blob_path(formula.formula_image)
+        }
+      else
+        { id: formula.id, formula_image: "/assets/money_spent.png" }
+      end
+    end
+  end
+
+  def load_and_assign_images
+    load_images if @images.blank?
+
+    @results.each_with_index do |result, index|
+      result[:formula_image] = @images[index][:formula_image]
+      result[:id]            = @calculator.formulas[index].id
+    end
+  end
+
+  def initial_values
+    @calculator.formulas.map do |formula|
+      { label: formula.label, result: 0, unit: formula.unit, relation: formula.relation }
+    end
   end
 end

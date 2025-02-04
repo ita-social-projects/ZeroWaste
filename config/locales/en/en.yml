@@ -701,6 +701,9 @@ en:
             expression:
               uninitialized_fields: "has uninitialized fields %{fields}"
               mathematically_invalid: "is mathematically invalid"
+            formula_image:
+              image_size_invalid: "image is too big (more than 2MB)"
+              image_type_invalid: "image must be a JPEG or PNG"
               first_relation_error: "is invalid no previous formula"
               last_relation_error: "is invalid no next formula"
               relation_between_two_error: "is invalid this formula already has a relation to the previous one"

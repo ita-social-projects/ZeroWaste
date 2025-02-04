@@ -4,6 +4,7 @@ class FormulaValidator < ActiveModel::Validator
   def validate(record)
     fields_are_included_in_formulas(record)
     expression_is_mathematically_valid(record)
+    acceptable_image(record)
   end
 
   private
@@ -24,5 +25,17 @@ class FormulaValidator < ActiveModel::Validator
     Dentaku::Parser.new(Dentaku::Tokenizer.new.tokenize(record.expression)).parse
   rescue Dentaku::ParseError, Dentaku::TokenizerError
     record.errors.add(:expression, :mathematically_invalid)
+  end
+
+  def acceptable_image(record)
+    return if !record.formula_image.attached?
+
+    if record.formula_image.blob.byte_size >= 2.megabytes
+      record.errors.add(:formula_image, :image_size_invalid)
+    end
+
+    if Formula::ALLOWED_IMAGE_TYPES.exclude?(record.formula_image.content_type)
+      record.errors.add(:formula_image, :image_type_invalid)
+    end
   end
 end

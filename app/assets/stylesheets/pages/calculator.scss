@@ -317,6 +317,14 @@ select.custom-select {
   color: #515151;
 }
 
+.formula-image {
+  height: 200px;
+  width: 200px;
+  margin-left: 84px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
 .img-margin {
   margin-left: 40px;
   margin-bottom: 10px;
@@ -338,6 +346,9 @@ select.custom-select {
       }
     }
   }
+  .formula-image {
+    margin-left: 50px;
+  }  
 }
 
 @media screen and (max-width: 879px) {
@@ -403,6 +414,10 @@ select.custom-select {
       }
     }
   }
+
+  .formula-image {
+    margin-left: 120px;
+  }  
 }
 
 @media screen and (max-width: $sm) {
@@ -437,6 +452,9 @@ select.custom-select {
       width: 280px;
       margin-right: 0;
     }
+  }
+  .formula-image {
+    margin-left: 48px;
   }
 }
 
