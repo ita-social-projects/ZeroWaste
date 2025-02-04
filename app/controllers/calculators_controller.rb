@@ -97,7 +97,7 @@ class CalculatorsController < ApplicationController
   end
 
   def load_and_assign_images
-    load_images if @images.nil?
+    load_images if @images.blank?
 
     @results.each_with_index do |result, index|
       result[:formula_image] = @images[index][:formula_image]

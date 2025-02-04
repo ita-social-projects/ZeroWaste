@@ -24,7 +24,7 @@
 class Formula < ApplicationRecord
   include Translatable
 
-  ALLOWED_IMAGE_TYPES = "image/jpeg, image/png"
+  ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png"]
 
   belongs_to :calculator, inverse_of: :formulas
 
