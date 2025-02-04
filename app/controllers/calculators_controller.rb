@@ -107,7 +107,7 @@ class CalculatorsController < ApplicationController
 
   def initial_values
     @calculator.formulas.map do |formula|
-      { label: formula.label, result: 0, unit: formula.unit }
+      { label: formula.label, result: 0, unit: formula.unit, relation: formula.relation }
     end
   end
 end
