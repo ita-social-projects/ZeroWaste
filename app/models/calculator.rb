@@ -23,10 +23,12 @@ class Calculator < ApplicationRecord
 
   friendly_id :en_name, use: :sequentially_slugged
 
-  translates :name
+  translates :name, :notes
 
   has_many :fields, dependent: :destroy
   has_many :formulas, -> { ordered_by_priority }, dependent: :destroy, inverse_of: :calculator
+
+  validates_with RelationValidator
 
   accepts_nested_attributes_for :fields, allow_destroy: true
   accepts_nested_attributes_for :formulas, allow_destroy: true
@@ -36,9 +38,18 @@ class Calculator < ApplicationRecord
   validates :en_name, :uk_name, presence: true
   validates :en_name, :uk_name, length: { minimum: 3, maximum: 50 }
   validates :slug, presence: true, uniqueness: true
+  validates :en_notes, :uk_notes,
+            length: {
+              maximum: 500,
+              tokenizer: :strip_tags_and_tokenize
+            }
   validates :color, format: { with: /\A#[0-9a-fA-F]{6}\z/ }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
+  end
+
+  def strip_tags_and_tokenize(string)
+    ActionController::Base.helpers.strip_tags(string).chars
   end
 end
