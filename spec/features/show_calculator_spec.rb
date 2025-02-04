@@ -51,9 +51,9 @@ RSpec.describe CalculatorsController, type: :controller do
       let(:expected_result_with_image) do
         [
           { id: calculator.formulas.first.id, label: "Formula 1", result: 0,
-          relation: nil, unit: "unit", formula_image: "/rails/active_storage/blobs/formula_image.jpg" },
+            relation: nil, unit: "unit", formula_image: "/rails/active_storage/blobs/formula_image.jpg" },
           { id: calculator.formulas.second.id, label: "Formula 2", result: 0,
-          relation: nil, unit: "unit", formula_image: "/assets/money_spent.png" }
+            relation: nil, unit: "unit", formula_image: "/assets/money_spent.png" }
         ]
       end
 
