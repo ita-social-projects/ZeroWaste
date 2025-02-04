@@ -23,6 +23,7 @@ class MhcCalculatorValidator
 
   def validate_user_age
     return unless presence_valid?(:user_age)
+
     length_valid?(:user_age, 1, 100)
   end
 
