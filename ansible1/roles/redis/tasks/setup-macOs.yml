@@ -1,25 +1,10 @@
 ---
-- name: Ensure Homebrew is installed
-  shell: |
-    /bin/bash -c "$(curl -fsSl https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  args:
-    creates: /usr/local/bin/brew
-  become: false
-
-- name: Tap Redis stack
-  shell: |
-    brew tap redis-stack/redis-stack
-  become: false
-
 - name: Install Redis
   shell: |
-    brew install redis-stack
+    brew install redis
   become: false
-
-- name: Export redis PATH
-  shell: |
-    export PATH=/opt/homebrew/Caskroom/redis-stack-server/7.4.0-v2/bin:$PATH
 
 - name: Start redis server
   shell: |
-    redis-stack-server
+    brew services start redis
+  become: false
