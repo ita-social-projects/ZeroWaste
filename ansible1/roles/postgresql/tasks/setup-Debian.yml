@@ -24,12 +24,12 @@
 - name: Ensure PostgreSQL packages are installed
   apt:
     name:
-      - "postgresql-{{ postgres_version }}"
-      - "postgresql-contrib-{{ postgres_version }}"
+      - "postgresql-{{ postgresql_version }}"
+      - "postgresql-contrib-{{ postgresql_version }}"
     state: present
 
 - name: Hold PostgreSQL version
-  shell: "apt-mark hold postgresql-{{ postgres_version }}"
+  shell: "apt-mark hold postgresql-{{ postgresql_version }}"
   become: true
 
 - name: Check installed PostgreSQL version
