@@ -5,19 +5,18 @@ RSpec.describe ConvertJsonToCsvService do
   let(:output_file) { "spec/fixtures/files/output.csv" }
   let(:csv_content) { CSV.read(output_file, headers: true) }
   let(:service) { described_class.call(input_file, output_file) }
+  let(:service_instance) { instance_double(ConvertJsonToCsvService) }
 
   describe ".call" do
     context "when initializing and calling an instance" do
-      let(:service_instance) { instance_double(ConvertJsonToCsvService) }
-
       before do
         allow(ConvertJsonToCsvService).to receive(:new).with(input_file, output_file).and_return(service_instance)
         allow(service_instance).to receive(:call).and_return(output_file)
       end
 
-      it "initializes and calls the instance with the provided arguments" do
-        result = service
+      let!(:result) { service }
 
+      it "initializes and calls the instance with the provided arguments" do
         expect(ConvertJsonToCsvService).to have_received(:new).with(input_file, output_file)
         expect(service_instance).to have_received(:call)
         expect(result).to eq(output_file)
@@ -25,9 +24,9 @@ RSpec.describe ConvertJsonToCsvService do
     end
 
     context "when creating a CSV file" do
-      it "creates a csv file with correct data" do
-        result = service
+      let(:result) { service }
 
+      it "creates a csv file with correct data" do
         expect(result).to eq(output_file)
         expect(File.exist?(output_file)).to be_truthy
         expect(csv_content.headers).to eq(["path", "score", "performance", "accessibility", "best-practices", "seo"])
