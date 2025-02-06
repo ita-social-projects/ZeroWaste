@@ -25,12 +25,7 @@
       </div>
     <% end %>
 
-    <% if @calculator.logo_picture.attached? %>
-      <%= image_tag @calculator.logo_picture, class: "constructor-calculator-scales", alt: t(".image_alt") %>
-    <% else %>
-      <%# Default image %>    
-      <%= image_tag "scales.png", class: "constructor-calculator-scales", alt: t(".image_alt") %>
-    <% end %>
+    <%= image_tag @calculator.logo_url, class: "constructor-calculator-scales", alt: t(".image_alt") %>
     </div>
   </div>
 

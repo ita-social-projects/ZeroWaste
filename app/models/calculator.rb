@@ -54,4 +54,13 @@ class Calculator < ApplicationRecord
   def strip_tags_and_tokenize(string)
     ActionController::Base.helpers.strip_tags(string).chars
   end
+
+  def logo_url
+    if logo_picture.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(logo_picture, only_path: true)
+    else
+      # Default image
+      "scales.png"
+    end
+  end
 end
