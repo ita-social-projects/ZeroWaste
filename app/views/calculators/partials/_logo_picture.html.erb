@@ -1,5 +1,5 @@
 <% if @calculator.logo_picture.attached? %>
-  <%= image_tag @calculator.logo_picture, class: "w-64 h-64 rounded shadow" %>
+  <%= image_tag @calculator.logo_picture, class: "w-64 h-40 rounded shadow" %>
 <% else %>
   <%= image_tag(@calculator.logo_placeholder) %>
 <% end %>

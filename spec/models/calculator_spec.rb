@@ -61,4 +61,27 @@ RSpec.describe Calculator, type: :model do
       end
     end
   end
+
+  describe "#logo_url" do
+    context "when logo_picture is attached" do
+      before do
+        logo_image = fixture_file_upload(Rails.root.join("spec", "fixtures", "icons", "favicon-181x182.png"), "image/png")
+        calculator.logo_picture.attach(logo_image)
+
+        allow(Rails.application.routes.url_helpers).to receive(:rails_blob_url)
+          .with(calculator.logo_picture, only_path: true)
+          .and_return("/rails/active_storage/blobs/favicon-181x182.png")
+      end
+
+      it "returns the attached logo URL" do
+        expect(calculator.logo_url).to eq("/rails/active_storage/blobs/favicon-181x182.png")
+      end
+    end
+
+    context "when logo_picture is not attached" do
+      it "returns the default image path" do
+        expect(calculator.logo_url).to eq("scales.png")
+      end
+    end
+  end
 end
