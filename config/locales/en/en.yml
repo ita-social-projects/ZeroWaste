@@ -150,11 +150,11 @@ en:
       use_less_link: https://zerowastelviv.org.ua/en/zero-waste-nappies-en/
     mhc_description_block:
       mhc_description_block_html:
-        "These data are approximate, and exact values may vary depending on your individual needs and habits. 
+        "These data are approximate, and exact values may vary depending on your individual needs and habits.
         Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
-        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
-        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
-        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials 
+        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort.
+        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits.
+        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials
         or by %{contact_link} with your questions."
       information_link_text: "detailed information"
       contact_link_text: "contacting us"
@@ -473,6 +473,8 @@ en:
           no_fields_yet_label: "No fields yet"
           update_calculator_button: "Update calculator"
       new:
+        uk_notes: "Ukrainian Notes"
+        en_notes: "English Notes"
         create_calculator_button: "Save calculator"
     feature_flags:
       submit_button: "Save"
@@ -699,6 +701,13 @@ en:
             expression:
               uninitialized_fields: "has uninitialized fields %{fields}"
               mathematically_invalid: "is mathematically invalid"
+            formula_image:
+              image_size_invalid: "image is too big (more than 2MB)"
+              image_type_invalid: "image must be a JPEG or PNG"
+              first_relation_error: "is invalid no previous formula"
+              last_relation_error: "is invalid no next formula"
+              relation_between_two_error: "is invalid this formula already has a relation to the previous one"
+              already_have_relation_error: "is invalid formula can have relation with only one other formula"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"

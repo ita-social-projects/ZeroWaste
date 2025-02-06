@@ -1,8 +1,7 @@
-<%# TODO: Delete this if %>
-<% if false %>
+<% if calculator.uk_notes.present? || calculator.en_notes.present? %>
   <section class="description-section">
-    <div class="description-block">
-      <%# TODO: ADD text here %>
+    <div class="description-section">
+      <%= sanitize_content(calculator.notes) %>
     </div>
   </section>
 <% end %>

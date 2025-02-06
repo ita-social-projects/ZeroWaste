@@ -10,6 +10,7 @@
         </div>
         <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
         <%= f.file_field :logo_picture, accept: "image/jpeg, image/png", class: "file-input mb-3" %>
+        <%= render "account/calculators/partials/tinymce_form", f: f %>
       </fieldset>
 
       <!-- formula input-->

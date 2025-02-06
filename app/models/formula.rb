@@ -24,9 +24,13 @@
 class Formula < ApplicationRecord
   include Translatable
 
+  ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png"]
+
   belongs_to :calculator, inverse_of: :formulas
 
   PRIORITY_RANGE = 0..10
+
+  has_one_attached :formula_image
 
   validates_with FormulaValidator
 

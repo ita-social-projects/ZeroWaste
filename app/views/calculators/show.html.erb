@@ -34,11 +34,11 @@
     </div>
   </div>
 
-  <%= turbo_frame_tag "calc-results" do %>
-    <% if session.dig(:calculation_results, @calculator.slug).present? %>
-      <%= render "calculators/partials/calculation_results", results: session.dig(:calculation_results, @calculator.slug).map(&:with_indifferent_access) %>
-    <% end %>
+  <% if session.dig(:calculation_results, @calculator.slug).present? %>
+    <%= render "calculators/partials/calculation_results", results: session.dig(:calculation_results, @calculator.slug).map(&:with_indifferent_access) %>
+  <% else %>
+    <%= render "calculators/partials/calculation_results", results: @results %>
   <% end %>
 </div>
 
-<%= render "calculators/partials/show/constructor_calculator_description" %>
+<%= render "calculators/partials/show/constructor_calculator_description", calculator: @calculator %>
