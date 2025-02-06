@@ -7,7 +7,7 @@
           <%= render "calculators/partials/show/relation_arrow", locals: {rotate_direction: "left"} %>
         <% end %>
 
-        <div>
+        <div class="justify-self-center">
         <%= image_tag result[:formula_image], class: "formula-image", alt: "icon" %>
         <%= turbo_frame_tag "calc-result-#{result[:id]}" do %>
           <%= render partial: "calculators/partials/show/calculation_result",

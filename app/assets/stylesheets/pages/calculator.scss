@@ -303,11 +303,10 @@ select.custom-select {
     .right {
       padding-left: 30px;
       padding-top: 85px;
-      transform: translateX(-40px);
     }
     .left {
       padding-bottom: 85px;
-      transform: rotate(180deg) translateX(40px);
+      transform: rotate(180deg);
     }
   }
 }
