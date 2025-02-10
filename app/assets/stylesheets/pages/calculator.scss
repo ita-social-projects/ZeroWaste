@@ -81,7 +81,11 @@
   border-radius: 8px;
 }
 
-.info-div:hover .info-label {
+.info-image:hover + .info-label {
+  display: block;
+}
+
+.info-label:hover {
   display: block;
 }
 
