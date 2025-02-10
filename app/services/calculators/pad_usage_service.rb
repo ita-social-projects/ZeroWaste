@@ -1,7 +1,7 @@
 class Calculators::PadUsageService
   attr_accessor :user_age, :menstruation_age, :menopause_age,
                 :average_menstruation_cycle_duration,
-                :pads_per_cycle, :pad_category
+                :duration_of_menstruation, :disposable_products_per_day, :pad_category
 
   PAD_PRICES = {
     budget: 2,
@@ -10,12 +10,13 @@ class Calculators::PadUsageService
   }
 
   def initialize(user_age:, menstruation_age:, menopause_age:, average_menstruation_cycle_duration:,
-    pads_per_cycle:, pad_category:)
+    duration_of_menstruation:, disposable_products_per_day:, pad_category:)
     @user_age                            = user_age
     @menstruation_age                    = menstruation_age
     @menopause_age                       = menopause_age || 48.7
     @average_menstruation_cycle_duration = average_menstruation_cycle_duration
-    @pads_per_cycle                      = pads_per_cycle
+    @duration_of_menstruation            = duration_of_menstruation
+    @disposable_products_per_day         = disposable_products_per_day
     @pad_category                        = (pad_category || :budget).to_sym
   end
 
@@ -31,11 +32,11 @@ class Calculators::PadUsageService
   private
 
   def already_used_products
-    menstruations_from_age_range(menstruation_age, user_age) * pads_per_cycle
+    menstruations_from_age_range(menstruation_age, user_age) * duration_of_menstruation * disposable_products_per_day
   end
 
   def products_to_be_used
-    menstruations_from_age_range(user_age, menopause_age) * pads_per_cycle
+    menstruations_from_age_range(user_age, menopause_age) * duration_of_menstruation * disposable_products_per_day
   end
 
   def already_used_products_cost

@@ -44,13 +44,23 @@
                              data: { mhc_calculator_target: "averageMenstruationCycleDuration" } %>
 
         <div class="pb-2 input_lable mt-6">
-          <%= label_tag "child_product_category", t(".form.pads_per_cycle") %>
+          <%= label_tag "child_product_category", t(".form.duration_of_menstruation") %>
         </div>
 
-        <%= form.input_field :pads_per_cycle,
+        <%= form.input_field :duration_of_menstruation,
                              type: "number",
                              class: "form_fild price_select rounded w-100 form-control mb-0",
-                             data: { mhc_calculator_target: "padsPerCycle" } %>
+                             data: { mhc_calculator_target: "durationOfMenstruation" } %>
+
+        <div class="pb-2 input_lable mt-6">
+          <%= label_tag "child_product_category", t(".form.disposable_products_per_day") %>
+        </div>
+
+        <%= form.input_field :disposable_products_per_day,
+                             type: "number",
+                             class: "form_fild price_select rounded w-100 form-control mb-0",
+                             data: { mhc_calculator_target: "disposableProductsPerDay" } %>
+
 
         <div class="pb-2 input_lable mt-6">
           <%= label_tag "child_product_category", t(".form.pad_category") %>
