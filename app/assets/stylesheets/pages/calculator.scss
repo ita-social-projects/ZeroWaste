@@ -61,6 +61,30 @@
   margin-right: 0px;
 }
 
+.info-div {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.info-image {
+  width: 1rem;
+  height: 1rem;
+}
+
+.info-label {
+  display: none;
+  position: absolute;
+  margin-left: 250px;
+  background-color: #ececec;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.info-div:hover .info-label {
+  display: block;
+}
+
 .flex-item {
   display: flex;
   flex-wrap: wrap;
@@ -350,6 +374,9 @@ select.custom-select {
 @media screen and (max-width: $xs) {
   .jumbotron {
     margin: 0;
+  }
+  .info-label {
+    margin-left: 220px;
   }
   .result-container {
     div {

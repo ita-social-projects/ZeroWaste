@@ -43,8 +43,10 @@
                              class: "form_fild price_select rounded w-100 form-control mb-0",
                              data: { mhc_calculator_target: "averageMenstruationCycleDuration" } %>
 
-        <div class="pb-2 input_lable mt-6">
+        <div class="pb-2 input_lable info-div mt-6">
           <%= label_tag "child_product_category", t(".form.duration_of_menstruation") %>
+          <%= image_tag "icons/info-circle.svg", class: "info-image" %>
+          <%= label_tag "child_product_category", t(".form.duration_of_menstruation_info"), class: "info-label" %>
         </div>
 
         <%= form.input_field :duration_of_menstruation,
