@@ -9,7 +9,8 @@ RSpec.describe MhcCalculatorValidator do
       menstruation_age: 13,
       menopause_age: 50,
       average_menstruation_cycle_duration: 28,
-      pads_per_cycle: 10,
+      duration_of_menstruation: 4,
+      disposable_products_per_day: 5,
       pad_category: "budget"
     }
   end
@@ -54,8 +55,12 @@ RSpec.describe MhcCalculatorValidator do
       include_examples "presence validation", :average_menstruation_cycle_duration
     end
 
-    context "pads per cycle validation" do
-      include_examples "presence validation", :pads_per_cycle
+    context "duration of menstruation validation" do
+      include_examples "presence validation", :duration_of_menstruation
+    end
+
+    context "disposable products per day validation" do
+      include_examples "presence validation", :disposable_products_per_day
     end
 
     context "pad category validation" do
