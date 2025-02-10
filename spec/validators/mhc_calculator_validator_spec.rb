@@ -11,6 +11,7 @@ RSpec.describe MhcCalculatorValidator do
       average_menstruation_cycle_duration: 28,
       duration_of_menstruation: 4,
       disposable_products_per_day: 5,
+      product_type: "tampons",
       pad_category: "budget"
     }
   end
@@ -61,6 +62,10 @@ RSpec.describe MhcCalculatorValidator do
 
     context "disposable products per day validation" do
       include_examples "presence validation", :disposable_products_per_day
+    end
+
+    context "product type validation" do
+      include_examples "presence validation", :product_type
     end
 
     context "pad category validation" do

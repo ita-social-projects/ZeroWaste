@@ -15,7 +15,7 @@ class MhcCalculatorValidator
     validate_average_menstruation_cycle_duration
     validate_duration_of_menstruation
     validate_disposable_products_per_day
-    valadate_product_type
+    validate_product_type
     validate_pad_category
 
     errors.empty?
@@ -47,7 +47,7 @@ class MhcCalculatorValidator
     presence_valid?(:disposable_products_per_day)
   end
 
-  def valadate_product_type
+  def validate_product_type
     presence_valid?(:product_type)
   end
 

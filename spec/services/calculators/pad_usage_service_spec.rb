@@ -10,6 +10,7 @@ RSpec.describe Calculators::PadUsageService do
         duration_of_menstruation: 4,
         disposable_products_per_day: 5,
         average_menstruation_cycle_duration: 28,
+        product_type: :pads,
         pad_category: :budget
       )
     end
