@@ -79,11 +79,11 @@ en:
       use_less_link: https://zerowastelviv.org.ua/en/zero-waste-nappies-en/
     mhc_description_block:
       mhc_description_block_html:
-        "These data are approximate, and exact values may vary depending on your individual needs and habits. 
+        "These data are approximate, and exact values may vary depending on your individual needs and habits.
         Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
-        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
-        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
-        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials 
+        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort.
+        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits.
+        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials
         or by %{contact_link} with your questions."
       information_link_text: "detailed information"
       contact_link_text: "contacting us"
@@ -99,7 +99,8 @@ en:
         user_age: "Your age"
         menstruation_age: "Age at First Menstruation"
         menopause_age: "Age at Menopause"
-        average_menstruation_cycle_duration: "Average Menstrual Cycle Duration (days)"
+        menopause_age_info: "NEED TO BE CHANGED!!! Waiting for information"
+        average_menstruation_cycle_duration: "Average Menstrual Cycle Duration (mainly 21-35 days)"
         pads_per_cycle: "Average Products Used Per Cycle"
         pad_category: "Product Category"
         budgetary: "Budgetary"
@@ -167,7 +168,7 @@ en:
       about_us: "About us"
       admin: "Admin"
       calculate: "Diaper calculator"
-      mhc_calculator: "Pad calculator"
+      mhc_calculator: "Menstrual calculator"
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
