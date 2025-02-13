@@ -54,15 +54,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
   end
 
   create_table "calculators", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.string "uk_name", default: "", null: false
-    t.string "en_name", default: "", null: false
-    t.string "color", default: "#8fba3b"
-    t.text "uk_notes"
-    t.text "en_notes"
+    t.boolean "preferable", default: false, null: false
+    t.index ["name"], name: "index_calculators_on_name", unique: true
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
+    t.index ["uuid"], name: "index_calculators_on_uuid", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -70,11 +70,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority", default: 0, null: false
-    t.string "en_name"
-    t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
-    t.bigint "field_id"
     t.boolean "preferable", default: false, null: false
-    t.index ["field_id"], name: "index_categories_on_field_id"
+    t.string "en_name"
+    t.index "lower((en_name)::text)", name: "index_categories_on_en_name", unique: true
+    t.index "lower((uk_name)::text)", name: "index_categories_on_uk_name", unique: true
   end
 
   create_table "category_categoryables", force: :cascade do |t|
@@ -108,15 +107,21 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
   end
 
   create_table "fields", force: :cascade do |t|
-    t.string "kind", null: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.bigint "calculator_id", null: false
+    t.string "selector", null: false
+    t.string "type", null: false
+    t.string "label"
+    t.string "name"
+    t.string "value"
+    t.integer "from"
+    t.integer "to"
+    t.integer "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "unit", default: 0
-    t.string "uk_label", default: "", null: false
-    t.string "en_label", default: "", null: false
-    t.string "var_name", default: "", null: false
-    t.bigint "calculator_id", null: false
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
+    t.index ["uuid"], name: "index_fields_on_uuid", unique: true
   end
 
   create_table "flipper_features", force: :cascade do |t|
@@ -135,19 +140,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
-  end
-
-  create_table "formulas", force: :cascade do |t|
-    t.string "expression", default: "", null: false
-    t.string "uk_label", default: "", null: false
-    t.string "en_label", default: "", null: false
-    t.string "uk_unit"
-    t.string "en_unit"
-    t.bigint "calculator_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "priority", default: 0, null: false
-    t.index ["calculator_id"], name: "index_formulas_on_calculator_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -241,9 +233,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authorizations", "users"
-  add_foreign_key "categories", "fields"
   add_foreign_key "category_categoryables", "categories"
   add_foreign_key "diapers_periods", "categories"
-  add_foreign_key "fields", "calculators"
-  add_foreign_key "formulas", "calculators"
 end
