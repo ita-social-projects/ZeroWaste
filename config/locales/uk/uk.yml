@@ -81,6 +81,16 @@ uk:
       money_will_be_spent: "ви ще витратите"
       pieces: "шт."
       unit: "грн"
+    mhc_reusable_products:
+      menstrual_cup: "Менструальна чаша"
+      menstrual_cup_link: "https://zerowastelviv.org.ua/menstrualna-chasha/"
+      reusable_pads: "Багаторазові прокладки"
+      reusable_pads_link: "https://zerowastelviv.org.ua/bahatorazovi-prokladky/"
+      menstrual_panties: "Менструальні трусики"
+      menstrual_panties_link: "https://zerowastelviv.org.ua/menstrualni-trusyky/"
+      menstrual_disk: "Менструальний диск"
+      menstrual_disk_link: "https://zerowastelviv.org.ua/menstrualnyj-dysk/"
+      learn_more: "Дізнатися більше"
     new_calculator:
       diaper_сalculator: "Калькулятор підгузків"
       form:

@@ -112,6 +112,16 @@ en:
       money_will_be_spent: "yet to be spent on menstrual hygiene products"
       pieces: "pcs."
       unit: "uah"
+    mhc_reusable_products:
+      menstrual_cup: "Menstrual cup"
+      menstrual_cup_link: "https://zerowastelviv.org.ua/en/menstrual-cup/"
+      reusable_pads: "Reusable pads"
+      reusable_pads_link: "https://zerowastelviv.org.ua/en/reusable-pads/"
+      menstrual_panties: "Menstrual panties"
+      menstrual_panties_link: "https://zerowastelviv.org.ua/en/menstrual-panties/"
+      menstrual_disk: "Menstrual disk"
+      menstrual_disk_link: "https://zerowastelviv.org.ua/en/menstrual-disk/"
+      learn_more: "Learn more"
     new_calculator:
       diaper_сalculator: "Diaper calculator"
       form:
