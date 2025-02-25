@@ -79,11 +79,11 @@ en:
       use_less_link: https://zerowastelviv.org.ua/en/zero-waste-nappies-en/
     mhc_description_block:
       mhc_description_block_html:
-        "These data are approximate, and exact values may vary depending on your individual needs and habits. 
+        "These data are approximate, and exact values may vary depending on your individual needs and habits.
         Using reusable menstrual products can significantly reduce waste and serve as a cost-effective alternative to disposable options.
-        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort. 
-        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits. 
-        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials 
+        You can optimize the use of these products at any stage, which will help lower expenses and increase comfort.
+        We recommend exploring methods for the effective use of reusable menstrual products and learning about their benefits.
+        More %{information_link} about the calculations regarding the quantity and cost of these products can be found in our materials
         or by %{contact_link} with your questions."
       information_link_text: "detailed information"
       contact_link_text: "contacting us"
@@ -174,6 +174,9 @@ en:
       contact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
       local_lang: "Українська"
+      toggle_menu: "Toggle menu"
+      open_menu: "Open menu icon"
+      close_menu: "Close menu icon"
     homepage:
       homepage_title: "Welcome to the diaper calculator"
       description:
@@ -224,6 +227,7 @@ en:
   about_us:
     title: "About Us"
     description:
+      description: "Information about ZeroWaste organization and team"
       first_paragraph: "We work in many directions for the sake of a clean future and sustainable development of our city and country."
       second_paragraph: "Zero Waste encourages us to use resources rationally and consciously."
       third_paragraph: "The main goal of zero waste is to move to a circular economy, where there is no garbage as such, and what is called garbage becomes a valuable resource."
@@ -232,6 +236,12 @@ en:
     description:
       "Zero Waste Lviv and SoftServe present a calculator - an online tool for calculating the number of disposable and reusable items used.
       The calculator was developed as part of the charity crowdsourcing platform Open Tech. The technical development is carried out by students of SoftServe Academy."
+  logo:
+    zerowaste_logo: "Zero Waste Logo"
+    softserve_ita_logo: "Softserve Academy Logo"
+  link:
+    zerowaste_link: "https://zerowastelviv.org.ua/en/"
+    softserve_ita_link: "https://career.softserveinc.com/en-us/softserve-academy"
   account:
     account:
       edit:
