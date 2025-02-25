@@ -1,0 +1,56 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows:
+      - Rspec
+    types:
+      - compleed
+
+  pull_request:
+    branches:
+      - develop
+      - master
+    types:
+      - closed
+
+  release:
+    types:
+      - published
+
+jobs:
+  deploy-to-staging:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: staging
+          deploy_key: ${{ secrets.STAGING_KEY_PASSWORD }}
+          enc_rsa_key_pth: config/credentials/staging_deploy_id_ed25519_enc
+
+  deploy-to-production:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+
+      - uses: miloserdow/capistrano-deploy@v3
+        with:
+          target: production
+          deploy_key: ${{ secrets.PRODUCTION_KEY_PASSWORD }}
+          enc_rsa_key_pth: config/credentials/production_deploy_id_ed25519_enc

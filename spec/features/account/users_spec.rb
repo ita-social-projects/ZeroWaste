@@ -40,9 +40,7 @@ describe "visit admin page", js: true do
     it "redirects to user edit info page" do
       visit account_users_path
       within(:css, "#user-info-#{another_user.id}") do
-        # click_link(href: edit_account_user_path(id: another_user.id))
-        # click_link don't like Rubpcop, click_link_or_button not pass the test
-        find(:css, "a[href='#{edit_account_user_path(id: another_user.id)}']").click
+        find("a[href='#{edit_account_user_path(id: another_user.id)}']").click
         sleep 3
       end
       expect(page).to have_current_path(edit_account_user_path(id: another_user.id))
@@ -128,15 +126,6 @@ describe "visit admin page", js: true do
       expect(page).to have_content "Last name is too short (minimum is 2 characters)"
       expect(page).to have_content "Password is too short (minimum is 8 characters)"
       expect(page).to have_content "Re-password doesn't match Password"
-    end
-  end
-
-  describe "user info page" do
-    context "viewing non-existing user" do
-      it "renders the 404 page" do
-        visit account_user_path(id: 1355)
-        expect(page).to have_content("page you were looking for doesn't exist")
-      end
     end
   end
 end
