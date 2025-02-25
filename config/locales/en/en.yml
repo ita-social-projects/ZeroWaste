@@ -141,6 +141,7 @@ en:
       year_error_msg: "Please, select years"
       month_error_msg: "Please, select month"
       presence_error_msg: "%{field} is missing"
+      length_error_msg: "%{field} must be in range from %{from} to %{to}"
     show:
       welcome_header: "Welcome to ZeroWaste"
     buttons:
