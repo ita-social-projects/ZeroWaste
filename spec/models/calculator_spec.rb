@@ -64,8 +64,9 @@ RSpec.describe Calculator, type: :model do
 
   describe "#logo_url" do
     context "when logo_picture is attached" do
+      let(:logo_image) { Rails.root.join("spec", "fixtures", "icons", "favicon-181x182.png") }
+
       before do
-        logo_image = fixture_file_upload(Rails.root.join("spec", "fixtures", "icons", "favicon-181x182.png"), "image/png")
         calculator.logo_picture.attach(logo_image)
 
         allow(Rails.application.routes.url_helpers).to receive(:rails_blob_url)

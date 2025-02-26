@@ -9,7 +9,7 @@
           <%= render "account/calculators/partials/color_selector", f: f %>
         </div>
         <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
-        <%= f.file_field :logo_picture, accept: "image/jpeg, image/png", class: "file-input mb-3" %>
+        <%= f.file_field :logo_picture, accept: Calculator::ALLOWED_LOGO_IMAGE_TYPES.join(","), class: "file-input mb-3" %>
         <%= render "account/calculators/partials/tinymce_form", f: f %>
       </fieldset>
 

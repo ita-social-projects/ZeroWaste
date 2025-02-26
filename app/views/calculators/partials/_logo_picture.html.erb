@@ -1,5 +1,1 @@
-<% if @calculator.logo_picture.attached? %>
-  <%= image_tag @calculator.logo_picture, class: "w-64 h-40 rounded shadow" %>
-<% else %>
-  <%= image_tag(@calculator.logo_placeholder) %>
-<% end %>
+<%= image_tag(@calculator.logo_url, class: "constructor-calculator-scales mb-8 self-start") %>

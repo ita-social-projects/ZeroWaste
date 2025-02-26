@@ -21,6 +21,8 @@ class Calculator < ApplicationRecord
   include Translatable
   extend FriendlyId
 
+  ALLOWED_LOGO_IMAGE_TYPES = ["image/jpeg", "image/png", "image/jpg"]
+
   friendly_id :en_name, use: :sequentially_slugged
 
   attribute :logo_placeholder, :string, default: "https://via.placeholder.com/428x307?text=Logo"
