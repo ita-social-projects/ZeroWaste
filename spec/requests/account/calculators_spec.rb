@@ -43,6 +43,17 @@ RSpec.describe "Account::CalculatorsController", type: :request do
     end
   end
 
+  describe "GET #show" do
+    include_context :in_local_environment
+
+    it "renders the calculator template" do
+      get account_calculator_path(slug: calculator.slug)
+
+      expect(response).to be_successful
+      expect(response).to render_template(:show)
+    end
+  end
+
   describe "GET #new" do
     subject { get new_path }
 

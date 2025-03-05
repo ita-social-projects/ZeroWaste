@@ -155,6 +155,17 @@
   max-width: 428px;
 }
 
+.constructor-calculator-scales {
+  align-self: center;
+  width: 50%;
+  max-width: 428px;
+  padding: 10px 0;
+}
+
+.calcualtor-margin-left {
+  margin-left: 1.25rem;
+}
+
 .simple_form_calculator {
   width: 40%;
   margin-top: 32px;
@@ -292,11 +303,10 @@ select.custom-select {
     .right {
       padding-left: 30px;
       padding-top: 85px;
-      transform: translateX(-40px);
     }
     .left {
       padding-bottom: 85px;
-      transform: rotate(180deg) translateX(40px);
+      transform: rotate(180deg);
     }
   }
 }
@@ -465,5 +475,13 @@ select.custom-select {
   }
   .scales_img {
     width: 100%;
+  }
+
+  .constructor-calculator-scales {
+    width: 100%;
+  }
+
+  .calcualtor-margin-left {
+    margin-left: 0;
   }
 }

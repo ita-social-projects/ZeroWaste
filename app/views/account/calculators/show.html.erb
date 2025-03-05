@@ -42,6 +42,8 @@
     <% end %>
   </div>
 
+  <%= render "calculators/partials/logo_picture", calculator: @calculator %>
+
   <div class="showpage-buttons">
     <%= link_to t('.edit'),
                 edit_account_calculator_path(@calculator.slug, locale: I18n.locale),

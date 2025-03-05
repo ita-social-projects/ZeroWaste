@@ -21,10 +21,14 @@ class Calculator < ApplicationRecord
   include Translatable
   extend FriendlyId
 
+  ALLOWED_LOGO_IMAGE_TYPES = ["image/jpeg", "image/png", "image/jpg"]
+
   friendly_id :en_name, use: :sequentially_slugged
 
+  attribute :logo_placeholder, :string, default: "https://via.placeholder.com/428x307?text=Logo"
   translates :name, :notes
 
+  has_one_attached :logo_picture
   has_many :fields, dependent: :destroy
   has_many :formulas, -> { ordered_by_priority }, dependent: :destroy, inverse_of: :calculator
 
@@ -51,5 +55,14 @@ class Calculator < ApplicationRecord
 
   def strip_tags_and_tokenize(string)
     ActionController::Base.helpers.strip_tags(string).chars
+  end
+
+  def logo_url
+    if logo_picture.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(logo_picture, only_path: true)
+    else
+      # Default image
+      "scales.png"
+    end
   end
 end
