@@ -11,7 +11,7 @@ gem "jbuilder", "~> 2.7"
 gem "kaminari"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "rails", "~> 7.1", ">= 7.1.2"
+gem "rails", "~> 7.2", ">= 7.2.0"
 gem "redis", "~> 4.0"
 gem "sass-rails", ">= 6"
 gem "hotwire-rails"
@@ -62,9 +62,9 @@ group :development, :test, :ci do
   gem "rubocop-rspec", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "standard", "~> 1.0", require: false
   gem "rubocop-factory_bot", require: false
   gem "rubocop-capybara", require: false
-  gem "standard", "~> 1.0", require: false
 end
 
 group :development do

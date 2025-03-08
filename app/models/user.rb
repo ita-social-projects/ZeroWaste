@@ -44,6 +44,8 @@ class User < ApplicationRecord
   scope :ordered_by_first_name, -> { order(:first_name) }
   scope :ordered_by_last_name, -> { order(:last_name) }
 
+  has_many :authorizations, foreign_key: "uid", inverse_of: :admin, dependent: :destroy
+
   has_paper_trail ignore: [
     :current_sign_in_at, :last_sign_in_at, :confirmation_token,
     :encrypted_password
@@ -51,7 +53,10 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  enum :role, { admin: 1, user: 0 }
+  enum :role, {
+    admin: 1,
+    user: 0
+  }
 
   def self.grouped_collection_by_role
     User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }.sort

@@ -1,0 +1,4 @@
+<%= turbo_stream.replace(
+      dom_id(@calculator, :form),
+      partial: "account/calculators/partials/new/form",
+      locals: {calculator: @calculator}) %>

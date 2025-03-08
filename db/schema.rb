@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_09_084523) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -43,15 +43,25 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_09_084523) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "authorizations", force: :cascade do |t|
+    t.string "uid"
+    t.string "provider"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uid", "provider"], name: "index_authorizations_on_uid_and_provider", unique: true
+    t.index ["user_id"], name: "index_authorizations_on_user_id"
+  end
+
   create_table "calculators", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.string "uk_name", default: "", null: false
     t.string "en_name", default: "", null: false
-    t.string "color", default: "#8fba3b"
     t.text "uk_notes"
     t.text "en_notes"
+    t.string "color", default: "#8fba3b"
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
   end
 
@@ -136,8 +146,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_09_084523) do
     t.bigint "calculator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "relation"
     t.integer "priority", default: 0, null: false
+    t.string "relation"
     t.index ["calculator_id"], name: "index_formulas_on_calculator_id"
   end
 
@@ -231,6 +241,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_09_084523) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "authorizations", "users"
   add_foreign_key "categories", "fields"
   add_foreign_key "category_categoryables", "categories"
   add_foreign_key "diapers_periods", "categories"

@@ -1,6 +1,6 @@
 <% set_meta_tags({
     title: t('about_us.title'),
-    description: "Information about ZeroWaste organization and team"
+    description: t('about_us.description.description')
 })%>
 
 <section class="jumbotron main-container rounded">
@@ -13,7 +13,7 @@
   <h2 class="text-center text-2xl text-success my-8 font-semibold"><%= t('our_team.title') %></h2>
   <p class="text-center text-xl text-black"><%= t('our_team.description') %></p>
   <div class="flex justify-between items-center mt-24">
-    <%= link_to image_tag("logo_zerowaste.png", alt: "Zero Waste Logo", class: "logo-zerowaste"), "https://zerowastelviv.org.ua/", target: "_blank", rel: "noopener" %>
-    <%= link_to image_tag("softserve_academy_logo.png", alt: "Softserve Academy Logo", class: "logo-zerowaste"), "https://career.softserveinc.com/uk-ua/softserve-academy", target: "_blank", rel: "noopener" %>
+    <%= link_to image_tag("logo_zerowaste.png", alt: t('logo.zerowaste_logo'), class: "logo-zerowaste"), t('link.zerowaste_link'), target: "_blank", rel: "noopener" %>
+    <%= link_to image_tag("softserve_academy_logo.png", alt: t('logo.softserve_ita_logo'), class: "logo-zerowaste"), t('link.softserve_ita_link'), target: "_blank", rel: "noopener" %>
   </div>
 </section>

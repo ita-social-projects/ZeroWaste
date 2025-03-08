@@ -11,6 +11,5 @@ require "capistrano/passenger"
 require "capistrano/rails_tail_log"
 require "capistrano/rails"
 require "capistrano/rvm"
-# require "capistrano/rbenv"
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
