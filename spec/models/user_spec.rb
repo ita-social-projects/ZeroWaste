@@ -93,6 +93,24 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "#inactive_message" do
+    context "when the user is blocked" do
+      let(:blocked_user) { create(:user, blocked: true) }
+
+      it "returns :locked" do
+        expect(blocked_user.inactive_message).to eq(:locked)
+      end
+    end
+
+    context "when the user is active" do
+      let(:active_user) { create(:user, blocked: false) }
+
+      it "returns the default devise message" do
+        expect(active_user.inactive_message).to eq(:inactive)
+      end
+    end
+  end
+
   describe ".from_omniauth" do
     context "when the user exists" do
       let(:user) { create(:user) }

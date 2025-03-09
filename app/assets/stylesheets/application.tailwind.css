@@ -12,4 +12,5 @@
 @import "/components/description_block";
 @import "/components/showpage_calculator";
 @import "/utilities/custom-utilities";
-@import "/pages/under_construction"
+@import "/pages/under_construction";
+@import "/pages/errors";

@@ -128,4 +128,16 @@ RSpec.describe CalculatorsController, type: :request do
       expect(session[:calculation_results][calculator.slug]).to eq(assigns(:results))
     end
   end
+
+  describe "POST #receive_recomendations" do
+    context "when user sign_in" do
+      it "does change recieve_recomendation" do
+        sign_in user
+
+        expect do
+          post receive_recomendations_path
+        end.to change(user, :receive_recomendations)
+      end
+    end
+  end
 end

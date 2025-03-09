@@ -21,7 +21,7 @@
 #
 FactoryBot.define do
   factory :diapers_period do
-    category
+    category factory: [:category]
     period_start { 1 }
     period_end { 30 }
     price { 10 }

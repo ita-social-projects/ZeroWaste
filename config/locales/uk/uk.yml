@@ -18,7 +18,49 @@ uk:
       text: "Ця сторінка тимчасово недоступна у зв'язку з оновленнями. Незабаром очікуйте на цікаві зміни!"
       text_update: "Слідкуйте за новинами!"
       alt_text: "На реконструкції"
+    account_navbar:
+      homepage: "Головна сторінка"
+      calculators: "Калькулятори"
+      histories: "Історія"
+      users: "Користувачі"
+      messages: "Повідомлення"
+      site_settings: "Налаштування сайту"
+      categories: "Категорії"
+      products: "Продукти"
+      zerowaste_logo: "логотип ZeroWaste"
+    account_footer:
+      created_with: "Створено з"
+      by: "в"
+      softserve_ita:
   calculators:
+    description_block:
+      description_block_html:
+        "Ці результати є приблизними, точні цифри для вашої сімʼї можуть бути дещо іншими
+        та залежать від ваших щоденних звичок та обраної марки підгузків. На будь-якому етапі користування підгузками
+        є можливість зменшити рівень їхнього використання. Запрошуємо вас дізнатися більше про методи, як це можна
+        зробити, та про достmупні багаторазові альтернативи одноразовим дитячим підгузкам. А ще ви можете почитати
+        докладніше про те, %{calculate_link} кількість та вартість підгузків,
+        або %{contact_link}, якщо маєте інші запитання."
+      calculate_link: "як ми розраховуємо"
+      contact_us_link: "написати нам"
+      use_less: "ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ"
+      method_link: "https://zerowastelviv.org.ua/diaper-calculator-method/"
+      contact_link: "https://zerowastelviv.org.ua/kontakty/"
+      use_less_link: "https://zerowastelviv.org.ua/zero-waste-nappies/"
+    mhc_description_block:
+      mhc_description_block_html:
+        "Ці дані є орієнтовними, і точні значення можуть варіюватися залежно від ваших індивідуальних потреб та звичок.
+        Використання багаторазових менструальних засобів може значно зменшити кількість відходів і стати економічно
+        вигідною альтернативою одноразовим продуктам. Ви можете оптимізувати використання цих засобів на будь-якому етапі,
+        що дозволить знизити витрати та підвищити комфорт. Ми рекомендуємо ознайомитися з методами ефективного використання
+        багаторазових менструальних продуктів та їх перевагами. Більш %{information_link} про розрахунки кількості та вартості
+        цих продуктів можна знайти в наших матеріалах або звернувшись %{contact_link} з вашими питаннями."
+      information_link_text: "детальну інформацію"
+      contact_link_text: "до нас"
+      information_link: "https://docs.google.com/document/d/1xu6cch-Ner9OEpU4_TV5suIUsuVcWpgiUuX6QrOgaL4"
+      contact_link: "https://zerowastelviv.org.ua/kontakty/"
+      use_less: "ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ"
+      use_less_link: "https://zerowastelviv.org.ua/reuse-zero-waste-menstruatsii/"
     index:
       meta-title: "Калькулятори"
     mhc_calculator:
@@ -77,6 +119,7 @@ uk:
       year_error_msg: "Будь ласка, виберіть, скільки років дитині"
       month_error_msg: "Будь ласка, виберіть, скільки місяців дитині"
       presence_error_msg: "Поле \"%{field}\" відсутнє"
+      length_error_msg: "Поле \"%{field}\" повинно бути в проміжку від %{from} до %{to}"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"
@@ -116,52 +159,14 @@ uk:
       contact_us: "Зв'яжіться з нами"
       contacts: "%{contacts_uk:Контакти}"
       local_lang: "English"
-    description_block:
-      description_block_html:
-        "Ці результати є приблизними, точні цифри для вашої сімʼї можуть бути дещо іншими
-        та залежать від ваших щоденних звичок та обраної марки підгузків. На будь-якому етапі користування підгузками
-        є можливість зменшити рівень їхнього використання. Запрошуємо вас дізнатися більше про методи, як це можна
-        зробити, та про достmупні багаторазові альтернативи одноразовим дитячим підгузкам. А ще ви можете почитати
-        докладніше про те, %{calculate_link} кількість та вартість підгузків,
-        або %{contact_link}, якщо маєте інші запитання."
-      calculate_link: "як ми розраховуємо"
-      contact_us_link: "написати нам"
-      use_less: "ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ"
-      method_link: "https://zerowastelviv.org.ua/diaper-calculator-method/"
-      contact_link: "https://zerowastelviv.org.ua/kontakty/"
-      use_less_link: "https://zerowastelviv.org.ua/zero-waste-nappies/"
-    mhc_description_block:
-      mhc_description_block_html:
-        "Ці дані є орієнтовними, і точні значення можуть варіюватися залежно від ваших індивідуальних потреб та звичок.
-        Використання багаторазових менструальних засобів може значно зменшити кількість відходів і стати економічно
-        вигідною альтернативою одноразовим продуктам. Ви можете оптимізувати використання цих засобів на будь-якому етапі,
-        що дозволить знизити витрати та підвищити комфорт. Ми рекомендуємо ознайомитися з методами ефективного використання
-        багаторазових менструальних продуктів та їх перевагами. Більш %{information_link} про розрахунки кількості та вартості
-        цих продуктів можна знайти в наших матеріалах або звернувшись %{contact_link} з вашими питаннями."
-      information_link_text: "детальну інформацію"
-      contact_link_text: "до нас"
-      information_link: "https://docs.google.com/document/d/1xu6cch-Ner9OEpU4_TV5suIUsuVcWpgiUuX6QrOgaL4"
-      contact_link: "https://zerowastelviv.org.ua/kontakty/"
-      use_less: "ЯК ЗМЕНШИТИ ВИКОРИСТАННЯ"
-      use_less_link: "https://zerowastelviv.org.ua/reuse-zero-waste-menstruatsii/"
+      toggle_menu: "Перемкнути меню"
+      open_menu: "Іконка Відкрити меню"
+      close_menu: "Іконка Закрити меню"
     homepage:
       homepage_title: "Вас вітає калькулятор підгузків"
       description: "Цей калькулятор дає змогу порахувати, скільки одноразових підгузків ваша дитина вже використала та ще використає до того часу, як перейде на звичайну білизну. А також визначити вартість уже куплених підгузків та суму, яку ви витратите на них у майбутньому."
       calculate: "Почати"
       visit_website: "Наш сайт"
-    account_navbar:
-      homepage: "Головна сторінка"
-      calculators: "Калькулятори"
-      histories: "Історія"
-      users: "Користувачі"
-      messages: "Повідомлення"
-      site_settings: "Налаштування сайту"
-      categories: "Категорії"
-      products: "Продукти"
-      zerowaste_logo: "логотип ZeroWaste"
-    account_footer:
-      created_with: "Створено з"
-      by: "в"
   mailer:
     welcome_mail:
       subject: "Ласкаво просимо до ZeroWaste!"
@@ -193,9 +198,19 @@ uk:
       calculator-diapers: "Калькулятор підгузків"
       calculators: "Калькулятори"
       message: "Напишіть нам повідомлення"
+  404_page:
+    title: "Упс! Сторінку не знайдено"
+    description: "Сторінка, яку ви шукаєте, не існує. Можливо, її було видалено або посилання некоректне. Перевірте URL або поверніться на головну сторінку."
+  422_page:
+    title: "Некоректний запит"
+    description: "Щось пішло не так з надісланими даними. Перевірте введені дані та спробуйте ще раз або поверніться на попередню сторінку."
+  500_page:
+    title: "Внутрішня помилка сервера"
+    description: "Ми зіткнулися з неочікуваною проблемою. Будь ласка, спробуйте пізніше або зверніться в службу підтримки, якщо проблема не зникне."
   about_us:
     title: "Про нас"
     description:
+      description: "Інформація про організацію ZeroWaste та команду "
       first_paragraph: "Ми працюємо в багатьох напрямках на користь чистого майбутнього та сталого розвитку нашого міста та країни."
       second_paragraph: "Zero Waste закликає нас раціонально та свідомо використовувати ресурси."
       third_paragraph: "Основна мета zero waste – перейти до економіки замкненого циклу, де немає сміття як такого, а те, що називають сміттям, стає цінним ресурсом."
@@ -205,6 +220,12 @@ uk:
       "Zero Waste Lviv та SoftServe представляють калькулятор – онлайн-інструмент для розрахунку кількості
       одноразових та повторно використовуваних предметів. Калькулятор розроблений як частина благодійної платформи Open Tech.
       Технічна реалізація здійснюється студентами SoftServe Academy."
+  logo:
+    zerowaste_logo: "Логотип Zero Waste"
+    softserve_ita_logo: "Логотип Softserve Academy"
+  link:
+    zerowaste_link: "https://zerowastelviv.org.ua/"
+    softserve_ita_link: "https://career.softserveinc.com/uk-ua/softserve-academy"
   account:
     account:
       edit:
