@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe CalculatorsController, type: :request do
   let(:calculator) { create(:calculator) }
+  let!(:user) { create(:user) }
 
   include_context :enable_calculators_constructor
 

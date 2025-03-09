@@ -40,7 +40,7 @@ class Account::CalculatorsController < Account::BaseController
   def update
     @calculator = resource
 
-    if updater
+    if @calculator.update(calculator_params)
       redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
     else
       collect_fields_for_form
@@ -87,13 +87,6 @@ class Account::CalculatorsController < Account::BaseController
       fields_attributes: [:id, :en_label, :uk_label, :var_name, :kind, :_destroy,
         categories_attributes: [:id, :en_name, :uk_name, :price, :_destroy]]
     )
-  end
-
-  def updater
-    Calculator.transaction do
-      ::Calculators::PreferableService.new(calculator_params).perform!
-      @calculator.update(calculator_params)
-    end
   end
 
   def check_constructor_flipper
