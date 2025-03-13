@@ -117,7 +117,7 @@ RSpec.describe CalculatorsController, type: :request do
   end
 
   describe "POST #receive_recomendations" do
-  let(:user) { create(:user) }
+    let(:user) { create(:user) }
 
     context "when user sign_in" do
       it "does change recieve_recomendation" do
