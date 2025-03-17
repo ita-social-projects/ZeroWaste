@@ -23,8 +23,6 @@ class Account::CalculatorsController < Account::BaseController
 
   def edit
     @calculator = resource
-
-    collect_fields_for_form
   end
 
   def create
@@ -43,8 +41,6 @@ class Account::CalculatorsController < Account::BaseController
     if updater
       redirect_to edit_account_calculator_path(slug: @calculator), notice: t("notifications.calculator_updated")
     else
-      collect_fields_for_form
-
       render :edit, status: :unprocessable_entity
     end
   end
@@ -65,19 +61,6 @@ class Account::CalculatorsController < Account::BaseController
 
   def resource
     collection.friendly.find(params[:slug])
-  end
-
-  def collect_fields_for_form
-    @form_fields      = collect_fields_for_kind("form")
-    @parameter_fields = collect_fields_for_kind("parameter")
-    @result_fields    = collect_fields_for_kind("result")
-  end
-
-  def collect_fields_for_kind(kind)
-    @calculator
-      .fields
-      .select { |field| field.kind == kind }
-      .sort_by { |field| field.created_at || Time.zone.now }
   end
 
   def calculator_params
