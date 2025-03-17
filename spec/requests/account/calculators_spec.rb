@@ -134,4 +134,46 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       expect(response.body).to include(calculator.slug)
     end
   end
+
+  describe "GET #edit" do
+    subject { get edit_account_calculator_path(calculator, locale: locale) }
+
+    context "when the user is authorized" do
+      it "assigns the requested calculator to @calculator" do
+        subject
+        expect(response).to have_http_status(:ok)
+        expect(assigns(:calculator)).to eq(calculator)
+      end
+
+      it "calls collect_fields_for_form" do
+        expect_any_instance_of(Account::CalculatorsController).to receive(:collect_fields_for_form)
+        subject
+      end
+
+      it "renders the edit template" do
+        subject
+        expect(response).to render_template(:edit)
+      end
+    end
+
+    context "when the user is not logged in" do
+      before do
+        sign_out(:user)
+      end
+
+      it "redirects to the login page" do
+        subject
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context "when the calculator does not exist" do
+      let(:invalid_id) { "non-existing-slug" }
+
+      it "raises an ActiveRecord::RecordNotFound error" do
+        expect { get edit_account_calculator_path(invalid_id, locale: locale) }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+  end
 end
