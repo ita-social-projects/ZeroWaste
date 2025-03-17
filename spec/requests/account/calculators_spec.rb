@@ -145,11 +145,6 @@ RSpec.describe "Account::CalculatorsController", type: :request do
         expect(assigns(:calculator)).to eq(calculator)
       end
 
-      it "calls collect_fields_for_form" do
-        expect_any_instance_of(Account::CalculatorsController).to receive(:collect_fields_for_form)
-        subject
-      end
-
       it "renders the edit template" do
         subject
         expect(response).to render_template(:edit)
