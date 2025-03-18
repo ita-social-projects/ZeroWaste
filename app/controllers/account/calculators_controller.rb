@@ -74,7 +74,6 @@ class Account::CalculatorsController < Account::BaseController
 
   def updater
     Calculator.transaction do
-      ::Calculators::PreferableService.new(calculator_params).perform!
       @calculator.update(calculator_params)
     end
   end
