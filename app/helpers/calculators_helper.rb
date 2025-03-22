@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 module CalculatorsHelper
-  def extract_max_selector(fields)
-    fields.map { |field| field.selector&.gsub(/\D/, "").to_i }.max
-  end
-
   def collection_product_category
     [t(".form.budgetary"),
       t(".form.medium"),
@@ -54,5 +50,9 @@ module CalculatorsHelper
       { image: "diapers_bought.png", data_target: "diapersUsed", text_target: "boughtDiapersPluralize", text: t(".bought_diapers", count: 0) },
       { image: "money_to_spent.png", data_target: "moneyWillBeSpent", text: t(".money_will_be_spent") },
       { image: "money_spent.png", data_target: "moneySpent", text: t(".money_spent") }]
+  end
+
+  def sanitize_content(notes)
+    sanitize(notes, tags: ["p", "strong", "em", "ul", "li", "a", "div", "span", "img"], attributes: ["href", "target", "class", "src", "alt", "style"])
   end
 end

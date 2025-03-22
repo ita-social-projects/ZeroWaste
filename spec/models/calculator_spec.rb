@@ -5,95 +5,84 @@
 # Table name: calculators
 #
 #  id         :bigint           not null, primary key
-#  name       :string
-#  preferable :boolean          default(FALSE)
+#  color      :string           default("#000000")
+#  en_name    :string           default(""), not null
 #  slug       :string
-#  uuid       :uuid             not null
+#  uk_name    :string           default(""), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_calculators_on_name  (name) UNIQUE
 #  index_calculators_on_slug  (slug) UNIQUE
-#  index_calculators_on_uuid  (uuid) UNIQUE
 #
 require "rails_helper"
 
 RSpec.describe Calculator, type: :model do
   let(:local_prefix_calculator) { "activerecord.errors.models.calculator.attributes" }
-
-  subject { build(:calculator) }
+  let(:calculator) { build(:calculator) }
 
   describe "validations" do
-    it "validates the name and message " do
-      is_expected.to validate_presence_of(:name)
-        .with_message(I18n.t("#{local_prefix_calculator}.name.blank"))
+    it { is_expected.to validate_presence_of(:en_name) }
+    it { is_expected.to validate_length_of(:en_name).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_presence_of(:uk_name) }
+    it { is_expected.to validate_length_of(:uk_name).is_at_least(3).is_at_most(50) }
+    it { is_expected.to validate_uniqueness_of(:slug) }
+    it { is_expected.to validate_length_of(:en_notes).is_at_most(500) }
+    it { is_expected.to validate_length_of(:uk_notes).is_at_most(500) }
+    it { is_expected.to allow_value("#123abc").for(:color) }
+    it { is_expected.to allow_value("#ABCDEF").for(:color) }
+    it { is_expected.not_to allow_value("123abc").for(:color) }
+    it { is_expected.not_to allow_value("#12345").for(:color) }
+    it { is_expected.not_to allow_value("#1234567").for(:color) }
+    it { is_expected.not_to allow_value("#GHIJKL").for(:color) }
+  end
+
+  describe "associations" do
+    it { is_expected.to have_one_attached(:logo_picture) }
+    it { is_expected.to have_many(:fields).dependent(:destroy) }
+    it { is_expected.to have_many(:formulas).dependent(:destroy) }
+  end
+
+  describe "logo_placeholder attribute" do
+    it "has a default value" do
+      expect(calculator.logo_placeholder).to eq("https://via.placeholder.com/428x307?text=Logo")
     end
+  end
 
-    it "validates the name's length and message" do
-      is_expected.to validate_length_of(:name).is_at_least(2)
-                                              .with_message(I18n.t("#{local_prefix_calculator}.name.too_short", count: 2))
+  describe "#strip_tags_and_tokenize" do
+    let(:stripped_content) { Calculator.new.strip_tags_and_tokenize(content) }
 
-      is_expected.to validate_length_of(:name).is_at_most(30)
-                                              .with_message(I18n.t("#{local_prefix_calculator}.name.too_long", count: 30))
-    end
+    context "when contents is simple" do
+      let(:content) { "<p>#{"a" * 500}</p>" }
 
-    it "validates the name's uniqueness and message" do
-      is_expected.to validate_uniqueness_of(:name)
-        .with_message(I18n.t("#{local_prefix_calculator}.name.taken"))
-    end
-
-    context "validates the name format" do
-      let(:calculator) { build(:calculator) }
-
-      it "with valid name" do
-        calculator.name = "Hedgehog і єнот з'їли 2 аґруси"
-
-        expect(calculator).to be_valid
-      end
-
-      it "with invalid name" do
-        ["#", "!", "@", "$", "%", "^", "&", "*", "(", ")", "?", "\"", "_"].each do |sym|
-          calculator.name = "Invalid Name #{sym}"
-
-          expect(calculator).to_not be_valid
-          expect(calculator.errors.messages[:name]).to include(I18n.t("#{local_prefix_calculator}.name.invalid"))
-        end
+      it "ensures the stripped content length is correct" do
+        expect(stripped_content.length).to eq(500)
       end
     end
   end
 
-  describe "scope" do
-    context "finds instances by slug and name" do
-      let!(:calc) { create(:calculator, slug: "calc") }
-      let!(:calc2) { create(:calculator, slug: "diapers", name: "Calculator") }
+  describe "#logo_url" do
+    context "when logo_picture is attached" do
+      let(:logo_image) { Rails.root.join("spec", "fixtures", "icons", "favicon-181x182.png") }
 
-      it "finds two instances by slug or name" do
-        expect(Calculator.by_name_or_slug("calc").to_a).to include(calc, calc2)
+      before do
+        calculator.logo_picture.attach(logo_image)
+
+        allow(Rails.application.routes.url_helpers).to receive(:rails_blob_url)
+          .with(calculator.logo_picture, only_path: true)
+          .and_return("/rails/active_storage/blobs/favicon-181x182.png")
       end
 
-      it "returns all instances when search params are empty" do
-        expect(Calculator.by_name_or_slug("    ").to_a).to include(calc, calc2)
-      end
-
-      it "returns all instances when search params are nil" do
-        expect(Calculator.by_name_or_slug(nil).to_a).to include(calc, calc2)
-      end
-
-      it "does not find any instances" do
-        expect(Calculator.by_name_or_slug("qwerty").to_a).to eq []
+      it "returns the attached logo URL" do
+        expect(calculator.logo_url).to eq("/rails/active_storage/blobs/favicon-181x182.png")
       end
     end
-  end
 
-  describe "versioning", versioning: true do
-    let!(:calculator) { create(:calculator, name: "Calculator 1") }
-
-    it "adds a version when the calculator is updated" do
-      calculator.update!(name: "Calculator 2")
-
-      expect(calculator.versions.count).to eq(2)
+    context "when logo_picture is not attached" do
+      it "returns the default image path" do
+        expect(calculator.logo_url).to eq("scales.png")
+      end
     end
   end
 end
