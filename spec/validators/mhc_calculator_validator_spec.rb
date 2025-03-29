@@ -71,6 +71,7 @@ RSpec.describe MhcCalculatorValidator do
 
     context "product type validation" do
       include_examples "presence validation", :product_type
+    end
 
     context "pad category validation" do
       include_examples "presence validation", :pad_category
