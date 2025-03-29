@@ -42,18 +42,22 @@ RSpec.describe MhcCalculatorValidator do
   describe "individual validations" do
     context "user age validation" do
       include_examples "presence validation", :user_age
+      include_examples "length validation", :user_age, 1, 100
     end
 
     context "menstruation age validation" do
       include_examples "presence validation", :menstruation_age
+      include_examples "length validation", :menstruation_age, 1, 100
     end
 
     context "menopause age validation" do
       include_examples "presence validation", :menopause_age
+      include_examples "length validation", :menopause_age, 1, 100
     end
 
     context "average menstruation cycle duration validation" do
       include_examples "presence validation", :average_menstruation_cycle_duration
+      include_examples "length validation", :average_menstruation_cycle_duration, 1, 100
     end
 
     context "duration of menstruation validation" do
@@ -62,11 +66,11 @@ RSpec.describe MhcCalculatorValidator do
 
     context "disposable products per day validation" do
       include_examples "presence validation", :disposable_products_per_day
+      include_examples "length validation", :disposable_products_per_day, 1, 100
     end
 
     context "product type validation" do
       include_examples "presence validation", :product_type
-    end
 
     context "pad category validation" do
       include_examples "presence validation", :pad_category

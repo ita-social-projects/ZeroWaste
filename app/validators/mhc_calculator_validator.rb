@@ -24,19 +24,27 @@ class MhcCalculatorValidator
   private
 
   def validate_user_age
-    presence_valid?(:user_age)
+    return unless presence_valid?(:user_age)
+
+    length_valid?(:user_age, 1, 100)
   end
 
   def validate_menstruation_age
-    presence_valid?(:menstruation_age)
+    return unless presence_valid?(:menstruation_age)
+
+    length_valid?(:menstruation_age, 1, 100)
   end
 
   def validate_menopause_age
-    presence_valid?(:menopause_age)
+    return unless presence_valid?(:menopause_age)
+
+    length_valid?(:menopause_age, 1, 100)
   end
 
   def validate_average_menstruation_cycle_duration
-    presence_valid?(:average_menstruation_cycle_duration)
+    return unless presence_valid?(:average_menstruation_cycle_duration)
+
+    length_valid?(:average_menstruation_cycle_duration, 1, 100)
   end
 
   def validate_duration_of_menstruation
@@ -44,7 +52,9 @@ class MhcCalculatorValidator
   end
 
   def validate_disposable_products_per_day
-    presence_valid?(:disposable_products_per_day)
+    return unless presence_valid?(:disposable_products_per_day)
+
+    length_valid?(:disposable_products_per_day, 1, 100)
   end
 
   def validate_product_type
@@ -59,6 +69,14 @@ class MhcCalculatorValidator
     return true if @params[param].present?
 
     @errors[param] = I18n.t("calculators.errors.presence_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"))
+
+    false
+  end
+
+  def length_valid?(param, from, to)
+    return true if (from..to).cover?(@params[param])
+
+    @errors[param] = I18n.t("calculators.errors.length_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"), from: from, to: to)
 
     false
   end

@@ -1,0 +1,32 @@
+<fieldset class="bordered nested-fields">
+  <legend class="admin-legend">Formula <span data-constructors-form-indexing-target="index">1</span></legend>
+  <div>
+    <%= f.input :en_label, label: "Formula Label:" %>
+    <%= f.input :uk_label, label: "Uk Formula Label:" %>
+    <%= f.input :priority, collection: Formula::PRIORITY_RANGE, wrapper: :custom_vertical_select %>
+    <%= f.input :expression, as: :text, label: "Formula Expression:", input_html: { class: "formula",
+    data: { controller: "textarea", action: "input->textarea#input" }
+  } %>
+
+    <%= f.input :uk_unit, label: "Uk Unit Label:" %>
+    <%= f.input :en_unit, label: "Unit Label:" %>
+    <%= f.input :relation, as: :select, label: "Relation of formula (optional):",
+        collection: { "None": nil, "Next": "next", "Previous": "previous"}, default: "None" %>
+
+    <%= f.label :formula_image, "Upload logo:", class: "form-label d-block" %>
+    <%= f.file_field :formula_image, 
+                     accept: Formula::ALLOWED_IMAGE_TYPES.join(','), 
+                     class: "file-input mb-3 flex" %>
+
+    <% if f.object.persisted? && f.object.formula_image.attached? %>
+  <div class="mt-2">
+    <p>Current Image:</p>
+    <%= image_tag f.object.formula_image, class: "w-32 h-32 rounded shadow" %>
+    <p class="text-sm text-gray-600">If you do not upload a new image, the current one will be kept.</p>
+  </div>
+<% end %>
+
+
+    <%= link_to_remove_association "- Remove Formula", f, class: "text-red-500 underline" %>
+  </div>
+</fieldset>

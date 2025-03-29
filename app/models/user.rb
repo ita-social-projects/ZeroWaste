@@ -5,7 +5,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  blocked                :boolean          default(FALSE)
+#  blocked                :boolean          default(FALSE), not null
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -15,13 +15,13 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
-#  first_name             :string
-#  last_name              :string
+#  first_name             :string           not null
+#  last_name              :string           not null
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
 #  provider               :string
-#  receive_recomendations :boolean          default(FALSE)
+#  receive_recomendations :boolean          default(FALSE), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string

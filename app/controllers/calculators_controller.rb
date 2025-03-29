@@ -2,6 +2,8 @@
 
 class CalculatorsController < ApplicationController
   before_action :authenticate_user!, only: :receive_recomendations
+
+  before_action :check_constructor_flipper, only: [:index, :show, :calculate]
   before_action :check_mhc_flipper, only: :mhc_calculator
 
   def index
@@ -15,10 +17,25 @@ class CalculatorsController < ApplicationController
 
   def show
     @calculator = resource
+    @results    = initial_values
+
+    load_and_assign_images
+
+    add_breadcrumb t("breadcrumbs.home"), root_path
+    add_breadcrumb @calculator.name
   end
 
   def calculate
     @calculator = resource
+
+    @results = Calculators::CalculationService.new(@calculator, params[:inputs]).perform
+
+    session[:calculation_results]                 ||= {}
+    session[:calculation_results][@calculator.slug] = @results
+
+    load_and_assign_images
+
+    respond_to :turbo_stream
   end
 
   def calculator
@@ -54,9 +71,43 @@ class CalculatorsController < ApplicationController
     collection.friendly.find(params[:slug])
   end
 
+  def check_constructor_flipper
+    return if Flipper[:constructor_status].enabled?
+
+    raise ActionController::RoutingError, "Constructor flipper is disabled"
+  end
+
   def check_mhc_flipper
     return if Flipper[:mhc_calculator_status].enabled?
 
     raise ActionController::RoutingError, "Mhc calculator flipper is disabled"
+  end
+
+  def load_images
+    @images = @calculator.formulas.map do |formula|
+      if formula.formula_image.attached?
+        {
+          id: formula.id,
+          formula_image: rails_blob_path(formula.formula_image)
+        }
+      else
+        { id: formula.id, formula_image: "/assets/money_spent.png" }
+      end
+    end
+  end
+
+  def load_and_assign_images
+    load_images if @images.blank?
+
+    @results.each_with_index do |result, index|
+      result[:formula_image] = @images[index][:formula_image]
+      result[:id]            = @calculator.formulas[index].id
+    end
+  end
+
+  def initial_values
+    @calculator.formulas.map do |formula|
+      { label: formula.label, result: 0, unit: formula.unit, relation: formula.relation }
+    end
   end
 end
