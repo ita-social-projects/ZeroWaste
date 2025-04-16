@@ -1,0 +1,57 @@
+<header class="page-header">
+  <div data-controller="burger" class="flex justify-between w-full">
+    <%= link_to image_tag("logo_zerowaste.png", alt: "logo.zerowaste_logo"), root_path, class: "logo-zerowaste" %>
+    <div data-burger-target="navbarNav" class="hidden xl:flex flex-1">
+      <ul class="admin-menu-list items-start xl:items-center">
+        <li>
+          <% if Flipper[:show_calculators_list].enabled? %>
+            <%= link_to t(".calculators"), calculators_path, class: "tab-main-page" %>
+          <% else %>
+            <%= link_to t("layouts.navigation.calculate"), calculator_path, class: "tab-main-page" %>
+          <% end %>
+        </li>
+        <li>
+          <% if Flipper[:mhc_calculator_status].enabled? %>
+            <%= link_to t("layouts.navigation.mhc_calculator"), mhc_calculator_path, class: "tab-main-page" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to t("layouts.navigation.about_us"), about_path, class: "tab-main-page" %>
+        </li>
+        <li>
+          <%= link_to t("layouts.navigation.contact_us"), new_message_path, class: "tab-main-page" %>
+        </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li>
+            <%= link_to t("layouts.navigation.admin"), edit_account_site_setting_path, class: "tab-main-page" %>
+          </li>
+        <% end %>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t("layouts.navigation.log_out"), destroy_user_session_path, class: "tab-main-page" %>
+          </li>
+        <% elsif false %>
+          <li>
+            <%= link_to t("layouts.navigation.sign_up"), new_user_registration_path, class: "tab-main-page" %>
+          </li>
+          <li>
+            <%= link_to t("layouts.navigation.log_in"), new_user_session_path, class: "tab-main-page", id: "log_in" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class="admin-menu-list">
+        <%= link_to_external(text: t('.donate'), url: t('.donate_link'), class: 'header-btns main-btn btn-outline-green btn-space') %>
+        <%= link_to t("#{switch_locale_to}"), url_for(locale: switch_locale_to), class: "header-btns main-btn btn-outline-gray" %>
+      </div>
+    </div>
+    <div class="flex ml-auto">
+      <div class="mt-6">
+        <button data-action="click->burger#toggle" class="admin-menu-burger-button" aria-label="<%= t('layouts.navigation.toggle_menu') %>">
+          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines", alt: t("layouts.navigation.open_menu") %>
+          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross", alt: t("layouts.navigation.close_menu") %>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

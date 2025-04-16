@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   #   end
   mount Sidekiq::Web => "/sidekiq"
 
-  # devise_for :users, only: :omniauth_callbacks,
-  #                    controllers: { omniauth_callbacks:
-  #   "users/omniauth_callbacks" }
+  devise_for :users, only: :omniauth_callbacks,
+                     controllers: { omniauth_callbacks:
+                    "users/omniauth_callbacks" }
 
   get "/", to: "application#redirection", as: :root_redirection
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   scope "/(:locale)", locale: /uk|en/ do
-    devise_for :users, only: [:session]
+    devise_for :users, only: [:session], skip: [:omniauth_callbacks, :registration]
     # devise_for :users, skip: [:omniauth_callbacks, :registration]
 
     # as :user do
@@ -57,14 +57,17 @@ Rails.application.routes.draw do
       end
 
       resources :diapers_periods
-
+      resources :calculators, param: :slug do
+        member do
+          post :calculate
+        end
+      end
       namespace :diapers_periods do
         resources :categories, only: [:destroy] do
           get :with_periods, on: :collection
           get :available, on: :collection
         end
       end
-
       scope module: :calculators do
         resources :calculators, only: [], param: :slug do
           resources :fields, only: :new

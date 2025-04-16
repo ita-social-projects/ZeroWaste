@@ -1,27 +1,28 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
-RSpec.describe Categories::PreferableService do
+RSpec.describe Categories::PreferableService, type: :service do
   describe "#call" do
-    let!(:become_preferable_category) { create(:category, :medium) }
-    let!(:category) { create(:category, :budgetary) }
-    let!(:current_preferable_category) { create(:category, preferable: true) }
-    let!(:service) { described_class.new(become_preferable_category) }
+    let(:category) { create(:category, preferable: true) }
+    let!(:other_category) { create(:category, preferable: false) }
 
-    context "when the category is preferable" do
-      it "sets the category to preferable" do
-        service.call
+    subject { described_class.new(category) }
 
-        category.reload
-        expect(category.preferable).to eq("not_preferable")
+    context "when category is preferable" do
+      it "updates other categories to not preferable" do
+        subject.call
+
+        expect(category.reload.preferable?).to be(true)
+        expect(other_category.reload.preferable?).to be(false)
       end
     end
 
-    context "when the category is preferable and another category is set to preferable" do
-      it "sets the other category to not preferable" do
-        service.call
+    context "when category is not preferable" do
+      let(:category) { create(:category, preferable: false) }
 
-        current_preferable_category.reload
-        expect(current_preferable_category.preferable).to eq("not_preferable")
+      it "does not update other categories" do
+        expect { subject.call }.not_to change { other_category.reload.preferable? }
       end
     end
   end

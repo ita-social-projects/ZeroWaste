@@ -5,7 +5,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  blocked                :boolean          default(FALSE)
+#  blocked                :boolean          default(FALSE), not null
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -15,13 +15,13 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
-#  first_name             :string
-#  last_name              :string
+#  first_name             :string           not null
+#  last_name              :string           not null
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
 #  provider               :string
-#  receive_recomendations :boolean          default(FALSE)
+#  receive_recomendations :boolean          default(FALSE), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -44,6 +44,8 @@ class User < ApplicationRecord
   scope :ordered_by_first_name, -> { order(:first_name) }
   scope :ordered_by_last_name, -> { order(:last_name) }
 
+  has_many :authorizations, foreign_key: "uid", inverse_of: :admin, dependent: :destroy
+
   has_paper_trail ignore: [
     :current_sign_in_at, :last_sign_in_at, :confirmation_token,
     :encrypted_password
@@ -51,7 +53,10 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  enum :role, { admin: 1, user: 0 }
+  enum :role, {
+    admin: 1,
+    user: 0
+  }
 
   def self.grouped_collection_by_role
     User.all.group_by(&:role).map { |key, value| [key, value.take(2)] }.sort

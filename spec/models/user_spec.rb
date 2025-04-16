@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  blocked                :boolean          default(FALSE)
+#  blocked                :boolean          default(FALSE), not null
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -13,13 +13,13 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
-#  first_name             :string
-#  last_name              :string
+#  first_name             :string           not null
+#  last_name              :string           not null
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
 #  provider               :string
-#  receive_recomendations :boolean          default(FALSE)
+#  receive_recomendations :boolean          default(FALSE), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -90,6 +90,24 @@ RSpec.describe User, type: :model do
     it "returns a hash with the users grouped by role" do
       expect(subject.keys).to match_array(["admin", "user"])
       expect(subject.values.flatten).to match_array([admin, regular_user])
+    end
+  end
+
+  describe "#inactive_message" do
+    context "when the user is blocked" do
+      let(:blocked_user) { create(:user, blocked: true) }
+
+      it "returns :locked" do
+        expect(blocked_user.inactive_message).to eq(:locked)
+      end
+    end
+
+    context "when the user is active" do
+      let(:active_user) { create(:user, blocked: false) }
+
+      it "returns the default devise message" do
+        expect(active_user.inactive_message).to eq(:inactive)
+      end
     end
   end
 

@@ -4,8 +4,14 @@ require "rails_helper"
 
 RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :authorize_admin
+  include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
+  let!(:new_attributes) { { calculator: { en_name: "new name" }} }
+  let!(:invalid_attributes) { { calculator: { en_name: nil }} }
+  let(:user) { create(:user) }
+  let(:locale) { "en" }
+  let(:new_path) { new_account_calculator_path(locale: locale) }
 
   describe "DELETE #destroy" do
     it "destroys the calculator and redirects" do
@@ -19,24 +25,149 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   end
 
   describe "GET #index" do
-    context "when in production environment" do
-      include_context :in_production_environment
+    context "when flipper is turned off" do
+      include_context :disable_calculators_constructor
 
-      it "renders the 'under_construction' template" do
-        get account_calculators_path
-
-        expect(response).to render_template("shared/under_construction")
+      it "raises routing error" do
+        expect { get account_calculators_path }.to raise_error(ActionController::RoutingError)
       end
     end
 
-    context "when in local environment" do
-      include_context :in_local_environment
-
+    context "when flipper is turned on" do
       it "loads calculators and renders the index template" do
         get account_calculators_path
 
         expect(response).to render_template(:index)
         expect(assigns(:calculators)).to include(calculator)
+      end
+    end
+  end
+
+  describe "GET #show" do
+    include_context :in_local_environment
+
+    it "renders the calculator template" do
+      get account_calculator_path(slug: calculator.slug)
+
+      expect(response).to be_successful
+      expect(response).to render_template(:show)
+    end
+  end
+
+  describe "GET #new" do
+    subject { get new_path }
+
+    context "when the user is authorized" do
+      it "initializes a new Calculator object with fields and formulas" do
+        subject
+
+        expect(response).to have_http_status(:ok)
+
+        calculator = assigns(:calculator)
+        expect(calculator).to be_a_new(Calculator)
+
+        expect(calculator.fields.size).to eq(1)
+        expect(calculator.formulas.size).to eq(1)
+
+        expect(calculator.fields.first).to be_a_new(Field)
+        expect(calculator.formulas.first).to be_a_new(Formula)
+      end
+
+      it "renders the new template" do
+        subject
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context "when the locale is different" do
+      let(:locale) { "uk" }
+
+      it "handles the locale correctly" do
+        subject
+        expect(I18n.locale).to eq(:uk)
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context "when the user is not logged in" do
+      before do
+        sign_out(:user)
+      end
+
+      it "redirects to the login page" do
+        subject
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe "PATCH #update" do
+    context "with valid parameters" do
+      it "is successful" do
+        patch account_calculator_path(calculator), params: new_attributes
+        calculator.reload
+
+        expect(calculator.en_name).to eq("new name")
+        expect(flash[:notice]).to eq(I18n.t("notifications.calculator_updated"))
+      end
+    end
+
+    context "with invalid parameters" do
+      it "is not successful" do
+        expect do
+          patch account_calculator_path(calculator), params: invalid_attributes
+        end.not_to change(calculator, :en_name)
+
+        expect(response).to be_unprocessable
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  describe "GET /account/calculators/:slug" do
+    it "renders the calculator's show page correctly" do
+      get account_calculator_path(calculator.slug, locale: locale)
+
+      expect(response).to have_http_status(:ok)
+      expect(response).to render_template(:show)
+      expect(response.body).to include(calculator.en_name)
+      expect(response.body).to include(calculator.slug)
+    end
+  end
+
+  describe "GET #edit" do
+    subject { get edit_account_calculator_path(calculator, locale: locale) }
+
+    context "when the user is authorized" do
+      it "assigns the requested calculator to @calculator" do
+        subject
+        expect(response).to have_http_status(:ok)
+        expect(assigns(:calculator)).to eq(calculator)
+      end
+
+      it "renders the edit template" do
+        subject
+        expect(response).to render_template(:edit)
+      end
+    end
+
+    context "when the user is not logged in" do
+      before do
+        sign_out(:user)
+      end
+
+      it "redirects to the login page" do
+        subject
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context "when the calculator does not exist" do
+      let(:invalid_id) { "non-existing-slug" }
+
+      it "raises an ActiveRecord::RecordNotFound error" do
+        expect { get edit_account_calculator_path(invalid_id, locale: locale) }
+          .to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
