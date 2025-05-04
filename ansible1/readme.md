@@ -37,3 +37,17 @@ To set up your development environment, run:
 
 `ansible-playbook -i inventory/local playbook-develop.yml --ask-become-pass`
 This will prompt for your sudo password and begin provisioning your environment.
+
+After successful installing project setup do next:
+
+```
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+rails assets:precompile
+rails db:migrate
+```
+
+To run application, use next command:
+
+```
+rails server
+```
