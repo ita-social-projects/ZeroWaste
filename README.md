@@ -110,27 +110,9 @@ $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
   To check if it is installed and running correctly run `sudo systemctl status redis-server`
 
-  **8. Install Yarn**
-
-  You can read more about yarn there:
-  <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
-
-  For Windows doqnload the <a href="https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable">yarn installer</a>.
-
-  This will give you a .msi file that when run will walk you through installing Yarn on Windows.
-
-  If you use the installer you will first need to install Node.js.
-
- **9. Install Sidekiq**
-  Simple, efficient background processing for Ruby. You can read more about sidekiq there:
-  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>.
-  Installation:
-  $ `bundle add sidekiq`
-
 **First run**
   1. Ensure that postgresql and redis are running
-  2. Run `rails assets:precompile` to precompile assets
-  3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+  2. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
 
 **Access the application**
  Open http://localhost:3000 to view it in the browser.
@@ -218,25 +200,10 @@ $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
   Verify Redis is active `sudo systemctl status redis-server`
 
-  **8. Install Yarn**
-
-  You can read more about yarn there:
-  <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
-
- **9. Install Sidekiq**
-
-  Sidekiq handles background processing in Ruby. Install it with:
-  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>.
-
-  Installation:
-
-  $ `bundle add sidekiq`
-
   **First run**
 
     1. Confirm PostgreSQL and Redis are running.
-    2. Run `rails assets:precompile` to precompile assets
-    3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+    2. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
 
   **Access the application**
  Open http://localhost:3000 to view ZeroWaste in the browser.
@@ -317,29 +284,10 @@ $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
   $ `brew services start redis`
 
-  **8. Install Yarn**
-
-  You can read more about yarn there:
-  <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
-
-  Install Yarn using Homebrew. You may need Node.js as well if it’s not installed.
-
-  `brew install yarn`
-
- **9. Install Sidekiq**
-
-  Sidekiq handles background processing in Ruby. Install it with:
-  <a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>.
-
-  Installation:
-
-  $ `bundle add sidekiq`
-
 **First run**
 
   1. Confirm PostgreSQL and Redis are running.
-  2. Run `rails assets:precompile` to precompile assets
-  3. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+  2. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
 
 **Access the application**
  Open http://localhost:3000 to view ZeroWaste in the browser.
