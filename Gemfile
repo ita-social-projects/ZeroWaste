@@ -31,7 +31,7 @@ gem "net-smtp"
 
 gem "country_select"
 
-gem "bigdecimal", "3.0.2"
+gem "bigdecimal", "3.1.9"
 gem "rails-i18n", "~> 7.0.0"
 
 # Use Active Storage variant
