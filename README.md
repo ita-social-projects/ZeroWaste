@@ -396,3 +396,4 @@ Run `git commit -m "name"` to commit changes locally.
 If you have some troubles with style conventions after running `git commit -m "name"`, you need to run `rubocop -a` or `rubocop -A`. Each of these commands can resolve the majority of warnings.
 
 Type `git commit -m "name" --no-verify` for commiting without formating.
+
