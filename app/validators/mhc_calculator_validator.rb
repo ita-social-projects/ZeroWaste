@@ -13,7 +13,9 @@ class MhcCalculatorValidator
     validate_menstruation_age
     validate_menopause_age
     validate_average_menstruation_cycle_duration
-    validate_pads_per_cycle
+    validate_duration_of_menstruation
+    validate_disposable_products_per_day
+    validate_product_type
     validate_pad_category
 
     errors.empty?
@@ -45,10 +47,18 @@ class MhcCalculatorValidator
     length_valid?(:average_menstruation_cycle_duration, 1, 100)
   end
 
-  def validate_pads_per_cycle
-    return unless presence_valid?(:pads_per_cycle)
+  def validate_duration_of_menstruation
+    presence_valid?(:duration_of_menstruation)
+  end
 
-    length_valid?(:pads_per_cycle, 1, 100)
+  def validate_disposable_products_per_day
+    return unless presence_valid?(:disposable_products_per_day)
+
+    length_valid?(:disposable_products_per_day, 1, 100)
+  end
+
+  def validate_product_type
+    presence_valid?(:product_type)
   end
 
   def validate_pad_category
