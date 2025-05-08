@@ -48,12 +48,16 @@ gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
 gem "cocoon", "~> 1.2"
 
+gem "rswag-api"
+gem "rswag-ui"
+
 group :development, :test do
   gem "annotate"
   gem "dotenv-rails", require: "dotenv/load"
   gem "pry-rails"
   gem "rails-controller-testing"
   gem "rspec-rails"
+  gem "rswag-specs"
 end
 
 group :development, :test, :ci do
