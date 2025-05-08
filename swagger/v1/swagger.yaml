@@ -4,18 +4,7 @@ info:
   title: API V1
   version: v1
 paths:
-  "/{locale}/api/v1/diaper_calculators":
-    parameters:
-    - name: locale
-      in: path
-      schema:
-        type: string
-        enum:
-        - en
-        - uk
-      required: true
-      default: en
-      description: Language locale (uk/en)
+  "/api/v1/diaper_calculators":
     post:
       summary: Сalculate diaper usage
       tags:
@@ -34,6 +23,8 @@ paths:
                   errors:
                     type: string
                     example: Please, select years and months
+                required:
+                - errors
       requestBody:
         content:
           application/json:
@@ -55,29 +46,128 @@ paths:
               required:
               - childs_years
               - childs_months
-  "(/{locale)}/api/v1/pad_calculators":
-    parameters:
-    - name: locale
-      in: path
-      description: locale
-      required: true
-      schema:
-        type: string
+  "/api/v1/pad_calculators":
     post:
-      summary: calculate pad_calculator
+      summary: Pad calculator
+      tags:
+      - Pad Calculator
+      parameters: []
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  already_used_products:
+                    type: integer
+                    example: 2210
+                    description: Already used products
+                  already_used_products_cost:
+                    type: integer
+                    example: 4420
+                    description: Already used products cost
+                  products_to_be_used:
+                    type: integer
+                    example: 2600
+                    description: Products to be used
+                  products_to_be_used_cost:
+                    type: integer
+                    example: 5200
+                    description: Products to be used cost
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      user_age:
+                        type: string
+                        example: Your age is missing
+                      menstruation_age:
+                        type: string
+                        example: Age at First Menstruation must be in range from 1
+                          to 100
+                      menopause_age:
+                        type: string
+                        example: Age at Menopause is missing
+                      average_menstruation_cycle_duration:
+                        type: string
+                        example: Average Menstrual Cycle Duration (days) is missing
+                      pads_per_cycle:
+                        type: string
+                        example: Average Products Used Per Cycle is missing
+                      pad_category:
+                        type: string
+                        example: This Product Category doesn't exist
+                required:
+                - errors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_age:
+                  type: integer
+                  example: 30
+                  description: User age
+                menstruation_age:
+                  type: integer
+                  example: 13
+                  description: Menstruation age
+                menopause_age:
+                  type: integer
+                  example: 50
+                  description: Menopause age
+                average_menstruation_cycle_duration:
+                  type: integer
+                  example: 28
+                  description: Average menstruation cycle duration
+                pads_per_cycle:
+                  type: integer
+                  example: 10
+                  description: Pads per cycle
+                pad_category:
+                  type: string
+                  example: budget
+                  description: Pad category
+              required:
+              - user_age
+              - menstruation_age
+              - average_menstruation_cycle_duration
+              - pads_per_cycle
 servers:
-- url: "{protocol}://{defaultHostLocal}"
+- url: "{protocol}://{defaultHostLocal}/{locale}"
   variables:
     protocol:
       default: http
+      enum:
+      - http
+      - https
     defaultHostLocal:
       default: 127.0.0.1:3000
-- url: "{protocol}://{defaultHostGlobal}"
+    locale:
+      default: en
+      enum:
+      - en
+      - uk
+- url: "{protocol}://{defaultHostGlobal}/{locale}"
   variables:
     protocol:
       default: https
+      enum:
+      - http
+      - https
     defaultHostGlobal:
       default: calc.zerowastelviv.org.ua
+    locale:
+      default: en
+      enum:
+      - en
+      - uk

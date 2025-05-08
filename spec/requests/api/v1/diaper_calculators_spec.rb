@@ -1,19 +1,10 @@
 require "swagger_helper"
 
-RSpec.describe "api/v1/diaper_calculators", type: :request do
-  path "/{locale}/api/v1/diaper_calculators" do
-    parameter name: "locale",
-              in: :path,
-              schema: {
-                type: :string,
-                enum: ["en", "uk"]
-              },
-              required: true,
-              default: "en",
-              description: "Language locale (uk/en)"
-
+RSpec.describe "api/v1/diaper_calculators", type: :request do # rubocop:disable RSpec/EmptyExampleGroup
+  path "/api/v1/diaper_calculators" do
     post("Сalculate diaper usage") do
       tags "Diaper Calculator"
+
       consumes "application/json"
       produces "application/json"
 
@@ -28,26 +19,15 @@ RSpec.describe "api/v1/diaper_calculators", type: :request do
       }
 
       response(200, "successful") do
-        let(:locale) { "en" }
-        let(:body) do
-          {
-            childs_years: 1,
-            childs_months: 6,
-            category_id: 2
-          }
-        end
-
         run_test!
       end
 
       response(422, "unprocessable entity") do
-        let(:locale) { "en" }
-        let(:body) { { childs_years: "", childs_months: "" } }
-
         schema type: :object,
                properties: {
                  errors: { type: :string, example: "Please, select years and months" }
-               }
+               },
+               required: ["errors"]
 
         run_test!
       end

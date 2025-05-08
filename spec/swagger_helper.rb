@@ -24,24 +24,34 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: "{protocol}://{defaultHostLocal}",
+          url: "{protocol}://{defaultHostLocal}/{locale}",
           variables: {
             protocol: {
-              default: "http"
+              default: "http",
+              enum: ["http", "https"]
             },
             defaultHostLocal: {
               default: "127.0.0.1:3000"
+            },
+            locale: {
+              default: "en",
+              enum: ["en", "uk"]
             }
           }
         },
         {
-          url: "{protocol}://{defaultHostGlobal}",
+          url: "{protocol}://{defaultHostGlobal}/{locale}",
           variables: {
             protocol: {
-              default: "https"
+              default: "https",
+              enum: ["http", "https"]
             },
             defaultHostGlobal: {
               default: "calc.zerowastelviv.org.ua"
+            },
+            locale: {
+              default: "en",
+              enum: ["en", "uk"]
             }
           }
         }
