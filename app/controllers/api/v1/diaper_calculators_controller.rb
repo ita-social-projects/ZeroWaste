@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Api::V1::DiaperCalculatorsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def calculate
     @validation = CalculatorValidator.new(params)
 

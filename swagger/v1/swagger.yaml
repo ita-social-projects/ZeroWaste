@@ -1,0 +1,83 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/{locale}/api/v1/diaper_calculators":
+    parameters:
+    - name: locale
+      in: path
+      schema:
+        type: string
+        enum:
+        - en
+        - uk
+      required: true
+      default: en
+      description: Language locale (uk/en)
+    post:
+      summary: Сalculate diaper usage
+      tags:
+      - Diaper Calculator
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                    example: Please, select years and months
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                childs_years:
+                  type: integer
+                  example: 1
+                  description: Age in years (0-3)
+                childs_months:
+                  type: integer
+                  example: 6
+                  description: Age in months (0-11)
+                category_id:
+                  type: integer
+                  example: 2
+                  description: Category ID (optional)
+              required:
+              - childs_years
+              - childs_months
+  "(/{locale)}/api/v1/pad_calculators":
+    parameters:
+    - name: locale
+      in: path
+      description: locale
+      required: true
+      schema:
+        type: string
+    post:
+      summary: calculate pad_calculator
+      responses:
+        '200':
+          description: successful
+servers:
+- url: "{protocol}://{defaultHostLocal}"
+  variables:
+    protocol:
+      default: http
+    defaultHostLocal:
+      default: 127.0.0.1:3000
+- url: "{protocol}://{defaultHostGlobal}"
+  variables:
+    protocol:
+      default: https
+    defaultHostGlobal:
+      default: calc.zerowastelviv.org.ua
