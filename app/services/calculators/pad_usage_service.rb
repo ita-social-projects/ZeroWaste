@@ -11,11 +11,11 @@ class Calculators::PadUsageService
 
   def initialize(user_age:, menstruation_age:, menopause_age:, average_menstruation_cycle_duration:,
     pads_per_cycle:, pad_category:)
-    @user_age                            = user_age
-    @menstruation_age                    = menstruation_age
-    @menopause_age                       = menopause_age || 48.7
-    @average_menstruation_cycle_duration = average_menstruation_cycle_duration
-    @pads_per_cycle                      = pads_per_cycle
+    @user_age                            = user_age.to_i
+    @menstruation_age                    = menstruation_age.to_i
+    @menopause_age                       = menopause_age.to_i || 48.7
+    @average_menstruation_cycle_duration = average_menstruation_cycle_duration.to_i
+    @pads_per_cycle                      = pads_per_cycle.to_i
     @pad_category                        = (pad_category || :budget).to_sym
   end
 

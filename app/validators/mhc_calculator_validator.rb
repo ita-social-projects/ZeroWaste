@@ -52,7 +52,9 @@ class MhcCalculatorValidator
   end
 
   def validate_pad_category
-    presence_valid?(:pad_category)
+    return unless presence_valid?(:pad_category)
+
+    category_valid?(:pad_category)
   end
 
   def presence_valid?(param)
@@ -64,9 +66,19 @@ class MhcCalculatorValidator
   end
 
   def length_valid?(param, from, to)
-    return true if (from..to).cover?(@params[param])
+    return true if (from..to).cover?(@params[param].to_i)
 
     @errors[param] = I18n.t("calculators.errors.length_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"), from: from, to: to)
+
+    false
+  end
+
+  def category_valid?(param)
+    valid_categories = Calculators::PadUsageService::PAD_PRICES.keys.map(&:to_s)
+
+    return true if valid_categories.include?(@params[param])
+
+    @errors[param] = I18n.t("calculators.errors.category_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"))
 
     false
   end

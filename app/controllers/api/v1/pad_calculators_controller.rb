@@ -1,4 +1,6 @@
 class Api::V1::PadCalculatorsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def calculate
     @validation = MhcCalculatorValidator.new(params)
 
