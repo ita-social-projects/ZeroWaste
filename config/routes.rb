@@ -101,8 +101,10 @@ Rails.application.routes.draw do
   end
 
   match "*path", to: "api/v2/errors#invalid_locale", via: :all, constraints: lambda { |req|
-    locale = req.path.split("/")[1]
-    locale.present? && !(locale =~ /\A(uk|en)\z/)
+    segments = req.path.split("/")
+    locale   = segments[1]
+    prefix   = segments[2..3].join("/")
+    locale.present? && !(locale =~ /\A(uk|en)\z/) && prefix == "api/v2"
   }, format: false
 
   get "/404", to: "errors#not_found", as: :not_found_error
