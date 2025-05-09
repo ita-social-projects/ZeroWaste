@@ -83,6 +83,21 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       end
     end
 
+    context "when category not found" do
+      let(:category_not_found_error) do
+        {
+          error: "This category doesn't exist"
+        }
+      end
+
+      it "renders category not found error" do
+        post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0, category_id: 999 }
+
+        expect(response).to be_unprocessable
+        expect(response.body).to eq(category_not_found_error.to_json)
+      end
+    end
+
     context "when get unawaited values" do
       let!(:preferable_category) { create(:category, :medium) }
       let(:invalid_values) do
