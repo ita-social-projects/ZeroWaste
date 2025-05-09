@@ -13,7 +13,7 @@ class Calculators::PadUsageService
     pads_per_cycle:, pad_category:)
     @user_age                            = user_age.to_i
     @menstruation_age                    = menstruation_age.to_i
-    @menopause_age                       = menopause_age.to_i || 48.7
+    @menopause_age                       = menopause_age.nil? ? 48.7 : menopause_age.to_i
     @average_menstruation_cycle_duration = average_menstruation_cycle_duration.to_i
     @pads_per_cycle                      = pads_per_cycle.to_i
     @pad_category                        = (pad_category || :budget).to_sym
