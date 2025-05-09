@@ -1,7 +1,7 @@
 require "swagger_helper"
 
 RSpec.describe "api/v2/diaper_calculators", openapi_spec: "v2/swagger.yaml", type: :request do # rubocop:disable RSpec/EmptyExampleGroup
-  let!(:category) { create(:category, :medium) }
+  let!(:category) { create(:category, :medium, id: 1) }
 
   path "/api/v2/diaper_calculators" do
     post("Calculate diaper usage") do
