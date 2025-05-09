@@ -68,6 +68,16 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       end
     end
 
+    context "when get awaited values" do
+      let!(:preferable_category) { create(:category, :medium) }
+
+      it "got the expected result" do
+        post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0, category_id: 1 }
+
+        expect(response.parsed_body).to eq(JSON.parse(expected_result.to_json))
+      end
+    end
+
     context "when no category id value" do
       let(:category_error) do
         {
