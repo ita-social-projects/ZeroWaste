@@ -62,4 +62,16 @@ shared_examples "pad category validation" do |attribute|
       expect(validator.errors[attribute]).to eq(I18n.t("#{local_error_prefix}.presence_error_msg", field: I18n.t("#{local_field_prefix}.#{attribute}")))
     end
   end
+
+  context "#{attribute} is not a valid category" do
+    before do
+      validator.params[attribute] = "invalid_category"
+    end
+
+    it "#{attribute} is invalid when not a valid category" do
+      validator.send(:"validate_#{attribute}")
+
+      expect(validator.errors[attribute]).to eq(I18n.t("#{local_error_prefix}.wrong_category_error_msg"))
+    end
+  end
 end
