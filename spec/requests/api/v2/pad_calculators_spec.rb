@@ -24,6 +24,17 @@ RSpec.describe "api/v2/pad_calculators", openapi_spec: "v2/swagger.yaml", type: 
       }
 
       response(200, "successful") do
+        let(:body) do
+          {
+            user_age: 30,
+            menstruation_age: 13,
+            menopause_age: 50,
+            average_menstruation_cycle_duration: 28,
+            pads_per_cycle: 10,
+            pad_category: "budget"
+          }
+        end
+
         schema type: :object,
                properties: {
                  already_used_products: { type: :integer, example: 2210, description: "Already used products" },
@@ -36,6 +47,8 @@ RSpec.describe "api/v2/pad_calculators", openapi_spec: "v2/swagger.yaml", type: 
       end
 
       response(422, "unprocessable entity") do
+        let(:body) {}
+
         schema type: :object,
                properties: {
                  errors: {
@@ -46,7 +59,7 @@ RSpec.describe "api/v2/pad_calculators", openapi_spec: "v2/swagger.yaml", type: 
                      menopause_age: { type: :string, example: "Age at Menopause is missing" },
                      average_menstruation_cycle_duration: { type: :string, example: "Average Menstrual Cycle Duration (days) is missing" },
                      pads_per_cycle: { type: :string, example: "Average Products Used Per Cycle is missing" },
-                     pad_category: { type: :string, example: "This Product Category doesn't exist" }
+                     pad_category: { type: :string, example: "Product Category is missing" }
                    }
                  }
                },

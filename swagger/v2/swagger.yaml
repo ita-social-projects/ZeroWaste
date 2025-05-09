@@ -6,7 +6,7 @@ info:
 paths:
   "/api/v2/diaper_calculators":
     post:
-      summary: Сalculate diaper usage
+      summary: Calculate diaper usage
       tags:
       - Diaper Calculator
       description: Calculate diaper usage based on user input
@@ -14,6 +14,41 @@ paths:
       responses:
         '200':
           description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      money_spent:
+                        type: string
+                        example: '31093.5'
+                      money_will_be_spent:
+                        type: string
+                        example: '12220.7'
+                      used_diapers_amount:
+                        type: number
+                        example: 3477
+                      to_be_used_diapers_amount:
+                        type: number
+                        example: 1098
+                      used_diapers_amount_pluralize:
+                        type: string
+                        example: already used
+                      to_be_used_diapers_amount_pluralize:
+                        type: string
+                        example: to be used in the future
+                  date:
+                    type: integer
+                    example: 18
+                  text_products_to_be_used:
+                    type: string
+                    example: 1098.0 to be used in the future
+                  text_products_used:
+                    type: string
+                    example: 3477.0 already used
         '422':
           description: unprocessable entity
           content:
@@ -42,11 +77,12 @@ paths:
                   description: Age in months (0-11)
                 category_id:
                   type: integer
-                  example: 2
-                  description: Category ID (optional)
+                  example: 1
+                  description: Category ID
               required:
               - childs_years
               - childs_months
+              - category_id
   "/api/v2/pad_calculators":
     post:
       summary: Pad calculator
@@ -108,7 +144,7 @@ paths:
                         example: Average Products Used Per Cycle is missing
                       pad_category:
                         type: string
-                        example: This Product Category doesn't exist
+                        example: Product Category is missing
                 required:
                 - errors
       requestBody:

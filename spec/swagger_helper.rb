@@ -15,48 +15,6 @@ RSpec.configure do |config|
   # document below. You can override this behavior by adding a openapi_spec tag to the
   # the root example_group in your specs, e.g. describe '...', openapi_spec: 'v2/swagger.json'
   config.openapi_specs = {
-    "v1/swagger.yaml" => {
-      openapi: "3.0.1",
-      info: {
-        title: "API V1",
-        version: "v1"
-      },
-      paths: {},
-      servers: [
-        {
-          url: "{protocol}://{defaultHostLocal}/{locale}",
-          variables: {
-            protocol: {
-              default: "http",
-              enum: ["http", "https"]
-            },
-            defaultHostLocal: {
-              default: "127.0.0.1:3000"
-            },
-            locale: {
-              default: "en",
-              enum: ["en", "uk"]
-            }
-          }
-        },
-        {
-          url: "{protocol}://{defaultHostGlobal}/{locale}",
-          variables: {
-            protocol: {
-              default: "https",
-              enum: ["http", "https"]
-            },
-            defaultHostGlobal: {
-              default: "calc.zerowastelviv.org.ua"
-            },
-            locale: {
-              default: "en",
-              enum: ["en", "uk"]
-            }
-          }
-        }
-      ]
-    },
     "v2/swagger.yaml" => {
       openapi: "3.0.1",
       info: {

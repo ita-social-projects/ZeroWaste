@@ -1,8 +1,10 @@
 require "swagger_helper"
 
 RSpec.describe "api/v2/diaper_calculators", openapi_spec: "v2/swagger.yaml", type: :request do # rubocop:disable RSpec/EmptyExampleGroup
+  let!(:category) { create(:category, :medium) }
+
   path "/api/v2/diaper_calculators" do
-    post("Сalculate diaper usage") do
+    post("Calculate diaper usage") do
       tags "Diaper Calculator"
       description "Calculate diaper usage based on user input"
       consumes "application/json"
@@ -13,16 +15,42 @@ RSpec.describe "api/v2/diaper_calculators", openapi_spec: "v2/swagger.yaml", typ
         properties: {
           childs_years: { type: :integer, example: 1, description: "Age in years (0-3)" },
           childs_months: { type: :integer, example: 6, description: "Age in months (0-11)" },
-          category_id: { type: :integer, example: 2, description: "Category ID (optional)" }
+          category_id: { type: :integer, example: 1, description: "Category ID" }
         },
-        required: ["childs_years", "childs_months"]
+        required: ["childs_years", "childs_months", "category_id"]
       }
 
       response(200, "successful") do
+        let!(:body) do
+          {
+            childs_years: 1,
+            childs_months: 6,
+            category_id: 1
+          }
+        end
+
+        schema type: :object,
+               properties: { result: {
+                               type: :object,
+                               properties: {
+                                 money_spent: { type: :string, example: "31093.5" },
+                                 money_will_be_spent: { type: :string, example: "12220.7" },
+                                 used_diapers_amount: { type: :number, example: 3477 },
+                                 to_be_used_diapers_amount: { type: :number, example: 1098 },
+                                 used_diapers_amount_pluralize: { type: :string, example: "already used" },
+                                 to_be_used_diapers_amount_pluralize: { type: :string, example: "to be used in the future" }
+                               }
+                             },
+                             date: { type: :integer, example: 18 },
+                             text_products_to_be_used: { type: :string, example: "1098.0 to be used in the future" },
+                             text_products_used: { type: :string, example: "3477.0 already used" }}
+
         run_test!
       end
 
       response(422, "unprocessable entity") do
+        let(:body) {}
+
         schema type: :object,
                properties: {
                  errors: { type: :string, example: "Please, select years and months" }

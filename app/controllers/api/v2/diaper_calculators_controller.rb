@@ -1,6 +1,4 @@
 class Api::V2::DiaperCalculatorsController < Api::V2::ApplicationController
-  before_action :check_category_id
-
   def calculate
     @validation = CalculatorValidator.new(calculate_params)
 
@@ -15,17 +13,11 @@ class Api::V2::DiaperCalculatorsController < Api::V2::ApplicationController
       calculator_decorator = CalculatorDecorator.new(calc_service.result)
       render json: calculator_decorator.to_json, status: :ok
     else
-      render json: { error: @validation.error }, status: :unprocessable_entity
+      render json: { errors: @validation.error }, status: :unprocessable_entity
     end
   end
 
   private
-
-  def check_category_id
-    return if params[:category_id].presence
-
-    params[:category_id] = Category.preferable.first&.id
-  end
 
   def calculate_params
     params.permit(:locale, :childs_years, :childs_months, :category_id)
