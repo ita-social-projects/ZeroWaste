@@ -69,7 +69,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
     end
 
     context "when get awaited values" do
-      let!(:preferable_category) { create(:category, :medium) }
+      let!(:preferable_category) { create(:category, :medium, id: 1) }
 
       it "got the expected result" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0, category_id: 1 }
