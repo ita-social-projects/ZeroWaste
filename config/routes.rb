@@ -92,6 +92,10 @@ Rails.application.routes.draw do
         resources :calculators, only: [] do
           post :compute, on: :member
         end
+        post "/diaper_calculators",
+             to: "diaper_calculators#calculate"
+        post "/pad_calculators",
+             to: "pad_calculators#calculate"
       end
     end
   end

@@ -120,7 +120,8 @@ uk:
       month_error_msg: "Будь ласка, виберіть, скільки місяців дитині"
       presence_error_msg: "Поле %{field} відсутнє"
       length_error_msg: "Поле %{field} повинно бути в проміжку від %{from} до %{to}"
-      category_error_msg: "Ця %{field} не існує"
+      category_error_msg: "Будь ласка, виберіть категорію"
+      wrong_category_error_msg: "Будь ласка, виберіть правильну категорію"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"

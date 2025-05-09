@@ -78,7 +78,7 @@ class MhcCalculatorValidator
 
     return true if valid_categories.include?(@params[param])
 
-    @errors[param] = I18n.t("calculators.errors.category_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"))
+    @errors[param] = I18n.t("calculators.errors.wrong_category_error_msg")
 
     false
   end

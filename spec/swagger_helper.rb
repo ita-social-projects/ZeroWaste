@@ -56,6 +56,48 @@ RSpec.configure do |config|
           }
         }
       ]
+    },
+    "v2/swagger.yaml" => {
+      openapi: "3.0.1",
+      info: {
+        title: "API V2",
+        version: "v2"
+      },
+      paths: {},
+      servers: [
+        {
+          url: "{protocol}://{defaultHostLocal}/{locale}",
+          variables: {
+            protocol: {
+              default: "http",
+              enum: ["http", "https"]
+            },
+            defaultHostLocal: {
+              default: "127.0.0.1:3000"
+            },
+            locale: {
+              default: "en",
+              enum: ["en", "uk"]
+            }
+          }
+        },
+        {
+          url: "{protocol}://{defaultHostGlobal}/{locale}",
+          variables: {
+            protocol: {
+              default: "https",
+              enum: ["http", "https"]
+            },
+            defaultHostGlobal: {
+              default: "calc.zerowastelviv.org.ua"
+            },
+            locale: {
+              default: "en",
+              enum: ["en", "uk"]
+            }
+          }
+        }
+      ]
     }
   }
 
