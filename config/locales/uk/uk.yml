@@ -122,6 +122,7 @@ uk:
       length_error_msg: "Поле %{field} повинно бути в проміжку від %{from} до %{to}"
       category_error_msg: "Будь ласка, виберіть категорію"
       wrong_category_error_msg: "Будь ласка, виберіть правильну категорію"
+      category_not_found_error_msg: "Категорія не знайдена"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"

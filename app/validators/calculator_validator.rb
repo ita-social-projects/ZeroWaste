@@ -24,8 +24,17 @@ class CalculatorValidator
     elsif category_id.blank?
       @error = I18n.t("calculators.errors.category_error_msg")
       false
+    elsif category_resource.nil?
+      @error = I18n.t("calculators.errors.category_not_found_error_msg")
+      false
     else
       true
     end
+  end
+
+  private
+
+  def category_resource
+    Category.find_by(id: params[:category_id])
   end
 end
