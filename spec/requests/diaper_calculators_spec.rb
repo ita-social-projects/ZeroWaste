@@ -68,13 +68,18 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       end
     end
 
-    context "when get awaited values" do
-      let!(:preferable_category) { create(:category, :medium) }
+    context "when no category id value" do
+      let(:category_error) do
+        {
+          error: "Please, select category"
+        }
+      end
 
-      it "got the expected result" do
+      it "renders category error" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-        expect(response.parsed_body).to eq(JSON.parse(expected_result.to_json))
+        expect(response).to be_unprocessable
+        expect(response.body).to eq(category_error.to_json)
       end
     end
 
@@ -93,7 +98,7 @@ RSpec.describe Api::V1::DiaperCalculatorsController, type: :request do
       it "got the unexpected result" do
         post api_v1_diaper_calculators_path, params: { childs_years: 1, childs_months: 0 }
 
-        expect(response).to be_successful
+        expect(response).to be_unprocessable
         expect(response.body).not_to eq(expected_result.to_json)
       end
     end
