@@ -1,33 +1,20 @@
-dev
-## JIRA
+## Checklist
 
-* [Main JIRA ticket](https://jira.softserve.academy/secure/RapidBoard.jspa?rapidView=id)
+- [ ] I have added tests to cover my ruby code changes
+- [ ] I have added screenshots to show the changes on the UI
+- [ ] I have added a description of the changes to the PR description
 
+## What was done aside from the main task as a part of this PR?
 
-## Code reviewers
+- text
+- text
 
-- [ ] @github_username
+## Changes
 
-### Second Level Review
+### What is the current behavior?
 
-- [ ] @github_username
+TODO: Describe current behaviour - REPLACE TODO WITH DESCRIPTION
 
-## Summary of issue
+### What is the expected behavior?
 
-ToDo
-
-## Summary of change
-
-ToDo
-
-## Testing approach
-
-ToDo
-
-## CHECK LIST
-- [ ]  СI passed
-- [ ]  Сode coverage >=95%
-- [ ]  PR is reviewed manually again (to make sure you have 100% ready code)
-- [ ]  All reviewers agreed to merge the PR
-- [ ]  I've checked new feature as logged in and logged out user if needed
-- [ ]  PR meets all conventions
+TODO: Describe expected behaviour - REPLACE TODO WITH DESCRIPTION

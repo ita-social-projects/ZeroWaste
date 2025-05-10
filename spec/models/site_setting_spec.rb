@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: site_settings
+#
+#  id         :bigint           not null, primary key
+#  title      :string           default("ZeroWaste"), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require "rails_helper"
 
 RSpec.describe SiteSetting, type: :model do

@@ -7,6 +7,8 @@ describe "sign out", js: true do
   let(:calculator) { create(:calculator) }
   let(:flash_message_disappear_time) { 20 }
 
+  include_context :enable_calculators_constructor
+
   before do
     create(:feature_flag, :show_admin_menu)
     allow_any_instance_of(ApplicationController).to receive(:after_sign_in_path_for).and_return("/calculators/#{calculator.slug}")
@@ -21,8 +23,8 @@ describe "sign out", js: true do
     end
   end
 
-  xit "signs the user out" do
+  it "signs the user out" do
     expect(page).to have_current_path("/calculators/#{calculator.slug}")
-    expect(page).to have_content("LOG IN")
+    expect(page).to have_content("Signed out successfully")
   end
 end

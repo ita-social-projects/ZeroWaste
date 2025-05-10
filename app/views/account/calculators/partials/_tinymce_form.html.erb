@@ -1,0 +1,14 @@
+<%= tinymce_assets %>
+<div data-controller="tinymce">
+  <div class="pt-4">
+    <%= f.label :uk_notes, t("account.calculators.new.uk_notes") %>
+    <%= f.text_area :uk_notes, data: { tinymce_target: "input" }, class: "tinymce", rows: 20, cols: 60 %>
+  </div>
+
+  <div class="pt-4 pb-4">
+    <%= f.label :en_notes, t("account.calculators.new.en_notes") %>
+    <%= f.text_area :en_notes, data: { tinymce_target: "input" }, class: "tinymce", rows: 20, cols: 60 %>
+  </div>
+</div>
+
+<%= tinymce %>
