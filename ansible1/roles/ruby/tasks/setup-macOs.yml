@@ -1,11 +1,4 @@
 ---
-- name: Ensure Homebrew is installed
-  shell: |
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  args:
-    creates: /usr/local/bin/brew
-  become: false
-
 - name: Install dependencies
   homebrew:
    name: "{{ item }}"
@@ -33,15 +26,9 @@
 
 - name: Install Ruby
   shell: |
-    source /usr/local/rvm/scripts/rvm && rvm install {{ rvm1_rubies }}
+    source /usr/local/rvm/scripts/rvm && rvm install {{ rvm1_rubies | first }}
   environment: 
    rvm1_rubies: "{{ rvm1_rubies }}"
-
-- name: Set default Ruby version
-  shell: |
-    source /usr/local/rvm/scripts/rvm && rvm use {{ rvm1_rubies }} --default
-  environment: 
-   rvm1_default_ruby_version: "{{ rvm1_default_ruby_version }}"
 
 - name: Install bundler
   shell: |
@@ -58,16 +45,26 @@
   local_action: command whoami
   register: username_on_the_host
 
+- name: Ensure RVM directory is owned by the user
+  become: true
+  ansible.builtin.file:
+    path: /usr/local/rvm
+    owner: "{{ username_on_the_host.stdout }}"
+    group: staff
+    recurse: yes
+
 - name: Run bundle install with Gemfile
   shell: |
-    source /usr/local/rvm/scripts/rvm && rvm use {{ rvm1_rubies }} do bundle install --gemfile Gemfile
+    source /usr/local/rvm/scripts/rvm && rvm use {{ rvm1_default_ruby_version }} do bundle install --gemfile Gemfile
   args:
    chdir: "/Users/{{ username_on_the_host.stdout }}/ZeroWaste/"
   become_user: "{{ username_on_the_host.stdout }}"
+  become: false
 
 - name: Run rake db:migrate
   shell: |
-    source /usr/local/rvm/scripts/rvm && rvm use {{ rvm1_rubies }} do rake db:migrate
-    args:
+    source /usr/local/rvm/scripts/rvm && rvm use {{ rvm1_default_ruby_version }} do rake db:migrate
+  args:
     chdir: "/Users/{{ username_on_the_host.stdout }}/ZeroWaste/"
   become_user: "{{ username_on_the_host.stdout }}"
+  become: false

@@ -51,3 +51,9 @@ To run application, use next command:
 ```
 rails server
 ```
+
+# Mac
+Install homebrew
+Check path at the ZeroWaste/ansible1/roles/ruby/tasks/setup-macOs.yml file
+Your path can be different (60, 68 lines)
+Configuration is the same as for Ubuntu
