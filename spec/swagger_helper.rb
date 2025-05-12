@@ -24,7 +24,8 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: "{protocol}://{defaultHostLocal}/{locale}",
+          url: "{protocol}://{defaultHostLocal}/{locale}/api/v2/",
+          description: "Localhost server (uses test data)",
           variables: {
             protocol: {
               default: "http",
@@ -40,7 +41,8 @@ RSpec.configure do |config|
           }
         },
         {
-          url: "{protocol}://{defaultHostGlobal}/{locale}",
+          url: "{protocol}://{defaultHostGlobal}/{locale}/api/v2/",
+          description: "Production server (uses live data)",
           variables: {
             protocol: {
               default: "https",
