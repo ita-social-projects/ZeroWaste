@@ -1,4 +1,4 @@
-class Api::V2::CalculatorsController < ApplicationController
+class Api::V2::CalculatorsController < Api::V2::ApplicationController
   def index
     calculators = collection.order_by_name(params[:name])
 
