@@ -6,6 +6,6 @@ class Api::V2::ApplicationController < ActionController::API
   private
 
   def set_i18n_locale_from_params
-    I18n.locale = params[:locale].to_sym if params[:locale]
+    I18n.locale = params[:locale].to_sym if params[:locale].present?
   end
 end
