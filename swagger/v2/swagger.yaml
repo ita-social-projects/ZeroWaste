@@ -30,6 +30,20 @@ paths:
                     type: number
                     example: 6
                     description: Result of the calculation
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      third_value:
+                        type: string
+                required:
+                - errors
       requestBody:
         content:
           application/json:
@@ -48,6 +62,12 @@ paths:
                   type: number
                   example: 3
                   description: Third value
+  "/calculators":
+    get:
+      summary: list calculators
+      responses:
+        '200':
+          description: successful
   "/diaper_calculators":
     post:
       summary: Calculate diaper usage
