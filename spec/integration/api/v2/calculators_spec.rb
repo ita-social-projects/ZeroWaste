@@ -2,24 +2,24 @@ require "swagger_helper"
 
 RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do # rubocop:disable RSpec/EmptyExampleGroup
   let!(:calculator) { create(:calculator) }
-        let!(:formula) do
-          build(:formula,
-                calculator: calculator,
-                expression: "first_value+second_value+third_value")
-            .save(validate: false)
-        end
-        let!(:category_field) do
-          build(:field,
-                kind: "category",
-                calculator: calculator,
-                var_name: "first_value").save(validation: false)
-        end
-        let!(:fields) do
-          ["second_value", "third_value"].map do |var_name|
-            build(:field, calculator: calculator, var_name: var_name).save(validate: false)
-          end
-        end
-        let!(:category) { create(:category, :medium, price: 1, field: Field.first) }
+  let!(:formula) do
+    build(:formula,
+          calculator: calculator,
+          expression: "first_value+second_value+third_value")
+      .save(validate: false)
+  end
+  let!(:category_field) do
+    build(:field,
+          kind: "category",
+          calculator: calculator,
+          var_name: "first_value").save(validation: false)
+  end
+  let!(:fields) do
+    ["second_value", "third_value"].map do |var_name|
+      build(:field, calculator: calculator, var_name: var_name).save(validate: false)
+    end
+  end
+  let!(:category) { create(:category, :medium, price: 1, field: Field.first) }
 
   path "/calculators/{slug}/calculate" do
     post("calculate calculator") do
@@ -43,10 +43,6 @@ RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
         let!(:slug) { calculator.slug }
 
         let(:body) { { first_value: "medium", second_value: 2, third_value: 3 } }
-
-        after do
-          puts Field.first.inspect
-        end
 
         schema type: :object,
                properties: {
@@ -73,11 +69,6 @@ RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
                },
                required: ["errors"]
 
-        after do
-          puts "Response body: #{response.body}"
-          puts "Response status: #{response.status}"
-        end
-
         run_test! do |response|
           expect(JSON.parse(response.body)["errors"]["third_value"]).to eq("Label is missing")
           expect(JSON.parse(response.body)["errors"]["first_value"]).to eq("Please, select correct category")
@@ -88,9 +79,16 @@ RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
 
   path "/calculators" do
     get("list calculators") do
-      response(200, "successful") do
+      tags "Calculators by constructor"
+      description "List all calculators available in the system. Each calculator has a slug that can be used to access it directly."
 
-        run_test!
+      consumes "application/json"
+      produces "application/json"
+
+      response(200, "successful") do
+        run_test! do |response|
+          expect(JSON.parse(response.body).size).to eq(1)
+        end
       end
     end
   end

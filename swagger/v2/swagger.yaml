@@ -65,6 +65,10 @@ paths:
   "/calculators":
     get:
       summary: list calculators
+      tags:
+      - Calculators by constructor
+      description: List all calculators available in the system. Each calculator has
+        a slug that can be used to access it directly.
       responses:
         '200':
           description: successful
