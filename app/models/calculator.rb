@@ -49,6 +49,12 @@ class Calculator < ApplicationRecord
             }
   validates :color, format: { with: /\A#[0-9a-fA-F]{6}\z/ }
 
+  scope :order_by_name, ->(params) {
+    direction      = (params == "desc") ? :desc : :asc
+    localized_name = "#{I18n.locale}_name"
+    order(localized_name => direction)
+  }
+
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
   end
