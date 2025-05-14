@@ -4,6 +4,50 @@ info:
   title: API V2
   version: v2
 paths:
+  "/calculators/{slug}/calculate":
+    post:
+      summary: calculate calculator
+      tags:
+      - Calculators by constructor
+      description: Calculate calculator based on user input. Available calculators
+        can be revealed by GET /calculators
+      parameters:
+      - name: slug
+        in: path
+        description: slug of the calculator
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful (formula equals first_value+second_value+third_value)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Label:
+                    type: number
+                    example: 2
+                    description: Result of the calculation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_value:
+                  type: number
+                  example: 1
+                  description: First value
+                second_value:
+                  type: number
+                  example: 2
+                  description: Second value
+                third_value:
+                  type: number
+                  example: 3
+                  description: Third value
   "/diaper_calculators":
     post:
       summary: Calculate diaper usage
