@@ -32,6 +32,7 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
 
   def calculate_params_with_categories_converted
     params = calculate_params
+
     params.each do |field, value|
       next unless category_fields_name.include?(field)
 
