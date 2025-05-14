@@ -20,15 +20,15 @@ paths:
           type: string
       responses:
         '200':
-          description: successful (formula equals first_value+second_value+third_value)
+          description: successful (example formula is 'first_value+second_value+third_value')
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  Label:
+                  formula_label:
                     type: number
-                    example: 2
+                    example: 6
                     description: Result of the calculation
       requestBody:
         content:

@@ -18,25 +18,87 @@ RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
           third_value: { type: :number, example: 3, description: "Third value" }
         }
       }
-      response(200, "successful (formula equals first_value+second_value+third_value)") do
-        let(:calculator) { create(:calculator) }
-        let(:formula) { build(:formula, expression: "first_value+second_value+third_value", calculator: calculator) }
-        let(:fields) { build(:field, 3, var_name: ["field_1", "field_2", "field_3"], calculator: calculator) }
-        let(:slug) { calculator.slug }
-        let!(:body) do
-          {
-            first_value: 1,
-            second_value: 2,
-            third_value: 3
-          }
+
+      response(200, "successful (example formula is 'first_value+second_value+third_value')") do
+        let!(:calculator) { create(:calculator) }
+        let!(:slug) { calculator.slug }
+        let!(:formula) do
+          build(:formula,
+                calculator: calculator,
+                expression: "first_value+second_value+third_value")
+            .save(validate: false)
+        end
+        let!(:category_field) do
+          build(:field,
+                kind: "category",
+                calculator: calculator,
+                var_name: "first_value").save(validation: false)
+        end
+        let!(:fields) do
+          ["second_value", "third_value"].map do |var_name|
+            build(:field, calculator: calculator, var_name: var_name).save(validate: false)
+          end
+        end
+        let!(:category) { create(:category, :medium, price: 1, field: Field.first) }
+        let(:body) { { first_value: "medium", second_value: 2, third_value: 3 } }
+
+        after do
+          puts Field.first.inspect
         end
 
         schema type: :object,
                properties: {
-                 Label: { type: :number, example: 6, description: "Result of the calculation" }
+                 formula_label: { type: :number, example: 6, description: "Result of the calculation" }
                }
 
-        run_test!
+        run_test! do |response|
+          expect(JSON.parse(response.body)[calculator.formulas.first.en_label]).to eq("6.0")
+        end
+      end
+
+      response(422, "unprocessable entity") do
+        let!(:calculator) { create(:calculator) }
+        let!(:slug) { calculator.slug }
+        let!(:formula) do
+          build(:formula,
+                calculator: calculator,
+                expression: "first_value+second_value+third_value")
+            .save(validate: false)
+        end
+        let!(:category_field) do
+          build(:field,
+                kind: "category",
+                calculator: calculator,
+                var_name: "first_value").save(validation: false)
+        end
+        let!(:fields) do
+          ["second_value", "third_value"].map do |var_name|
+            build(:field, calculator: calculator, var_name: var_name).save(validate: false)
+          end
+        end
+        let!(:category) { create(:category, :medium, price: 1, field: Field.first) }
+        let(:body) { { first_value: "not_valid_name", second_value: 2 } }
+
+        schema type: :object,
+               properties: {
+                 errors: {
+                   type: :object,
+                   properties: {
+                     third_value: { type: :string }
+                   }
+                 }
+               },
+               required: ["errors"]
+
+        after do
+          puts "Response body: #{response.body}"
+          puts "Response status: #{response.status}"
+        end
+
+        run_test! do |response|
+          expect(JSON.parse(response.body)["errors"]["third_value"]).to eq("Label is missing")
+          expect(JSON.parse(response.body)["errors"]["first_value"]).to eq("Please, select correct category")
+        end
       end
     end
   end
