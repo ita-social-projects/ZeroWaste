@@ -36,9 +36,9 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
       next unless category_fields_name.include?(field)
 
       params[field] = resource
-                       .fields.find_by(var_name: field)
-                       .categories.find_by(en_name: value)
-                       .price
+                      .fields.find_by(var_name: field)
+                      .categories.find_by(en_name: value)
+                      .price
     end
   end
 
