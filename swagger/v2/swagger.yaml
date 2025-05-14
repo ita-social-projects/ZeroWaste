@@ -4,7 +4,7 @@ info:
   title: API V2
   version: v2
 paths:
-  "/api/v2/diaper_calculators":
+  "/diaper_calculators":
     post:
       summary: Calculate diaper usage
       tags:
@@ -83,7 +83,7 @@ paths:
               - childs_years
               - childs_months
               - category_id
-  "/api/v2/pad_calculators":
+  "/pad_calculators":
     post:
       summary: Pad calculator
       tags:
@@ -183,7 +183,8 @@ paths:
               - average_menstruation_cycle_duration
               - pads_per_cycle
 servers:
-- url: "{protocol}://{defaultHostLocal}/{locale}"
+- url: "{protocol}://{defaultHostLocal}/{locale}/api/v2/"
+  description: Localhost server (uses test data)
   variables:
     protocol:
       default: http
@@ -197,7 +198,8 @@ servers:
       enum:
       - en
       - uk
-- url: "{protocol}://{defaultHostGlobal}/{locale}"
+- url: "{protocol}://{defaultHostGlobal}/{locale}/api/v2/"
+  description: Production server (uses live data)
   variables:
     protocol:
       default: https
