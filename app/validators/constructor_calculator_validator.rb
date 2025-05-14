@@ -38,7 +38,7 @@ class ConstructorCalculatorValidator
     name = field.var_name
     return true if @params[name].present?
 
-    @errors[name] = I18n.t("calculators.errors.presence_error_msg", field: localized_label(field))
+    @errors[name] = I18n.t("calculators.errors.presence_error_msg", field: localized_field_label(field))
     false
   end
 
