@@ -69,6 +69,17 @@ paths:
       - Calculators by constructor
       description: List all calculators available in the system. Each calculator has
         a slug that can be used to access it directly.
+      parameters:
+      - name: name
+        in: query
+        enum:
+        - desc
+        - asc
+        description: "Sort by name:\n * `desc` \n * `asc` \n "
+        required: false
+        default: asc
+        schema:
+          type: enum
       responses:
         '200':
           description: successful

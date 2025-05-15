@@ -85,6 +85,8 @@ RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
       consumes "application/json"
       produces "application/json"
 
+      parameter name: "name", in: :query, type: :enum, enum: ["desc", "asc"], description: "Sort by name", required: false, default: "asc"
+
       response(200, "successful") do
         run_test! do |response|
           expect(JSON.parse(response.body).size).to eq(1)
