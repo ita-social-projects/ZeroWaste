@@ -1,19 +1,17 @@
 require "rails_helper"
 
 RSpec.describe "Calculators", type: :request do
-  let!(:calculator1) { create(:calculator, en_name: "Calculator_1", uk_name: "Калькулятор_1", en_notes: "Note_1", uk_notes: "Опис_1") }
-  let!(:calculator2) { create(:calculator, en_name: "Calculator_2", uk_name: "Калькулятор_2", en_notes: "Note_2", uk_notes: "Опис_2") }
+  let!(:calculator_1) { create(:calculator_name_first) }
+  let!(:calculator_2) { create(:calculator_name_second) }
 
   describe "GET /en/api/v2/calculators.json" do
     it "returns calculators" do
       get "/en/api/v2/calculators.json"
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Calculator_1", "notes" => "Note_1" },
-        { "name" => "Calculator_2", "notes" => "Note_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.en_name, "notes" => calculator_1.en_notes },
+        { "name" => calculator_2.en_name, "notes" => calculator_2.en_notes }
       ])
     end
 
@@ -21,11 +19,9 @@ RSpec.describe "Calculators", type: :request do
       get "/en/api/v2/calculators.json", params: { name: "desc" }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Calculator_2", "notes" => "Note_2" },
-        { "name" => "Calculator_1", "notes" => "Note_1" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_2.en_name, "notes" => calculator_2.en_notes },
+        { "name" => calculator_1.en_name, "notes" => calculator_1.en_notes }
       ])
     end
 
@@ -33,11 +29,9 @@ RSpec.describe "Calculators", type: :request do
       get "/en/api/v2/calculators.json", params: { name: "asc" }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Calculator_1", "notes" => "Note_1" },
-        { "name" => "Calculator_2", "notes" => "Note_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.en_name, "notes" => calculator_1.en_notes },
+        { "name" => calculator_2.en_name, "notes" => calculator_2.en_notes }
       ])
     end
 
@@ -45,11 +39,9 @@ RSpec.describe "Calculators", type: :request do
       get "/en/api/v2/calculators.json", params: { name: nil }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Calculator_1", "notes" => "Note_1" },
-        { "name" => "Calculator_2", "notes" => "Note_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.en_name, "notes" => calculator_1.en_notes },
+        { "name" => calculator_2.en_name, "notes" => calculator_2.en_notes }
       ])
     end
 
@@ -57,11 +49,9 @@ RSpec.describe "Calculators", type: :request do
       get "/en/api/v2/calculators.json", params: { name: "abc" }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Calculator_1", "notes" => "Note_1" },
-        { "name" => "Calculator_2", "notes" => "Note_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.en_name, "notes" => calculator_1.en_notes },
+        { "name" => calculator_2.en_name, "notes" => calculator_2.en_notes }
       ])
     end
   end
@@ -71,11 +61,9 @@ RSpec.describe "Calculators", type: :request do
       get "/uk/api/v2/calculators.json"
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Калькулятор_1", "notes" => "Опис_1" },
-        { "name" => "Калькулятор_2", "notes" => "Опис_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.uk_name, "notes" => calculator_1.uk_notes },
+        { "name" => calculator_2.uk_name, "notes" => calculator_2.uk_notes }
       ])
     end
 
@@ -83,11 +71,9 @@ RSpec.describe "Calculators", type: :request do
       get "/uk/api/v2/calculators.json", params: { name: "desc" }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Калькулятор_2", "notes" => "Опис_2" },
-        { "name" => "Калькулятор_1", "notes" => "Опис_1" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_2.uk_name, "notes" => calculator_2.uk_notes },
+        { "name" => calculator_1.uk_name, "notes" => calculator_1.uk_notes }
       ])
     end
 
@@ -95,11 +81,9 @@ RSpec.describe "Calculators", type: :request do
       get "/uk/api/v2/calculators.json", params: { name: "asc" }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Калькулятор_1", "notes" => "Опис_1" },
-        { "name" => "Калькулятор_2", "notes" => "Опис_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.uk_name, "notes" => calculator_1.uk_notes },
+        { "name" => calculator_2.uk_name, "notes" => calculator_2.uk_notes }
       ])
     end
 
@@ -107,11 +91,9 @@ RSpec.describe "Calculators", type: :request do
       get "/uk/api/v2/calculators.json", params: { name: nil }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Калькулятор_1", "notes" => "Опис_1" },
-        { "name" => "Калькулятор_2", "notes" => "Опис_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.uk_name, "notes" => calculator_1.uk_notes },
+        { "name" => calculator_2.uk_name, "notes" => calculator_2.uk_notes }
       ])
     end
 
@@ -119,11 +101,9 @@ RSpec.describe "Calculators", type: :request do
       get "/uk/api/v2/calculators.json", params: { name: "abc" }
 
       expect(response).to be_successful
-      json = response.parsed_body
-
-      expect(json).to eq([
-        { "name" => "Калькулятор_1", "notes" => "Опис_1" },
-        { "name" => "Калькулятор_2", "notes" => "Опис_2" }
+      expect(response.parsed_body).to eq([
+        { "name" => calculator_1.uk_name, "notes" => calculator_1.uk_notes },
+        { "name" => calculator_2.uk_name, "notes" => calculator_2.uk_notes }
       ])
     end
   end
