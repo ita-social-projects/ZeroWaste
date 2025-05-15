@@ -10,9 +10,9 @@ class Calculators::PadUsageService
       premium: 7
     },
     tampons: {
-      budget: 3,
-      average: 5,
-      premium: 8
+      budget: 4.4,
+      average: 7.84,
+      premium: 12.11
     }
   }
 
