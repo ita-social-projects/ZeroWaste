@@ -15,7 +15,7 @@ class ConstructorCalculatorValidator
       category_valid?(field) if category_fields.include?(field.var_name)
     end
 
-    errors.empty?
+    errors.blank?
   end
 
   private

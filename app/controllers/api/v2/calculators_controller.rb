@@ -7,7 +7,7 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
 
   def calculate
     @calculator = resource
-    @validation = ConstructorCalculatorValidator.new(calculate_params, @calculator)
+    @validation = ConstructorCalculatorValidator.new(prepare_params, @calculator)
 
     if @validation.valid?
       calc_service = Calculators::Api::V2::CalculationService.new(@calculator, calculate_params_with_categories_converted)
@@ -22,7 +22,7 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
 
   private
 
-  def calculate_params
+  def prepare_params
     params.permit(resource.fields.map { |field| field.var_name.to_sym }.push(:locale, :slug))
   end
 
@@ -30,17 +30,23 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
     resource.fields.where(kind: "category").map(&:var_name)
   end
 
+  def category_fields_with_categories
+    resource.fields.where(kind: "category").includes(:categories)
+  end
+
   def calculate_params_with_categories_converted
-    params = calculate_params
+    params = prepare_params
 
-    params.each do |field, value|
-      next unless category_fields_name.include?(field)
+    all_categories                  = category_fields_with_categories.flat_map(&:categories)
+    categories_by_field_and_en_name = all_categories.index_by { |category| [category.field_id, category.en_name] }
 
-      params[field] = resource
-                      .fields.find_by(var_name: field)
-                      .categories.find_by(en_name: value)
-                      .price
+    category_fields_with_categories.each do |field|
+      key                    = [field.id, params[field.var_name]]
+      category               = categories_by_field_and_en_name[key]
+      params[field.var_name] = category&.price
     end
+
+    params
   end
 
   def resource
