@@ -1,4 +1,4 @@
-class CalculatorsSerializer < ApplicationService
+class CalculatorsSerializerService < ApplicationService
   def initialize(collection)
     @collection = collection
   end
