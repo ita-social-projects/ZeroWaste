@@ -99,7 +99,7 @@ en:
         user_age: "Your age"
         menstruation_age: "Age at First Menstruation"
         menopause_age: "Age at Menopause"
-        menopause_age_info: "NEED TO BE CHANGED!!! Waiting for information"
+        menopause_age_info: "The best indicator is the last menstrual period of the mother or the maternal grandmother. If this information is unknown, it is appropriate to assume the age of 50 years."
         average_menstruation_cycle_duration: "Average Menstrual Cycle Duration (mainly 21-35 days)"
         pads_per_cycle: "Average Products Used Per Cycle"
         pad_category: "Product Category"
