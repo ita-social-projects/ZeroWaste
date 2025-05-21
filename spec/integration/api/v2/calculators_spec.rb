@@ -44,13 +44,21 @@ RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
 
         let(:body) { { first_value: "medium", second_value: 2, third_value: 3 } }
 
-        schema type: :object,
-               properties: {
-                 formula_label: { type: :number, example: 6, description: "Result of the calculation" }
+        schema type: :array,
+               items: {
+                 type: :object,
+                 properties: {
+                   label: { type: :string },
+                   result: { type: :string },
+                   unit: { type: :string },
+                   relation: { type: :string, nullable: true }
+                 },
+                 required: ["label", "result", "unit"]
                }
 
         run_test! do |response|
-          expect(JSON.parse(response.body)[calculator.formulas.first.en_label]).to eq("6.0")
+          puts "Response body: #{response.body}"
+          expect(JSON.parse(response.body)[0]["result"]).to eq("6.0")
         end
       end
 

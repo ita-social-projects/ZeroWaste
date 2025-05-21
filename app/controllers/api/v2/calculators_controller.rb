@@ -10,11 +10,10 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
     @validation = ConstructorCalculatorValidator.new(prepare_params, @calculator)
 
     if @validation.valid?
-      calc_service = Calculators::Api::V2::CalculationService.new(@calculator, calculate_params_with_categories_converted)
+      calc_service = Calculators::CalculationService.new(@calculator, calculate_params_with_categories_converted)
+      results      = calc_service.perform
 
-      calc_service.perform
-
-      render json: calc_service.results, status: :ok
+      render json: results, status: :ok
     else
       render json: { errors: @validation.errors }, status: :unprocessable_entity
     end
@@ -24,10 +23,6 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
 
   def prepare_params
     params.permit(resource.fields.map { |field| field.var_name.to_sym }.push(:locale, :slug))
-  end
-
-  def category_fields_name
-    resource.fields.where(kind: "category").map(&:var_name)
   end
 
   def category_fields_with_categories

@@ -24,12 +24,23 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  formula_label:
-                    type: number
-                    example: 6
-                    description: Result of the calculation
+                type: array
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                    result:
+                      type: string
+                    unit:
+                      type: string
+                    relation:
+                      type: string
+                      nullable: true
+                  required:
+                  - label
+                  - result
+                  - unit
         '422':
           description: unprocessable entity
           content:
