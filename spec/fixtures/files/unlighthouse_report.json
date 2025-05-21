@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/en",
+    "score": 0.78,
+    "performance": 0.64,
+    "accessibility": 0.86,
+    "best-practices": 0.79,
+    "seo": 0.83
+  },
+  {
+    "path": "/en/about-us",
+    "score": 0.78,
+    "performance": 0.63,
+    "accessibility": 0.77,
+    "best-practices": 0.79,
+    "seo": 0.92
+  }
+]

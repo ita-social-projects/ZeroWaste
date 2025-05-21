@@ -152,8 +152,10 @@ en:
       year_error_msg: "Please, select years"
       month_error_msg: "Please, select month"
       presence_error_msg: "%{field} is missing"
+      length_error_msg: "%{field} must be in range from %{from} to %{to}"
     show:
       welcome_header: "Welcome to ZeroWaste"
+      image_alt: "Scales"
     buttons:
       to_main: "To main"
       calculate: "Calculate"
@@ -185,6 +187,9 @@ en:
       contact_us: "Contact us"
       contacts: "%{contacts:Contacts}"
       local_lang: "Українська"
+      toggle_menu: "Toggle menu"
+      open_menu: "Open menu icon"
+      close_menu: "Close menu icon"
     homepage:
       homepage_title: "Welcome to the diaper calculator"
       description:
@@ -235,6 +240,7 @@ en:
   about_us:
     title: "About Us"
     description:
+      description: "Information about ZeroWaste organization and team"
       first_paragraph: "We work in many directions for the sake of a clean future and sustainable development of our city and country."
       second_paragraph: "Zero Waste encourages us to use resources rationally and consciously."
       third_paragraph: "The main goal of zero waste is to move to a circular economy, where there is no garbage as such, and what is called garbage becomes a valuable resource."
@@ -243,6 +249,12 @@ en:
     description:
       "Zero Waste Lviv and SoftServe present a calculator - an online tool for calculating the number of disposable and reusable items used.
       The calculator was developed as part of the charity crowdsourcing platform Open Tech. The technical development is carried out by students of SoftServe Academy."
+  logo:
+    zerowaste_logo: "Zero Waste Logo"
+    softserve_ita_logo: "Softserve Academy Logo"
+  link:
+    zerowaste_link: "https://zerowastelviv.org.ua/en/"
+    softserve_ita_link: "https://career.softserveinc.com/en-us/softserve-academy"
   account:
     account:
       edit:
@@ -396,7 +408,7 @@ en:
             no_fields_yet_label: "No fields yet"
             update_calculator_button: "Update calculator"
         new:
-          create_calculator_button: "Create calculator"
+          create_calculator_button: "Save calculator"
           cancel_button: "Сancel"
           prohibited_to_update: " prevent the calculator from updating"
           prohibited_to_save: " перешкоджають збереженню калькулятора"
@@ -493,7 +505,9 @@ en:
           no_fields_yet_label: "No fields yet"
           update_calculator_button: "Update calculator"
       new:
-        create_calculator_button: "Create calculator"
+        uk_notes: "Ukrainian Notes"
+        en_notes: "English Notes"
+        create_calculator_button: "Save calculator"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:
@@ -502,6 +516,8 @@ en:
         name: "Show calculators on the public side"
       sandbox_mode:
         name: "Enable sandbox mode"
+      constructor_status:
+        name: "Enable calculators constructor"
       mhc_calculator_status:
         name: "Enable mhc calculator"
     sessions:
@@ -645,6 +661,9 @@ en:
               blank: "can't be blank"
             kind:
               blank: "can't be blank"
+            var_name:
+              unused_in_formula: "isn't used in any formula"
+              calculator_var_name_uniqueness: "was used %{count} times"
         named_value:
           attributes:
             name:
@@ -709,6 +728,18 @@ en:
           attributes:
             sum:
               less_than: "is too long"
+        formula:
+          attributes:
+            expression:
+              uninitialized_fields: "has uninitialized fields %{fields}"
+              mathematically_invalid: "is mathematically invalid"
+            formula_image:
+              image_size_invalid: "image is too big (more than 2MB)"
+              image_type_invalid: "image must be a JPEG or PNG"
+              first_relation_error: "is invalid no previous formula"
+              last_relation_error: "is invalid no next formula"
+              relation_between_two_error: "is invalid this formula already has a relation to the previous one"
+              already_have_relation_error: "is invalid formula can have relation with only one other formula"
     form_errors:
       one: "One error prohibited %{model} from being saved"
       other: "%{count} errors prohibited this %{model} from being saved"
@@ -733,7 +764,8 @@ en:
         period_end: "Period End"
         usage_amount: "Usage Amount"
       calculator:
-        name: "Name"
+        en_name: "Name in English"
+        uk_name: "Name in Ukrainian"
         slug: "Slug"
         preferable: "Preferable"
       category:
@@ -746,6 +778,12 @@ en:
         sum: "Sum"
       product:
         sum: "Sum"
+      field:
+        en_label: "Label in English"
+        uk_label: "Label in Ukrainian"
+        var_name: "Variable"
+      formula:
+        expression: "Expression"
   notifications:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"

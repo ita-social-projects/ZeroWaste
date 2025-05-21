@@ -31,7 +31,7 @@ gem "net-smtp"
 
 gem "country_select"
 
-gem "bigdecimal", "3.0.2"
+gem "bigdecimal", "3.1.9"
 gem "rails-i18n", "~> 7.0.0"
 
 # Use Active Storage variant
@@ -45,6 +45,8 @@ gem "active_storage_validations"
 gem "font-awesome-sass", "~> 6.4"
 gem "mini_magick", ">= 4.9.5"
 gem "factory_bot_rails" # TODO: create ENV staging and use it for this
+
+gem "cocoon", "~> 1.2"
 
 group :development, :test do
   gem "annotate"
@@ -122,3 +124,4 @@ gem "rails_db", "~> 2.4"
 gem "meta-tags"
 gem "inline_svg"
 gem "breadcrumbs_on_rails"
+gem "tinymce-rails"

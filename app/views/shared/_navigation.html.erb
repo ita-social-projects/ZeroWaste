@@ -1,6 +1,6 @@
 <header class="page-header">
   <div data-controller="burger" class="flex justify-between w-full">
-    <%= link_to image_tag("logo_zerowaste.png", alt: "Zero Waste Logo"), root_path, class: "logo-zerowaste" %>
+    <%= link_to image_tag("logo_zerowaste.png", alt: "logo.zerowaste_logo"), root_path, class: "logo-zerowaste" %>
     <div data-burger-target="navbarNav" class="hidden xl:flex flex-1">
       <ul class="admin-menu-list items-start xl:items-center">
         <li>
@@ -23,7 +23,7 @@
         </li>
         <% if user_signed_in? && current_user.admin? %>
           <li>
-            <%= link_to t("layouts.navigation.admin"), account_calculators_path, class: "tab-main-page" %>
+            <%= link_to t("layouts.navigation.admin"), edit_account_site_setting_path, class: "tab-main-page" %>
           </li>
         <% end %>
         <% if user_signed_in? %>
@@ -47,9 +47,9 @@
     </div>
     <div class="flex ml-auto">
       <div class="mt-6">
-        <button data-action="click->burger#toggle" class="admin-menu-burger-button">
-          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines" %>
-          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross" %>
+        <button data-action="click->burger#toggle" class="admin-menu-burger-button" aria-label="<%= t('layouts.navigation.toggle_menu') %>">
+          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines", alt: t("layouts.navigation.open_menu") %>
+          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross", alt: t("layouts.navigation.close_menu") %>
         </button>
       </div>
     </div>

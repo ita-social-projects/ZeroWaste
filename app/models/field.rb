@@ -5,16 +5,11 @@
 # Table name: fields
 #
 #  id            :bigint           not null, primary key
-#  from          :integer
-#  kind          :integer          not null
-#  label         :string
-#  name          :string
-#  selector      :string           not null
-#  to            :integer
-#  type          :string           not null
+#  en_label      :string           default(""), not null
+#  kind          :string           not null
+#  uk_label      :string           default(""), not null
 #  unit          :integer          default("day")
-#  uuid          :uuid             not null
-#  value         :string
+#  var_name      :string           default(""), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  calculator_id :bigint           not null
@@ -22,26 +17,32 @@
 # Indexes
 #
 #  index_fields_on_calculator_id  (calculator_id)
-#  index_fields_on_uuid           (uuid) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (calculator_id => calculators.id)
 #
 class Field < ApplicationRecord
+  include Translatable
+
+  translates :label
+
   belongs_to :calculator
 
-  enum :kind, { form: 0, parameter: 1, result: 2 }
+  has_many :categories, dependent: :destroy
+
+  NUMBER   = "number"
+  CATEGORY = "category"
+  KINDS    = { number: NUMBER, category: CATEGORY }.freeze
+
+  enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
 
-  validates :type, :kind, :label, presence: true
+  validates :kind, presence: true
+  validates :uk_label, :en_label, presence: true, length: { minimum: 3, maximum: 50 }
+  validates :var_name, presence: true, format: { with: /\A[a-zA-Z_]+\z/ }
 
-  before_create :set_selector, if: -> { selector.blank? }
+  validates_with FieldValidator
 
-  private
-
-  def set_selector
-    index = Field.order(selector: :desc)
-                 .find_by(calculator: calculator, kind: kind)
-                 &.selector
-                 &.gsub(/\D/, "").to_i.next
-
-    self.selector = "#{kind&.first&.upcase}#{index}"
-  end
+  accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
 end
