@@ -109,7 +109,8 @@
 
 .info-label:hover {
   display: block;
-  
+}
+
 .calculator-field {
   background-color: $light_gray !important;
   border: 0;
@@ -431,7 +432,7 @@ select.custom-select {
   }
   .formula-image {
     margin-left: 50px;
-  }  
+  }
 }
 
 @media screen and (max-width: 879px) {
@@ -500,7 +501,7 @@ select.custom-select {
 
   .formula-image {
     margin-left: 120px;
-  }  
+  }
 }
 
 @media screen and (max-width: $sm) {
