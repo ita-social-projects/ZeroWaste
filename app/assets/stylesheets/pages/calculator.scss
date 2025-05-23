@@ -83,6 +83,34 @@
   margin-right: 0px;
 }
 
+.info-div {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.info-image {
+  width: 1rem;
+  height: 1rem;
+}
+
+.info-label {
+  display: none;
+  position: absolute;
+  margin-left: 250px;
+  background-color: #ececec;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.info-image:hover + .info-label {
+  display: block;
+}
+
+.info-label:hover {
+  display: block;
+}
+
 .calculator-field {
   background-color: $light_gray !important;
   border: 0;
@@ -247,6 +275,52 @@ select.custom-select {
   text-decoration: none;
 }
 
+.reusable-item-name{
+  top: 30%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1.125rem; // 18px
+  font-weight: 600;
+  position: absolute;
+  padding: 0.5rem; // 8px
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.reusable-item-button{
+  background-color: white;
+  padding: 0.5rem;
+  width: auto;
+  border-radius: 0.375rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap
+}
+
+.reusable-item-button:hover{
+  background-color: lightgrey;
+}
+
+.image-wrapper {
+  display: flex;
+  align-items: stretch;
+
+  .image-container {
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
 @media screen and (max-width: $sm) {
   .logo-zerowaste img {
     width: 100%;
@@ -358,7 +432,7 @@ select.custom-select {
   }
   .formula-image {
     margin-left: 50px;
-  }  
+  }
 }
 
 @media screen and (max-width: 879px) {
@@ -427,7 +501,7 @@ select.custom-select {
 
   .formula-image {
     margin-left: 120px;
-  }  
+  }
 }
 
 @media screen and (max-width: $sm) {
@@ -446,6 +520,9 @@ select.custom-select {
 @media screen and (max-width: $xs) {
   .jumbotron {
     margin: 0;
+  }
+  .info-label {
+  margin-left: 220px;
   }
   .result-container {
     div {

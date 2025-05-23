@@ -25,14 +25,17 @@
                              class: "form_fild price_select rounded w-100 form-control mb-0	",
                              data: { mhc_calculator_target: "menstruationAge" } %>
 
-        <div class="pb-2 input_lable mt-6">
+        <div class="pb-2 input_lable info-div mt-6">
           <%= label_tag "child_product_category", t(".form.menopause_age") %>
+          <%= image_tag "icons/info-circle.svg", class: "info-image" %>
+          <%= label_tag "child_product_category", t(".form.menopause_age_info"), class: "info-label" %>
         </div>
 
         <%= form.input_field :menopause_age,
-                             type: "number",
-                             class: "form_fild price_select rounded w-100 form-control mb-0",
-                             data: { mhc_calculator_target: "menopauseAge" } %>
+                              type: "number",
+                              class: "form_fild price_select rounded w-100 form-control mb-0",
+                              placeholder: "50",
+                              data: { mhc_calculator_target: "menopauseAge" } %>
 
         <div class="pb-2 input_lable mt-6">
           <%= label_tag "child_product_category", t(".form.average_menstruation_cycle_duration") %>
@@ -90,4 +93,5 @@
   <% end %>
 </div>
 
+<%= render "calculators/mhc_reusable_products" %>
 <%= render "calculators/mhc_description_block" %>
