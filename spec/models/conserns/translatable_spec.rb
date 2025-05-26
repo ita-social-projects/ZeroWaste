@@ -35,11 +35,13 @@ RSpec.describe Translatable do
     let(:attribute_without_locale) { "color" }
 
     context "when current locale column exists" do
-      it "returns the column name for the current locale" do
+      it "returns the column name for :uk locale" do
         I18n.with_locale(:uk) do
           expect(Calculator.localized_column_for(attribute_with_locales)).to eq("uk_name")
         end
+      end
 
+      it "returns the column name for :en locale" do
         I18n.with_locale(:en) do
           expect(Calculator.localized_column_for(attribute_with_locales)).to eq("en_name")
         end
