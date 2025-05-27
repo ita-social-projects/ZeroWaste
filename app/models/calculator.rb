@@ -52,6 +52,7 @@ class Calculator < ApplicationRecord
   scope :order_by_name, ->(order_direction) {
     direction      = (order_direction == "desc") ? :desc : :asc
     localized_name = localized_column_for(:name)
+
     order(localized_name => direction)
   }
 
