@@ -1,0 +1,10 @@
+---
+- name: Install Redis
+  shell: |
+    brew install redis
+  become: false
+
+- name: Start redis server
+  shell: |
+    brew services start redis
+  become: false
