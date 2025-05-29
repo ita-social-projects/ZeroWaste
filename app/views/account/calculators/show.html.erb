@@ -6,15 +6,32 @@
 
   <div class="calc-details mb-4">
     <span class="text-lg showpage-text"><%= t('.name') %>:</span>
-    <p class="text-2xl font-extrabold"> <%= @calculator.name %> </p>
+    <p class="text-2xl font-extrabold"><%= @calculator.name %></p>
   </div>
 
   <div class="calc-details mb-4">
     <span class="text-lg showpage-text"><%= t('.slug') %>:</span>
-    <p class="font-bold"> <%= @calculator.slug %> </p>
+    <p class="font-bold"><%= @calculator.slug %></p>
   </div>
 
-  <!-- Display Fields -->
+  <!-- Color -->
+  <div class="calc-details mb-4">
+    <span class="text-lg showpage-text"><%= t('.color') %>:</span>
+    <div class="flex items-center gap-2 mt-1">
+      <div class="w-6 h-6 rounded border" style="background-color: <%= @calculator.color %>;"></div>
+      <span><%= @calculator.color %></span>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <% if @calculator.notes.present? %>
+    <div class="calc-details mb-4">
+      <h3 class="text-lg showpage-text"><%= t('.notes') %>:</h3>
+      <p><%= sanitize_content(@calculator.notes) %></p>
+    </div>
+  <% end %>
+
+  <!-- Fields -->
   <div class="calc-details mb-4">
     <h3 class="text-lg showpage-text"><%= t('.fields') %>:</h3>
     <% @calculator.fields.each do |field| %>
@@ -27,7 +44,7 @@
     <% end %>
   </div>
 
-  <!-- Display Formulas -->
+  <!-- Formulas -->
   <div class="calc-details mb-4">
     <h3 class="text-lg showpage-text"><%= t('.formulas') %>:</h3>
     <% @calculator.formulas.each do |formula| %>
@@ -44,7 +61,7 @@
 
   <%= render "calculators/partials/logo_picture", calculator: @calculator %>
 
-  <div class="showpage-buttons">
+  <div class="showpage-buttons flex flex-wrap gap-2">
     <%= link_to t('.edit'),
                 edit_account_calculator_path(@calculator.slug, locale: I18n.locale),
                 class: "btn btn-green" %>
@@ -55,5 +72,10 @@
                   class: "btn btn-danger" do %>
       <%= t('.delete') %>
     <% end %>
+
+    <%= link_to t('.view_public'),
+                public_calculator_path(@calculator.slug, locale: I18n.locale),
+                class: "btn btn-blue",
+                target: "_blank" %>
   </div>
 </div>

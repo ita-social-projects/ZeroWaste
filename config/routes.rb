@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     get "/calculator", to: "calculators#calculator"
     get "/mhc_calculator", to: "calculators#mhc_calculator"
     post "/receive_recomendations", to: "calculators#receive_recomendations"
+    get "/calculators/:slug", to: "calculators#show", as: :public_calculator
+
 
     get "about-us", to: "home#about", as: "about"
 
