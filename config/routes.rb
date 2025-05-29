@@ -35,7 +35,6 @@ Rails.application.routes.draw do
     post "/receive_recomendations", to: "calculators#receive_recomendations"
     get "/calculators/:slug", to: "calculators#show", as: :public_calculator
 
-
     get "about-us", to: "home#about", as: "about"
 
     resources :calculators, only: [:index, :show], param: :slug do
