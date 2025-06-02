@@ -22,7 +22,7 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
   private
 
   def prepare_params
-    params.permit(resource.fields.map { |field| field.var_name.to_sym }.push(:locale, :slug))
+    params.permit(resource.fields.pluck(:var_name).map(&:to_sym).push(:locale, :slug))
   end
 
   def category_fields_with_categories
