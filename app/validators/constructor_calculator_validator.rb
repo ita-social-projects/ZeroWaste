@@ -36,18 +36,22 @@ class ConstructorCalculatorValidator
 
   def presence_valid?(field)
     name = field.var_name
+
     return true if @params[name].present?
 
     @errors[name] = I18n.t("calculators.errors.presence_error_msg", field: localized_field_label(field))
+
     false
   end
 
   def category_valid?(field)
     name       = field.var_name
     categories = valid_categories(name)
+
     return true if categories.include?(@params[name])
 
     @errors[name] = I18n.t("calculators.errors.wrong_category_error_msg")
+
     false
   end
 end

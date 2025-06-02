@@ -57,7 +57,6 @@ RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
                }
 
         run_test! do |response|
-          puts "Response body: #{response.body}"
           expect(JSON.parse(response.body)[0]["result"]).to eq("6.0")
         end
       end
