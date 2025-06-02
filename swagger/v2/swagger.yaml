@@ -90,7 +90,7 @@ paths:
       - Pad Calculator
       description: |-
         Calculate pad usage and cost based on user input.
-              Available categories: budget, average, premium
+              Available types: pads, tampons
       parameters: []
       responses:
         '200':
@@ -139,9 +139,15 @@ paths:
                       average_menstruation_cycle_duration:
                         type: string
                         example: Average Menstrual Cycle Duration (days) is missing
-                      pads_per_cycle:
+                      duration_of_menstruation:
+                        type: string
+                        example: Duration of Menstruation (days) is missing
+                      disposable_products_per_day:
                         type: string
                         example: Average Products Used Per Cycle is missing
+                      product_type:
+                        type: string
+                        example: Product Type is missing
                       pad_category:
                         type: string
                         example: Product Category is missing
@@ -169,10 +175,18 @@ paths:
                   type: integer
                   example: 28
                   description: Average menstruation cycle duration
-                pads_per_cycle:
+                duration_of_menstruation:
+                  type: integer
+                  example: 5
+                  description: Duration of menstruation in days
+                disposable_products_per_day:
                   type: integer
                   example: 10
-                  description: Pads per cycle
+                  description: Disposable products per day
+                product_type:
+                  type: string
+                  example: pads
+                  description: Product type (pads or tampons)
                 pad_category:
                   type: string
                   example: budget
@@ -181,7 +195,7 @@ paths:
               - user_age
               - menstruation_age
               - average_menstruation_cycle_duration
-              - pads_per_cycle
+              - disposable_products_per_day
 servers:
 - url: "{protocol}://{defaultHostLocal}/{locale}/api/v2/"
   description: Localhost server (uses test data)
