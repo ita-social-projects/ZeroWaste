@@ -1,6 +1,6 @@
 require "swagger_helper"
 
-RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :request do # rubocop:disable RSpec/EmptyExampleGroup
+RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :request do
   path "/pad_calculators" do
     post("Pad calculator") do
       tags "Pad Calculator"
