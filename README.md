@@ -113,6 +113,7 @@ $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 **First run**
   1. Ensure that postgresql and redis are running
   2. Run `bin/rails tailwindcss:watch` with `rails server` to watch for changes in tailwind and start server or run `bin/dev`
+  3. Also generate rswag documentation with `rails rswag`
 
 **Access the application**
  Open http://localhost:3000 to view it in the browser.

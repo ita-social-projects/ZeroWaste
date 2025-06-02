@@ -70,3 +70,4 @@ package-lock.json
 !/app/assets/builds/.keep
 
 .rvmrc
+/swagger
