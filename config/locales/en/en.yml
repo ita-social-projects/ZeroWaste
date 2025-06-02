@@ -162,6 +162,7 @@ en:
       category_error_msg: "Please, select category"
       wrong_category_error_msg: "Please, select correct category"
       category_not_found_error_msg: "This category doesn't exist"
+      type_error_msg: "This type of product is not available"
     show:
       welcome_header: "Welcome to ZeroWaste"
       image_alt: "Scales"

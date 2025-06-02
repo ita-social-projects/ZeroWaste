@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class MhcCalculatorValidator
+  PARAM_TO_PRODUCT_MAPPING = {
+    pad_category: :pads,
+    product_type: :tampons
+  }.freeze
+
   attr_reader :params, :errors
 
   def initialize(params)
@@ -58,7 +63,9 @@ class MhcCalculatorValidator
   end
 
   def validate_product_type
-    presence_valid?(:product_type)
+    return unless presence_valid?(:product_type)
+
+    type_valid?(:product_type)
   end
 
   def validate_pad_category
@@ -84,11 +91,22 @@ class MhcCalculatorValidator
   end
 
   def category_valid?(param)
-    valid_categories = Calculators::PadUsageService::PAD_PRICES.keys.map(&:to_s)
+    product_key      = PARAM_TO_PRODUCT_MAPPING[param]
+    valid_categories = Calculators::PadUsageService::PRODUCT_PRICES[product_key].keys.map(&:to_s)
 
     return true if valid_categories.include?(@params[param])
 
     @errors[param] = I18n.t("calculators.errors.wrong_category_error_msg")
+
+    false
+  end
+
+  def type_valid?(param)
+    valid_types  = Calculators::PadUsageService::PRODUCT_PRICES.keys.map(&:to_s)
+
+    return true if valid_types.include?(@params[param])
+
+    @errors[param] = I18n.t("calculators.errors.type_error_msg")
 
     false
   end
