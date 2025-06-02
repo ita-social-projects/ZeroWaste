@@ -8,9 +8,7 @@ class Api::V1::PadCalculatorsController < ApplicationController
         menstruation_age: params[:menstruation_age],
         menopause_age: params[:menopause_age],
         average_menstruation_cycle_duration: params[:average_menstruation_cycle_duration],
-        duration_of_menstruation: params[:duration_of_menstruation],
-        disposable_products_per_day: params[:disposable_products_per_day],
-        product_type: params[:product_type],
+        pads_per_cycle: params[:pads_per_cycle],
         pad_category: params[:pad_category]
       )
 

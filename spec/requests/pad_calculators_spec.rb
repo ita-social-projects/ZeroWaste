@@ -18,9 +18,7 @@ RSpec.describe Api::V1::PadCalculatorsController, type: :request do
       menstruation_age: 13,
       menopause_age: 51,
       average_menstruation_cycle_duration: 28,
-      duration_of_menstruation: 4,
-      disposable_products_per_day: 5,
-      product_type: :pads,
+      pads_per_cycle: 20,
       pad_category: :budget
     }
   end

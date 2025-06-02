@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import { FetchRequest } from "@rails/request.js";
 
 export default class extends Controller {
-  static targets = ["userAge", "menstruationAge", "menopauseAge", "averageMenstruationCycleDuration", "durationOfMenstruation", "disposableProductsPerDay", "productType", "padCategory"];
+  static targets = ["userAge", "menstruationAge", "menopauseAge", "averageMenstruationCycleDuration", "padsPerCycle", "padCategory"];
   static outlets = ["pad-results"];
   static values = {
     url: {
@@ -19,9 +19,7 @@ export default class extends Controller {
       menstruation_age: parseInt(this.menstruationAgeTarget.value),
       menopause_age: parseInt(this.menopauseAgeTarget.value),
       average_menstruation_cycle_duration: parseInt(this.averageMenstruationCycleDurationTarget.value),
-      duration_of_menstruation: parseInt(this.durationOfMenstruationTarget.value),
-      disposable_products_per_day: parseInt(this.disposableProductsPerDayTarget.value),
-      product_type: this.productTypeTarget.value,
+      pads_per_cycle: parseInt(this.padsPerCycleTarget.value),
       pad_category: this.padCategoryTarget.value
     };
 

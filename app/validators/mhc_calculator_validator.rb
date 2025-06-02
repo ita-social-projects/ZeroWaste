@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 class MhcCalculatorValidator
-  PARAM_TO_PRODUCT_MAPPING = {
-    pad_category: :pads,
-    product_type: :tampons
-  }.freeze
-
   attr_reader :params, :errors
 
   def initialize(params)
@@ -18,9 +13,7 @@ class MhcCalculatorValidator
     validate_menstruation_age
     validate_menopause_age
     validate_average_menstruation_cycle_duration
-    validate_duration_of_menstruation
-    validate_disposable_products_per_day
-    validate_product_type
+    validate_pads_per_cycle
     validate_pad_category
 
     errors.empty?
@@ -52,20 +45,10 @@ class MhcCalculatorValidator
     length_valid?(:average_menstruation_cycle_duration, 1, 100)
   end
 
-  def validate_duration_of_menstruation
-    presence_valid?(:duration_of_menstruation)
-  end
+  def validate_pads_per_cycle
+    return unless presence_valid?(:pads_per_cycle)
 
-  def validate_disposable_products_per_day
-    return unless presence_valid?(:disposable_products_per_day)
-
-    length_valid?(:disposable_products_per_day, 1, 100)
-  end
-
-  def validate_product_type
-    return unless presence_valid?(:product_type)
-
-    type_valid?(:product_type)
+    length_valid?(:pads_per_cycle, 1, 100)
   end
 
   def validate_pad_category
@@ -91,22 +74,11 @@ class MhcCalculatorValidator
   end
 
   def category_valid?(param)
-    product_key      = PARAM_TO_PRODUCT_MAPPING[param]
-    valid_categories = Calculators::PadUsageService::PRODUCT_PRICES[product_key].keys.map(&:to_s)
+    valid_categories = Calculators::PadUsageService::PAD_PRICES.keys.map(&:to_s)
 
     return true if valid_categories.include?(@params[param])
 
     @errors[param] = I18n.t("calculators.errors.wrong_category_error_msg")
-
-    false
-  end
-
-  def type_valid?(param)
-    valid_types = Calculators::PadUsageService::PRODUCT_PRICES.keys.map(&:to_s)
-
-    return true if valid_types.include?(@params[param])
-
-    @errors[param] = I18n.t("calculators.errors.wrong_type_error_msg")
 
     false
   end
