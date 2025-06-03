@@ -49,9 +49,10 @@ class Calculator < ApplicationRecord
             }
   validates :color, format: { with: /\A#[0-9a-fA-F]{6}\z/ }
 
-  scope :order_by_name, ->(params) {
-    direction      = (params == "desc") ? :desc : :asc
-    localized_name = "#{I18n.locale}_name"
+  scope :order_by_name, ->(order_direction) {
+    direction      = (order_direction == "desc") ? :desc : :asc
+    localized_name = localized_column_for(:name)
+
     order(localized_name => direction)
   }
 

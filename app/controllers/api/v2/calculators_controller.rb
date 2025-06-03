@@ -1,8 +1,8 @@
 class Api::V2::CalculatorsController < Api::V2::ApplicationController
   def index
-    calculators = collection.order_by_name(params[:name])
+    calculators = collection.order_by_name(permitted_params[:name])
 
-    render json: CalculatorsSerializer.call(calculators)
+    render json: CalculatorsSerializerService.call(calculators)
   end
 
   def calculate
@@ -46,6 +46,10 @@ class Api::V2::CalculatorsController < Api::V2::ApplicationController
 
   def resource
     collection.find_by(slug: params[:slug])
+  end
+
+  def permitted_params
+    params.permit(:name)
   end
 
   def collection
