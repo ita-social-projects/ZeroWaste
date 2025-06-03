@@ -62,6 +62,8 @@ en:
     account_footer:
       created_with: "Created with"
       by: "by"
+    footer:
+      api_documentation: "API Documentation"
   calculators:
     description_block:
       description_block_html:

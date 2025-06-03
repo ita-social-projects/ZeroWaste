@@ -1,0 +1,13 @@
+@layer components {
+  .footer {
+    @apply p-6 mt-5 bottom-0 w-full mx-auto max-w-1230 border-t-2 border-gray sticky top-[100vh];
+  }
+
+  .footer_text {
+    @apply flex text-white flex-col sm:flex-row justify-between items-center text-center;
+  }
+
+  .footer .footer-menu {
+    @apply admin-menu-list mr-auto ml-0 px-8;
+  }
+}

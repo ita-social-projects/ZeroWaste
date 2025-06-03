@@ -32,6 +32,8 @@ uk:
       created_with: "Створено з"
       by: "в"
       softserve_ita:
+    footer:
+      api_documentation: "API Документація"
   calculators:
     description_block:
       description_block_html:
