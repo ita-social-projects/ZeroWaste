@@ -1,6 +1,6 @@
 @layer components {
   .page-header {
-    @apply flex w-full max-w-1230 mx-auto border-b-2 border-gray;
+    @apply flex w-full max-w-1530 mx-auto border-b-2 border-gray;
   }
 
   .tab {
@@ -8,10 +8,10 @@
   }
 
   .tab-main-page {
-     @apply flex-row px-6 py-4 text-sm text-white uppercase transition duration-500 ease-in-out border-b-2 border-transparent xl:flex whitespace-nowrap hover:border-success;
+     @apply flex-row px-4 py-4 text-xs text-white uppercase transition duration-500 ease-in-out border-b-2 border-transparent xl:flex whitespace-nowrap hover:border-success;
   }
 
   .header-btns {
-    @apply w-auto ml-2 min-w-fit;
+    @apply w-auto min-w-fit;
   }
 }
