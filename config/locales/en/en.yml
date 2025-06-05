@@ -402,6 +402,7 @@ en:
           calculator_actions: "Actions"
           show: "Show"
           edit: "Edit"
+          duplicate: "Duplicate"
           delete: "Delete"
         edit:
           add_new_field_label: "Add new field"
@@ -793,6 +794,8 @@ en:
   notifications:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"
+    calculator_duplicated: "Calculator has been successfully duplicated"
+    calculator_not_duplicated: "Calculator could not be duplicated"
     calculator_deleted: "Calculator has been successfully deleted"
     user_created: "User has been successfully created"
     user_updated: "User has been successfully updated"

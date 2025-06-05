@@ -24,6 +24,7 @@
         <th scope="col"><%= sort_link(@q, :slug, t(".table.calculator_slug"), default_order: :desc) %></th>
         <th scope="col" class="text-center"><%= t('.table.show') %></th>
         <th scope="col" class="text-center"><%= t('.table.edit') %></th>
+        <th scope="col" class="text-center"><%= t('.table.duplicate') %></th>
         <th scope="col" class="text-center"><%= t('.table.delete') %></th>
       </tr>
     </thead>
@@ -35,6 +36,7 @@
           <td><%= calculator.slug %></td>
           <td class="text-center"><%= link_to icon('fa-solid', 'eye'), account_calculator_path(slug: calculator) %></td>
           <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_calculator_path(slug: calculator) %></td>
+          <td class="text-center"><%= link_to icon('fa-solid', 'copy'), duplicate_account_calculator_path(slug: calculator) %></td>
           <td class="text-center">
             <%= button_to account_calculator_path(slug: calculator), method: :delete,
                         data: { turbo_confirm: t(".confirm_delete") } do %>

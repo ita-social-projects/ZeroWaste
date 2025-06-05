@@ -382,6 +382,7 @@ uk:
           calculator_actions: "Дії"
           show: "Показати"
           edit: "Відредагувати"
+          duplicate: "Дублювати"
           delete: "Видалити"
       edit:
         add_new_field_label: "Додати нове поле"
@@ -798,6 +799,8 @@ uk:
   notifications:
     calculator_created: "Калькулятор було успішно створено"
     calculator_updated: "Калькулятор було успішно оновлено"
+    calculator_duplicated: "Калькулятор було успішно дубльовано"
+    calculator_not_duplicated: "Калькулятор не вдалося дублювати"
     calculator_deleted: "Калькулятор було успішно видалено"
     user_created: "Користувача було успішно створено"
     user_updated: "Користувача було успішно оновлено"
