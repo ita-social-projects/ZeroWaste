@@ -25,14 +25,17 @@
                              class: "form_fild price_select rounded w-100 form-control mb-0	",
                              data: { mhc_calculator_target: "menstruationAge" } %>
 
-        <div class="pb-2 input_lable mt-6">
+        <div class="pb-2 input_lable info-div mt-6">
           <%= label_tag "child_product_category", t(".form.menopause_age") %>
+          <%= image_tag "icons/info-circle.svg", class: "info-image" %>
+          <%= label_tag "child_product_category", t(".form.menopause_age_info"), class: "info-label" %>
         </div>
 
         <%= form.input_field :menopause_age,
-                             type: "number",
-                             class: "form_fild price_select rounded w-100 form-control mb-0",
-                             data: { mhc_calculator_target: "menopauseAge" } %>
+                              type: "number",
+                              class: "form_fild price_select rounded w-100 form-control mb-0",
+                              placeholder: "50",
+                              data: { mhc_calculator_target: "menopauseAge" } %>
 
         <div class="pb-2 input_lable mt-6">
           <%= label_tag "child_product_category", t(".form.average_menstruation_cycle_duration") %>
@@ -43,14 +46,35 @@
                              class: "form_fild price_select rounded w-100 form-control mb-0",
                              data: { mhc_calculator_target: "averageMenstruationCycleDuration" } %>
 
-        <div class="pb-2 input_lable mt-6">
-          <%= label_tag "child_product_category", t(".form.pads_per_cycle") %>
+        <div class="pb-2 input_lable info-div mt-6">
+          <%= label_tag "child_product_category", t(".form.duration_of_menstruation") %>
+          <%= image_tag "icons/info-circle.svg", class: "info-image" %>
+          <%= label_tag "child_product_category", t(".form.duration_of_menstruation_info"), class: "info-label" %>
         </div>
 
-        <%= form.input_field :pads_per_cycle,
+        <%= form.input_field :duration_of_menstruation,
                              type: "number",
                              class: "form_fild price_select rounded w-100 form-control mb-0",
-                             data: { mhc_calculator_target: "padsPerCycle" } %>
+                             data: { mhc_calculator_target: "durationOfMenstruation" } %>
+
+        <div class="pb-2 input_lable mt-6">
+          <%= label_tag "child_product_category", t(".form.disposable_products_per_day") %>
+        </div>
+
+        <%= form.input_field :disposable_products_per_day,
+                             type: "number",
+                             class: "form_fild price_select rounded w-100 form-control mb-0",
+                             data: { mhc_calculator_target: "disposableProductsPerDay" } %>
+
+        <div class="pb-2 input_lable mt-6">
+          <%= label_tag "child_product_category", t(".form.product_type") %>
+        </div>
+                     
+        <%= form.input_field :product_type,
+                            collection: [[t(".form.pads"), :pads], [t(".form.tampons"), :tampons]],
+                            selected: "Pads",
+                            class: "form_fild price_select rounded w-100 form-control mb-0",
+                            data: { mhc_calculator_target: "productType" } %>
 
         <div class="pb-2 input_lable mt-6">
           <%= label_tag "child_product_category", t(".form.pad_category") %>
@@ -90,4 +114,5 @@
   <% end %>
 </div>
 
+<%= render "calculators/mhc_reusable_products" %>
 <%= render "calculators/mhc_description_block" %>
