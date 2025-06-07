@@ -92,9 +92,9 @@ class MhcCalculatorValidator
 
   def category_valid?(param)
     product_key      = PARAM_TO_PRODUCT_MAPPING[param]
-    valid_categories = Calculators::PadUsageService::PRODUCT_PRICES[product_key].keys.map(&:to_s)
+    valid_categories = Calculators::PadUsageService::PRODUCT_PRICES[product_key].keys
 
-    return true if valid_categories.include?(@params[param])
+    return true if valid_categories.include?(@params[param].to_sym)
 
     @errors[param] = I18n.t("calculators.errors.wrong_category_error_msg")
 
@@ -102,9 +102,9 @@ class MhcCalculatorValidator
   end
 
   def type_valid?(param)
-    valid_types  = Calculators::PadUsageService::PRODUCT_PRICES.keys.map(&:to_s)
+    valid_types  = Calculators::PadUsageService::PRODUCT_PRICES.keys
 
-    return true if valid_types.include?(@params[param])
+    return true if valid_types.include?(@params[param].to_sym)
 
     @errors[param] = I18n.t("calculators.errors.type_error_msg")
 
