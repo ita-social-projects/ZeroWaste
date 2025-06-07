@@ -75,3 +75,15 @@ shared_examples "pad category validation" do |attribute|
     end
   end
 end
+
+shared_examples "product type validation" do |attribute|
+  before do
+    validator.params[attribute] = "invalid_type"
+  end
+
+  it "#{attribute} is invalid when not a valid product type" do
+    validator.send(:"validate_#{attribute}")
+
+    expect(validator.errors[attribute]).to eq(I18n.t("#{local_error_prefix}.type_error_msg"))
+  end
+end

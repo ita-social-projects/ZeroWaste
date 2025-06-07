@@ -1,11 +1,11 @@
 require "swagger_helper"
 
-RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :request do # rubocop:disable RSpec/EmptyExampleGroup
+RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :request do
   path "/pad_calculators" do
     post("Pad calculator") do
       tags "Pad Calculator"
       description "Calculate pad usage and cost based on user input.
-      Available categories: #{Calculators::PadUsageService::PAD_PRICES.keys.map(&:to_s).join(", ")}"
+      Available types: #{Calculators::PadUsageService::PRODUCT_PRICES.keys.map(&:to_s).join(", ")}"
 
       consumes "application/json"
       produces "application/json"
@@ -17,10 +17,12 @@ RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :reque
           menstruation_age: { type: :integer, example: 13, description: "Menstruation age" },
           menopause_age: { type: :integer, example: 50, description: "Menopause age" },
           average_menstruation_cycle_duration: { type: :integer, example: 28, description: "Average menstruation cycle duration" },
-          pads_per_cycle: { type: :integer, example: 10, description: "Pads per cycle" },
+          duration_of_menstruation: { type: :integer, example: 5, description: "Duration of menstruation in days" },
+          disposable_products_per_day: { type: :integer, example: 10, description: "Disposable products per day" },
+          product_type: { type: :string, example: "pads", description: "Product type (pads or tampons)" },
           pad_category: { type: :string, example: "budget", description: "Pad category" }
         },
-        required: ["user_age", "menstruation_age", "average_menstruation_cycle_duration", "pads_per_cycle"]
+        required: ["user_age", "menstruation_age", "average_menstruation_cycle_duration", "disposable_products_per_day"]
       }
 
       response(200, "successful") do
@@ -30,7 +32,9 @@ RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :reque
             menstruation_age: 13,
             menopause_age: 50,
             average_menstruation_cycle_duration: 28,
-            pads_per_cycle: 10,
+            duration_of_menstruation: 5,
+            disposable_products_per_day: 10,
+            product_type: "pads",
             pad_category: "budget"
           }
         end
@@ -58,7 +62,9 @@ RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :reque
                      menstruation_age: { type: :string, example: "Age at First Menstruation must be in range from 1 to 100" },
                      menopause_age: { type: :string, example: "Age at Menopause is missing" },
                      average_menstruation_cycle_duration: { type: :string, example: "Average Menstrual Cycle Duration (days) is missing" },
-                     pads_per_cycle: { type: :string, example: "Average Products Used Per Cycle is missing" },
+                     duration_of_menstruation: { type: :string, example: "Duration of Menstruation (days) is missing" },
+                     disposable_products_per_day: { type: :string, example: "Average Products Used Per Cycle is missing" },
+                     product_type: { type: :string, example: "Product Type is missing" },
                      pad_category: { type: :string, example: "Product Category is missing" }
                    }
                  }
