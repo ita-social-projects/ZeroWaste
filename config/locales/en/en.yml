@@ -515,6 +515,8 @@ en:
         uk_notes: "Ukrainian Notes"
         en_notes: "English Notes"
         create_calculator_button: "Save calculator"
+      show:
+        fork_for: "Fork for"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:
