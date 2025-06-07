@@ -1,6 +1,6 @@
 require "swagger_helper"
 
-RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do # rubocop:disable RSpec/EmptyExampleGroup
+RSpec.describe "calculators", openapi_spec: "v2/swagger.yaml", type: :request do
   let!(:calculator) { create(:calculator) }
   let!(:formula) do
     build(:formula,
