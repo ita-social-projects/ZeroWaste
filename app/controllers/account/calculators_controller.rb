@@ -47,15 +47,11 @@ class Account::CalculatorsController < Account::BaseController
 
   def duplicate
     @calculator   = resource
-    @copy         = @calculator.dup
+    @copy         = @calculator.amoeba_dup
     @copy.en_name = "#{@calculator.en_name} (copy)"
     @copy.uk_name = "#{@calculator.uk_name} (копія)"
 
-    attach_logo(@copy, @calculator) if @calculator.logo_picture.attached?
-
     if @copy.save
-      duplicate_association(:fields)
-      duplicate_association(:formulas)
       redirect_to account_calculator_path(slug: @copy), notice: t("notifications.calculator_duplicated")
     else
       redirect_to account_calculators_path, alert: t("notifications.calculator_not_duplicated")
@@ -99,21 +95,5 @@ class Account::CalculatorsController < Account::BaseController
     return if Flipper[:constructor_status].enabled?
 
     raise ActionController::RoutingError, "Constructor flipper is disabled"
-  end
-
-  def attach_logo(copy, original)
-    copy.logo_picture.attach(
-      io: StringIO.new(original.logo_picture.download),
-      filename: original.logo_picture.filename.to_s,
-      content_type: original.logo_picture.content_type
-    )
-  end
-
-  def duplicate_association(association_name)
-    @calculator.public_send(association_name).each do |record|
-      new_record            = record.dup
-      new_record.calculator = @copy
-      new_record.save(validate: false)
-    end
   end
 end
