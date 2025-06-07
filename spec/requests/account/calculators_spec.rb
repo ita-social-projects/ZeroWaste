@@ -171,4 +171,57 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       end
     end
   end
+
+  describe "GET /account/calculators/:slug/duplicate" do
+    let!(:field_x) { build(:field, calculator: calculator, var_name: "x").tap { |f| f.save(validate: false) } }
+    let!(:field_y) { build(:field, calculator: calculator, var_name: "y").tap { |f| f.save(validate: false) } }
+    let!(:formula) { create(:formula, calculator: calculator, expression: "x + y") }
+
+    subject(:perform_request) { get duplicate_account_calculator_path(slug: calculator.slug) }
+
+    it "duplicates calculator" do
+      expect { perform_request }.to change(Calculator, :count).by(1)
+    end
+
+    it "duplicates fields" do
+      expect { perform_request }.to change(Field, :count).by(2)
+    end
+
+    it "duplicates formulas" do
+      expect { perform_request }.to change(Formula, :count).by(1)
+    end
+
+    context "after duplication" do
+      before { perform_request }
+
+      let(:copy) { Calculator.find_by(en_name: "#{calculator.en_name} (copy)") }
+      let(:original_attrs) do
+        calculator.attributes.except("id", "uk_name", "en_name", "created_at", "updated_at", "slug")
+      end
+      let(:copy_attrs) do
+        copy.attributes.except("id", "uk_name", "en_name", "created_at", "updated_at", "slug")
+      end
+
+      it "copies all attributes correctly" do
+        expect(copy_attrs).to eq(original_attrs)
+      end
+
+      it "redirects to the duplicated calculator page" do
+        expect(response).to redirect_to(account_calculator_path(slug: copy))
+      end
+
+      it "shows a success message" do
+        follow_redirect!
+        expect(response.body).to include(I18n.t("notifications.calculator_duplicated"))
+      end
+
+      it "copies associated fields" do
+        expect(copy.fields.count).to eq(2)
+      end
+
+      it "copies associated formulas" do
+        expect(copy.formulas.count).to eq(1)
+      end
+    end
+  end
 end

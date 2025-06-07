@@ -51,11 +51,8 @@ class Account::CalculatorsController < Account::BaseController
     @copy.en_name = "#{@calculator.en_name} (copy)"
     @copy.uk_name = "#{@calculator.uk_name} (копія)"
 
-    if @copy.save
-      redirect_to account_calculator_path(slug: @copy), notice: t("notifications.calculator_duplicated")
-    else
-      redirect_to account_calculators_path, alert: t("notifications.calculator_not_duplicated")
-    end
+    @copy.save
+    redirect_to account_calculator_path(slug: @copy), notice: t("notifications.calculator_duplicated")
   end
 
   def destroy
