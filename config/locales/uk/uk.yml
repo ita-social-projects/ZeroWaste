@@ -32,6 +32,8 @@ uk:
       created_with: "Створено з"
       by: "в"
       softserve_ita:
+    footer:
+      api_documentation: "API Документація"
   calculators:
     description_block:
       description_block_html:
@@ -135,8 +137,12 @@ uk:
       year_and_month_error_msg: "Будь ласка, виберіть, скільки років та місяців дитині"
       year_error_msg: "Будь ласка, виберіть, скільки років дитині"
       month_error_msg: "Будь ласка, виберіть, скільки місяців дитині"
-      presence_error_msg: "Поле \"%{field}\" відсутнє"
-      length_error_msg: "Поле \"%{field}\" повинно бути в проміжку від %{from} до %{to}"
+      presence_error_msg: "Поле %{field} відсутнє"
+      length_error_msg: "Поле %{field} повинно бути в проміжку від %{from} до %{to}"
+      category_error_msg: "Будь ласка, виберіть категорію"
+      wrong_category_error_msg: "Будь ласка, виберіть правильну категорію"
+      category_not_found_error_msg: "Категорія не знайдена"
+      type_error_msg: "Цей тип засобів гігієни не підтримується"
     show:
       welcome_header: "Ласкаво просимо до ZeroWaste"
       calculate_result_button: "Pозрахувати"

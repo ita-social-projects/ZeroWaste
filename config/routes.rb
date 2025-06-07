@@ -3,6 +3,9 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => "/api-docs"
+  mount Rswag::Api::Engine => "/api-docs"
+
   #   authenticate :user do
   #     mount Sidekiq::Web => 'admins/sidekiq'
   #   end
@@ -89,9 +92,15 @@ Rails.application.routes.draw do
         resources :calculators, only: [] do
           post :compute, on: :member
         end
+        post "/diaper_calculators",
+             to: "diaper_calculators#calculate"
+        post "/pad_calculators",
+             to: "pad_calculators#calculate"
       end
     end
   end
+
+  match "*path", to: "api/v2/errors#invalid_locale", via: :all, constraints: InvalidLocaleConstraint.new, format: false
 
   get "/404", to: "errors#not_found", as: :not_found_error
   get "/422", to: "errors#unprocessable", as: :unprocessable_error

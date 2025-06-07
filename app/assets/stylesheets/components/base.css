@@ -1,0 +1,5 @@
+@layer components {
+  .link {
+    @apply text-success hover:underline;
+  }
+}

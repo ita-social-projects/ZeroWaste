@@ -13,6 +13,8 @@ RSpec/Focus:
 
 RSpec/EmptyExampleGroup:
   Enabled: true
+  Exclude:
+    - "spec/**/*rswag_spec.rb"
 
 RSpec/EmptyLineAfterExampleGroup:
   Enabled: true
