@@ -45,6 +45,16 @@ class Account::CalculatorsController < Account::BaseController
     end
   end
 
+  def duplicate
+    @calculator   = resource
+    @copy         = @calculator.amoeba_dup
+    @copy.en_name = "#{@calculator.en_name} (copy)"
+    @copy.uk_name = "#{@calculator.uk_name} (копія)"
+
+    @copy.save
+    redirect_to account_calculator_path(slug: @copy), notice: t("notifications.calculator_duplicated")
+  end
+
   def destroy
     @calculator = resource
 
