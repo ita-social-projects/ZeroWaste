@@ -87,6 +87,8 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     airbrussh (1.5.3)
       sshkit (>= 1.6.1, != 1.7.0)
+    amoeba (3.3.0)
+      activerecord (>= 5.2.0)
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
@@ -597,6 +599,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   active_storage_validations
   acts_as_singleton
+  amoeba
   annotate
   any_login
   babosa
@@ -684,4 +687,4 @@ RUBY VERSION
    ruby 3.3.5p100
 
 BUNDLED WITH
-   2.5.11
+   2.6.8
