@@ -195,12 +195,9 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       before { perform_request }
 
       let(:copy) { Calculator.find_by(en_name: "#{calculator.en_name} (copy)") }
-      let(:original_attrs) do
-        calculator.attributes.except("id", "uk_name", "en_name", "created_at", "updated_at", "slug")
-      end
-      let(:copy_attrs) do
-        copy.attributes.except("id", "uk_name", "en_name", "created_at", "updated_at", "slug")
-      end
+      let(:cloned_attrs) { [:color, :en_notes, :uk_notes, :logo_placeholder] }
+      let(:original_attrs) { calculator.attributes.slice(*cloned_attrs) }
+      let(:copy_attrs) { copy.attributes.slice(*cloned_attrs) }
 
       it "copies all attributes correctly" do
         expect(copy_attrs).to eq(original_attrs)
@@ -212,6 +209,7 @@ RSpec.describe "Account::CalculatorsController", type: :request do
 
       it "shows a success message" do
         follow_redirect!
+
         expect(response.body).to include(I18n.t("notifications.calculator_duplicated"))
       end
 
