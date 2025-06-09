@@ -36,7 +36,27 @@
           <td><%= calculator.slug %></td>
           <td class="text-center"><%= link_to icon('fa-solid', 'eye'), account_calculator_path(slug: calculator) %></td>
           <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_calculator_path(slug: calculator) %></td>
-          <td class="text-center"><%= link_to icon('fa-solid', 'copy'), duplicate_account_calculator_path(slug: calculator) %></td>
+          <td data-controller="dialog" data-action="click->dialog#backdropClose" class="text-center">
+            <dialog data-dialog-target="dialog" class="px-5 py-4 rounded admin-dialog text-start">
+              <p class="mb-3 fs-4 fw-bold "><%= t(".dialog.are_you_sure") %></p>
+              <p class="mb-4"><%= t(".dialog.dialog_description") %></p>
+              <div class="d-flex justify-content-end">
+                <%= button_tag t(".dialog.cancel"),
+                               type: "button",
+                               data: { action: "dialog#close" },
+                               autofocus: true,
+                               class: "btn btn-outline-green px-4 py-2 me-3" %>
+                <%= button_to t(".dialog.duplicate"),
+                              duplicate_account_calculator_path(slug: calculator),
+                              method: :get,
+                              class: "btn btn-green px-4 py-2 ms-3 text-white" %>
+              </div>
+            </dialog>
+
+            <%= button_tag(type: "button", class: "p-0", data: { action: "dialog#open" }) do %>
+              <i class="mx-2 fa fa-copy"></i>
+            <% end %>
+          </td>
           <td class="text-center">
             <%= button_to account_calculator_path(slug: calculator), method: :delete,
                         data: { turbo_confirm: t(".confirm_delete") } do %>
