@@ -214,6 +214,14 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       it "copies associated formulas" do
         expect(copy.formulas.count).to eq(1)
       end
+
+      it "renders new when duplication fails" do
+        allow_any_instance_of(Calculator).to receive(:save).and_return(false)
+        get duplicate_account_calculator_path(calculator.slug)
+
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to render_template(:new)
+      end
     end
   end
 end
