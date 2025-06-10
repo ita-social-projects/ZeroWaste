@@ -407,6 +407,8 @@ uk:
         error: "помилки"
         uk_notes: "Нотатки українською"
         en_notes: "Нотатки англійською"
+      show:
+        fork_for: "Дубльовано з"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"

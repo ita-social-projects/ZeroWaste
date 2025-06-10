@@ -46,10 +46,11 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def duplicate
-    @calculator   = resource
-    @copy         = @calculator.amoeba_dup
-    @copy.en_name = "#{@calculator.en_name} (copy)"
-    @copy.uk_name = "#{@calculator.uk_name} (копія)"
+    @calculator               = resource
+    @copy                     = @calculator.amoeba_dup
+    @copy.en_name             = "#{@calculator.en_name} (copy)"
+    @copy.uk_name             = "#{@calculator.uk_name} (копія)"
+    @copy.original_calculator = @calculator
 
     if @copy.save
       redirect_to edit_account_calculator_path(slug: @copy)
