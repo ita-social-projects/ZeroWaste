@@ -97,7 +97,7 @@ en:
       calculator_name: "Menstrual hygiene products calculator"
       form:
         user_age: "Your age"
-        menstruation_age: "Age at First Menstruation"
+        menstruation_age: "Age of First Menstruation"
         menopause_age: "Age at Menopause"
         average_menstruation_cycle_duration: "Average Menstrual Cycle Duration (days)"
         pads_per_cycle: "Average Products Used Per Cycle"
