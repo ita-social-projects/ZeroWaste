@@ -203,6 +203,10 @@ RSpec.describe "Account::CalculatorsController", type: :request do
         expect(copy_attrs).to eq(original_attrs)
       end
 
+      it "assigns the original_calculator" do
+        expect(copy.original_calculator).to eq(calculator)
+      end
+
       it "redirects to the edit duplicated calculator page" do
         expect(response).to redirect_to(edit_account_calculator_path(slug: copy))
       end
