@@ -51,8 +51,11 @@ class Account::CalculatorsController < Account::BaseController
     @copy.en_name = "#{@calculator.en_name} (copy)"
     @copy.uk_name = "#{@calculator.uk_name} (копія)"
 
-    @copy.save
-    redirect_to account_calculator_path(slug: @copy), notice: t("notifications.calculator_duplicated")
+    if @copy.save
+      redirect_to edit_account_calculator_path(slug: @copy)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy

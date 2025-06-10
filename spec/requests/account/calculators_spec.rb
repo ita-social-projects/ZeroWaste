@@ -7,8 +7,8 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
-  let!(:new_attributes) { { calculator: { en_name: "new name" }} }
-  let!(:invalid_attributes) { { calculator: { en_name: nil }} }
+  let!(:new_attributes) { { calculator: { en_name: "new name" } } }
+  let!(:invalid_attributes) { { calculator: { en_name: nil } } }
   let(:user) { create(:user) }
   let(:locale) { "en" }
   let(:new_path) { new_account_calculator_path(locale: locale) }
@@ -203,14 +203,8 @@ RSpec.describe "Account::CalculatorsController", type: :request do
         expect(copy_attrs).to eq(original_attrs)
       end
 
-      it "redirects to the duplicated calculator page" do
-        expect(response).to redirect_to(account_calculator_path(slug: copy))
-      end
-
-      it "shows a success message" do
-        follow_redirect!
-
-        expect(response.body).to include(I18n.t("notifications.calculator_duplicated"))
+      it "redirects to the edit duplicated calculator page" do
+        expect(response).to redirect_to(edit_account_calculator_path(slug: copy))
       end
 
       it "copies associated fields" do
