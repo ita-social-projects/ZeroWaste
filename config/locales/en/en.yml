@@ -97,7 +97,7 @@ en:
       calculator_name: "Menstrual hygiene products calculator"
       form:
         user_age: "Your age"
-        menstruation_age: "Age at First Menstruation"
+        menstruation_age: "Age of First Menstruation"
         menopause_age: "Age at Menopause"
         duration_of_menstruation: "Duration of menstruation"
         duration_of_menstruation_info: "Mostly 3-5 days"
