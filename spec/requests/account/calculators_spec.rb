@@ -194,8 +194,11 @@ RSpec.describe "Account::CalculatorsController", type: :request do
     context "after duplication" do
       before { perform_request }
 
-      let(:copy) { Calculator.find_by(en_name: "#{calculator.en_name} (copy)") }
-      let(:cloned_attrs) { [:color, :en_notes, :uk_notes, :logo_placeholder] }
+      let(:copy) do
+        Calculator.where(en_name: calculator.en_name).where.not(id: calculator.id)
+                  .order(:created_at).first
+      end
+      let(:cloned_attrs) { [:color, :en_name, :uk_name, :en_notes, :uk_notes, :logo_placeholder] }
       let(:original_attrs) { calculator.attributes.slice(*cloned_attrs) }
       let(:copy_attrs) { copy.attributes.slice(*cloned_attrs) }
 
