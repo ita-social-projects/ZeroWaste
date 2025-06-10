@@ -501,6 +501,11 @@ en:
           calculator_slug: "Slug"
           calculator_name: "Name"
           calculator_actions: "Actions"
+        dialog:
+          are_you_sure: "Are you sure?"
+          dialog_description: "This will create a duplicate of the calculator with all its settings and data."
+          cancel: "Cancel"
+          duplicate: "Duplicate"
       edit:
         add_new_field_label: "Add new field"
         form:
