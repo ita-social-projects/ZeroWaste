@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class MhcCalculatorValidator
+  PARAM_TO_PRODUCT_MAPPING = {
+    pad_category: :pads,
+    product_type: :tampons
+  }.freeze
+
   attr_reader :params, :errors
 
   def initialize(params)
@@ -58,11 +63,15 @@ class MhcCalculatorValidator
   end
 
   def validate_product_type
-    presence_valid?(:product_type)
+    return unless presence_valid?(:product_type)
+
+    type_valid?(:product_type)
   end
 
   def validate_pad_category
-    presence_valid?(:pad_category)
+    return unless presence_valid?(:pad_category)
+
+    category_valid?(:pad_category)
   end
 
   def presence_valid?(param)
@@ -74,9 +83,30 @@ class MhcCalculatorValidator
   end
 
   def length_valid?(param, from, to)
-    return true if (from..to).cover?(@params[param])
+    return true if (from..to).cover?(@params[param].to_i)
 
     @errors[param] = I18n.t("calculators.errors.length_error_msg", field: I18n.t("calculators.mhc_calculator.form.#{param}"), from: from, to: to)
+
+    false
+  end
+
+  def category_valid?(param)
+    product_key      = PARAM_TO_PRODUCT_MAPPING[param]
+    valid_categories = Calculators::PadUsageService::PRODUCT_PRICES[product_key].keys
+
+    return true if valid_categories.include?(@params[param].to_sym)
+
+    @errors[param] = I18n.t("calculators.errors.wrong_category_error_msg")
+
+    false
+  end
+
+  def type_valid?(param)
+    valid_types  = Calculators::PadUsageService::PRODUCT_PRICES.keys
+
+    return true if valid_types.include?(@params[param].to_sym)
+
+    @errors[param] = I18n.t("calculators.errors.type_error_msg")
 
     false
   end
