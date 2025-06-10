@@ -7,8 +7,8 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
-  let!(:new_attributes) { { calculator: { en_name: "new name" } } }
-  let!(:invalid_attributes) { { calculator: { en_name: nil } } }
+  let!(:new_attributes) { { calculator: { en_name: "new name" }} }
+  let!(:invalid_attributes) { { calculator: { en_name: nil }} }
   let(:user) { create(:user) }
   let(:locale) { "en" }
   let(:new_path) { new_account_calculator_path(locale: locale) }
