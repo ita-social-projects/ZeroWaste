@@ -64,7 +64,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :validatable, :confirmable, :lockable, :timeoutable, :trackable, :async,
-         :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
+         :omniauthable, :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist, omniauth_providers: [:google_oauth2, :facebook]
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :email, length: { minimum: 6, maximum: 100 }, allow_blank: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
