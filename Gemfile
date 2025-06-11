@@ -130,3 +130,5 @@ gem "inline_svg"
 gem "breadcrumbs_on_rails"
 gem "tinymce-rails"
 gem "devise-jwt"
+gem "rack-attack"
+
