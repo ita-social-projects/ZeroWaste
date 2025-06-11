@@ -799,7 +799,6 @@ en:
   notifications:
     calculator_created: "Calculator has been successfully created"
     calculator_updated: "Calculator has been successfully updated"
-    calculator_duplicated: "Calculator has been successfully duplicated"
     calculator_deleted: "Calculator has been successfully deleted"
     user_created: "User has been successfully created"
     user_updated: "User has been successfully updated"
