@@ -177,7 +177,9 @@ RSpec.describe "Account::CalculatorsController", type: :request do
     it "renders new after copying calculator" do
       get duplicate_account_calculator_path(copy.slug)
 
+      expect(response).to be_successful
       expect(response).to render_template(:new)
+      expect(response.body).to include(copy.en_name)
     end
   end
 end

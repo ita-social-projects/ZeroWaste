@@ -47,6 +47,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def duplicate
     @calculator = resource.amoeba_dup
+
     render :new
   end
 
