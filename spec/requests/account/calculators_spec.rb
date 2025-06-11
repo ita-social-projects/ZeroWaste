@@ -7,6 +7,7 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
+  let(:copy) { create(:calculator) }
   let!(:new_attributes) { { calculator: { en_name: "new name" }} }
   let!(:invalid_attributes) { { calculator: { en_name: nil }} }
   let(:user) { create(:user) }
@@ -173,58 +174,10 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   end
 
   describe "GET /account/calculators/:slug/duplicate" do
-    let!(:field_x) { build(:field, calculator: calculator, var_name: "x").tap { |f| f.save(validate: false) } }
-    let!(:field_y) { build(:field, calculator: calculator, var_name: "y").tap { |f| f.save(validate: false) } }
-    let!(:formula) { create(:formula, calculator: calculator, expression: "x + y") }
+    it "renders new after copying calculator" do
+      get duplicate_account_calculator_path(copy.slug)
 
-    subject(:perform_request) { get duplicate_account_calculator_path(slug: calculator.slug) }
-
-    it "duplicates calculator" do
-      expect { perform_request }.to change(Calculator, :count).by(1)
-    end
-
-    it "duplicates fields" do
-      expect { perform_request }.to change(Field, :count).by(2)
-    end
-
-    it "duplicates formulas" do
-      expect { perform_request }.to change(Formula, :count).by(1)
-    end
-
-    context "after duplication" do
-      before { perform_request }
-
-      let(:copy) do
-        Calculator.where(en_name: calculator.en_name).where.not(id: calculator.id)
-                  .order(:created_at).first
-      end
-      let(:cloned_attrs) { [:color, :en_name, :uk_name, :en_notes, :uk_notes, :logo_placeholder] }
-      let(:original_attrs) { calculator.attributes.slice(*cloned_attrs) }
-      let(:copy_attrs) { copy.attributes.slice(*cloned_attrs) }
-
-      it "copies all attributes correctly" do
-        expect(copy_attrs).to eq(original_attrs)
-      end
-
-      it "redirects to the edit duplicated calculator page" do
-        expect(response).to redirect_to(edit_account_calculator_path(slug: copy))
-      end
-
-      it "copies associated fields" do
-        expect(copy.fields.count).to eq(2)
-      end
-
-      it "copies associated formulas" do
-        expect(copy.formulas.count).to eq(1)
-      end
-
-      it "renders new when duplication fails" do
-        allow_any_instance_of(Calculator).to receive(:save).and_return(false)
-        get duplicate_account_calculator_path(copy.slug)
-
-        expect(response).to be_unprocessable
-        expect(response).to render_template(:new)
-      end
+      expect(response).to render_template(:new)
     end
   end
 end

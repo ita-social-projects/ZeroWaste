@@ -46,14 +46,8 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def duplicate
-    @calculator   = resource
-    @copy         = @calculator.amoeba_dup
-
-    if @copy.save
-      redirect_to edit_account_calculator_path(slug: @copy)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @calculator = resource.amoeba_dup
+    render :new
   end
 
   def destroy
