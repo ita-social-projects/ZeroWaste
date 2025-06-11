@@ -67,9 +67,19 @@ RSpec.configure do |config|
         version: "v2"
       },
       paths: {},
-      servers: servers
+      servers: servers,
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: :http,
+            scheme: :bearer,
+            bearerFormat: :JWT
+          }
+        }
+      }
     }
   }
+
 
   # Specify the format of the output Swagger file when running 'rswag:specs:swaggerize'.
   # The openapi_specs configuration option has the filename including format in

@@ -3,10 +3,16 @@ require "rails_helper"
 RSpec.describe "Calculators", type: :request do
   let!(:calculator_1) { create(:calculator_name_first) }
   let!(:calculator_2) { create(:calculator_name_second) }
+  let(:user) { create(:user) }
+
+  let(:jwt_token) do
+    Warden::JWTAuth::UserEncoder.new.call(user, :user, nil).first
+  end
+
 
   describe "GET /en/api/v2/calculators.json" do
     it "returns calculators" do
-      get "/en/api/v2/calculators.json"
+      get "/en/api/v2/calculators.json", headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -16,7 +22,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name descending" do
-      get "/en/api/v2/calculators.json", params: { name: "desc" }
+      get "/en/api/v2/calculators.json", params: { name: "desc" }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -26,7 +32,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name ascending" do
-      get "/en/api/v2/calculators.json", params: { name: "asc" }
+      get "/en/api/v2/calculators.json", params: { name: "asc" }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -36,7 +42,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name ascending when no name param is given" do
-      get "/en/api/v2/calculators.json", params: { name: nil }
+      get "/en/api/v2/calculators.json", params: { name: nil }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -46,7 +52,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name ascending when incorrect name param is given" do
-      get "/en/api/v2/calculators.json", params: { name: "abc" }
+      get "/en/api/v2/calculators.json", params: { name: "abc" }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -58,7 +64,7 @@ RSpec.describe "Calculators", type: :request do
 
   describe "GET /uk/api/v2/calculators.json" do
     it "returns calculators" do
-      get "/uk/api/v2/calculators.json"
+      get "/uk/api/v2/calculators.json", headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -68,7 +74,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name descending" do
-      get "/uk/api/v2/calculators.json", params: { name: "desc" }
+      get "/uk/api/v2/calculators.json", params: { name: "desc" }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -78,7 +84,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name ascending" do
-      get "/uk/api/v2/calculators.json", params: { name: "asc" }
+      get "/uk/api/v2/calculators.json", params: { name: "asc" }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -88,7 +94,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name ascending when no name param is given" do
-      get "/uk/api/v2/calculators.json", params: { name: nil }
+      get "/uk/api/v2/calculators.json", params: { name: nil }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
@@ -98,7 +104,7 @@ RSpec.describe "Calculators", type: :request do
     end
 
     it "returns calculators ordered by name ascending when incorrect name param is given" do
-      get "/uk/api/v2/calculators.json", params: { name: "abc" }
+      get "/uk/api/v2/calculators.json", params: { name: "abc" }, headers: { "Authorization" => "Bearer #{jwt_token}" }
 
       expect(response).to be_successful
       expect(response.parsed_body).to eq([
