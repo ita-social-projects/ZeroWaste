@@ -2,7 +2,7 @@
 
 pin "application", preload: true
 pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
-pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
+pin "@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.2/dist/stimulus.js"
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/javascript/channels", under: "channels"
@@ -14,3 +14,4 @@ pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/lib/inde
 pin "@rails/actioncable", to: "actioncable.esm.js", preload: true
 pin "toastify-js", to: "https://ga.jspm.io/npm:toastify-js@1.12.0/src/toastify.js", preload: true
 pin "@oddcamp/cocoon-vanilla-js", to: "https://ga.jspm.io/npm:@oddcamp/cocoon-vanilla-js@1.1.3/index.js"
+pin "@stimulus-components/dialog", to: "https://ga.jspm.io/npm:@stimulus-components/dialog@1.0.1/dist/stimulus-dialog.mjs"
