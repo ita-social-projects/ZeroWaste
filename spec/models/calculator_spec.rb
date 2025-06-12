@@ -85,4 +85,28 @@ RSpec.describe Calculator, type: :model do
       end
     end
   end
+
+  describe ".ransackable_attributes" do
+    it "returns the correct list of attributes" do
+      expect(Calculator.ransackable_attributes).to include("created_at", "id", "name", "preferable", "slug", "updated_at", "uuid")
+    end
+  end
+
+  describe ".ransacker :name" do
+    let!(:calculator) { create(:calculator) }
+    let(:result_en) { Calculator.ransack(name_eq: calculator.en_name).result }
+    let(:result_uk) { Calculator.ransack(name_eq: calculator.uk_name).result }
+
+    it "returns en_name when locale is :en" do
+      I18n.with_locale(:en) do
+        expect(result_en).to include(calculator)
+      end
+    end
+
+    it "returns uk_name when locale is :uk" do
+      I18n.with_locale(:uk) do
+        expect(result_uk).to include(calculator)
+      end
+    end
+  end
 end
