@@ -2,4 +2,8 @@
   .link {
     @apply text-success hover:underline;
   }
+
+  #calculators-public .table tr:last-of-type td {
+    @apply border-none;
+  }
 }

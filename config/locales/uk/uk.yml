@@ -156,7 +156,7 @@ uk:
       calculate: "Розрахувати"
     index:
       meta-title: "Калькулятори"
-      id_column: "№"
+      id_column: "#"
       calculator_name: "Назва"
       calculator_actions: "Дії"
     date:

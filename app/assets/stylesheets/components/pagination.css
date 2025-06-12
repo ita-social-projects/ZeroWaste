@@ -7,6 +7,10 @@
     @apply text-sm sm:text-base min-w-36 px-3 py-1 border border-slate-300 rounded shadow hover:text-white hover:bg-grey;
   }
 
+  #calculators-public a.page-nav {
+    @apply bg-white hover:text-white hover:bg-grey;
+  }
+
   .current {
     @apply text-sm sm:text-base min-w-36 px-3 py-1 border border-success rounded bg-success text-white shadow;
   }
