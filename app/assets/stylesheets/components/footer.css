@@ -1,6 +1,6 @@
 @layer components {
   .footer {
-    @apply py-6 lg:px-6 mt-5 bottom-0 flex items-center justify-center w-full mx-auto max-w-1230 border-t-2 border-gray sticky top-[100vh];
+    @apply py-6 lg:px-6 mt-5 bottom-0 flex items-center justify-center w-full mx-auto max-w-1530 border-t-2 border-gray sticky top-[100vh];
   }
 
   .footer_text {
