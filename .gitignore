@@ -69,5 +69,6 @@ package-lock.json
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+secrets.yml
 .rvmrc
 swagger/
