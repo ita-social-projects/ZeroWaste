@@ -9,7 +9,7 @@ class CalculatorsController < ApplicationController
   def index
     if Flipper[:show_calculators_list].enabled?
       @q           = collection.ransack(params[:q])
-      @calculators = @q.result.page(params[:page])
+      @calculators = @q.result.page(params[:page]).per(6)
     else
       head :not_found
     end

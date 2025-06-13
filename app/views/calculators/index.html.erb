@@ -1,27 +1,8 @@
 <% set_meta_tags(title: t(".meta-title")) %>
 
 <div class="container" id="calculators-public">
-  <table aria-label="public calculators table" class="table admin-table rounded overflow-hidden">
-    <thead>
-      <tr>
-        <th scope="col"><%= sort_link(@q, :id, t('.id_column'), default_order: :desc) %></th>
-        <th scope="col"><%= sort_link(@q, :name, t('.calculator_name'), default_order: :desc) %></th>
-        <th scope="col" class="text-center"><%= t('.calculator_actions') %></th>
-      </tr>
-    </thead>
-    <tbody class="admin-table-links">
-      <% @calculators.each do |calculator| %>
-        <tr>
-          <td class="align-middle p-2"><%= calculator.id %></td>
-          <td class="align-middle p-2"><%= calculator.name %></td>
-          <td class="align-middle text-center actions">
-            <%= link_to url_for(controller: "calculators", action: "show", slug: calculator.slug) do %>
-              <i class="mx-2 fa fa-eye"></i>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="grid grid-cols-2 gap-3">
+  <%= render partial: "calculators/partials/shared/calculator", collection: @calculators %>
+  </div>
   <%= paginate @calculators %>
 </div>

@@ -8,7 +8,7 @@
   }
 
   #calculators-public a.page-nav {
-    @apply bg-white hover:text-white hover:bg-grey;
+    @apply bg-[rgba(255,255,255,0.33)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[7.2px] hover:bg-[rgba(255,255,255,0.52)] transition-colors duration-300 ease-in-out;
   }
 
   .current {
