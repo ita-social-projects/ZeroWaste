@@ -173,7 +173,7 @@ en:
       calculate: "Calculate"
     index:
       meta-title: "Calculators"
-      id_column: "ID Column"
+      id_column: "#"
       calculator_name: "Calculator Name"
       calculator_actions: "Calculator Actions"
     date:

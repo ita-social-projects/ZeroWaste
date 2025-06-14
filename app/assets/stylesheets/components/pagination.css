@@ -7,6 +7,10 @@
     @apply text-sm sm:text-base min-w-36 px-3 py-1 border border-slate-300 rounded shadow hover:text-white hover:bg-grey;
   }
 
+  #calculators-public a.page-nav {
+    @apply bg-[rgba(255,255,255,0.33)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[7.2px] hover:bg-[rgba(255,255,255,0.52)] transition-colors duration-300 ease-in-out;
+  }
+
   .current {
     @apply text-sm sm:text-base min-w-36 px-3 py-1 border border-success rounded bg-success text-white shadow;
   }
