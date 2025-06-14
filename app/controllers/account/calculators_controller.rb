@@ -15,10 +15,17 @@ class Account::CalculatorsController < Account::BaseController
   end
 
   def new
-    @calculator = Calculator.new
+    if params[:original_calculator_id].present?
+      original_calculator = Calculator.find(params[:original_calculator_id])
 
-    @calculator.fields.build
-    @calculator.formulas.build
+      @calculator                     = original_calculator.amoeba_dup
+      @calculator.original_calculator = original_calculator
+    else
+      @calculator = Calculator.new
+
+      @calculator.fields.build
+      @calculator.formulas.build
+    end
   end
 
   def edit
@@ -45,13 +52,6 @@ class Account::CalculatorsController < Account::BaseController
     end
   end
 
-  def duplicate
-    @calculator = resource.amoeba_dup
-    @calculator.original_calculator = resource
-
-    render :new
-  end
-
   def destroy
     @calculator = resource
 
@@ -72,7 +72,7 @@ class Account::CalculatorsController < Account::BaseController
 
   def calculator_params
     params.require(:calculator).permit(
-      :id, :en_name, :uk_name, :color, :logo_picture, :uk_notes, :en_notes,
+      :id, :en_name, :uk_name, :color, :logo_picture, :uk_notes, :en_notes, :original_calculator_id,
       formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :en_unit, :uk_unit, :priority, :formula_image, :relation, :_destroy],
       fields_attributes: [:id, :en_label, :uk_label, :var_name, :kind, :value, :_destroy,
         categories_attributes: [:id, :en_name, :uk_name, :price, :_destroy]]
