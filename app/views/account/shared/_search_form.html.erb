@@ -1,7 +1,13 @@
-<div class="col-md-6">
-  <%= search_form_for(q, url: search_url, method: :get, class: "d-flex mb-5") do |f| %>
-    <%= f.search_field search_attribute, placeholder: t(".search_placeholder"), class: "form-input me-2" %>
-    <%= f.button t(".search_button"), class: "btn btn-blue px-4 items-center" %>
-    <%= link_to t(".clear_button"), search_url, class: "btn btn-grey px-4 items-center ml-2" %>
+<div class="col-md-6 d-flex" data-controller="search">
+  <%= search_form_for(q, url: search_url, method: :get ) do |f| %>
+    <div class="search-container">
+      <i class="fa-solid fa-search search-icon"></i>
+
+      <%= f.text_field search_attribute, placeholder: t(".search_placeholder"), class: "search-input", data: { search_target: "input", action: "input->search#input" } %>
+
+      <button type="button" class="clear-button invisible" data-action="search#clear" data-search-target="clearButton">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
   <% end %>
 </div>
