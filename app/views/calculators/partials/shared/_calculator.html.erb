@@ -1,9 +1,9 @@
 <%= link_to url_for(controller: "calculators", action: "show", slug: calculator.slug) do %>
-  <div class="bg-[rgba(255,255,255,0.33)] flex p-4 rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[7.2px] border hover:bg-[rgba(255,255,255,0.52)] transition-color duration-300 ease-in-out h-full">
-    <div class="calculator-logo h-28 w-28 rounded-xl overflow-hidden flex-shrink-0">
-      <%= image_tag calculator.logo_url, class: "h-full w-full object-cover", alt: calculator.name %>
+  <div class="calculator-card">
+    <div class="calculator-logo">
+      <%= image_tag calculator.logo_url, alt: calculator.name %>
     </div>
-    <div class="calculator-content flex flex-col justify-between gap-3 ml-4">
+    <div class="calculator-content">
       <div class="calculator-header">
         <h3 class="text-xl font-semibold"><%= calculator.name %></h3>
       </div>

@@ -1,0 +1,21 @@
+@layer components {
+  #calculators-public .calculator-card {
+    @apply bg-[rgba(255,255,255,0.33)] flex p-4 rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[7.2px] border border-matte_lime_green hover:bg-[rgba(255,255,255,0.52)] transition-all duration-300 ease-in-out h-full;
+  }
+
+  #calculators-public .calculator-logo{
+    @apply lg:h-28 h-20 w-auto rounded-xl overflow-hidden flex-shrink-0;
+  }
+
+  #calculators-public .calculator-logo img {
+    @apply h-full w-full object-cover;
+  }
+
+  #calculators-public .calculator-content {
+    @apply flex flex-col justify-between gap-3 ml-4;
+  }
+
+  #calculators-public .calculator-notes {
+    @apply overflow-hidden line-clamp-3;
+  }
+}

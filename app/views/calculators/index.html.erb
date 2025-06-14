@@ -1,7 +1,7 @@
 <% set_meta_tags(title: t(".meta-title")) %>
 
 <div class="container" id="calculators-public">
-  <div class="grid grid-cols-2 gap-3">
+  <div class="grid lg:grid-cols-2 grid-cols-1 gap-3 px-3">
   <%= render partial: "calculators/partials/shared/calculator", collection: @calculators %>
   </div>
   <%= paginate @calculators %>
