@@ -14,6 +14,10 @@ export default class extends Controller {
   submit(e) {
     e.preventDefault();
 
+    if (!this.menopauseAgeTarget.value) {
+      this.menopauseAgeTarget.value = "50";
+    }
+
     let formData = {
       user_age: parseInt(this.userAgeTarget.value),
       menstruation_age: parseInt(this.menstruationAgeTarget.value),
