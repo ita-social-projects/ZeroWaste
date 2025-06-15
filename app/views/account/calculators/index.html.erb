@@ -46,7 +46,8 @@
                                data: { action: "dialog#close" },
                                class: "btn btn-outline-green px-4 py-2 me-3" %>
                 <%= button_to t(".dialog.duplicate"),
-                              duplicate_account_calculator_path(slug: calculator),
+                              new_account_calculator_path(slug: calculator), 
+                              params: {original_calculator_id: calculator.id},
                               method: :get,
                               autofocus: true,
                               class: "btn btn-green px-4 py-2 ms-3 text-white" %>
