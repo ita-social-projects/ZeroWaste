@@ -1,5 +1,5 @@
-<div class="col-md-6 d-flex" data-controller="search">
-  <%= search_form_for(q, url: search_url, method: :get ) do |f| %>
+<div class="col-md-6" data-controller="search">
+  <%= search_form_for(q, url: search_url, method: :get, class: "d-flex gap-2 mb-5") do |f| %>
     <div class="search-container">
       <i class="fa-solid fa-search search-icon"></i>
 
@@ -9,5 +9,6 @@
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
+    <%= f.button t(".search_button"), class: "btn-grey" %>
   <% end %>
 </div>

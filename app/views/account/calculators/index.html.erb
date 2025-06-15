@@ -1,7 +1,7 @@
 <% set_meta_tags(title: t(".meta-title")) %>
 
 <div class="container">
-  <div class="row mb-5">
+  <div class="row">
     <%= render partial: "account/shared/search_form", locals: {
           q: @q,
           search_url: account_calculators_path,
