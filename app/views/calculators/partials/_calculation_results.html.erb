@@ -1,4 +1,6 @@
-<div class="calculation-results rounded jumbotron jumbotron-fluid position-relative">
+<div class="calculation-results rounded jumbotron jumbotron-fluid position-relative"
+     data-scroll-to-results-target="resultsContainer"
+     style="--calculator-color: <%= @calculator.color %>">
   <h2 class="pt-6 text-2xl font-semibold text-center dynamic-text-color">Calculation Results</h2>
   <div class="jumbotron calculation-results result main-result-container result-container">
     <% results.each do |result| %>

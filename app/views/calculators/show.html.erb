@@ -1,4 +1,4 @@
-<div style="--calculator-color: <%= @calculator.color %>">
+<div style="--calculator-color: <%= @calculator.color %>" data-controller="scroll-to-results">
   <div class="rounded jumbotron jumbotron-fluid position-relative">
     <h1 class="pt-6 text-2xl font-semibold text-center font-sans dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
     <div class="flex-wrap d-flex justify-content-around calculator_wrap calcualtor-margin-left">
@@ -11,6 +11,7 @@
             <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
               <%= form.number_field "inputs[#{field.var_name}]",
                                   placeholder: field.label,
+                                  required: true,
                                   class: "required rounded w-100 calculator-field"
                                   %>
             </div>
@@ -21,7 +22,8 @@
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
           <% end %>
       <% end %>
-      <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color" %>
+      <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color",
+                                   data: { action: "scroll-to-results#scrollTo" } %>
       </div>
     <% end %>
 

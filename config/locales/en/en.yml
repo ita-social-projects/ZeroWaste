@@ -191,6 +191,7 @@ en:
     navigation:
       about_us: "About us"
       admin: "Admin"
+      calculators: "Calculators"
       calculate: "Diaper calculator"
       mhc_calculator: "Menstrual calculator"
       log_out: "Log Out"
