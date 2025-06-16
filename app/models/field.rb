@@ -50,5 +50,4 @@ class Field < ApplicationRecord
 
   accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :select_options, reject_if: :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :periods, reject_if: :all_blank, allow_destroy: true
 end

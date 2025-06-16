@@ -1,0 +1,15 @@
+<div class="periodical-category">
+
+  <fieldset class="bordered nested-fields">
+    <legend class="admin-legend">Period <span data-constructors-form-indexing-target="index">1</span></legend>
+    <div>
+      <%= f.input :period_start, label: "Period start:" %>
+      <%= f.input :period_end, label: "Period end:" %>
+      <%= f.input :usage_amount, label: "Usage Amount:" %>
+      <%= f.input :price, label: "Category Price:" %>
+
+      <%= link_to_remove_association "- Remove Period", f, class: "text-red-500 underline" %>
+    </div>
+  </fieldset>
+
+</div>

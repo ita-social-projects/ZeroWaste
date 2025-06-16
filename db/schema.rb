@@ -164,7 +164,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_16_124008) do
     t.integer "period_end"
     t.integer "usage_amount"
     t.bigint "category_id", null: false
-    t.decimal "price", precision: 2, scale: 3
+    t.decimal "price", precision: 10, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_periods_on_category_id"

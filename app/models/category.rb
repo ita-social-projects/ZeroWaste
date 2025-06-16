@@ -31,6 +31,7 @@ class Category < ApplicationRecord
   belongs_to :field, optional: true
   has_many :diapers_periods, dependent: :destroy
   has_many :category_categoryables, dependent: :restrict_with_exception
+  has_many :periods, dependent: :destroy
 
   enum :preferable, { not_preferable: false, preferable: true }
 
@@ -63,4 +64,6 @@ class Category < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "#{I18n.locale}_name", "priority", "updated_at"]
   end
+
+  accepts_nested_attributes_for :periods, reject_if: :all_blank, allow_destroy: true
 end

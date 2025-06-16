@@ -1,6 +1,6 @@
 <div style="--calculator-color: <%= @calculator.color %>">
   <div class="rounded jumbotron jumbotron-fluid position-relative">
-    <h1 class="pt-6 text-2xl font-semibold text-center font-sans dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
+    <h1 class="pt-6 font-sans text-2xl font-semibold text-center dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
     <div class="flex-wrap d-flex justify-content-around calculator_wrap calcualtor-margin-left">
 
     <%= form_with html: { class: "simple_form_calculator"}, url: calculate_calculator_path(@calculator) do |form| %>
@@ -11,7 +11,7 @@
             <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
               <%= form.number_field "inputs[#{field.var_name}]",
                                   placeholder: field.label,
-                                  class: "required rounded w-100 calculator-field"
+                                  class: "rounded required w-100 calculator-field"
                                   %>
             </div>
           <% elsif field.kind == 'category' %>
@@ -19,6 +19,18 @@
                             options_from_collection_for_select(field.categories, :price, :name),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
+          <% elsif field.kind == 'periodical_category' %>
+            <%= form.select "inputs[#{field.var_name}]",
+                options_for_select(
+                  field.categories.map do |category|
+                    [category.name, category.periods.map { |period| { period_start: period.period_start,
+                                                                      period_end: period.period_end,
+                                                                      usage_amount: period.usage_amount,
+                                                                      price: period.price } }.to_json]
+                  end
+                ),
+                {},
+                class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
           <% elsif field.kind == 'select_option' %>
             <%= form.select "inputs[#{field.var_name}]",
                             options_for_select(field.select_options.map { |opt| [opt.key, opt.value] }),

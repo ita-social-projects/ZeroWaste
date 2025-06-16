@@ -1,11 +1,21 @@
 <fieldset class="bordered nested-fields">
-  <legend class="admin-legend">Periodical Category <span data-constructors-form-indexing-target="index">1</span></legend>
+  <legend class="admin-legend">Category <span data-constructors-form-indexing-target="index">1</span></legend>
   <div>
-    <%= f.input :period_start, label: "Period start:" %>
-    <%= f.input :period_end, label: "Period end:" %>
-    <%= f.input :usage_amount, label: "Usage Amount:" %>
+    <%= f.input :en_name, label: "Category Name:" %>
+    <%= f.input :uk_name, label: "Uk Category Name:" %>
     <%= f.input :price, label: "Category Price:" %>
 
-    
+    <fieldset class="bordered" data-controller="constructors-form-indexing"
+              data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+      <legend class="admin-legend">Periods</legend>
+      <%= f.simple_fields_for :periods do |period_fields| %>
+        <%= render "account/calculators/partials/periods_fields", f: period_fields %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "+ Add Period", f, :periods, partial: "account/calculators/partials/periods_fields", class: "underline" %>
+      </div>
+    </fieldset>
+
+    <%= link_to_remove_association "- Remove Category", f, class: "text-red-500 underline" %>
   </div>
 </fieldset>
