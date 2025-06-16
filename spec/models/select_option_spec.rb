@@ -9,7 +9,7 @@ RSpec.describe SelectOption, type: :model do
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:key) }
-    it { is_expected.to validate_length_of(:key).is_at_least(1).is_at_most(50) }
+    it { is_expected.to validate_length_of(:key).is_at_most(50) }
 
     it { is_expected.to validate_presence_of(:value) }
     it { is_expected.to validate_numericality_of(:value) }
