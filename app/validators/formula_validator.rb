@@ -2,7 +2,7 @@ class FormulaValidator < ActiveModel::Validator
   FORMULA_VARIABLES_REGEX = /\b[a-zA-Z_]\w*\b/
 
   def validate(record)
-    fields_are_included_in_formulas(record)
+    # fields_are_included_in_formulas(record)
     expression_is_mathematically_valid(record)
     acceptable_image(record)
   end

@@ -31,11 +31,13 @@ class Field < ApplicationRecord
 
   has_many :categories, dependent: :destroy
   has_many :select_options, dependent: :destroy
+  has_many :periods, dependent: :destroy
 
   NUMBER   = "number"
   CATEGORY = "category"
   SELECT_OPTION = "select_option"
-  KINDS    = { number: NUMBER, category: CATEGORY, select_option: SELECT_OPTION }.freeze
+  PERIODICAL_CATEGORY = "periods"
+  KINDS    = { number: NUMBER, category: CATEGORY, select_option: SELECT_OPTION, periodical_category: PERIODICAL_CATEGORY }.freeze
 
   enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
@@ -48,4 +50,5 @@ class Field < ApplicationRecord
 
   accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :select_options, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :periods, reject_if: :all_blank, allow_destroy: true
 end

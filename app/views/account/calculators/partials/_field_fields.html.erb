@@ -42,6 +42,21 @@
       </fieldset>
     </div>
 
+    <div class="hidden periodical-category" data-field-type-target="periodicalCategory">
+      <fieldset class="bordered" data-controller="constructors-form-indexing"
+                data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+        <legend class="admin-legend">Periodical Category</legend>
+
+        <%= f.simple_fields_for :periods do |periodical_fields| %>
+          <%= render "account/calculators/partials/periodical_category_fields", f: periodical_fields %>
+        <% end %>
+
+        <div class="links">
+          <%= link_to_add_association "+ Add Option", f, :periods, partial: "account/calculators/partials/periodical_category_fields", class: "underline" %>
+        </div>
+      </fieldset>
+    </div>
+
     <%= link_to_remove_association "- Remove Field", f, class: "text-red-500 underline" %>
   </div>
 </fieldset>

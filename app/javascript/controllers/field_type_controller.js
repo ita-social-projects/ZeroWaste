@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["fieldTypeSelect", "categoryFields", "selectOptions"]
+  static targets = ["fieldTypeSelect", "categoryFields", "selectOptions", "periodicalCategory"]
 
   connect() {
     this.setupFieldTypeSelect();
@@ -30,6 +30,14 @@ export default class extends Controller {
         this.selectOptionsTarget.style.display = "block";
       } else {
         this.selectOptionsTarget.style.display = "none";
+      }
+    }
+
+    if (this.hasCategoryFieldsTarget) {
+      if (selected === "periodical_category") {
+        this.periodicalCategoryTarget.style.display = "block";
+      } else {
+        this.periodicalCategoryTarget.style.display = "none";
       }
     }
   }
