@@ -31,7 +31,6 @@ class Field < ApplicationRecord
 
   has_many :categories, dependent: :destroy
   has_many :select_options, dependent: :destroy
-  has_many :periods, dependent: :destroy
 
   NUMBER   = "number"
   CATEGORY = "category"

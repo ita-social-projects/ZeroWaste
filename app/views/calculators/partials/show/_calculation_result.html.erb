@@ -1,6 +1,6 @@
 <div>
   <p class="dynamic-text-color">
-    <%= result[:result] %>
+    <%= number_with_precision(result[:result].to_f, precision: 2) %>
   </p>
   <p class="text-2xl dynamic-text-color">
     <%= result[:unit] %>
