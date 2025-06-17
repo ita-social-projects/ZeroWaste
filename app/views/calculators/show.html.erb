@@ -14,9 +14,14 @@
                                   class: "required rounded w-100 calculator-field"
                                   %>
             </div>
-          <% else %>
+          <% elsif field.kind == 'category' %>
             <%= form.select "inputs[#{field.var_name}]",
                             options_from_collection_for_select(field.categories, :price, :name),
+                            {},
+                            class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
+          <% elsif field.kind == 'select_option' %>
+            <%= form.select "inputs[#{field.var_name}]",
+                            options_for_select(field.select_options.map { |opt| [opt.key, opt.value] }),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
           <% end %>
