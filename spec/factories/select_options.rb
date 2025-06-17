@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :select_option do
-    field { nil }
+    association :field
     key { "MyString" }
     value { 1 }
   end
