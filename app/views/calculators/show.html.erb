@@ -1,7 +1,7 @@
 <div style="--calculator-color: <%= @calculator.color %>">
   <div class="rounded jumbotron jumbotron-fluid position-relative">
     <h1 class="pt-6 font-sans text-2xl font-semibold text-center dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
-    <div class="flex-wrap d-flex justify-content-around calculator_wrap calcualtor-margin-left">
+    <div class="flex-wrap d-flex justify-content-around calculator_wrap calculator-margin-left">
 
       <%= form_with html: { class: "simple_form_calculator"}, url: calculate_calculator_path(@calculator) do |form| %>
         <div class="flex-item flex-column">
