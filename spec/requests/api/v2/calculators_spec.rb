@@ -9,7 +9,6 @@ RSpec.describe "Calculators", type: :request do
     Warden::JWTAuth::UserEncoder.new.call(user, :user, nil).first
   end
 
-
   describe "GET /en/api/v2/calculators.json" do
     it "returns calculators" do
       get "/en/api/v2/calculators.json", headers: { "Authorization" => "Bearer #{jwt_token}" }

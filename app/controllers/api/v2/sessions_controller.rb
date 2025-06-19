@@ -6,7 +6,7 @@ class Api::V2::SessionsController < Devise::SessionsController
   private
 
   def respond_with(user, _opts = {})
-    token = request.env['warden-jwt_auth.token']
+    token = request.env["warden-jwt_auth.token"]
     render json: { user: user.email, token: token }, status: :ok
   end
 

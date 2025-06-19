@@ -80,7 +80,6 @@ RSpec.configure do |config|
     }
   }
 
-
   # Specify the format of the output Swagger file when running 'rswag:specs:swaggerize'.
   # The openapi_specs configuration option has the filename including format in
   # the key, this may want to be changed to avoid putting yaml in json files.

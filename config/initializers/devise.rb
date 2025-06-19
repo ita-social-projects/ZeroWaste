@@ -315,17 +315,12 @@ Devise.setup do |config|
   config.responder.redirect_status = :see_other
 
   config.jwt do |jwt|
-    jwt.secret = ENV.fetch("DEVISE_JWT_SECRET_KEY")
-    jwt.dispatch_requests = [
-      ["POST", %r{^/[a-z]{2}/api/v2/sign_in$}]
-    ]
-    jwt.revocation_requests = [
-      ["DELETE", %r{^/[a-z]{2}/api/v2/sign_out$}]
-    ]
-    jwt.expiration_time = 30.minutes.to_i
-    jwt.request_formats = { api: [:json] }
+    jwt.secret              = ENV.fetch("DEVISE_JWT_SECRET_KEY")
+    jwt.dispatch_requests   = [["POST", %r{^/[a-z]{2}/api/v2/sign_in$}]]
+    jwt.revocation_requests = [["DELETE", %r{^/[a-z]{2}/api/v2/sign_out$}]]
+    jwt.expiration_time     = 30.minutes.to_i
+    jwt.request_formats     = { api: [:json] }
   end
-
 end
 
 Devise::Async.setup do |config|
