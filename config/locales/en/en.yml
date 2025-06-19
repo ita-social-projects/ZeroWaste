@@ -64,6 +64,8 @@ en:
       by: "by"
     footer:
       api_documentation: "API Documentation"
+      created_with: "Created with"
+      by: "by"
   calculators:
     description_block:
       description_block_html:
@@ -499,6 +501,54 @@ en:
               tooltip: "This category isn't shown in Calculator, because it doesn't have all periods covered."
               cannot_delete_category: "You can't delete periods in preferable category."
     calculators:
+      partials:
+        field_fields:
+          field_legend: "Field"
+          field_label: "Field Label:"
+          uk_field_label: "Uk Field Label:"
+          variable_name_label: "Variable Name:"
+          field_type_label: "Field Type:"
+          select_field_type_prompt: "Select Field Type"
+          categories_legend: "Categories"
+          add_category_link: "+ Add Category"
+          remove_field_link: "- Remove Field"
+          field_kinds:
+            number: "Number"
+            category: "Category"
+        category_fields:
+          category_legend: "Category"
+          category_name_label: "Category Name:"
+          uk_category_name_label: "Uk Category Name:"
+          category_price_label: "Category Price:"
+          remove_category_link: "- Remove Category"
+        formula_fields:
+          formula_legend: "Formula"
+          formula_label: "Formula Label:"
+          uk_formula_label: "Uk Formula Label:"
+          priority_label: "Priority:"
+          formula_expression_label: "Formula Expression:"
+          uk_unit_label: "Uk Unit Label:"
+          unit_label: "Unit Label:"
+          relation_label: "Relation of formula (optional):"
+          upload_formula_image_label: "Upload logo:"
+          current_image_text: "Current Image:"
+          keep_current_image_text: "If you do not upload a new image, the current one will be kept."
+          remove_formula_link: "- Remove Formula"
+          relation_options:
+            none: "None"
+            next: "Next"
+            previous: "Previous"
+        color_selector:
+          choose_color_label: "Choose a Color for Calculator Page:"
+        form:
+          calculator_legend: "Calculator"
+          calculator_name_label: "Calculator Name:"
+          uk_calculator_name_label: "Uk Calculator Name:"
+          upload_logo_label: "Upload logo:"
+          add_formula_link: "+ Add Formula"
+          add_field_link: "+ Add Field"
+          formulas_legend: "Formulas"
+          fields_legend: "Fields"
       index:
         meta-title: "Calculators"
         add_calculator_button: "Add calculator"
