@@ -7,6 +7,7 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
+  let(:copyable) { create(:calculator) }
   let!(:new_attributes) { { calculator: { en_name: "new name" }} }
   let!(:invalid_attributes) { { calculator: { en_name: nil }} }
   let(:user) { create(:user) }
@@ -169,6 +170,16 @@ RSpec.describe "Account::CalculatorsController", type: :request do
         expect { get edit_account_calculator_path(invalid_id, locale: locale) }
           .to raise_error(ActiveRecord::RecordNotFound)
       end
+    end
+  end
+
+  describe "GET /account/calculators/:slug/duplicate" do
+    it "renders new after copying calculator" do
+      get duplicate_account_calculator_path(copyable.slug)
+
+      expect(response).to be_successful
+      expect(response).to render_template(:new)
+      expect(response.body).to include(copyable.en_name)
     end
   end
 end

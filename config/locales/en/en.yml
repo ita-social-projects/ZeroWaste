@@ -99,7 +99,7 @@ en:
       calculator_name: "Menstrual hygiene products calculator"
       form:
         user_age: "Your age"
-        menstruation_age: "Age at First Menstruation"
+        menstruation_age: "Age of First Menstruation"
         menopause_age: "Age at Menopause"
         duration_of_menstruation: "Duration of menstruation"
         duration_of_menstruation_info: "Mostly 3-5 days"
@@ -408,6 +408,7 @@ en:
           calculator_actions: "Actions"
           show: "Show"
           edit: "Edit"
+          duplicate: "Duplicate"
           delete: "Delete"
         edit:
           add_new_field_label: "Add new field"
@@ -506,6 +507,11 @@ en:
           calculator_slug: "Slug"
           calculator_name: "Name"
           calculator_actions: "Actions"
+        dialog:
+          are_you_sure: "Are you sure?"
+          dialog_description: "This will create a duplicate of the calculator with all its settings and data."
+          cancel: "Cancel"
+          duplicate: "Duplicate"
       edit:
         add_new_field_label: "Add new field"
         form:

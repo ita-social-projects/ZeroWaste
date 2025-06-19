@@ -45,6 +45,12 @@ class Account::CalculatorsController < Account::BaseController
     end
   end
 
+  def duplicate
+    @calculator = resource.amoeba_dup
+
+    render :new
+  end
+
   def destroy
     @calculator = resource
 
