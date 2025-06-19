@@ -1,47 +1,56 @@
-<%= link_to account_users_path, class: "rounded mt-3 px-2 flex items-center" do %>
-  <%= inline_svg "icons/arrow-left.svg", class: "z-1 mr-2 mb-0.5" %>
-  <span class="text-sm"><%= t('buttons.back') %></span>
+<%= link_to account_users_path, class: "btn btn-outline-secondary btn-sm mb-3 d-inline-flex align-items-center" do %>
+  <%= inline_svg "icons/arrow-left.svg", class: "me-2" %>
+  <%= t('buttons.back') %>
 <% end %>
 
-</br>
-<div class="container d-flex justify-content-between">
-  <div class="flex-child">
-    <h2><%= t('.header') %></h2>
-    <dl>
-      <dt><%= t('.table.email_col') %></dt>
-      <dd><%= @user.email %></dd>
+<h1 class="h4 fw-bold mb-4"><%= "#{@user.first_name} #{@user.last_name}" %></h1>
 
-      <dt><%= t('.table.first_name_col') %></dt>
-      <dd><%= @user.first_name %></dd>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="fw-semibold text-secondary mb-3"><%= t('.header') %></h5>
+          <dl class="row mb-0">
+            <dt class="col-sm-5"><%= t('.table.email_col') %></dt>
+            <dd class="col-sm-7"><%= @user.email %></dd>
 
-      <dt><%= t('.table.last_name_col') %></dt>
-      <dd><%= @user.last_name %></dd>
+            <dt class="col-sm-5"><%= t('.table.first_name_col') %></dt>
+            <dd class="col-sm-7"><%= @user.first_name %></dd>
 
-      <dt><%= t('.table.country_col') %></dt>
-      <dd><%= @user.country %></dd>
+            <dt class="col-sm-5"><%= t('.table.last_name_col') %></dt>
+            <dd class="col-sm-7"><%= @user.last_name %></dd>
 
-      <dt><%= t('.table.last_sign_in_col') %></dt>
-      <dd><%= @user.last_sign_in_at %></dd>
+            <dt class="col-sm-5"><%= t('.table.country_col') %></dt>
+            <dd class="col-sm-7"><%= @user.country %></dd>
 
-      <dt><%= t('.table.current_IP_col') %></dt>
-      <dd><%= @user.current_sign_in_ip %></dd>
+            <dt class="col-sm-5"><%= t('.table.last_sign_in_col') %></dt>
+            <dd class="col-sm-7"><%= @user.last_sign_in_at %></dd>
 
-      <dt><%= t('.table.last_IP_col') %></dt>
-      <dd><%= @user.last_sign_in_ip %></dd>
+            <dt class="col-sm-5"><%= t('.table.current_IP_col') %></dt>
+            <dd class="col-sm-7"><%= @user.current_sign_in_ip %></dd>
 
-      <dt><%= t('.table.ban_col') %></dt>
-      <dd><%= t(".table.#{ @user.blocked? ? 'blocked' : 'unblocked' }_label") %></dd>
-    </dl>
-  </div>
+            <dt class="col-sm-5"><%= t('.table.last_IP_col') %></dt>
+            <dd class="col-sm-7"><%= @user.last_sign_in_ip %></dd>
 
-  <div class="flex-child">
-    <h2 class="text-center"><%= t('.avatar') %></h2>
-    <dd>
-      <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, class: "w-75 d-block my-0 mx-auto" %>
-      <% else %>
-        <%= image_tag 'user.png', class: "w-75 d-block my-0 mx-auto" %>
-      <% end %>
-    </dd>
+            <dt class="col-sm-5"><%= t('.table.ban_col') %></dt>
+            <dd class="col-sm-7">
+              <span class="badge text-white <%= @user.blocked? ? 'bg-danger' : 'bg-success' %>">
+                <%= t(".table.#{ @user.blocked? ? 'blocked' : 'unblocked' }_label") %>
+              </span>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="fw-semibold text-secondary mb-3"><%= t('.avatar') %></h5>
+          <%= image_tag (@user.avatar.attached? ? @user.avatar : 'user.png'), class: "img-fluid rounded-circle border shadow-sm" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

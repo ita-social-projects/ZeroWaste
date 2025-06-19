@@ -16,17 +16,17 @@
     <%= f.label :formula_image, "Upload logo:", class: "form-label d-block" %>
     <%= f.file_field :formula_image, 
                      accept: Formula::ALLOWED_IMAGE_TYPES.join(','), 
-                     class: "file-input mb-3 flex" %>
+                     class: "form-control mb-3 d-flex" %>
 
     <% if f.object.persisted? && f.object.formula_image.attached? %>
   <div class="mt-2">
     <p>Current Image:</p>
-    <%= image_tag f.object.formula_image, class: "w-32 h-32 rounded shadow" %>
-    <p class="text-sm text-gray-600">If you do not upload a new image, the current one will be kept.</p>
+    <%= image_tag f.object.formula_image, class: "img-thumbnail shadow-sm" %>
+    <p class="small text-muted">If you do not upload a new image, the current one will be kept.</p>
   </div>
 <% end %>
 
 
-    <%= link_to_remove_association "- Remove Formula", f, class: "text-red-500 underline" %>
+    <%= link_to_remove_association "- Remove Formula", f, class: "text-danger text-decoration-underline" %>
   </div>
 </fieldset>

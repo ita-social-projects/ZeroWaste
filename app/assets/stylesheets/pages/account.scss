@@ -10,6 +10,16 @@ $burger-size: 20px;
   filter: alpha(opacity=$opacity);
 }
 
+.nav-link {
+  color: $success;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #006400;
+  border-bottom: 3px solid #006400;
+}
+
 .navbar {
   flex-grow: 0;
   margin-left: auto;

@@ -9,7 +9,7 @@
         } %>
 
     <div class="col-md-6 text-end">
-      <%= link_to new_account_product_path, class: "btn btn-green px-4 py-2" do %>
+      <%= link_to new_account_product_path, class: "btn btn-success px-4 py-2" do %>
         <i class="fas fa-plus me-2"></i>
         <span><%= t(".add_product_button") %></span>
       <% end %>
@@ -40,7 +40,8 @@
           <td class="text-center"><%= link_to icon('fa-solid', 'edit'), edit_account_product_path(id: product) %></td>
           <td class="text-center">
             <%= button_to account_product_path(id: product), method: :delete,
-                        data: { turbo_confirm: t(".confirm_delete") } do %>
+                          class: "p-0 border border-0 bg-transparent",
+                          data: { turbo_confirm: t(".confirm_delete") } do %>
               <i class="mx-2 fa fa-trash"></i>
             <% end %>
           </td>
@@ -50,4 +51,4 @@
   </table>
 </div>
 
-<%= paginate @products %>
+<%= paginate @products, theme: 'bootstrap5' %>

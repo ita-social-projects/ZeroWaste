@@ -1,0 +1,72 @@
+/* Admin-specific styles to override global styles for admin pages */
+@import "components/colors";
+
+/* Override global text color for admin pages */
+body.admin {
+  color: $dark_gray; /* Use dark gray for text in admin pages */
+}
+
+/* Override specific elements if needed */
+.admin-container {
+  color: $dark_gray;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $dark_gray;
+  }
+
+  p, span, div, label, input, select, textarea {
+    color: $dark_gray;
+  }
+
+  a {
+    color: $success;
+
+    &:hover {
+      //color: $matte_lime_green;
+    }
+  }
+
+  .btn {
+    &:not(.btn-outline-secondary):not(.btn-outline-success) {
+      color: $color;
+    }
+
+    span {
+      &:not(span.toggle-password) {
+        color: $color;
+      }
+    }
+
+    span.toggle-password, .btn-outline-secondary, .btn-outline-success {
+      &:hover {
+        color: $color;
+      }
+    }
+
+    .btn-outline-secondary, .btn-outline-success {
+      color: $success;
+
+      &:hover {
+        a span {
+          color: $color;
+        }
+      }
+    }
+  }
+}
+
+/* Ensure admin tables have proper text color */
+.admin-table {
+  color: $dark_gray;
+
+  th, td {
+    color: $dark_gray;
+  }
+}
+
+/* Override any other specific components that might need color adjustment */
+.nav-link {
+  &.active {
+    color: $dark_green;
+  }
+}

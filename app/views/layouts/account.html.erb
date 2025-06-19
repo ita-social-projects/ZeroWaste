@@ -11,16 +11,17 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
   <%= tinymce_assets %>
 </head>
-<body class="min-h-screen admin">
+<body class="d-flex flex-column min-vh-100 admin">
   <%= render 'shared/flash_messages' %>
   <%= render 'shared/account_navbar' %>
-  <div class="container admin-container">
+  <main class="container admin-container flex-grow-1">
     <%= yield %>
-  </div>
+  </main>
   <%= render 'shared/account_footer' %>
 </body>
 </html>

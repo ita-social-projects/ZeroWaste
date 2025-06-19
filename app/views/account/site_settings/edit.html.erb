@@ -10,18 +10,19 @@
         <div class="my-auto col-12 has-float-label">
           <%= f.input :title, class: "form-control", input_html: { data: { action: "input->handle-browser-tab#setTitle" } } %>
           <%= f.input :favicon, wrapper: :custom_vertical_file, input_html: { data: { action: "change->handle-browser-tab#setIcon" } } %>
-          <div class="mb-10">
+          <div class="mb-5">
             <%= render "browser_tab", site_setting: @site_setting %>
           </div>
         </div>
       </div>
-      <%= f.submit t("buttons.save") %>
+      <%= f.submit t("buttons.save"), class: "btn btn-success" %>
+      <%= button_to t("buttons.revert"), revert_account_site_setting_path,
+                    method: :put,
+                    data: { turbo_confirm: t(".confirm_default") },
+                    class: "btn btn-secondary" %>
     <% end %>
 
-    <%= button_to t("buttons.revert"), revert_account_site_setting_path,
-                  method: :put,
-                  data: { turbo_confirm: t(".confirm_default") },
-                  class: "btn-grey absolute bottom-0 left-0 ml-32" %>
+
   </div>
 </fieldset>
 
@@ -46,7 +47,7 @@
     <% end %>
 
     <div data-controller="loader">
-      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" }, class: "btn-green px-4 py-2" %>
+      <%= f.submit t("buttons.save"), data: { action: "click->loader#show_loader" }, class: "btn btn-success px-4 py-2" %>
     </div>
   <% end %>
 </fieldset>
@@ -58,5 +59,5 @@
   <p class="mb-3">
     <%= t(".rails_db_description") %>
   </p>
-  <%= link_to "Rails DB", rails_db_path, class: "btn-grey px-4 py-2" %>
+  <%= link_to "Rails DB", rails_db_path, class: "btn btn-secondary px-4 py-2" %>
 </fieldset>

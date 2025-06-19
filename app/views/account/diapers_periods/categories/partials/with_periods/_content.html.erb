@@ -14,9 +14,9 @@
             <td>
               <span><%= category.name %></span>
               <% if unfilled_categories.include?(category) %>
-                <div class="relative inline-block cursor-help">
+                <div class="position-relative d-inline-block" style="cursor: help;">
                   <span title="<%= t(".tooltip") %>">
-                    <i class="text-yellow-600 fa-solid fa-circle-exclamation hover:text-yellow-700"></i>
+                    <i class="text-warning fa-solid fa-circle-exclamation"></i>
                   </span>
                 </div>
               <% end %>
@@ -30,7 +30,7 @@
             </td>
             <td class="text-center">
               <% if category.preferable? %>
-                <div class="relative inline-block cursor-help">
+                <div class="position-relative d-inline-block" style="cursor: help;">
                   <span title="<%= t(".cannot_delete_category") %>"><i class="mx-2 fa fa-trash"></i></span>
                 </div>
               <% else %>
@@ -57,6 +57,6 @@
         t(".add_button"),
         available_account_diapers_periods_categories_path,
         data: { turbo_stream: true },
-        class: "btn-green px-4 py-2"
+        class: "btn btn-success px-4 py-2"
       ) %>
 <% end %>

@@ -1,9 +1,9 @@
 <%= turbo_frame_tag :diapers_periods do %>
   <h3 class="mb-4"><strong><%= t(".periods_for") %> <%= category.name %></strong></h3>
   <% if unfilled_categories.include?(category) %>
-    <div class="relative px-4 py-3 mb-4 text-yellow-700 bg-yellow-100 border border-yellow-400 rounded" role="alert">
+    <div class="position-relative p-3 mb-4 text-warning bg-warning bg-opacity-10 border border-warning rounded" role="alert">
       <i class="fa-solid fa-circle-exclamation"></i>
-      <span class="block sm:inline"> <%= t(".warning") %> </span>
+      <span class="d-block d-sm-inline"> <%= t(".warning") %> </span>
     </div>
   <% end %>
   <table class="table admin-table">
@@ -55,7 +55,7 @@
   <%= link_to(
         t(".back_button"),
         with_periods_account_diapers_periods_categories_path,
-        class: "btn-grey px-4 py-2",
+        class: "btn btn-secondary px-4 py-2",
         data: { turbo_stream: true }
       ) %>
 <% end %>

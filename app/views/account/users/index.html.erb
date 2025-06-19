@@ -48,6 +48,7 @@
             </td>
             <td class="text-center">
               <%= button_to account_user_path(id: user), method: :delete,
+                            class: "p-0 border border-0 bg-transparent",
                             data: { turbo_confirm: t(".confirm_delete") } do %>
                 <i class="mx-2 fa fa-trash"></i>
               <% end %>
@@ -59,4 +60,4 @@
   </div>
 </div>
 
-<%= paginate @users %>
+<%= paginate @users, theme: 'bootstrap5' %>

@@ -9,7 +9,7 @@
         } %>
 
     <div class="col-md-6 text-end">
-      <%= link_to new_account_category_path, class: "btn btn-green px-4 py-2" do %>
+      <%= link_to new_account_category_path, class: "btn btn-success px-4 py-2" do %>
         <i class="fas fa-plus me-2"></i>
         <span><%= t(".add_category_button") %></span>
       <% end %>
@@ -40,7 +40,8 @@
             </div>
           <% else %>
             <%= button_to account_category_path(id: category), method: :delete,
-                                                               data: { turbo_confirm: t(".confirm_delete") } do %>
+                          class: "p-0 border border-0 bg-transparent",
+                          data: { turbo_confirm: t(".confirm_delete") } do %>
               <i class="mx-2 fa fa-trash"></i>
             <% end %>
           <% end %>
@@ -51,4 +52,4 @@
   </table>
 </div>
 
-<%= paginate @categories %>
+<%= paginate @categories, theme: 'bootstrap5' %>

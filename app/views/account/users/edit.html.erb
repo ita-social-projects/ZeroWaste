@@ -1,43 +1,58 @@
-<div class="container d-flex justify-content-between">
-  <div>
-    <h2 class="text-center">
-      <%= t('.table.edit_user_info') %>
-    </h2>
-    <%= simple_form_for(@user, url: account_user_path(id: @user), remote: false, wrapper: :horizontal_form) do |f| %>
-      <%= f.input :first_name, placeholder: t('.form.name_label'), autofocus: true, autocomplete: 'first name' %>
-      <%= f.input :last_name, placeholder: t('.form.surname_label'), autofocus: true, autocomplete: 'last name' %>
-      <%= f.input :country, autofocus: true %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="fw-semibold text-secondary mb-3 text-center">
+            <%= t('.table.edit_user_info') %>
+          </h5>
 
-      <div class="password-wrapper" data-controller="password-visibility">
-        <%= f.input :password, autocomplete: 'new-password', hint: t('.form.password_hint'), input_html: { data: { password_visibility_target: 'password' } }, required: false %>
-        <%= render 'shared/password_icon' %>
+          <%= simple_form_for(@user, url: account_user_path(id: @user), remote: false) do |f| %>
+            <%= f.input :first_name, placeholder: t('.form.name_label'), autofocus: true, autocomplete: 'first name' %>
+            <%= f.input :last_name, placeholder: t('.form.surname_label'), autocomplete: 'last name' %>
+            <%= f.input :country, autocomplete: 'country-name' %>
+            <div class="mb-3" data-controller="password-visibility">
+              <%= f.label :password, class: "form-label" %>
+              <div class="input-group">
+                <%= f.input_field :password, class: "form-control", autocomplete: "new-password", data: { password_visibility_target: "password" } %>
+                <button class="btn btn-outline-secondary position-relative z-1" type="button" data-action="password-visibility#toggle">
+                  <%= render 'shared/password_icon', locals: { class: "pointer-events-none" } %>
+                </button>
+              </div>
+              <small class="form-text text-muted"><%= t('.form.password_hint') %></small>
+            </div>
+
+
+            <div class="mb-3" data-controller="password-visibility">
+              <%= f.label :password_confirmation, class: "form-label" %>
+              <div class="input-group">
+                <%= f.input_field :password_confirmation, class: "form-control", autocomplete: "new-password", data: { password_visibility_target: "password" } %>
+                <button class="btn btn-outline-secondary position-relative z-1" type="button" data-action="password-visibility#toggle">
+                  <%= render 'shared/password_icon', locals: { class: "pointer-events-none" } %>
+                </button>
+              </div>
+            </div>
+
+            <%= f.input :avatar, as: :file, direct_upload: true, label: t('.avatar'), hint: t('.form.avatar_hint'), input_html: { class: 'form-control' } %>
+
+            <div class="d-flex mt-3">
+              <%= f.submit t('.form.update_user_button'), class: 'btn btn-success me-2' %>
+              <%= link_to account_products_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
+                <span class="me-1"><%= t('buttons.cancel') %></span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
+    </div>
 
-      <div class="password-wrapper" data-controller="password-visibility">
-        <%= f.input :password_confirmation, autocomplete: 'new-password', input_html: { data: { password_visibility_target: 'password' } }, required: false %>
-        <%= render 'shared/password_icon' %>
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="fw-semibold text-secondary mb-3"><%= t('.avatar') %></h5>
+          <%= image_tag (@user.avatar.attached? ? @user.avatar : 'user.png'), class: "img-fluid rounded-circle border shadow-sm", style: "max-width: 75%;" %>
+        </div>
       </div>
-
-      <%= f.input :avatar, as: :file, direct_upload: true, class: 'm-3', label: t('.avatar'), hint: t('.form.avatar_hint'), wrapper: :horizontal_form %>
-      <div class="button-group d-flex">
-        <%= f.submit t('.form.update_user_button'), class: 'btn btn-green me-2 height w-auto' %>
-        <%= link_to account_users_path, class: 'btn btn-danger d-flex align-items-center justify-content-center' do %>
-          <span class="me-1"><%= t('buttons.cancel') %></span>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
-  <div>
-    <h2 class="text-center">
-      <%= t('.avatar') %>
-    </h2>
-    <dd>
-      <% if @user.avatar.attached? && @user.avatar.persisted? %>
-        <%= image_tag @user.avatar, class: "w-75 d-block my-0 mx-auto" %>
-      <% else %>
-        <%= image_tag 'user.png', class: "w-75 d-block my-0 mx-auto" %>
-      <% end %>
-    </dd>
+    </div>
   </div>
 </div>
