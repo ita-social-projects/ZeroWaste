@@ -43,7 +43,7 @@ RSpec.describe Field, type: :model do
     }
     it {
       is_expected.to define_enum_for(:kind)
-        .with_values(number: "number", category: "category")
+        .with_values(number: "number", category: "category", select_option: "select_option")
         .backed_by_column_of_type(:string)
     }
     it {
