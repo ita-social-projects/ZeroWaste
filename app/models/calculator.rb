@@ -64,6 +64,13 @@ class Calculator < ApplicationRecord
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
   end
 
+  ransacker :name do |parent, _args|
+    locale_case = Arel::Nodes::Case.new
+    locale_case.when(Arel::Nodes::SqlLiteral.new("'#{I18n.locale}' = 'uk'")).then(parent.table[:uk_name])
+    locale_case.else(parent.table[:en_name])
+    locale_case
+  end
+
   def strip_tags_and_tokenize(string)
     ActionController::Base.helpers.strip_tags(string).chars
   end
