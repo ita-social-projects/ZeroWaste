@@ -529,6 +529,8 @@ en:
       partials:
         field_fields:
           value_of_field: "Value of field:"
+      show:
+        fork_for: "Fork for"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:

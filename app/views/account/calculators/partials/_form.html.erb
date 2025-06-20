@@ -1,4 +1,5 @@
 <%= simple_form_for(calculator, url: polymorphic_path([:account, calculator], locale: I18n.locale), html: { id: dom_id(calculator, :form) }) do |f| %>
+  <%= f.hidden_field :original_calculator_id %>
   <div class="form-group row">
     <div class="my-auto col-12 has-float-label">
       <fieldset class="bordered">

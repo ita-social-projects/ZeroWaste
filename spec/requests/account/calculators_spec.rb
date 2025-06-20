@@ -100,6 +100,19 @@ RSpec.describe "Account::CalculatorsController", type: :request do
         expect(response).to redirect_to(new_user_session_path)
       end
     end
+
+    context "when duplicating an existing calculator" do
+      let(:original_calculator) { create(:calculator, :with_field_and_formula) }
+
+      it "duplicates the calculator and initializes it correctly" do
+        get new_account_calculator_path(original_calculator_id: original_calculator.id)
+
+        expect(response).to be_successful
+        expect(response.body).to include(original_calculator.name)
+        expect(response.body).to include(original_calculator.fields.first.var_name)
+        expect(response.body).to include(original_calculator.formulas.first.expression)
+      end
+    end
   end
 
   describe "PATCH #update" do
@@ -170,16 +183,6 @@ RSpec.describe "Account::CalculatorsController", type: :request do
         expect { get edit_account_calculator_path(invalid_id, locale: locale) }
           .to raise_error(ActiveRecord::RecordNotFound)
       end
-    end
-  end
-
-  describe "GET /account/calculators/:slug/duplicate" do
-    it "renders new after copying calculator" do
-      get duplicate_account_calculator_path(copyable.slug)
-
-      expect(response).to be_successful
-      expect(response).to render_template(:new)
-      expect(response.body).to include(copyable.en_name)
     end
   end
 end

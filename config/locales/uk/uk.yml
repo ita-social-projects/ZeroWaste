@@ -416,6 +416,8 @@ uk:
       partials:
         field_fields:
           value_of_field: "Значення поля:"
+      show:
+        fork_for: "Дубльовано з"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"
