@@ -414,6 +414,9 @@ uk:
         error: "помилки"
         uk_notes: "Нотатки українською"
         en_notes: "Нотатки англійською"
+      partials:
+        field_fields:
+          value_of_field: "Значення поля:"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"

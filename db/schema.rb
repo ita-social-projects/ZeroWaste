@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_18_095516) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -116,6 +116,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
     t.string "en_label", default: "", null: false
     t.string "var_name", default: "", null: false
     t.bigint "calculator_id", null: false
+    t.decimal "value", precision: 10, scale: 2
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
   end
 
@@ -159,6 +160,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "periods", force: :cascade do |t|
+    t.integer "period_start"
+    t.integer "period_end"
+    t.integer "usage_amount"
+    t.bigint "category_id", null: false
+    t.decimal "price", precision: 10, scale: 3
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_periods_on_category_id"
+  end
+
   create_table "prices", force: :cascade do |t|
     t.decimal "sum", precision: 8, scale: 2
     t.string "priceable_type"
@@ -188,6 +200,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["title"], name: "index_products_on_title", unique: true
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
+  end
+
+  create_table "select_options", force: :cascade do |t|
+    t.bigint "field_id", null: false
+    t.string "key"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["field_id"], name: "index_select_options_on_field_id"
   end
 
   create_table "site_settings", force: :cascade do |t|
@@ -247,4 +268,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_135823) do
   add_foreign_key "diapers_periods", "categories"
   add_foreign_key "fields", "calculators"
   add_foreign_key "formulas", "calculators"
+  add_foreign_key "periods", "categories"
+  add_foreign_key "select_options", "fields"
 end
