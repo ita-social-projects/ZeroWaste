@@ -505,6 +505,7 @@ en:
         field_fields:
           field_legend: "Field"
           field_label: "Field Label:"
+          value_of_field: "Value of field:"
           uk_field_label: "Uk Field Label:"
           variable_name_label: "Variable Name:"
           field_type_label: "Field Type:"
@@ -575,10 +576,7 @@ en:
       new:
         uk_notes: "Ukrainian Notes"
         en_notes: "English Notes"
-        create_calculator_button: "Save calculator"
-      partials:
-        field_fields:
-          value_of_field: "Value of field:"
+        create_calculator_button: "Save calculator" 
     feature_flags:
       submit_button: "Save"
       new_calculator_design:
