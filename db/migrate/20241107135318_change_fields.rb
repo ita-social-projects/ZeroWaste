@@ -19,6 +19,10 @@ class ChangeFields < ActiveRecord::Migration[7.2]
     end
 
     change_column_default :fields, :calculator_id, from: 0, to: nil
+    Field.where(calculator_id: 0) do |field|
+      field.update!(calculator_id: nil)
+    end
+
     change_column :fields, :kind, :string
   end
 

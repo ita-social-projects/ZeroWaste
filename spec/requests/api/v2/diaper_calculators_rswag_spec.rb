@@ -1,5 +1,3 @@
-# spec/requests/api/v2/diaper_calculators_spec.rb
-
 require "swagger_helper"
 
 RSpec.describe "/diaper_calculators", openapi_spec: "v2/swagger.yaml", type: :request do
@@ -15,6 +13,7 @@ RSpec.describe "/diaper_calculators", openapi_spec: "v2/swagger.yaml", type: :re
   path "/diaper_calculators" do
     post("Calculate diaper usage") do
       tags "Diaper Calculator"
+      description "Calculate diaper usage based on user input"
       security [bearerAuth: []]
       consumes "application/json"
       produces "application/json"

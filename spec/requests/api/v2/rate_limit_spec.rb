@@ -8,11 +8,13 @@ RSpec.describe "Rate limiting", type: :request do
   it "limits requests to 5 per minute" do
     5.times do
       get "/en/api/v2/calculators.json", headers: headers
-      expect(response).to have_http_status(:ok)
+
+      expect(response).to be_ok
     end
 
     get "/en/api/v2/calculators.json", headers: headers
-    expect(response).to have_http_status(:too_many_requests)
+
+    expect(response).to be_too_many_requests
     expect(response.parsed_body["error"]).to match(/Rate limit exceeded/)
   end
 end

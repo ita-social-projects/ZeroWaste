@@ -16,6 +16,7 @@ class Rack::Attack
 
   Rack::Attack.throttled_responder = lambda do |request|
     retry_after = (request.env["rack.attack.match_data"] || {})[:period]
+
     [
       429,
       { "Content-Type" => "application/json", "Retry-After" => retry_after.to_s },
