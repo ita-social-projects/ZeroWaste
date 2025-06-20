@@ -33,7 +33,8 @@ class Field < ApplicationRecord
 
   NUMBER   = "number"
   CATEGORY = "category"
-  KINDS    = { number: NUMBER, category: CATEGORY }.freeze
+  HIDDEN   = "hidden"
+  KINDS    = { number: NUMBER, category: CATEGORY, hidden: HIDDEN }.freeze
 
   enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
