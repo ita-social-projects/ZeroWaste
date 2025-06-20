@@ -389,7 +389,13 @@ uk:
           calculator_actions: "Дії"
           show: "Показати"
           edit: "Відредагувати"
+          duplicate: "Дублювати"
           delete: "Видалити"
+        dialog:
+          are_you_sure: "Ви впевнені?"
+          dialog_description: "Це створить дублікат калькулятора з усіма його налаштуваннями та даними."
+          cancel: "Скасувати"
+          duplicate: "Дублювати"
       edit:
         add_new_field_label: "Додати нове поле"
         form:

@@ -244,6 +244,7 @@ body:where(.admin)::before {
   .admin-table-links {
 
     a,
+    button,
     form {
       color: $success;
 
