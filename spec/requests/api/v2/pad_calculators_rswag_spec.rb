@@ -1,9 +1,18 @@
 require "swagger_helper"
 
 RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :request do
+  let(:user) { create(:user) }
+
+  let(:jwt_token) do
+    Warden::JWTAuth::UserEncoder.new.call(user, :user, nil).first
+  end
+
+  let(:Authorization) { "Bearer #{jwt_token}" }
+
   path "/pad_calculators" do
     post("Pad calculator") do
       tags "Pad Calculator"
+      security [bearerAuth: []]
       description "Calculate pad usage and cost based on user input.
       Available types: #{Calculators::PadUsageService::PRODUCT_PRICES.keys.map(&:to_s).join(", ")}"
 
@@ -26,6 +35,8 @@ RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :reque
       }
 
       response(200, "successful") do
+        let(:Authorization) { "Bearer #{jwt_token}" }
+
         let(:body) do
           {
             user_age: 30,
@@ -51,6 +62,8 @@ RSpec.describe "/pad_calculators", openapi_spec: "v2/swagger.yaml", type: :reque
       end
 
       response(422, "unprocessable entity") do
+        let(:Authorization) { "Bearer #{jwt_token}" }
+
         let(:body) {}
 
         schema type: :object,
