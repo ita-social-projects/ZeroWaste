@@ -47,7 +47,6 @@ yarn-debug.log*
 /config/database.yml
 /vendor
 
-.env
 .DS_Store
 .env.db
 
@@ -71,3 +70,4 @@ package-lock.json
 
 .rvmrc
 swagger/
+config.bat
