@@ -11,6 +11,9 @@ RSpec.describe SelectOption, type: :model do
     it { is_expected.to validate_presence_of(:key) }
     it { is_expected.to validate_length_of(:key).is_at_most(50) }
 
+    it { is_expected.to validate_presence_of(:en_key) }
+    it { is_expected.to validate_length_of(:en_key).is_at_most(50) }
+
     it { is_expected.to validate_presence_of(:value) }
     it { is_expected.to validate_numericality_of(:value) }
   end
@@ -22,6 +25,15 @@ RSpec.describe SelectOption, type: :model do
       select_option.valid?
       expect(select_option.errors.full_messages_for(:key).length).to eq 1
       expect(select_option.errors.full_messages_for(:key)).to include("Key can't be blank")
+    end
+  end
+
+  context "when en_key is blank" do
+    let(:select_option) { build(:select_option, en_key: "") }
+
+    it "is not valid" do
+      expect(select_option).not_to be_valid
+      expect(select_option.errors[:en_key]).to include("can't be blank")
     end
   end
 

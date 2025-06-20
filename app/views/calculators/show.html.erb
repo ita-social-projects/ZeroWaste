@@ -20,8 +20,9 @@
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
           <% elsif field.kind == 'select_option' %>
+            <% label_method = I18n.locale == :uk ? :key : :en_key %>
             <%= form.select "inputs[#{field.var_name}]",
-                            options_for_select(field.select_options.map { |opt| [opt.key, opt.value] }),
+                            options_for_select(field.select_options.map { |opt| [opt.send(label_method), opt.value] }),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
           <% end %>

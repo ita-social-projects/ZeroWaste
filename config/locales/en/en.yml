@@ -520,6 +520,15 @@ en:
         uk_notes: "Ukrainian Notes"
         en_notes: "English Notes"
         create_calculator_button: "Save calculator"
+      partials:
+        field_fields:
+          select_options_legend: "Select Options"
+          add_option: "+ Add Option"
+        select_option_fields:
+          key_label: "Key"
+          en_key_label: "En Key"
+          value_label: "Value"
+          remove_option: "- Remove Option"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:

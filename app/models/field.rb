@@ -32,10 +32,10 @@ class Field < ApplicationRecord
   has_many :categories, dependent: :destroy
   has_many :select_options, dependent: :destroy
 
-  NUMBER   = "number"
-  CATEGORY = "category"
+  NUMBER        = "number"
+  CATEGORY      = "category"
   SELECT_OPTION = "select_option"
-  KINDS    = { number: NUMBER, category: CATEGORY, select_option: SELECT_OPTION }.freeze
+  KINDS         = { number: NUMBER, category: CATEGORY, select_option: SELECT_OPTION }.freeze
 
   enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }

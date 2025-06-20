@@ -407,6 +407,15 @@ uk:
         error: "помилки"
         uk_notes: "Нотатки українською"
         en_notes: "Нотатки англійською"
+      partials:
+        field_fields:
+          select_options_legend: "Опції вибору"
+          add_option: "+ Додати опцію"
+        select_option_fields:
+          key_label: "Ключ"
+          en_key_label: "Ключ (En)"
+          value_label: "Значення"
+          remove_option: "- Видалити опцію"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"

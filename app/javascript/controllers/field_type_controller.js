@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["fieldTypeSelect", "categoryFields", "selectOptions"]
+  static targets = ["fieldTypeSelect", "categoryFields", "selectOptions"];
 
   connect() {
     this.setupFieldTypeSelect();
@@ -9,28 +9,26 @@ export default class extends Controller {
 
   setupFieldTypeSelect() {
     if (this.hasFieldTypeSelectTarget) {
-      this.toggleFields();
-      this.fieldTypeSelectTarget.addEventListener("change", () => this.toggleFields());
+      this.toggleCategoryFields();
+      this.toggleSelectOptions();
+      this.fieldTypeSelectTarget.addEventListener("change", () => {
+        this.toggleCategoryFields();
+        this.toggleSelectOptions();
+      });
     }
   }
 
-  toggleFields() {
-    const selected = this.fieldTypeSelectTarget.value;
-
+  toggleCategoryFields() {
     if (this.hasCategoryFieldsTarget) {
-      if (selected === "category") {
-        this.categoryFieldsTarget.style.display = "block";
-      } else {
-        this.categoryFieldsTarget.style.display = "none";
-      }
+      this.categoryFieldsTarget.style.display =
+        this.fieldTypeSelectTarget.value === "category" ? "block" : "none";
     }
+  }
 
+  toggleSelectOptions() {
     if (this.hasSelectOptionsTarget) {
-      if (selected === "select_option") {
-        this.selectOptionsTarget.style.display = "block";
-      } else {
-        this.selectOptionsTarget.style.display = "none";
-      }
+      this.selectOptionsTarget.style.display =
+        this.fieldTypeSelectTarget.value === "select_option" ? "block" : "none";
     }
   }
 }
