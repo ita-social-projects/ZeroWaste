@@ -1,86 +1,46 @@
-<nav class="text-xl bg-slate-50">
-  <div data-controller="burger" class="flex">
-    <div class="flex w-36 h-24">
-    <%= link_to root_path, title: t(".homepage") do %>
-      <%= image_tag("logo_zerowaste.png", alt: t(".zerowaste_logo"), class: "max-w-full h-auto") %>
-    <% end %>
-    </div>
+<nav class="navbar navbar-expand-xl navbar-light bg-light w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="/assets/logo_zerowaste.png" alt="ZeroWaste Logo" class="img-fluid" style="max-height: 100px;">
+    </a>
 
-    <div data-burger-target="navbarNav" class="hidden xl:flex">
-      <ul class="admin-menu-list">
-        <% if Flipper[:constructor_status].enabled? %>
-          <li class="mx-4">
-            <%= link_to_unless_current t(".calculators"), account_calculators_path, title: t(".calculators"), class: "admin-menu-item" do %>
-              <p class="tab-active">
-                <%= t(".calculators") %>
-              </p>
-            <% end %>
-          </li>
-        <% end %>
-
-        <li class="mx-4">
-          <%= link_to_unless_current t(".histories"), account_histories_path, title: t(".histories"), class: "admin-menu-item" do %>
-            <p class="tab-active">
-              <%= t(".histories") %>
-            </p>
-          <% end %>
-        </li>
-
-        <li class="mx-4">
-          <%= link_to_unless_current t(".users"), account_users_path, title: t(".users"), class: "admin-menu-item" do %>
-            <p class="tab-active">
-              <%= t(".users") %>
-            </p>
-          <% end %>
-        </li>
-
-        <li class="mx-4">
-          <%= link_to_unless_current t(".messages"), account_messages_path, title: t(".messages"), class: "admin-menu-item" do %>
-            <p class="tab-active">
-              <%= t(".messages") %>
-            </p>
-          <% end %>
-        </li>
-
-        <li class="mx-4">
-          <%= link_to_unless_current t(".products"), account_products_path, title: t(".products"), class: "admin-menu-item" do %>
-            <p class="tab-active">
-              <%= t(".products") %>
-            </p>
-          <% end %>
-        </li>
-
-        <li class="mx-4">
-          <%= link_to_unless_current t(".categories"), account_categories_path, title: t(".categories"), class: "admin-menu-item" do %>
-            <p class="tab-active">
-              <%= t(".categories") %>
-            </p>
-          <% end %>
-        </li>
-
-         <li class="mx-4">
-          <%= link_to_unless_current t(".site_settings"), edit_account_site_setting_path, title: t(".site_settings"), class: "admin-menu-item" do %>
-            <p class="tab-active">
-              <%= t(".site_settings") %>
-            </p>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-
-    <div class="flex ml-auto">
-      <div id="lang-btn" >
-        <%= link_to url_for(locale: switch_locale_to), class: "locale-button" do %>
+    <div class="d-flex flex-row order-xl-2">
+      <div class="d-flex align-items-center me-3 me-xl-3">
+        <%= link_to url_for(locale: switch_locale_to), class: "btn btn-outline-success" do %>
           <%= t("#{switch_locale_to}") %>
         <% end %>
       </div>
 
-      <div>
-        <button data-action="click->burger#toggle" class="admin-menu-burger-button" aria-label= "<%= t('layouts.navigation.toggle_menu') %>">
-          <%= image_tag "icons/burger-menu-lines.svg", class: "block h-8 w-8", "data-burger-target": "iconLines", alt: t("layouts.navigation.open_menu") %>
-          <%= image_tag "icons/burger-menu-cross.svg", class: "block h-8 w-8 hidden", "data-burger-target": "iconCross", alt: t("layouts.navigation.close_menu") %>
-        </button>
-      </div>
-		</div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav gap-4 text-center">
+        <li class="nav-item">
+          <%= link_to t(".calculators"), account_calculators_path, class: "nav-link #{current_page?(account_calculators_path) ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".histories"), account_histories_path, class: "nav-link #{current_page?(account_histories_path) ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".users"), account_users_path, class: "nav-link #{current_page?(account_users_path) ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".messages"), account_messages_path, class: "nav-link #{current_page?(account_messages_path) ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".products"), account_products_path, class: "nav-link #{current_page?(account_products_path) ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".categories"), account_categories_path, class: "nav-link #{current_page?(account_categories_path) ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".site_settings"), edit_account_site_setting_path, class: "nav-link #{current_page?(edit_account_site_setting_path) ? 'active' : ''}" %>
+        </li>
+      </ul>
+
+    </div>
+
   </div>
 </nav>

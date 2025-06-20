@@ -23,11 +23,11 @@
           <%= render "account/calculators/partials/category_fields", f: category_fields %>
         <% end %>
         <div class="links">
-          <%= link_to_add_association "+ Add Category", f, :categories, partial: "account/calculators/partials/category_fields", class: "underline" %>
+          <%= link_to_add_association "+ Add Category", f, :categories, partial: "account/calculators/partials/category_fields", class: "text-decoration-underline" %>
         </div>
       </fieldset>
     </div>
 
-    <%= link_to_remove_association "- Remove Field", f, class: "text-red-500 underline" %>
+    <%= link_to_remove_association "- Remove Field", f, class: "text-danger text-decoration-underline" %>
   </div>
 </fieldset>

@@ -1,3 +1,6 @@
 <% flash.to_h.except("timedout").each do |message_type, message| %>
   <%= turbo_stream.toast(message, background: message_type) %>
+  <div class="flash-message <%= message_type %>" style="display: block; visibility: visible;">
+    <%= message %>
+  </div>
 <% end %>
