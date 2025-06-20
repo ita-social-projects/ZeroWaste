@@ -11,7 +11,7 @@
     <div class="col-md-6 text-md-end mb-md-5">
       <div class="mb-2" style="display: inline-block;">
         <h1 class="text-body d-inline"><%= t(".main_header") %></h1>
-        <h3 class="d-inline"><%= link_to icon("fa-solid", "download"), account_users_path(format: "csv") %></h3>
+        <h3 class="d-inline"><%= link_to inline_svg("icons/download.svg", class: "fa-download", style: "width: 16px; height: 16px;"), account_users_path(format: "csv") %></h3>
       </div>
     </div>
 
@@ -35,14 +35,18 @@
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
             <td><%= user.last_sign_in_at %></td>
-            <td class="text-center"><%= link_to icon("fa-solid", "eye"), account_user_path(id: user.id) %></td>
-            <td class="text-center"><%= link_to icon("fa-solid", "edit"), edit_account_user_path(id: user.id) %></td>
+            <td class="text-center"><%= link_to inline_svg("icons/eye.svg", class: "fa-eye", style: "width: 16px; height: 16px;"), account_user_path(id: user.id) %></td>
+            <td class="text-center"><%= link_to inline_svg("icons/edit.svg", class: "fa-edit", style: "width: 16px; height: 16px;"), edit_account_user_path(id: user.id) %></td>
             <td class="text-center">
               <% unless user.admin? %>
                 <%= button_to account_user_path(id: user, user: toggle_block_param(user)),
                               method: :patch,
                               data: { turbo_confirm: toggle_confirm(user) } do %>
-                  <i class="fa-solid fa-<%= toggle_class(user) %>"></i>
+                  <% if user.blocked? %>
+                    <%= inline_svg "icons/lock.svg", class: "fa-lock", style: "width: 16px; height: 16px; display: inline-block; visibility: visible;" %>
+                  <% else %>
+                    <%= inline_svg "icons/lock-open.svg", class: "fa-lock-open", style: "width: 16px; height: 16px; display: inline-block; visibility: visible;" %>
+                  <% end %>
                 <% end %>
               <% end %>
             </td>
@@ -50,7 +54,7 @@
               <%= button_to account_user_path(id: user), method: :delete,
                             class: "p-0 border border-0 bg-transparent",
                             data: { turbo_confirm: t(".confirm_delete") } do %>
-                <i class="mx-2 fa fa-trash"></i>
+                <%= inline_svg "icons/trash.svg", class: "fa-trash mx-2", style: "width: 16px; height: 16px;" %>
               <% end %>
             </td>
           </tr>
