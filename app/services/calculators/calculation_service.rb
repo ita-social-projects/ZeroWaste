@@ -3,14 +3,6 @@ class Calculators::CalculationService
     @calculator = calculator
     @inputs     = inputs.to_unsafe_h
 
-    @inputs = @inputs.transform_values do |v|
-      if v.is_a?(String) && v.match?(/\A-?\d+(\.\d+)?\z/)
-        v.include?(".") ? v.to_f : v.to_i
-      else
-        v
-      end
-    end
-
     @dentaku = Dentaku::Calculator.new
   end
 
