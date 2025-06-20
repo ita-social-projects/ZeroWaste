@@ -170,6 +170,9 @@ uk:
         few: "%{count} роки"
         many: "%{count} років"
         other: "%{count} років"
+    partials:
+      calculation_results:
+        calculation_results_title: "Результати розрахунків"
   layouts:
     navigation:
       about_us: "Про нас"

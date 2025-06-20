@@ -188,6 +188,9 @@ en:
         few: "%{count} years"
         many: "%{count} years"
         other: "%{count} years"
+    partials:
+      calculation_results:
+        calculation_results_title: "Calculation results"
   layouts:
     navigation:
       about_us: "About us"

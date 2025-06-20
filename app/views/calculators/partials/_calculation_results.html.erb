@@ -1,7 +1,7 @@
 <div class="calculation-results rounded jumbotron jumbotron-fluid position-relative"
      data-scroll-to-results-target="resultsContainer"
      style="--calculator-color: <%= @calculator.color %>">
-  <h2 class="pt-6 text-2xl font-semibold text-center dynamic-text-color">Calculation Results</h2>
+  <h2 class="pt-6 text-2xl font-semibold text-center dynamic-text-color"><%= t(".calculation_results_title") %></h2>
   <div class="jumbotron calculation-results result main-result-container result-container">
     <% results.each do |result| %>
       <div class="result-wrapper">
@@ -10,11 +10,11 @@
         <% end %>
 
         <div class="justify-self-center">
-        <%= image_tag result[:formula_image], class: "formula-image", alt: "icon" %>
-        <%= turbo_frame_tag "calc-result-#{result[:id]}" do %>
-          <%= render partial: "calculators/partials/show/calculation_result",
-                     locals: { result: result } %>
-        <% end %>
+          <%= image_tag result[:formula_image], class: "formula-image", alt: "icon" %>
+          <%= turbo_frame_tag "calc-result-#{result[:id]}" do %>
+            <%= render partial: "calculators/partials/show/calculation_result",
+                       locals: { result: result } %>
+          <% end %>
         </div>
 
         <% if result[:relation] == "next" %>
