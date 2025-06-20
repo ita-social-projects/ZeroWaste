@@ -159,17 +159,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "periods", force: :cascade do |t|
-    t.integer "period_start"
-    t.integer "period_end"
-    t.integer "usage_amount"
-    t.bigint "category_id", null: false
-    t.decimal "price", precision: 2, scale: 3
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_periods_on_category_id"
-  end
-
   create_table "prices", force: :cascade do |t|
     t.decimal "sum", precision: 8, scale: 2
     t.string "priceable_type"
@@ -268,6 +257,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
   add_foreign_key "diapers_periods", "categories"
   add_foreign_key "fields", "calculators"
   add_foreign_key "formulas", "calculators"
-  add_foreign_key "periods", "categories"
   add_foreign_key "select_options", "fields"
 end
