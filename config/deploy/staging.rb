@@ -21,6 +21,6 @@ set :rbenv_ruby, "2.7.2"
 # set :rvm_custom_path, "/usr/share/rvm"
 
 set :default_env, {
-  "ZW_DATABASE_USERNAME" => "deploy",
-  "ZW_DATABASE_PASSWORD" => "ZeroDB2020"
+  "ZW_DATABASE_USERNAME" => "",
+  "ZW_DATABASE_PASSWORD" => ""
 }
