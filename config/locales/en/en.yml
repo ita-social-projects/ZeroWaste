@@ -168,6 +168,7 @@ en:
     show:
       welcome_header: "Welcome to ZeroWaste"
       image_alt: "Scales"
+      calculate_result_button: "Calculate"
     buttons:
       to_main: "To main"
       calculate: "Calculate"
