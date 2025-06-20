@@ -1,0 +1,37 @@
+body:has(dialog[data-dialog-target="dialog"][open]) {
+  overflow: hidden;
+}
+
+dialog {
+  box-shadow: 0 0 0 100vw #00000080;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+dialog button.btn-outline-green:hover {
+  color: white !important;
+}
+
+dialog[data-dialog-target="dialog"][open] {
+  animation: fade-in 200ms forwards;
+}
+
+dialog[data-dialog-target="dialog"][closing] {
+  animation: fade-out 200ms forwards;
+}

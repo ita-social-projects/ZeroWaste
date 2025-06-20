@@ -32,6 +32,10 @@ class Calculator < ApplicationRecord
   has_many :fields, dependent: :destroy
   has_many :formulas, -> { ordered_by_priority }, dependent: :destroy, inverse_of: :calculator
 
+  amoeba do
+    enable
+  end
+
   validates_with RelationValidator
 
   accepts_nested_attributes_for :fields, allow_destroy: true

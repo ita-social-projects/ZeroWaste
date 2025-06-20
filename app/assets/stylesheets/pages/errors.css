@@ -1,6 +1,6 @@
 @layer components {
   .error-section {
-    @apply mx-auto space-y-4 text-center rounded-lg py-36 bg-white/10 text-success backdrop-blur-md max-w-1230
+    @apply mx-auto space-y-4 text-center rounded-lg py-36 bg-white/10 text-success backdrop-blur-md max-w-1530
   }
 
   .error-section .error-code {
