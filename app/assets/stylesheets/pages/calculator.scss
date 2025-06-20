@@ -204,6 +204,42 @@
   padding-left: 20px;
 }
 
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $success;
+  border-radius: 6px;
+  padding: 2px 12px;
+  height: 42px;
+
+  .search-icon {
+    font-size: 16px;
+    color: $gray;
+  }
+
+  .search-input {
+    border: none;
+    padding-left: 8px;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .clear-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $success;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+}
+
 .last-year option:nth-child(1n + 9) {
   display: none;
 }

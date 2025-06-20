@@ -277,8 +277,6 @@ en:
     messages:
       index:
         meta-title: "Messages"
-        search_placeholder: "Search"
-        search_button: "Search"
         table:
           title: "Title"
           email: "Email"
@@ -294,8 +292,6 @@ en:
     categories:
       index:
         meta-title: "Categories"
-        search_placeholder: "Search"
-        search_button: "Search"
         table:
           title: "Title"
           actions: "Actions"
@@ -397,35 +393,6 @@ en:
           blocked_label: "Blocked"
           unblocked_label: "Unblocked"
         button: "Back"
-    calculators:
-      index:
-        meta-title: "Calculators"
-        add_calculator_button: "Add calculator"
-        confirm_delete: "Are you sure you want to delete calculator?"
-        table:
-          calculator_slug: "Slug"
-          calculator_name: "Name"
-          calculator_actions: "Actions"
-          show: "Show"
-          edit: "Edit"
-          duplicate: "Duplicate"
-          delete: "Delete"
-        edit:
-          add_new_field_label: "Add new field"
-          form:
-            select_field_kind_label: "Select field kind"
-            select_field_type_label: "Select field type"
-            form_label: "Form"
-            parameters_label: "Parameters"
-            results_label: "Results"
-            no_fields_yet_label: "No fields yet"
-            update_calculator_button: "Update calculator"
-        new:
-          create_calculator_button: "Save calculator"
-          cancel_button: "Сancel"
-          prohibited_to_update: " prevent the calculator from updating"
-          prohibited_to_save: " перешкоджають збереженню калькулятора"
-          error: "помилки"
     site_settings:
       edit:
         meta-title: "Site Settings"
@@ -507,6 +474,9 @@ en:
           calculator_slug: "Slug"
           calculator_name: "Name"
           calculator_actions: "Actions"
+          show: "Show"
+          edit: "Edit"
+          delete: "Delete"
         dialog:
           are_you_sure: "Are you sure?"
           dialog_description: "This will create a duplicate of the calculator with all its settings and data."
