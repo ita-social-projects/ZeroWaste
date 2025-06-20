@@ -576,6 +576,9 @@ en:
         uk_notes: "Ukrainian Notes"
         en_notes: "English Notes"
         create_calculator_button: "Save calculator"
+      partials:
+        field_fields:
+          value_of_field: "Value of field:"
     feature_flags:
       submit_button: "Save"
       new_calculator_design:
