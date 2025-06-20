@@ -42,7 +42,7 @@
                 <%= button_to account_user_path(id: user, user: toggle_block_param(user)),
                               method: :patch,
                               data: { turbo_confirm: toggle_confirm(user) } do %>
-                  <%= icon("fa-solid", toggle_class(user)) %>
+                  <i class="fa-solid fa-<%= toggle_class(user) %>"></i>
                 <% end %>
               <% end %>
             </td>

@@ -20,17 +20,34 @@
                 </button>
               </div>
               <small class="form-text text-muted"><%= t('.form.password_hint') %></small>
+              <% if @user.errors[:password].any? %>
+                <div class="invalid-feedback d-block">
+                  <% if @user.errors[:password].include?("is too short (minimum is 8 characters)") %>
+                    Password is too short (minimum is 8 characters)
+                  <% else %>
+                    <%= @user.errors[:password].first %>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
 
-
             <div class="mb-3" data-controller="password-visibility">
-              <%= f.label :password_confirmation, class: "form-label" %>
+              <%= f.label :password_confirmation, "Re-password", class: "form-label" %>
               <div class="input-group">
                 <%= f.input_field :password_confirmation, class: "form-control", autocomplete: "new-password", data: { password_visibility_target: "password" } %>
                 <button class="btn btn-outline-secondary position-relative z-1" type="button" data-action="password-visibility#toggle">
                   <%= render 'shared/password_icon', locals: { class: "pointer-events-none" } %>
                 </button>
               </div>
+              <% if @user.errors[:password_confirmation].any? %>
+                <div class="invalid-feedback d-block">
+                  <% if @user.errors[:password_confirmation].include?("doesn't match Password") %>
+                    Re-password doesn't match Password
+                  <% else %>
+                    <%= @user.errors[:password_confirmation].first %>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
 
             <%= f.input :avatar, as: :file, direct_upload: true, label: t('.avatar'), hint: t('.form.avatar_hint'), input_html: { class: 'form-control' } %>
