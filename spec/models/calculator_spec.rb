@@ -42,6 +42,8 @@ RSpec.describe Calculator, type: :model do
     it { is_expected.to have_one_attached(:logo_picture) }
     it { is_expected.to have_many(:fields).dependent(:destroy) }
     it { is_expected.to have_many(:formulas).dependent(:destroy) }
+    it { is_expected.to belong_to(:original_calculator).class_name("Calculator").optional(true).inverse_of(:duplicate_calculators) }
+    it { is_expected.to have_many(:duplicate_calculators).class_name("Calculator").with_foreign_key("original_calculator_id").dependent(:nullify).inverse_of(:original_calculator) }
   end
 
   describe "logo_placeholder attribute" do

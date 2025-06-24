@@ -48,9 +48,7 @@ Rails.application.routes.draw do
     namespace :account do
       root "dashboard#index"
       resources :users, concerns: :paginatable
-      resources :calculators, param: :slug, concerns: :paginatable do
-        get :duplicate, on: :member
-      end
+      resources :calculators, param: :slug, concerns: :paginatable
       resources :categories, concerns: :paginatable
       resources :products, concerns: :paginatable
       resources :histories, only: :index, concerns: :paginatable

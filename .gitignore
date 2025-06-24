@@ -39,15 +39,10 @@
 
 /public/packs
 /public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
 
 /config/database.yml
 /vendor
 
-.env
 .DS_Store
 .env.db
 
@@ -71,3 +66,5 @@ package-lock.json
 
 .rvmrc
 swagger/
+config.bat
+node_modules

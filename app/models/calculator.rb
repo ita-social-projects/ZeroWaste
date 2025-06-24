@@ -28,6 +28,9 @@ class Calculator < ApplicationRecord
   attribute :logo_placeholder, :string, default: "https://via.placeholder.com/428x307?text=Logo"
   translates :name, :notes
 
+  belongs_to :original_calculator, class_name: "Calculator", optional: true, inverse_of: :duplicate_calculators
+  has_many :duplicate_calculators, class_name: "Calculator", foreign_key: :original_calculator_id, dependent: :nullify, inverse_of: :original_calculator
+
   has_one_attached :logo_picture
   has_many :fields, dependent: :destroy
   has_many :formulas, -> { ordered_by_priority }, dependent: :destroy, inverse_of: :calculator
