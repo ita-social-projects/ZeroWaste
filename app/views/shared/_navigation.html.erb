@@ -5,7 +5,7 @@
       <ul class="admin-menu-list xl:items-center">
         <li>
           <% if Flipper[:show_calculators_list].enabled? %>
-            <%= link_to t(".calculators"), calculators_path, class: "tab-main-page" %>
+            <%= link_to t("layouts.navigation.calculators"), calculators_path, class: "tab-main-page" %>
           <% else %>
             <%= link_to t("layouts.navigation.calculate"), calculator_path, class: "tab-main-page" %>
           <% end %>
