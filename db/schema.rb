@@ -62,6 +62,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_18_095516) do
     t.text "uk_notes"
     t.text "en_notes"
     t.string "color", default: "#8fba3b"
+    t.bigint "original_calculator_id"
+    t.index ["original_calculator_id"], name: "index_calculators_on_original_calculator_id"
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
   end
 
@@ -271,6 +273,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_18_095516) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authorizations", "users"
+  add_foreign_key "calculators", "calculators", column: "original_calculator_id"
   add_foreign_key "categories", "fields"
   add_foreign_key "category_categoryables", "categories"
   add_foreign_key "diapers_periods", "categories"

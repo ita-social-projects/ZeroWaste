@@ -258,9 +258,7 @@ uk:
         change_password_button: "Змінити пароль"
     messages:
       index:
-        meta-title: "Повідомлення"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
+        meta-title: "Повідомлення"       
         table:
           title: "Заголовок"
           email: "Електронна пошта"
@@ -276,8 +274,6 @@ uk:
     categories:
       index:
         meta-title: "Категорії"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
@@ -416,6 +412,8 @@ uk:
       partials:
         field_fields:
           value_of_field: "Значення поля:"
+      show:
+        fork_for: "Дубльовано з"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"

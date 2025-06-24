@@ -10,17 +10,11 @@ RUN apt-get remove -y nodejs
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get update -qq && apt-get install -y nodejs
 
-# INSTALL YARN
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update -qq && apt-get install yarn
-
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle check || bundle install
 
-COPY package.json yarn.lock ./
 COPY . ./
 
 ARG RAILS_ENV=production
