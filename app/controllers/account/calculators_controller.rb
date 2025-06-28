@@ -75,6 +75,7 @@ class Account::CalculatorsController < Account::BaseController
       :id, :en_name, :uk_name, :color, :logo_picture, :uk_notes, :en_notes, :original_calculator_id,
       formulas_attributes: [:id, :expression, :en_label, :uk_label, :calculator_id, :en_unit, :uk_unit, :priority, :formula_image, :relation, :_destroy],
       fields_attributes: [:id, :en_label, :uk_label, :var_name, :kind, :value, :_destroy,
+        select_options_attributes: [:id, :key, :en_key, :value, :_destroy],
         categories_attributes: [:id, :en_name, :uk_name, :price, :_destroy]]
     )
   end

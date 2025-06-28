@@ -16,14 +16,20 @@
                                   class: "rounded required w-100 calculator-field"
                                   %>
               </div>
-
-            <% elsif field.kind == 'hidden' %>
-              <%= form.hidden_field "inputs[#{field.var_name}]", value: field.value %>
-            <% else %>
+            <% elsif field.kind == 'category' %>
               <%= form.select "inputs[#{field.var_name}]",
                             options_from_collection_for_select(field.categories, :price, :name),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
+            <% elsif field.kind == 'select_option' %>
+              <% label_method = I18n.locale == :uk ? :key : :en_key %>
+              <%= form.select "inputs[#{field.var_name}]",
+                            options_for_select(field.select_options.map { |opt| [opt.send(label_method), opt.value] }),
+                            {},
+                            class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
+
+            <% elsif field.kind == 'hidden' %>
+              <%= form.hidden_field "inputs[#{field.var_name}]", value: field.value %>
             <% end %>
           <% end %>
           <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color" %>
