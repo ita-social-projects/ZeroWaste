@@ -62,6 +62,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
     t.text "uk_notes"
     t.text "en_notes"
     t.string "color", default: "#8fba3b"
+    t.bigint "original_calculator_id"
+    t.index ["original_calculator_id"], name: "index_calculators_on_original_calculator_id"
     t.index ["slug"], name: "index_calculators_on_slug", unique: true
   end
 
@@ -116,6 +118,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
     t.string "en_label", default: "", null: false
     t.string "var_name", default: "", null: false
     t.bigint "calculator_id", null: false
+    t.decimal "value", precision: 10, scale: 2
     t.index ["calculator_id"], name: "index_fields_on_calculator_id"
   end
 
@@ -157,6 +160,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "periods", force: :cascade do |t|
+    t.integer "period_start"
+    t.integer "period_end"
+    t.integer "usage_amount"
+    t.bigint "category_id", null: false
+    t.decimal "price", precision: 10, scale: 3
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_periods_on_category_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -252,6 +266,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authorizations", "users"
+  add_foreign_key "calculators", "calculators", column: "original_calculator_id"
   add_foreign_key "categories", "fields"
   add_foreign_key "category_categoryables", "categories"
   add_foreign_key "diapers_periods", "categories"

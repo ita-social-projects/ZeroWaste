@@ -5,6 +5,7 @@
     <%= f.input :en_label, label: "Field Label:" %>
     <%= f.input :uk_label, label: "Uk Field Label:" %>
     <%= f.input :var_name, label: "Variable Name:" %>
+    <%= f.input :value, label: t(".value_of_field"), wrapper_html: { class: "hidden", data: { field_type_target: "hiddenFields" } } %>
     <%= f.input(
           :kind,
           collection: Field.kinds.keys.map { |key| [key.humanize, key] },

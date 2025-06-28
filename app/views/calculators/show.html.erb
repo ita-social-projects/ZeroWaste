@@ -1,37 +1,42 @@
 <div style="--calculator-color: <%= @calculator.color %>">
   <div class="rounded jumbotron jumbotron-fluid position-relative">
-    <h1 class="pt-6 text-2xl font-semibold text-center font-sans dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
-    <div class="flex-wrap d-flex justify-content-around calculator_wrap calcualtor-margin-left">
+    <h1 class="pt-6 font-sans text-2xl font-semibold text-center dynamic-text-color">Calculator <%= @calculator.name %> <%= @text %></h1>
+    <div class="flex-wrap d-flex justify-content-around calculator_wrap calculator-margin-left">
 
-    <%= form_with html: { class: "simple_form_calculator"}, url: calculate_calculator_path(@calculator) do |form| %>
-      <div class="flex-item flex-column">
-      <% @calculator.fields.each do |field| %>
-          <div class="pb-2 input_lable"><%= form.label field.var_name, field.label %></div>
-          <% if field.kind == 'number' %>
-            <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
-              <%= form.number_field "inputs[#{field.var_name}]",
+      <%= form_with html: { class: "simple_form_calculator"}, url: calculate_calculator_path(@calculator) do |form| %>
+        <div class="flex-item flex-column">
+          <% @calculator.fields.each do |field| %>
+            <% if field.kind != 'hidden' %>
+              <div class="pb-2 input_lable"><%= form.label field.var_name, field.label %></div>
+            <% end%>
+            <% if field.kind == 'number' %>
+              <div class="flex-row rounded flex-item w-100 age_wrapper form_fild">
+                <%= form.number_field "inputs[#{field.var_name}]",
                                   placeholder: field.label,
-                                  class: "required rounded w-100 calculator-field"
+                                  class: "rounded required w-100 calculator-field"
                                   %>
-            </div>
-          <% elsif field.kind == 'category' %>
-            <%= form.select "inputs[#{field.var_name}]",
+              </div>
+            <% elsif field.kind == 'category' %>
+              <%= form.select "inputs[#{field.var_name}]",
                             options_from_collection_for_select(field.categories, :price, :name),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
-          <% elsif field.kind == 'select_option' %>
-            <% label_method = I18n.locale == :uk ? :key : :en_key %>
-            <%= form.select "inputs[#{field.var_name}]",
+            <% elsif field.kind == 'select_option' %>
+              <% label_method = I18n.locale == :uk ? :key : :en_key %>
+              <%= form.select "inputs[#{field.var_name}]",
                             options_for_select(field.select_options.map { |opt| [opt.send(label_method), opt.value] }),
                             {},
                             class: "flex-row rounded flex-item w-100 form_fild calculator-field" %>
-          <% end %>
-      <% end %>
-      <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color" %>
-      </div>
-    <% end %>
 
-    <%= image_tag @calculator.logo_url, class: "constructor-calculator-scales", alt: t(".image_alt") %>
+            <% elsif field.kind == 'hidden' %>
+              <%= form.hidden_field "inputs[#{field.var_name}]", value: field.value %>
+            <% end %>
+          <% end %>
+          <%= form.submit "Calculate", class: "btn-nonito result-btn dynamic-background-color" %>
+        </div>
+      <% end %>
+
+      <%= image_tag @calculator.logo_url, class: "constructor-calculator-scales", alt: t(".image_alt") %>
     </div>
   </div>
 

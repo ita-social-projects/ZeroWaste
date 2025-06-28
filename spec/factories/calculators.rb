@@ -20,5 +20,12 @@ FactoryBot.define do
   factory :calculator do
     en_name { "English Calculator" }
     uk_name { "Український калькулятор" }
+
+    trait :with_field_and_formula do
+      after(:build) do |calculator|
+        calculator.fields << build(:field, var_name: "x", calculator: calculator)
+        calculator.formulas << build(:formula, expression: "x+1", calculator: calculator)
+      end
+    end
   end
 end

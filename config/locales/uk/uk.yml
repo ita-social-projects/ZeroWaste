@@ -258,9 +258,7 @@ uk:
         change_password_button: "Змінити пароль"
     messages:
       index:
-        meta-title: "Повідомлення"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
+        meta-title: "Повідомлення"       
         table:
           title: "Заголовок"
           email: "Електронна пошта"
@@ -276,8 +274,6 @@ uk:
     categories:
       index:
         meta-title: "Категорії"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
@@ -388,7 +384,13 @@ uk:
           calculator_actions: "Дії"
           show: "Показати"
           edit: "Відредагувати"
+          duplicate: "Дублювати"
           delete: "Видалити"
+        dialog:
+          are_you_sure: "Ви впевнені?"
+          dialog_description: "Це створить дублікат калькулятора з усіма його налаштуваннями та даними."
+          cancel: "Скасувати"
+          duplicate: "Дублювати"
       edit:
         add_new_field_label: "Додати нове поле"
         form:
@@ -411,11 +413,14 @@ uk:
         field_fields:
           select_options_legend: "Опції вибору"
           add_option: "+ Додати опцію"
+          value_of_field: "Значення поля:"
         select_option_fields:
           key_label: "Ключ"
           en_key_label: "Ключ (En)"
           value_label: "Значення"
           remove_option: "- Видалити опцію"
+      show:
+        fork_for: "Дубльовано з"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"
