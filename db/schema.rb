@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_18_095516) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -210,6 +210,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_18_095516) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "en_key"
     t.index ["field_id"], name: "index_select_options_on_field_id"
   end
 
@@ -271,6 +272,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_18_095516) do
   add_foreign_key "diapers_periods", "categories"
   add_foreign_key "fields", "calculators"
   add_foreign_key "formulas", "calculators"
-  add_foreign_key "periods", "categories"
   add_foreign_key "select_options", "fields"
 end

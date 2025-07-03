@@ -28,6 +28,21 @@
       </fieldset>
     </div>
 
+    <div class="hidden select-options" data-field-type-target="selectOptions">
+      <fieldset class="bordered" data-controller="constructors-form-indexing"
+                data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+        <legend class="admin-legend"><%= t('.select_options_legend') %></legend>
+
+        <%= f.simple_fields_for :select_options do |option_fields| %>
+          <%= render "account/calculators/partials/select_option_fields", f: option_fields %>
+        <% end %>
+
+        <div class="links">
+          <%= link_to_add_association t('.add_option'), f, :select_options, partial: "account/calculators/partials/select_option_fields", class: "underline" %>
+        </div>
+      </fieldset>
+    </div>
+
     <%= link_to_remove_association "- Remove Field", f, class: "text-red-500 underline" %>
   </div>
 </fieldset>
