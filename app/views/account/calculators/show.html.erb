@@ -9,6 +9,13 @@
     <p class="text-2xl font-extrabold"> <%= @calculator.name %> </p>
   </div>
 
+  <% if @calculator.original_calculator.present? %>
+    <div class="calc-details mb-4">
+      <span class="text-lg showpage-text"><%= t('.fork_for') %>:</span>
+      <p><%= link_to @calculator.original_calculator.name, account_calculator_path(slug: @calculator.original_calculator.slug), class: "text-success underline" %></p>
+    </div>
+  <% end %>
+
   <div class="calc-details mb-4">
     <span class="text-lg showpage-text"><%= t('.slug') %>:</span>
     <p class="font-bold"> <%= @calculator.slug %> </p>
