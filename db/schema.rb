@@ -154,6 +154,14 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_145628) do
     t.index ["calculator_id"], name: "index_formulas_on_calculator_id"
   end
 
+  create_table "jwt_denylists", force: :cascade do |t|
+    t.string "jti"
+    t.datetime "exp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jti"], name: "index_jwt_denylists_on_jti"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "title", null: false
     t.string "message", null: false

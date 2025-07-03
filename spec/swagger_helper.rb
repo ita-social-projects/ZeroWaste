@@ -67,7 +67,16 @@ RSpec.configure do |config|
         version: "v2"
       },
       paths: {},
-      servers: servers
+      servers: servers,
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: :http,
+            scheme: :bearer,
+            bearerFormat: :JWT
+          }
+        }
+      }
     }
   }
 

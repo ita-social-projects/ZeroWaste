@@ -79,6 +79,13 @@ Rails.application.routes.draw do
     end
 
     namespace :api do
+      namespace :v2, defaults: { format: :json } do
+        devise_scope :user do
+          post "sign_in", to: "sessions#create"
+          delete "sign_out", to: "sessions#destroy"
+        end
+      end
+
       namespace :v1 do
         resources :calculators, only: [] do
           post :compute, on: :member
@@ -88,9 +95,9 @@ Rails.application.routes.draw do
         post "/pad_calculators",
              to: "pad_calculators#calculate"
       end
-      namespace :v2 do
-        resources :calculators, only: [] do
-          post :compute, on: :member
+      namespace :v2, defaults: { format: :json } do
+        resources :calculators, only: [:index], param: :slug do
+          post :calculate, on: :member
         end
         post "/diaper_calculators",
              to: "diaper_calculators#calculate"
