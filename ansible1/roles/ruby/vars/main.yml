@@ -1,0 +1,59 @@
+---
+ruby_version: "3.3.5"
+rails_version: "7.1.2"
+bundler_version: "2.5.11"
+ruby_packages:
+  - ruby-full
+  - ruby-dev
+  - build-essential
+  - autogen
+  - autoconf
+  - libtool
+  - nodejs
+  - yarn
+  - libvips
+  - zlib1g-dev
+  - libssl-dev
+  - libyaml-dev
+  - libreadline6-dev
+  - libncurses5-dev
+  - libffi-dev
+  - libgdbm-dev
+  - libpq-dev
+ruby_rubygems_package_name: rubygems
+rvm1_install_path: "~/.rvm"
+rvm1_rvm: "{{ rvm1_install_path }}/bin/rvm"
+rvm1_temp_download_path: "/tmp"
+rvm1_rvm_latest_installer: "https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer"
+rvm1_gpg_keys: "409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB"
+rvm1_gpg_key_server: "hkp://keys.openpgp.org"
+rvm1_gpg_key_servers:
+  - "{{ rvm1_gpg_key_server }}"
+  - hkp://pgp.mit.edu
+  - hkp://keyserver.pgp.com
+  - hkp://keyserver.ubuntu.com
+rvm1_rvm_version: "stable"
+rvm1_install_flags: "--auto-dotfiles --user-install"
+rvm1_autolib_mode: 3
+rvm1_ruby_install_flags:
+rvm1_rubies:
+  - "ruby-3.3.5"
+rvm1_default_ruby_version: "{{ rvm1_rubies | last if rvm1_rubies and rvm1_rubies is iterable else rvm1_rubies }}"
+rvm1_bundler_install: True
+rvm1_symlink_to: "/usr/local/bin"
+root_user: "root"
+root_group: "{{ root_user }}"
+rvm1_symlink_binaries:
+  - "erb"
+  - "executable-hooks-uninstaller"
+  - "gem"
+  - "irb"
+  - "rake"
+  - "rdoc"
+  - "ri"
+  - "ruby"
+rvm1_symlink_bundler_binaries:
+  - "bundle"
+  - "bundler"
+rvm1_delete_ruby:
+rvm1_rvm_check_for_updates: True
