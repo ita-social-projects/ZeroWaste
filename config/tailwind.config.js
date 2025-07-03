@@ -33,6 +33,7 @@ module.exports = {
         '36': '36px',
       },
       maxWidth: {
+        '1230': '1230px',
         '1530': '1530px',
       },
       spacing: {
@@ -46,7 +47,6 @@ module.exports = {
         '48': '12rem',
         '52': '13rem',
         '56': '14rem',
-        '1230': '1230px',
       }
     },
   },

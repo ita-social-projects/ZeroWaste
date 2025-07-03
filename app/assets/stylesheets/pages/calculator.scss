@@ -325,7 +325,8 @@ select.custom-select {
 }
 
 .reusable-item-button{
-  background-color: white;
+  background-color: $success;
+  color: white;
   padding: 0.5rem;
   width: auto;
   border-radius: 0.375rem;
@@ -337,7 +338,7 @@ select.custom-select {
 }
 
 .reusable-item-button:hover{
-  background-color: lightgrey;
+  background-color: $matte_lime_green;
 }
 
 .image-wrapper {
