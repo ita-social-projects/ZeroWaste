@@ -170,12 +170,13 @@ en:
     show:
       welcome_header: "Welcome to ZeroWaste"
       image_alt: "Scales"
+      calculate_result_button: "Calculate"
     buttons:
       to_main: "To main"
       calculate: "Calculate"
     index:
       meta-title: "Calculators"
-      id_column: "ID Column"
+      id_column: "#"
       calculator_name: "Calculator Name"
       calculator_actions: "Calculator Actions"
     date:
@@ -189,10 +190,14 @@ en:
         few: "%{count} years"
         many: "%{count} years"
         other: "%{count} years"
+    partials:
+      calculation_results:
+        calculation_results_title: "Calculation results"
   layouts:
     navigation:
       about_us: "About us"
       admin: "Admin"
+      calculators: "Calculators"
       calculate: "Diaper calculator"
       mhc_calculator: "Menstrual calculator"
       log_out: "Log Out"

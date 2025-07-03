@@ -1,0 +1,15 @@
+<%= link_to url_for(controller: "calculators", action: "show", slug: calculator.slug) do %>
+  <div class="calculator-card">
+    <div class="calculator-logo">
+      <%= image_tag calculator.logo_url, alt: calculator.name %>
+    </div>
+    <div class="calculator-content">
+      <div class="calculator-header">
+        <h3 class="text-xl font-semibold"><%= calculator.name %></h3>
+      </div>
+      <div class="calculator-notes overflow-hidden line-clamp-3">
+        <%= sanitize(calculator.notes) %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -158,7 +158,7 @@ uk:
       calculate: "Розрахувати"
     index:
       meta-title: "Калькулятори"
-      id_column: "№"
+      id_column: "#"
       calculator_name: "Назва"
       calculator_actions: "Дії"
     date:
@@ -172,10 +172,14 @@ uk:
         few: "%{count} роки"
         many: "%{count} років"
         other: "%{count} років"
+    partials:
+      calculation_results:
+        calculation_results_title: "Результати розрахунків"
   layouts:
     navigation:
       about_us: "Про нас"
       admin: "Адміністратор"
+      calculators: "Калькулятори"
       calculate: "Калькулятор підгузків"
       log_out: "Вийти"
       mhc_calculator: "Mенструальний калькулятор"
