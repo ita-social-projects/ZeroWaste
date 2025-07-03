@@ -260,9 +260,7 @@ uk:
         change_password_button: "Змінити пароль"
     messages:
       index:
-        meta-title: "Повідомлення"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
+        meta-title: "Повідомлення"       
         table:
           title: "Заголовок"
           email: "Електронна пошта"
@@ -278,8 +276,6 @@ uk:
     categories:
       index:
         meta-title: "Категорії"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
@@ -463,7 +459,19 @@ uk:
         prohibited_to_save: " перешкоджають збереженню калькулятора"
         error: "помилки"
         uk_notes: "Нотатки українською"
-        en_notes: "Нотатки англійською" 
+        en_notes: "Нотатки англійською"
+      partials:
+        field_fields:
+          select_options_legend: "Опції вибору"
+          add_option: "+ Додати опцію"
+          value_of_field: "Значення поля:"
+        select_option_fields:
+          key_label: "Ключ"
+          en_key_label: "Ключ (En)"
+          value_label: "Значення"
+          remove_option: "- Видалити опцію"
+      show:
+        fork_for: "Дубльовано з"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"

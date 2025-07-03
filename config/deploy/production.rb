@@ -1,5 +1,3 @@
-require "capistrano/yarn"
-
 set :user, "deploy"
 set :rbenv_type, :user
 
