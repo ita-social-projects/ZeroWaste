@@ -28,4 +28,18 @@ FactoryBot.define do
       end
     end
   end
+ 
+  factory :calculator_name_first do
+    en_name { "Calculator_1" }
+    uk_name { "Калькулятор_1" }
+    en_notes { "Note_1" }
+    uk_notes { "Опис_1" }
+  end
+
+  factory :calculator_name_second do
+    en_name { "Calculator_2" }
+    uk_name { "Калькулятор_2" }
+    en_notes { "Note_2" }
+    uk_notes { "Опис_2" }
+  end
 end

@@ -56,6 +56,13 @@ class Calculator < ApplicationRecord
             }
   validates :color, format: { with: /\A#[0-9a-fA-F]{6}\z/ }
 
+  scope :order_by_name, ->(order_direction) {
+    direction      = (order_direction == "desc") ? :desc : :asc
+    localized_name = localized_column_for(:name)
+
+    order(localized_name => direction)
+  }
+
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "id", "name", "preferable", "slug", "updated_at", "uuid"]
   end
