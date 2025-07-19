@@ -21,18 +21,25 @@ FactoryBot.define do
     en_name { "English Calculator" }
     uk_name { "Український калькулятор" }
 
-    factory :calculator_name_first do
-      en_name { "Calculator_1" }
-      uk_name { "Калькулятор_1" }
-      en_notes { "Note_1" }
-      uk_notes { "Опис_1" }
+    trait :with_field_and_formula do
+      after(:build) do |calculator|
+        calculator.fields << build(:field, var_name: "x", calculator: calculator)
+        calculator.formulas << build(:formula, expression: "x+1", calculator: calculator)
+      end
     end
+  end
+ 
+  factory :calculator_name_first do
+    en_name { "Calculator_1" }
+    uk_name { "Калькулятор_1" }
+    en_notes { "Note_1" }
+    uk_notes { "Опис_1" }
+  end
 
-    factory :calculator_name_second do
-      en_name { "Calculator_2" }
-      uk_name { "Калькулятор_2" }
-      en_notes { "Note_2" }
-      uk_notes { "Опис_2" }
-    end
+  factory :calculator_name_second do
+    en_name { "Calculator_2" }
+    uk_name { "Калькулятор_2" }
+    en_notes { "Note_2" }
+    uk_notes { "Опис_2" }
   end
 end

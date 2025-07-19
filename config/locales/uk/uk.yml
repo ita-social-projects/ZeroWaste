@@ -34,6 +34,8 @@ uk:
       softserve_ita:
     footer:
       api_documentation: "API Документація"
+      created_with: "Створено з"
+      by: "в"
   calculators:
     description_block:
       description_block_html:
@@ -156,7 +158,7 @@ uk:
       calculate: "Розрахувати"
     index:
       meta-title: "Калькулятори"
-      id_column: "№"
+      id_column: "#"
       calculator_name: "Назва"
       calculator_actions: "Дії"
     date:
@@ -170,10 +172,14 @@ uk:
         few: "%{count} роки"
         many: "%{count} років"
         other: "%{count} років"
+    partials:
+      calculation_results:
+        calculation_results_title: "Результати розрахунків"
   layouts:
     navigation:
       about_us: "Про нас"
       admin: "Адміністратор"
+      calculators: "Калькулятори"
       calculate: "Калькулятор підгузків"
       log_out: "Вийти"
       mhc_calculator: "Mенструальний калькулятор"
@@ -258,9 +264,7 @@ uk:
         change_password_button: "Змінити пароль"
     messages:
       index:
-        meta-title: "Повідомлення"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
+        meta-title: "Повідомлення"       
         table:
           title: "Заголовок"
           email: "Електронна пошта"
@@ -276,8 +280,6 @@ uk:
     categories:
       index:
         meta-title: "Категорії"
-        search_placeholder: "Пошук"
-        search_button: "Шукати"
         table:
           title: "Назва"
           actions: "Дії"
@@ -378,6 +380,55 @@ uk:
           blocked_label: "Заблокований"
           unblocked_label: "Розблокований"
     calculators:
+      partials:
+        field_fields:
+          field_legend: "Поле"
+          field_label: "Назва поля:"
+          value_of_field: "Значення поля:"
+          uk_field_label: "Українська назва поля:"
+          variable_name_label: "Назва змінної:"
+          field_type_label: "Тип поля:"
+          select_field_type_prompt: "Оберіть тип поля"
+          categories_legend: "Категорії"
+          add_category_link: "+ Додати категорію"
+          remove_field_link: "- Видалити поле"
+          field_kinds:
+            number: "Число"
+            category: "Категорія"
+        category_fields:
+          category_legend: "Категорія"
+          category_name_label: "Назва категорії:"
+          uk_category_name_label: "Українська назва категорії:"
+          category_price_label: "Ціна категорії:"
+          remove_category_link: "- Видалити категорію"
+        formula_fields:
+          formula_legend: "Формула"
+          formula_label: "Назва формули:"
+          uk_formula_label: "Українська назва формули:"
+          priority_label: "Пріоритет:"
+          formula_expression_label: "Вираз формули:"
+          uk_unit_label: "Українська одиниця виміру:"
+          unit_label: "Одиниця виміру:"
+          relation_label: "Зв'язок формули (необов'язково):"
+          upload_formula_image_label: "Завантажити логотип:"
+          current_image_text: "Поточне зображення:"
+          keep_current_image_text: "Якщо ви не завантажите нове зображення, поточне буде збережено."
+          remove_formula_link: "- Видалити формулу"
+          relation_options:
+            none: "Немає"
+            next: "Наступна"
+            previous: "Попередня"
+        color_selector:
+          choose_color_label: "Оберіть колір для сторінки калькулятора:"
+        form:
+          calculator_legend: "Калькулятор"
+          calculator_name_label: "Назва калькулятора:"
+          uk_calculator_name_label: "Українська назва калькулятора:"
+          upload_logo_label: "Завантажити логотип:"
+          add_formula_link: "+ Додати формулу"
+          add_field_link: "+ Додати поле"
+          formulas_legend: "Формули"
+          fields_legend: "Поля"
       index:
         meta-title: "Калькулятори"
         add_calculator_button: "Додати калькулятор"
@@ -388,7 +439,13 @@ uk:
           calculator_actions: "Дії"
           show: "Показати"
           edit: "Відредагувати"
+          duplicate: "Дублювати"
           delete: "Видалити"
+        dialog:
+          are_you_sure: "Ви впевнені?"
+          dialog_description: "Це створить дублікат калькулятора з усіма його налаштуваннями та даними."
+          cancel: "Скасувати"
+          duplicate: "Дублювати"
       edit:
         add_new_field_label: "Додати нове поле"
         form:
@@ -407,6 +464,18 @@ uk:
         error: "помилки"
         uk_notes: "Нотатки українською"
         en_notes: "Нотатки англійською"
+      partials:
+        field_fields:
+          select_options_legend: "Опції вибору"
+          add_option: "+ Додати опцію"
+          value_of_field: "Значення поля:"
+        select_option_fields:
+          key_label: "Ключ"
+          en_key_label: "Ключ (En)"
+          value_label: "Значення"
+          remove_option: "- Видалити опцію"
+      show:
+        fork_for: "Дубльовано з"
     site_settings:
       edit:
         meta-title: "Налаштування сайту"
