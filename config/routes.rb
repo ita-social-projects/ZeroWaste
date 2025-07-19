@@ -90,8 +90,8 @@ Rails.application.routes.draw do
              to: "pad_calculators#calculate"
       end
       namespace :v2 do
-        resources :calculators, only: [:index] do
-          post :compute, on: :member
+        resources :calculators, only: [:index], param: :slug do
+          post :calculate, on: :member
         end
         post "/diaper_calculators",
              to: "diaper_calculators#calculate"
