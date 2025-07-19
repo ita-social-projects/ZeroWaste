@@ -52,6 +52,7 @@ jobs:
       DATABASE_URL: postgres://test:password@localhost:5432/zero_waste_test
       USE_STATIC_ASSETS: true
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      DEVISE_JWT_SECRET_KEY: ${{ secrets.DEVISE_JWT_SECRET_KEY }}
 
     steps:
       - uses: actions/checkout@v2

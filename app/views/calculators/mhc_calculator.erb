@@ -13,6 +13,7 @@
 
         <%= form.input_field :user_age,
                              type: "number",
+                             min: 8,
                              class: "form_fild price_select rounded w-100 form-control mb-0",
                              data: { mhc_calculator_target: "userAge" } %>
 
@@ -22,6 +23,7 @@
 
         <%= form.input_field :menstruation_age,
                              type: "number",
+                             min: 8,
                              class: "form_fild price_select rounded w-100 form-control mb-0	",
                              data: { mhc_calculator_target: "menstruationAge" } %>
 
@@ -33,8 +35,8 @@
 
         <%= form.input_field :menopause_age,
                               type: "number",
+                              min: 30,
                               class: "form_fild price_select rounded w-100 form-control mb-0",
-                              placeholder: "50",
                               data: { mhc_calculator_target: "menopauseAge" } %>
 
         <div class="pb-2 input_lable mt-6">
@@ -43,6 +45,7 @@
 
         <%= form.input_field :average_menstruation_cycle_duration,
                              type: "number",
+                             min: 20,
                              class: "form_fild price_select rounded w-100 form-control mb-0",
                              data: { mhc_calculator_target: "averageMenstruationCycleDuration" } %>
 
@@ -54,6 +57,7 @@
 
         <%= form.input_field :duration_of_menstruation,
                              type: "number",
+                             min: 3,
                              class: "form_fild price_select rounded w-100 form-control mb-0",
                              data: { mhc_calculator_target: "durationOfMenstruation" } %>
 
@@ -63,6 +67,7 @@
 
         <%= form.input_field :disposable_products_per_day,
                              type: "number",
+                             min: 1,
                              class: "form_fild price_select rounded w-100 form-control mb-0",
                              data: { mhc_calculator_target: "disposableProductsPerDay" } %>
 

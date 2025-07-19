@@ -1,15 +1,16 @@
 <%= simple_form_for(calculator, url: polymorphic_path([:account, calculator], locale: I18n.locale), html: { id: dom_id(calculator, :form) }) do |f| %>
+  <%= f.hidden_field :original_calculator_id %>
   <div class="form-group row">
     <div class="my-auto col-12 has-float-label">
       <fieldset class="bordered">
-        <legend class="admin-legend">Calculator</legend>
-        <%= f.input :en_name, label: "Calculator Name:", class: 'form-control' %>
-        <%= f.input :uk_name, label: "Uk Calculator Name:", class: 'form-control' %>
+        <legend class="admin-legend"><%= t(".calculator_legend") %></legend>
+        <%= f.input :en_name, label: t(".calculator_name_label"), class: 'form-control' %>
+        <%= f.input :uk_name, label: t(".uk_calculator_name_label"), class: 'form-control' %>
         <div id="fields" class="space-y-4">
           <%= render "account/calculators/partials/color_selector", f: f %>
         </div>
-        <%= f.label :logo_picture, "Upload logo:", class: "form-label d-block" %>
-        <%= f.file_field :logo_picture, accept: Calculator::ALLOWED_LOGO_IMAGE_TYPES.join(","), class: "file-input mb-3" %>
+        <%= f.label :logo_picture, t(".upload_logo_label"), class: "form-label d-block" %>
+        <%= f.file_field :logo_picture, accept: Calculator::ALLOWED_LOGO_IMAGE_TYPES.join(","), class: "mb-3 file-input" %>
         <%= render "account/calculators/partials/tinymce_form", f: f %>
       </fieldset>
 
@@ -17,11 +18,12 @@
       <div id="formulas" class="space-y-4">
         <fieldset class="bordered" data-controller="constructors-form-indexing"
                   data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+          <legend class="admin-legend"><%= t(".formulas_legend") %></legend>
           <%= f.simple_fields_for :formulas do |formula_fields| %>
             <%= render "account/calculators/partials/formula_fields", f: formula_fields %>
           <% end %>
           <div class="links">
-            <%= link_to_add_association "+ Add Formula", f, :formulas, partial: "account/calculators/partials/formula_fields", class: "underline" %>
+            <%= link_to_add_association t(".add_formula_link"), f, :formulas, partial: "account/calculators/partials/formula_fields", class: "underline" %>
           </div>
         </fieldset>
       </div>
@@ -30,11 +32,12 @@
       <div id="fields" class="space-y-4">
         <fieldset class="bordered" data-controller="constructors-form-indexing"
                   data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+          <legend class="admin-legend"><%= t(".fields_legend") %></legend>
           <%= f.simple_fields_for :fields do |field_fields| %>
             <%= render "account/calculators/partials/field_fields", f: field_fields %>
           <% end %>
           <div class="links">
-            <%= link_to_add_association "+ Add Field", f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
+            <%= link_to_add_association t(".add_field_link"), f, :fields, partial: "account/calculators/partials/field_fields", class: "underline" %>
           </div>
         </fieldset>
       </div>
@@ -42,8 +45,8 @@
   </div>
 
   <div class="button-group d-flex">
-    <%= f.button :submit, t('account.calculators.new.create_calculator_button'), class: 'btn btn-green me-2 height-auto w-auto' %>
-    <%= link_to account_calculators_path, class: 'btn btn-danger d-flex align-items-center justify-content-center height-auto w-auto' do %>
+    <%= f.button :submit, t('account.calculators.new.create_calculator_button'), class: 'w-auto btn btn-green me-2 height-auto' %>
+    <%= link_to account_calculators_path, class: 'w-auto btn btn-danger d-flex align-items-center justify-content-center height-auto' do %>
       <span><%= t('buttons.cancel') %></span>
     <% end %>
   </div>

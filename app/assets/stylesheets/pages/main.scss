@@ -244,6 +244,7 @@ body:where(.admin)::before {
   .admin-table-links {
 
     a,
+    button,
     form {
       color: $success;
 
@@ -377,4 +378,8 @@ body:where(.admin)::before {
 abbr[title] {
   text-decoration: none;
   border-bottom: 0;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
 }

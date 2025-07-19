@@ -15,5 +15,5 @@ en:
         donate: "Donate"
         calculators: "Calculators"
       search_form:
-        search_placeholder: "Search"
+        search_placeholder: "Type here"
         search_button: "Search"

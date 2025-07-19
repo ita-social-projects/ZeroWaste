@@ -42,6 +42,8 @@ RSpec.describe Calculator, type: :model do
     it { is_expected.to have_one_attached(:logo_picture) }
     it { is_expected.to have_many(:fields).dependent(:destroy) }
     it { is_expected.to have_many(:formulas).dependent(:destroy) }
+    it { is_expected.to belong_to(:original_calculator).class_name("Calculator").optional(true).inverse_of(:duplicate_calculators) }
+    it { is_expected.to have_many(:duplicate_calculators).class_name("Calculator").with_foreign_key("original_calculator_id").dependent(:nullify).inverse_of(:original_calculator) }
   end
 
   describe "logo_placeholder attribute" do
@@ -82,6 +84,30 @@ RSpec.describe Calculator, type: :model do
     context "when logo_picture is not attached" do
       it "returns the default image path" do
         expect(calculator.logo_url).to eq("scales.png")
+      end
+    end
+  end
+
+  describe ".ransackable_attributes" do
+    it "returns the correct list of attributes" do
+      expect(Calculator.ransackable_attributes).to include("created_at", "id", "name", "preferable", "slug", "updated_at", "uuid")
+    end
+  end
+
+  describe ".ransacker :name" do
+    let!(:calculator) { create(:calculator) }
+    let(:result_en) { Calculator.ransack(name_eq: calculator.en_name).result }
+    let(:result_uk) { Calculator.ransack(name_eq: calculator.uk_name).result }
+
+    it "returns en_name when locale is :en" do
+      I18n.with_locale(:en) do
+        expect(result_en).to include(calculator)
+      end
+    end
+
+    it "returns uk_name when locale is :uk" do
+      I18n.with_locale(:uk) do
+        expect(result_uk).to include(calculator)
       end
     end
   end

@@ -7,6 +7,7 @@ RSpec.describe "Account::CalculatorsController", type: :request do
   include_context :enable_calculators_constructor
 
   let!(:calculator) { create(:calculator) }
+  let(:copyable) { create(:calculator) }
   let!(:new_attributes) { { calculator: { en_name: "new name" }} }
   let!(:invalid_attributes) { { calculator: { en_name: nil }} }
   let(:user) { create(:user) }
@@ -97,6 +98,19 @@ RSpec.describe "Account::CalculatorsController", type: :request do
       it "redirects to the login page" do
         subject
         expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context "when duplicating an existing calculator" do
+      let(:original_calculator) { create(:calculator, :with_field_and_formula) }
+
+      it "duplicates the calculator and initializes it correctly" do
+        get new_account_calculator_path(original_calculator_id: original_calculator.id)
+
+        expect(response).to be_successful
+        expect(response.body).to include(original_calculator.name)
+        expect(response.body).to include(original_calculator.fields.first.var_name)
+        expect(response.body).to include(original_calculator.formulas.first.expression)
       end
     end
   end

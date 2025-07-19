@@ -1,10 +1,10 @@
 <fieldset class="bordered nested-fields">
-  <legend class="admin-legend">Category <span data-constructors-form-indexing-target="index">1</span></legend>
+  <legend class="admin-legend"><%= t('.category_legend') %> <span data-constructors-form-indexing-target="index">1</span></legend>
   <div>
-    <%= f.input :en_name, label: "Category Name:" %>
-    <%= f.input :uk_name, label: "Uk Category Name:" %>
-    <%= f.input :price, label: "Category Price:" %>
+    <%= f.input :en_name, label: t('.category_name_label') %>
+    <%= f.input :uk_name, label: t('.uk_category_name_label') %>
+    <%= f.input :price, label: t('.category_price_label') %>
 
-    <%= link_to_remove_association "- Remove Category", f, class: "text-red-500 underline" %>
+    <%= link_to_remove_association t('.remove_category_link'), f, class: "text-red-500 underline" %>
   </div>
 </fieldset>

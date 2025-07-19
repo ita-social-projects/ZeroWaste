@@ -1,5 +1,3 @@
-require "capistrano/yarn"
-
 set :user, "deploy"
 set :rbenv_type, :user
 
@@ -17,4 +15,4 @@ set :stage, :production
 set :rails_env, "production"
 
 set :branch, :master
-set :rbenv_ruby, "2.7.2"
+set :rbenv_ruby, "3.3.5"

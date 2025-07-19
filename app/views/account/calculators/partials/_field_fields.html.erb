@@ -1,32 +1,48 @@
 <fieldset class="bordered nested-fields">
-  <legend class="admin-legend">Field <span data-constructors-form-indexing-target="index">1</span></legend>
+  <legend class="admin-legend"><%= t(".field_legend") %> <span data-constructors-form-indexing-target="index">1</span></legend>
 
   <div data-controller="field-type">
-    <%= f.input :en_label, label: "Field Label:" %>
-    <%= f.input :uk_label, label: "Uk Field Label:" %>
-    <%= f.input :var_name, label: "Variable Name:" %>
+    <%= f.input :en_label, label: t(".field_label") %>
+    <%= f.input :uk_label, label: t(".uk_field_label") %>
+    <%= f.input :var_name, label: t(".variable_name_label") %>
+    <%= f.input :value, label: t(".value_of_field"), wrapper_html: { class: "hidden", data: { field_type_target: "hiddenFields" } } %>
     <%= f.input(
           :kind,
-          collection: Field.kinds.keys.map { |key| [key.humanize, key] },
-          prompt: "Select Field Type",
-          label: "Field Type:",
+          collection: Field.kinds.keys.map { |key| [t(".field_kinds.#{key}"), key] },
+          prompt: t(".select_field_type_prompt"),
+          label: t(".field_type_label"),
           input_html: { data: { field_type_target: "fieldTypeSelect" } }
         ) %>
 
     <div class="hidden category-fields" data-field-type-target="categoryFields">
       <fieldset class="bordered" data-controller="constructors-form-indexing"
                 data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
-        <legend class="admin-legend">Categories</legend>
+        <legend class="admin-legend"><%= t(".categories_legend") %></legend>
 
         <%= f.simple_fields_for :categories do |category_fields| %>
           <%= render "account/calculators/partials/category_fields", f: category_fields %>
         <% end %>
         <div class="links">
-          <%= link_to_add_association "+ Add Category", f, :categories, partial: "account/calculators/partials/category_fields", class: "underline" %>
+          <%= link_to_add_association t(".add_category_link"), f, :categories, partial: "account/calculators/partials/category_fields", class: "underline" %>
         </div>
       </fieldset>
     </div>
 
-    <%= link_to_remove_association "- Remove Field", f, class: "text-red-500 underline" %>
+    <div class="hidden select-options" data-field-type-target="selectOptions">
+      <fieldset class="bordered" data-controller="constructors-form-indexing"
+                data-action="cocoon:after-insert->constructors-form-indexing#afterInsert cocoon:after-remove->constructors-form-indexing#afterRemove">
+        <legend class="admin-legend"><%= t('.select_options_legend') %></legend>
+
+        <%= f.simple_fields_for :select_options do |option_fields| %>
+          <%= render "account/calculators/partials/select_option_fields", f: option_fields %>
+        <% end %>
+
+        <div class="links">
+          <%= link_to_add_association t('.add_option'), f, :select_options, partial: "account/calculators/partials/select_option_fields", class: "underline" %>
+        </div>
+      </fieldset>
+    </div>
+
+    <%= link_to_remove_association t(".remove_field_link"), f, class: "text-red-500 underline" %>
   </div>
 </fieldset>

@@ -4,16 +4,19 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["index"];
 
-  afterInsert(event) {
-    const fieldsets = this.element.querySelectorAll(":scope > .nested-fields");
-    const span = fieldsets[fieldsets.length - 1].querySelector("[data-constructors-form-indexing-target='index']")
+  connect() {
+    this.updateIndexes();
+  }
 
-    if (span) {
-      span.textContent = `${fieldsets.length}`;
-    }
+  afterInsert(event) {
+    this.updateIndexes();
   }
 
   afterRemove(event) {
+    this.updateIndexes();
+  }
+
+  updateIndexes() {
     const fieldsets = this.element.querySelectorAll(":scope > .nested-fields");
 
     fieldsets.forEach((fieldset, index) => {
