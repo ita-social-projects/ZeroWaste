@@ -67,7 +67,7 @@ a {
 /* home-page */
 .homepage_title {
   text-align: center;
-  margin-top: 200px;
+  margin-top: 100px;
   color: $color;
 }
 
@@ -244,6 +244,7 @@ body:where(.admin)::before {
   .admin-table-links {
 
     a,
+    button,
     form {
       color: $success;
 
@@ -377,4 +378,8 @@ body:where(.admin)::before {
 abbr[title] {
   text-decoration: none;
   border-bottom: 0;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
 }

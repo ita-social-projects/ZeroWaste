@@ -9,7 +9,9 @@ RSpec.describe MhcCalculatorValidator do
       menstruation_age: 13,
       menopause_age: 50,
       average_menstruation_cycle_duration: 28,
-      pads_per_cycle: 10,
+      duration_of_menstruation: 4,
+      disposable_products_per_day: 5,
+      product_type: "tampons",
       pad_category: "budget"
     }
   end
@@ -40,31 +42,41 @@ RSpec.describe MhcCalculatorValidator do
   describe "individual validations" do
     context "user age validation" do
       include_examples "presence validation", :user_age
-      include_examples "length validation", :user_age, 1, 100
+      include_examples "length validation", :user_age, 8, 100
     end
 
     context "menstruation age validation" do
       include_examples "presence validation", :menstruation_age
-      include_examples "length validation", :menstruation_age, 1, 100
+      include_examples "length validation", :menstruation_age, 8, 100
     end
 
     context "menopause age validation" do
       include_examples "presence validation", :menopause_age
-      include_examples "length validation", :menopause_age, 1, 100
+      include_examples "length validation", :menopause_age, 30, 100
     end
 
     context "average menstruation cycle duration validation" do
       include_examples "presence validation", :average_menstruation_cycle_duration
-      include_examples "length validation", :average_menstruation_cycle_duration, 1, 100
+      include_examples "length validation", :average_menstruation_cycle_duration, 20, 100
     end
 
-    context "pads per cycle validation" do
-      include_examples "presence validation", :pads_per_cycle
-      include_examples "length validation", :pads_per_cycle, 1, 100
+    context "duration of menstruation validation" do
+      include_examples "presence validation", :duration_of_menstruation
+      include_examples "length validation", :duration_of_menstruation, 3, 100
+    end
+
+    context "disposable products per day validation" do
+      include_examples "presence validation", :disposable_products_per_day
+      include_examples "length validation", :disposable_products_per_day, 1, 100
+    end
+
+    context "product type validation" do
+      include_examples "product type validation", :product_type
     end
 
     context "pad category validation" do
       include_examples "presence validation", :pad_category
+      include_examples "pad category validation", :pad_category
     end
   end
 end

@@ -7,8 +7,10 @@ RSpec.describe Calculators::PadUsageService do
         user_age: 30,
         menstruation_age: 13,
         menopause_age: 51,
-        pads_per_cycle: 20,
+        duration_of_menstruation: 4,
+        disposable_products_per_day: 5,
         average_menstruation_cycle_duration: 28,
+        product_type: :pads,
         pad_category: :budget
       )
     end

@@ -1,0 +1,14 @@
+<div class="bordered nested-fields flex px-2 space-x-10">
+  <div class="mx-3 string required calculator_fields_select_options_key">
+    <%= f.input :key, label: false, placeholder: t(".key_label"), wrapper: false, input_html: { class: "form-control", style: "min-width: 120px;" } %>
+  </div>
+
+  <div class="mx-3 string required calculator_fields_select_options_key">
+    <%= f.input :en_key, label: false, placeholder: t(".en_key_label"), wrapper: false, input_html: { class: "form-control", style: "min-width: 120px;" } %>
+  </div>
+
+  <div class="mx-3 string required calculator_fields_select_options_key">
+    <%= f.input :value, label: false, placeholder: t(".value_label"), wrapper: false, input_html: { class: "form-control", style: "min-width: 120px;" } %>
+  </div>
+  <%= link_to_remove_association t(".remove_option"), f, class: "text-red-500 underline" %>
+</div>

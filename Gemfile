@@ -48,12 +48,16 @@ gem "factory_bot_rails" # TODO: create ENV staging and use it for this
 
 gem "cocoon", "~> 1.2"
 
+gem "rswag-api"
+gem "rswag-ui"
+
 group :development, :test do
   gem "annotate"
   gem "dotenv-rails", require: "dotenv/load"
   gem "pry-rails"
   gem "rails-controller-testing"
   gem "rspec-rails"
+  gem "rswag-specs"
 end
 
 group :development, :test, :ci do
@@ -81,7 +85,6 @@ group :development do
   gem "capistrano-passenger", "~> 0.2.0"
   gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
   gem "capistrano-rvm"
-  gem "capistrano-yarn"
   gem "capistrano-rails-tail-log"
   gem "ed25519"
   gem "bcrypt_pbkdf"
@@ -125,3 +128,4 @@ gem "meta-tags"
 gem "inline_svg"
 gem "breadcrumbs_on_rails"
 gem "tinymce-rails"
+gem "amoeba"

@@ -16,7 +16,7 @@ RSpec.describe HomeController, type: :request do
         get root_path
 
         expect(root_path).to eq("/en")
-        expect(response.body).to include("Welcome to the diaper calculator")
+        expect(response.body).to include("Welcome to the ZeroWaste calculator")
         expect(response).to render_template(:index)
         expect(response).to be_successful
       end
@@ -35,12 +35,12 @@ RSpec.describe HomeController, type: :request do
         get root_path(locale: :uk)
 
         expect(root_path).to eq("/uk")
-        expect(response.body).to include("Вас вітає калькулятор підгузків")
+        expect(response.body).to include("Вас вітає ZeroWaste калькулятор")
 
         get root_path(locale: :en)
 
         expect(root_path).to eq("/en")
-        expect(response.body).to include("Welcome to the diaper calculator")
+        expect(response.body).to include("Welcome to the ZeroWaste calculator")
         expect(response).to render_template(:index)
         expect(response).to be_successful
       end

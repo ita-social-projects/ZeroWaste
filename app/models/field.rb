@@ -30,10 +30,13 @@ class Field < ApplicationRecord
   belongs_to :calculator
 
   has_many :categories, dependent: :destroy
+  has_many :select_options, dependent: :destroy
 
-  NUMBER   = "number"
-  CATEGORY = "category"
-  KINDS    = { number: NUMBER, category: CATEGORY }.freeze
+  NUMBER        = "number"
+  CATEGORY      = "category"
+  SELECT_OPTION = "select_option"
+  HIDDEN        = "hidden"
+  KINDS         = { number: NUMBER, category: CATEGORY, select_option: SELECT_OPTION, hidden: HIDDEN }.freeze
 
   enum :kind, KINDS
   enum :unit, { day: 0, week: 1, month: 2, year: 3, date: 4, times: 5, money: 6, items: 7 }
@@ -45,4 +48,5 @@ class Field < ApplicationRecord
   validates_with FieldValidator
 
   accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :select_options, reject_if: :all_blank, allow_destroy: true
 end
