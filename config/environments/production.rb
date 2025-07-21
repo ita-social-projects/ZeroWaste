@@ -47,8 +47,6 @@ Rails.application.configure do
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
-  config.log_level = :info
-
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
 
@@ -126,13 +124,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries    = true
   config.action_mailer.default_url_options   = {
-    host: "zero-waste-project.herokuapp.com",
+    host: "calc.zerowastelviv.org.ua",
     protocol: "https"
   }
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
     port: 587,
-    domain: "zero-waste-project.herokuapp.com",
+    domain: "calc.zerowastelviv.org.ua",
     user_name: ENV.fetch("SENDGRID_USERNAME", nil),
     password: ENV.fetch("SENDGRID_API_KEY", nil),
     authentication: "plain",
