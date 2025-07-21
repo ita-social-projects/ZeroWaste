@@ -1,0 +1,6 @@
+---
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-macOs.yml
+  when: ansible_os_family == 'Darwin'

@@ -1,0 +1,82 @@
+---
+- name: Update apt cache.
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+
+- name: Install system dependencies
+  apt:
+    name:
+      - libvips42
+      - libvips-dev
+      - imagemagick
+    state: present
+
+- name: Install ruby and other required dependencies.
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ ruby_packages  }}"
+
+- name: Install rubygems.
+  apt:
+    name: "{{ ruby_rubygems_package_name }}"
+    state: present
+
+- name: Get the username
+  become: false
+  local_action: command whoami
+  register: username_on_the_host
+
+- name: Install Ruby and Gems
+  import_tasks: "rvm.yml"
+  become: true
+  become_user: "{{ username_on_the_host.stdout }}"
+
+- name: Install RVM
+  import_tasks: "rubies.yml"
+  become: true
+  become_user: "{{ username_on_the_host.stdout }}"
+
+- name: Add Yarn GPG key
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+
+- name: Add user installed RubyGems bin directory to global $PATH
+  copy:
+    src: rubygems.sh
+    dest: /etc/profile.d/rubygems.sh
+    mode: 644
+
+- name: Ensure RVM is sourced
+  shell: |
+    echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+    # source ~/.rvm/scripts/rvm && rvm use 3.3.5 do ruby --version
+  args:
+    executable: /bin/bash
+  become_user: "{{ username_on_the_host.stdout }}"
+
+- name: Install Bundler gem
+  shell: |
+    ~/.rvm/bin/rvm use {{ ruby_version }} do gem install bundler -v {{ bundler_version }}
+    # gem install bundler -v {{ bundler_version }}
+  args:
+    creates: "~/.rvm/gems/ruby-{{ ruby_version }}/bin/bundler"
+  become_user: "{{ username_on_the_host.stdout }}"
+  become: true
+
+- name: Run bundle install with Gemfile
+  shell: |
+    ~/.rvm/bin/rvm use {{ ruby_version }} do bundle install --gemfile Gemfile
+  args:
+    chdir: "/home/{{ username_on_the_host.stdout }}/ZeroWaste/"
+  become_user: "{{ username_on_the_host.stdout }}"
+
+- name: Run rake db:migrate
+  shell: |
+    ~/.rvm/bin/rvm use {{ ruby_version }} do rake db:migrate
+  become: true
+  become_user: "{{ username_on_the_host.stdout }}"
+  args:
+    chdir: "/home/{{ username_on_the_host.stdout }}/ZeroWaste/"

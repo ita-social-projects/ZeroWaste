@@ -1,0 +1,70 @@
+---
+- name: Install dependencies
+  homebrew:
+   name: "{{ item }}"
+   state: present
+  with_items: 
+    - gpg
+    - gnupg
+    - curl
+    - openssl
+    - readline
+    - libyaml
+    - zlib
+  become: false
+
+- name: Install RVM
+  shell: |
+    \curl -sSL https://get.rvm.io | bash -s stable
+  args: 
+   creates: /usr/local/rvm/bin/rvm
+
+- name: Add RVM to PATH
+  shell: |
+    echo 'source /usr/local/rvm/scripts/rvm' >> ~/.bash_profile
+    source ~/.bash_profile
+
+- name: Install Ruby
+  shell: |
+    source /usr/local/rvm/scripts/rvm && rvm install {{ rvm1_rubies | first }}
+  environment: 
+   rvm1_rubies: "{{ rvm1_rubies }}"
+
+- name: Install bundler
+  shell: |
+    source /usr/local/rvm/scripts/rvm && gem install bundler
+
+- name: Install Rails
+  shell: |
+    source /usr/local/rvm/scripts/rvm && gem install rails -v {{ rails_version }}
+  environment:
+    rails_version: "{{ rails_version }}"
+
+- name: Get the username
+  become: false
+  local_action: command whoami
+  register: username_on_the_host
+
+- name: Ensure RVM directory is owned by the user
+  become: true
+  ansible.builtin.file:
+    path: /usr/local/rvm
+    owner: "{{ username_on_the_host.stdout }}"
+    group: staff
+    recurse: yes
+
+- name: Run bundle install with Gemfile
+  shell: |
+    source /usr/local/rvm/scripts/rvm && rvm use {{ rvm1_default_ruby_version }} do bundle install --gemfile Gemfile
+  args:
+   chdir: "/Users/{{ username_on_the_host.stdout }}/ZeroWaste/"
+  become_user: "{{ username_on_the_host.stdout }}"
+  become: false
+
+- name: Run rake db:migrate
+  shell: |
+    source /usr/local/rvm/scripts/rvm && rvm use {{ rvm1_default_ruby_version }} do rake db:migrate
+  args:
+    chdir: "/Users/{{ username_on_the_host.stdout }}/ZeroWaste/"
+  become_user: "{{ username_on_the_host.stdout }}"
+  become: false
