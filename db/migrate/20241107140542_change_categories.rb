@@ -5,7 +5,7 @@ class ChangeCategories < ActiveRecord::Migration[7.2]
 
       t.decimal :price, precision: 10, scale: 2, null: false, default: 0.0
 
-      t.references :field, null: false, foreign_key: true, default: 0
+      t.references :field, foreign_key: true
 
       t.boolean :preferable, null: false, default: false
     end
